@@ -1,0 +1,5375 @@
+{
+  "id": "bolivia",
+  "name": {
+    "en": "Bolivia",
+    "es": "Bolivia",
+    "fr": "Bolivie",
+    "ja": "ボリビア"
+  },
+  "blurb": {
+    "en": "Andes, salt flats and Amazon",
+    "es": "Andes, salares y Amazonía",
+    "fr": "Andes, salars et Amazonie",
+    "ja": "アンデス・塩湖・アマゾン"
+  },
+  "emblem": [
+    "#e8443f",
+    "#f08a24",
+    "#f5d31c",
+    "#f6efe2",
+    "#5aa84e",
+    "#3b6fd1",
+    "#8a5cd6"
+  ],
+  "stripe": [
+    "#e8447a",
+    "#f5b31c",
+    "#37b3a4",
+    "#8a5cd6",
+    "#7bc86c"
+  ],
+  "cur": {
+    "pre": "Bs ",
+    "post": "",
+    "mul": 1
+  },
+  "start": "lapaz",
+  "cpuNames": [
+    "Illimani",
+    "Tunupa",
+    "Kantuta",
+    "Sajama"
+  ],
+  "proj": {
+    "BW": 1200,
+    "BH": 1400,
+    "LON0": -69.9,
+    "LON1": -57.2,
+    "LAT0": -9.4,
+    "LAT1": -23.2
+  },
+  "sea": "#141d31",
+  "seaWave": "#1d2a45",
+  "coast": "#2b3a22",
+  "landBase": "#6f9e52",
+  "regions": {
+    "alt": {
+      "en": "Altiplano",
+      "es": "Altiplano",
+      "fr": "Altiplano",
+      "ja": "アルティプラーノ"
+    },
+    "val": {
+      "en": "Valleys & Yungas",
+      "es": "Valles y Yungas",
+      "fr": "Vallées et Yungas",
+      "ja": "渓谷とユンガス"
+    },
+    "ama": {
+      "en": "Amazon & Beni",
+      "es": "Amazonía y Beni",
+      "fr": "Amazonie et Beni",
+      "ja": "アマゾンとベニ"
+    },
+    "cha": {
+      "en": "Chaco & Chiquitanía",
+      "es": "Chaco y Chiquitanía",
+      "fr": "Chaco et Chiquitanía",
+      "ja": "チャコとチキタニア"
+    }
+  },
+  "seasonName": {
+    "dry": {
+      "en": "Dry season",
+      "es": "Época seca",
+      "fr": "Saison sèche",
+      "ja": "乾季"
+    },
+    "wet": {
+      "en": "Rainy season",
+      "es": "Época de lluvias",
+      "fr": "Saison des pluies",
+      "ja": "雨季"
+    },
+    "mid": {
+      "en": "Between seasons",
+      "es": "Entre temporadas",
+      "fr": "Entre-saisons",
+      "ja": "季節の変わり目"
+    }
+  },
+  "land": [
+    [
+      [
+        -69.4,
+        -10.95
+      ],
+      [
+        -68,
+        -10.7
+      ],
+      [
+        -65.3,
+        -9.7
+      ],
+      [
+        -65.4,
+        -10.5
+      ],
+      [
+        -63.5,
+        -12
+      ],
+      [
+        -60.4,
+        -13.5
+      ],
+      [
+        -60.2,
+        -15.3
+      ],
+      [
+        -58.4,
+        -16.3
+      ],
+      [
+        -57.6,
+        -18
+      ],
+      [
+        -58.1,
+        -19.8
+      ],
+      [
+        -57.8,
+        -20.1
+      ],
+      [
+        -59.5,
+        -20.6
+      ],
+      [
+        -62.3,
+        -21
+      ],
+      [
+        -62.6,
+        -22.2
+      ],
+      [
+        -64.5,
+        -22.2
+      ],
+      [
+        -65.8,
+        -22.1
+      ],
+      [
+        -66.3,
+        -22.9
+      ],
+      [
+        -67.2,
+        -22.9
+      ],
+      [
+        -68,
+        -21.6
+      ],
+      [
+        -68.5,
+        -20.9
+      ],
+      [
+        -68.8,
+        -19.7
+      ],
+      [
+        -69.1,
+        -18.2
+      ],
+      [
+        -69.5,
+        -17.5
+      ],
+      [
+        -69.4,
+        -16.4
+      ],
+      [
+        -68.8,
+        -16.35
+      ],
+      [
+        -69.2,
+        -15.5
+      ],
+      [
+        -69.4,
+        -14.5
+      ],
+      [
+        -68.9,
+        -13
+      ],
+      [
+        -69.6,
+        -12
+      ]
+    ]
+  ],
+  "terrain": [
+    [
+      "#2f6b3f",
+      [
+        [
+          -69.4,
+          -10.95
+        ],
+        [
+          -65.3,
+          -9.7
+        ],
+        [
+          -60.4,
+          -13.5
+        ],
+        [
+          -60.2,
+          -15.4
+        ],
+        [
+          -62.6,
+          -16.4
+        ],
+        [
+          -65.2,
+          -15.6
+        ],
+        [
+          -67.4,
+          -15.5
+        ],
+        [
+          -68.6,
+          -13.6
+        ],
+        [
+          -69.6,
+          -12
+        ]
+      ]
+    ],
+    [
+      "#8faa55",
+      [
+        [
+          -67.4,
+          -16.2
+        ],
+        [
+          -65.2,
+          -16.4
+        ],
+        [
+          -63.2,
+          -18.6
+        ],
+        [
+          -63.8,
+          -20.6
+        ],
+        [
+          -65.2,
+          -21.9
+        ],
+        [
+          -65.2,
+          -20.8
+        ],
+        [
+          -66.4,
+          -18.6
+        ]
+      ]
+    ],
+    [
+      "#c2a06a",
+      [
+        [
+          -69.5,
+          -15.5
+        ],
+        [
+          -67.4,
+          -16.2
+        ],
+        [
+          -66.4,
+          -18.6
+        ],
+        [
+          -65.2,
+          -20.8
+        ],
+        [
+          -65.8,
+          -22.1
+        ],
+        [
+          -67.2,
+          -22.9
+        ],
+        [
+          -68.6,
+          -20.9
+        ],
+        [
+          -69.3,
+          -18.2
+        ],
+        [
+          -69.6,
+          -16.6
+        ]
+      ]
+    ],
+    [
+      "#9c9a55",
+      [
+        [
+          -63.4,
+          -18.4
+        ],
+        [
+          -60,
+          -18
+        ],
+        [
+          -57.7,
+          -19.6
+        ],
+        [
+          -62.4,
+          -22.2
+        ],
+        [
+          -64.6,
+          -22.2
+        ],
+        [
+          -63.8,
+          -20.6
+        ]
+      ]
+    ],
+    [
+      "#eee7d6",
+      [
+        [
+          -68.2,
+          -19.7
+        ],
+        [
+          -66.9,
+          -19.5
+        ],
+        [
+          -66.6,
+          -20.6
+        ],
+        [
+          -67.9,
+          -20.7
+        ]
+      ]
+    ]
+  ],
+  "lakes": [
+    [
+      -69.05,
+      -15.95,
+      44,
+      26,
+      -32,
+      "#3f9fc4"
+    ],
+    [
+      -67.1,
+      -18.9,
+      22,
+      15,
+      -20,
+      "#4f9fb8"
+    ]
+  ],
+  "rivers": [
+    [
+      [
+        -67.5,
+        -14.4
+      ],
+      [
+        -66.9,
+        -13.2
+      ],
+      [
+        -66.3,
+        -12.2
+      ],
+      [
+        -65.4,
+        -11
+      ]
+    ],
+    [
+      [
+        -64.9,
+        -15.2
+      ],
+      [
+        -64.8,
+        -13.6
+      ],
+      [
+        -65,
+        -12.2
+      ],
+      [
+        -65.3,
+        -10.5
+      ]
+    ],
+    [
+      [
+        -60.4,
+        -13.5
+      ],
+      [
+        -62.2,
+        -12.4
+      ],
+      [
+        -63.8,
+        -11.6
+      ],
+      [
+        -65.2,
+        -10.7
+      ]
+    ],
+    [
+      [
+        -65.2,
+        -19.9
+      ],
+      [
+        -63.9,
+        -21
+      ],
+      [
+        -62.6,
+        -21.8
+      ]
+    ],
+    [
+      [
+        -57.9,
+        -17.6
+      ],
+      [
+        -57.8,
+        -19
+      ],
+      [
+        -58.1,
+        -20
+      ]
+    ]
+  ],
+  "labels": [
+    [
+      -69.05,
+      -15.35,
+      {
+        "en": "Lake Titicaca",
+        "es": "Lago Titicaca",
+        "fr": "Lac Titicaca",
+        "ja": "チチカカ湖"
+      },
+      1
+    ],
+    [
+      -67.4,
+      -20.6,
+      {
+        "en": "Salar de Uyuni",
+        "es": "Salar de Uyuni",
+        "fr": "Salar d'Uyuni",
+        "ja": "ウユニ塩原"
+      },
+      1
+    ],
+    [
+      -63.4,
+      -12.4,
+      {
+        "en": "AMAZON BASIN",
+        "es": "AMAZONÍA",
+        "fr": "BASSIN AMAZONIEN",
+        "ja": "アマゾン盆地"
+      },
+      0
+    ],
+    [
+      -61.6,
+      -21,
+      {
+        "en": "GRAN CHACO",
+        "es": "GRAN CHACO",
+        "fr": "GRAN CHACO",
+        "ja": "グラン・チャコ"
+      },
+      0
+    ],
+    [
+      -68.6,
+      -17.4,
+      {
+        "en": "ALTIPLANO",
+        "es": "ALTIPLANO",
+        "fr": "ALTIPLANO",
+        "ja": "アルティプラーノ"
+      },
+      0
+    ],
+    [
+      -58.6,
+      -17.6,
+      {
+        "en": "PANTANAL",
+        "es": "PANTANAL",
+        "fr": "PANTANAL",
+        "ja": "パンタナール"
+      },
+      0
+    ]
+  ],
+  "cities": {
+    "cobija": {
+      "n": {
+        "en": "Cobija",
+        "es": "Cobija",
+        "fr": "Cobija",
+        "ja": "コビハ"
+      },
+      "lo": -69,
+      "la": -11,
+      "mark": "rubber",
+      "bg": "amazon",
+      "reg": "ama",
+      "lp": "r",
+      "tag": {
+        "en": "Amazon frontier capital of Pando",
+        "es": "Capital amazónica de Pando",
+        "fr": "Capitale amazonienne du Pando",
+        "ja": "パンド県のアマゾン国境都市"
+      },
+      "fact": {
+        "en": "Capital of Pando, deep in the rainforest on the Acre River facing Brazil. It boomed during the rubber era, when tappers cut spiral channels into wild rubber trees, and today lives on duty-free border trade.",
+        "es": "Capital de Pando, en plena selva sobre el río Acre frente a Brasil. Creció con el auge del caucho, cuando los siringueros hacían cortes en espiral en los árboles silvestres, y hoy vive del comercio fronterizo libre de impuestos.",
+        "fr": "Capitale du Pando, en pleine forêt sur le rio Acre face au Brésil. La ville a prospéré à l'époque du caoutchouc, quand les saigneurs entaillaient les hévéas sauvages en spirale ; elle vit aujourd'hui du commerce frontalier hors taxes.",
+        "ja": "パンド県の県都。ブラジルと向かい合うアクレ川沿いの熱帯雨林の町。ゴム景気で栄え、樹に螺旋の切り込みを入れて樹液を集めていた。現在は免税の国境交易で暮らす。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Duty-Free Bazaar",
+            "es": "Bazar libre de impuestos",
+            "fr": "Bazar hors taxes",
+            "ja": "免税バザール"
+          },
+          "cost": 240,
+          "inc": 50
+        },
+        {
+          "n": {
+            "en": "Rubber Tapper's Lodge",
+            "es": "Casa del siringuero",
+            "fr": "Maison du saigneur",
+            "ja": "ゴム採取人の宿"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    },
+    "riberalta": {
+      "n": {
+        "en": "Riberalta",
+        "es": "Riberalta",
+        "fr": "Riberalta",
+        "ja": "リベラルタ"
+      },
+      "lo": -66,
+      "la": -11,
+      "mark": "nut",
+      "bg": "amazon",
+      "reg": "ama",
+      "lp": "b",
+      "tag": {
+        "en": "Brazil-nut capital of the world",
+        "es": "Capital mundial de la castaña",
+        "fr": "Capitale mondiale de la noix du Brésil",
+        "ja": "世界一のブラジルナッツの町"
+      },
+      "fact": {
+        "en": "Riberalta shells most of the planet's Brazil nuts. They cannot be farmed — the trees only fruit in intact forest, pollinated by wild orchid bees, so the trade depends on keeping the jungle standing.",
+        "es": "Riberalta procesa la mayor parte de la castaña amazónica del mundo. No se puede cultivar: los árboles sólo fructifican en bosque intacto, polinizados por abejas silvestres, así que el negocio depende de mantener la selva en pie.",
+        "fr": "Riberalta décortique l'essentiel des noix du Brésil de la planète. On ne peut pas les cultiver : les arbres ne fructifient qu'en forêt intacte, pollinisés par des abeilles sauvages — le commerce dépend donc de la forêt debout.",
+        "ja": "世界のブラジルナッツの大半をここで加工する。栽培はできず、手つかずの森で野生のランバチに受粉された木しか実らない。つまりこの産業は森を守ることで成り立っている。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Brazil Nut Plant",
+            "es": "Beneficiadora de castaña",
+            "fr": "Usine de noix",
+            "ja": "ブラジルナッツ工場"
+          },
+          "cost": 300,
+          "inc": 62
+        },
+        {
+          "n": {
+            "en": "Açaí Press",
+            "es": "Prensa de açaí",
+            "fr": "Presse à açaí",
+            "ja": "アサイー搾汁所"
+          },
+          "cost": 220,
+          "inc": 46
+        },
+        {
+          "n": {
+            "en": "Motorbike Workshop",
+            "es": "Taller de motos",
+            "fr": "Atelier de motos",
+            "ja": "バイク修理店"
+          },
+          "cost": 180,
+          "inc": 38
+        }
+      ]
+    },
+    "guayaramerin": {
+      "n": {
+        "en": "Guayaramerín",
+        "es": "Guayaramerín",
+        "fr": "Guayaramerín",
+        "ja": "グアヤラメリン"
+      },
+      "lo": -64.9,
+      "la": -10.6,
+      "mark": "boat",
+      "bg": "amazon",
+      "reg": "ama",
+      "lp": "r",
+      "tag": {
+        "en": "River port on the Mamoré",
+        "es": "Puerto fluvial del Mamoré",
+        "fr": "Port fluvial sur le Mamoré",
+        "ja": "マモレ川の河港"
+      },
+      "fact": {
+        "en": "A river town where small boats cross to Guajará-Mirim in Brazil in ten minutes. The rapids here once forced cargo onto the ill-fated Madeira–Mamoré railway, built at a terrible cost in lives.",
+        "es": "Pueblo fluvial desde donde pequeñas barcas cruzan a Guajará-Mirim, Brasil, en diez minutos. Los rápidos obligaron a construir el trágico ferrocarril Madeira–Mamoré, que costó miles de vidas.",
+        "fr": "Petite ville fluviale d'où des barques rejoignent Guajará-Mirim, au Brésil, en dix minutes. Les rapides ont jadis imposé le tragique chemin de fer Madeira–Mamoré, construit au prix de milliers de vies.",
+        "ja": "小舟で10分ブラジルのグアジャラミリンへ渡れる川辺の町。急流のため貨物は悪名高いマデイラ・マモレ鉄道に積み替えられた。建設では多くの命が失われた。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "River Ferry Dock",
+            "es": "Embarcadero",
+            "fr": "Embarcadère",
+            "ja": "渡し船の桟橋"
+          },
+          "cost": 200,
+          "inc": 42
+        },
+        {
+          "n": {
+            "en": "Border Market Stall",
+            "es": "Puesto fronterizo",
+            "fr": "Étal frontalier",
+            "ja": "国境市場の店"
+          },
+          "cost": 160,
+          "inc": 34
+        }
+      ]
+    },
+    "rurrenabaque": {
+      "n": {
+        "en": "Rurrenabaque",
+        "es": "Rurrenabaque",
+        "fr": "Rurrenabaque",
+        "ja": "ルレナバケ"
+      },
+      "lo": -67.5,
+      "la": -14.3,
+      "mark": "macaw",
+      "bg": "amazon",
+      "reg": "ama",
+      "lp": "l",
+      "tag": {
+        "en": "Gateway to Madidi National Park",
+        "es": "Puerta del Parque Madidi",
+        "fr": "Porte du parc Madidi",
+        "ja": "マディディ国立公園の玄関口"
+      },
+      "fact": {
+        "en": "The doorway to Madidi, one of the most biodiverse protected areas on Earth — over 1,000 bird species and 8,000 plant species have been recorded inside its boundaries.",
+        "es": "La puerta del Madidi, una de las áreas protegidas con mayor biodiversidad del planeta: más de 1.000 especies de aves y 8.000 de plantas registradas.",
+        "fr": "La porte du Madidi, l'une des aires protégées les plus riches du monde : plus de 1 000 espèces d'oiseaux et 8 000 de plantes y ont été recensées.",
+        "ja": "地球有数の生物多様性を誇るマディディ国立公園への入口。園内では1,000種以上の鳥類、8,000種の植物が記録されている。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Madidi Eco-Lodge",
+            "es": "Ecolodge Madidi",
+            "fr": "Écolodge Madidi",
+            "ja": "マディディのエコロッジ"
+          },
+          "cost": 280,
+          "inc": 58
+        },
+        {
+          "n": {
+            "en": "Canoe Tour Company",
+            "es": "Excursiones en canoa",
+            "fr": "Excursions en pirogue",
+            "ja": "カヌーツアー会社"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    },
+    "sanignacio": {
+      "n": {
+        "en": "San Ignacio de Moxos",
+        "es": "San Ignacio de Moxos",
+        "fr": "San Ignacio de Moxos",
+        "ja": "サンイグナシオ・デ・モホス"
+      },
+      "lo": -65.6,
+      "la": -14.9,
+      "mark": "violin",
+      "bg": "amazon",
+      "reg": "ama",
+      "lp": "l",
+      "tag": {
+        "en": "Baroque violins of the Moxos plains",
+        "es": "Violines barrocos de Moxos",
+        "fr": "Violons baroques des plaines de Moxos",
+        "ja": "モホス平原のバロック・バイオリン"
+      },
+      "fact": {
+        "en": "A former Jesuit mission where Indigenous musicians still play baroque music on locally made violins. Its Ichapekene Piesta festival is recognised by UNESCO as intangible cultural heritage.",
+        "es": "Antigua misión jesuítica donde músicos indígenas siguen tocando música barroca con violines hechos allí mismo. Su Ichapekene Piesta es Patrimonio Inmaterial de la UNESCO.",
+        "fr": "Ancienne mission jésuite où les musiciens indigènes jouent encore du baroque sur des violons fabriqués sur place. Sa fête Ichapekene Piesta est inscrite au patrimoine immatériel de l'UNESCO.",
+        "ja": "元イエズス会伝道所。先住民の楽師たちが今も地元製のバイオリンでバロック音楽を奏でる。祭「イチャペケネ・ピエスタ」はユネスコ無形文化遺産。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Violin Workshop",
+            "es": "Taller de violines",
+            "fr": "Atelier de lutherie",
+            "ja": "バイオリン工房"
+          },
+          "cost": 240,
+          "inc": 50
+        },
+        {
+          "n": {
+            "en": "Cacao Grove",
+            "es": "Cacaotal",
+            "fr": "Cacaoyère",
+            "ja": "カカオ園"
+          },
+          "cost": 210,
+          "inc": 44
+        }
+      ]
+    },
+    "trinidad": {
+      "n": {
+        "en": "Trinidad",
+        "es": "Trinidad",
+        "fr": "Trinidad",
+        "ja": "トリニダー"
+      },
+      "lo": -64.7,
+      "la": -14.7,
+      "mark": "cow",
+      "bg": "savanna",
+      "reg": "ama",
+      "lp": "b",
+      "tag": {
+        "en": "Cattle capital of the Beni",
+        "es": "Capital ganadera del Beni",
+        "fr": "Capitale de l'élevage du Beni",
+        "ja": "ベニ県の牧畜の都"
+      },
+      "fact": {
+        "en": "Capital of the Beni savannas. Long before the Spanish arrived, the Llanos de Moxos peoples engineered thousands of raised fields, causeways and fish weirs across these seasonally flooded plains.",
+        "es": "Capital de las sabanas del Beni. Mucho antes de los españoles, los pueblos de los Llanos de Moxos construyeron miles de campos elevados, terraplenes y trampas de peces en estas llanuras inundables.",
+        "fr": "Capitale des savanes du Beni. Bien avant les Espagnols, les peuples des Llanos de Moxos ont bâti des milliers de champs surélevés, de chaussées et de pièges à poissons dans ces plaines inondables.",
+        "ja": "ベニ大草原の県都。スペイン人到来のはるか前、モホス平原の人々は季節的に冠水する平野に何千もの盛土耕地・堤道・魚の罠を築いていた。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Moxos Cattle Ranch",
+            "es": "Estancia ganadera",
+            "fr": "Ranch de Moxos",
+            "ja": "モホスの牧場"
+          },
+          "cost": 300,
+          "inc": 62
+        },
+        {
+          "n": {
+            "en": "Raised-Field Farm",
+            "es": "Camellones agrícolas",
+            "fr": "Champs surélevés",
+            "ja": "盛土耕地"
+          },
+          "cost": 250,
+          "inc": 52
+        },
+        {
+          "n": {
+            "en": "River Port",
+            "es": "Puerto fluvial",
+            "fr": "Port fluvial",
+            "ja": "河港"
+          },
+          "cost": 280,
+          "inc": 58
+        }
+      ]
+    },
+    "concepcion": {
+      "n": {
+        "en": "Concepción",
+        "es": "Concepción",
+        "fr": "Concepción",
+        "ja": "コンセプシオン"
+      },
+      "lo": -62,
+      "la": -16.1,
+      "mark": "mission2",
+      "bg": "savanna",
+      "reg": "cha",
+      "lp": "b",
+      "tag": {
+        "en": "Chiquitano mission town",
+        "es": "Pueblo misional chiquitano",
+        "fr": "Village de mission chiquitano",
+        "ja": "チキタノの伝道所の町"
+      },
+      "fact": {
+        "en": "One of the Jesuit Missions of Chiquitos, a UNESCO World Heritage group of wooden churches. Thousands of pages of baroque scores were rediscovered here and are performed again every two years.",
+        "es": "Una de las Misiones Jesuíticas de Chiquitos, conjunto de iglesias de madera Patrimonio de la Humanidad. Aquí se redescubrieron miles de partituras barrocas que hoy se interpretan cada dos años.",
+        "fr": "L'une des missions jésuites de Chiquitos, ensemble d'églises en bois classé à l'UNESCO. Des milliers de pages de partitions baroques y ont été redécouvertes et sont rejouées tous les deux ans.",
+        "ja": "ユネスコ世界遺産チキトスのイエズス会伝道所群のひとつ。木造教会に眠っていた数千ページのバロック楽譜が発見され、2年ごとに演奏されている。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Mission Music Archive",
+            "es": "Archivo musical",
+            "fr": "Archives musicales",
+            "ja": "伝道所の楽譜庫"
+          },
+          "cost": 260,
+          "inc": 54
+        },
+        {
+          "n": {
+            "en": "Cattle Fair",
+            "es": "Feria ganadera",
+            "fr": "Foire au bétail",
+            "ja": "家畜市"
+          },
+          "cost": 280,
+          "inc": 58
+        }
+      ]
+    },
+    "sanjose": {
+      "n": {
+        "en": "San José de Chiquitos",
+        "es": "San José de Chiquitos",
+        "fr": "San José de Chiquitos",
+        "ja": "サンホセ・デ・チキートス"
+      },
+      "lo": -60.7,
+      "la": -17.8,
+      "mark": "mission",
+      "bg": "chaco",
+      "reg": "cha",
+      "lp": "b",
+      "tag": {
+        "en": "Stone church of the Chiquitanía",
+        "es": "Iglesia de piedra de la Chiquitanía",
+        "fr": "Église de pierre de la Chiquitanía",
+        "ja": "チキタニアの石造教会"
+      },
+      "fact": {
+        "en": "The only Jesuit mission here built in stone rather than wood, its flat façade rising straight out of the dry forest. Nearby lies Santa Cruz la Vieja, the city's abandoned first site.",
+        "es": "La única misión jesuítica de la zona construida en piedra y no en madera; su fachada plana se alza en pleno bosque seco. Cerca está Santa Cruz la Vieja, el primer emplazamiento abandonado de la ciudad.",
+        "fr": "La seule mission jésuite de la région bâtie en pierre et non en bois ; sa façade plate surgit de la forêt sèche. Non loin se trouve Santa Cruz la Vieja, premier site abandonné de la ville.",
+        "ja": "この地方で唯一、木造でなく石造で建てられたイエズス会伝道所。乾燥林から平らなファサードが屹立する。近くには放棄された初代サンタクルスの遺跡がある。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Mission Guesthouse",
+            "es": "Hospedería de la misión",
+            "fr": "Hostellerie de la mission",
+            "ja": "伝道所の宿"
+          },
+          "cost": 280,
+          "inc": 58
+        },
+        {
+          "n": {
+            "en": "Chiquitano Woodshop",
+            "es": "Carpintería chiquitana",
+            "fr": "Atelier de bois chiquitano",
+            "ja": "チキタノ木工房"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "puertosuarez": {
+      "n": {
+        "en": "Puerto Suárez",
+        "es": "Puerto Suárez",
+        "fr": "Puerto Suárez",
+        "ja": "プエルト・スアレス"
+      },
+      "lo": -57.9,
+      "la": -19,
+      "mark": "stork",
+      "bg": "pantanal",
+      "reg": "cha",
+      "lp": "l",
+      "tag": {
+        "en": "Gateway to the Pantanal",
+        "es": "Puerta del Pantanal",
+        "fr": "Porte du Pantanal",
+        "ja": "パンタナールの玄関口"
+      },
+      "fact": {
+        "en": "On the Brazilian border beside the Pantanal, the world's largest tropical wetland. Nearby El Mutún holds one of the biggest untapped iron-ore deposits on the planet.",
+        "es": "En la frontera con Brasil junto al Pantanal, el mayor humedal tropical del mundo. Cerca, El Mutún guarda uno de los mayores yacimientos de hierro sin explotar del planeta.",
+        "fr": "À la frontière brésilienne, au bord du Pantanal, la plus vaste zone humide tropicale du monde. Tout près, El Mutún renferme l'un des plus grands gisements de fer inexploités de la planète.",
+        "ja": "世界最大の熱帯湿地パンタナールに面したブラジル国境の町。近郊のエル・ムトゥンには世界屈指の未開発鉄鉱床が眠る。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Mutún Iron Mine",
+            "es": "Mina de hierro Mutún",
+            "fr": "Mine de fer du Mutún",
+            "ja": "ムトゥン鉄鉱山"
+          },
+          "cost": 560,
+          "inc": 118
+        },
+        {
+          "n": {
+            "en": "Pantanal Boat Tours",
+            "es": "Paseos por el Pantanal",
+            "fr": "Sorties en barque",
+            "ja": "パンタナール遊覧船"
+          },
+          "cost": 300,
+          "inc": 62
+        }
+      ]
+    },
+    "santacruz": {
+      "n": {
+        "en": "Santa Cruz de la Sierra",
+        "es": "Santa Cruz de la Sierra",
+        "fr": "Santa Cruz de la Sierra",
+        "ja": "サンタクルス"
+      },
+      "lo": -63.2,
+      "la": -17.6,
+      "mark": "tower",
+      "bg": "tropicalcity",
+      "reg": "cha",
+      "lp": "b",
+      "tag": {
+        "en": "Bolivia's economic engine",
+        "es": "El motor económico de Bolivia",
+        "fr": "Le moteur économique du pays",
+        "ja": "ボリビア経済の中心"
+      },
+      "fact": {
+        "en": "The largest city in the country, grown from a sleepy lowland town of 40,000 in 1950 into a metropolis of nearly two million, built in concentric ring roads around a colonial square.",
+        "es": "La ciudad más grande del país: de un pueblo tranquilo de 40.000 habitantes en 1950 a una metrópoli de casi dos millones, trazada en anillos concéntricos alrededor de la plaza colonial.",
+        "fr": "La plus grande ville du pays : d'un bourg tranquille de 40 000 habitants en 1950 à une métropole de près de deux millions, tracée en anneaux concentriques autour de la place coloniale.",
+        "ja": "国内最大の都市。1950年には人口4万の低地の田舎町だったが、現在は約200万人の大都市。植民地時代の広場を中心に環状道路が同心円状に広がる。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Soy Export Terminal",
+            "es": "Terminal de soya",
+            "fr": "Terminal de soja",
+            "ja": "大豆輸出ターミナル"
+          },
+          "cost": 620,
+          "inc": 130
+        },
+        {
+          "n": {
+            "en": "Gas Pipeline Hub",
+            "es": "Nodo del gasoducto",
+            "fr": "Nœud gazier",
+            "ja": "ガスパイプライン拠点"
+          },
+          "cost": 560,
+          "inc": 118
+        },
+        {
+          "n": {
+            "en": "Shopping Ring",
+            "es": "Centro comercial",
+            "fr": "Galerie marchande",
+            "ja": "環状ショッピング街"
+          },
+          "cost": 420,
+          "inc": 88
+        },
+        {
+          "n": {
+            "en": "Expo Fairground",
+            "es": "Recinto ferial",
+            "fr": "Parc des expositions",
+            "ja": "国際見本市会場"
+          },
+          "cost": 380,
+          "inc": 80
+        }
+      ]
+    },
+    "samaipata": {
+      "n": {
+        "en": "Samaipata",
+        "es": "Samaipata",
+        "fr": "Samaipata",
+        "ja": "サマイパタ"
+      },
+      "lo": -63.5,
+      "la": -18.3,
+      "mark": "rock",
+      "bg": "valley",
+      "reg": "val",
+      "lp": "b",
+      "tag": {
+        "en": "The carved rock of El Fuerte",
+        "es": "La roca tallada de El Fuerte",
+        "fr": "Le rocher sculpté d'El Fuerte",
+        "ja": "エル・フエルテの彫刻岩"
+      },
+      "fact": {
+        "en": "El Fuerte de Samaipata is a single enormous sandstone outcrop carved with channels, niches and animal figures — pre-Inca, later an Inca frontier post, and now a UNESCO World Heritage site.",
+        "es": "El Fuerte de Samaipata es una enorme roca de arenisca tallada con canales, nichos y figuras de animales — preincaica, después puesto fronterizo inca y hoy Patrimonio de la Humanidad.",
+        "fr": "El Fuerte de Samaipata est un immense affleurement de grès sculpté de canaux, de niches et d'animaux — pré-inca, puis poste frontière inca, aujourd'hui classé à l'UNESCO.",
+        "ja": "エル・フエルテは巨大な一枚岩に水路・壁龕・動物像を刻んだ遺跡。インカ以前に造られ、のちインカの辺境拠点となった。ユネスコ世界遺産。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "El Fuerte Rock Tours",
+            "es": "Visitas a El Fuerte",
+            "fr": "Visites d'El Fuerte",
+            "ja": "エル・フエルテ観光"
+          },
+          "cost": 280,
+          "inc": 58
+        },
+        {
+          "n": {
+            "en": "Highland Winery",
+            "es": "Bodega de altura",
+            "fr": "Domaine d'altitude",
+            "ja": "高地ワイナリー"
+          },
+          "cost": 300,
+          "inc": 62
+        }
+      ]
+    },
+    "vallegrande": {
+      "n": {
+        "en": "Vallegrande",
+        "es": "Vallegrande",
+        "fr": "Vallegrande",
+        "ja": "バジェグランデ"
+      },
+      "lo": -64,
+      "la": -18.8,
+      "mark": "star",
+      "bg": "valley",
+      "reg": "val",
+      "lp": "l",
+      "tag": {
+        "en": "Where Che Guevara's trail ended",
+        "es": "Donde terminó la ruta del Che",
+        "fr": "Où s'acheva la piste du Che",
+        "ja": "チェ・ゲバラ最期の地"
+      },
+      "fact": {
+        "en": "Ernesto 'Che' Guevara's body was displayed in the laundry of the hospital here in 1967 after his capture in nearby La Higuera; his remains were found under the airstrip only in 1997.",
+        "es": "El cuerpo de Ernesto 'Che' Guevara fue expuesto en la lavandería del hospital en 1967, tras su captura en La Higuera; sus restos aparecieron bajo la pista de aterrizaje recién en 1997.",
+        "fr": "Le corps d'Ernesto « Che » Guevara fut exposé dans la buanderie de l'hôpital en 1967, après sa capture à La Higuera ; ses restes ne furent retrouvés sous la piste d'atterrissage qu'en 1997.",
+        "ja": "1967年、近くのラ・イゲラで捕らえられたチェ・ゲバラの遺体がこの町の病院の洗濯場に晒された。遺骨が滑走路の下から見つかったのは1997年のこと。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Che Trail Museum",
+            "es": "Museo Ruta del Che",
+            "fr": "Musée de la Route du Che",
+            "ja": "チェの道博物館"
+          },
+          "cost": 240,
+          "inc": 50
+        },
+        {
+          "n": {
+            "en": "Peanut Farm",
+            "es": "Finca de maní",
+            "fr": "Ferme d'arachides",
+            "ja": "落花生農園"
+          },
+          "cost": 220,
+          "inc": 46
+        }
+      ]
+    },
+    "villamontes": {
+      "n": {
+        "en": "Villamontes",
+        "es": "Villamontes",
+        "fr": "Villamontes",
+        "ja": "ビジャモンテス"
+      },
+      "lo": -63.2,
+      "la": -21.4,
+      "mark": "monument",
+      "bg": "chaco",
+      "reg": "cha",
+      "lp": "b",
+      "tag": {
+        "en": "Hot heart of the Chaco",
+        "es": "Corazón ardiente del Chaco",
+        "fr": "Cœur brûlant du Chaco",
+        "ja": "灼熱のチャコの中心"
+      },
+      "fact": {
+        "en": "Bolivia's hottest town and the pivot of the Chaco War against Paraguay (1932–35), a conflict fought over suspected oil in which thirst killed as many soldiers as bullets.",
+        "es": "El pueblo más caluroso de Bolivia y eje de la Guerra del Chaco contra Paraguay (1932–35), librada por un petróleo supuesto, donde la sed mató a tantos soldados como las balas.",
+        "fr": "La ville la plus chaude de Bolivie et le pivot de la guerre du Chaco contre le Paraguay (1932-35), menée pour un pétrole supposé, où la soif tua autant de soldats que les balles.",
+        "ja": "ボリビア一暑い町。パラグアイとのチャコ戦争(1932〜35)の要衝。石油があると信じられ戦われたが、弾丸と同じだけ渇きが兵士を殺した。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Chaco Gas Field",
+            "es": "Campo gasífero",
+            "fr": "Champ gazier du Chaco",
+            "ja": "チャコのガス田"
+          },
+          "cost": 480,
+          "inc": 100
+        },
+        {
+          "n": {
+            "en": "Pilcomayo Fishing Camp",
+            "es": "Campamento de pesca",
+            "fr": "Camp de pêche du Pilcomayo",
+            "ja": "ピルコマヨ釣り宿"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "tarija": {
+      "n": {
+        "en": "Tarija",
+        "es": "Tarija",
+        "fr": "Tarija",
+        "ja": "タリハ"
+      },
+      "lo": -64.6,
+      "la": -21.8,
+      "mark": "grape",
+      "bg": "valley",
+      "reg": "val",
+      "lp": "l",
+      "tag": {
+        "en": "Wine country of the south",
+        "es": "Tierra del vino del sur",
+        "fr": "Le pays du vin du sud",
+        "ja": "南部のワイン郷"
+      },
+      "fact": {
+        "en": "Bolivia's sunny wine valley, home of singani — the national spirit distilled from Muscat of Alexandria grapes grown at over 1,800 m, among the highest vineyards in the world.",
+        "es": "El soleado valle vinícola de Bolivia, cuna del singani, licor nacional destilado de uva Moscatel de Alejandría cultivada a más de 1.800 m, entre los viñedos más altos del mundo.",
+        "fr": "La vallée viticole ensoleillée de Bolivie, berceau du singani, eau-de-vie nationale distillée à partir de muscat d'Alexandrie cultivé au-dessus de 1 800 m, parmi les vignes les plus hautes du monde.",
+        "ja": "陽光あふれるボリビアのワイン渓谷。標高1,800m超という世界屈指の高地でマスカット・オブ・アレキサンドリアを育て、国民的蒸留酒シンガニを造る。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Singani Vineyard",
+            "es": "Viñedo de singani",
+            "fr": "Vignoble à singani",
+            "ja": "シンガニのぶどう園"
+          },
+          "cost": 360,
+          "inc": 75
+        },
+        {
+          "n": {
+            "en": "Wine Bodega",
+            "es": "Bodega de vinos",
+            "fr": "Cave à vin",
+            "ja": "ワイナリー"
+          },
+          "cost": 320,
+          "inc": 66
+        },
+        {
+          "n": {
+            "en": "Ham & Cheese Fair",
+            "es": "Feria del jamón y queso",
+            "fr": "Foire au jambon et fromage",
+            "ja": "ハムとチーズの市"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "villazon": {
+      "n": {
+        "en": "Villazón",
+        "es": "Villazón",
+        "fr": "Villazón",
+        "ja": "ビジャソン"
+      },
+      "lo": -65.7,
+      "la": -22.5,
+      "mark": "arch",
+      "bg": "altiplano",
+      "reg": "alt",
+      "lp": "l",
+      "tag": {
+        "en": "Bustling Argentine border",
+        "es": "Bulliciosa frontera argentina",
+        "fr": "Frontière argentine animée",
+        "ja": "賑わうアルゼンチン国境"
+      },
+      "fact": {
+        "en": "A trade town facing La Quiaca, Argentina, across a short bridge. For a century this was the southern railhead where Bolivia's altiplano line met the outside world.",
+        "es": "Pueblo comercial frente a La Quiaca, Argentina, al otro lado de un puente corto. Durante un siglo fue la cabecera sur del ferrocarril altiplánico hacia el exterior.",
+        "fr": "Ville commerçante face à La Quiaca, en Argentine, de l'autre côté d'un court pont. Pendant un siècle, ce fut le terminus sud de la ligne de l'altiplano vers le monde extérieur.",
+        "ja": "短い橋を挟んでアルゼンチンのラ・キアカと向き合う交易の町。1世紀にわたり、アルティプラーノ鉄道が外の世界とつながる南の終着駅だった。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Border Trade House",
+            "es": "Casa de comercio",
+            "fr": "Comptoir frontalier",
+            "ja": "国境商館"
+          },
+          "cost": 240,
+          "inc": 50
+        },
+        {
+          "n": {
+            "en": "Customs Warehouse",
+            "es": "Depósito aduanero",
+            "fr": "Entrepôt douanier",
+            "ja": "税関倉庫"
+          },
+          "cost": 220,
+          "inc": 46
+        }
+      ]
+    },
+    "tupiza": {
+      "n": {
+        "en": "Tupiza",
+        "es": "Tupiza",
+        "fr": "Tupiza",
+        "ja": "トゥピサ"
+      },
+      "lo": -65.9,
+      "la": -21.5,
+      "mark": "redrock",
+      "bg": "redcanyon",
+      "reg": "alt",
+      "lp": "l",
+      "tag": {
+        "en": "Red canyons of the south",
+        "es": "Cañones rojos del sur",
+        "fr": "Canyons rouges du sud",
+        "ja": "南部の赤い峡谷"
+      },
+      "fact": {
+        "en": "Cactus-studded red rock country. Butch Cassidy and the Sundance Kid robbed a mining payroll near here in 1908 and were cornered days later in the village of San Vicente.",
+        "es": "Tierra de roca roja salpicada de cactus. Butch Cassidy y Sundance Kid robaron aquí una remesa minera en 1908 y días después fueron acorralados en San Vicente.",
+        "fr": "Pays de roche rouge hérissé de cactus. Butch Cassidy et le Kid y ont volé la paie d'une mine en 1908 avant d'être encerclés quelques jours plus tard au village de San Vicente.",
+        "ja": "サボテンの生える赤い岩山の土地。1908年、ブッチ・キャシディとサンダンス・キッドが鉱山の給料を強奪し、数日後サンビセンテ村で追い詰められた。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Red Canyon Ranch",
+            "es": "Estancia del cañón",
+            "fr": "Ranch du canyon rouge",
+            "ja": "赤い峡谷の牧場"
+          },
+          "cost": 260,
+          "inc": 54
+        },
+        {
+          "n": {
+            "en": "Outlaw Trail Rides",
+            "es": "Cabalgatas del forajido",
+            "fr": "Randonnées des hors-la-loi",
+            "ja": "無法者の道乗馬"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "uyuni": {
+      "n": {
+        "en": "Uyuni",
+        "es": "Uyuni",
+        "fr": "Uyuni",
+        "ja": "ウユニ"
+      },
+      "lo": -67.2,
+      "la": -20.7,
+      "mark": "salt",
+      "bg": "salar",
+      "reg": "alt",
+      "lp": "l",
+      "tag": {
+        "en": "The great salt flat",
+        "es": "El gran salar",
+        "fr": "Le grand salar",
+        "ja": "大塩湖"
+      },
+      "fact": {
+        "en": "Gateway to the Salar de Uyuni, the largest salt flat on Earth at over 10,000 km². Beneath its crust lies one of the world's biggest lithium reserves — the metal at the heart of every battery.",
+        "es": "Puerta del Salar de Uyuni, el mayor salar del mundo con más de 10.000 km². Bajo su costra yace una de las mayores reservas de litio del planeta, el metal de todas las baterías.",
+        "fr": "Porte du Salar d'Uyuni, le plus grand désert de sel du monde avec plus de 10 000 km². Sous sa croûte dort l'une des plus grandes réserves de lithium de la planète, le métal de toutes les batteries.",
+        "ja": "面積1万km²超、世界最大の塩湖ウユニ塩原への玄関口。塩の地殻の下には、あらゆる電池に使われるリチウムの世界有数の埋蔵量が眠る。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Lithium Works",
+            "es": "Planta de litio",
+            "fr": "Usine de lithium",
+            "ja": "リチウム工場"
+          },
+          "cost": 680,
+          "inc": 145
+        },
+        {
+          "n": {
+            "en": "Salt Hotel",
+            "es": "Hotel de sal",
+            "fr": "Hôtel de sel",
+            "ja": "塩のホテル"
+          },
+          "cost": 360,
+          "inc": 75
+        },
+        {
+          "n": {
+            "en": "Train Cemetery Tours",
+            "es": "Cementerio de trenes",
+            "fr": "Cimetière de trains",
+            "ja": "列車の墓場ツアー"
+          },
+          "cost": 280,
+          "inc": 58
+        }
+      ]
+    },
+    "potosi": {
+      "n": {
+        "en": "Potosí",
+        "es": "Potosí",
+        "fr": "Potosí",
+        "ja": "ポトシ"
+      },
+      "lo": -66,
+      "la": -19.9,
+      "mark": "cerro",
+      "bg": "andes",
+      "reg": "alt",
+      "lp": "b",
+      "tag": {
+        "en": "The silver mountain",
+        "es": "La montaña de plata",
+        "fr": "La montagne d'argent",
+        "ja": "銀の山"
+      },
+      "fact": {
+        "en": "Cerro Rico's silver bankrolled the Spanish Empire; in the 1600s Potosí rivalled London in size. Under the forced mita labour system, countless Indigenous and African workers died in its tunnels.",
+        "es": "La plata del Cerro Rico financió al Imperio español; en el siglo XVII Potosí rivalizaba con Londres en tamaño. Bajo la mita forzada, incontables trabajadores indígenas y africanos murieron en sus túneles.",
+        "fr": "L'argent du Cerro Rico a financé l'Empire espagnol ; au XVIIe siècle, Potosí rivalisait avec Londres. Sous le travail forcé de la mita, d'innombrables ouvriers indigènes et africains sont morts dans ses galeries.",
+        "ja": "セロ・リコの銀がスペイン帝国を支えた。17世紀のポトシはロンドンに匹敵する規模だった。強制労働ミタ制のもと、無数の先住民とアフリカ人労働者が坑道で命を落とした。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Silver Mine Share",
+            "es": "Participación minera",
+            "fr": "Part de mine d'argent",
+            "ja": "銀山の権利"
+          },
+          "cost": 520,
+          "inc": 110
+        },
+        {
+          "n": {
+            "en": "Royal Mint Museum",
+            "es": "Casa de la Moneda",
+            "fr": "Hôtel de la Monnaie",
+            "ja": "王立造幣局博物館"
+          },
+          "cost": 380,
+          "inc": 80
+        },
+        {
+          "n": {
+            "en": "Coca Supply Store",
+            "es": "Tienda de coca",
+            "fr": "Boutique de coca",
+            "ja": "コカ用品店"
+          },
+          "cost": 260,
+          "inc": 54
+        }
+      ]
+    },
+    "tarabuco": {
+      "n": {
+        "en": "Tarabuco",
+        "es": "Tarabuco",
+        "fr": "Tarabuco",
+        "ja": "タラブコ"
+      },
+      "lo": -64.7,
+      "la": -19.8,
+      "mark": "textile",
+      "bg": "valley",
+      "reg": "val",
+      "lp": "b",
+      "tag": {
+        "en": "Yampara weavers and the Pujllay",
+        "es": "Tejedores yampara y el Pujllay",
+        "fr": "Tisserands yampara et le Pujllay",
+        "ja": "ヤンパラの織物とプフジャイ祭"
+      },
+      "fact": {
+        "en": "Famous for its Sunday market and for Yampara weavings that record local history in thread. Its Pujllay festival celebrates an 1816 victory over Spanish troops.",
+        "es": "Famoso por su feria dominical y por los tejidos yampara que narran la historia local en hilo. Su fiesta del Pujllay celebra una victoria de 1816 sobre las tropas españolas.",
+        "fr": "Célèbre pour son marché du dimanche et pour les tissages yampara qui consignent l'histoire locale en fils. Sa fête du Pujllay commémore une victoire de 1816 sur les troupes espagnoles.",
+        "ja": "日曜市とヤンパラの織物で有名。織物には地域の歴史が糸で記録されている。プフジャイ祭は1816年のスペイン軍への勝利を祝う。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Weavers' Guild",
+            "es": "Gremio de tejedores",
+            "fr": "Guilde des tisserands",
+            "ja": "織物工房"
+          },
+          "cost": 260,
+          "inc": 54
+        },
+        {
+          "n": {
+            "en": "Sunday Market",
+            "es": "Feria dominical",
+            "fr": "Marché du dimanche",
+            "ja": "日曜市"
+          },
+          "cost": 220,
+          "inc": 46
+        }
+      ]
+    },
+    "sucre": {
+      "n": {
+        "en": "Sucre",
+        "es": "Sucre",
+        "fr": "Sucre",
+        "ja": "スクレ"
+      },
+      "lo": -65.3,
+      "la": -19.4,
+      "mark": "belltower",
+      "bg": "whitecity",
+      "reg": "val",
+      "lp": "l",
+      "tag": {
+        "en": "The White City, cradle of independence",
+        "es": "La Ciudad Blanca, cuna de la independencia",
+        "fr": "La Ville blanche, berceau de l'indépendance",
+        "ja": "白い街・独立の揺りかご"
+      },
+      "fact": {
+        "en": "Bolivia's constitutional capital, where independence was declared in 1825. At nearby Cal Orck'o a near-vertical quarry wall preserves more than 5,000 dinosaur footprints.",
+        "es": "Capital constitucional de Bolivia, donde se declaró la independencia en 1825. En el cercano Cal Orck'o, un paredón casi vertical conserva más de 5.000 huellas de dinosaurio.",
+        "fr": "Capitale constitutionnelle de la Bolivie, où l'indépendance fut proclamée en 1825. Tout près, à Cal Orck'o, une paroi de carrière presque verticale conserve plus de 5 000 empreintes de dinosaures.",
+        "ja": "ボリビアの憲法上の首都。1825年に独立が宣言された地。近郊カル・オルコの垂直に近い採石場の壁には5,000以上の恐竜の足跡が残る。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Chocolate House",
+            "es": "Casa del chocolate",
+            "fr": "Maison du chocolat",
+            "ja": "ショコラトリー"
+          },
+          "cost": 320,
+          "inc": 66
+        },
+        {
+          "n": {
+            "en": "Dinosaur Park",
+            "es": "Parque Cretácico",
+            "fr": "Parc des dinosaures",
+            "ja": "恐竜公園"
+          },
+          "cost": 360,
+          "inc": 75
+        },
+        {
+          "n": {
+            "en": "Constitution Museum",
+            "es": "Casa de la Libertad",
+            "fr": "Maison de la Liberté",
+            "ja": "独立記念館"
+          },
+          "cost": 280,
+          "inc": 58
+        }
+      ]
+    },
+    "aiquile": {
+      "n": {
+        "en": "Aiquile",
+        "es": "Aiquile",
+        "fr": "Aiquile",
+        "ja": "アイキレ"
+      },
+      "lo": -65.2,
+      "la": -18.4,
+      "mark": "charango",
+      "bg": "valley",
+      "reg": "val",
+      "lp": "r",
+      "tag": {
+        "en": "Charango capital of Bolivia",
+        "es": "Capital del charango",
+        "fr": "Capitale du charango",
+        "ja": "チャランゴの都"
+      },
+      "fact": {
+        "en": "Every November Aiquile hosts the national charango festival. The small ten-string lute was invented in the Andes after the Spanish brought the vihuela; older ones used an armadillo shell as the body.",
+        "es": "Cada noviembre Aiquile acoge la feria nacional del charango. Este pequeño laúd de diez cuerdas nació en los Andes tras la llegada de la vihuela española; los antiguos usaban caparazón de quirquincho.",
+        "fr": "Chaque novembre, Aiquile accueille la foire nationale du charango. Ce petit luth à dix cordes est né dans les Andes après l'arrivée de la vihuela espagnole ; les anciens avaient une carapace de tatou pour caisse.",
+        "ja": "毎年11月に全国チャランゴ祭が開かれる。スペインのビウエラから生まれた10弦の小型リュートで、古いものはアルマジロの甲羅を胴に使った。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Charango Luthier",
+            "es": "Taller de charangos",
+            "fr": "Atelier de charangos",
+            "ja": "チャランゴ工房"
+          },
+          "cost": 240,
+          "inc": 50
+        },
+        {
+          "n": {
+            "en": "Fruit Orchard",
+            "es": "Huerto frutal",
+            "fr": "Verger",
+            "ja": "果樹園"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    },
+    "cochabamba": {
+      "n": {
+        "en": "Cochabamba",
+        "es": "Cochabamba",
+        "fr": "Cochabamba",
+        "ja": "コチャバンバ"
+      },
+      "lo": -66.2,
+      "la": -17.4,
+      "mark": "cristo",
+      "bg": "valley",
+      "reg": "val",
+      "lp": "l",
+      "tag": {
+        "en": "Garden city of the valleys",
+        "es": "Ciudad jardín de los valles",
+        "fr": "Ville-jardin des vallées",
+        "ja": "渓谷の庭園都市"
+      },
+      "fact": {
+        "en": "Bolivia's food capital, watched over by a Christ statue taller than Rio's. In 2000 its people won the 'Water War', reversing the privatisation of the city's water supply.",
+        "es": "La capital gastronómica de Bolivia, vigilada por un Cristo más alto que el de Río. En 2000 su gente ganó la 'Guerra del Agua', revirtiendo la privatización del agua.",
+        "fr": "La capitale gastronomique du pays, veillée par un Christ plus haut que celui de Rio. En 2000, ses habitants ont gagné la « guerre de l'eau », annulant la privatisation du réseau.",
+        "ja": "ボリビアの食の都。リオより高いキリスト像が見下ろす。2000年、市民は「水戦争」に勝利し水道民営化を撤回させた。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Cancha Market Hall",
+            "es": "Mercado La Cancha",
+            "fr": "Halle de La Cancha",
+            "ja": "カンチャ市場"
+          },
+          "cost": 360,
+          "inc": 75
+        },
+        {
+          "n": {
+            "en": "Chicha Brewery",
+            "es": "Chichería",
+            "fr": "Brasserie de chicha",
+            "ja": "チチャ醸造所"
+          },
+          "cost": 280,
+          "inc": 58
+        },
+        {
+          "n": {
+            "en": "Silpancho Diner",
+            "es": "Picantería",
+            "fr": "Cantine à silpancho",
+            "ja": "シルパンチョ食堂"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "villatunari": {
+      "n": {
+        "en": "Villa Tunari",
+        "es": "Villa Tunari",
+        "fr": "Villa Tunari",
+        "ja": "ビジャ・トゥナリ"
+      },
+      "lo": -65.3,
+      "la": -16.9,
+      "mark": "waterfall",
+      "bg": "amazon",
+      "reg": "ama",
+      "lp": "r",
+      "tag": {
+        "en": "Where the Andes meet the jungle",
+        "es": "Donde los Andes tocan la selva",
+        "fr": "Où les Andes touchent la jungle",
+        "ja": "アンデスとジャングルの境"
+      },
+      "fact": {
+        "en": "Gateway to the Chapare, where cloud forest tumbles into the Amazon basin. Pink river dolphins swim in the rivers here, and the region is the political heartland of the coca growers' unions.",
+        "es": "Puerta del Chapare, donde el bosque nublado cae hacia la cuenca amazónica. Aquí nadan los bufeos rosados y la región es el corazón político de los sindicatos cocaleros.",
+        "fr": "Porte du Chapare, où la forêt de nuages plonge vers le bassin amazonien. Des dauphins roses nagent dans ces rivières, et la région est le cœur politique des syndicats de cultivateurs de coca.",
+        "ja": "雲霧林がアマゾン盆地へ落ち込むチャパレ地方の入口。川にはピンクのカワイルカが泳ぎ、コカ栽培農民組合の政治的拠点でもある。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Banana Plantation",
+            "es": "Plantación de banano",
+            "fr": "Bananeraie",
+            "ja": "バナナ農園"
+          },
+          "cost": 260,
+          "inc": 54
+        },
+        {
+          "n": {
+            "en": "Dolphin Reserve",
+            "es": "Reserva del bufeo",
+            "fr": "Réserve des dauphins",
+            "ja": "カワイルカ保護区"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "oruro": {
+      "n": {
+        "en": "Oruro",
+        "es": "Oruro",
+        "fr": "Oruro",
+        "ja": "オルロ"
+      },
+      "lo": -67.2,
+      "la": -18,
+      "mark": "devil",
+      "bg": "altiplano",
+      "reg": "alt",
+      "lp": "l",
+      "tag": {
+        "en": "Home of the Diablada carnival",
+        "es": "Cuna del Carnaval y la Diablada",
+        "fr": "Berceau du carnaval et de la Diablada",
+        "ja": "ディアブラーダの謝肉祭の町"
+      },
+      "fact": {
+        "en": "A mining city whose Carnaval — led by the devil-masked Diablada — is a UNESCO Masterpiece of Intangible Heritage, with 400,000 visitors and dancers processing for twenty hours straight.",
+        "es": "Ciudad minera cuyo Carnaval — encabezado por la Diablada de máscaras de diablo — es Obra Maestra del Patrimonio Inmaterial de la UNESCO: 400.000 visitantes y veinte horas seguidas de danza.",
+        "fr": "Ville minière dont le carnaval — mené par la Diablada aux masques de diables — est chef-d'œuvre du patrimoine immatériel de l'UNESCO : 400 000 visiteurs et vingt heures de danse sans arrêt.",
+        "ja": "鉱山都市。悪魔の仮面をかぶるディアブラーダを先頭にした謝肉祭はユネスコ無形文化遺産の傑作。40万人が訪れ、踊り手は20時間連続で練り歩く。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Carnival Mask Works",
+            "es": "Taller de máscaras",
+            "fr": "Atelier de masques",
+            "ja": "カーニバル仮面工房"
+          },
+          "cost": 340,
+          "inc": 70
+        },
+        {
+          "n": {
+            "en": "Tin Mine Share",
+            "es": "Participación estañífera",
+            "fr": "Part de mine d'étain",
+            "ja": "錫鉱山の権利"
+          },
+          "cost": 400,
+          "inc": 84
+        },
+        {
+          "n": {
+            "en": "Llama Wool Mill",
+            "es": "Hilandería de llama",
+            "fr": "Filature de laine de lama",
+            "ja": "リャマ毛紡績所"
+          },
+          "cost": 260,
+          "inc": 54
+        }
+      ]
+    },
+    "sajama": {
+      "n": {
+        "en": "Sajama",
+        "es": "Sajama",
+        "fr": "Sajama",
+        "ja": "サハマ"
+      },
+      "lo": -68.9,
+      "la": -18.3,
+      "mark": "snowpeak",
+      "bg": "andes",
+      "reg": "alt",
+      "lp": "l",
+      "tag": {
+        "en": "Bolivia's highest peak",
+        "es": "La cumbre más alta de Bolivia",
+        "fr": "Le plus haut sommet de Bolivie",
+        "ja": "ボリビア最高峰"
+      },
+      "fact": {
+        "en": "Nevado Sajama rises to 6,542 m inside Bolivia's oldest national park, ringed by the world's highest woodland — queñua trees that grow above 5,000 m — and by steaming geysers.",
+        "es": "El Nevado Sajama alcanza 6.542 m dentro del parque nacional más antiguo de Bolivia, rodeado del bosque más alto del mundo — queñuas que crecen sobre los 5.000 m — y de géiseres humeantes.",
+        "fr": "Le Nevado Sajama culmine à 6 542 m dans le plus ancien parc national de Bolivie, entouré de la plus haute forêt du monde — des queñuas poussant au-dessus de 5 000 m — et de geysers fumants.",
+        "ja": "標高6,542mのサハマ山はボリビア最古の国立公園にそびえる。標高5,000mを超えて育つケニュアの木々=世界一高所の森と、噴気を上げる間欠泉に囲まれている。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Thermal Baths",
+            "es": "Aguas termales",
+            "fr": "Bains thermaux",
+            "ja": "温泉場"
+          },
+          "cost": 240,
+          "inc": 50
+        },
+        {
+          "n": {
+            "en": "Alpaca Herd",
+            "es": "Rebaño de alpacas",
+            "fr": "Troupeau d'alpagas",
+            "ja": "アルパカの群れ"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    },
+    "lapaz": {
+      "n": {
+        "en": "La Paz",
+        "es": "La Paz",
+        "fr": "La Paz",
+        "ja": "ラパス"
+      },
+      "lo": -67.9,
+      "la": -16.7,
+      "mark": "cablecar",
+      "bg": "canyon",
+      "reg": "alt",
+      "lp": "r",
+      "tag": {
+        "en": "Seat of government, 3,600 m up",
+        "es": "Sede de gobierno a 3.600 m",
+        "fr": "Siège du gouvernement à 3 600 m",
+        "ja": "標高3,600mの政府所在地"
+      },
+      "fact": {
+        "en": "The world's highest seat of government, stacked inside a canyon below the snow peak of Illimani. Its Mi Teleférico cable cars form the longest urban cable-car network on Earth.",
+        "es": "La sede de gobierno más alta del mundo, encajada en un cañón bajo el nevado Illimani. Su Mi Teleférico es la red urbana de teleféricos más larga del planeta.",
+        "fr": "Le siège de gouvernement le plus haut du monde, empilé dans un canyon sous le sommet enneigé de l'Illimani. Son Mi Teleférico est le plus long réseau urbain de téléphériques de la planète.",
+        "ja": "世界一高所にある政府所在地。イリマニの雪嶺の下、峡谷にびっしり積み重なる。ミ・テレフェリコは世界最長の都市型ロープウェイ網。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Teleférico Line",
+            "es": "Línea del teleférico",
+            "fr": "Ligne du téléphérique",
+            "ja": "テレフェリコ路線"
+          },
+          "cost": 500,
+          "inc": 105
+        },
+        {
+          "n": {
+            "en": "Witches' Market",
+            "es": "Mercado de las Brujas",
+            "fr": "Marché des sorcières",
+            "ja": "魔女市場"
+          },
+          "cost": 300,
+          "inc": 62
+        },
+        {
+          "n": {
+            "en": "Salteña Bakery",
+            "es": "Salteñería",
+            "fr": "Fournil à salteñas",
+            "ja": "サルテーニャ店"
+          },
+          "cost": 260,
+          "inc": 54
+        },
+        {
+          "n": {
+            "en": "Zebra Academy",
+            "es": "Academia de cebras",
+            "fr": "École des zèbres",
+            "ja": "シマウマ隊養成所"
+          },
+          "cost": 220,
+          "inc": 46
+        }
+      ]
+    },
+    "elalto": {
+      "n": {
+        "en": "El Alto",
+        "es": "El Alto",
+        "fr": "El Alto",
+        "ja": "エル・アルト"
+      },
+      "lo": -68.3,
+      "la": -16.2,
+      "mark": "cholet",
+      "bg": "altiplano",
+      "reg": "alt",
+      "lp": "r",
+      "tag": {
+        "en": "Aymara metropolis in the sky",
+        "es": "Metrópoli aymara en el cielo",
+        "fr": "Métropole aymara dans le ciel",
+        "ja": "天空のアイマラ都市"
+      },
+      "fact": {
+        "en": "A young, mostly Aymara city on the rim above La Paz, famous for Freddy Mamani's rainbow 'cholet' mansions — and for the 2003 Gas War protests that brought down a president.",
+        "es": "Ciudad joven y mayoritariamente aymara sobre el borde de La Paz, famosa por los 'cholets' multicolores de Freddy Mamani y por la Guerra del Gas de 2003, que derribó a un presidente.",
+        "fr": "Ville jeune et majoritairement aymara sur la crête au-dessus de La Paz, célèbre pour les « cholets » arc-en-ciel de Freddy Mamani et pour la guerre du gaz de 2003, qui fit tomber un président.",
+        "ja": "ラパスを見下ろす崖の上の新しい都市で、住民の多くはアイマラ。フレディ・ママニの極彩色の「チョレット」御殿と、大統領を退陣させた2003年のガス戦争で知られる。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Cholet Ballroom",
+            "es": "Salón de cholet",
+            "fr": "Salle de bal cholet",
+            "ja": "チョレットの大広間"
+          },
+          "cost": 320,
+          "inc": 66
+        },
+        {
+          "n": {
+            "en": "16 de Julio Fair",
+            "es": "Feria 16 de Julio",
+            "fr": "Foire du 16 juillet",
+            "ja": "7月16日市"
+          },
+          "cost": 280,
+          "inc": 58
+        },
+        {
+          "n": {
+            "en": "Minibus Line",
+            "es": "Línea de minibuses",
+            "fr": "Ligne de minibus",
+            "ja": "ミニバス路線"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "tiwanaku": {
+      "n": {
+        "en": "Tiwanaku",
+        "es": "Tiwanaku",
+        "fr": "Tiwanaku",
+        "ja": "ティワナク"
+      },
+      "lo": -68.9,
+      "la": -16.7,
+      "mark": "gate",
+      "bg": "altiplano",
+      "reg": "alt",
+      "lp": "l",
+      "tag": {
+        "en": "Stone city before the Inca",
+        "es": "Ciudad de piedra anterior a los incas",
+        "fr": "Cité de pierre d'avant les Incas",
+        "ja": "インカ以前の石の都"
+      },
+      "fact": {
+        "en": "Centre of a civilisation that flourished for centuries before the Inca. Its Gate of the Sun is cut from a single block of andesite, and every 21 June thousands gather here for the Aymara new year.",
+        "es": "Centro de una civilización que floreció siglos antes de los incas. Su Puerta del Sol está tallada en un solo bloque de andesita y cada 21 de junio miles celebran allí el año nuevo aymara.",
+        "fr": "Centre d'une civilisation florissante des siècles avant les Incas. Sa Porte du Soleil est taillée dans un seul bloc d'andésite, et chaque 21 juin des milliers de gens y fêtent le nouvel an aymara.",
+        "ja": "インカに数世紀先立って栄えた文明の中心。太陽の門は一枚の安山岩から削り出されており、毎年6月21日にはアイマラの新年を祝う人々が集う。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Archaeology Museum",
+            "es": "Museo arqueológico",
+            "fr": "Musée archéologique",
+            "ja": "考古学博物館"
+          },
+          "cost": 280,
+          "inc": 58
+        },
+        {
+          "n": {
+            "en": "Stonecutter's Yard",
+            "es": "Taller de cantería",
+            "fr": "Chantier de taille de pierre",
+            "ja": "石工の作業場"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    },
+    "copacabana": {
+      "n": {
+        "en": "Copacabana",
+        "es": "Copacabana",
+        "fr": "Copacabana",
+        "ja": "コパカバーナ"
+      },
+      "lo": -69.3,
+      "la": -15.8,
+      "mark": "cathedral",
+      "bg": "lake",
+      "reg": "alt",
+      "lp": "r",
+      "tag": {
+        "en": "Shrine on Lake Titicaca",
+        "es": "Santuario del lago Titicaca",
+        "fr": "Sanctuaire du lac Titicaca",
+        "ja": "チチカカ湖の聖地"
+      },
+      "fact": {
+        "en": "Pilgrimage town on Titicaca, the highest large navigable lake in the world at 3,812 m. Inca myth says the sun was born on nearby Isla del Sol; drivers still bring new cars here to be blessed.",
+        "es": "Pueblo de peregrinación en el Titicaca, el lago navegable más alto del mundo a 3.812 m. El mito inca dice que el sol nació en la Isla del Sol; aún hoy se traen coches nuevos a bendecir.",
+        "fr": "Village de pèlerinage sur le Titicaca, plus haut grand lac navigable du monde à 3 812 m. Le mythe inca veut que le soleil soit né sur l'Isla del Sol ; on y fait encore bénir les voitures neuves.",
+        "ja": "標高3,812m、世界一高所の大型可航湖チチカカ湖の巡礼の町。インカ神話では太陽は近くの太陽の島で生まれた。今も新車を祝福してもらいに人々が訪れる。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Titicaca Ferry",
+            "es": "Transbordador del Titicaca",
+            "fr": "Bac du Titicaca",
+            "ja": "チチカカ湖の渡し船"
+          },
+          "cost": 260,
+          "inc": 54
+        },
+        {
+          "n": {
+            "en": "Pilgrim Inn",
+            "es": "Hostal del peregrino",
+            "fr": "Auberge du pèlerin",
+            "ja": "巡礼宿"
+          },
+          "cost": 220,
+          "inc": 46
+        },
+        {
+          "n": {
+            "en": "Trout Farm",
+            "es": "Criadero de truchas",
+            "fr": "Ferme à truites",
+            "ja": "マス養殖場"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "coroico": {
+      "n": {
+        "en": "Coroico",
+        "es": "Coroico",
+        "fr": "Coroico",
+        "ja": "コロイコ"
+      },
+      "lo": -67.4,
+      "la": -15.9,
+      "mark": "bike",
+      "bg": "yungas",
+      "reg": "val",
+      "lp": "r",
+      "tag": {
+        "en": "Coffee and the Death Road",
+        "es": "Café y el Camino de la Muerte",
+        "fr": "Le café et la Route de la Mort",
+        "ja": "コーヒーとデスロード"
+      },
+      "fact": {
+        "en": "A Yungas hill town reached by the old Yungas Road, once called the world's most dangerous. It is also a centre of Afro-Bolivian culture, whose community still recognises its own king.",
+        "es": "Pueblo de los Yungas al que se llega por el antiguo camino, llamado el más peligroso del mundo. Es también centro de la cultura afroboliviana, cuya comunidad aún reconoce a su propio rey.",
+        "fr": "Village des Yungas que l'on atteint par l'ancienne route dite la plus dangereuse du monde. C'est aussi un foyer de la culture afro-bolivienne, dont la communauté reconnaît encore son propre roi.",
+        "ja": "かつて世界一危険と呼ばれた旧ユンガス街道の先にある丘の町。アフロ・ボリビア文化の中心地でもあり、その共同体は今も自分たちの王を戴いている。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Yungas Coffee Farm",
+            "es": "Finca cafetalera",
+            "fr": "Ferme de café des Yungas",
+            "ja": "ユンガスのコーヒー農園"
+          },
+          "cost": 280,
+          "inc": 58
+        },
+        {
+          "n": {
+            "en": "Death Road Bike Tour",
+            "es": "Tour en bici del Camino",
+            "fr": "Descente à vélo",
+            "ja": "デスロード自転車ツアー"
+          },
+          "cost": 240,
+          "inc": 50
+        },
+        {
+          "n": {
+            "en": "Saya Music Hall",
+            "es": "Salón de saya",
+            "fr": "Salle de saya",
+            "ja": "サヤ音楽ホール"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    }
+  },
+  "edges": [
+    [
+      "cobija",
+      "riberalta"
+    ],
+    [
+      "riberalta",
+      "guayaramerin"
+    ],
+    [
+      "guayaramerin",
+      "trinidad"
+    ],
+    [
+      "riberalta",
+      "rurrenabaque"
+    ],
+    [
+      "rurrenabaque",
+      "sanignacio"
+    ],
+    [
+      "sanignacio",
+      "trinidad"
+    ],
+    [
+      "rurrenabaque",
+      "coroico"
+    ],
+    [
+      "coroico",
+      "lapaz"
+    ],
+    [
+      "trinidad",
+      "santacruz"
+    ],
+    [
+      "trinidad",
+      "concepcion"
+    ],
+    [
+      "concepcion",
+      "sanjose"
+    ],
+    [
+      "sanjose",
+      "puertosuarez"
+    ],
+    [
+      "sanjose",
+      "santacruz"
+    ],
+    [
+      "copacabana",
+      "tiwanaku"
+    ],
+    [
+      "tiwanaku",
+      "elalto"
+    ],
+    [
+      "elalto",
+      "lapaz"
+    ],
+    [
+      "lapaz",
+      "oruro"
+    ],
+    [
+      "oruro",
+      "sajama"
+    ],
+    [
+      "sajama",
+      "uyuni"
+    ],
+    [
+      "oruro",
+      "uyuni"
+    ],
+    [
+      "oruro",
+      "cochabamba"
+    ],
+    [
+      "cochabamba",
+      "villatunari"
+    ],
+    [
+      "villatunari",
+      "santacruz"
+    ],
+    [
+      "cochabamba",
+      "aiquile"
+    ],
+    [
+      "aiquile",
+      "sucre"
+    ],
+    [
+      "aiquile",
+      "vallegrande"
+    ],
+    [
+      "vallegrande",
+      "samaipata"
+    ],
+    [
+      "samaipata",
+      "santacruz"
+    ],
+    [
+      "sucre",
+      "tarabuco"
+    ],
+    [
+      "sucre",
+      "potosi"
+    ],
+    [
+      "potosi",
+      "uyuni"
+    ],
+    [
+      "potosi",
+      "tupiza"
+    ],
+    [
+      "uyuni",
+      "tupiza"
+    ],
+    [
+      "tupiza",
+      "villazon"
+    ],
+    [
+      "villazon",
+      "tarija"
+    ],
+    [
+      "tarija",
+      "villamontes"
+    ],
+    [
+      "villamontes",
+      "santacruz"
+    ]
+  ],
+  "outro": {
+    "en": "From Titicaca's sacred islands to the lithium beneath Uyuni's salt — you have crossed a country of 36 nations, two capitals and five centuries of history. <b>¡Jallalla Bolivia!</b>",
+    "es": "De las islas sagradas del Titicaca al litio bajo la sal de Uyuni — has cruzado un país de 36 naciones, dos capitales y cinco siglos de historia. <b>¡Jallalla Bolivia!</b>",
+    "fr": "Des îles sacrées du Titicaca au lithium sous le sel d'Uyuni — tu as traversé un pays de 36 nations, deux capitales et cinq siècles d'histoire. <b>¡Jallalla Bolivia !</b>",
+    "ja": "チチカカ湖の聖なる島からウユニの塩の下のリチウムまで — 36の民族、2つの首都、5世紀の歴史をもつ国を旅しました。<b>¡Jallalla Bolivia!</b>"
+  },
+  "quiz": [
+    {
+      "q": {
+        "en": "Which two cities serve as Bolivia's capitals?",
+        "es": "¿Cuáles son las dos capitales de Bolivia?",
+        "fr": "Quelles sont les deux capitales de la Bolivie ?",
+        "ja": "ボリビアの首都はどの2都市?"
+      },
+      "o": [
+        {
+          "en": "Sucre and La Paz",
+          "es": "Sucre y La Paz",
+          "fr": "Sucre et La Paz",
+          "ja": "スクレとラパス"
+        },
+        {
+          "en": "Santa Cruz and Oruro",
+          "es": "Santa Cruz y Oruro",
+          "fr": "Santa Cruz et Oruro",
+          "ja": "サンタクルスとオルロ"
+        },
+        {
+          "en": "Cochabamba and Tarija",
+          "es": "Cochabamba y Tarija",
+          "fr": "Cochabamba et Tarija",
+          "ja": "コチャバンバとタリハ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Sucre is the constitutional capital; La Paz is the seat of government — a split dating to the 1899 Federal War.",
+        "es": "Sucre es la capital constitucional; La Paz es la sede de gobierno, división nacida de la Guerra Federal de 1899.",
+        "fr": "Sucre est la capitale constitutionnelle ; La Paz est le siège du gouvernement — une séparation née de la guerre fédérale de 1899.",
+        "ja": "スクレが憲法上の首都、ラパスが政府所在地。1899年の連邦戦争以来の分割です。"
+      }
+    },
+    {
+      "q": {
+        "en": "What is the Wiphala?",
+        "es": "¿Qué es la Wiphala?",
+        "fr": "Qu'est-ce que la Wiphala ?",
+        "ja": "ウィパラとは何?"
+      },
+      "o": [
+        {
+          "en": "A checkered rainbow flag of Andean peoples",
+          "es": "Una bandera cuadriculada de los pueblos andinos",
+          "fr": "Un drapeau damier arc-en-ciel des peuples andins",
+          "ja": "アンデス先住民の虹色の市松旗"
+        },
+        {
+          "en": "A traditional reed boat",
+          "es": "Una balsa de totora",
+          "fr": "Une barque de roseaux",
+          "ja": "トトラ葦の舟"
+        },
+        {
+          "en": "A festival mask",
+          "es": "Una máscara de fiesta",
+          "fr": "Un masque de fête",
+          "ja": "祭りの仮面"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The seven-colour checkered Wiphala became a co-official flag of Bolivia in the 2009 constitution.",
+        "es": "La Wiphala de siete colores es bandera cooficial de Bolivia desde la constitución de 2009.",
+        "fr": "La Wiphala à sept couleurs est devenue drapeau co-officiel de la Bolivie avec la constitution de 2009.",
+        "ja": "七色の市松模様のウィパラは、2009年憲法でボリビアの公式旗のひとつになりました。"
+      }
+    },
+    {
+      "q": {
+        "en": "In which war did Bolivia lose its Pacific coastline?",
+        "es": "¿En qué guerra perdió Bolivia su costa del Pacífico?",
+        "fr": "Dans quelle guerre la Bolivie a-t-elle perdu son littoral ?",
+        "ja": "ボリビアが太平洋岸を失った戦争は?"
+      },
+      "o": [
+        {
+          "en": "The War of the Pacific (1879-83)",
+          "es": "La Guerra del Pacífico (1879-83)",
+          "fr": "La guerre du Pacifique (1879-83)",
+          "ja": "太平洋戦争(1879〜83)"
+        },
+        {
+          "en": "The Chaco War",
+          "es": "La Guerra del Chaco",
+          "fr": "La guerre du Chaco",
+          "ja": "チャコ戦争"
+        },
+        {
+          "en": "The Federal War",
+          "es": "La Guerra Federal",
+          "fr": "La guerre fédérale",
+          "ja": "連邦戦争"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Bolivia lost its coast to Chile — yet still keeps a navy, which trains on Lake Titicaca, and marks Día del Mar every 23 March.",
+        "es": "Bolivia perdió su litoral ante Chile, pero conserva una armada que entrena en el Titicaca y celebra el Día del Mar cada 23 de marzo.",
+        "fr": "La Bolivie a perdu son littoral au profit du Chili, mais garde une marine qui s'entraîne sur le Titicaca et célèbre le Día del Mar chaque 23 mars.",
+        "ja": "チリに海岸を奪われましたが、今も海軍を保持しチチカカ湖で訓練。毎年3月23日は「海の日」です。"
+      }
+    },
+    {
+      "q": {
+        "en": "The Chaco War (1932-35) was fought against which country?",
+        "es": "¿Contra qué país se libró la Guerra del Chaco (1932-35)?",
+        "fr": "Contre quel pays fut menée la guerre du Chaco (1932-35) ?",
+        "ja": "チャコ戦争(1932〜35)の相手国は?"
+      },
+      "o": [
+        {
+          "en": "Paraguay",
+          "es": "Paraguay",
+          "fr": "Le Paraguay",
+          "ja": "パラグアイ"
+        },
+        {
+          "en": "Peru",
+          "es": "Perú",
+          "fr": "Le Pérou",
+          "ja": "ペルー"
+        },
+        {
+          "en": "Brazil",
+          "es": "Brasil",
+          "fr": "Le Brésil",
+          "ja": "ブラジル"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Both nations believed the Chaco held oil. Around 100,000 died, many from thirst rather than combat.",
+        "es": "Ambos países creían que el Chaco tenía petróleo. Murieron unas 100.000 personas, muchas de sed más que en combate.",
+        "fr": "Les deux pays croyaient le Chaco riche en pétrole. Environ 100 000 personnes moururent, souvent de soif plutôt qu'au combat.",
+        "ja": "両国はチャコに石油があると信じました。約10万人が死亡し、その多くは戦闘ではなく渇きによるものでした。"
+      }
+    },
+    {
+      "q": {
+        "en": "Who became Bolivia's first Indigenous president in 2006?",
+        "es": "¿Quién fue el primer presidente indígena de Bolivia en 2006?",
+        "fr": "Qui devint en 2006 le premier président indigène de Bolivie ?",
+        "ja": "2006年に初の先住民出身大統領となったのは?"
+      },
+      "o": [
+        {
+          "en": "Evo Morales",
+          "es": "Evo Morales",
+          "fr": "Evo Morales",
+          "ja": "エボ・モラレス"
+        },
+        {
+          "en": "Víctor Paz Estenssoro",
+          "es": "Víctor Paz Estenssoro",
+          "fr": "Víctor Paz Estenssoro",
+          "ja": "ビクトル・パス・エステンソロ"
+        },
+        {
+          "en": "Carlos Mesa",
+          "es": "Carlos Mesa",
+          "fr": "Carlos Mesa",
+          "ja": "カルロス・メサ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "An Aymara former coca-growers' union leader, Morales led the country for nearly 14 years.",
+        "es": "Aymara y antiguo dirigente de los cocaleros, Morales gobernó casi 14 años.",
+        "fr": "Aymara et ancien dirigeant syndical des cultivateurs de coca, Morales a dirigé le pays près de 14 ans.",
+        "ja": "アイマラ出身でコカ農民組合の指導者だったモラレスは、約14年間国を率いました。"
+      }
+    },
+    {
+      "q": {
+        "en": "Cochabamba's famous 2000 protests, the Water War, opposed what?",
+        "es": "Las protestas de Cochabamba en 2000, la Guerra del Agua, ¿contra qué fueron?",
+        "fr": "Les manifestations de Cochabamba en 2000, la guerre de l'eau, visaient quoi ?",
+        "ja": "2000年のコチャバンバ「水戦争」は何に反対した?"
+      },
+      "o": [
+        {
+          "en": "Privatisation of the city's water",
+          "es": "La privatización del agua de la ciudad",
+          "fr": "La privatisation de l'eau de la ville",
+          "ja": "市の水道民営化"
+        },
+        {
+          "en": "A new railway tax",
+          "es": "Un nuevo impuesto ferroviario",
+          "fr": "Une nouvelle taxe ferroviaire",
+          "ja": "新しい鉄道税"
+        },
+        {
+          "en": "A dam on Lake Titicaca",
+          "es": "Una represa en el Titicaca",
+          "fr": "Un barrage sur le Titicaca",
+          "ja": "チチカカ湖のダム"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Mass protests forced the government to cancel the water contract — a landmark of global anti-privatisation movements.",
+        "es": "Las protestas obligaron a cancelar el contrato del agua, un hito de los movimientos antiprivatización.",
+        "fr": "Les manifestations ont contraint le gouvernement à annuler le contrat de l'eau — un jalon des mouvements anti-privatisation.",
+        "ja": "大規模な抗議で政府は契約を撤回。世界の反民営化運動の象徴的事例になりました。"
+      }
+    },
+    {
+      "q": {
+        "en": "The 2009 constitution declares Bolivia to be a…",
+        "es": "La constitución de 2009 declara a Bolivia como…",
+        "fr": "La constitution de 2009 déclare la Bolivie…",
+        "ja": "2009年憲法はボリビアを何と定めた?"
+      },
+      "o": [
+        {
+          "en": "Plurinational State",
+          "es": "Estado Plurinacional",
+          "fr": "État plurinational",
+          "ja": "多民族国家"
+        },
+        {
+          "en": "Federal Kingdom",
+          "es": "Reino Federal",
+          "fr": "Royaume fédéral",
+          "ja": "連邦王国"
+        },
+        {
+          "en": "Free Trade Zone",
+          "es": "Zona de Libre Comercio",
+          "fr": "Zone de libre-échange",
+          "ja": "自由貿易地域"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "It recognises 36 nations and 36 official languages, from Spanish and Quechua to Guaraní.",
+        "es": "Reconoce 36 naciones y 36 idiomas oficiales, del castellano y el quechua al guaraní.",
+        "fr": "Elle reconnaît 36 nations et 36 langues officielles, de l'espagnol et du quechua au guarani.",
+        "ja": "36の民族と36の公用語(スペイン語、ケチュア語、グアラニー語など)を認めています。"
+      }
+    },
+    {
+      "q": {
+        "en": "Cerro Rico in Potosí was mined above all for…",
+        "es": "El Cerro Rico de Potosí se explotó sobre todo por…",
+        "fr": "Le Cerro Rico de Potosí fut exploité surtout pour…",
+        "ja": "ポトシのセロ・リコで主に採掘されたのは?"
+      },
+      "o": [
+        {
+          "en": "Silver",
+          "es": "Plata",
+          "fr": "L'argent",
+          "ja": "銀"
+        },
+        {
+          "en": "Gold",
+          "es": "Oro",
+          "fr": "L'or",
+          "ja": "金"
+        },
+        {
+          "en": "Copper",
+          "es": "Cobre",
+          "fr": "Le cuivre",
+          "ja": "銅"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Its silver funded the Spanish Empire for centuries. Vale un Potosí still means worth a fortune in Spanish.",
+        "es": "Su plata financió al Imperio español durante siglos. Vale un Potosí sigue significando valer una fortuna.",
+        "fr": "Son argent finança l'Empire espagnol des siècles durant. « Vale un Potosí » signifie toujours « valoir une fortune ».",
+        "ja": "その銀は数世紀にわたりスペイン帝国を支えました。スペイン語で「ポトシの価値がある」は今も「莫大な価値」の意味です。"
+      }
+    },
+    {
+      "q": {
+        "en": "The Salar de Uyuni is the world's largest…",
+        "es": "El Salar de Uyuni es el mayor del mundo en…",
+        "fr": "Le Salar d'Uyuni est le plus grand du monde en tant que…",
+        "ja": "ウユニ塩原は世界最大の何?"
+      },
+      "o": [
+        {
+          "en": "Salt flat",
+          "es": "Salar",
+          "fr": "Désert de sel",
+          "ja": "塩湖(塩原)"
+        },
+        {
+          "en": "Glacier",
+          "es": "Glaciar",
+          "fr": "Glacier",
+          "ja": "氷河"
+        },
+        {
+          "en": "Sand desert",
+          "es": "Desierto de arena",
+          "fr": "Désert de sable",
+          "ja": "砂砂漠"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Over 10,000 km² of salt crust — and beneath it, one of the planet's greatest lithium reserves.",
+        "es": "Más de 10.000 km² de costra salina y, debajo, una de las mayores reservas de litio del planeta.",
+        "fr": "Plus de 10 000 km² de croûte saline — et dessous, l'une des plus grandes réserves de lithium de la planète.",
+        "ja": "1万km²を超える塩の地殻。その下には世界有数のリチウム埋蔵量があります。"
+      }
+    },
+    {
+      "q": {
+        "en": "Lake Titicaca holds which world record?",
+        "es": "¿Qué récord mundial tiene el lago Titicaca?",
+        "fr": "Quel record mondial détient le lac Titicaca ?",
+        "ja": "チチカカ湖が持つ世界記録は?"
+      },
+      "o": [
+        {
+          "en": "Highest large navigable lake",
+          "es": "El lago navegable más alto",
+          "fr": "Plus haut grand lac navigable",
+          "ja": "世界一高所の大型可航湖"
+        },
+        {
+          "en": "Deepest lake",
+          "es": "El lago más profundo",
+          "fr": "Lac le plus profond",
+          "ja": "世界一深い湖"
+        },
+        {
+          "en": "Saltiest lake",
+          "es": "El lago más salado",
+          "fr": "Lac le plus salé",
+          "ja": "世界一塩分の濃い湖"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "At 3,812 m above sea level. Inca myth says the sun god was born on its Isla del Sol.",
+        "es": "A 3.812 m sobre el nivel del mar. El mito inca dice que el sol nació en su Isla del Sol.",
+        "fr": "À 3 812 m d'altitude. Le mythe inca dit que le dieu soleil naquit sur son Isla del Sol.",
+        "ja": "標高3,812m。インカ神話では太陽神が湖の太陽の島で生まれたとされます。"
+      }
+    },
+    {
+      "q": {
+        "en": "Bolivia is named after…",
+        "es": "Bolivia lleva el nombre de…",
+        "fr": "La Bolivie doit son nom à…",
+        "ja": "ボリビアの国名の由来は?"
+      },
+      "o": [
+        {
+          "en": "Simón Bolívar",
+          "es": "Simón Bolívar",
+          "fr": "Simón Bolívar",
+          "ja": "シモン・ボリバル"
+        },
+        {
+          "en": "A Quechua word for high land",
+          "es": "Una palabra quechua para tierra alta",
+          "fr": "Un mot quechua signifiant « terre haute »",
+          "ja": "ケチュア語の「高地」"
+        },
+        {
+          "en": "An Inca emperor",
+          "es": "Un emperador inca",
+          "fr": "Un empereur inca",
+          "ja": "インカ皇帝"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Independence came in 1825 after 16 years of war; the new republic honoured the Liberator, Simón Bolívar.",
+        "es": "La independencia llegó en 1825 tras 16 años de guerra; la nueva república honró al Libertador.",
+        "fr": "L'indépendance vint en 1825 après 16 ans de guerre ; la jeune république honora le Libertador.",
+        "ja": "16年の戦いを経て1825年に独立。新共和国は解放者シモン・ボリバルの名を冠しました。"
+      }
+    },
+    {
+      "q": {
+        "en": "The Diablada — a dance of devils and angels — stars at which festival?",
+        "es": "La Diablada, danza de diablos y ángeles, ¿en qué fiesta destaca?",
+        "fr": "La Diablada, danse de diables et d'anges, brille à quelle fête ?",
+        "ja": "悪魔と天使の踊りディアブラーダが主役の祭は?"
+      },
+      "o": [
+        {
+          "en": "Carnaval de Oruro",
+          "es": "Carnaval de Oruro",
+          "fr": "Le carnaval d'Oruro",
+          "ja": "オルロのカーニバル"
+        },
+        {
+          "en": "Alasitas",
+          "es": "Alasitas",
+          "fr": "Alasitas",
+          "ja": "アラシータ"
+        },
+        {
+          "en": "Gran Poder",
+          "es": "Gran Poder",
+          "fr": "Gran Poder",
+          "ja": "グラン・ポデール"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Oruro's Carnaval is a UNESCO Masterpiece blending Andean spirits with Catholic imagery.",
+        "es": "El Carnaval de Oruro es Obra Maestra de la UNESCO y mezcla espíritus andinos con imaginería católica.",
+        "fr": "Le carnaval d'Oruro, chef-d'œuvre de l'UNESCO, mêle esprits andins et imagerie catholique.",
+        "ja": "オルロのカーニバルはユネスコの傑作。アンデスの精霊とカトリックの図像が融合しています。"
+      }
+    },
+    {
+      "q": {
+        "en": "The ancient city of Tiwanaku is famous for…",
+        "es": "La antigua ciudad de Tiwanaku es famosa por…",
+        "fr": "L'antique cité de Tiwanaku est célèbre pour…",
+        "ja": "古代都市ティワナクで有名なのは?"
+      },
+      "o": [
+        {
+          "en": "Monumental carved stone gateways",
+          "es": "Portales monumentales de piedra tallada",
+          "fr": "Ses portails monumentaux en pierre",
+          "ja": "巨石を彫った門"
+        },
+        {
+          "en": "Floating pyramids",
+          "es": "Pirámides flotantes",
+          "fr": "Des pyramides flottantes",
+          "ja": "浮かぶピラミッド"
+        },
+        {
+          "en": "Cave paintings",
+          "es": "Pinturas rupestres",
+          "fr": "Des peintures rupestres",
+          "ja": "洞窟壁画"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Its Gate of the Sun was cut from a single block of andesite by a civilisation that predates the Inca by centuries.",
+        "es": "Su Puerta del Sol fue tallada en un solo bloque de andesita por una civilización siglos anterior a los incas.",
+        "fr": "Sa Porte du Soleil fut taillée dans un seul bloc d'andésite par une civilisation antérieure aux Incas de plusieurs siècles.",
+        "ja": "太陽の門は一枚の安山岩から削り出されたもの。インカに数世紀先行する文明の作です。"
+      }
+    },
+    {
+      "q": {
+        "en": "Which revolutionary was captured and killed in Bolivia in 1967?",
+        "es": "¿Qué revolucionario fue capturado y ejecutado en Bolivia en 1967?",
+        "fr": "Quel révolutionnaire fut capturé et tué en Bolivie en 1967 ?",
+        "ja": "1967年にボリビアで処刑された革命家は?"
+      },
+      "o": [
+        {
+          "en": "Che Guevara",
+          "es": "Che Guevara",
+          "fr": "Che Guevara",
+          "ja": "チェ・ゲバラ"
+        },
+        {
+          "en": "Emiliano Zapata",
+          "es": "Emiliano Zapata",
+          "fr": "Emiliano Zapata",
+          "ja": "エミリアーノ・サパタ"
+        },
+        {
+          "en": "Túpac Katari",
+          "es": "Túpac Katari",
+          "fr": "Túpac Katari",
+          "ja": "トゥパク・カタリ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Ernesto Che Guevara's guerrilla campaign ended in the village of La Higuera, near Vallegrande.",
+        "es": "La campaña guerrillera del Che terminó en La Higuera, cerca de Vallegrande.",
+        "fr": "La campagne de guérilla du Che s'acheva au village de La Higuera, près de Vallegrande.",
+        "ja": "チェ・ゲバラのゲリラ戦は、バジェグランデ近郊のラ・イゲラ村で終わりました。"
+      }
+    },
+    {
+      "q": {
+        "en": "Bolivia's cholitas are famous for wearing…",
+        "es": "Las cholitas bolivianas son famosas por llevar…",
+        "fr": "Les cholitas boliviennes sont célèbres pour porter…",
+        "ja": "ボリビアのチョリータの装いは?"
+      },
+      "o": [
+        {
+          "en": "Bowler hats and layered pollera skirts",
+          "es": "Sombreros bombín y polleras",
+          "fr": "Chapeaux melon et jupes pollera",
+          "ja": "山高帽と重ねたポジェラのスカート"
+        },
+        {
+          "en": "Feathered crowns",
+          "es": "Coronas de plumas",
+          "fr": "Des couronnes de plumes",
+          "ja": "羽根の冠"
+        },
+        {
+          "en": "Silver armour",
+          "es": "Armaduras de plata",
+          "fr": "Des armures d'argent",
+          "ja": "銀の鎧"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Once a mark of exclusion, cholita dress is now worn with pride — see the cholita wrestlers and the climbers who summit 6,000 m peaks in their skirts.",
+        "es": "Antes signo de exclusión, hoy se lleva con orgullo: hay luchadoras cholitas y escaladoras que suben cumbres de 6.000 m en pollera.",
+        "fr": "Jadis marque d'exclusion, la tenue cholita se porte aujourd'hui avec fierté — voyez les catcheuses cholitas et les alpinistes qui gravissent des sommets de 6 000 m en jupe.",
+        "ja": "かつて差別の印でしたが今は誇りの装い。チョリータ・レスラーや、スカート姿で6,000m峰に登る登山家もいます。"
+      }
+    },
+    {
+      "q": {
+        "en": "In the Andes, coca leaf is traditionally used for…",
+        "es": "En los Andes, la hoja de coca se usa tradicionalmente para…",
+        "fr": "Dans les Andes, la feuille de coca sert traditionnellement à…",
+        "ja": "アンデスでコカの葉は伝統的に何に使う?"
+      },
+      "o": [
+        {
+          "en": "Chewing and tea against altitude and fatigue",
+          "es": "Masticar y tomar en mate contra la altura y el cansancio",
+          "fr": "Mâcher et infuser contre l'altitude et la fatigue",
+          "ja": "噛んだり茶にして高山病や疲労に"
+        },
+        {
+          "en": "Dyeing textiles",
+          "es": "Teñir tejidos",
+          "fr": "Teindre les tissus",
+          "ja": "織物の染色"
+        },
+        {
+          "en": "Roofing houses",
+          "es": "Techar casas",
+          "fr": "Couvrir les toits",
+          "ja": "屋根葺き"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Sacred for millennia and offered to Pachamama, the leaf is legal and everyday in Bolivia — unlike the drug refined from it.",
+        "es": "Sagrada por milenios y ofrendada a la Pachamama, la hoja es legal y cotidiana en Bolivia, a diferencia de la droga refinada.",
+        "fr": "Sacrée depuis des millénaires et offerte à la Pachamama, la feuille est légale et quotidienne en Bolivie — à la différence de la drogue qu'on en tire.",
+        "ja": "数千年にわたり神聖視されパチャママに捧げられてきた葉。精製された薬物とは異なり、ボリビアでは合法で日常的です。"
+      }
+    },
+    {
+      "q": {
+        "en": "What is a salteña?",
+        "es": "¿Qué es una salteña?",
+        "fr": "Qu'est-ce qu'une salteña ?",
+        "ja": "サルテーニャとは?"
+      },
+      "o": [
+        {
+          "en": "A juicy baked mid-morning pastry",
+          "es": "Una empanada jugosa de media mañana",
+          "fr": "Un chausson juteux de milieu de matinée",
+          "ja": "午前中に食べる汁気の多い焼きパイ"
+        },
+        {
+          "en": "A woven belt",
+          "es": "Una faja tejida",
+          "fr": "Une ceinture tissée",
+          "ja": "織りのベルト"
+        },
+        {
+          "en": "A pan-pipe melody",
+          "es": "Una melodía de zampoña",
+          "fr": "Un air de flûte de pan",
+          "ja": "サンポーニャの旋律"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Eaten strictly before noon. Locals judge you on whether you can eat one without spilling the broth.",
+        "es": "Se come sólo antes del mediodía. Te juzgan por si logras comerla sin derramar el jugo.",
+        "fr": "On la mange strictement avant midi. On vous juge à votre capacité d'en manger une sans renverser le jus.",
+        "ja": "正午前に食べるのが鉄則。汁をこぼさず食べられるかで腕前を測られます。"
+      }
+    },
+    {
+      "q": {
+        "en": "Singani, Bolivia's national spirit, is distilled from…",
+        "es": "El singani, licor nacional de Bolivia, se destila de…",
+        "fr": "Le singani, eau-de-vie nationale bolivienne, est distillé à partir de…",
+        "ja": "国民的蒸留酒シンガニの原料は?"
+      },
+      "o": [
+        {
+          "en": "Muscat of Alexandria grapes",
+          "es": "Uva Moscatel de Alejandría",
+          "fr": "Raisin muscat d'Alexandrie",
+          "ja": "マスカット・オブ・アレキサンドリア"
+        },
+        {
+          "en": "Sugar cane",
+          "es": "Caña de azúcar",
+          "fr": "Canne à sucre",
+          "ja": "サトウキビ"
+        },
+        {
+          "en": "Quinoa",
+          "es": "Quinua",
+          "fr": "Quinoa",
+          "ja": "キヌア"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Grown above 1,600 m in the Tarija valleys — among the highest vineyards on Earth.",
+        "es": "Cultivada sobre los 1.600 m en los valles de Tarija, entre los viñedos más altos del mundo.",
+        "fr": "Cultivé au-dessus de 1 600 m dans les vallées de Tarija — parmi les vignobles les plus hauts du monde.",
+        "ja": "タリハの標高1,600m超の渓谷で育てられる、世界屈指の高地ぶどうです。"
+      }
+    },
+    {
+      "q": {
+        "en": "Traffic in La Paz is famously guided by people dressed as…",
+        "es": "El tránsito en La Paz lo guían personas disfrazadas de…",
+        "fr": "À La Paz, la circulation est réglée par des gens déguisés en…",
+        "ja": "ラパスの交通整理をするのは何の着ぐるみ?"
+      },
+      "o": [
+        {
+          "en": "Zebras",
+          "es": "Cebras",
+          "fr": "Zèbres",
+          "ja": "シマウマ"
+        },
+        {
+          "en": "Condors",
+          "es": "Cóndores",
+          "fr": "Condors",
+          "ja": "コンドル"
+        },
+        {
+          "en": "Llamas",
+          "es": "Llamas",
+          "fr": "Lamas",
+          "ja": "リャマ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The dancing zebra brigades have been a beloved civic-education programme since 2001.",
+        "es": "Las brigadas de cebras danzantes son un querido programa de educación ciudadana desde 2001.",
+        "fr": "Les brigades de zèbres dansants forment un programme d'éducation citoyenne très aimé depuis 2001.",
+        "ja": "踊るシマウマ隊は2001年から続く人気の市民教育プログラムです。"
+      }
+    },
+    {
+      "q": {
+        "en": "At the Alasitas festival, miniature goods are offered to which figure?",
+        "es": "En Alasitas, ¿a qué figura se ofrecen las miniaturas?",
+        "fr": "À la fête d'Alasitas, à quelle figure offre-t-on les miniatures ?",
+        "ja": "アラシータ祭でミニチュアを捧げる相手は?"
+      },
+      "o": [
+        {
+          "en": "Ekeko, god of abundance",
+          "es": "Ekeko, dios de la abundancia",
+          "fr": "Ekeko, dieu de l'abondance",
+          "ja": "豊穣の神エケコ"
+        },
+        {
+          "en": "El Tío",
+          "es": "El Tío",
+          "fr": "El Tío",
+          "ja": "エル・ティーオ"
+        },
+        {
+          "en": "The Condor of Illimani",
+          "es": "El Cóndor del Illimani",
+          "fr": "Le condor de l'Illimani",
+          "ja": "イリマニのコンドル"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Buy a miniature of what you wish for — a house, a car, a diploma — and Ekeko may grant the real thing within a year.",
+        "es": "Compra una miniatura de lo que deseas — casa, coche, título — y Ekeko puede concedértelo en un año.",
+        "fr": "Achète une miniature de ce que tu désires — maison, voiture, diplôme — et Ekeko pourra te l'accorder dans l'année.",
+        "ja": "欲しいもの(家・車・卒業証書)のミニチュアを買うと、1年以内に本物が手に入るとされます。"
+      }
+    },
+    {
+      "q": {
+        "en": "Mi Teleférico, linking La Paz and El Alto, is the world's longest…",
+        "es": "Mi Teleférico, entre La Paz y El Alto, es el más largo del mundo en…",
+        "fr": "Mi Teleférico, entre La Paz et El Alto, est le plus long du monde en tant que…",
+        "ja": "ラパスとエル・アルトを結ぶミ・テレフェリコは世界最長の何?"
+      },
+      "o": [
+        {
+          "en": "Urban cable-car network",
+          "es": "Red urbana de teleféricos",
+          "fr": "Réseau urbain de téléphériques",
+          "ja": "都市型ロープウェイ網"
+        },
+        {
+          "en": "Suspension bridge",
+          "es": "Puente colgante",
+          "fr": "Pont suspendu",
+          "ja": "吊り橋"
+        },
+        {
+          "en": "Mountain funicular",
+          "es": "Funicular de montaña",
+          "fr": "Funiculaire de montagne",
+          "ja": "山岳ケーブルカー"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Colour-coded lines glide over the canyon city with a view of snowy Illimani.",
+        "es": "Líneas de colores sobrevuelan la ciudad del cañón con vista al nevado Illimani.",
+        "fr": "Des lignes colorées survolent la ville-canyon avec vue sur l'Illimani enneigé.",
+        "ja": "色分けされた路線が峡谷の街の上を滑り、雪のイリマニを望みます。"
+      }
+    },
+    {
+      "q": {
+        "en": "El Alto's flamboyant cholet mansions were popularised by which architect?",
+        "es": "¿Qué arquitecto popularizó los cholets de El Alto?",
+        "fr": "Quel architecte a popularisé les cholets d'El Alto ?",
+        "ja": "エル・アルトの派手な「チョレット」を広めた建築家は?"
+      },
+      "o": [
+        {
+          "en": "Freddy Mamani",
+          "es": "Freddy Mamani",
+          "fr": "Freddy Mamani",
+          "ja": "フレディ・ママニ"
+        },
+        {
+          "en": "Oscar Niemeyer",
+          "es": "Oscar Niemeyer",
+          "fr": "Oscar Niemeyer",
+          "ja": "オスカー・ニーマイヤー"
+        },
+        {
+          "en": "Antoni Gaudí",
+          "es": "Antoni Gaudí",
+          "fr": "Antoni Gaudí",
+          "ja": "アントニ・ガウディ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "His New Andean architecture turns Aymara textile patterns into neon-bright ballroom façades.",
+        "es": "Su arquitectura Neoandina convierte los motivos textiles aymaras en fachadas de salón de fiestas.",
+        "fr": "Son architecture néo-andine transforme les motifs textiles aymaras en façades de salles de bal fluo.",
+        "ja": "彼の「新アンデス建築」はアイマラの織物文様をネオン色の大広間のファサードに変えました。"
+      }
+    },
+    {
+      "q": {
+        "en": "Pachamama is…",
+        "es": "La Pachamama es…",
+        "fr": "La Pachamama est…",
+        "ja": "パチャママとは?"
+      },
+      "o": [
+        {
+          "en": "Mother Earth, honoured with offerings",
+          "es": "La Madre Tierra, honrada con ofrendas",
+          "fr": "La Terre-Mère, honorée par des offrandes",
+          "ja": "供物を捧げて敬う大地の母"
+        },
+        {
+          "en": "A colonial governor",
+          "es": "Un gobernador colonial",
+          "fr": "Un gouverneur colonial",
+          "ja": "植民地総督"
+        },
+        {
+          "en": "A type of flute",
+          "es": "Un tipo de flauta",
+          "fr": "Une sorte de flûte",
+          "ja": "笛の一種"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Every August, Bolivians make ch'alla offerings — sprinkling drink on the ground — to thank the living Earth.",
+        "es": "Cada agosto se hacen ch'allas, rociando bebida en el suelo, para agradecer a la Tierra viva.",
+        "fr": "Chaque août, les Boliviens font des ch'allas — verser une boisson sur le sol — pour remercier la Terre vivante.",
+        "ja": "毎年8月、人々は飲み物を地面に注ぐ「チャラ」の儀礼で生きた大地に感謝します。"
+      }
+    },
+    {
+      "q": {
+        "en": "Quinoa, the Andean mother grain, grows best around…",
+        "es": "La quinua, grano madre andino, crece mejor en…",
+        "fr": "Le quinoa, grain-mère andin, pousse le mieux…",
+        "ja": "アンデスの「母なる穀物」キヌアがよく育つのは?"
+      },
+      "o": [
+        {
+          "en": "The southern altiplano near the salt flats",
+          "es": "El altiplano sur, cerca de los salares",
+          "fr": "Sur l'altiplano sud, près des salars",
+          "ja": "塩原に近い南部アルティプラーノ"
+        },
+        {
+          "en": "The Amazon lowlands",
+          "es": "Las tierras bajas amazónicas",
+          "fr": "Dans les basses terres amazoniennes",
+          "ja": "アマゾンの低地"
+        },
+        {
+          "en": "The Chaco scrublands",
+          "es": "Los matorrales del Chaco",
+          "fr": "Dans les broussailles du Chaco",
+          "ja": "チャコの灌木地帯"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Royal quinoa from around Uyuni fed Andean peoples for 5,000 years before becoming a global superfood.",
+        "es": "La quinua real de Uyuni alimentó a los pueblos andinos 5.000 años antes de ser un superalimento global.",
+        "fr": "Le quinoa royal d'Uyuni a nourri les peuples andins pendant 5 000 ans avant de devenir un superaliment mondial.",
+        "ja": "ウユニ周辺のロイヤルキヌアは5,000年にわたりアンデスの人々を養い、のち世界的スーパーフードになりました。"
+      }
+    },
+    {
+      "q": {
+        "en": "The old Yungas Road descending from La Paz is nicknamed…",
+        "es": "El viejo camino a los Yungas desde La Paz se apoda…",
+        "fr": "L'ancienne route des Yungas depuis La Paz est surnommée…",
+        "ja": "ラパスから下る旧ユンガス街道の異名は?"
+      },
+      "o": [
+        {
+          "en": "The Death Road",
+          "es": "El Camino de la Muerte",
+          "fr": "La Route de la Mort",
+          "ja": "死の道"
+        },
+        {
+          "en": "The Silver Stair",
+          "es": "La Escalera de Plata",
+          "fr": "L'Escalier d'argent",
+          "ja": "銀の階段"
+        },
+        {
+          "en": "The Condor Pass",
+          "es": "El Paso del Cóndor",
+          "fr": "Le Col du Condor",
+          "ja": "コンドル峠"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "A cliff-hugging track dropping 3,500 m into the jungle — once the world's deadliest road, now a cycling adventure.",
+        "es": "Una pista al borde del precipicio que baja 3.500 m hasta la selva; antes la más mortal, hoy ruta ciclista.",
+        "fr": "Une piste à flanc de falaise qui plonge de 3 500 m vers la jungle — jadis la route la plus meurtrière, aujourd'hui une descente à vélo.",
+        "ja": "崖沿いに3,500m下ってジャングルへ。かつて世界一危険な道でしたが、今は自転車の名所です。"
+      }
+    },
+    {
+      "q": {
+        "en": "How many official languages does Bolivia recognise?",
+        "es": "¿Cuántos idiomas oficiales reconoce Bolivia?",
+        "fr": "Combien de langues officielles la Bolivie reconnaît-elle ?",
+        "ja": "ボリビアの公用語はいくつ?"
+      },
+      "o": [
+        {
+          "en": "36",
+          "es": "36",
+          "fr": "36",
+          "ja": "36"
+        },
+        {
+          "en": "3",
+          "es": "3",
+          "fr": "3",
+          "ja": "3"
+        },
+        {
+          "en": "12",
+          "es": "12",
+          "fr": "12",
+          "ja": "12"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Spanish plus 35 Indigenous languages, including Aymara, Quechua and Guaraní.",
+        "es": "El castellano más 35 lenguas indígenas, entre ellas aymara, quechua y guaraní.",
+        "fr": "L'espagnol plus 35 langues indigènes, dont l'aymara, le quechua et le guarani.",
+        "ja": "スペイン語に加え、アイマラ語・ケチュア語・グアラニー語など35の先住民言語です。"
+      }
+    },
+    {
+      "q": {
+        "en": "The Jesuit Missions of Chiquitos are famous for preserving…",
+        "es": "Las Misiones Jesuíticas de Chiquitos destacan por conservar…",
+        "fr": "Les missions jésuites de Chiquitos sont célèbres pour avoir conservé…",
+        "ja": "チキトスのイエズス会伝道所が守り伝えたものは?"
+      },
+      "o": [
+        {
+          "en": "Baroque music played by Indigenous orchestras",
+          "es": "Música barroca tocada por orquestas indígenas",
+          "fr": "La musique baroque jouée par des orchestres indigènes",
+          "ja": "先住民の楽団が奏でるバロック音楽"
+        },
+        {
+          "en": "Gold mining tunnels",
+          "es": "Túneles de oro",
+          "fr": "Des galeries aurifères",
+          "ja": "金鉱の坑道"
+        },
+        {
+          "en": "Inca terraces",
+          "es": "Terrazas incas",
+          "fr": "Des terrasses incas",
+          "ja": "インカの段々畑"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Thousands of pages of scores survived in the villages; a festival brings them back to life every two years.",
+        "es": "Miles de páginas de partituras sobrevivieron en los pueblos; un festival las revive cada dos años.",
+        "fr": "Des milliers de pages de partitions ont survécu dans les villages ; un festival les ranime tous les deux ans.",
+        "ja": "村々に数千ページの楽譜が残り、2年ごとの音楽祭で蘇ります。"
+      }
+    },
+    {
+      "q": {
+        "en": "Madidi National Park is celebrated for its…",
+        "es": "El Parque Nacional Madidi es célebre por su…",
+        "fr": "Le parc national Madidi est célèbre pour…",
+        "ja": "マディディ国立公園が名高い理由は?"
+      },
+      "o": [
+        {
+          "en": "Extraordinary biodiversity",
+          "es": "Extraordinaria biodiversidad",
+          "fr": "Son extraordinaire biodiversité",
+          "ja": "並外れた生物多様性"
+        },
+        {
+          "en": "Salt deposits",
+          "es": "Depósitos de sal",
+          "fr": "Ses gisements de sel",
+          "ja": "塩の鉱床"
+        },
+        {
+          "en": "Colonial architecture",
+          "es": "Arquitectura colonial",
+          "fr": "Son architecture coloniale",
+          "ja": "植民地建築"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "It spans glaciers to rainforest and holds a significant share of all bird species on Earth.",
+        "es": "Va de glaciares a selva y alberga una parte enorme de las aves del mundo.",
+        "fr": "Il va des glaciers à la forêt tropicale et abrite une part considérable des oiseaux du monde.",
+        "ja": "氷河から熱帯雨林までを含み、世界の鳥類のかなりの割合が生息します。"
+      }
+    },
+    {
+      "q": {
+        "en": "Brazil nuts from Riberalta can only be harvested…",
+        "es": "La castaña de Riberalta sólo se puede cosechar…",
+        "fr": "Les noix du Brésil de Riberalta ne se récoltent que…",
+        "ja": "リベラルタのブラジルナッツはどこで採れる?"
+      },
+      "o": [
+        {
+          "en": "From wild rainforest trees",
+          "es": "De árboles silvestres de la selva",
+          "fr": "Sur des arbres sauvages de la forêt",
+          "ja": "野生の熱帯雨林の木から"
+        },
+        {
+          "en": "On irrigated plantations",
+          "es": "En plantaciones de riego",
+          "fr": "Dans des plantations irriguées",
+          "ja": "灌漑農園で"
+        },
+        {
+          "en": "In greenhouses",
+          "es": "En invernaderos",
+          "fr": "En serre",
+          "ja": "温室で"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The trees depend on wild orchid bees and a forest rodent, the agouti, to reproduce — so the trade protects standing forest.",
+        "es": "Los árboles dependen de abejas silvestres y del jochi para reproducirse, así que el negocio protege el bosque en pie.",
+        "fr": "Les arbres dépendent d'abeilles sauvages et d'un rongeur, l'agouti, pour se reproduire — le commerce protège donc la forêt debout.",
+        "ja": "受粉は野生のランバチ、種子散布は齧歯類アグーチに頼るため、この産業は森を守ることに直結します。"
+      }
+    },
+    {
+      "q": {
+        "en": "The charango, celebrated in Aiquile, is a…",
+        "es": "El charango, celebrado en Aiquile, es un…",
+        "fr": "Le charango, célébré à Aiquile, est…",
+        "ja": "アイキレで讃えられるチャランゴとは?"
+      },
+      "o": [
+        {
+          "en": "Small ten-string Andean lute",
+          "es": "Pequeño laúd andino de diez cuerdas",
+          "fr": "Un petit luth andin à dix cordes",
+          "ja": "10弦の小型アンデス・リュート"
+        },
+        {
+          "en": "Bamboo flute",
+          "es": "Flauta de bambú",
+          "fr": "Une flûte de bambou",
+          "ja": "竹笛"
+        },
+        {
+          "en": "Goatskin drum",
+          "es": "Tambor de piel de cabra",
+          "fr": "Un tambour en peau de chèvre",
+          "ja": "山羊皮の太鼓"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Andean musicians developed it from the Spanish vihuela; traditional bodies were made from an armadillo shell.",
+        "es": "Los músicos andinos lo crearon a partir de la vihuela española; los antiguos usaban caparazón de quirquincho.",
+        "fr": "Les musiciens andins l'ont tiré de la vihuela espagnole ; les caisses anciennes étaient en carapace de tatou.",
+        "ja": "スペインのビウエラからアンデスの楽師が生み出した楽器。伝統的な胴はアルマジロの甲羅でした。"
+      }
+    },
+    {
+      "q": {
+        "en": "Which famous outlaws met their end in southern Bolivia in 1908?",
+        "es": "¿Qué forajidos famosos murieron en el sur de Bolivia en 1908?",
+        "fr": "Quels célèbres hors-la-loi périrent dans le sud de la Bolivie en 1908 ?",
+        "ja": "1908年に南ボリビアで最期を迎えた無法者は?"
+      },
+      "o": [
+        {
+          "en": "Butch Cassidy and the Sundance Kid",
+          "es": "Butch Cassidy y Sundance Kid",
+          "fr": "Butch Cassidy et le Kid",
+          "ja": "ブッチ・キャシディとサンダンス・キッド"
+        },
+        {
+          "en": "Jesse James and his brother",
+          "es": "Jesse James y su hermano",
+          "fr": "Jesse James et son frère",
+          "ja": "ジェシー・ジェームズ兄弟"
+        },
+        {
+          "en": "Billy the Kid",
+          "es": "Billy the Kid",
+          "fr": "Billy the Kid",
+          "ja": "ビリー・ザ・キッド"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "After robbing a mine payroll near Tupiza, they were cornered by soldiers in the village of San Vicente.",
+        "es": "Tras robar una remesa minera cerca de Tupiza, fueron acorralados por soldados en San Vicente.",
+        "fr": "Après avoir volé la paie d'une mine près de Tupiza, ils furent encerclés par des soldats à San Vicente.",
+        "ja": "トゥピサ近郊で鉱山の給料を奪った後、サンビセンテ村で兵士に追い詰められました。"
+      }
+    },
+    {
+      "q": {
+        "en": "Bolivia's 1952 National Revolution brought which major change?",
+        "es": "¿Qué gran cambio trajo la Revolución Nacional de 1952?",
+        "fr": "Quel grand changement apporta la révolution nationale de 1952 ?",
+        "ja": "1952年のボリビア革命がもたらした大きな変化は?"
+      },
+      "o": [
+        {
+          "en": "Universal suffrage and land reform",
+          "es": "Sufragio universal y reforma agraria",
+          "fr": "Le suffrage universel et la réforme agraire",
+          "ja": "普通選挙と農地改革"
+        },
+        {
+          "en": "Adoption of the euro",
+          "es": "Adopción del euro",
+          "fr": "L'adoption de l'euro",
+          "ja": "ユーロ導入"
+        },
+        {
+          "en": "The end of the monarchy",
+          "es": "El fin de la monarquía",
+          "fr": "La fin de la monarchie",
+          "ja": "王政の廃止"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "It also nationalised the great tin mines — one of Latin America's most far-reaching social upheavals.",
+        "es": "También nacionalizó las grandes minas de estaño, uno de los mayores vuelcos sociales de América Latina.",
+        "fr": "Elle nationalisa aussi les grandes mines d'étain — l'un des bouleversements sociaux les plus profonds d'Amérique latine.",
+        "ja": "大錫鉱山の国有化も実施。ラテンアメリカ有数の徹底した社会変革でした。"
+      }
+    },
+    {
+      "q": {
+        "en": "Which animal is honoured as a symbol of the Bolivian Amazon's rivers?",
+        "es": "¿Qué animal simboliza los ríos de la Amazonía boliviana?",
+        "fr": "Quel animal symbolise les rivières de l'Amazonie bolivienne ?",
+        "ja": "ボリビア・アマゾンの川の象徴とされる動物は?"
+      },
+      "o": [
+        {
+          "en": "The pink river dolphin (bufeo)",
+          "es": "El bufeo, delfín rosado de río",
+          "fr": "Le dauphin rose (bufeo)",
+          "ja": "ピンクのカワイルカ(ブフェオ)"
+        },
+        {
+          "en": "The emperor penguin",
+          "es": "El pingüino emperador",
+          "fr": "Le manchot empereur",
+          "ja": "コウテイペンギン"
+        },
+        {
+          "en": "The polar bear",
+          "es": "El oso polar",
+          "fr": "L'ours polaire",
+          "ja": "ホッキョクグマ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Declared a national natural heritage species, the bufeo swims in the Beni and Mamoré rivers.",
+        "es": "Declarado patrimonio natural nacional, el bufeo nada en los ríos Beni y Mamoré.",
+        "fr": "Déclaré patrimoine naturel national, le bufeo nage dans le Beni et le Mamoré.",
+        "ja": "国の自然遺産に指定され、ベニ川やマモレ川を泳いでいます。"
+      }
+    },
+    {
+      "q": {
+        "en": "Bolivia's national bird, on its coat of arms, is the…",
+        "es": "El ave nacional de Bolivia, en su escudo, es…",
+        "fr": "L'oiseau national de la Bolivie, sur ses armoiries, est…",
+        "ja": "国章に描かれるボリビアの国鳥は?"
+      },
+      "o": [
+        {
+          "en": "Andean condor",
+          "es": "El cóndor andino",
+          "fr": "Le condor des Andes",
+          "ja": "アンデスコンドル"
+        },
+        {
+          "en": "Flamingo",
+          "es": "El flamenco",
+          "fr": "Le flamant rose",
+          "ja": "フラミンゴ"
+        },
+        {
+          "en": "Toucan",
+          "es": "El tucán",
+          "fr": "Le toucan",
+          "ja": "オオハシ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "With a wingspan over three metres, it soars on the thermals of the cordillera.",
+        "es": "Con más de tres metros de envergadura, planea en las térmicas de la cordillera.",
+        "fr": "Avec plus de trois mètres d'envergure, il plane sur les ascendances de la cordillère.",
+        "ja": "翼開長3mを超え、アンデス山脈の上昇気流に乗って舞います。"
+      }
+    },
+    {
+      "q": {
+        "en": "Nevado Sajama, Bolivia's highest peak, is ringed by…",
+        "es": "El Nevado Sajama, cumbre más alta, está rodeado de…",
+        "fr": "Le Nevado Sajama, plus haut sommet du pays, est entouré de…",
+        "ja": "最高峰サハマ山を取り巻くものは?"
+      },
+      "o": [
+        {
+          "en": "The world's highest woodland",
+          "es": "El bosque más alto del mundo",
+          "fr": "La plus haute forêt du monde",
+          "ja": "世界一高所の森"
+        },
+        {
+          "en": "A coral reef",
+          "es": "Un arrecife de coral",
+          "fr": "Un récif de corail",
+          "ja": "サンゴ礁"
+        },
+        {
+          "en": "An active lava lake",
+          "es": "Un lago de lava activo",
+          "fr": "Un lac de lave actif",
+          "ja": "溶岩湖"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Queñua trees grow above 5,000 m on its slopes, alongside geysers and hot springs.",
+        "es": "Los queñuales crecen por encima de los 5.000 m, junto a géiseres y aguas termales.",
+        "fr": "Les queñuas poussent au-dessus de 5 000 m sur ses pentes, près de geysers et de sources chaudes.",
+        "ja": "斜面には標高5,000mを超えて育つケニュアの林があり、間欠泉や温泉も湧きます。"
+      }
+    },
+    {
+      "q": {
+        "en": "The Yampara weavings of Tarabuco are known for…",
+        "es": "Los tejidos yampara de Tarabuco se conocen por…",
+        "fr": "Les tissages yampara de Tarabuco sont connus pour…",
+        "ja": "タラブコのヤンパラ織物の特徴は?"
+      },
+      "o": [
+        {
+          "en": "Recording local history in their patterns",
+          "es": "Registrar la historia local en sus motivos",
+          "fr": "Consigner l'histoire locale dans leurs motifs",
+          "ja": "文様に地域の歴史を記録する"
+        },
+        {
+          "en": "Being made of pure silk",
+          "es": "Ser de seda pura",
+          "fr": "Être en soie pure",
+          "ja": "純絹製である"
+        },
+        {
+          "en": "Using no dyes at all",
+          "es": "No usar ningún tinte",
+          "fr": "N'utiliser aucune teinture",
+          "ja": "染料を一切使わない"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Tarabuco's Pujllay festival commemorates an 1816 victory over Spanish forces.",
+        "es": "La fiesta del Pujllay conmemora una victoria de 1816 sobre las fuerzas españolas.",
+        "fr": "La fête du Pujllay commémore une victoire de 1816 sur les forces espagnoles.",
+        "ja": "プフジャイ祭は1816年のスペイン軍への勝利を記念する祭です。"
+      }
+    },
+    {
+      "q": {
+        "en": "El Tío is the figure whom Bolivian miners honour…",
+        "es": "El Tío es la figura que los mineros bolivianos honran…",
+        "fr": "El Tío est la figure que les mineurs boliviens honorent…",
+        "ja": "ボリビアの鉱夫がエル・ティーオを祀る場所は?"
+      },
+      "o": [
+        {
+          "en": "Underground, as lord of the mine",
+          "es": "Bajo tierra, como dueño de la mina",
+          "fr": "Sous terre, comme maître de la mine",
+          "ja": "地下で、鉱山の主として"
+        },
+        {
+          "en": "At sea, as a storm god",
+          "es": "En el mar, como dios de tormentas",
+          "fr": "En mer, comme dieu des tempêtes",
+          "ja": "海で、嵐の神として"
+        },
+        {
+          "en": "In schools, as a teacher spirit",
+          "es": "En las escuelas, como espíritu maestro",
+          "fr": "À l'école, comme esprit enseignant",
+          "ja": "学校で、教師の霊として"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Statues of El Tío sit in the tunnels of Cerro Rico, given coca, cigarettes and alcohol so he protects rather than punishes.",
+        "es": "Sus estatuas están en los túneles del Cerro Rico, con coca, cigarrillos y alcohol para que proteja en vez de castigar.",
+        "fr": "Ses statues siègent dans les galeries du Cerro Rico ; on lui offre coca, cigarettes et alcool pour qu'il protège au lieu de punir.",
+        "ja": "セロ・リコの坑道に像が置かれ、コカ・タバコ・酒を供えて加護を願います。"
+      }
+    },
+    {
+      "q": {
+        "en": "Bolivia's currency is the…",
+        "es": "La moneda de Bolivia es el…",
+        "fr": "La monnaie de la Bolivie est le…",
+        "ja": "ボリビアの通貨は?"
+      },
+      "o": [
+        {
+          "en": "Boliviano",
+          "es": "Boliviano",
+          "fr": "Boliviano",
+          "ja": "ボリビアーノ"
+        },
+        {
+          "en": "Peso andino",
+          "es": "Peso andino",
+          "fr": "Peso andino",
+          "ja": "アンデス・ペソ"
+        },
+        {
+          "en": "Sucre",
+          "es": "Sucre",
+          "fr": "Sucre",
+          "ja": "スクレ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Abbreviated Bs. It replaced the old peso boliviano in 1987 after a period of hyperinflation.",
+        "es": "Se abrevia Bs. Sustituyó al peso boliviano en 1987 tras una hiperinflación.",
+        "fr": "Abrégé Bs. Il a remplacé l'ancien peso bolivien en 1987 après une hyperinflation.",
+        "ja": "略号はBs。ハイパーインフレを経て1987年に旧ペソ・ボリビアーノから切り替えられました。"
+      }
+    },
+    {
+      "q": {
+        "en": "Which wetland, shared with Brazil and Paraguay, touches Bolivia's east?",
+        "es": "¿Qué humedal compartido con Brasil y Paraguay toca el este boliviano?",
+        "fr": "Quelle zone humide, partagée avec le Brésil et le Paraguay, borde l'est bolivien ?",
+        "ja": "ブラジル・パラグアイと共有するボリビア東部の湿地は?"
+      },
+      "o": [
+        {
+          "en": "The Pantanal",
+          "es": "El Pantanal",
+          "fr": "Le Pantanal",
+          "ja": "パンタナール"
+        },
+        {
+          "en": "The Everglades",
+          "es": "Los Everglades",
+          "fr": "Les Everglades",
+          "ja": "エバーグレーズ"
+        },
+        {
+          "en": "The Okavango",
+          "es": "El Okavango",
+          "fr": "L'Okavango",
+          "ja": "オカバンゴ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The world's largest tropical wetland, home to jaguars, caimans and the towering jabiru stork.",
+        "es": "El mayor humedal tropical del mundo, hogar de jaguares, caimanes y del enorme jabirú.",
+        "fr": "La plus vaste zone humide tropicale du monde, refuge des jaguars, caïmans et de l'immense jabiru.",
+        "ja": "世界最大の熱帯湿地。ジャガー、カイマン、巨大なズグロハゲコウが暮らします。"
+      }
+    }
+  ],
+  "items": {
+    "ekeko": {
+      "e": "🧿",
+      "price": 560,
+      "kind": "move",
+      "n": {
+        "en": "Ekeko Miniature",
+        "es": "Miniatura del Ekeko",
+        "fr": "Miniature d'Ekeko",
+        "ja": "エケコ人形"
+      },
+      "d": {
+        "en": "Travel straight to the destination city.",
+        "es": "Viaja directo a la ciudad de destino.",
+        "fr": "Va directement à la ville de destination.",
+        "ja": "目的地の町へ一気に移動。"
+      },
+      "f": {
+        "en": "Ekeko is the Aymara god of abundance. At the January Alasitas fair people buy tiny versions of what they hope for.",
+        "es": "Ekeko es el dios aymara de la abundancia. En Alasitas, en enero, se compran miniaturas de lo que se desea.",
+        "fr": "Ekeko est le dieu aymara de l'abondance. À la foire d'Alasitas en janvier, on achète des miniatures de ses espoirs.",
+        "ja": "エケコはアイマラの豊穣の神。1月のアラシータ市では願い事のミニチュアを買います。"
+      }
+    },
+    "pass": {
+      "e": "🚡",
+      "price": 400,
+      "kind": "pre",
+      "n": {
+        "en": "Teleférico Pass",
+        "es": "Pase del Teleférico",
+        "fr": "Pass du téléphérique",
+        "ja": "テレフェリコ・パス"
+      },
+      "d": {
+        "en": "Choose your own die number this turn.",
+        "es": "Elige tú mismo el número del dado.",
+        "fr": "Choisis toi-même le chiffre du dé.",
+        "ja": "出目を自分で選べる。"
+      },
+      "f": {
+        "en": "Mi Teleférico carries hundreds of thousands of people a day over the canyon between La Paz and El Alto.",
+        "es": "Mi Teleférico traslada a cientos de miles de personas al día sobre el cañón entre La Paz y El Alto.",
+        "fr": "Mi Teleférico transporte des centaines de milliers de personnes par jour au-dessus du canyon entre La Paz et El Alto.",
+        "ja": "ミ・テレフェリコはラパスとエル・アルトの峡谷上空を毎日数十万人運びます。"
+      }
+    },
+    "ferro": {
+      "e": "🚆",
+      "price": 360,
+      "kind": "pre",
+      "n": {
+        "en": "Ferrobús Ticket",
+        "es": "Billete del ferrobús",
+        "fr": "Billet de ferrobús",
+        "ja": "フェロブスの切符"
+      },
+      "d": {
+        "en": "Roll two dice and move the total.",
+        "es": "Tira dos dados y avanza la suma.",
+        "fr": "Lance deux dés et avance de leur somme.",
+        "ja": "サイコロ2個の合計だけ進む。"
+      },
+      "f": {
+        "en": "Ferrobús railcars still rumble down the altiplano line from Oruro to Villazón.",
+        "es": "Los ferrobuses aún recorren la línea altiplánica de Oruro a Villazón.",
+        "fr": "Les autorails ferrobús parcourent encore la ligne de l'altiplano d'Oruro à Villazón.",
+        "ja": "フェロブスは今もオルロからビジャソンへアルティプラーノ線を走ります。"
+      }
+    },
+    "coca": {
+      "e": "🍃",
+      "price": 320,
+      "kind": "passive",
+      "n": {
+        "en": "Coca Bundle",
+        "es": "Atado de coca",
+        "fr": "Botte de coca",
+        "ja": "コカの葉束"
+      },
+      "d": {
+        "en": "Automatically blocks the next misfortune.",
+        "es": "Bloquea la próxima desgracia.",
+        "fr": "Bloque le prochain malheur.",
+        "ja": "次の災難を1回自動で防ぐ。"
+      },
+      "f": {
+        "en": "Coca leaf has been chewed in the Andes for thousands of years against hunger, fatigue and altitude.",
+        "es": "La hoja de coca se masca en los Andes desde hace milenios contra el hambre, el cansancio y la altura.",
+        "fr": "La feuille de coca se mâche dans les Andes depuis des millénaires contre la faim, la fatigue et l'altitude.",
+        "ja": "コカの葉は数千年前からアンデスで飢え・疲れ・高山病に用いられてきました。"
+      }
+    },
+    "challa": {
+      "e": "🍶",
+      "price": 440,
+      "kind": "pre",
+      "n": {
+        "en": "Ch'alla Offering",
+        "es": "Ofrenda de ch'alla",
+        "fr": "Offrande de ch'alla",
+        "ja": "チャラの供物"
+      },
+      "d": {
+        "en": "Push the spirit onto another traveler.",
+        "es": "Pasa el espíritu a otro viajero.",
+        "fr": "Refile l'esprit à un autre voyageur.",
+        "ja": "厄災の神を他の旅人に押し付ける。"
+      },
+      "f": {
+        "en": "A ch'alla is an offering of drink poured onto the ground for Pachamama before anyone drinks.",
+        "es": "La ch'alla es una ofrenda de bebida derramada en la tierra para la Pachamama antes de beber.",
+        "fr": "La ch'alla est une offrande de boisson versée au sol pour la Pachamama avant que quiconque ne boive.",
+        "ja": "チャラは、飲む前に大地(パチャママ)へ酒を注ぐ供養の儀礼です。"
+      }
+    },
+    "pacha": {
+      "e": "🌎",
+      "price": 340,
+      "kind": "passive",
+      "n": {
+        "en": "Pachamama Blessing",
+        "es": "Bendición de la Pachamama",
+        "fr": "Bénédiction de la Pachamama",
+        "ja": "パチャママの祝福"
+      },
+      "d": {
+        "en": "Your next wrong quiz answer counts as correct.",
+        "es": "Tu próximo fallo cuenta como acierto.",
+        "fr": "Ta prochaine erreur compte comme juste.",
+        "ja": "次の不正解を正解にする。"
+      },
+      "f": {
+        "en": "Pachamama, Mother Earth, is honoured with offerings throughout August.",
+        "es": "A la Pachamama, Madre Tierra, se le ofrenda durante todo agosto.",
+        "fr": "La Pachamama, la Terre-Mère, reçoit des offrandes tout le mois d'août.",
+        "ja": "大地の母パチャママには8月を通じて供物が捧げられます。"
+      }
+    },
+    "zebra": {
+      "e": "🦓",
+      "price": 420,
+      "kind": "pre",
+      "n": {
+        "en": "Zebra Guide",
+        "es": "Guía cebra",
+        "fr": "Guide zèbre",
+        "ja": "シマウマガイド"
+      },
+      "d": {
+        "en": "Take an extra turn straight after this one.",
+        "es": "Juega otro turno inmediatamente.",
+        "fr": "Rejoue immédiatement après ce tour.",
+        "ja": "このターンの後にもう1回行動。"
+      },
+      "f": {
+        "en": "La Paz's zebra brigades of young volunteers have taught road safety since 2001.",
+        "es": "Las brigadas de cebras, jóvenes voluntarios, enseñan seguridad vial desde 2001.",
+        "fr": "Les brigades de zèbres de La Paz, jeunes bénévoles, enseignent la sécurité routière depuis 2001.",
+        "ja": "ラパスのシマウマ隊は2001年から交通安全を教える若者ボランティアです。"
+      }
+    },
+    "expreso": {
+      "e": "🚂",
+      "price": 640,
+      "kind": "pre",
+      "n": {
+        "en": "Expreso del Sur",
+        "es": "Expreso del Sur",
+        "fr": "Expreso del Sur",
+        "ja": "南部急行"
+      },
+      "d": {
+        "en": "Roll three dice and move the total.",
+        "es": "Tira tres dados y avanza la suma.",
+        "fr": "Lance trois dés et avance de leur somme.",
+        "ja": "サイコロ3個の合計だけ進む。"
+      },
+      "f": {
+        "en": "The Expreso del Sur still runs Oruro to Uyuni and Villazón, crossing the altiplano overnight at walking pace in places.",
+        "es": "El Expreso del Sur aún va de Oruro a Uyuni y Villazón, cruzando el altiplano de noche, a veces a paso de hombre.",
+        "fr": "L'Expreso del Sur relie encore Oruro à Uyuni et Villazón, traversant l'altiplano de nuit, parfois au pas.",
+        "ja": "エクスプレソ・デル・スールは今もオルロからウユニ、ビジャソンへ。夜のアルティプラーノを、時に歩くほどの速さで越えていく。"
+      }
+    },
+    "singani": {
+      "e": "🥂",
+      "price": 280,
+      "kind": "pre",
+      "n": {
+        "en": "Singani Toast",
+        "es": "Brindis de singani",
+        "fr": "Toast au singani",
+        "ja": "シンガニで乾杯"
+      },
+      "d": {
+        "en": "Gain 380 immediately.",
+        "es": "Gana 380 al instante.",
+        "fr": "Gagne 380 immédiatement.",
+        "ja": "即座に380を得る。"
+      },
+      "f": {
+        "en": "Singani, distilled from high-altitude Muscat grapes, is Bolivia's national spirit.",
+        "es": "El singani, destilado de uva moscatel de altura, es el licor nacional de Bolivia.",
+        "fr": "Le singani, distillé de muscat d'altitude, est l'eau-de-vie nationale de la Bolivie.",
+        "ja": "高地のマスカットから蒸留されるシンガニはボリビアの国民的蒸留酒です。"
+      }
+    }
+  },
+  "spirit": {
+    "e": "👹",
+    "n": {
+      "en": "El Tío",
+      "es": "El Tío",
+      "fr": "El Tío",
+      "ja": "エル・ティーオ"
+    },
+    "big": {
+      "en": "El Tío Rey",
+      "es": "El Tío Rey",
+      "fr": "El Tío Rey",
+      "ja": "エル・ティーオ・レイ"
+    },
+    "arrive": {
+      "en": "<b>👹 El Tío boards the rails!</b> In the tunnels of Potosí, miners honour El Tío — lord of the underworld — with cigarettes, coca and alcohol so that he protects rather than punishes. He now rides with <b>{0}</b>, the traveler farthest from the destination, and brings a disaster every turn.",
+      "es": "<b>👹 ¡El Tío sube al tren!</b> En los túneles de Potosí los mineros honran a El Tío — señor del subsuelo — con cigarrillos, coca y alcohol para que proteja en vez de castigar. Ahora viaja con <b>{0}</b>, el más lejano del destino, y trae un desastre cada turno.",
+      "fr": "<b>👹 El Tío monte à bord !</b> Dans les galeries de Potosí, les mineurs honorent El Tío — maître du sous-sol — de cigarettes, de coca et d'alcool pour qu'il protège au lieu de punir. Il voyage désormais avec <b>{0}</b>, le plus éloigné de la destination, et apporte un désastre à chaque tour.",
+      "ja": "<b>👹 エル・ティーオが乗り込んできた!</b> ポトシの坑道では、鉱夫たちが地下の主エル・ティーオにタバコ・コカ・酒を捧げ、罰ではなく加護を願います。目的地から最も遠い <b>{0}</b> に取り憑き、毎ターン災難をもたらします。"
+    },
+    "moves": {
+      "en": "👹 <b>El Tío</b> changes trains — he now rides with <b>{0}</b>, farthest from {1}.",
+      "es": "👹 <b>El Tío</b> cambia de tren — ahora viaja con <b>{0}</b>, el más lejos de {1}.",
+      "fr": "👹 <b>El Tío</b> change de train — il voyage maintenant avec <b>{0}</b>, le plus loin de {1}.",
+      "ja": "👹 <b>エル・ティーオ</b> が乗り換えた — {1} から最も遠い <b>{0}</b> に憑いた。"
+    },
+    "wake": {
+      "en": "<b>{0}</b> has carried El Tío for four turns without shaking him off. His horns grow, his lamp burns green, and from now on every disaster strikes twice as hard.",
+      "es": "<b>{0}</b> lleva cuatro turnos con El Tío encima. Sus cuernos crecen, su lámpara arde verde, y desde ahora cada desastre golpea el doble.",
+      "fr": "<b>{0}</b> porte El Tío depuis quatre tours sans s'en défaire. Ses cornes poussent, sa lampe brûle vert, et désormais chaque désastre frappe deux fois plus fort.",
+      "ja": "<b>{0}</b> は4ターン連続でエル・ティーオを振り払えなかった。角は伸び、ランプは緑に燃え、これ以降の災難は2倍の威力に。"
+    },
+    "wakeFact": {
+      "en": "<b>Behind the story:</b> Miners in Cerro Rico say El Tío owns everything below ground. Leave him coca, cigarettes and alcohol and he lets you work; forget him, and the mountain takes its due.",
+      "es": "<b>Detrás del relato:</b> Los mineros del Cerro Rico dicen que El Tío es dueño de todo lo subterráneo. Déjale coca, cigarrillos y alcohol y te deja trabajar; olvídalo y la montaña cobra lo suyo.",
+      "fr": "<b>Derrière le récit :</b> Les mineurs du Cerro Rico disent qu'El Tío possède tout ce qui est sous terre. Laissez-lui coca, cigarettes et alcool et il vous laisse travailler ; oubliez-le, et la montagne prend son dû.",
+      "ja": "<b>背景:</b> セロ・リコの鉱夫たちは、地下の一切はエル・ティーオのものだと言います。コカ・タバコ・酒を捧げれば働かせてくれ、忘れれば山が代償を取り立てます。"
+    },
+    "ward": "coca",
+    "wardBody": {
+      "en": "A fistful of green leaves lands at his feet. El Tío grunts, takes it, and lets <b>{0}</b> pass untouched this turn.",
+      "es": "Un puñado de hojas verdes cae a sus pies. El Tío gruñe, las toma y deja pasar a <b>{0}</b> sin tocarlo.",
+      "fr": "Une poignée de feuilles vertes tombe à ses pieds. El Tío grogne, les prend et laisse passer <b>{0}</b> sans y toucher.",
+      "ja": "緑の葉をひとつかみ差し出すと、エル・ティーオは唸りながら受け取り、今回は <b>{0}</b> を見逃した。"
+    },
+    "pleased": {
+      "en": "Something in the offerings satisfies him. A vein glitters where nobody had looked — <b>{0}</b> gains <span class='money'>+{1}</span>.",
+      "es": "Algo en las ofrendas le agrada. Una veta brilla donde nadie miró — <b>{0}</b> gana <span class='money'>+{1}</span>.",
+      "fr": "Quelque chose dans les offrandes lui plaît. Un filon brille là où nul n'avait regardé — <b>{0}</b> gagne <span class='money'>+{1}</span>.",
+      "ja": "供物が気に入ったらしい。誰も見ていなかった場所に鉱脈が光る — <b>{0}</b> は <span class='money'>+{1}</span> を得た。"
+    }
+  },
+  "doom": [
+    {
+      "id": "offering",
+      "n": {
+        "en": "El Tío demands his offering",
+        "es": "El Tío exige su ofrenda",
+        "fr": "El Tío exige son offrande",
+        "ja": "エル・ティーオが供物を要求"
+      },
+      "t": {
+        "en": "El Tío's stone hand closes over the ore cart. Nothing moves until cigarettes, coca and pure alcohol are laid at his feet.",
+        "es": "La mano de piedra de El Tío aprieta el carro de mineral. Nada se mueve hasta que le dejen cigarrillos, coca y alcohol puro.",
+        "fr": "La main de pierre d'El Tío se referme sur le wagonnet. Rien ne bouge tant qu'on ne dépose pas cigarettes, coca et alcool pur à ses pieds.",
+        "ja": "エル・ティーオの石の手が鉱車を押さえる。タバコ・コカ・純アルコールを足元に供えるまで、何ひとつ動かない。"
+      }
+    },
+    {
+      "id": "collapse",
+      "n": {
+        "en": "Cave-in in the tunnel",
+        "es": "Derrumbe en el túnel",
+        "fr": "Éboulement dans la galerie",
+        "ja": "坑道の落盤"
+      },
+      "t": {
+        "en": "Timbers crack somewhere above. The shaft fills with dust and the day's takings are buried with it.",
+        "es": "Cruje la madera arriba. El pozo se llena de polvo y la ganancia del día queda enterrada.",
+        "fr": "Les étais craquent quelque part au-dessus. Le puits s'emplit de poussière et la recette du jour est ensevelie.",
+        "ja": "頭上で坑木が裂ける。竪坑は粉塵で満たされ、その日の売上も一緒に埋まった。"
+      }
+    },
+    {
+      "id": "bloqueo",
+      "n": {
+        "en": "Bloqueo on the highway",
+        "es": "Bloqueo en la carretera",
+        "fr": "Blocage sur la route",
+        "ja": "幹線道路の封鎖"
+      },
+      "t": {
+        "en": "Boulders and burning tyres close the road. Nobody passes today — a very Bolivian kind of standstill.",
+        "es": "Piedras y neumáticos ardiendo cierran la ruta. Hoy no pasa nadie: un atasco muy boliviano.",
+        "fr": "Des rochers et des pneus en flammes ferment la route. Personne ne passe aujourd'hui — un blocage très bolivien.",
+        "ja": "岩と燃えるタイヤが道を塞ぐ。今日は誰も通れない。実にボリビアらしい足止めだ。"
+      }
+    },
+    {
+      "id": "landslide",
+      "n": {
+        "en": "Landslide takes a business",
+        "es": "Un derrumbe se lleva un negocio",
+        "fr": "Un glissement emporte une affaire",
+        "ja": "地滑りが物件を飲み込む"
+      },
+      "t": {
+        "en": "The hillside slides in the night and takes a whole enterprise down with it.",
+        "es": "La ladera se desliza en la noche y arrastra un negocio entero.",
+        "fr": "Le versant glisse dans la nuit et emporte toute une entreprise.",
+        "ja": "夜のうちに斜面が崩れ、事業ごと押し流していった。"
+      }
+    },
+    {
+      "id": "tranca",
+      "n": {
+        "en": "Toll at the tranca",
+        "es": "Peaje en la tranca",
+        "fr": "Péage à la tranca",
+        "ja": "検問所の通行料"
+      },
+      "t": {
+        "en": "A roadside checkpoint appears out of nowhere, and everyone else is holding the receipts.",
+        "es": "Aparece un control de carretera de la nada, y los demás son quienes tienen los recibos.",
+        "fr": "Un contrôle routier surgit de nulle part, et ce sont les autres qui tiennent les reçus.",
+        "ja": "どこからともなく検問所が現れる。領収書を握っているのは他の旅人たちだ。"
+      }
+    },
+    {
+      "id": "soroche",
+      "n": {
+        "en": "Soroche — altitude sickness",
+        "es": "Soroche — mal de altura",
+        "fr": "Soroche — le mal des montagnes",
+        "ja": "ソローチェ(高山病)"
+      },
+      "t": {
+        "en": "The air thins to nothing. Head splitting, the whole party is bundled onto the wrong train.",
+        "es": "El aire se acaba. Con la cabeza estallando, suben al tren equivocado.",
+        "fr": "L'air se raréfie. La tête en feu, toute la troupe est poussée dans le mauvais train.",
+        "ja": "空気が薄い。割れるような頭痛のまま、一行は間違った列車に押し込まれた。"
+      }
+    },
+    {
+      "id": "theft",
+      "n": {
+        "en": "El Tío picks a pocket",
+        "es": "El Tío mete la mano",
+        "fr": "El Tío fait les poches",
+        "ja": "エル・ティーオの盗み"
+      },
+      "t": {
+        "en": "Something reaches into the ch'uspa bag while nobody is looking.",
+        "es": "Algo hurga en la ch'uspa mientras nadie mira.",
+        "fr": "Quelque chose fouille la ch'uspa pendant que personne ne regarde.",
+        "ja": "誰も見ていない隙に、何かがチュスパ袋に手を伸ばした。"
+      }
+    }
+  ],
+  "seasons": [
+    {
+      "e": "🌾",
+      "n": {
+        "en": "End of the rains",
+        "es": "Fin de las lluvias",
+        "fr": "Fin des pluies",
+        "ja": "雨季の終わり"
+      },
+      "t": {
+        "en": "April dries the roads at last. Maize and potatoes come in across the valleys, and buses run on time for once.",
+        "es": "Abril seca por fin los caminos. Llegan el maíz y la papa de los valles y, por una vez, los buses son puntuales.",
+        "fr": "Avril sèche enfin les routes. Maïs et pommes de terre arrivent des vallées, et pour une fois les bus sont à l'heure.",
+        "ja": "4月、ようやく道が乾く。渓谷ではトウモロコシとジャガイモの収穫。バスも珍しく時間通りに走る。"
+      },
+      "f": {
+        "en": "Bolivia's seasons are reversed from the northern hemisphere: the rains fall from November to March.",
+        "es": "Las estaciones de Bolivia son inversas al hemisferio norte: llueve de noviembre a marzo.",
+        "fr": "Les saisons boliviennes sont inversées : il pleut de novembre à mars.",
+        "ja": "ボリビアの季節は北半球と逆。雨季は11月から3月です。"
+      }
+    },
+    {
+      "e": "❄",
+      "n": {
+        "en": "Dry season begins",
+        "es": "Empieza la época seca",
+        "fr": "Début de la saison sèche",
+        "ja": "乾季のはじまり"
+      },
+      "t": {
+        "en": "May opens the clearest skies of the year. Trucks reach places that were islands a month ago, and the mines run at full speed.",
+        "es": "Mayo abre los cielos más limpios del año. Los camiones llegan a lugares que hace un mes eran islas y las minas trabajan a pleno.",
+        "fr": "Mai ouvre les ciels les plus clairs de l'année. Les camions atteignent des lieux qui étaient des îles un mois plus tôt, et les mines tournent à plein.",
+        "ja": "5月は一年で最も澄んだ空。1ヶ月前は孤島だった土地にもトラックが届き、鉱山はフル稼働する。"
+      },
+      "f": {
+        "en": "The dry winter, May to September, is when most travel and mining happens in the highlands.",
+        "es": "El invierno seco, de mayo a septiembre, es la temporada de viajes y minería en las tierras altas.",
+        "fr": "L'hiver sec, de mai à septembre, est la saison des voyages et de l'extraction dans les hautes terres.",
+        "ja": "5〜9月の乾いた冬は、高地で旅と採掘が最も盛んな季節です。"
+      }
+    },
+    {
+      "e": "🌞",
+      "n": {
+        "en": "Aymara New Year at Tiwanaku",
+        "es": "Año Nuevo Aymara en Tiwanaku",
+        "fr": "Nouvel an aymara à Tiwanaku",
+        "ja": "ティワナクのアイマラ新年"
+      },
+      "t": {
+        "en": "On 21 June thousands wait through the freezing night at Tiwanaku to raise their palms to the first sunrise of the year 5,533.",
+        "es": "El 21 de junio miles esperan la noche helada en Tiwanaku para alzar las palmas al primer sol del año 5.533.",
+        "fr": "Le 21 juin, des milliers de gens attendent la nuit glaciale à Tiwanaku pour lever les paumes vers le premier soleil de l'an 5 533.",
+        "ja": "6月21日、凍える夜を越え、数千人がティワナクで新年5533年の最初の日の出に掌をかざす。"
+      },
+      "f": {
+        "en": "Willkakuti, the Aymara new year, falls on the southern winter solstice and is a public holiday in Bolivia.",
+        "es": "El Willkakuti, año nuevo aymara, cae en el solsticio de invierno austral y es feriado nacional.",
+        "fr": "Le Willkakuti, nouvel an aymara, tombe au solstice d'hiver austral et est férié en Bolivie.",
+        "ja": "アイマラの新年ウィルカクティは南半球の冬至にあたり、ボリビアの祝日です。"
+      }
+    },
+    {
+      "e": "🥶",
+      "n": {
+        "en": "Surazo — the cold wind",
+        "es": "Surazo — el viento frío",
+        "fr": "Surazo — le vent froid",
+        "ja": "スラソ(南風の寒波)"
+      },
+      "t": {
+        "en": "A wind born in Patagonia races up the continent and drops the lowlands twenty degrees overnight. Cattle huddle; fuel bills bite.",
+        "es": "Un viento nacido en la Patagonia sube el continente y baja veinte grados las tierras bajas en una noche. El ganado se apiña y el combustible cuesta.",
+        "fr": "Un vent né en Patagonie remonte le continent et fait chuter les basses terres de vingt degrés en une nuit. Le bétail se serre ; le carburant coûte cher.",
+        "ja": "パタゴニア生まれの風が大陸を駆け上がり、低地の気温を一晩で20度下げる。家畜は身を寄せ、燃料費がかさむ。"
+      },
+      "f": {
+        "en": "A surazo can push freezing air all the way into the Amazon, killing fish in the rivers.",
+        "es": "Un surazo puede llevar aire helado hasta la Amazonía y matar peces en los ríos.",
+        "fr": "Un surazo peut pousser l'air glacé jusqu'en Amazonie et tuer les poissons des rivières.",
+        "ja": "スラソはアマゾンまで冷気を運び、川の魚を大量死させることもあります。"
+      }
+    },
+    {
+      "e": "🌎",
+      "n": {
+        "en": "Month of the Pachamama",
+        "es": "Mes de la Pachamama",
+        "fr": "Mois de la Pachamama",
+        "ja": "パチャママの月"
+      },
+      "t": {
+        "en": "All August belongs to Mother Earth. Families burn offerings and pour the first drop of every drink onto the ground before touching it themselves.",
+        "es": "Todo agosto es de la Madre Tierra. Las familias queman ofrendas y derraman el primer trago en el suelo antes de beber.",
+        "fr": "Tout le mois d'août appartient à la Terre-Mère. Les familles brûlent des offrandes et versent la première gorgée au sol avant d'y toucher.",
+        "ja": "8月は丸ごと大地の母のもの。家々は供物を焚き、どんな飲み物も最初のひと注ぎを地面に捧げてから口にする。"
+      },
+      "f": {
+        "en": "The mesa offering — sweets, wool and llama fat burned for Pachamama — is prepared by a yatiri, an Aymara ritual specialist.",
+        "es": "La mesa de ofrenda, con dulces, lana y sebo de llama, la prepara un yatiri, especialista ritual aymara.",
+        "fr": "La mesa d'offrande — sucreries, laine et graisse de lama brûlées pour la Pachamama — est préparée par un yatiri, spécialiste rituel aymara.",
+        "ja": "供物「メサ」は菓子・羊毛・リャマの脂を焚くもので、アイマラの祭祀者ヤティリが用意します。"
+      }
+    },
+    {
+      "e": "🌱",
+      "n": {
+        "en": "Quinoa sowing",
+        "es": "Siembra de la quinua",
+        "fr": "Semis du quinoa",
+        "ja": "キヌアの種まき"
+      },
+      "t": {
+        "en": "September turns the southern altiplano. Families sow royal quinoa in the thin soil beside the salt flats, gambling on rain that may not come.",
+        "es": "Septiembre voltea el altiplano sur. Se siembra quinua real en el suelo delgado junto a los salares, apostando a una lluvia incierta.",
+        "fr": "Septembre retourne l'altiplano sud. On sème le quinoa royal dans le sol maigre près des salars, en pariant sur une pluie incertaine.",
+        "ja": "9月、南部アルティプラーノの土が返される。塩原のそばの痩せた土にロイヤルキヌアを蒔き、来るかわからぬ雨に賭ける。"
+      },
+      "f": {
+        "en": "Quinoa survives frost, salt and drought that would kill wheat — which is why it fed the Andes for 5,000 years.",
+        "es": "La quinua resiste heladas, sal y sequía que matarían al trigo; por eso alimentó a los Andes 5.000 años.",
+        "fr": "Le quinoa survit au gel, au sel et à la sécheresse qui tueraient le blé — d'où 5 000 ans de nourriture andine.",
+        "ja": "キヌアは小麦なら枯れる霜・塩・乾燥に耐えます。だからこそ5,000年間アンデスを養えました。"
+      }
+    },
+    {
+      "e": "🔥",
+      "n": {
+        "en": "Fire season in the Chiquitanía",
+        "es": "Temporada de fuegos en la Chiquitanía",
+        "fr": "Saison des feux en Chiquitanía",
+        "ja": "チキタニアの火入れ期"
+      },
+      "t": {
+        "en": "Smoke hazes the eastern sky as land is cleared before the rains. In bad years the fires escape into the dry forest and burn for weeks.",
+        "es": "El humo enturbia el cielo oriental mientras se desmonta antes de las lluvias. En años malos el fuego escapa al bosque seco y arde semanas.",
+        "fr": "La fumée voile le ciel oriental tandis qu'on défriche avant les pluies. Les mauvaises années, le feu gagne la forêt sèche et brûle des semaines.",
+        "ja": "雨季前の焼畑で東の空が煙る。悪い年には火が乾燥林に逃げ、何週間も燃え続ける。"
+      },
+      "f": {
+        "en": "The 2019 Chiquitanía fires burned millions of hectares of unique dry forest — a habitat found almost nowhere else.",
+        "es": "Los incendios de 2019 quemaron millones de hectáreas de bosque seco chiquitano, un hábitat casi único.",
+        "fr": "Les incendies de 2019 ont brûlé des millions d'hectares de forêt sèche chiquitano, un habitat presque unique au monde.",
+        "ja": "2019年のチキタニア大火では、他にほとんど例のない乾燥林が数百万ヘクタール焼失しました。"
+      }
+    },
+    {
+      "e": "🌧",
+      "n": {
+        "en": "The rains return",
+        "es": "Vuelven las lluvias",
+        "fr": "Le retour des pluies",
+        "ja": "雨季の再来"
+      },
+      "t": {
+        "en": "November clouds pile against the cordillera and burst. Within days the Beni turns from grassland into a shallow inland sea.",
+        "es": "Las nubes de noviembre chocan con la cordillera y revientan. En días el Beni pasa de pastizal a un mar interior poco profundo.",
+        "fr": "Les nuages de novembre s'écrasent sur la cordillère et crèvent. En quelques jours, le Beni passe de la prairie à une mer intérieure peu profonde.",
+        "ja": "11月、雲が山脈にぶつかって裂ける。数日でベニは草原から浅い内海へと姿を変える。"
+      },
+      "f": {
+        "en": "Beni cattle are driven onto the ancient raised earthworks built a thousand years ago — the only dry ground for miles.",
+        "es": "El ganado del Beni sube a los antiguos camellones de tierra, la única tierra seca en kilómetros.",
+        "fr": "Le bétail du Beni grimpe sur les anciens tertres bâtis il y a mille ans — la seule terre sèche à des kilomètres.",
+        "ja": "ベニの牛は千年前に築かれた盛土の上へ追われます。何キロ四方でそこだけが乾いた土地だからです。"
+      }
+    },
+    {
+      "e": "🎪",
+      "n": {
+        "en": "Year-end trade fair",
+        "es": "Feria de fin de año",
+        "fr": "Foire de fin d'année",
+        "ja": "年末の見本市"
+      },
+      "t": {
+        "en": "Santa Cruz fills with buyers. Soy, cattle and gas contracts are signed under canvas while the rest of the country shops for Christmas.",
+        "es": "Santa Cruz se llena de compradores. Se firman contratos de soya, ganado y gas bajo la lona mientras el país hace compras navideñas.",
+        "fr": "Santa Cruz s'emplit d'acheteurs. Contrats de soja, de bétail et de gaz se signent sous la toile pendant que le pays fait ses achats de Noël.",
+        "ja": "サンタクルスに買い手が集まる。テントの下で大豆・牛・ガスの契約が結ばれ、国中はクリスマス商戦に沸く。"
+      },
+      "f": {
+        "en": "Santa Cruz department produces most of Bolivia's food exports, and its Expocruz fair is the country's biggest.",
+        "es": "El departamento de Santa Cruz produce la mayoría de los alimentos de exportación y su Expocruz es la feria mayor del país.",
+        "fr": "Le département de Santa Cruz produit l'essentiel des exportations alimentaires, et son Expocruz est la plus grande foire du pays.",
+        "ja": "サンタクルス県はボリビアの食料輸出の大半を担い、エキスポクルスは国内最大の見本市です。"
+      }
+    },
+    {
+      "e": "🧿",
+      "n": {
+        "en": "Alasitas — the fair of miniatures",
+        "es": "Alasitas — la feria de las miniaturas",
+        "fr": "Alasitas — la foire des miniatures",
+        "ja": "アラシータ(ミニチュアの市)"
+      },
+      "t": {
+        "en": "On 24 January La Paz fills with tiny houses, tiny lorries, tiny diplomas and tiny bundles of banknotes, all blessed at noon.",
+        "es": "El 24 de enero La Paz se llena de casitas, camioncitos, diplomas y fajos de billetes en miniatura, bendecidos al mediodía.",
+        "fr": "Le 24 janvier, La Paz déborde de maisonnettes, de camionnettes, de diplômes et de liasses miniatures, bénis à midi.",
+        "ja": "1月24日、ラパスは小さな家・小さなトラック・小さな卒業証書・小さな札束で埋まり、正午に祝福される。"
+      },
+      "f": {
+        "en": "Ekeko, the little moustachioed god loaded with goods, must be given a lit cigarette to keep granting wishes.",
+        "es": "Al Ekeko, dios bigotudo cargado de mercancías, hay que darle un cigarrillo encendido para que siga concediendo deseos.",
+        "fr": "Il faut donner une cigarette allumée à Ekeko, petit dieu moustachu chargé de marchandises, pour qu'il continue d'exaucer les vœux.",
+        "ja": "荷物を背負った口ひげの神エケコには、火をつけたタバコを供えないと願いを叶えてくれません。"
+      }
+    },
+    {
+      "e": "😈",
+      "n": {
+        "en": "Carnaval de Oruro",
+        "es": "Carnaval de Oruro",
+        "fr": "Carnaval d'Oruro",
+        "ja": "オルロのカーニバル"
+      },
+      "t": {
+        "en": "Forty thousand dancers and ten thousand musicians pour down four kilometres of street for twenty hours without stopping. The devils lead.",
+        "es": "Cuarenta mil bailarines y diez mil músicos recorren cuatro kilómetros durante veinte horas sin parar. Los diablos van al frente.",
+        "fr": "Quarante mille danseurs et dix mille musiciens dévalent quatre kilomètres de rue pendant vingt heures sans arrêt. Les diables ouvrent la marche.",
+        "ja": "4万人の踊り手と1万人の楽士が4kmの道を20時間ノンストップで練り歩く。先頭は悪魔たちだ。"
+      },
+      "f": {
+        "en": "The Diablada ends with the devils kneeling before the Virgin of the Mineshaft — an Andean deity and a Catholic saint in one procession.",
+        "es": "La Diablada termina con los diablos de rodillas ante la Virgen del Socavón: una deidad andina y una santa católica en la misma procesión.",
+        "fr": "La Diablada s'achève avec les diables agenouillés devant la Vierge du Puits de mine — une divinité andine et une sainte catholique dans la même procession.",
+        "ja": "ディアブラーダは悪魔たちが坑道の聖母の前にひざまずいて終わります。アンデスの神とカトリックの聖女が同じ行列に並ぶのです。"
+      }
+    },
+    {
+      "e": "🌊",
+      "n": {
+        "en": "Día del Mar",
+        "es": "Día del Mar",
+        "fr": "Día del Mar",
+        "ja": "海の日"
+      },
+      "t": {
+        "en": "On 23 March the landlocked country turns to face a sea it has not touched since 1879. Cadets of the Bolivian navy parade in every city.",
+        "es": "El 23 de marzo el país sin costa mira hacia un mar que no toca desde 1879. Los cadetes de la armada desfilan en cada ciudad.",
+        "fr": "Le 23 mars, le pays sans littoral se tourne vers une mer qu'il ne touche plus depuis 1879. Les cadets de la marine bolivienne défilent dans chaque ville.",
+        "ja": "3月23日、海のない国が1879年以来触れていない海の方角を向く。ボリビア海軍の候補生が各都市を行進する。"
+      },
+      "f": {
+        "en": "Bolivia's navy patrols Lake Titicaca and the Amazon rivers, and the country still formally claims a corridor to the Pacific.",
+        "es": "La armada boliviana patrulla el Titicaca y los ríos amazónicos, y el país aún reclama formalmente una salida al Pacífico.",
+        "fr": "La marine bolivienne patrouille le Titicaca et les fleuves amazoniens, et le pays revendique toujours officiellement un couloir vers le Pacifique.",
+        "ja": "ボリビア海軍はチチカカ湖とアマゾンの河川を警備し、国は今も太平洋への回廊を公式に求めています。"
+      }
+    }
+  ],
+  "styles": {
+    "alt": {
+      "bpm": 100,
+      "lead": "flute",
+      "ch": [
+        {
+          "b": 110,
+          "n": [
+            220,
+            261.63,
+            329.63
+          ]
+        },
+        {
+          "b": 98,
+          "n": [
+            196,
+            246.94,
+            293.66
+          ]
+        },
+        {
+          "b": 87.31,
+          "n": [
+            174.61,
+            220,
+            261.63
+          ]
+        },
+        {
+          "b": 98,
+          "n": [
+            196,
+            246.94,
+            293.66
+          ]
+        },
+        {
+          "b": 110,
+          "n": [
+            220,
+            261.63,
+            329.63
+          ]
+        },
+        {
+          "b": 130.81,
+          "n": [
+            261.63,
+            329.63,
+            392
+          ]
+        },
+        {
+          "b": 98,
+          "n": [
+            196,
+            246.94,
+            293.66
+          ]
+        },
+        {
+          "b": 110,
+          "n": [
+            220,
+            261.63,
+            329.63
+          ]
+        }
+      ],
+      "mel": [
+        [
+          [
+            0,
+            440,
+            4
+          ],
+          [
+            4,
+            523.25,
+            4
+          ],
+          [
+            8,
+            659.25,
+            6
+          ],
+          [
+            14,
+            587.33,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            523.25,
+            4
+          ],
+          [
+            4,
+            587.33,
+            2
+          ],
+          [
+            6,
+            523.25,
+            2
+          ],
+          [
+            8,
+            392,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            523.25,
+            4
+          ],
+          [
+            4,
+            440,
+            4
+          ],
+          [
+            8,
+            523.25,
+            4
+          ],
+          [
+            12,
+            587.33,
+            4
+          ]
+        ],
+        [
+          [
+            0,
+            659.25,
+            6
+          ],
+          [
+            6,
+            587.33,
+            2
+          ],
+          [
+            8,
+            523.25,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            659.25,
+            2
+          ],
+          [
+            2,
+            783.99,
+            2
+          ],
+          [
+            4,
+            659.25,
+            4
+          ],
+          [
+            8,
+            587.33,
+            4
+          ],
+          [
+            12,
+            523.25,
+            4
+          ]
+        ],
+        [
+          [
+            0,
+            587.33,
+            4
+          ],
+          [
+            4,
+            659.25,
+            4
+          ],
+          [
+            8,
+            783.99,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            440,
+            4
+          ],
+          [
+            4,
+            523.25,
+            4
+          ],
+          [
+            8,
+            392,
+            6
+          ],
+          [
+            14,
+            440,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            523.25,
+            4
+          ],
+          [
+            4,
+            440,
+            4
+          ],
+          [
+            8,
+            220,
+            8
+          ]
+        ]
+      ],
+      "strum": [
+        0,
+        3,
+        4,
+        6,
+        8,
+        11,
+        12,
+        14
+      ],
+      "drum": [
+        [
+          0,
+          1
+        ],
+        [
+          6,
+          0.55
+        ],
+        [
+          8,
+          0.9
+        ],
+        [
+          11,
+          0.4
+        ],
+        [
+          14,
+          0.6
+        ]
+      ],
+      "shake": 0
+    },
+    "val": {
+      "bpm": 112,
+      "lead": "flute",
+      "ch": [
+        {
+          "b": 146.83,
+          "n": [
+            293.66,
+            369.99,
+            440
+          ]
+        },
+        {
+          "b": 110,
+          "n": [
+            220,
+            277.18,
+            329.63
+          ]
+        },
+        {
+          "b": 196,
+          "n": [
+            246.94,
+            293.66,
+            392
+          ]
+        },
+        {
+          "b": 146.83,
+          "n": [
+            293.66,
+            369.99,
+            440
+          ]
+        },
+        {
+          "b": 164.81,
+          "n": [
+            329.63,
+            415.3,
+            493.88
+          ]
+        },
+        {
+          "b": 110,
+          "n": [
+            220,
+            277.18,
+            329.63
+          ]
+        },
+        {
+          "b": 196,
+          "n": [
+            246.94,
+            293.66,
+            392
+          ]
+        },
+        {
+          "b": 146.83,
+          "n": [
+            293.66,
+            369.99,
+            440
+          ]
+        }
+      ],
+      "mel": [
+        [
+          [
+            0,
+            698.46,
+            3
+          ],
+          [
+            3,
+            659.25,
+            3
+          ],
+          [
+            6,
+            587.33,
+            4
+          ],
+          [
+            10,
+            440,
+            6
+          ]
+        ],
+        [
+          [
+            0,
+            523.25,
+            3
+          ],
+          [
+            3,
+            587.33,
+            3
+          ],
+          [
+            6,
+            659.25,
+            4
+          ],
+          [
+            10,
+            523.25,
+            6
+          ]
+        ],
+        [
+          [
+            0,
+            587.33,
+            3
+          ],
+          [
+            3,
+            783.99,
+            3
+          ],
+          [
+            6,
+            698.46,
+            4
+          ],
+          [
+            10,
+            587.33,
+            6
+          ]
+        ],
+        [
+          [
+            0,
+            440,
+            6
+          ],
+          [
+            6,
+            587.33,
+            4
+          ],
+          [
+            10,
+            698.46,
+            6
+          ]
+        ],
+        [
+          [
+            0,
+            783.99,
+            3
+          ],
+          [
+            3,
+            698.46,
+            3
+          ],
+          [
+            6,
+            659.25,
+            4
+          ],
+          [
+            10,
+            587.33,
+            6
+          ]
+        ],
+        [
+          [
+            0,
+            659.25,
+            3
+          ],
+          [
+            3,
+            523.25,
+            3
+          ],
+          [
+            6,
+            440,
+            4
+          ],
+          [
+            10,
+            659.25,
+            6
+          ]
+        ],
+        [
+          [
+            0,
+            587.33,
+            4
+          ],
+          [
+            4,
+            698.46,
+            4
+          ],
+          [
+            8,
+            783.99,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            698.46,
+            6
+          ],
+          [
+            6,
+            659.25,
+            4
+          ],
+          [
+            10,
+            587.33,
+            6
+          ]
+        ]
+      ],
+      "strum": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "drum": [
+        [
+          0,
+          0.85
+        ],
+        [
+          4,
+          0.35
+        ],
+        [
+          8,
+          0.7
+        ],
+        [
+          12,
+          0.35
+        ]
+      ],
+      "shake": 1
+    },
+    "ama": {
+      "bpm": 124,
+      "lead": "pluck",
+      "ch": [
+        {
+          "b": 130.81,
+          "n": [
+            261.63,
+            329.63,
+            392
+          ]
+        },
+        {
+          "b": 130.81,
+          "n": [
+            261.63,
+            329.63,
+            392
+          ]
+        },
+        {
+          "b": 174.61,
+          "n": [
+            349.23,
+            440,
+            523.25
+          ]
+        },
+        {
+          "b": 174.61,
+          "n": [
+            349.23,
+            440,
+            523.25
+          ]
+        },
+        {
+          "b": 196,
+          "n": [
+            392,
+            493.88,
+            587.33
+          ]
+        },
+        {
+          "b": 196,
+          "n": [
+            392,
+            493.88,
+            587.33
+          ]
+        },
+        {
+          "b": 130.81,
+          "n": [
+            261.63,
+            329.63,
+            392
+          ]
+        },
+        {
+          "b": 174.61,
+          "n": [
+            349.23,
+            440,
+            523.25
+          ]
+        }
+      ],
+      "mel": [
+        [
+          [
+            0,
+            783.99,
+            2
+          ],
+          [
+            2,
+            659.25,
+            2
+          ],
+          [
+            4,
+            523.25,
+            4
+          ],
+          [
+            8,
+            659.25,
+            2
+          ],
+          [
+            10,
+            783.99,
+            2
+          ],
+          [
+            12,
+            880,
+            4
+          ]
+        ],
+        [
+          [
+            0,
+            783.99,
+            2
+          ],
+          [
+            2,
+            659.25,
+            2
+          ],
+          [
+            4,
+            587.33,
+            4
+          ],
+          [
+            8,
+            523.25,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            880,
+            2
+          ],
+          [
+            2,
+            783.99,
+            2
+          ],
+          [
+            4,
+            698.46,
+            4
+          ],
+          [
+            8,
+            440,
+            4
+          ],
+          [
+            12,
+            523.25,
+            4
+          ]
+        ],
+        [
+          [
+            0,
+            698.46,
+            4
+          ],
+          [
+            4,
+            880,
+            4
+          ],
+          [
+            8,
+            783.99,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            987.77,
+            2
+          ],
+          [
+            2,
+            880,
+            2
+          ],
+          [
+            4,
+            783.99,
+            4
+          ],
+          [
+            8,
+            587.33,
+            4
+          ],
+          [
+            12,
+            493.88,
+            4
+          ]
+        ],
+        [
+          [
+            0,
+            1174.66,
+            4
+          ],
+          [
+            4,
+            987.77,
+            4
+          ],
+          [
+            8,
+            783.99,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            659.25,
+            2
+          ],
+          [
+            2,
+            783.99,
+            2
+          ],
+          [
+            4,
+            523.25,
+            4
+          ],
+          [
+            8,
+            392,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            698.46,
+            4
+          ],
+          [
+            4,
+            659.25,
+            4
+          ],
+          [
+            8,
+            523.25,
+            8
+          ]
+        ]
+      ],
+      "strum": [
+        0,
+        2,
+        3,
+        5,
+        6,
+        8,
+        10,
+        11,
+        13,
+        14
+      ],
+      "drum": [
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          0.4
+        ],
+        [
+          6,
+          0.6
+        ],
+        [
+          8,
+          0.9
+        ],
+        [
+          10,
+          0.4
+        ],
+        [
+          13,
+          0.5
+        ]
+      ],
+      "shake": 2
+    },
+    "cha": {
+      "bpm": 88,
+      "lead": "flute",
+      "ch": [
+        {
+          "b": 110,
+          "n": [
+            220,
+            261.63,
+            329.63
+          ]
+        },
+        {
+          "b": 110,
+          "n": [
+            220,
+            261.63,
+            329.63
+          ]
+        },
+        {
+          "b": 146.83,
+          "n": [
+            293.66,
+            349.23,
+            440
+          ]
+        },
+        {
+          "b": 164.81,
+          "n": [
+            329.63,
+            415.3,
+            493.88
+          ]
+        },
+        {
+          "b": 110,
+          "n": [
+            220,
+            261.63,
+            329.63
+          ]
+        },
+        {
+          "b": 98,
+          "n": [
+            196,
+            246.94,
+            293.66
+          ]
+        },
+        {
+          "b": 146.83,
+          "n": [
+            293.66,
+            349.23,
+            440
+          ]
+        },
+        {
+          "b": 110,
+          "n": [
+            220,
+            261.63,
+            329.63
+          ]
+        }
+      ],
+      "mel": [
+        [
+          [
+            0,
+            659.25,
+            6
+          ],
+          [
+            6,
+            587.33,
+            2
+          ],
+          [
+            8,
+            523.25,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            440,
+            8
+          ],
+          [
+            8,
+            523.25,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            587.33,
+            6
+          ],
+          [
+            6,
+            698.46,
+            2
+          ],
+          [
+            8,
+            659.25,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            783.99,
+            4
+          ],
+          [
+            4,
+            659.25,
+            4
+          ],
+          [
+            8,
+            587.33,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            523.25,
+            8
+          ],
+          [
+            8,
+            440,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            587.33,
+            4
+          ],
+          [
+            4,
+            523.25,
+            4
+          ],
+          [
+            8,
+            493.88,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            698.46,
+            6
+          ],
+          [
+            6,
+            659.25,
+            2
+          ],
+          [
+            8,
+            587.33,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            523.25,
+            8
+          ],
+          [
+            8,
+            440,
+            8
+          ]
+        ]
+      ],
+      "strum": [
+        0,
+        3,
+        6,
+        8,
+        11,
+        14
+      ],
+      "drum": [
+        [
+          0,
+          0.9
+        ],
+        [
+          6,
+          0.45
+        ],
+        [
+          8,
+          0.8
+        ],
+        [
+          14,
+          0.4
+        ]
+      ],
+      "shake": 0
+    }
+  },
+  "marks": {
+    "cathedral": "<path d=\"M3,24V13h18v11z\" fill=\"#f6efe2\"/><path d=\"M8,13a4,5 0 0,1 8,0z\" fill=\"#e2d8c4\"/><rect x=\"11.2\" y=\"1.5\" width=\"1.6\" height=\"5\" fill=\"#f5b31c\"/><rect x=\"9.6\" y=\"2.8\" width=\"4.8\" height=\"1.5\" fill=\"#f5b31c\"/><rect x=\"10\" y=\"18\" width=\"4\" height=\"6\" rx=\"2\" fill=\"#8e5a3c\"/><rect x=\"5\" y=\"16\" width=\"2.6\" height=\"3.4\" fill=\"#5b8fe8\"/><rect x=\"16.4\" y=\"16\" width=\"2.6\" height=\"3.4\" fill=\"#5b8fe8\"/>",
+    "gate": "<path d=\"M2,24V8h20v16h-5V13H7v11z\" fill=\"#9a9384\"/><rect x=\"2\" y=\"6\" width=\"20\" height=\"3\" fill=\"#7d766a\"/><rect x=\"10\" y=\"6.6\" width=\"4\" height=\"1.8\" fill=\"#514b41\"/><rect x=\"4\" y=\"11\" width=\"2\" height=\"2\" fill=\"#7d766a\"/><rect x=\"18\" y=\"11\" width=\"2\" height=\"2\" fill=\"#7d766a\"/>",
+    "cholet": "<path d=\"M3,7L12,2l9,5z\" fill=\"#5b8fe8\"/><rect x=\"3\" y=\"7\" width=\"18\" height=\"17\" fill=\"#e8447a\"/><rect x=\"3\" y=\"7\" width=\"18\" height=\"2.6\" fill=\"#f5b31c\"/><rect x=\"5\" y=\"12\" width=\"4.4\" height=\"4.4\" fill=\"#37b3a4\"/><rect x=\"14.6\" y=\"12\" width=\"4.4\" height=\"4.4\" fill=\"#37b3a4\"/><rect x=\"9\" y=\"19\" width=\"6\" height=\"5\" fill=\"#8a5cd6\"/>",
+    "cablecar": "<path d=\"M1,24L8,9l4,7l5,-9l6,17z\" fill=\"#6e5fa8\"/><path d=\"M6,10l2,-3l2.2,4z\" fill=\"#f6efe2\"/><path d=\"M15.4,8.6L17,5.4l2,4z\" fill=\"#f6efe2\"/><path d=\"M0,9L24,3\" stroke=\"#e2d8c4\" stroke-width=\"1.1\"/><path d=\"M13,12V9.6\" stroke=\"#e2d8c4\" stroke-width=\"1\"/><rect x=\"9.6\" y=\"11.6\" width=\"6.6\" height=\"6\" rx=\"1.6\" fill=\"#e8447a\"/><rect x=\"11\" y=\"13\" width=\"3.6\" height=\"2\" fill=\"#241a3f\"/>",
+    "bike": "<path d=\"M1,24c3,-7 8,-11 14,-13\" stroke=\"#8a6a48\" stroke-width=\"2.4\" fill=\"none\"/><circle cx=\"6\" cy=\"18.6\" r=\"4.4\" fill=\"none\" stroke=\"#241a3f\" stroke-width=\"1.7\"/><circle cx=\"18\" cy=\"18.6\" r=\"4.4\" fill=\"none\" stroke=\"#241a3f\" stroke-width=\"1.7\"/><path d=\"M6,18.6L11,10l7,8.6M11,10h4.4\" stroke=\"#e05252\" stroke-width=\"1.7\" fill=\"none\" stroke-linejoin=\"round\"/><path d=\"M10,9.4l3.4,-2.6\" stroke=\"#241a3f\" stroke-width=\"1.5\"/>",
+    "devil": "<path d=\"M12,3c6,0 9,5 8,11c-1,6 -4,10 -8,10c-4,0 -7,-4 -8,-10C3,8 6,3 12,3z\" fill=\"#e05252\"/><path d=\"M5.4,7.6C2.4,4.4 0,7.4 2,9.6C2.2,7.6 3.4,6.6 5.6,8.6z\" fill=\"#f5b31c\"/><path d=\"M18.6,7.6C21.6,4.4 24,7.4 22,9.6C21.8,7.6 20.6,6.6 18.4,8.6z\" fill=\"#f5b31c\"/><circle cx=\"8.4\" cy=\"12\" r=\"2.7\" fill=\"#f6efe2\"/><circle cx=\"15.6\" cy=\"12\" r=\"2.7\" fill=\"#f6efe2\"/><circle cx=\"8.4\" cy=\"12\" r=\"1.2\" fill=\"#241a3f\"/><circle cx=\"15.6\" cy=\"12\" r=\"1.2\" fill=\"#241a3f\"/><path d=\"M7.6,17.6c2,2 6.8,2 8.8,0c-1,3.4 -7.8,3.4 -8.8,0z\" fill=\"#f6efe2\"/>",
+    "snowpeak": "<path d=\"M1,24L12,2l11,22z\" fill=\"#8a7f9c\"/><path d=\"M7.2,13.6L12,2l4.8,11.6L14,11.6L12,8.6L10,11.6z\" fill=\"#f6efe2\"/><path d=\"M2,24c2,-3 5,-3 7,0z\" fill=\"#6f5f88\"/>",
+    "cristo": "<path d=\"M1,24L12,13l11,11z\" fill=\"#6f9e63\"/><rect x=\"9\" y=\"12\" width=\"6\" height=\"6\" fill=\"#cfc4b0\"/><rect x=\"10.8\" y=\"3.4\" width=\"2.6\" height=\"9\" fill=\"#f6efe2\"/><rect x=\"6.4\" y=\"6\" width=\"11.4\" height=\"2.1\" fill=\"#f6efe2\"/><circle cx=\"12.1\" cy=\"2.4\" r=\"1.9\" fill=\"#f6efe2\"/>",
+    "waterfall": "<path d=\"M0,24V7h8v17z\" fill=\"#2f6b3f\"/><path d=\"M16,24V7h8v17z\" fill=\"#2f6b3f\"/><rect x=\"8\" y=\"7\" width=\"8\" height=\"14\" fill=\"#7fd0ea\"/><rect x=\"9.4\" y=\"8\" width=\"1.6\" height=\"12\" fill=\"#f6efe2\" opacity=\".85\"/><rect x=\"13\" y=\"8\" width=\"1.2\" height=\"12\" fill=\"#f6efe2\" opacity=\".6\"/><ellipse cx=\"12\" cy=\"22\" rx=\"8.6\" ry=\"2.4\" fill=\"#5b8fe8\"/>",
+    "charango": "<ellipse cx=\"12\" cy=\"17\" rx=\"6.2\" ry=\"6.6\" fill=\"#b8763f\"/><rect x=\"10.6\" y=\"2.4\" width=\"2.8\" height=\"12\" fill=\"#8e5a3c\"/><rect x=\"9.4\" y=\"0.6\" width=\"5.2\" height=\"3\" rx=\"1\" fill=\"#6b452c\"/><circle cx=\"12\" cy=\"16\" r=\"2.1\" fill=\"#3a2718\"/><path d=\"M11,7v9M13,7v9\" stroke=\"#f6efe2\" stroke-width=\".5\"/>",
+    "tower": "<rect x=\"2\" y=\"9\" width=\"7\" height=\"15\" fill=\"#5a6f8f\"/><rect x=\"10\" y=\"4\" width=\"6\" height=\"20\" fill=\"#7a8fae\"/><g fill=\"#f5d38a\"><rect x=\"3.4\" y=\"11\" width=\"1.6\" height=\"2\"/><rect x=\"6\" y=\"11\" width=\"1.6\" height=\"2\"/><rect x=\"3.4\" y=\"15\" width=\"1.6\" height=\"2\"/><rect x=\"6\" y=\"15\" width=\"1.6\" height=\"2\"/><rect x=\"11.4\" y=\"7\" width=\"1.6\" height=\"2\"/><rect x=\"13.6\" y=\"7\" width=\"1.6\" height=\"2\"/><rect x=\"11.4\" y=\"11\" width=\"1.6\" height=\"2\"/><rect x=\"13.6\" y=\"11\" width=\"1.6\" height=\"2\"/></g><path d=\"M20,24V13\" stroke=\"#7a5230\" stroke-width=\"1.6\"/><path d=\"M20,13c-3,-1.6 -5,0 -6,2c2,-1.2 4,-1.2 6,-0.4zM20,13c3,-1.6 5,0 6,2c-2,-1.2 -4,-1.2 -6,-0.4zM20,13c-1,-3 0,-4.6 1.6,-5.6c-0.8,2 -1.2,3.6 -1,5.4z\" fill=\"#3f8046\"/>",
+    "rock": "<path d=\"M1,24c2,-9 8,-13 13,-13c6,0 9,6 9,13z\" fill=\"#c9895a\"/><path d=\"M5,18h14M6.4,21h13\" stroke=\"#a06a41\" stroke-width=\"1\"/><path d=\"M11,11l3,-3l3.4,3.4z\" fill=\"#b8763f\"/>",
+    "mission": "<path d=\"M2,24V11h20v13z\" fill=\"#e8dcc4\"/><path d=\"M0.6,11L12,4l11.4,7z\" fill=\"#b8513f\"/><rect x=\"9\" y=\"15\" width=\"6\" height=\"9\" rx=\"3\" fill=\"#8e5a3c\"/><rect x=\"4\" y=\"14\" width=\"3\" height=\"4\" fill=\"#5b8fe8\"/><rect x=\"17\" y=\"14\" width=\"3\" height=\"4\" fill=\"#5b8fe8\"/><rect x=\"11.4\" y=\"0.8\" width=\"1.3\" height=\"3.6\" fill=\"#8e5a3c\"/><rect x=\"10.4\" y=\"1.8\" width=\"3.3\" height=\"1.2\" fill=\"#8e5a3c\"/>",
+    "mission2": "<path d=\"M2,24V13h14v11z\" fill=\"#e8dcc4\"/><path d=\"M1,13L9,7l8,6z\" fill=\"#b8513f\"/><rect x=\"6\" y=\"17\" width=\"5\" height=\"7\" rx=\"2.5\" fill=\"#8e5a3c\"/><rect x=\"17\" y=\"6\" width=\"6\" height=\"18\" fill=\"#f0e6d2\"/><path d=\"M16.4,6L20,2.6L23.6,6z\" fill=\"#b8513f\"/><circle cx=\"20\" cy=\"11\" r=\"2\" fill=\"#f5b31c\"/>",
+    "stork": "<ellipse cx=\"12\" cy=\"14\" rx=\"8\" ry=\"5.6\" fill=\"#f6efe2\"/><path d=\"M8,11C4,7 3,3 5,1\" stroke=\"#241a3f\" stroke-width=\"2.6\" fill=\"none\"/><path d=\"M7.6,9.6C5.6,7 5,5 5.6,3.4\" stroke=\"#e05252\" stroke-width=\"2.6\" fill=\"none\"/><circle cx=\"5\" cy=\"1.6\" r=\"1.8\" fill=\"#241a3f\"/><path d=\"M3.6,1l-3.2,1.4l3.2,1.2z\" fill=\"#3a2718\"/><path d=\"M10,19v5M15,19v5\" stroke=\"#241a3f\" stroke-width=\"1.5\"/><path d=\"M18,12c2.6,-1 4.4,0.6 5,2c-2,-0.6 -3.6,-0.2 -5,1z\" fill=\"#e2d8c4\"/>",
+    "star": "<rect x=\"8\" y=\"14\" width=\"8\" height=\"10\" fill=\"#8e8272\"/><path d=\"M12,1.4l2.6,7h7.2l-5.8,4.4l2.2,7.2L12,15.6L5.8,20l2.2,-7.2L2.2,8.4h7.2z\" fill=\"#e05252\"/>",
+    "belltower": "<rect x=\"1\" y=\"14\" width=\"22\" height=\"10\" fill=\"#f6efe2\"/><rect x=\"0.4\" y=\"12\" width=\"23.2\" height=\"2.4\" fill=\"#b8513f\"/><rect x=\"8.4\" y=\"4\" width=\"7.2\" height=\"8.4\" fill=\"#f6efe2\"/><path d=\"M7.6,4L12,0.6L16.4,4z\" fill=\"#b8513f\"/><circle cx=\"12\" cy=\"8\" r=\"1.9\" fill=\"#f5b31c\"/><rect x=\"10.4\" y=\"18\" width=\"3.2\" height=\"6\" fill=\"#8e5a3c\"/><rect x=\"3.4\" y=\"17\" width=\"2.6\" height=\"3.4\" fill=\"#5b8fe8\"/><rect x=\"18\" y=\"17\" width=\"2.6\" height=\"3.4\" fill=\"#5b8fe8\"/>",
+    "textile": "<path d=\"M3,24v-9h18v9z\" fill=\"#e05252\"/><rect x=\"3\" y=\"17.4\" width=\"18\" height=\"1.8\" fill=\"#f5b31c\"/><rect x=\"3\" y=\"21\" width=\"18\" height=\"1.8\" fill=\"#241a3f\"/><path d=\"M5.6,13.4C5.6,7 18.4,7 18.4,13.4z\" fill=\"#241a3f\"/><rect x=\"3\" y=\"12.6\" width=\"18\" height=\"2.4\" rx=\"1.2\" fill=\"#241a3f\"/><rect x=\"9\" y=\"9\" width=\"6\" height=\"1.6\" fill=\"#f5b31c\"/>",
+    "cerro": "<path d=\"M1,24L12,2l11,22z\" fill=\"#a8624a\"/><path d=\"M5,17c4,-2 10,-2 14,0\" stroke=\"#8a4a35\" stroke-width=\"1.1\" fill=\"none\"/><path d=\"M7.6,12c3,-1.4 6,-1.4 8.8,0\" stroke=\"#8a4a35\" stroke-width=\"1\" fill=\"none\"/><path d=\"M9.4,24a2.6,3.4 0 0,1 5.2,0z\" fill=\"#2b1f18\"/><rect x=\"9.6\" y=\"21.4\" width=\"4.8\" height=\"1\" fill=\"#f5b31c\" opacity=\".8\"/>",
+    "salt": "<rect x=\"0\" y=\"15\" width=\"24\" height=\"9\" fill=\"#f6efe2\"/><g fill=\"none\" stroke=\"#d3cab4\" stroke-width=\".8\"><path d=\"M2,19l3,-1.6l3,1.6l-3,1.6z\"/><path d=\"M8,19l3,-1.6l3,1.6l-3,1.6z\"/><path d=\"M14,19l3,-1.6l3,1.6l-3,1.6z\"/><path d=\"M5,22.2l3,-1.6l3,1.6l-3,1.6z\"/><path d=\"M11,22.2l3,-1.6l3,1.6l-3,1.6z\"/></g><path d=\"M6,15L11,5l5,10z\" fill=\"#ffffff\"/><path d=\"M0,14.4h24\" stroke=\"#5b8fe8\" stroke-width=\"1.2\"/>",
+    "redrock": "<rect x=\"0\" y=\"21.6\" width=\"24\" height=\"2.4\" fill=\"#8a3a24\"/><path d=\"M2,22V12c0,-3.4 3.4,-3.4 3.4,0v10z\" fill=\"#c15a3f\"/><path d=\"M8,22V6c0,-4.4 4.4,-4.4 4.4,0v16z\" fill=\"#a8492f\"/><path d=\"M15,22V13c0,-3 3.2,-3 3.2,0v9z\" fill=\"#c15a3f\"/><path d=\"M20,22c0,-4 0,-5 0,-7\" stroke=\"#3f7a4a\" stroke-width=\"1.4\"/><path d=\"M20,17c-2,0 -2,-2 0,-2M20,19c2,0 2,-2 0,-2\" stroke=\"#3f7a4a\" stroke-width=\"1.4\" fill=\"none\"/>",
+    "arch": "<rect x=\"1.6\" y=\"8\" width=\"4.2\" height=\"16\" fill=\"#cfc4b0\"/><rect x=\"18.2\" y=\"8\" width=\"4.2\" height=\"16\" fill=\"#cfc4b0\"/><rect x=\"0.6\" y=\"4\" width=\"22.8\" height=\"4.2\" fill=\"#e8e0cf\"/><path d=\"M9,24l1.6,-9h2.8l1.6,9z\" fill=\"#8e5a3c\"/><g><rect x=\"7\" y=\"10\" width=\"4\" height=\"2.6\" fill=\"#e05252\"/><rect x=\"7\" y=\"12.6\" width=\"4\" height=\"1.3\" fill=\"#f5b31c\"/><rect x=\"13\" y=\"10\" width=\"4\" height=\"3.9\" fill=\"#7fc4e8\"/></g>",
+    "grape": "<rect x=\"17.4\" y=\"10\" width=\"4.4\" height=\"14\" rx=\"1\" fill=\"#3f6b3a\"/><rect x=\"18.8\" y=\"5\" width=\"1.6\" height=\"5.4\" fill=\"#3f6b3a\"/><rect x=\"17.4\" y=\"16\" width=\"4.4\" height=\"4\" fill=\"#f6efe2\"/><g fill=\"#7a4a9c\"><circle cx=\"8\" cy=\"12\" r=\"3\"/><circle cx=\"13\" cy=\"12.6\" r=\"3\"/><circle cx=\"5.6\" cy=\"16.6\" r=\"3\"/><circle cx=\"10.6\" cy=\"17\" r=\"3\"/><circle cx=\"8.2\" cy=\"21.2\" r=\"3\"/><circle cx=\"13.6\" cy=\"17.6\" r=\"2.6\"/></g><path d=\"M10,8.6C6,4.6 2,6 1,9c3,-1.6 6,-1 8.6,1.4z\" fill=\"#4f7a3a\"/>",
+    "monument": "<path d=\"M8.4,24V8L12,1.6L15.6,8v16z\" fill=\"#cfc4b0\"/><rect x=\"5\" y=\"20.6\" width=\"14\" height=\"3.4\" fill=\"#b8ac97\"/><rect x=\"10.6\" y=\"12\" width=\"2.8\" height=\"4\" fill=\"#8e8272\"/><path d=\"M2,24c1,-2 3,-3 4,-3M22,24c-1,-2 -3,-3 -4,-3\" stroke=\"#8a8a4a\" stroke-width=\"1.4\" fill=\"none\"/>",
+    "cow": "<ellipse cx=\"12\" cy=\"14\" rx=\"9\" ry=\"5.6\" fill=\"#f6efe2\"/><rect x=\"5.4\" y=\"18\" width=\"2.4\" height=\"6\" fill=\"#f6efe2\"/><rect x=\"10\" y=\"18\" width=\"2.4\" height=\"6\" fill=\"#f6efe2\"/><rect x=\"15\" y=\"18\" width=\"2.4\" height=\"6\" fill=\"#f6efe2\"/><circle cx=\"19.4\" cy=\"10\" r=\"4\" fill=\"#f6efe2\"/><path d=\"M16.6,6.4l-1.6,-3.4M22.2,6.4l1.6,-3.4\" stroke=\"#f6efe2\" stroke-width=\"1.7\"/><ellipse cx=\"9\" cy=\"13\" rx=\"4\" ry=\"2.8\" fill=\"#8e5a3c\" opacity=\".8\"/><circle cx=\"20.6\" cy=\"9.4\" r=\".8\" fill=\"#241a3f\"/>",
+    "nut": "<circle cx=\"12\" cy=\"15\" r=\"9\" fill=\"#6b4a2f\"/><path d=\"M12,6a9,9 0 0,1 0,18z\" fill=\"#8e6440\"/><g fill=\"#e8dcc4\"><path d=\"M8,10l3.4,1.4l-1.2,3.6l-3.4,-1.2z\"/><path d=\"M13.4,11.4l3.4,1.4l-1.2,3.6l-3.4,-1.2z\"/><path d=\"M9.4,17l3.4,1.4l-1.2,3.4l-3.4,-1.2z\"/></g><path d=\"M11,6c0,-3 2,-4 3,-5\" stroke=\"#4f3a24\" stroke-width=\"1.4\" fill=\"none\"/>",
+    "boat": "<ellipse cx=\"12\" cy=\"23\" rx=\"12\" ry=\"1.6\" fill=\"#5b8fe8\"/><path d=\"M1.6,19h20.8l-3,4h-14.8z\" fill=\"#8e5a3c\"/><rect x=\"5.6\" y=\"11\" width=\"12.8\" height=\"8\" fill=\"#f6efe2\"/><rect x=\"5.6\" y=\"8\" width=\"12.8\" height=\"3\" fill=\"#e05252\"/><g fill=\"#5b8fe8\"><rect x=\"7.4\" y=\"13\" width=\"2.6\" height=\"3\"/><rect x=\"11\" y=\"13\" width=\"2.6\" height=\"3\"/><rect x=\"14.6\" y=\"13\" width=\"2.6\" height=\"3\"/></g><rect x=\"11.2\" y=\"2\" width=\"1.6\" height=\"6\" fill=\"#8e5a3c\"/>",
+    "macaw": "<path d=\"M14,3c5,1.4 7,6.4 5,11.4c-2,5 -6,7.4 -9,6.4c3,-3 5,-9.4 4,-17.8z\" fill=\"#e05252\"/><path d=\"M13.6,7.4C9.6,7.4 6.6,10.4 6.6,13.6c0,3 2,5 4,5c-1,-3 0,-8 3,-11.2z\" fill=\"#f5b31c\"/><path d=\"M10,19.6c-3,2.4 -5,4.4 -7.6,4.4c3,-2.4 5,-4.4 7,-5.8z\" fill=\"#37b3a4\"/><circle cx=\"15.6\" cy=\"5.4\" r=\"2.8\" fill=\"#e05252\"/><circle cx=\"16.8\" cy=\"4.8\" r=\".8\" fill=\"#241a3f\"/><path d=\"M18,5.4l3.4,1.6l-3.4,1.8z\" fill=\"#f5b31c\"/>",
+    "violin": "<path d=\"M12,23c-3.2,0 -5.2,-2 -5.2,-4.6c0,-2 1.6,-3.2 1.6,-4.6c0,-1.6 -1.6,-2.6 -1.6,-4.6C6.8,6.6 8.8,4.4 12,4.4c3.2,0 5.2,2.2 5.2,4.8c0,2 -1.6,3 -1.6,4.6c0,1.4 1.6,2.6 1.6,4.6C17.2,21 15.2,23 12,23z\" fill=\"#a8623a\"/><rect x=\"11.2\" y=\"0.6\" width=\"1.6\" height=\"5\" fill=\"#6b452c\"/><rect x=\"10.2\" y=\"0\" width=\"3.6\" height=\"2\" rx=\".8\" fill=\"#4f3320\"/><circle cx=\"12\" cy=\"15\" r=\"1.5\" fill=\"#3a2718\"/><path d=\"M10.4,6v13M13.6,6v13\" stroke=\"#f6efe2\" stroke-width=\".4\"/>",
+    "rubber": "<rect x=\"10.4\" y=\"12\" width=\"3.2\" height=\"12\" fill=\"#7a5230\"/><circle cx=\"12\" cy=\"8\" r=\"7\" fill=\"#2f6b3f\"/><circle cx=\"5.6\" cy=\"11\" r=\"4.2\" fill=\"#3f8046\"/><circle cx=\"18.4\" cy=\"11\" r=\"4.2\" fill=\"#256035\"/><path d=\"M10.4,14l-3.4,3.4\" stroke=\"#e2d8c4\" stroke-width=\"1.2\"/><path d=\"M4.6,17h3.6v3h-3.6z\" fill=\"#e2d8c4\"/>"
+  },
+  "bg": {}
+}
