@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { CityId, NodeId, PropertyIndex, RegionId } from "../shared-kernel/ids";
+import { CityId, NodeId, RegionId } from "../shared-kernel/ids";
 import { Random } from "../shared-kernel/random";
 import { PathfindingService } from "../board/pathfinding-service";
 import { BoardGraph } from "../board/board-graph";

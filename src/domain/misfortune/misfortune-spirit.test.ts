@@ -52,7 +52,7 @@ describe("MisfortuneSpirit state machine", () => {
   });
 
   it("restingがtrueの間は1回だけ発動が見送られる", () => {
-    let state = setResting(attachToFarthestPlayer(INITIAL_MISFORTUNE_STATE, PlayerId("p1")));
+    const state = setResting(attachToFarthestPlayer(INITIAL_MISFORTUNE_STATE, PlayerId("p1")));
     const first = consumeRestIfAny(state);
     expect(first.wasResting).toBe(true);
     expect(first.state.resting).toBe(false);
