@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Grand Express — A Rail Fortune Game
 
-## Getting Started
+「桃太郎電鉄」風のボードゲーム。サイコロを振って路線を進み、町で物件を買い、
+クイズに答え、目的地への一番乗りを競う。ボリビア/日本の2ヶ国パック、
+英語・スペイン語・フランス語・日本語の4言語対応。
 
-First, run the development server:
+元は単一HTMLファイル(`legacy/grand-express.html`)だったものを、
+**Clean Architecture + DDD + TDD** に基づいて Next.js アプリへ移行したもの。
+設計の背景・移行経緯は [docs/](./docs/README.md) を参照。
+
+## セットアップ
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) を開く。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 主なコマンド
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| コマンド | 内容 |
+|---|---|
+| `npm run dev` | 開発サーバー起動 |
+| `npm run build` | 本番ビルド |
+| `npm run test` | ユニット/コンポーネントテスト(Vitest) |
+| `npm run test:coverage` | カバレッジ計測 |
+| `npm run test:e2e` | E2Eテスト(Playwright。初回は `npx playwright install chromium` が必要) |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | 型チェック |
+| `npm run depcruise` | レイヤー依存ルールの検査(Clean Architectureの依存方向を強制) |
+| `npm run ci` | 上記を一括実行(CIと同じゲート) |
+| `node scripts/extract-legacy-content.mjs` | `legacy/grand-express.html` からコンテンツ/翻訳文言を再抽出 |
 
-## Learn More
+## アーキテクチャ概要
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  domain/           ドメイン層(依存ゼロ、ゲームルール本体)
+  application/      アプリケーション層(ユースケース、ポート定義)
+  infrastructure/   インフラ層(localStorage・コンテンツJSON読込・音声・乱数)
+  presentation/      プレゼンテーション層(状態管理・Reactコンポーネント)
+app/                Next.js App Router(ルーティングのみ)
+docs/               設計資料・ADR・テスト戦略・移行WBS
+legacy/             移行元の単一HTML版(挙動仕様の一次情報として保持)
+e2e/                Playwright E2Eテスト
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+詳細は [docs/10-architecture/](./docs/10-architecture/) を参照。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 現状(as-built)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Domain / Application / Infrastructure 層はコンテンツデータ(ボリビア・日本
+  両国の都市30・アイテム9・クイズ・季節・厄災)を含めて実装・テスト済み
+  (191件のユニット/コンポーネントテスト + 7件のE2Eテストがグリーン)。
+- Presentation層は実際にプレイ可能(セットアップ→サイコロ→移動→クイズ/
+  町での売買/青赤・カードマス→目的地到着→ゲーム終了まで一通り動作)。
+- 演出・音楽の作り込み(元のプロシージャル音楽エンジン相当の再現)は
+  意図的に簡略化しており、今後の作り込み対象(詳細は
+  [docs/90-migration/02-wbs.md](./docs/90-migration/02-wbs.md) のPhase8参照)。
+- 本番デプロイは未実施(ホスティング先の選定はプロジェクトオーナーの判断のため)。
