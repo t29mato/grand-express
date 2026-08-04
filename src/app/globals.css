@@ -255,6 +255,10 @@ main {
   animation: pulse 1s infinite;
 }
 
+.token {
+  transition: cx 0.35s ease, cy 0.35s ease;
+}
+
 @keyframes pulse {
   0%,
   100% {

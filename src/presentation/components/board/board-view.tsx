@@ -103,6 +103,7 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
           return tokens.map((token, i) => (
             <circle
               key={token.name}
+              className="token"
               cx={pos.x + (i - (tokens.length - 1) / 2) * 10}
               cy={pos.y}
               r={5}
