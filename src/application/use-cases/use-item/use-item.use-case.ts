@@ -22,7 +22,7 @@ export interface UseItemOutcome {
 }
 
 /** アイテムを使用する(現行コードの `humanAction` 内の `itemHandler`)。 */
-export function useItem(
+export function applyItemUse(
   context: GameEngineContext,
   session: GameSession,
   playerId: PlayerId,
