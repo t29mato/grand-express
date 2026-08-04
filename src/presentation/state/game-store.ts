@@ -235,7 +235,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       if (!saved) return;
       const content = contentRepository.load(saved.countryId);
       const context = createGameEngineContext(content);
-      set({ context, session: saved, ui: { kind: "idle" }, log: [{ id: nextLogId++, text: "Journey restored.", tone: "gold" }] });
+      set({ context, session: saved, ui: { kind: "idle" }, log: [{ id: nextLogId++, text: "Journey restored from your last save.", tone: "gold" }] });
       runCpuLoopIfNeeded();
     },
 
@@ -378,7 +378,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const { session } = get();
       if (!session) return;
       saveGame(gameRepository, session);
-      set((s) => ({ log: pushLog(s, "Saved.", "gold") }));
+      set((s) => ({ log: pushLog(s, "Journey saved.", "gold") }));
     },
   };
 });
