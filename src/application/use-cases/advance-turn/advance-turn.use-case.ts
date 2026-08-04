@@ -1,6 +1,7 @@
-import { ItemKey, RegionId } from "../../../domain/shared-kernel/ids";
+import { RegionId } from "../../../domain/shared-kernel/ids";
 import { Random } from "../../../domain/shared-kernel/random";
-import { addItem, canAddItem, Player, receiveCash } from "../../../domain/player/player";
+import { receiveCash } from "../../../domain/player/player";
+import { giveRandomItem } from "../../../domain/item/give-random-item";
 import {
   GameSession,
   advanceTurn as advanceTurnIndex,
@@ -29,12 +30,6 @@ export interface AdvanceTurnResult {
   readonly quarterlyIncome: readonly QuarterlyIncomePaid[];
 }
 
-function giveRandomItem(player: Player, allItemKeys: readonly ItemKey[], random: Random): Player | null {
-  if (!canAddItem(player) || allItemKeys.length === 0) return null;
-  const key = allItemKeys[random.nextInt(allItemKeys.length)];
-  return addItem(player, key);
-}
-
 /**
  * 手番を次のプレイヤーへ進める。月が変わった場合は季節イベントの適用・
  * 四半期収入の支払い・ゲーム終了判定まで行う(現行コードの `gameLoop` の
@@ -58,7 +53,7 @@ export function advanceTurn(
   const season = context.content.seasons[seasonIndex(advanced)];
   const allItemKeys = context.content.items.map((i) => i.key);
   const seasonResult = applySeasonEffects(advanced.players, season.effects, (player) =>
-    giveRandomItem(player, allItemKeys, random) ?? player,
+    giveRandomItem(player, allItemKeys, random).player,
   );
 
   let current = { ...advanced, players: seasonResult.players };

@@ -3,7 +3,8 @@ import { Money } from "../../../domain/shared-kernel/money";
 import { Random } from "../../../domain/shared-kernel/random";
 import { QUIZ_TIER_REWARDS, QuizQuestion, QuizTier } from "../../../domain/quiz/quiz-question";
 import { gradeAnswer } from "../../../domain/quiz/quiz-grading-service";
-import { addItem, canAddItem, payUpTo, receiveCash, removeItemAt } from "../../../domain/player/player";
+import { payUpTo, receiveCash, removeItemAt } from "../../../domain/player/player";
+import { giveRandomItem } from "../../../domain/item/give-random-item";
 import { GameSession, replacePlayer } from "../../../domain/game-session/game-session";
 import { GameEngineContext } from "../../game-engine-context";
 
@@ -66,10 +67,11 @@ export function answerQuiz(
   let bonusItem: ItemKey | null = null;
   if (correct && !savedByCharm) {
     const chance = player.isCpu ? BONUS_ITEM_CHANCE.cpu : BONUS_ITEM_CHANCE.human;
-    if (random.nextFloat() < chance && canAddItem(currentPlayer)) {
+    if (random.nextFloat() < chance) {
       const allKeys = context.content.items.map((i) => i.key);
-      bonusItem = allKeys[random.nextInt(allKeys.length)];
-      currentPlayer = addItem(currentPlayer, bonusItem);
+      const given = giveRandomItem(currentPlayer, allKeys, random);
+      currentPlayer = given.player;
+      bonusItem = given.itemKey;
     }
   }
 
