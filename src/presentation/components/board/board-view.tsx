@@ -96,7 +96,10 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
           );
         })}
       </g>
-      <g className="tokens">
+      {/* 駒は純粋な表示用マーカー。手前に描画されるため、下のマスへのクリックを
+          妨げないよう pointer-events を無効化する(他プレイヤーが乗っているマスへも
+          移動できる必要があるため)。 */}
+      <g className="tokens" style={{ pointerEvents: "none" }}>
         {[...tokensByNode.entries()].map(([nodeId, tokens]) => {
           const pos = positions.get(nodeId as NodeId);
           if (!pos) return null;
