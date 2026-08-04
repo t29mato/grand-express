@@ -1,0 +1,32 @@
+/**
+ * legacy/grand-express.html の `itemHandler` は、アイテムキー文字列を直接
+ * if/elseで分岐して効果を実行していた。ここでキーごとの効果をデータとして
+ * 書き起こす(ADR-0007と同じ理由: ロジックをコードからデータへ)。
+ *
+ * 対応関係は legacy/grand-express.html の `humanAction`/`cpuItems` を
+ * 読んで書き起こしたもの。両国ともキーは異なるが効果の種類は共通。
+ */
+import { ItemEffect } from "../../domain/item/item";
+
+export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
+  // Bolivia
+  ekeko: { type: "teleport-to-destination" },
+  pass: { type: "choose-exact-dice" },
+  ferro: { type: "roll-fixed-dice", diceCount: 2 },
+  coca: { type: "none" }, // ward item(passive)。発動抑止は別ロジックで自動処理。
+  challa: { type: "repel-spirit" },
+  pacha: { type: "none" }, // legacyでも純粋に雰囲気アイテム(効果なし)
+  zebra: { type: "extra-turn" },
+  expreso: { type: "roll-fixed-dice", diceCount: 3 },
+  singani: { type: "gain-cash", amount: 380 },
+  // Japan
+  hikouki: { type: "teleport-to-destination" },
+  taxi: { type: "choose-exact-dice" },
+  shinkansen: { type: "roll-fixed-dice", diceCount: 2 },
+  omamori: { type: "none" }, // ward item(passive)
+  morishio: { type: "repel-spirit" },
+  daruma: { type: "none" },
+  nozomi: { type: "roll-fixed-dice", diceCount: 3 },
+  manekineko: { type: "gain-cash", amount: 380 },
+  tasuki: { type: "extra-turn" },
+};
