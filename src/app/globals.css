@@ -242,6 +242,26 @@ main {
   display: block;
 }
 
+.cam-toggle {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #1b1330d9;
+  color: var(--salt);
+  font-size: 1.1rem;
+  display: grid;
+  place-items: center;
+}
+
+.cam-toggle[aria-pressed="true"] {
+  background: var(--gold);
+  color: var(--night2);
+}
+
 .city-label {
   font-size: 13px;
   fill: var(--salt);

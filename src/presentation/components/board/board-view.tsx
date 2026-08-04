@@ -1,11 +1,12 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { NodeId } from "../../../domain/shared-kernel/ids";
 import { isCityNode } from "../../../domain/board/node";
-import { GameSession } from "../../../domain/game-session/game-session";
+import { GameSession, currentPlayer } from "../../../domain/game-session/game-session";
 import { GameEngineContext } from "../../../application/game-engine-context";
 import { useBoardLayout } from "../../hooks/use-board-layout";
+import { useCamera } from "../../hooks/use-camera";
 import { useLocale } from "../../i18n/locale-context";
 
 const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
@@ -17,6 +18,9 @@ const NODE_COLORS: Record<string, string> = {
   card: "#f5d31c",
 };
 
+/** 追尾時の視野幅(現行コードの `FOLLOW_W`)。 */
+const FOLLOW_WIDTH = 520;
+
 export interface BoardViewProps {
   context: GameEngineContext;
   session: GameSession;
@@ -26,8 +30,23 @@ export interface BoardViewProps {
 
 export function BoardView({ context, session, reachable, onChooseNode }: BoardViewProps) {
   const positions = useBoardLayout(context);
-  const { tx } = useLocale();
+  const { tx, t } = useLocale();
   const { boardWidth, boardHeight } = context.content.projection;
+  const { viewBox, animateTo } = useCamera({ boardWidth, boardHeight });
+  const [overview, setOverview] = useState(false);
+
+  const activeLocation = currentPlayer(session).location;
+
+  // 手番のプレイヤーを追尾する(現行コードの `focusNode`)。全体表示モードなら盤面全体を映す。
+  useEffect(() => {
+    if (overview) {
+      animateTo(boardWidth / 2, boardHeight / 2, boardWidth + 60);
+      return;
+    }
+    const pos = positions.get(activeLocation);
+    if (pos) animateTo(pos.x, pos.y, FOLLOW_WIDTH);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeLocation, overview, boardWidth, boardHeight, positions]);
 
   const edges = useMemo(() => {
     const lines: { x1: number; y1: number; x2: number; y2: number }[] = [];
@@ -55,68 +74,74 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
   }, [session.players]);
 
   return (
-    <svg
-      viewBox={`0 0 ${boardWidth} ${boardHeight}`}
-      className="board-svg"
-      role="img"
-      aria-label="Game board"
-    >
-      <g className="edges">
-        {edges.map((line, i) => (
-          <line key={i} x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2} stroke="#4a3b7d" strokeWidth={3} />
-        ))}
-      </g>
-      <g className="nodes">
-        {[...context.graph.nodes].map(([id, node]) => {
-          const pos = positions.get(id);
-          if (!pos) return null;
-          const isDestination = isCityNode(node) && node.cityId === session.destination;
-          const isChoosable = reachable?.has(id) ?? false;
-          const radius = isCityNode(node) ? 14 : 7;
-          return (
-            <g
-              key={id}
-              transform={`translate(${pos.x}, ${pos.y})`}
-              onClick={isChoosable ? () => onChooseNode?.(id) : undefined}
-              style={{ cursor: isChoosable ? "pointer" : "default" }}
-            >
-              {isChoosable && <circle r={radius + 8} className="halo" fill="#f5b31c" opacity={0.6} />}
+    <div style={{ position: "relative" }}>
+      <svg viewBox={viewBox} className="board-svg" role="img" aria-label="Game board">
+        <g className="edges">
+          {edges.map((line, i) => (
+            <line key={i} x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2} stroke="#4a3b7d" strokeWidth={3} />
+          ))}
+        </g>
+        <g className="nodes">
+          {[...context.graph.nodes].map(([id, node]) => {
+            const pos = positions.get(id);
+            if (!pos) return null;
+            const isDestination = isCityNode(node) && node.cityId === session.destination;
+            const isChoosable = reachable?.has(id) ?? false;
+            const radius = isCityNode(node) ? 14 : 7;
+            return (
+              <g
+                key={id}
+                transform={`translate(${pos.x}, ${pos.y})`}
+                onClick={isChoosable ? () => onChooseNode?.(id) : undefined}
+                style={{ cursor: isChoosable ? "pointer" : "default" }}
+              >
+                {isChoosable && <circle r={radius + 8} className="halo" fill="#f5b31c" opacity={0.6} />}
+                <circle
+                  r={radius}
+                  fill={NODE_COLORS[node.type] ?? "#888"}
+                  stroke={isDestination ? "#f5b31c" : "#241a3f"}
+                  strokeWidth={isDestination ? 4 : 1.5}
+                />
+                {isCityNode(node) && (
+                  <text y={-radius - 6} textAnchor="middle" className="city-label">
+                    {tx(context.getCity(node.cityId).name)}
+                  </text>
+                )}
+              </g>
+            );
+          })}
+        </g>
+        {/* 駒は純粋な表示用マーカー。手前に描画されるため、下のマスへのクリックを
+            妨げないよう pointer-events を無効化する(他プレイヤーが乗っているマスへも
+            移動できる必要があるため)。 */}
+        <g className="tokens" style={{ pointerEvents: "none" }}>
+          {[...tokensByNode.entries()].map(([nodeId, tokens]) => {
+            const pos = positions.get(nodeId as NodeId);
+            if (!pos) return null;
+            return tokens.map((token, i) => (
               <circle
-                r={radius}
-                fill={NODE_COLORS[node.type] ?? "#888"}
-                stroke={isDestination ? "#f5b31c" : "#241a3f"}
-                strokeWidth={isDestination ? 4 : 1.5}
+                key={token.name}
+                className="token"
+                cx={pos.x + (i - (tokens.length - 1) / 2) * 10}
+                cy={pos.y}
+                r={5}
+                fill={token.color}
+                stroke="#1b1330"
+                strokeWidth={2}
               />
-              {isCityNode(node) && (
-                <text y={-radius - 6} textAnchor="middle" className="city-label">
-                  {tx(context.getCity(node.cityId).name)}
-                </text>
-              )}
-            </g>
-          );
-        })}
-      </g>
-      {/* 駒は純粋な表示用マーカー。手前に描画されるため、下のマスへのクリックを
-          妨げないよう pointer-events を無効化する(他プレイヤーが乗っているマスへも
-          移動できる必要があるため)。 */}
-      <g className="tokens" style={{ pointerEvents: "none" }}>
-        {[...tokensByNode.entries()].map(([nodeId, tokens]) => {
-          const pos = positions.get(nodeId as NodeId);
-          if (!pos) return null;
-          return tokens.map((token, i) => (
-            <circle
-              key={token.name}
-              className="token"
-              cx={pos.x + (i - (tokens.length - 1) / 2) * 10}
-              cy={pos.y}
-              r={5}
-              fill={token.color}
-              stroke="#1b1330"
-              strokeWidth={2}
-            />
-          ));
-        })}
-      </g>
-    </svg>
+            ));
+          })}
+        </g>
+      </svg>
+      <button
+        type="button"
+        className="cam-toggle"
+        aria-pressed={overview}
+        onClick={() => setOverview((v) => !v)}
+        title={t("overview")}
+      >
+        🗺
+      </button>
+    </div>
   );
 }
