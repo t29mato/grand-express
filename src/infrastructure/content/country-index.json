@@ -1,0 +1,32 @@
+[
+  {
+    "id": "bolivia",
+    "name": {
+      "en": "Bolivia",
+      "es": "Bolivia",
+      "fr": "Bolivie",
+      "ja": "ボリビア"
+    },
+    "blurb": {
+      "en": "Andes, salt flats and Amazon",
+      "es": "Andes, salares y Amazonía",
+      "fr": "Andes, salars et Amazonie",
+      "ja": "アンデス・塩湖・アマゾン"
+    }
+  },
+  {
+    "id": "japan",
+    "name": {
+      "en": "Japan",
+      "es": "Japón",
+      "fr": "Japon",
+      "ja": "日本"
+    },
+    "blurb": {
+      "en": "Islands, castles and bullet trains",
+      "es": "Islas, castillos y trenes bala",
+      "fr": "Îles, châteaux et trains à grande vitesse",
+      "ja": "島国・城・新幹線"
+    }
+  }
+]

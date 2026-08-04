@@ -56,9 +56,9 @@ describe("movePlayerAlongPath", () => {
 });
 
 describe("reachableNodesFor (実データでの疎通確認)", () => {
-  it("到達可能なマスの一覧を返す", () => {
+  it("到達可能なマスの一覧を返す", async () => {
     const repo = new JsonCountryContentRepository();
-    const context = createGameEngineContext(repo.load(CountryId("bolivia")));
+    const context = createGameEngineContext(await repo.load(CountryId("bolivia")));
     const session = baseSession(context.content.startCityId);
     const reach = reachableNodesFor(context, session, PlayerId("p1"), 3);
     expect(reach.size).toBeGreaterThan(0);

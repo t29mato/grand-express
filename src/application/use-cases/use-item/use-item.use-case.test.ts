@@ -1,17 +1,21 @@
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import { CityId, CountryId, GameSessionId, ItemKey, NodeId, PlayerId } from "../../../domain/shared-kernel/ids";
 import { Money } from "../../../domain/shared-kernel/money";
 import { createGameSession } from "../../../domain/game-session/game-session";
 import { addItem, createPlayer } from "../../../domain/player/player";
 import { attachToFarthestPlayer, INITIAL_MISFORTUNE_STATE } from "../../../domain/misfortune/misfortune-spirit";
 import { JsonCountryContentRepository } from "../../../infrastructure/content/json-country-content-repository";
-import { createGameEngineContext } from "../../game-engine-context";
+import { GameEngineContext, createGameEngineContext } from "../../game-engine-context";
 import { DeterministicRandom } from "../../../../tests/fakes/deterministic-random";
 import { applyItemUse } from "./use-item.use-case";
 
 describe("applyItemUse (実データ: ボリビアの9アイテム)", () => {
   const repo = new JsonCountryContentRepository();
-  const context = createGameEngineContext(repo.load(CountryId("bolivia")));
+  let context: GameEngineContext;
+
+  beforeAll(async () => {
+    context = createGameEngineContext(await repo.load(CountryId("bolivia")));
+  });
 
   function sessionWithItem(itemKey: string) {
     let p1 = createPlayer({ id: PlayerId("p1"), name: "A", isCpu: false, startingCash: Money.of(1000), startingNode: NodeId("lapaz") });

@@ -58,8 +58,8 @@ interface GameStoreState {
   log: readonly LogEntry[];
   hasSavedGame: boolean;
 
-  startNewGame(config: { countryId: CountryId; players: readonly PlayerSetup[]; maxMonths: number; cpuLevel: CpuLevel }): void;
-  loadSavedGame(): void;
+  startNewGame(config: { countryId: CountryId; players: readonly PlayerSetup[]; maxMonths: number; cpuLevel: CpuLevel }): Promise<void>;
+  loadSavedGame(): Promise<void>;
   backToSetup(): void;
   rollForHumanTurn(): void;
   chooseSquare(nodeId: NodeId): void;
@@ -214,8 +214,8 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       }
     })(),
 
-    startNewGame(config) {
-      const content = contentRepository.load(config.countryId);
+    async startNewGame(config) {
+      const content = await contentRepository.load(config.countryId);
       const context = createGameEngineContext(content);
       const session = startGame(context, random, {
         countryId: config.countryId,
@@ -229,10 +229,10 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       runCpuLoopIfNeeded();
     },
 
-    loadSavedGame() {
+    async loadSavedGame() {
       const saved = loadGame(gameRepository);
       if (!saved) return;
-      const content = contentRepository.load(saved.countryId);
+      const content = await contentRepository.load(saved.countryId);
       const context = createGameEngineContext(content);
       set({ context, session: saved, ui: { kind: "idle" }, log: [{ id: nextLogId++, text: "Journey restored from your last save.", tone: "gold" }] });
       runCpuLoopIfNeeded();

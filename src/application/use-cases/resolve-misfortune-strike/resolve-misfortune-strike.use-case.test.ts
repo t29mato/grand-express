@@ -1,18 +1,23 @@
-import { describe, expect, it } from "vitest";
-import { CountryId, GameSessionId, ItemKey, PlayerId, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
+import { beforeAll, describe, expect, it } from "vitest";
+import { CityId, CountryId, GameSessionId, ItemKey, PlayerId, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
 import { Money } from "../../../domain/shared-kernel/money";
 import { createGameSession } from "../../../domain/game-session/game-session";
 import { addItem, createPlayer } from "../../../domain/player/player";
 import { attachToFarthestPlayer, INITIAL_MISFORTUNE_STATE, setResting } from "../../../domain/misfortune/misfortune-spirit";
 import { JsonCountryContentRepository } from "../../../infrastructure/content/json-country-content-repository";
-import { createGameEngineContext } from "../../game-engine-context";
+import { GameEngineContext, createGameEngineContext } from "../../game-engine-context";
 import { DeterministicRandom, FixedRandom } from "../../../../tests/fakes/deterministic-random";
 import { resolveMisfortuneStrike } from "./resolve-misfortune-strike.use-case";
 
 describe("resolveMisfortuneStrike (実データ: ボリビア)", () => {
   const repo = new JsonCountryContentRepository();
-  const context = createGameEngineContext(repo.load(CountryId("bolivia")));
-  const startCity = context.content.startCityId;
+  let context: GameEngineContext;
+  let startCity: CityId;
+
+  beforeAll(async () => {
+    context = createGameEngineContext(await repo.load(CountryId("bolivia")));
+    startCity = context.content.startCityId;
+  });
 
   function session() {
     const p1 = createPlayer({ id: PlayerId("p1"), name: "A", isCpu: false, startingCash: Money.of(1000), startingNode: cityIdToNodeId(startCity) });

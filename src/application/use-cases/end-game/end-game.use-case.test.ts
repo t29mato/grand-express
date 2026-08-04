@@ -1,16 +1,21 @@
-import { describe, expect, it } from "vitest";
-import { CountryId, GameSessionId, PlayerId, PropertyIndex, PropertyRef, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
+import { beforeAll, describe, expect, it } from "vitest";
+import { CityId, CountryId, GameSessionId, PlayerId, PropertyIndex, PropertyRef, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
 import { Money } from "../../../domain/shared-kernel/money";
 import { createGameSession } from "../../../domain/game-session/game-session";
 import { acquireProperty, createPlayer } from "../../../domain/player/player";
 import { JsonCountryContentRepository } from "../../../infrastructure/content/json-country-content-repository";
-import { createGameEngineContext } from "../../game-engine-context";
+import { GameEngineContext, createGameEngineContext } from "../../game-engine-context";
 import { endGame } from "./end-game.use-case";
 
 describe("endGame (実データ)", () => {
   const repo = new JsonCountryContentRepository();
-  const context = createGameEngineContext(repo.load(CountryId("bolivia")));
-  const startCity = context.content.startCityId;
+  let context: GameEngineContext;
+  let startCity: CityId;
+
+  beforeAll(async () => {
+    context = createGameEngineContext(await repo.load(CountryId("bolivia")));
+    startCity = context.content.startCityId;
+  });
 
   it("総資産(現金+物件)が最も多いプレイヤーが勝者になる", () => {
     let p1 = createPlayer({ id: PlayerId("p1"), name: "Rich", isCpu: false, startingCash: Money.of(5000), startingNode: cityIdToNodeId(startCity) });

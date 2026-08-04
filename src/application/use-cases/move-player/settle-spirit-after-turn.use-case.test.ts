@@ -1,17 +1,21 @@
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import { CityId, CountryId, GameSessionId, NodeId, PlayerId, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
 import { Money } from "../../../domain/shared-kernel/money";
 import { createGameSession } from "../../../domain/game-session/game-session";
 import { createPlayer } from "../../../domain/player/player";
 import { attachToFarthestPlayer, INITIAL_MISFORTUNE_STATE } from "../../../domain/misfortune/misfortune-spirit";
 import { JsonCountryContentRepository } from "../../../infrastructure/content/json-country-content-repository";
-import { createGameEngineContext } from "../../game-engine-context";
+import { GameEngineContext, createGameEngineContext } from "../../game-engine-context";
 import { settleSpiritAfterTurn } from "./settle-spirit-after-turn.use-case";
 
 describe("settleSpiritAfterTurn", () => {
   const repo = new JsonCountryContentRepository();
-  const context = createGameEngineContext(repo.load(CountryId("bolivia")));
   const dest = CityId("sucre");
+  let context: GameEngineContext;
+
+  beforeAll(async () => {
+    context = createGameEngineContext(await repo.load(CountryId("bolivia")));
+  });
 
   it("厄災の神が憑いていなければ何もしない", () => {
     const p1 = createPlayer({ id: PlayerId("p1"), name: "A", isCpu: false, startingCash: Money.of(0), startingNode: NodeId("lapaz") });

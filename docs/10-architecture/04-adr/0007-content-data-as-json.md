@@ -46,3 +46,21 @@ Node上で直接requireし、手動転記を排除)。当初案では「翻訳�
 分離済み)、「コンテンツと翻訳文字列の分離」は見送っている。将来的に翻訳フローを本格運用する
 場合(翻訳者への外部委託等)は、この2つのJSONをさらに `content/{country}.json`(数値データ)と
 `content/{country}/{locale}.json`(文言)に分割するのが望ましい。
+
+## 追記2(2026-08-05, Phase8実施時): CountryContentRepository.load()の非同期化
+
+コードとコンテンツを分離しても、`JsonCountryContentRepository` がコンテンツJSONを
+**静的import**していたため、実際にはクライアントJSバンドルに両国分(合計約370KB)が
+常に含まれてしまっていた(セットアップ画面の国選択カードを描画するだけで両国分を
+読み込んでいたため)。これはADR本文の主目的(LLMトークン消費削減のためのコードと
+データの分離)とは別の問題(ブラウザへの配信サイズ)だが、`docs/90-migration/03-as-built-status.md`
+で発見・記録した上で対応した。
+
+`CountryContentRepository.load()` を `Promise<CountryContentPack>` を返す非同期メソッドに変更し、
+`JsonCountryContentRepository` は国ごとに動的`import()`するようにした(webpack/turbopackが
+別チャンクとしてコード分割する)。セットアップ画面の国選択カードは、フルコンテンツの代わりに
+`country-index.json`(id/name/blurbのみ、約1KB、抽出スクリプトで自動生成)を参照するように変更し、
+実際に国を選んでゲームを開始するタイミングで初めてその国のフルコンテンツを読み込む。
+
+この変更はApplication層のポート契約を変えるため、影響を受けたユースケーステスト13本と
+Infrastructureのテスト1本を `beforeAll(async () => ...)` 形式に書き換えた(192件すべてグリーンのまま移行)。

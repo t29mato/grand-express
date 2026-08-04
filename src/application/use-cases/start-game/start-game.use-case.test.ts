@@ -1,13 +1,17 @@
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import { CountryId, GameSessionId, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
 import { JsonCountryContentRepository } from "../../../infrastructure/content/json-country-content-repository";
-import { createGameEngineContext } from "../../game-engine-context";
+import { GameEngineContext, createGameEngineContext } from "../../game-engine-context";
 import { FixedRandom } from "../../../../tests/fakes/deterministic-random";
 import { startGame } from "./start-game.use-case";
 
 describe("startGame", () => {
   const repo = new JsonCountryContentRepository();
-  const context = createGameEngineContext(repo.load(CountryId("bolivia")));
+  let context: GameEngineContext;
+
+  beforeAll(async () => {
+    context = createGameEngineContext(await repo.load(CountryId("bolivia")));
+  });
 
   it("開始都市に全プレイヤーを配置し、初期資金1200で始まる", () => {
     const session = startGame(context, new FixedRandom(0), {

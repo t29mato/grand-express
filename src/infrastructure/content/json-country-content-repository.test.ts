@@ -5,8 +5,8 @@ import { JsonCountryContentRepository } from "./json-country-content-repository"
 describe("JsonCountryContentRepository", () => {
   const repo = new JsonCountryContentRepository();
 
-  it("ボリビアパックを読み込める(都市30・アイテム9・季節12・厄災7)", () => {
-    const pack = repo.load(CountryId("bolivia"));
+  it("ボリビアパックを読み込める(都市30・アイテム9・季節12・厄災7)", async () => {
+    const pack = await repo.load(CountryId("bolivia"));
     expect(pack.cities.length).toBe(30);
     expect(pack.items.length).toBe(9);
     expect(pack.seasons.length).toBe(12);
@@ -16,8 +16,8 @@ describe("JsonCountryContentRepository", () => {
     expect(pack.spirit.wardItemKey).toBe("coca");
   });
 
-  it("日本パックを読み込める", () => {
-    const pack = repo.load(CountryId("japan"));
+  it("日本パックを読み込める", async () => {
+    const pack = await repo.load(CountryId("japan"));
     expect(pack.cities.length).toBe(30);
     expect(pack.items.length).toBe(9);
     expect(pack.seasons.length).toBe(12);
@@ -25,9 +25,9 @@ describe("JsonCountryContentRepository", () => {
     expect(pack.spirit.wardItemKey).toBe("omamori");
   });
 
-  it("edgesが参照する都市IDはすべて実在する(参照整合性)", () => {
+  it("edgesが参照する都市IDはすべて実在する(参照整合性)", async () => {
     for (const countryId of ["bolivia", "japan"] as const) {
-      const pack = repo.load(CountryId(countryId));
+      const pack = await repo.load(CountryId(countryId));
       const cityIds = new Set(pack.cities.map((c) => c.id));
       for (const [a, b] of pack.edges) {
         expect(cityIds.has(a)).toBe(true);
@@ -36,8 +36,8 @@ describe("JsonCountryContentRepository", () => {
     }
   });
 
-  it("すべてのクイズに4言語の選択肢と正解インデックスがある", () => {
-    const pack = repo.load(CountryId("bolivia"));
+  it("すべてのクイズに4言語の選択肢と正解インデックスがある", async () => {
+    const pack = await repo.load(CountryId("bolivia"));
     for (const q of pack.quiz) {
       expect(q.correctOptionIndex).toBeGreaterThanOrEqual(0);
       expect(q.correctOptionIndex).toBeLessThan(q.options.length);
@@ -48,13 +48,18 @@ describe("JsonCountryContentRepository", () => {
     }
   });
 
-  it("未知の国を要求するとエラーになる", () => {
-    expect(() => repo.load(CountryId("atlantis"))).toThrow();
+  it("未知の国を要求するとエラーになる", async () => {
+    await expect(repo.load(CountryId("atlantis"))).rejects.toThrow();
   });
 
-  it("同じ国は2回目以降キャッシュされた同一オブジェクトを返す", () => {
-    const first = repo.load(CountryId("bolivia"));
-    const second = repo.load(CountryId("bolivia"));
+  it("同じ国は2回目以降キャッシュされた同一オブジェクトを返す", async () => {
+    const first = await repo.load(CountryId("bolivia"));
+    const second = await repo.load(CountryId("bolivia"));
+    expect(first).toBe(second);
+  });
+
+  it("同じ国を同時に読み込んでも(競合状態でも)同じインスタンスに解決される", async () => {
+    const [first, second] = await Promise.all([repo.load(CountryId("japan")), repo.load(CountryId("japan"))]);
     expect(first).toBe(second);
   });
 });

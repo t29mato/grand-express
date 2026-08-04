@@ -5,11 +5,11 @@ import { CountryId } from "../../../domain/shared-kernel/ids";
 import { Locale } from "../../../domain/shared-kernel/localized-text";
 import { CpuLevel } from "../../../domain/cpu/cpu-level";
 import { PlayerSetup } from "../../../application/use-cases/start-game/start-game.use-case";
-import { contentRepository, useGameStore } from "../../state/game-store";
+import { COUNTRY_INDEX } from "../../../infrastructure/content/country-index";
+import { useGameStore } from "../../state/game-store";
 import { useLocale } from "../../i18n/locale-context";
 import { SUPPORTED_LOCALES } from "../../i18n/messages";
 
-const COUNTRY_IDS = ["bolivia", "japan"] as const;
 const MONTH_OPTIONS = [12, 24, 36];
 
 interface SlotConfig {
@@ -26,6 +26,7 @@ export function SetupScreen() {
   const [country, setCountry] = useState<CountryId>(CountryId("bolivia"));
   const [months, setMonths] = useState(12);
   const [cpuLevel, setCpuLevel] = useState<CpuLevel>("normal");
+  const [starting, setStarting] = useState(false);
   const [slots, setSlots] = useState<SlotConfig[]>([
     { name: "You", mode: "human" },
     { name: "CPU 1", mode: "cpu" },
@@ -37,8 +38,9 @@ export function SetupScreen() {
     const players: PlayerSetup[] = slots
       .filter((s) => s.mode !== "off")
       .map((s) => ({ name: s.name || "Player", isCpu: s.mode === "cpu" }));
-    if (players.length < 2) return;
-    startNewGame({ countryId: country, players, maxMonths: months, cpuLevel });
+    if (players.length < 2 || starting) return;
+    setStarting(true);
+    void startNewGame({ countryId: country, players, maxMonths: months, cpuLevel }).finally(() => setStarting(false));
   };
 
   return (
@@ -64,17 +66,18 @@ export function SetupScreen() {
 
         <div className="eyebrow">{t("chooseCountry")}</div>
         <div className="countries">
-          {COUNTRY_IDS.map((id) => {
-            const pack = contentRepository.load(CountryId(id));
-            return (
-              <button key={id} className={`ccard${country === id ? " on" : ""}`} onClick={() => setCountry(CountryId(id))}>
-                <div className="cap">
-                  <div className="nm">{tx(pack.name)}</div>
-                  <div className="sub">{tx(pack.blurb)}</div>
-                </div>
-              </button>
-            );
-          })}
+          {COUNTRY_INDEX.map((entry) => (
+            <button
+              key={entry.id}
+              className={`ccard${country === entry.id ? " on" : ""}`}
+              onClick={() => setCountry(CountryId(entry.id))}
+            >
+              <div className="cap">
+                <div className="nm">{tx(entry.name)}</div>
+                <div className="sub">{tx(entry.blurb)}</div>
+              </div>
+            </button>
+          ))}
         </div>
 
         <p className="sub">{t("setupSub")}</p>
@@ -133,8 +136,8 @@ export function SetupScreen() {
         </div>
 
         <div className="btnrow">
-          <button className="btn" style={{ width: "100%" }} onClick={handleStart}>
-            {t("start")}
+          <button className="btn" style={{ width: "100%" }} onClick={handleStart} disabled={starting}>
+            {starting ? t("thinking") : t("start")}
           </button>
         </div>
       </div>

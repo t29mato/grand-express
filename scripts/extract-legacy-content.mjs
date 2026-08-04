@@ -124,6 +124,16 @@ writeFileSync(
   JSON.stringify(transform(JAPAN), null, 2) + "\n",
 );
 
+// セットアップ画面の国選択カード用の軽量インデックス(id/name/blurbのみ)。
+// フルコンテンツ(各約185KB)を読み込まずに一覧表示できるようにする(Phase8のバンドルサイズ対策)。
+const countryIndex = [BOLIVIA, JAPAN].map((country) => ({
+  id: country.id,
+  name: toLocaleObject(country.name),
+  blurb: toLocaleObject(country.blurb),
+}));
+writeFileSync(join(contentDir, "country-index.json"), JSON.stringify(countryIndex, null, 2) + "\n");
+
 console.log("Extracted:");
 console.log(" - src/i18n/messages/{en,es,fr,ja}.json");
 console.log(" - src/infrastructure/content/{bolivia,japan}.content.json");
+console.log(" - src/infrastructure/content/country-index.json");

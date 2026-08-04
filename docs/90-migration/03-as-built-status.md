@@ -14,8 +14,8 @@ WBS([02-wbs.md](./02-wbs.md))の各フェーズに対する実際の実施結果
 | Phase 4: Application層 | ✅ 完了 | 全14ユースケース実装・テスト済み(start-game, roll-dice, move-player, property-transactions, answer-quiz, visit-stall, use-item, resolve-misfortune-strike, advance-turn, cpu-take-turn, land-on-square(3種), save-load-game, end-game) |
 | Phase 5: Infrastructure層 | ✅ 完了(音声は簡易実装) | localStorage永続化・共有コード・本番乱数は完了。音声は疎通レベルの簡易実装(Phase8で作り込み予定) |
 | Phase 6: Presentation層 | ✅ 完了(演出は簡略化) | セットアップ〜プレイ〜ゲーム終了まで実際に動作。盤面はSVGだが手描きの国イラストはなく抽象的なノード/エッジ表示、3Dダイスアニメーション等は簡略化 |
-| Phase 7: テスト強化 | ✅ 完了 | ユニット/コンポーネントテスト191件、E2E(Playwright)7件(起動〜プレイ、多言語、セーブ/ロード、アクセシビリティ)。カバレッジはDomain/Applicationともに目標達成 |
-| Phase 8: 演出/音声/パフォーマンス仕上げ | ⏳ 未着手 | 音楽エンジンの作り込み、盤面アニメーション(カメラパン/ズーム、駒移動の滑らかさ)、3Dダイス演出、現行版とのビジュアル突合QA |
+| Phase 7: テスト強化 | ✅ 完了 | ユニット/コンポーネントテスト192件、E2E(Playwright)9件(起動〜プレイ、多言語、セーブ/ロード、アクセシビリティ、モバイル幅)。カバレッジはDomain/Applicationともに目標達成 |
+| Phase 8: 演出/音声/パフォーマンス仕上げ | 🔶 一部完了 | **パフォーマンス**: 国コンテンツの動的import化によりバンドルサイズを改善(最大チャンク約620KB→約366KB、詳細は下記)。**未着手**: 音楽エンジンの作り込み、盤面アニメーション(カメラパン/ズーム、駒移動の滑らかさ)、3Dダイス演出、現行版とのビジュアル突合QA |
 | Phase 9: 移行カットオーバー | ⏳ 未着手(デプロイ判断待ち) | 本番デプロイ先(Vercel等)の選定・実施はプロジェクトオーナーの判断が必要なため未実施。`legacy/grand-express.html` への切替(アーカイブ化)は既にリポジトリ構成上完了(`legacy/`配下に移動済み) |
 | Phase 10: 移行後クリーンアップ | 🔶 一部着手 | 本ドキュメント・README更新・ADR追記まで実施。不要コードの整理は今後の通常開発の中で対応 |
 
@@ -44,16 +44,16 @@ WBS([02-wbs.md](./02-wbs.md))の各フェーズに対する実際の実施結果
   Chromiumのビューポート指定のみで代替。WebKitバイナリは未導入)。真のcrossブラウザ
   (WebKit/Firefox)での確認は未実施(WBS Phase7.5相当)。
 - 現行版(`legacy/grand-express.html`)との厳密なビジュアル突合QA(WBS Phase7.6)は未実施。
-- **【パフォーマンス上の既知の課題(要Phase8対応)】** `infrastructure/content/*.content.json`
-  (ボリビア・日本、各約185KB)が `JsonCountryContentRepository` で静的importされているため、
-  セットアップ画面の国選択カード(名前・キャッチコピーを表示するだけ)を描画する時点で
-  **両国分のコンテンツデータがまとめてクライアントJSバンドルに含まれてしまっている**
-  (`next build` 後の最大チャンクが約620KBあり、中身を確認したところ都市データを含んでいた)。
-  対応案: (1) セットアップ画面用に `{id, name, blurb}` だけを含む軽量なインデックスJSONを
-  別途用意する、(2) `CountryContentRepository.load()` を非同期化し、実際にその国を選択した
-  タイミングで `import()` によるコード分割を行う。後者は現在同期契約になっている
-  Application層のポート/多数のユースケースのシグネチャに影響するため、着手する際は
-  影響範囲(全ユースケース・191件のテスト)を洗い出してから計画的に行うこと。
+- ~~パフォーマンス: 両国コンテンツが同時にバンドルされる問題~~ → **対応済み(2026-08-05)**。
+  `CountryContentRepository.load()` を非同期化(`Promise<CountryContentPack>`)し、
+  `JsonCountryContentRepository` は動的`import()`で各国コンテンツJSONを別チャンクとして
+  コード分割するようにした。セットアップ画面の国選択カードは、フルコンテンツではなく
+  軽量な `infrastructure/content/country-index.json`(id/name/blurbのみ、約1KB。
+  抽出スクリプトで自動生成)を参照するように変更。影響を受けた13本のユースケーステスト+
+  Infrastructureのテスト1本を `beforeAll(async () => ...)` 形式に書き換え、192件すべて
+  グリーンのまま移行できた。効果: `next build` 後の最大チャンクが約620KB→約366KBに減少し、
+  都市データ(ボリビア約139KB・日本約132KB)は選択された国のものだけが動的に読み込まれる
+  別チャンクに分離された(未選択の国のデータは初期バンドルに含まれない)。
 
 ## ファイルサイズの変化(当初の課題への効果測定)
 
