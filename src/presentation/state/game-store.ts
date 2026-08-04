@@ -100,6 +100,8 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const result = cpuTakeTurn(context, current, player.id, random);
       current = result.session;
       logs.push({ id: nextLogId++, text: describeCpuTurn(player.name, result), tone: "neutral" });
+      const movedPlayer = current.players.find((p) => p.id === player.id);
+      if (movedPlayer) soundAdapter.setRegion(context.getNode(movedPlayer.location).regionId);
 
       if (isOver(current)) break;
       if (!result.extraTurn) {
@@ -225,6 +227,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
         sessionId: GameSessionId(`session-${Date.now()}`),
       });
       set({ context, session, ui: { kind: "idle" }, log: [{ id: nextLogId++, text: "New journey started!", tone: "gold" }] });
+      soundAdapter.setRegion(context.getNode(currentPlayer(session).location).regionId);
       saveGame(gameRepository, session);
       runCpuLoopIfNeeded();
     },
@@ -235,6 +238,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const content = await contentRepository.load(saved.countryId);
       const context = createGameEngineContext(content);
       set({ context, session: saved, ui: { kind: "idle" }, log: [{ id: nextLogId++, text: "Journey restored from your last save.", tone: "gold" }] });
+      soundAdapter.setRegion(context.getNode(currentPlayer(saved).location).regionId);
       runCpuLoopIfNeeded();
     },
 
@@ -285,6 +289,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
         }
         return { session: moveResult.session, log };
       });
+      soundAdapter.setRegion(context.getNode(moveResult.finalNode).regionId);
       resolveLandingForHuman(moveResult.finalNode);
     },
 

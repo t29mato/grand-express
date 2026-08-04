@@ -1,14 +1,18 @@
 import { SoundPort } from "../../application/ports/sound-port";
+import { REGION_MUSIC } from "./region-music-table";
 
 /**
- * Web Audio APIを使った簡易的なSFXエンジン(Phase5時点の最小実装)。
- * 現行コードの `Snd` は地方ごとのBGMを含む本格的なプロシージャル音楽エンジンだが、
- * ここでは短いトーン/ノイズによる効果音のみを実装し、疎通を確保する。
- * 音楽表現の作り込みはPhase8(仕上げ)で行う。
+ * Web Audio APIを使った簡易的なSFX/BGMエンジン。
+ * 現行コードの `Snd` は拍単位でメロディ・コード・ドラムを鳴らし分ける本格的な
+ * プロシージャル音楽エンジンだが、ここでは地方ごとの和音(`REGION_MUSIC`。
+ * legacyのコード進行データをそのまま使用)を通過時に1回鳴らすアンビエント表現に
+ * 留めている(拍スケジューリングそのものは移植していない)。
+ * 詳細は docs/90-migration/03-as-built-status.md のPhase8欄を参照。
  */
 export class WebAudioSoundAdapter implements SoundPort {
   private ctx: AudioContext | null = null;
   private muted = false;
+  private lastRegion: string | null = null;
 
   private ensureContext(): AudioContext | null {
     if (typeof window === "undefined") return null;
@@ -36,8 +40,34 @@ export class WebAudioSoundAdapter implements SoundPort {
     osc.stop(ctx.currentTime + durationSec);
   }
 
-  setRegion(): void {
-    // Phase8で地方別BGMへ差し替える。現時点では何もしない。
+  /** 地方ごとの和音(トライアド)をやわらかく1回鳴らす。 */
+  private playChordPad(freqs: readonly [number, number, number], lead: "flute" | "pluck"): void {
+    const ctx = this.ensureContext();
+    if (!ctx) return;
+    const duration = lead === "flute" ? 1.4 : 0.9;
+    const waveform: OscillatorType = lead === "flute" ? "sine" : "triangle";
+    freqs.forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = waveform;
+      osc.frequency.value = freq;
+      const peak = 0.09 - i * 0.015;
+      gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+      gain.gain.linearRampToValueAtTime(peak, ctx.currentTime + 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + duration + 0.05);
+    });
+  }
+
+  setRegion(regionId: string): void {
+    if (regionId === this.lastRegion) return;
+    this.lastRegion = regionId;
+    const profile = REGION_MUSIC[regionId];
+    if (!profile) return;
+    this.playChordPad(profile.chord, profile.lead);
   }
 
   playDiceRoll(): void {
