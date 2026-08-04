@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { CityId, ItemKey, PropertyIndex, RegionId } from "../shared-kernel/ids";
+import { sameForAllLocales } from "../shared-kernel/localized-text";
 import { Random } from "../shared-kernel/random";
 import { City } from "../board/city";
 import { CPU_TUNING } from "./cpu-level";
@@ -21,13 +22,15 @@ class SeqRandom implements Random {
 function city(): City {
   return {
     id: CityId("a"),
-    name: "a",
+    name: sameForAllLocales("a"),
     regionId: RegionId("r"),
     longitude: 0,
     latitude: 0,
+    tag: sameForAllLocales(""),
+    fact: sameForAllLocales(""),
     properties: [
-      { name: "p0", cost: 300, income: 40 },
-      { name: "p1", cost: 300, income: 40 },
+      { name: sameForAllLocales("p0"), cost: 300, income: 40 },
+      { name: sameForAllLocales("p1"), cost: 300, income: 40 },
     ],
   };
 }

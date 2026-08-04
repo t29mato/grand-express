@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { CityId, NodeId, RegionId } from "../shared-kernel/ids";
+import { sameForAllLocales } from "../shared-kernel/localized-text";
 import { Random } from "../shared-kernel/random";
 import { PathfindingService } from "../board/pathfinding-service";
 import { BoardGraph } from "../board/board-graph";
@@ -33,11 +34,13 @@ function linearGraph(): BoardGraph {
 function city(id: string, cost: number): City {
   return {
     id: CityId(id),
-    name: id,
+    name: sameForAllLocales(id),
     regionId: RegionId("r"),
     longitude: 0,
     latitude: 0,
-    properties: [{ name: "p", cost, income: 10 }],
+    tag: sameForAllLocales(""),
+    fact: sameForAllLocales(""),
+    properties: [{ name: sameForAllLocales("p"), cost, income: 10 }],
   };
 }
 

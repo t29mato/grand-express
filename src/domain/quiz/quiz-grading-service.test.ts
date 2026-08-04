@@ -1,12 +1,13 @@
 import { describe, expect, it } from "vitest";
+import { sameForAllLocales } from "../shared-kernel/localized-text";
 import { QuizQuestion } from "./quiz-question";
 import { QuizDeck, gradeAnswer } from "./quiz-grading-service";
 
 const sample: QuizQuestion = {
-  question: "1+1=?",
-  options: ["1", "2", "3"],
+  question: sameForAllLocales("1+1=?"),
+  options: ["1", "2", "3"].map(sameForAllLocales),
   correctOptionIndex: 1,
-  fact: "basic arithmetic",
+  fact: sameForAllLocales("basic arithmetic"),
 };
 
 describe("gradeAnswer", () => {
@@ -22,10 +23,14 @@ describe("gradeAnswer", () => {
 
 describe("QuizDeck", () => {
   it("問題を使い切ったら再シャッフルして再構築する", () => {
-    const questions = [sample, { ...sample, question: "q2" }, { ...sample, question: "q3" }];
+    const questions = [
+      sample,
+      { ...sample, question: sameForAllLocales("q2") },
+      { ...sample, question: sameForAllLocales("q3") },
+    ];
     const deck = new QuizDeck(questions, (items) => [...items]);
     const drawn = [deck.draw(), deck.draw(), deck.draw()];
-    expect(drawn.map((q) => q.question).sort()).toEqual(["1+1=?", "q2", "q3"]);
+    expect(drawn.map((q) => q.question.en).sort()).toEqual(["1+1=?", "q2", "q3"]);
     // 4回目は再シャッフルされた新しい山から引ける
     expect(() => deck.draw()).not.toThrow();
   });

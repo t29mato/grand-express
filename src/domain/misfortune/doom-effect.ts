@@ -1,4 +1,5 @@
 import { ItemKey, NodeId, PlayerId, PropertyRef } from "../shared-kernel/ids";
+import { LocalizedText } from "../shared-kernel/localized-text";
 import { Money } from "../shared-kernel/money";
 import { Random } from "../shared-kernel/random";
 import { Player, moveTo, payUpTo, removeItemAt, removeRandomProperty } from "../player/player";
@@ -16,6 +17,13 @@ export type DoomEffectId =
   | "payOthers"
   | "teleport"
   | "steal";
+
+/** フレーバーテキスト(国ごとに異なる)。効果ロジック自体は7種で共通。 */
+export interface DoomFlavor {
+  readonly effectId: DoomEffectId;
+  readonly name: LocalizedText;
+  readonly narrative: LocalizedText;
+}
 
 export type DoomOutcome =
   | { readonly effectId: "fine"; readonly amountPaid: number }

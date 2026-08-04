@@ -1,4 +1,5 @@
 import { RegionId } from "../shared-kernel/ids";
+import { LocalizedText } from "../shared-kernel/localized-text";
 
 /**
  * 季節イベントの効果。現行コードは月ごとに `run:()=>{...}` という手続き
@@ -17,5 +18,9 @@ export type SeasonEffectOp =
 export interface SeasonDefinition {
   /** 0=4月 … 11=3月(現行コードの `month%12` に対応)。 */
   readonly monthIndex: number;
+  readonly emoji: string;
+  readonly name: LocalizedText;
+  readonly narrative: LocalizedText;
+  readonly fact: LocalizedText;
   readonly effects: readonly SeasonEffectOp[];
 }

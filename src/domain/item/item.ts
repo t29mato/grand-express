@@ -1,4 +1,5 @@
 import { ItemKey } from "../shared-kernel/ids";
+import { LocalizedText } from "../shared-kernel/localized-text";
 
 /**
  * アイテムの効果。現行コードは `itemHandler` 内でアイテムキー文字列を直接
@@ -29,6 +30,10 @@ export interface ItemDefinition {
   readonly kind: ItemKind;
   readonly price: number;
   readonly effect: ItemEffect;
+  readonly emoji: string;
+  readonly name: LocalizedText;
+  readonly description: LocalizedText;
+  readonly fact: LocalizedText;
 }
 
 /** passiveなアイテムは一覧に表示されるだけで、プレイヤーが能動的に使うことはできない。 */

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { CityId, NodeId, RegionId } from "../shared-kernel/ids";
+import { sameForAllLocales } from "../shared-kernel/localized-text";
 import { buildBoardGraph } from "./board-graph-builder";
 import { City } from "./city";
 import { CountryProjection } from "./board-projection";
@@ -12,10 +13,12 @@ function city(
 ): City {
   return {
     id: CityId(id),
-    name: id,
+    name: sameForAllLocales(id),
     regionId: RegionId(region),
     longitude: lon,
     latitude: lat,
+    tag: sameForAllLocales(""),
+    fact: sameForAllLocales(""),
     properties: [],
   };
 }

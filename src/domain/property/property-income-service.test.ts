@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { CityId, PlayerId, NodeId, PropertyIndex, PropertyRef, RegionId } from "../shared-kernel/ids";
 import { Money } from "../shared-kernel/money";
 import { City } from "../board/city";
+import { sameForAllLocales } from "../shared-kernel/localized-text";
 import { createPlayer, acquireProperty, upgradeProperty } from "../player/player";
 import {
   PropertyEconomyContext,
@@ -59,11 +60,13 @@ describe("upgradeCost/incomeAtLevel/investedAmount/sellValueOf (cost=300, inc=40
 function city(id: string, regionId: string, props: Array<[number, number]>): City {
   return {
     id: CityId(id),
-    name: id,
+    name: sameForAllLocales(id),
     regionId: RegionId(regionId),
     longitude: 0,
     latitude: 0,
-    properties: props.map(([cost, income]) => ({ name: "p", cost, income })),
+    tag: sameForAllLocales(""),
+    fact: sameForAllLocales(""),
+    properties: props.map(([cost, income]) => ({ name: sameForAllLocales("p"), cost, income })),
   };
 }
 
