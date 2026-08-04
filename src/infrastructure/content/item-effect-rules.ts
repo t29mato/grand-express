@@ -13,9 +13,9 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   ekeko: { type: "teleport-to-destination" },
   pass: { type: "choose-exact-dice" },
   ferro: { type: "roll-fixed-dice", diceCount: 2 },
-  coca: { type: "none" }, // ward item(passive)。発動抑止は別ロジックで自動処理。
+  coca: { type: "none" }, // 厄災の神のward item(passive)。発動抑止は別ロジックで自動処理。
   challa: { type: "repel-spirit" },
-  pacha: { type: "none" }, // legacyでも純粋に雰囲気アイテム(効果なし)
+  pacha: { type: "quiz-save" }, // クイズ不正解時に自動消費され正解扱いになる(人間のみ)
   zebra: { type: "extra-turn" },
   expreso: { type: "roll-fixed-dice", diceCount: 3 },
   singani: { type: "gain-cash", amount: 380 },
@@ -23,9 +23,9 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   hikouki: { type: "teleport-to-destination" },
   taxi: { type: "choose-exact-dice" },
   shinkansen: { type: "roll-fixed-dice", diceCount: 2 },
-  omamori: { type: "none" }, // ward item(passive)
+  omamori: { type: "none" }, // 厄災の神のward item(passive)
   morishio: { type: "repel-spirit" },
-  daruma: { type: "none" },
+  daruma: { type: "quiz-save" },
   nozomi: { type: "roll-fixed-dice", diceCount: 3 },
   manekineko: { type: "gain-cash", amount: 380 },
   tasuki: { type: "extra-turn" },

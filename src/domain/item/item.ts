@@ -20,7 +20,12 @@ export type ItemEffect =
   | { readonly type: "extra-turn" }
   /** 厄災の神を、目的地までの距離が最も近い他プレイヤーへ押し付ける(challa/morishio)。 */
   | { readonly type: "repel-spirit" }
-  /** 効果なし。所持しているだけの雰囲気アイテム(現行コードのpacha/darumaと同じ挙動)。 */
+  /**
+   * クイズで不正解だった場合に自動消費され、正解扱いに変えてくれるお守り
+   * (pacha/daruma)。現行コードでは人間プレイヤーにのみ適用される(CPUは対象外)。
+   */
+  | { readonly type: "quiz-save" }
+  /** 効果なし。所持しているだけの雰囲気アイテム。 */
   | { readonly type: "none" };
 
 export type ItemKind = "move" | "pre" | "passive";
