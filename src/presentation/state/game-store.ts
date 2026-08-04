@@ -39,7 +39,6 @@ import { loadGame, saveGame } from "../../application/use-cases/save-load-game/s
 
 export type UiState =
   | { readonly kind: "setup" }
-  | { readonly kind: "banner" }
   | { readonly kind: "idle" }
   | { readonly kind: "choosing-square"; readonly steps: number; readonly reachable: ReadonlyMap<NodeId, readonly NodeId[]> }
   | { readonly kind: "quiz"; readonly question: QuizQuestion; readonly tier: QuizTier; readonly optionOrder: readonly number[] }
