@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { CountryId, GameSessionId } from "../../../domain/shared-kernel/ids";
+import { CountryId, GameSessionId, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
 import { JsonCountryContentRepository } from "../../../infrastructure/content/json-country-content-repository";
 import { createGameEngineContext } from "../../game-engine-context";
 import { FixedRandom } from "../../../../tests/fakes/deterministic-random";
@@ -19,7 +19,7 @@ describe("startGame", () => {
     });
 
     expect(session.players).toHaveLength(2);
-    expect(session.players.every((p) => p.location === context.content.startCityId)).toBe(true);
+    expect(session.players.every((p) => p.location === cityIdToNodeId(context.content.startCityId))).toBe(true);
     expect(session.players[0].cash.amount).toBe(1200);
     expect(session.players[1].cash.amount).toBe(1200);
     expect(session.month).toBe(0);

@@ -14,6 +14,13 @@ export const CityId = (value: string): CityId => value as CityId;
 export type NodeId = Brand<string, "NodeId">;
 export const NodeId = (value: string): NodeId => value as NodeId;
 
+/**
+ * 都市ノードは `NodeId(city.id)` として盤面グラフに登録される
+ * (board-graph-builder.ts)ため、文字列としては同じ値になる。
+ * 型を跨いで使う箇所ではこの変換関数を通す。
+ */
+export const cityIdToNodeId = (id: CityId): NodeId => id as string as NodeId;
+
 export type RegionId = Brand<string, "RegionId">;
 export const RegionId = (value: string): RegionId => value as RegionId;
 

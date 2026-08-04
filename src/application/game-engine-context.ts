@@ -1,4 +1,4 @@
-import { CityId, NodeId } from "../domain/shared-kernel/ids";
+import { CityId, NodeId, cityIdToNodeId } from "../domain/shared-kernel/ids";
 import { BoardGraph } from "../domain/board/board-graph";
 import { buildBoardGraph } from "../domain/board/board-graph-builder";
 import { PathfindingService } from "../domain/board/pathfinding-service";
@@ -16,6 +16,8 @@ export interface GameEngineContext {
   readonly pathfinding: PathfindingService;
   getCity(id: CityId): City;
   getNode(id: NodeId): BoardNode;
+  /** ノードから都市(目的地)までの距離。プレイヤーの現在地→目的地の判定に使う。 */
+  distanceToCity(from: NodeId, to: CityId): number;
 }
 
 export function createGameEngineContext(content: CountryContentPack): GameEngineContext {
@@ -31,5 +33,6 @@ export function createGameEngineContext(content: CountryContentPack): GameEngine
       if (!node) throw new Error(`Unknown node: ${id}`);
       return node;
     },
+    distanceToCity: (from, to) => pathfinding.distance(from, cityIdToNodeId(to)),
   };
 }

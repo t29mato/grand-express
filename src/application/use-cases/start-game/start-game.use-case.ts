@@ -1,4 +1,4 @@
-import { CountryId, GameSessionId, PlayerId } from "../../../domain/shared-kernel/ids";
+import { CountryId, GameSessionId, PlayerId, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
 import { Money } from "../../../domain/shared-kernel/money";
 import { Random } from "../../../domain/shared-kernel/random";
 import { CpuLevel } from "../../../domain/cpu/cpu-level";
@@ -31,6 +31,7 @@ export function startGame(
   input: StartGameInput,
 ): GameSession {
   const startCityId = context.content.startCityId;
+  const startNode = cityIdToNodeId(startCityId);
   const players = input.players.map((setup, index) => {
     const bonus = setup.isCpu && input.cpuLevel === "merciless" ? MERCILESS_CPU_BONUS : 0;
     return createPlayer({
@@ -39,7 +40,7 @@ export function startGame(
       isCpu: setup.isCpu,
       cpuLevel: setup.isCpu ? input.cpuLevel : undefined,
       startingCash: Money.of(STARTING_CASH + bonus),
-      startingNode: startCityId,
+      startingNode: startNode,
     });
   });
 
@@ -48,7 +49,7 @@ export function startGame(
     allCityIds,
     startCityId,
     players.map((p) => p.location),
-    (from, to) => context.pathfinding.distance(from, to),
+    (from, to) => context.distanceToCity(from, to),
     random,
   );
 

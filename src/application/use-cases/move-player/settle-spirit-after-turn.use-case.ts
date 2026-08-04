@@ -10,7 +10,7 @@ import { GameEngineContext } from "../../game-engine-context";
 export function settleSpiritAfterTurn(context: GameEngineContext, session: GameSession): GameSession {
   if (session.misfortune.level === 0) return session;
   const farthest = findFarthestPlayer(session.players, (p) =>
-    context.pathfinding.distance(p.location, session.destination),
+    context.distanceToCity(p.location, session.destination),
   );
   return {
     ...session,

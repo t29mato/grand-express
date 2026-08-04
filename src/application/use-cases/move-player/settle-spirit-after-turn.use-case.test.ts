@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { CityId, CountryId, GameSessionId, NodeId, PlayerId } from "../../../domain/shared-kernel/ids";
+import { CityId, CountryId, GameSessionId, NodeId, PlayerId, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
 import { Money } from "../../../domain/shared-kernel/money";
 import { createGameSession } from "../../../domain/game-session/game-session";
 import { createPlayer } from "../../../domain/player/player";
@@ -21,7 +21,7 @@ describe("settleSpiritAfterTurn", () => {
   });
 
   it("最も遅れているプレイヤーへ移動する", () => {
-    const p1 = createPlayer({ id: PlayerId("p1"), name: "A", isCpu: false, startingCash: Money.of(0), startingNode: dest }); // 目的地=距離0
+    const p1 = createPlayer({ id: PlayerId("p1"), name: "A", isCpu: false, startingCash: Money.of(0), startingNode: cityIdToNodeId(dest) }); // 目的地=距離0
     const p2 = createPlayer({ id: PlayerId("p2"), name: "B", isCpu: false, startingCash: Money.of(0), startingNode: NodeId("lapaz") }); // 遠い
     let session = createGameSession({ id: GameSessionId("s"), countryId: CountryId("bolivia"), maxMonths: 12, players: [p1, p2], destination: dest });
     session = { ...session, misfortune: attachToFarthestPlayer(INITIAL_MISFORTUNE_STATE, PlayerId("p1")) };
