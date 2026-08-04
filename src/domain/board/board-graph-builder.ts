@@ -3,7 +3,8 @@ import { CountryProjection, projectedDistance, segmentCount } from "./board-proj
 import { BoardGraph } from "./board-graph";
 import { City, Edge } from "./city";
 import { h32 } from "./deterministic-hash";
-import { BoardNode, QuizTier } from "./node";
+import { BoardNode } from "./node";
+import { QuizTier } from "../quiz/quiz-question";
 
 const QUIZ_TIERS: readonly QuizTier[] = ["low", "mid", "high"];
 

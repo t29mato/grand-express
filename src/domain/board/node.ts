@@ -1,6 +1,6 @@
 import { CityId, NodeId, RegionId } from "../shared-kernel/ids";
+import { QuizTier } from "../quiz/quiz-question";
 
-export type QuizTier = "low" | "mid" | "high";
 export type NodeType = "city" | "quiz" | "blue" | "red" | "card";
 
 interface BoardNodeBase {
