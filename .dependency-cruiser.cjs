@@ -22,9 +22,12 @@ module.exports = {
     {
       name: "application-must-not-depend-on-infrastructure-or-presentation",
       comment:
-        "application層はポート(interface)経由でのみ外部に依存し、infrastructure/presentationを直接importしてはいけない。",
+        "application層の本体コードはポート(interface)経由でのみ外部に依存し、" +
+        "infrastructure/presentationを直接importしてはいけない。" +
+        "テストファイル(*.test.ts)は実装を差し替えた統合テストのため例外的に許可する " +
+        "(docs/20-testing/01-testing-strategy-tdd.md)。",
       severity: "error",
-      from: { path: "^src/application" },
+      from: { path: "^src/application", pathNot: "\\.test\\.ts$" },
       to: { path: "^src/(infrastructure|presentation)" },
     },
     {
