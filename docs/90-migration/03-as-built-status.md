@@ -40,9 +40,20 @@ WBS([02-wbs.md](./02-wbs.md))の各フェーズに対する実際の実施結果
 
 - `src/presentation/state/game-store.ts` が434行とファイルサイズ指針(200〜300行)を超えている。
   アクション群(setup/turn/city/item等)ごとに複数ファイルへ分割するリファクタリングを推奨。
-- E2Eは Chromium のみで実行(`playwright.config.ts`)。クロスブラウザ(WebKit/Firefox)・
-  モバイルviewportでの確認は未実施(WBS Phase7.5相当)。
+- E2Eは Chromium のみで実行(`playwright.config.ts`、モバイルビューポートのチェックは
+  Chromiumのビューポート指定のみで代替。WebKitバイナリは未導入)。真のcrossブラウザ
+  (WebKit/Firefox)での確認は未実施(WBS Phase7.5相当)。
 - 現行版(`legacy/grand-express.html`)との厳密なビジュアル突合QA(WBS Phase7.6)は未実施。
+- **【パフォーマンス上の既知の課題(要Phase8対応)】** `infrastructure/content/*.content.json`
+  (ボリビア・日本、各約185KB)が `JsonCountryContentRepository` で静的importされているため、
+  セットアップ画面の国選択カード(名前・キャッチコピーを表示するだけ)を描画する時点で
+  **両国分のコンテンツデータがまとめてクライアントJSバンドルに含まれてしまっている**
+  (`next build` 後の最大チャンクが約620KBあり、中身を確認したところ都市データを含んでいた)。
+  対応案: (1) セットアップ画面用に `{id, name, blurb}` だけを含む軽量なインデックスJSONを
+  別途用意する、(2) `CountryContentRepository.load()` を非同期化し、実際にその国を選択した
+  タイミングで `import()` によるコード分割を行う。後者は現在同期契約になっている
+  Application層のポート/多数のユースケースのシグネチャに影響するため、着手する際は
+  影響範囲(全ユースケース・191件のテスト)を洗い出してから計画的に行うこと。
 
 ## ファイルサイズの変化(当初の課題への効果測定)
 
