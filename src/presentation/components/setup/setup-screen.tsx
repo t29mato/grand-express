@@ -84,6 +84,7 @@ export function SetupScreen() {
             <input
               value={slot.name}
               maxLength={16}
+              aria-label={`Player ${i + 1} name`}
               onChange={(e) => {
                 const next = [...slots];
                 next[i] = { ...next[i], name: e.target.value };
