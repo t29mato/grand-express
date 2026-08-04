@@ -1,4 +1,11 @@
 import "@testing-library/jest-dom/vitest";
+import { afterEach } from "vitest";
+import { cleanup } from "@testing-library/react";
+
+// RTLのDOMを各テストの後に確実に片付ける(コンポーネントテスト間の汚染を防ぐ)。
+afterEach(() => {
+  cleanup();
+});
 
 /**
  * Node 22+ が実験的なグローバル `localStorage` を提供するようになったことで、
