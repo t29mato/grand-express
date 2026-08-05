@@ -1,4 +1,4 @@
-import { CityId, PlayerId, PropertyIndex, PropertyRef, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
+import { CityId, ItemKey, PlayerId, PropertyIndex, PropertyRef, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
 import { Random } from "../../../domain/shared-kernel/random";
 import { CPU_TUNING, CpuTuning } from "../../../domain/cpu/cpu-level";
 import { chooseMoveTarget } from "../../../domain/cpu/cpu-move-strategy";
@@ -14,18 +14,34 @@ import { settleSpiritAfterTurn } from "../move-player/settle-spirit-after-turn.u
 import { applyItemUse, UseItemEffectResult } from "../use-item/use-item.use-case";
 import { resolveMisfortuneStrike, MisfortuneStrikeResult } from "../resolve-misfortune-strike/resolve-misfortune-strike.use-case";
 import { answerQuiz, AnswerQuizOutcome } from "../answer-quiz/answer-quiz.use-case";
+import { QuizQuestion, QuizTier } from "../../../domain/quiz/quiz-question";
 import { landOnMoneySquare, MoneySquareOutcome } from "../land-on-square/money-square.use-case";
 import { landOnCardSquare, CardSquareOutcome } from "../land-on-square/card-square.use-case";
 import { arriveAtDestination, ArriveDestinationOutcome } from "../land-on-square/arrive-destination.use-case";
 import { buyProperty, investInProperty } from "../property-transactions/property-transactions.use-case";
 import { stallStockFor, buyStallItem } from "../visit-stall/visit-stall.use-case";
 
+/** 町での買い物の内訳(到着マス・通常の町の両方で使う)。 */
+export interface CityVisitSummary {
+  readonly cityId: CityId;
+  readonly purchases: readonly PropertyIndex[];
+  readonly upgrades: readonly PropertyIndex[];
+  readonly boughtItem: ItemKey | null;
+}
+
 export type LandingOutcome =
-  | { readonly type: "quiz"; readonly outcome: AnswerQuizOutcome }
+  | {
+      readonly type: "quiz";
+      readonly outcome: AnswerQuizOutcome;
+      /** 出題された問題と、CPUが選んだ選択肢(プレイヤーに見せるため)。 */
+      readonly question: QuizQuestion;
+      readonly tier: QuizTier;
+      readonly chosenOptionIndex: number;
+    }
   | { readonly type: "money"; readonly outcome: MoneySquareOutcome }
   | { readonly type: "card"; readonly outcome: CardSquareOutcome }
-  | { readonly type: "destination"; readonly outcome: ArriveDestinationOutcome }
-  | { readonly type: "city"; readonly purchases: readonly PropertyIndex[]; readonly upgrades: readonly PropertyIndex[] };
+  | { readonly type: "destination"; readonly outcome: ArriveDestinationOutcome; readonly visit: CityVisitSummary }
+  | { readonly type: "city"; readonly visit: CityVisitSummary };
 
 export interface CpuTurnResult {
   readonly session: GameSession;
@@ -117,13 +133,19 @@ export function cpuTakeTurn(
   if (isCityNode(landedNode) && landedNode.cityId === current.destination) {
     const outcome = arriveAtDestination(context, current, playerId, random);
     current = outcome.session;
+    const beforeVisit = current;
     current = performCpuCityVisit(context, current, playerId, landedNode.cityId, tuning, random);
-    landing = { type: "destination", outcome };
+    landing = {
+      type: "destination",
+      outcome,
+      visit: summariseVisit(beforeVisit, current, playerId, landedNode.cityId),
+    };
   } else if (landedNode.type === "quiz") {
     const question = context.content.quiz[random.nextInt(context.content.quiz.length)];
-    const outcome = answerQuiz(context, current, playerId, question, landedNode.tier, random.nextInt(question.options.length), random);
+    const chosenOptionIndex = random.nextInt(question.options.length);
+    const outcome = answerQuiz(context, current, playerId, question, landedNode.tier, chosenOptionIndex, random);
     current = outcome.session;
-    landing = { type: "quiz", outcome };
+    landing = { type: "quiz", outcome, question, tier: landedNode.tier, chosenOptionIndex };
   } else if (landedNode.type === "blue" || landedNode.type === "red") {
     const outcome = landOnMoneySquare(current, playerId, landedNode.type === "blue", random);
     current = outcome.session;
@@ -135,7 +157,7 @@ export function cpuTakeTurn(
   } else if (isCityNode(landedNode)) {
     const before = current;
     current = performCpuCityVisit(context, current, playerId, landedNode.cityId, tuning, random);
-    landing = { type: "city", purchases: diffPurchases(before, current, playerId), upgrades: [] };
+    landing = { type: "city", visit: summariseVisit(before, current, playerId, landedNode.cityId) };
   }
 
   const extraTurn = findPlayer(current, playerId).hasExtraTurn;
@@ -155,13 +177,41 @@ function findPlayer(session: GameSession, playerId: PlayerId) {
   return player;
 }
 
-function diffPurchases(before: GameSession, after: GameSession, playerId: PlayerId): readonly PropertyIndex[] {
-  const beforeRefs = new Set(findPlayer(before, playerId).portfolio.keys());
+/**
+ * 町での買い物の前後差分をとる(何を買い、どれに投資し、どのアイテムを買ったか)。
+ * CPUの手番を人間と同じようにプレイヤーへ見せるために必要な情報。
+ */
+function summariseVisit(
+  before: GameSession,
+  after: GameSession,
+  playerId: PlayerId,
+  cityId: CityId,
+): CityVisitSummary {
+  const beforePlayer = findPlayer(before, playerId);
   const afterPlayer = findPlayer(after, playerId);
-  return [...afterPlayer.portfolio.keys()]
-    .filter((ref) => !beforeRefs.has(ref))
-    .map((ref) => PropertyRef.parse(ref).index);
+  const inCity = (ref: PropertyRef) => PropertyRef.parse(ref).cityId === cityId;
+
+  const purchases: PropertyIndex[] = [];
+  const upgrades: PropertyIndex[] = [];
+  for (const [ref, level] of afterPlayer.portfolio.entries()) {
+    if (!inCity(ref)) continue;
+    const previous = beforePlayer.portfolio.get(ref);
+    if (previous === undefined) purchases.push(PropertyRef.parse(ref).index);
+    else if (level > previous) upgrades.push(PropertyRef.parse(ref).index);
+  }
+
+  const beforeItems = [...beforePlayer.inventory];
+  const boughtItem =
+    afterPlayer.inventory.find((key) => {
+      const at = beforeItems.indexOf(key);
+      if (at === -1) return true;
+      beforeItems.splice(at, 1);
+      return false;
+    }) ?? null;
+
+  return { cityId, purchases, upgrades, boughtItem };
 }
+
 
 /** 町での購入・増資・買い物(現行コードの `cityStop` のCPU分岐)。 */
 function performCpuCityVisit(

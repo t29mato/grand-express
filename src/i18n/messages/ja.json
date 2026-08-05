@@ -177,5 +177,9 @@
   "seasonLog": "{0} <b>{1}</b>",
   "gameOverLog": "🏁 旅が終わりました!",
   "cpuTurnBadge": "{0} が手番を進めています…",
+  "quizLow": "かんたんな問題",
+  "quizMid": "ふつうの問題",
+  "quizHigh": "高額の問題",
+  "cpuBoughtNothing": "{0} は見て回ったが何も買わなかった。",
   "saveDone": "この旅をブラウザに保存しました。タブを閉じても、あとから続きから遊べます。"
 }

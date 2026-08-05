@@ -15,6 +15,7 @@ import { SeasonDefinition } from "../../domain/season/season-effect";
 import { GameEngineContext } from "../../application/game-engine-context";
 import { PlayerSetup } from "../../application/use-cases/start-game/start-game.use-case";
 import { EndGameOutcome } from "../../application/use-cases/end-game/end-game.use-case";
+import { CityVisitSummary } from "../../application/use-cases/cpu-take-turn/cpu-take-turn.use-case";
 
 export type UiState =
   | { readonly kind: "setup" }
@@ -22,6 +23,24 @@ export type UiState =
   | { readonly kind: "idle" }
   /** CPUが手番を進行中(プレイヤー名を表示して待たせる)。 */
   | { readonly kind: "cpu-turn"; readonly playerName: string }
+  /** CPUが町に寄って買い物をした結果(人間の町モーダルに相当。自動で閉じる)。 */
+  | {
+      readonly kind: "cpu-city";
+      readonly playerName: string;
+      readonly cityId: CityId;
+      readonly visit: CityVisitSummary;
+      readonly arrivalPrize: number | null;
+    }
+  /** CPUが答えたクイズ(人間のクイズモーダルに相当。自動で閉じる)。 */
+  | {
+      readonly kind: "cpu-quiz";
+      readonly playerName: string;
+      readonly question: QuizQuestion;
+      readonly tier: QuizTier;
+      readonly chosenOptionIndex: number;
+      readonly correct: boolean;
+      readonly amount: string;
+    }
   | { readonly kind: "choosing-square"; readonly steps: number; readonly reachable: ReadonlyMap<NodeId, readonly NodeId[]> }
   | { readonly kind: "quiz"; readonly question: QuizQuestion; readonly tier: QuizTier; readonly optionOrder: readonly number[] }
   | { readonly kind: "city"; readonly cityId: CityId; readonly arrivalPrize: number | null }
@@ -57,6 +76,11 @@ export interface GameStoreState {
   ui: UiState;
   log: readonly LogEntry[];
   hasSavedGame: boolean;
+  /**
+   * 再生中のサイコロ演出。人間・CPUどちらの手番でも同じ経路で表示する
+   * (`nonce` は同じ目が続いても演出をやり直すための連番)。
+   */
+  diceRoll: { readonly nonce: number; readonly value: number } | null;
 
   startNewGame(config: { countryId: CountryId; players: readonly PlayerSetup[]; maxMonths: number; cpuLevel: CpuLevel }): Promise<void>;
   loadSavedGame(): Promise<void>;
@@ -73,8 +97,12 @@ export interface GameStoreState {
   buyCityItem(key: ItemKey): void;
   useInventoryItem(index: number): void;
   chooseExactDiceValue(value: number): void;
+  /** サイコロ演出を消す。 */
+  clearDiceRoll(): void;
   /** CPUの自動進行を止める(画面遷移時など)。 */
   cancelCpuLoop(): void;
+  /** CPUの結果モーダルを閉じて演出を飛ばす。 */
+  dismissCpuModal(): void;
   /** 月替わりイベントのモーダル(ui.kind === "season")を閉じて手番の続きに進む。 */
   dismissSeasonModal(): void;
   /** 次の区間の案内(ui.kind === "next-leg")を閉じて手番の続きに進む。 */

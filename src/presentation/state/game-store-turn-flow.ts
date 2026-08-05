@@ -10,13 +10,26 @@ import { cpuTakeTurn } from "../../application/use-cases/cpu-take-turn/cpu-take-
 import { endGame } from "../../application/use-cases/end-game/end-game.use-case";
 import { saveGame } from "../../application/use-cases/save-load-game/save-load-game.use-case";
 import { formatMoney } from "../i18n/money-format";
+import { GameEngineContext } from "../../application/game-engine-context";
 import { GetGameState, LogEntry, SetGameState } from "./game-store-types";
 import { gameRepository, random, soundAdapter } from "./game-store-dependencies";
 import { logEntry, pushLog } from "./game-store-log";
 import { describeCpuTurn, shuffledIndexes } from "./game-store-formatters";
 
-/** CPUの1手番を見せるための間(ミリ秒)。人がログと駒の動きを追える速さにする。 */
-const CPU_TURN_DELAY_MS = 1100;
+/**
+ * CPUの手番の演出タイミング(ミリ秒)。
+ * 人間の手番と同じものを見せる: サイコロを振る → 駒が動く → 何をしたかのモーダル。
+ */
+const CPU_TIMING = {
+  /** 「◯◯の手番」を出してからサイコロを振り始めるまで。 */
+  beforeRoll: 450,
+  /** サイコロ演出(dice-stage.tsx の再生時間 1.6s + 結果表示 0.7s)。 */
+  diceAnimation: 2350,
+  /** 駒が移動しカメラが追いつくまで(駒のCSSトランジションは0.35s)。 */
+  afterMove: 750,
+  /** 町・クイズなどの結果モーダルを出しておく時間(クリックで飛ばせる)。 */
+  resultModal: 2900,
+} as const;
 
 function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -40,6 +53,15 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
    */
   let cpuLoopGeneration = 0;
   let cpuLoopRunning = false;
+
+  /** CPUの結果モーダルをプレイヤーが手動で閉じる(演出を飛ばす)。 */
+  function dismissCpuModal() {
+    const kind = get().ui.kind;
+    if (kind === "cpu-city" || kind === "cpu-quiz") {
+      const player = get().session ? currentPlayer(get().session!) : null;
+      set({ ui: { kind: "cpu-turn", playerName: player?.name ?? "" } });
+    }
+  }
 
   function cancelCpuLoop() {
     cpuLoopGeneration++;
@@ -100,28 +122,33 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
         const player = currentPlayer(session);
         if (!player.isCpu) break;
 
-        // 「◯◯が手番を進めています」を出してから、少し待って結果を見せる。
+        // 「◯◯の手番」を出す。
         set({ ui: { kind: "cpu-turn", playerName: player.name } });
-        await delay(CPU_TURN_DELAY_MS * 0.35);
+        await delay(CPU_TIMING.beforeRoll);
         if (generation !== cpuLoopGeneration) return;
 
         const result = cpuTakeTurn(context, session, player.id, random);
         if (result.strike?.type === "struck") soundAdapter.playDoom(result.strike.wasKing);
-        const moved = result.session.players.find((p) => p.id === player.id);
-        if (moved) soundAdapter.setRegion(context.getNode(moved.location).regionId);
-        if (result.landing?.type === "destination") soundAdapter.playFanfare();
-        else if (result.landing?.type === "quiz") {
-          if (result.landing.outcome.correct) soundAdapter.playRight();
-          else soundAdapter.playWrong();
-        } else if (result.landing?.type === "money") {
-          if (result.landing.outcome.gained) soundAdapter.playCoin();
-          else soundAdapter.playWrong();
+
+        // 1. サイコロを人間の手番と同じフル演出で見せる(振った目が分かるように)。
+        if (result.steps !== undefined) {
+          soundAdapter.playRattle();
+          set((s) => ({ diceRoll: { nonce: (s.diceRoll?.nonce ?? 0) + 1, value: result.steps! } }));
+          await delay(CPU_TIMING.diceAnimation);
+          if (generation !== cpuLoopGeneration) return;
         }
 
+        // 2. 盤面に反映して駒を動かす(トークンはCSSトランジションで滑る)。
         set({ session: result.session });
+        const moved = result.session.players.find((p) => p.id === player.id);
+        if (moved) soundAdapter.setRegion(context.getNode(moved.location).regionId);
         appendLogs(describeCpuTurn(context, player.name, result));
-        await delay(CPU_TURN_DELAY_MS * 0.65);
+        await delay(CPU_TIMING.afterMove);
         if (generation !== cpuLoopGeneration) return;
+
+        // 3. 着地した先で何が起きたかを、人間と同じ形のモーダルで見せる。
+        const shown = await showCpuLanding(context, player.name, result, generation);
+        if (!shown) return;
 
         const afterTurn = get().session;
         if (!afterTurn) return;
@@ -168,6 +195,83 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
       saveGame(gameRepository, session);
     } finally {
       if (generation === cpuLoopGeneration) cpuLoopRunning = false;
+    }
+  }
+
+  /**
+   * CPUが着地したマスの結果を、人間の手番と同じ見せ方でモーダル表示する。
+   * legacyもCPUの手番では自動で閉じるモーダル(`autoModal`)を出していた。
+   * 戻り値がfalseなら、途中でループが中断された(=呼び出し側は打ち切る)。
+   */
+  async function showCpuLanding(
+    context: GameEngineContext,
+    playerName: string,
+    result: ReturnType<typeof cpuTakeTurn>,
+    generation: number,
+  ): Promise<boolean> {
+    const landing = result.landing;
+    if (!landing) return generation === cpuLoopGeneration;
+
+    if (landing.type === "quiz") {
+      if (landing.outcome.correct) soundAdapter.playRight();
+      else soundAdapter.playWrong();
+      set({
+        ui: {
+          kind: "cpu-quiz",
+          playerName,
+          question: landing.question,
+          tier: landing.tier,
+          chosenOptionIndex: landing.chosenOptionIndex,
+          correct: landing.outcome.correct,
+          amount: formatMoney(landing.outcome.amount.amount, context.content.currency),
+        },
+      });
+      await waitForModal(generation);
+      return generation === cpuLoopGeneration;
+    }
+
+    if (landing.type === "money") {
+      if (landing.outcome.gained) soundAdapter.playCoin();
+      else soundAdapter.playWrong();
+      return generation === cpuLoopGeneration;
+    }
+
+    if (landing.type === "card") {
+      soundAdapter.playChime();
+      return generation === cpuLoopGeneration;
+    }
+
+    if (landing.type === "city" || landing.type === "destination") {
+      const visit = landing.visit;
+      if (landing.type === "destination") soundAdapter.playFanfare();
+      if (visit.purchases.length > 0 || visit.upgrades.length > 0 || visit.boughtItem) soundAdapter.playBuy();
+      set({
+        ui: {
+          kind: "cpu-city",
+          playerName,
+          cityId: visit.cityId,
+          visit,
+          arrivalPrize: landing.type === "destination" ? landing.outcome.prize : null,
+        },
+      });
+      await waitForModal(generation);
+      return generation === cpuLoopGeneration;
+    }
+
+    return generation === cpuLoopGeneration;
+  }
+
+  /**
+   * CPUの結果モーダルを一定時間表示する。プレイヤーが閉じた(= uiが別の状態に
+   * 変わった)場合は待たずに進み、待たされ続けないようにする。
+   */
+  async function waitForModal(generation: number): Promise<void> {
+    const step = 100;
+    for (let waited = 0; waited < CPU_TIMING.resultModal; waited += step) {
+      await delay(step);
+      if (generation !== cpuLoopGeneration) return;
+      const kind = get().ui.kind;
+      if (kind !== "cpu-city" && kind !== "cpu-quiz") return; // プレイヤーが閉じた
     }
   }
 
@@ -282,6 +386,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
   return {
     runCpuLoopIfNeeded,
     cancelCpuLoop,
+    dismissCpuModal,
     finishHumanLandingAndAdvance,
     resolveLandingForHuman,
     dismissSeasonModal,

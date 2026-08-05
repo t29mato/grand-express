@@ -29,7 +29,8 @@ async function dismissOneModal(page: Page): Promise<boolean> {
     await fullSteam.click();
     return true;
   }
-  // 月が替わったら季節イベントのモーダルを閉じる。
+  // CPUの結果モーダル(町・クイズ)も閉じられる。
+  // 月替わりの季節モーダルと同じ「Continue」ボタンなので、まとめて拾う。
   const continueButton = page.getByRole("button", { name: "Continue", exact: true });
   if (await continueButton.isVisible().catch(() => false)) {
     await continueButton.click();

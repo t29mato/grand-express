@@ -131,6 +131,11 @@ const INLINE_UI_STRINGS = {
   seasonLog: "{0} <b>{1}</b>|{0} <b>{1}</b>|{0} <b>{1}</b>|{0} <b>{1}</b>",
   gameOverLog: "🏁 The journey is over!|🏁 ¡El viaje ha terminado!|🏁 Le voyage est terminé !|🏁 旅が終わりました!",
   cpuTurnBadge: "{0} is playing…|{0} está jugando…|{0} joue…|{0} が手番を進めています…",
+  // クイズの難易度ラベル(legacy: TIER.*.lbl。UIカタログではなくTIER定義内にある)。
+  quizLow: "Short question|Pregunta corta|Question courte|かんたんな問題",
+  quizMid: "Standard question|Pregunta normal|Question normale|ふつうの問題",
+  quizHigh: "High-stakes question|Pregunta de alto riesgo|Question à gros enjeu|高額の問題",
+  cpuBoughtNothing: "{0} looked around but bought nothing.|{0} miró pero no compró nada.|{0} a regardé mais n'a rien acheté.|{0} は見て回ったが何も買わなかった。",
   saveDone: "Your journey has been saved to this browser. You can close the tab and continue later.|Tu viaje se ha guardado en este navegador. Puedes cerrar la pestaña y continuar más tarde.|Ton voyage est enregistré dans ce navigateur. Tu peux fermer l'onglet et reprendre plus tard.|この旅をブラウザに保存しました。タブを閉じても、あとから続きから遊べます。",
 };
 for (const [key, source] of Object.entries(INLINE_UI_STRINGS)) {

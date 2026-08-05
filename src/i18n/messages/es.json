@@ -177,5 +177,9 @@
   "seasonLog": "{0} <b>{1}</b>",
   "gameOverLog": "🏁 ¡El viaje ha terminado!",
   "cpuTurnBadge": "{0} está jugando…",
+  "quizLow": "Pregunta corta",
+  "quizMid": "Pregunta normal",
+  "quizHigh": "Pregunta de alto riesgo",
+  "cpuBoughtNothing": "{0} miró pero no compró nada.",
   "saveDone": "Tu viaje se ha guardado en este navegador. Puedes cerrar la pestaña y continuar más tarde."
 }

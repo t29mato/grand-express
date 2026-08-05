@@ -27,6 +27,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
   const {
     runCpuLoopIfNeeded,
     cancelCpuLoop,
+    dismissCpuModal,
     finishHumanLandingAndAdvance,
     resolveLandingForHuman,
     dismissSeasonModal,
@@ -39,6 +40,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     session: null,
     ui: { kind: "setup" },
     log: [],
+    diceRoll: null,
     hasSavedGame: (() => {
       try {
         return gameRepository.load() !== null;
@@ -81,12 +83,17 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       runCpuLoopIfNeeded();
     },
 
+    clearDiceRoll() {
+      set({ diceRoll: null });
+    },
+
     backToSetup() {
       cancelCpuLoop();
-      set({ context: null, session: null, ui: { kind: "setup" }, log: [] });
+      set({ context: null, session: null, ui: { kind: "setup" }, log: [], diceRoll: null });
     },
 
     cancelCpuLoop,
+    dismissCpuModal,
 
     rollForHumanTurn() {
       const { context, session } = get();
@@ -112,10 +119,12 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       }
 
       const latestSession = get().session!;
-      soundAdapter.playRattle();
       const steps = rollOneDie(random);
       const reachable = reachableNodesFor(context, latestSession, player.id, steps);
-      set({ ui: { kind: "choosing-square", steps, reachable } });
+      set((s) => ({
+        ui: { kind: "choosing-square", steps, reachable },
+        diceRoll: { nonce: (s.diceRoll?.nonce ?? 0) + 1, value: steps },
+      }));
     },
 
     chooseSquare(nodeId) {
@@ -211,8 +220,12 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       if (result.result.type === "teleport-to-destination") {
         resolveLandingForHuman(cityIdToNodeId(result.session.destination));
       } else if (result.result.type === "rolled") {
-        const reachable = reachableNodesFor(context, result.session, player.id, result.result.steps);
-        set({ ui: { kind: "choosing-square", steps: result.result.steps, reachable } });
+        const steps = result.result.steps;
+        const reachable = reachableNodesFor(context, result.session, player.id, steps);
+        set((s) => ({
+          ui: { kind: "choosing-square", steps, reachable },
+          diceRoll: { nonce: (s.diceRoll?.nonce ?? 0) + 1, value: steps },
+        }));
       }
     },
 

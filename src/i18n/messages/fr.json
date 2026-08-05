@@ -177,5 +177,9 @@
   "seasonLog": "{0} <b>{1}</b>",
   "gameOverLog": "🏁 Le voyage est terminé !",
   "cpuTurnBadge": "{0} joue…",
+  "quizLow": "Question courte",
+  "quizMid": "Question normale",
+  "quizHigh": "Question à gros enjeu",
+  "cpuBoughtNothing": "{0} a regardé mais n'a rien acheté.",
   "saveDone": "Ton voyage est enregistré dans ce navigateur. Tu peux fermer l'onglet et reprendre plus tard."
 }

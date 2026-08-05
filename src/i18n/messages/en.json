@@ -177,5 +177,9 @@
   "seasonLog": "{0} <b>{1}</b>",
   "gameOverLog": "🏁 The journey is over!",
   "cpuTurnBadge": "{0} is playing…",
+  "quizLow": "Short question",
+  "quizMid": "Standard question",
+  "quizHigh": "High-stakes question",
+  "cpuBoughtNothing": "{0} looked around but bought nothing.",
   "saveDone": "Your journey has been saved to this browser. You can close the tab and continue later."
 }

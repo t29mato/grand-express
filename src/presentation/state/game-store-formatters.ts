@@ -1,7 +1,7 @@
 import { Random } from "../../domain/shared-kernel/random";
 import { CurrencyFormat } from "../../domain/country/country-content-pack";
 import { resolveMisfortuneStrike } from "../../application/use-cases/resolve-misfortune-strike/resolve-misfortune-strike.use-case";
-import { cpuTakeTurn } from "../../application/use-cases/cpu-take-turn/cpu-take-turn.use-case";
+import { CityVisitSummary, cpuTakeTurn } from "../../application/use-cases/cpu-take-turn/cpu-take-turn.use-case";
 import { GameEngineContext } from "../../application/game-engine-context";
 import { formatMoney } from "../i18n/money-format";
 import { LogEntry } from "./game-store-types";
@@ -94,36 +94,48 @@ export function describeCpuTurn(
         );
         break;
       }
-      case "destination": {
+      case "destination":
         // 到着処理の内部で目的地が次の街へ差し替わるため、賞金だけを伝える。
         entries.push(logEntry("arriveDestLog", [playerName, money(landing.outcome.prize)], "gold"));
+        entries.push(...describeVisit(context, playerName, landing.visit));
         break;
-      }
-      case "city": {
-        const cityNode = context.getNode(
-          result.session.players.find((p) => p.name === playerName)?.location ?? result.session.players[0].location,
-        );
-        const city = "cityId" in cityNode ? context.getCity(cityNode.cityId) : undefined;
-        for (const index of landing.purchases) {
-          const property = city?.properties[index];
-          if (property) {
-            entries.push(logEntry("boughtLog", [playerName, property.name, city!.name, money(property.cost)], "gold"));
-          }
-        }
-        for (const index of landing.upgrades) {
-          const property = city?.properties[index];
-          if (property) {
-            entries.push(logEntry("investCpuLog", [playerName, property.name], "gold"));
-          }
-        }
-        if (landing.purchases.length === 0 && landing.upgrades.length === 0) {
-          entries.push(logEntry("cpuPassesTown", [playerName], "neutral"));
-        }
+      case "city":
+        entries.push(...describeVisit(context, playerName, landing.visit));
         break;
-      }
     }
   }
 
   if (result.extraTurn) entries.push(logEntry("extraTurn", [playerName], "gold"));
+  return entries;
+}
+
+/** 町での買い物(購入・投資・アイテム)をログ行にする。 */
+function describeVisit(
+  context: GameEngineContext,
+  playerName: string,
+  visit: CityVisitSummary,
+): LogEntry[] {
+  const currency = context.content.currency;
+  const city = context.getCity(visit.cityId);
+  const entries: LogEntry[] = [];
+  for (const index of visit.purchases) {
+    const property = city.properties[index];
+    if (property) {
+      entries.push(
+        logEntry("boughtLog", [playerName, property.name, city.name, formatMoney(property.cost, currency)], "gold"),
+      );
+    }
+  }
+  for (const index of visit.upgrades) {
+    const property = city.properties[index];
+    if (property) entries.push(logEntry("investCpuLog", [playerName, property.name], "gold"));
+  }
+  if (visit.boughtItem) {
+    const item = context.content.items.find((i) => i.key === visit.boughtItem);
+    if (item) entries.push(logEntry("boughtItemLog", [playerName, item.emoji, item.name], "gold"));
+  }
+  if (visit.purchases.length === 0 && visit.upgrades.length === 0 && !visit.boughtItem) {
+    entries.push(logEntry("cpuPassesTown", [playerName], "neutral"));
+  }
   return entries;
 }

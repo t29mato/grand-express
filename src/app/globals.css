@@ -651,6 +651,34 @@ aside {
   font-weight: 800;
 }
 
+.money.neg {
+  color: var(--red);
+}
+
+/* CPUが町で何をしたかの表示 */
+.cpu-bought {
+  margin-top: 10px;
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.cpu-invested {
+  margin-top: 6px;
+  color: var(--teal);
+  font-weight: 800;
+}
+
+.monopoly {
+  margin-top: 11px;
+  background: #f5b31c1f;
+  border: 1px dashed var(--gold);
+  border-radius: 10px;
+  padding: 10px 13px;
+  font-size: 0.93rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
 .city-art {
   display: block;
   width: 100%;

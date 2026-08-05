@@ -2,37 +2,40 @@ import { test, expect, Page } from "@playwright/test";
 
 /**
  * 月替わり(全員が1手番ずつ終える)ごとに季節イベントのモーダルが表示されることを、
- * 実際にプレイして確認する。既定のセットアップは3人(人間1・CPU2)なので、
- * 数ターン進めれば必ず月が替わる。
+ * 実際にプレイして確認する。
+ *
+ * CPUの手番はサイコロ演出・結果モーダルを挟んで進むため、1周にそれなりの時間がかかる。
+ * ターン数ではなく「季節モーダルが出るまで」を条件に、時間予算つきで回す。
  */
 
-async function takeOneTurn(page: Page): Promise<void> {
-  const die = page.locator("#die");
-  if (await die.isEnabled().catch(() => false)) {
-    await die.click();
-    const choosable = page.locator("svg.board-svg g[style*='cursor: pointer']").first();
-    if (await choosable.isVisible({ timeout: 2000 }).catch(() => false)) {
-      await choosable.click({ timeout: 5000 }).catch(() => {});
-    }
-  }
-  await page.waitForTimeout(400);
-  // 町・クイズのモーダルが出ていたら閉じて手番を終える(季節モーダルは閉じない)。
+/** 季節モーダル以外の、進行を止めているモーダルを1つ閉じる。閉じたら true。 */
+async function dismissBlockingModal(page: Page): Promise<boolean> {
   const quizOption = page.locator(".btn.opt").first();
   if (await quizOption.isVisible().catch(() => false)) {
     await quizOption.click();
-    await page.waitForTimeout(300);
+    return true;
   }
   const backToRails = page.getByRole("button", { name: "Back to the rails" });
   if (await backToRails.isVisible().catch(() => false)) {
     await backToRails.click();
-    await page.waitForTimeout(300);
+    return true;
   }
-  // 目的地に到着していたら「次の区間」の案内も閉じる。
   const fullSteam = page.getByRole("button", { name: "Full steam ahead" });
   if (await fullSteam.isVisible().catch(() => false)) {
     await fullSteam.click();
-    await page.waitForTimeout(300);
+    return true;
   }
+  // CPUの結果モーダル(町・クイズ)。季節モーダルと同じ Continue ボタンなので、
+  // 季節の見出しが出ていないときだけ閉じる。
+  const seasonVisible = await page.getByText("Seasonal event").isVisible().catch(() => false);
+  if (!seasonVisible) {
+    const cont = page.getByRole("button", { name: "Continue", exact: true });
+    if (await cont.isVisible().catch(() => false)) {
+      await cont.click();
+      return true;
+    }
+  }
+  return false;
 }
 
 test("月が替わると季節イベントのモーダルが表示され、閉じるとプレイを続けられる", async ({ page }) => {
@@ -43,11 +46,26 @@ test("月が替わると季節イベントのモーダルが表示され、閉�
   await page.getByRole("button", { name: "Start the journey" }).click();
   await page.getByRole("button", { name: "Depart!" }).click();
 
-  // 月が替わるまでプレイする(3人なので通常1〜2ターンで替わるが、余裕をみて最大6ターン)。
   const seasonHeading = page.getByText("Seasonal event");
-  for (let turn = 0; turn < 6; turn++) {
+  const die = page.locator("#die");
+
+  // 季節モーダルが出るまで、人間の手番を進めつつ他のモーダルは閉じ続ける。
+  const deadline = Date.now() + 60_000;
+  while (Date.now() < deadline) {
     if (await seasonHeading.isVisible().catch(() => false)) break;
-    await takeOneTurn(page);
+    if (await dismissBlockingModal(page)) {
+      await page.waitForTimeout(250);
+      continue;
+    }
+    if (await die.isEnabled().catch(() => false)) {
+      await die.click();
+      await page.waitForTimeout(2600); // サイコロ演出
+      const choosable = page.locator("svg.board-svg g[style*='cursor: pointer']").first();
+      if (await choosable.isVisible({ timeout: 2000 }).catch(() => false)) {
+        await choosable.click({ timeout: 5000 }).catch(() => {});
+      }
+    }
+    await page.waitForTimeout(300);
   }
 
   await expect(seasonHeading).toBeVisible();

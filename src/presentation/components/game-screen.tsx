@@ -1,10 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { NodeId } from "../../domain/shared-kernel/ids";
 import { currentPlayer } from "../../domain/game-session/game-session";
 import { useGameStore } from "../state/game-store";
-import { UiState } from "../state/game-store-types";
 import { BoardView } from "./board/board-view";
 import { DiceButton } from "./hud/dice-button";
 import { DiceStage } from "./hud/dice-stage";
@@ -12,6 +10,8 @@ import { DestinationCard, ItemBar, PlayersPanel, TravelLog } from "./hud/side-pa
 import { LocaleSwitch } from "./hud/locale-switch";
 import { IntroModal } from "./modals/intro-modal";
 import { SavedModal } from "./modals/saved-modal";
+import { CpuCityModal } from "./modals/cpu-city-modal";
+import { CpuQuizModal } from "./modals/cpu-quiz-modal";
 import { SeasonModal } from "./modals/season-modal";
 import { NextLegModal } from "./modals/next-leg-modal";
 import { QuizModal } from "./modals/quiz-modal";
@@ -39,19 +39,10 @@ export function GameScreen() {
   const dismissSeasonModal = useGameStore((s) => s.dismissSeasonModal);
   const dismissNextLeg = useGameStore((s) => s.dismissNextLeg);
   const dismissSavedModal = useGameStore((s) => s.dismissSavedModal);
+  const dismissCpuModal = useGameStore((s) => s.dismissCpuModal);
+  const diceRoll = useGameStore((s) => s.diceRoll);
+  const clearDiceRoll = useGameStore((s) => s.clearDiceRoll);
   const { t } = useLocale();
-
-  // ダイスロール直後(idle等 → choosing-square への遷移)を検知し、
-  // 一度だけ3Dダイス演出を再生する。演出は完全に飾りであり、盤面のクリックは
-  // ブロックしない(pointer-events:none)ので、ゲームの進行そのものには影響しない。
-  const prevUiKindRef = useRef<UiState["kind"]>(ui.kind);
-  const [diceRoll, setDiceRoll] = useState<{ nonce: number; steps: number } | null>(null);
-  useEffect(() => {
-    if (ui.kind === "choosing-square" && prevUiKindRef.current !== "choosing-square") {
-      setDiceRoll((prev) => ({ nonce: (prev?.nonce ?? 0) + 1, steps: ui.steps }));
-    }
-    prevUiKindRef.current = ui.kind;
-  }, [ui]);
 
   if (!context || !session) return null;
 
@@ -80,14 +71,16 @@ export function GameScreen() {
             reachable={reachableSet}
             onChooseNode={(id) => chooseSquare(id)}
           />
-          {diceRoll && <DiceStage key={diceRoll.nonce} targetValue={diceRoll.steps} onDone={() => setDiceRoll(null)} />}
+          {diceRoll && <DiceStage key={diceRoll.nonce} targetValue={diceRoll.value} onDone={clearDiceRoll} />}
         </div>
         <aside>
           <DestinationCard context={context} session={session} />
           <DiceButton
             session={session}
             disabled={player.isCpu || ui.kind !== "idle"}
-            cpuTurnPlayerName={ui.kind === "cpu-turn" ? ui.playerName : undefined}
+            cpuTurnPlayerName={
+              ui.kind === "cpu-turn" || ui.kind === "cpu-city" || ui.kind === "cpu-quiz" ? ui.playerName : undefined
+            }
             onRoll={rollForHumanTurn}
           />
           <ItemBar context={context} session={session} onUseItem={useInventoryItem} />
@@ -97,6 +90,28 @@ export function GameScreen() {
       </main>
 
       {ui.kind === "saved" && <SavedModal onClose={dismissSavedModal} />}
+      {ui.kind === "cpu-city" && (
+        <CpuCityModal
+          context={context}
+          session={session}
+          playerName={ui.playerName}
+          cityId={ui.cityId}
+          visit={ui.visit}
+          arrivalPrize={ui.arrivalPrize}
+          onClose={dismissCpuModal}
+        />
+      )}
+      {ui.kind === "cpu-quiz" && (
+        <CpuQuizModal
+          playerName={ui.playerName}
+          question={ui.question}
+          tier={ui.tier}
+          chosenOptionIndex={ui.chosenOptionIndex}
+          correct={ui.correct}
+          amount={ui.amount}
+          onClose={dismissCpuModal}
+        />
+      )}
       {ui.kind === "intro" && <IntroModal context={context} session={session} onDepart={dismissIntro} />}
       {ui.kind === "season" && <SeasonModal season={ui.season} onContinue={dismissSeasonModal} />}
       {ui.kind === "next-leg" && (
