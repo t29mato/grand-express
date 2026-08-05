@@ -29,6 +29,16 @@ const RAIL_LAYERS: readonly { stroke: string; width: number; dash?: string; opac
 ];
 
 /**
+ * 航路の描画。陸路(枕木のあるレール)と見分けがつくよう、
+ * 海になじむ青系の破線で描く。
+ */
+const SEA_LAYERS: readonly { stroke: string; width: number; dash?: string; opacity?: number }[] = [
+  { stroke: "#0e1626", width: 9, opacity: 0.45 },
+  { stroke: "#7fc8e8", width: 5, dash: "14 10" },
+  { stroke: "#d8f0ff", width: 2, dash: "4 20", opacity: 0.9 },
+];
+
+/**
  * 都市名ラベルの画面上の文字サイズ(CSSピクセル)。
  * SVGの font-size は盤面座標の単位なので、そのまま指定するとズームしても
  * ラベルの相対サイズが変わらず、いつまでも重なったままになる。
@@ -160,19 +170,32 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
     return () => svg.removeEventListener("wheel", onWheel);
   }, [zoomBy, stopAnimation]);
 
+  /**
+   * 路線の線分。陸路と航路で描き分けるため、種類ごとに分けて持つ。
+   * 種類は中間マスが持つ `edgeKind` から判定する(都市同士が直接繋がる場合は
+   * 中間マスが無いので、相手側から辿れなければ陸路として扱う)。
+   */
   const edges = useMemo(() => {
-    const lines: { x1: number; y1: number; x2: number; y2: number }[] = [];
+    type Line = { x1: number; y1: number; x2: number; y2: number };
+    const rail: Line[] = [];
+    const sea: Line[] = [];
     for (const [id, neighbors] of context.graph.adjacency) {
       const from = positions.get(id);
       if (!from) continue;
+      const fromNode = context.graph.nodes.get(id);
       for (const neighborId of neighbors) {
         if (neighborId <= id) continue; // 重複を避ける(双方向なので片方だけ描画)
         const to = positions.get(neighborId);
         if (!to) continue;
-        lines.push({ x1: from.x, y1: from.y, x2: to.x, y2: to.y });
+        const toNode = context.graph.nodes.get(neighborId);
+        const kind =
+          (fromNode && "edgeKind" in fromNode ? fromNode.edgeKind : undefined) ??
+          (toNode && "edgeKind" in toNode ? toNode.edgeKind : undefined) ??
+          "rail";
+        (kind === "sea" ? sea : rail).push({ x1: from.x, y1: from.y, x2: to.x, y2: to.y });
       }
     }
-    return lines;
+    return { rail, sea };
   }, [context, positions]);
 
   const tokensByNode = useMemo(() => {
@@ -204,9 +227,30 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
             まとめて描くことで、隣り合う路線の縁取りが手前の路線を欠けさせないようにしている
             (都市の合流点は都市のシンボルが上に載るため見た目の差は出ない)。 */}
         <g className="edges">
+          {/* 航路。陸路の下に敷き、波打つ点線で船の道と分かるようにする。 */}
+          <g className="sea-routes">
+            {SEA_LAYERS.map((layer, layerIndex) => (
+              <g key={layerIndex}>
+                {edges.sea.map((line, i) => (
+                  <line
+                    key={i}
+                    x1={line.x1}
+                    y1={line.y1}
+                    x2={line.x2}
+                    y2={line.y2}
+                    stroke={layer.stroke}
+                    strokeWidth={layer.width}
+                    strokeLinecap="round"
+                    strokeDasharray={layer.dash}
+                    opacity={layer.opacity}
+                  />
+                ))}
+              </g>
+            ))}
+          </g>
           {RAIL_LAYERS.map((layer, layerIndex) => (
             <g key={layerIndex}>
-              {edges.map((line, i) => (
+              {edges.rail.map((line, i) => (
                 <line
                   key={i}
                   x1={line.x1}

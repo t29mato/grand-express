@@ -1,4 +1,5 @@
 import { CityId, NodeId, RegionId } from "../shared-kernel/ids";
+import { EdgeKind } from "./city";
 
 export type NodeType = "city" | "quiz" | "blue" | "red" | "card";
 
@@ -19,11 +20,15 @@ export interface CityNode extends BoardNodeBase {
 export interface QuizNode extends BoardNodeBase {
   readonly type: "quiz";
   readonly between: readonly [CityId, CityId];
+  /** この中間マスが乗っている路線の種類(描き分けに使う)。 */
+  readonly edgeKind: EdgeKind;
 }
 
 export interface PlainSquareNode extends BoardNodeBase {
   readonly type: "blue" | "red" | "card";
   readonly between: readonly [CityId, CityId];
+  /** この中間マスが乗っている路線の種類(描き分けに使う)。 */
+  readonly edgeKind: EdgeKind;
 }
 
 export type BoardNode = CityNode | QuizNode | PlainSquareNode;

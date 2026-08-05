@@ -26,4 +26,16 @@ export interface City {
 }
 
 /** 都市間を結ぶ路線。 */
-export type Edge = readonly [CityId, CityId];
+/**
+ * 路線の種類。
+ * - `rail` … 陸路。枕木のある線路として描く
+ * - `sea`  … 航路。島と本土、島同士を結ぶ。線の見た目が異なるだけで、
+ *            進み方(中間マスに止まる)は陸路と同じ
+ */
+export type EdgeKind = "rail" | "sea";
+
+export interface Edge {
+  readonly from: CityId;
+  readonly to: CityId;
+  readonly kind: EdgeKind;
+}

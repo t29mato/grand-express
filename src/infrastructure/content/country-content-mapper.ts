@@ -38,7 +38,12 @@ function mapCities(raw: RawCountryContent): City[] {
 }
 
 function mapEdges(raw: RawCountryContent): Edge[] {
-  return raw.edges.map(([a, b]) => [CityId(a), CityId(b)] as Edge);
+  return raw.edges.map(([a, b, kind]) => ({
+    from: CityId(a),
+    to: CityId(b),
+    // 3要素目が無い路線は陸路とみなす(legacy由来のデータはすべて陸路)。
+    kind: kind ?? "rail",
+  }));
 }
 
 function itemEffectFor(key: string): ItemEffect {

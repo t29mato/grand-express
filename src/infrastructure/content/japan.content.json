@@ -41,9 +41,9 @@
     "ツバメ Tsubame"
   ],
   "proj": {
-    "BW": 2013,
+    "BW": 2384,
     "BH": 2450,
-    "LON0": 127,
+    "LON0": 123.4,
     "LON1": 146.5,
     "LAT0": 45.8,
     "LAT1": 25.6,
@@ -748,6 +748,326 @@
       [
         134.65,
         34.58
+      ]
+    ],
+    [
+      [
+        139.33,
+        34.82
+      ],
+      [
+        139.46,
+        34.79
+      ],
+      [
+        139.47,
+        34.68
+      ],
+      [
+        139.36,
+        34.66
+      ],
+      [
+        139.29,
+        34.73
+      ],
+      [
+        139.33,
+        34.82
+      ]
+    ],
+    [
+      [
+        139.74,
+        33.16
+      ],
+      [
+        139.83,
+        33.14
+      ],
+      [
+        139.84,
+        33.06
+      ],
+      [
+        139.76,
+        33.04
+      ],
+      [
+        139.72,
+        33.1
+      ],
+      [
+        139.74,
+        33.16
+      ]
+    ],
+    [
+      [
+        142.16,
+        27.13
+      ],
+      [
+        142.23,
+        27.12
+      ],
+      [
+        142.24,
+        27.04
+      ],
+      [
+        142.18,
+        27.02
+      ],
+      [
+        142.14,
+        27.08
+      ],
+      [
+        142.16,
+        27.13
+      ]
+    ],
+    [
+      [
+        129.28,
+        28.53
+      ],
+      [
+        129.55,
+        28.45
+      ],
+      [
+        129.72,
+        28.28
+      ],
+      [
+        129.55,
+        28.13
+      ],
+      [
+        129.32,
+        28.22
+      ],
+      [
+        129.2,
+        28.4
+      ],
+      [
+        129.28,
+        28.53
+      ]
+    ],
+    [
+      [
+        133.15,
+        36.33
+      ],
+      [
+        133.4,
+        36.32
+      ],
+      [
+        133.42,
+        36.14
+      ],
+      [
+        133.2,
+        36.08
+      ],
+      [
+        133.06,
+        36.2
+      ],
+      [
+        133.15,
+        36.33
+      ]
+    ],
+    [
+      [
+        129.28,
+        34.7
+      ],
+      [
+        129.42,
+        34.6
+      ],
+      [
+        129.4,
+        34.28
+      ],
+      [
+        129.26,
+        34.06
+      ],
+      [
+        129.16,
+        34.2
+      ],
+      [
+        129.2,
+        34.5
+      ],
+      [
+        129.28,
+        34.7
+      ]
+    ],
+    [
+      [
+        128.66,
+        32.87
+      ],
+      [
+        128.9,
+        32.85
+      ],
+      [
+        129,
+        32.66
+      ],
+      [
+        128.82,
+        32.55
+      ],
+      [
+        128.63,
+        32.68
+      ],
+      [
+        128.66,
+        32.87
+      ]
+    ],
+    [
+      [
+        130.4,
+        30.45
+      ],
+      [
+        130.6,
+        30.44
+      ],
+      [
+        130.65,
+        30.28
+      ],
+      [
+        130.5,
+        30.2
+      ],
+      [
+        130.36,
+        30.3
+      ],
+      [
+        130.4,
+        30.45
+      ]
+    ],
+    [
+      [
+        130.85,
+        30.83
+      ],
+      [
+        131,
+        30.75
+      ],
+      [
+        131.06,
+        30.5
+      ],
+      [
+        130.94,
+        30.42
+      ],
+      [
+        130.85,
+        30.6
+      ],
+      [
+        130.85,
+        30.83
+      ]
+    ],
+    [
+      [
+        125.15,
+        24.92
+      ],
+      [
+        125.4,
+        24.9
+      ],
+      [
+        125.47,
+        24.72
+      ],
+      [
+        125.28,
+        24.68
+      ],
+      [
+        125.13,
+        24.78
+      ],
+      [
+        125.15,
+        24.92
+      ]
+    ],
+    [
+      [
+        124.05,
+        24.46
+      ],
+      [
+        124.32,
+        24.45
+      ],
+      [
+        124.36,
+        24.32
+      ],
+      [
+        124.18,
+        24.24
+      ],
+      [
+        124.02,
+        24.35
+      ],
+      [
+        124.05,
+        24.46
+      ]
+    ],
+    [
+      [
+        123.68,
+        24.42
+      ],
+      [
+        123.9,
+        24.4
+      ],
+      [
+        123.92,
+        24.24
+      ],
+      [
+        123.74,
+        24.22
+      ],
+      [
+        123.62,
+        24.32
+      ],
+      [
+        123.68,
+        24.42
       ]
     ]
   ],
@@ -3897,6 +4217,582 @@
           "inc": 50
         }
       ]
+    },
+    "oshima": {
+      "n": {
+        "en": "Izu Ōshima",
+        "es": "Izu Ōshima",
+        "fr": "Izu Ōshima",
+        "ja": "伊豆大島"
+      },
+      "lo": 139.4,
+      "la": 34.75,
+      "mark": "volcano_m",
+      "bg": "islandhill",
+      "reg": "kan",
+      "lp": "r",
+      "tag": {
+        "en": "Camellia island with a living volcano",
+        "es": "Isla de camelias con un volcán vivo",
+        "fr": "Île aux camélias et volcan actif",
+        "ja": "椿と活火山の島"
+      },
+      "fact": {
+        "en": "Mount Mihara erupts every few decades and its 1986 eruption forced the whole island to evacuate. Three million camellia trees supply oil still used for hair and cooking.",
+        "es": "El monte Mihara entra en erupción cada pocas décadas; en 1986 obligó a evacuar toda la isla. Tres millones de camelias dan aceite usado aún para el cabello y la cocina.",
+        "fr": "Le mont Mihara entre en éruption tous les quelques décennies ; en 1986 toute l'île fut évacuée. Trois millions de camélias fournissent une huile encore utilisée.",
+        "ja": "三原山は数十年ごとに噴火し、1986年の噴火では全島民が避難した。300万本の椿から採れる椿油は今も髪や料理に使われる。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Camellia Oil Press",
+            "es": "Prensa de aceite de camelia",
+            "fr": "Pressoir d'huile de camélia",
+            "ja": "椿油の搾油所"
+          },
+          "cost": 220,
+          "inc": 46
+        },
+        {
+          "n": {
+            "en": "Crater Trail Lodge",
+            "es": "Refugio del cráter",
+            "fr": "Refuge du cratère",
+            "ja": "火口の山小屋"
+          },
+          "cost": 190,
+          "inc": 40
+        }
+      ]
+    },
+    "hachijojima": {
+      "n": {
+        "en": "Hachijōjima",
+        "es": "Hachijōjima",
+        "fr": "Hachijōjima",
+        "ja": "八丈島"
+      },
+      "lo": 139.79,
+      "la": 33.11,
+      "mark": "torii_wood",
+      "bg": "subtropic",
+      "reg": "kan",
+      "lp": "r",
+      "tag": {
+        "en": "Island of exiles and yellow silk",
+        "es": "Isla de exiliados y seda amarilla",
+        "fr": "Île des exilés et de la soie jaune",
+        "ja": "流人と黄八丈の島"
+      },
+      "fact": {
+        "en": "For three centuries the shogunate exiled people here, 290 km out to sea. The exiles' descendants still weave kihachijō, silk dyed yellow with a local grass.",
+        "es": "Durante tres siglos el shogunato desterró aquí, a 290 km mar adentro. Sus descendientes aún tejen el kihachijō, seda teñida de amarillo con una hierba local.",
+        "fr": "Trois siècles durant, le shogunat y exila des condamnés, à 290 km au large. Leurs descendants tissent encore le kihachijō, soie teinte en jaune.",
+        "ja": "幕府は290km沖のこの島へ3世紀にわたり流人を送った。その子孫は今も、島の草で黄色に染める黄八丈を織る。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Kihachijō Loom",
+            "es": "Telar de kihachijō",
+            "fr": "Métier à kihachijō",
+            "ja": "黄八丈の機屋"
+          },
+          "cost": 250,
+          "inc": 52
+        },
+        {
+          "n": {
+            "en": "Seaside Onsen",
+            "es": "Onsen junto al mar",
+            "fr": "Onsen du bord de mer",
+            "ja": "海辺の露天風呂"
+          },
+          "cost": 210,
+          "inc": 44
+        }
+      ]
+    },
+    "chichijima": {
+      "n": {
+        "en": "Chichijima",
+        "es": "Chichijima",
+        "fr": "Chichijima",
+        "ja": "父島"
+      },
+      "lo": 142.2,
+      "la": 27.09,
+      "mark": "katsuo",
+      "bg": "subtropic",
+      "reg": "kan",
+      "lp": "r",
+      "tag": {
+        "en": "The Galápagos of the Orient",
+        "es": "Las Galápagos de Oriente",
+        "fr": "Les Galápagos de l'Orient",
+        "ja": "東洋のガラパゴス"
+      },
+      "fact": {
+        "en": "These islands have never been connected to a continent, so much of their wildlife exists nowhere else. There is no airport — a 24-hour ferry from Tokyo is the only way in.",
+        "es": "Estas islas nunca estuvieron unidas a un continente, así que buena parte de su fauna no existe en ningún otro sitio. Sin aeropuerto: solo un ferry de 24 horas desde Tokio.",
+        "fr": "Ces îles n'ont jamais été reliées à un continent : une grande part de leur faune est unique. Pas d'aéroport — seul un ferry de 24 heures depuis Tokyo.",
+        "ja": "一度も大陸と地続きになったことがなく、固有の生き物が多い。空港は無く、東京から24時間の船が唯一の足である。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Whale Watch Boat",
+            "es": "Barco de avistamiento",
+            "fr": "Bateau d'observation",
+            "ja": "ホエールウォッチング船"
+          },
+          "cost": 260,
+          "inc": 54
+        },
+        {
+          "n": {
+            "en": "Island Guesthouse",
+            "es": "Pensión isleña",
+            "fr": "Pension insulaire",
+            "ja": "島の民宿"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    },
+    "amami": {
+      "n": {
+        "en": "Amami Ōshima",
+        "es": "Amami Ōshima",
+        "fr": "Amami Ōshima",
+        "ja": "奄美大島"
+      },
+      "lo": 129.49,
+      "la": 28.37,
+      "mark": "church",
+      "bg": "subtropic",
+      "reg": "kyu",
+      "lp": "r",
+      "tag": {
+        "en": "Mud-dyed silk and ancient forest",
+        "es": "Seda teñida con barro y bosque antiguo",
+        "fr": "Soie teinte à la boue et forêt ancienne",
+        "ja": "泥染めの紬と原生林"
+      },
+      "fact": {
+        "en": "Ōshima tsumugi silk is dyed by burying it in iron-rich mud, a technique over a thousand years old. The island's forests, home to the Amami rabbit, became a World Heritage site in 2021.",
+        "es": "La seda tsumugi se tiñe enterrándola en barro ferroso, técnica milenaria. Sus bosques, hogar del conejo de Amami, son Patrimonio Mundial desde 2021.",
+        "fr": "La soie tsumugi est teinte en l'enfouissant dans une boue ferreuse, technique millénaire. Ses forêts, refuge du lapin d'Amami, sont classées depuis 2021.",
+        "ja": "大島紬は鉄分を含む泥に埋めて染める千年以上の技法で作られる。アマミノクロウサギが棲む森は2021年に世界自然遺産となった。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Mud Dye Workshop",
+            "es": "Taller de tintura de barro",
+            "fr": "Atelier de teinture à la boue",
+            "ja": "泥染めの工房"
+          },
+          "cost": 270,
+          "inc": 56
+        },
+        {
+          "n": {
+            "en": "Mangrove Canoe",
+            "es": "Canoa por el manglar",
+            "fr": "Canoë dans la mangrove",
+            "ja": "マングローブのカヌー"
+          },
+          "cost": 220,
+          "inc": 46
+        }
+      ]
+    },
+    "sado": {
+      "n": {
+        "en": "Sado",
+        "es": "Sado",
+        "fr": "Sado",
+        "ja": "佐渡"
+      },
+      "lo": 138.36,
+      "la": 38.02,
+      "mark": "star5",
+      "bg": "seaside",
+      "reg": "nor",
+      "lp": "l",
+      "tag": {
+        "en": "Gold mine island of exiled artists",
+        "es": "Isla minera de artistas exiliados",
+        "fr": "Île aurifère des artistes exilés",
+        "ja": "流された芸能と金山の島"
+      },
+      "fact": {
+        "en": "Sado's gold funded the shogunate for 250 years. Exiles brought courtly arts with them, which is why this remote island preserves noh theatre stages in village after village.",
+        "es": "El oro de Sado financió al shogunato 250 años. Los desterrados trajeron artes cortesanas: por eso esta isla remota conserva escenarios de nō pueblo tras pueblo.",
+        "fr": "L'or de Sado finança le shogunat 250 ans. Les exilés y apportèrent les arts de cour : d'où les scènes de nō conservées village après village.",
+        "ja": "佐渡の金は250年にわたり幕府を支えた。流された人々が都の芸能を持ち込んだため、集落ごとに能舞台が残る。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Gold Mine Tunnel",
+            "es": "Túnel de la mina",
+            "fr": "Galerie de la mine d'or",
+            "ja": "金山の坑道"
+          },
+          "cost": 300,
+          "inc": 62
+        },
+        {
+          "n": {
+            "en": "Tub Boat Quay",
+            "es": "Muelle de las barcas",
+            "fr": "Quai des barques-cuves",
+            "ja": "たらい舟の桟橋"
+          },
+          "cost": 190,
+          "inc": 40
+        }
+      ]
+    },
+    "oki": {
+      "n": {
+        "en": "Oki",
+        "es": "Oki",
+        "fr": "Oki",
+        "ja": "隠岐"
+      },
+      "lo": 133.32,
+      "la": 36.2,
+      "mark": "torii_wood",
+      "bg": "seaside",
+      "reg": "kin",
+      "lp": "l",
+      "tag": {
+        "en": "Where an emperor was banished",
+        "es": "Adonde desterraron a un emperador",
+        "fr": "Où fut banni un empereur",
+        "ja": "天皇が流された島"
+      },
+      "fact": {
+        "en": "Emperor Go-Toba was exiled here in 1221 and died without returning. The islands' bullfighting, in which two bulls lock horns, is said to have begun as entertainment for him.",
+        "es": "El emperador Go-Toba fue desterrado aquí en 1221 y murió sin volver. Las corridas de toros de las islas, donde dos toros luchan, nacieron para entretenerlo.",
+        "fr": "L'empereur Go-Toba y fut exilé en 1221 et mourut sans revenir. Les combats de taureaux des îles seraient nés pour le distraire.",
+        "ja": "1221年に後鳥羽上皇が配流され、還ることなく崩御した。牛と牛が角を合わせる牛突きは、上皇を慰めるために始まったと伝わる。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Bull Sumo Ring",
+            "es": "Ruedo de toros",
+            "fr": "Arène des taureaux",
+            "ja": "牛突きの土俵"
+          },
+          "cost": 230,
+          "inc": 48
+        },
+        {
+          "n": {
+            "en": "Sea Cliff Boat",
+            "es": "Barco de los acantilados",
+            "fr": "Bateau des falaises",
+            "ja": "国賀海岸の遊覧船"
+          },
+          "cost": 210,
+          "inc": 44
+        }
+      ]
+    },
+    "tsushima": {
+      "n": {
+        "en": "Tsushima",
+        "es": "Tsushima",
+        "fr": "Tsushima",
+        "ja": "対馬"
+      },
+      "lo": 129.29,
+      "la": 34.2,
+      "mark": "castle_stone",
+      "bg": "forest",
+      "reg": "kyu",
+      "lp": "l",
+      "tag": {
+        "en": "The stepping stone to the continent",
+        "es": "El peldaño hacia el continente",
+        "fr": "Le tremplin vers le continent",
+        "ja": "大陸への足がかり"
+      },
+      "fact": {
+        "en": "Closer to Korea than to Kyūshū, Tsushima handled diplomacy with the continent for centuries and bore the brunt of the Mongol invasions of 1274 and 1281.",
+        "es": "Más cerca de Corea que de Kyūshū, Tsushima gestionó la diplomacia continental durante siglos y sufrió las invasiones mongolas de 1274 y 1281.",
+        "fr": "Plus proche de la Corée que de Kyūshū, Tsushima géra la diplomatie continentale des siècles durant et subit les invasions mongoles de 1274 et 1281.",
+        "ja": "九州より朝鮮半島に近く、何世紀も大陸との外交を担った。1274年と1281年の元寇では最初の戦場となった。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Border Watchtower",
+            "es": "Atalaya fronteriza",
+            "fr": "Tour de guet frontalière",
+            "ja": "国境の見張り台"
+          },
+          "cost": 250,
+          "inc": 52
+        },
+        {
+          "n": {
+            "en": "Anago Fishing Boat",
+            "es": "Barco de anguilas",
+            "fr": "Bateau à congres",
+            "ja": "穴子漁船"
+          },
+          "cost": 210,
+          "inc": 44
+        }
+      ]
+    },
+    "goto": {
+      "n": {
+        "en": "Gotō",
+        "es": "Gotō",
+        "fr": "Gotō",
+        "ja": "五島"
+      },
+      "lo": 128.84,
+      "la": 32.7,
+      "mark": "church",
+      "bg": "seaside",
+      "reg": "kyu",
+      "lp": "l",
+      "tag": {
+        "en": "Churches of the hidden Christians",
+        "es": "Iglesias de los cristianos ocultos",
+        "fr": "Églises des chrétiens cachés",
+        "ja": "潜伏キリシタンの教会群"
+      },
+      "fact": {
+        "en": "Christians fleeing persecution settled these islands and kept their faith in secret for 250 years. The churches they built after the ban lifted are now World Heritage.",
+        "es": "Cristianos que huían de la persecución poblaron estas islas y guardaron su fe en secreto 250 años. Las iglesias que alzaron tras el fin de la prohibición son Patrimonio Mundial.",
+        "fr": "Des chrétiens fuyant la persécution peuplèrent ces îles et gardèrent la foi en secret 250 ans. Les églises bâties après la levée de l'interdit sont classées.",
+        "ja": "迫害を逃れたキリシタンが移り住み、250年にわたり信仰を隠し通した。禁教が解けてから建てた教会群は世界遺産となっている。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Stone Church",
+            "es": "Iglesia de piedra",
+            "fr": "Église de pierre",
+            "ja": "石造りの教会"
+          },
+          "cost": 260,
+          "inc": 54
+        },
+        {
+          "n": {
+            "en": "Udon Workshop",
+            "es": "Taller de udon",
+            "fr": "Atelier d'udon",
+            "ja": "五島うどんの工房"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    },
+    "yakushima": {
+      "n": {
+        "en": "Yakushima",
+        "es": "Yakushima",
+        "fr": "Yakushima",
+        "ja": "屋久島"
+      },
+      "lo": 130.5,
+      "la": 30.36,
+      "mark": "star5",
+      "bg": "forest",
+      "reg": "kyu",
+      "lp": "r",
+      "tag": {
+        "en": "Cedars that outlive empires",
+        "es": "Cedros que sobreviven a imperios",
+        "fr": "Des cèdres qui survivent aux empires",
+        "ja": "千年杉の森"
+      },
+      "fact": {
+        "en": "It rains here \"thirty-five days a month\", as the saying goes, feeding cedars thousands of years old. Japan's first natural World Heritage site.",
+        "es": "Aquí llueve «treinta y cinco días al mes», dice el dicho, alimentando cedros milenarios. Fue el primer Patrimonio Natural de Japón.",
+        "fr": "Il y pleut « trente-cinq jours par mois », dit-on, nourrissant des cèdres millénaires. Premier site naturel japonais classé au patrimoine mondial.",
+        "ja": "「ひと月に三十五日雨が降る」と言われる多雨が、樹齢数千年の杉を育てた。日本初の世界自然遺産。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Cedar Forest Trail",
+            "es": "Sendero de los cedros",
+            "fr": "Sentier des cèdres",
+            "ja": "杉の森の登山道"
+          },
+          "cost": 280,
+          "inc": 58
+        },
+        {
+          "n": {
+            "en": "Flying Fish Quay",
+            "es": "Muelle de peces voladores",
+            "fr": "Quai des poissons volants",
+            "ja": "トビウオの港"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    },
+    "tanegashima": {
+      "n": {
+        "en": "Tanegashima",
+        "es": "Tanegashima",
+        "fr": "Tanegashima",
+        "ja": "種子島"
+      },
+      "lo": 130.96,
+      "la": 30.62,
+      "mark": "star5",
+      "bg": "seaside",
+      "reg": "kyu",
+      "lp": "r",
+      "tag": {
+        "en": "Guns then, rockets now",
+        "es": "Antes arcabuces, ahora cohetes",
+        "fr": "Jadis les arquebuses, aujourd'hui les fusées",
+        "ja": "鉄砲とロケットの島"
+      },
+      "fact": {
+        "en": "A Portuguese ship blown off course in 1543 brought the first firearms to Japan, and local smiths copied them within a year. Today Japan launches its rockets from the same island.",
+        "es": "Un barco portugués desviado en 1543 trajo las primeras armas de fuego a Japón, copiadas por herreros locales en un año. Hoy Japón lanza sus cohetes desde la misma isla.",
+        "fr": "Un navire portugais dérouté en 1543 apporta les premières armes à feu au Japon ; les forgerons locaux les copièrent en un an. Aujourd'hui le Japon y lance ses fusées.",
+        "ja": "1543年に漂着したポルトガル船が日本へ初めて鉄砲を伝え、島の鍛冶はわずか1年で複製した。今は同じ島からロケットが打ち上げられる。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Rocket Launch Pad",
+            "es": "Plataforma de lanzamiento",
+            "fr": "Pas de tir",
+            "ja": "ロケット発射場"
+          },
+          "cost": 320,
+          "inc": 66
+        },
+        {
+          "n": {
+            "en": "Matchlock Smithy",
+            "es": "Forja de arcabuces",
+            "fr": "Forge d'arquebuses",
+            "ja": "鉄砲鍛冶"
+          },
+          "cost": 220,
+          "inc": 46
+        }
+      ]
+    },
+    "miyakojima": {
+      "n": {
+        "en": "Miyakojima",
+        "es": "Miyakojima",
+        "fr": "Miyakojima",
+        "ja": "宮古島"
+      },
+      "lo": 125.28,
+      "la": 24.8,
+      "mark": "shurigate",
+      "bg": "subtropic",
+      "reg": "kyu",
+      "lp": "l",
+      "tag": {
+        "en": "Coral island without a river",
+        "es": "Isla de coral sin ríos",
+        "fr": "Île corallienne sans rivière",
+        "ja": "川のない珊瑚の島"
+      },
+      "fact": {
+        "en": "The island is raised coral, so rain sinks straight through and there are no rivers — drinking water comes from an underground dam. Its beaches rank among Japan's clearest.",
+        "es": "La isla es coral elevado: la lluvia se filtra y no hay ríos; el agua potable viene de una presa subterránea. Sus playas están entre las más claras de Japón.",
+        "fr": "L'île est un corail soulevé : la pluie s'infiltre, aucun cours d'eau ; l'eau potable vient d'un barrage souterrain. Ses plages comptent parmi les plus claires du Japon.",
+        "ja": "隆起珊瑚礁のため雨が地下に浸み、川が無い。飲み水は地下ダムで賄う。日本有数の透明度を誇る海が広がる。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Coral Beach Resort",
+            "es": "Resort de playa",
+            "fr": "Complexe de plage",
+            "ja": "珊瑚のビーチリゾート"
+          },
+          "cost": 300,
+          "inc": 62
+        },
+        {
+          "n": {
+            "en": "Underground Dam",
+            "es": "Presa subterránea",
+            "fr": "Barrage souterrain",
+            "ja": "地下ダム"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "ishigaki": {
+      "n": {
+        "en": "Ishigaki",
+        "es": "Ishigaki",
+        "fr": "Ishigaki",
+        "ja": "石垣島"
+      },
+      "lo": 124.16,
+      "la": 24.34,
+      "mark": "shurigate",
+      "bg": "subtropic",
+      "reg": "kyu",
+      "lp": "r",
+      "tag": {
+        "en": "Gateway to the far south",
+        "es": "Puerta del sur lejano",
+        "fr": "Porte de l'extrême sud",
+        "ja": "南の果ての玄関口"
+      },
+      "fact": {
+        "en": "Closer to Taiwan than to Okinawa's main island, Ishigaki is the base for the Yaeyama islands. Its black cattle and star-sand beaches draw visitors year round.",
+        "es": "Más cerca de Taiwán que de la isla principal de Okinawa, Ishigaki es la base de las Yaeyama. Su ternera negra y sus playas de arena-estrella atraen todo el año.",
+        "fr": "Plus proche de Taïwan que de l'île principale d'Okinawa, Ishigaki dessert les Yaeyama. Son bœuf noir et ses plages de sable-étoile attirent toute l'année.",
+        "ja": "沖縄本島より台湾に近く、八重山諸島の玄関口。石垣牛と星砂の浜が一年中人を集める。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Black Cattle Ranch",
+            "es": "Rancho de ternera negra",
+            "fr": "Élevage de bœuf noir",
+            "ja": "石垣牛の牧場"
+          },
+          "cost": 280,
+          "inc": 58
+        },
+        {
+          "n": {
+            "en": "Star Sand Beach",
+            "es": "Playa de arena-estrella",
+            "fr": "Plage au sable-étoile",
+            "ja": "星砂の浜"
+          },
+          "cost": 230,
+          "inc": 48
+        }
+      ]
     }
   },
   "edges": [
@@ -4203,6 +5099,71 @@
     [
       "hagi",
       "hiroshima"
+    ],
+    [
+      "chiba",
+      "oshima",
+      "sea"
+    ],
+    [
+      "oshima",
+      "hachijojima",
+      "sea"
+    ],
+    [
+      "hachijojima",
+      "chichijima",
+      "sea"
+    ],
+    [
+      "niigata",
+      "sado",
+      "sea"
+    ],
+    [
+      "matsue",
+      "oki",
+      "sea"
+    ],
+    [
+      "fukuoka",
+      "tsushima",
+      "sea"
+    ],
+    [
+      "nagasaki",
+      "goto",
+      "sea"
+    ],
+    [
+      "kagoshima",
+      "tanegashima",
+      "sea"
+    ],
+    [
+      "tanegashima",
+      "yakushima",
+      "sea"
+    ],
+    [
+      "yakushima",
+      "amami",
+      "sea"
+    ],
+    [
+      "amami",
+      "naha",
+      "sea"
+    ],
+    [
+      "naha",
+      "miyakojima",
+      "sea"
+    ],
+    [
+      "miyakojima",
+      "ishigaki",
+      "sea"
     ]
   ],
   "outro": {

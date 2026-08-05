@@ -16,13 +16,36 @@ describe("JsonCountryContentRepository", () => {
     expect(pack.spirit.wardItemKey).toBe("coca");
   });
 
-  it("日本パックを読み込める(legacyの30都市 + 追加22都市 = 全47都道府県)", async () => {
+  it("日本パックを読み込める(legacyの30都市 + 追加分。全47都道府県を網羅)", async () => {
     const pack = await repo.load(CountryId("japan"));
-    expect(pack.cities.length).toBe(52);
+    // 都市は継続的に増やしているため、下限だけを守る(上限を固定すると
+    // 追加のたびにテストが赤くなるだけで、何も守れていない)。
+    expect(pack.cities.length).toBeGreaterThanOrEqual(52);
     expect(pack.items.length).toBe(9);
     expect(pack.seasons.length).toBe(12);
     expect(pack.doomFlavors.length).toBe(7);
     expect(pack.spirit.wardItemKey).toBe("omamori");
+  });
+
+  it("島の都市へは航路でつながっている", async () => {
+    // 島は陸路では行けないので、航路(kind: "sea")が無いと到達不能になる。
+    const pack = await repo.load(CountryId("japan"));
+    const seaEdges = pack.edges.filter((e) => e.kind === "sea");
+    expect(seaEdges.length).toBeGreaterThan(0);
+
+    // 航路でしか行けない都市が、実際に航路を持っていること。
+    const railNeighbors = new Set<string>();
+    for (const { from, to, kind } of pack.edges) {
+      if (kind !== "sea") {
+        railNeighbors.add(from);
+        railNeighbors.add(to);
+      }
+    }
+    const islandOnly = pack.cities.map((c) => c.id).filter((id) => !railNeighbors.has(id));
+    expect(islandOnly.length).toBeGreaterThan(0);
+    for (const id of islandOnly) {
+      expect(seaEdges.some((e) => e.from === id || e.to === id), `${id} に航路がない`).toBe(true);
+    }
   });
 
   it("すべての都市が路線でつながっている(孤立した都市がない)", async () => {
@@ -30,7 +53,7 @@ describe("JsonCountryContentRepository", () => {
     for (const countryId of ["bolivia", "japan"] as const) {
       const pack = await repo.load(CountryId(countryId));
       const neighbors = new Map<string, string[]>();
-      for (const [a, b] of pack.edges) {
+      for (const { from: a, to: b } of pack.edges) {
         neighbors.set(a, [...(neighbors.get(a) ?? []), b]);
         neighbors.set(b, [...(neighbors.get(b) ?? []), a]);
       }
@@ -53,7 +76,7 @@ describe("JsonCountryContentRepository", () => {
     for (const countryId of ["bolivia", "japan"] as const) {
       const pack = await repo.load(CountryId(countryId));
       const cityIds = new Set(pack.cities.map((c) => c.id));
-      for (const [a, b] of pack.edges) {
+      for (const { from: a, to: b } of pack.edges) {
         expect(cityIds.has(a)).toBe(true);
         expect(cityIds.has(b)).toBe(true);
       }

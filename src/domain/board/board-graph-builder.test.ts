@@ -39,7 +39,7 @@ const projection: CountryProjection = {
 describe("buildBoardGraph", () => {
   it("都市をcityノードとしてグラフに含める", () => {
     const cities = [city("lapaz", -68, -16), city("sucre", -65, -19)];
-    const graph = buildBoardGraph(cities, [[CityId("lapaz"), CityId("sucre")]], projection);
+    const graph = buildBoardGraph(cities, [{ from: CityId("lapaz"), to: CityId("sucre"), kind: "rail" as const }], projection);
 
     expect(graph.nodes.get(NodeId("lapaz"))).toMatchObject({ type: "city", cityId: "lapaz" });
     expect(graph.nodes.get(NodeId("sucre"))).toMatchObject({ type: "city", cityId: "sucre" });
@@ -47,15 +47,15 @@ describe("buildBoardGraph", () => {
 
   it("同じ入力からは常に同じ盤面(中間マスの種類・個数)が生成される(決定的)", () => {
     const cities = [city("lapaz", -68, -16), city("sucre", -65, -19)];
-    const graphA = buildBoardGraph(cities, [[CityId("lapaz"), CityId("sucre")]], projection);
-    const graphB = buildBoardGraph(cities, [[CityId("lapaz"), CityId("sucre")]], projection);
+    const graphA = buildBoardGraph(cities, [{ from: CityId("lapaz"), to: CityId("sucre"), kind: "rail" as const }], projection);
+    const graphB = buildBoardGraph(cities, [{ from: CityId("lapaz"), to: CityId("sucre"), kind: "rail" as const }], projection);
 
     expect([...graphA.nodes.entries()]).toEqual([...graphB.nodes.entries()]);
   });
 
   it("2都市を路線でつなぐと、中間マスを介して互いに到達可能になる", () => {
     const cities = [city("lapaz", -68, -16), city("sucre", -65, -19)];
-    const graph = buildBoardGraph(cities, [[CityId("lapaz"), CityId("sucre")]], projection);
+    const graph = buildBoardGraph(cities, [{ from: CityId("lapaz"), to: CityId("sucre"), kind: "rail" as const }], projection);
 
     const lapazNeighbors = graph.adjacency.get(NodeId("lapaz")) ?? [];
     expect(lapazNeighbors.length).toBeGreaterThan(0);
@@ -74,7 +74,7 @@ describe("buildBoardGraph", () => {
   it("存在しない都市を参照するedgeはエラーになる(データ整合性ガード)", () => {
     const cities = [city("lapaz", -68, -16)];
     expect(() =>
-      buildBoardGraph(cities, [[CityId("lapaz"), CityId("unknown")]], projection),
+      buildBoardGraph(cities, [{ from: CityId("lapaz"), to: CityId("unknown"), kind: "rail" as const }], projection),
     ).toThrow();
   });
 });

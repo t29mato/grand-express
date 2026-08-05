@@ -8,6 +8,7 @@
 import { BOLIVIA_LAND } from "./bolivia-geography.mjs";
 import { QUIZ_DIFFICULTY } from "./quiz-difficulty.mjs";
 import { JAPAN_LAND } from "./japan-geography.mjs";
+import { JAPAN_ISLAND_CITIES, JAPAN_ISLAND_EDGES } from "./japan-islands.mjs";
 import {
   JAPAN_EXTRA_CITIES,
   JAPAN_EXTRA_EDGES,
@@ -23,6 +24,17 @@ import {
  */
 const BOARD_SCALE = { bolivia: 1.35, japan: 1.75 };
 
+/**
+ * 投影の経緯度範囲の上書き。
+ * 日本は legacy が西端を東経127度(沖縄本島)までしか取っていなかったため、
+ * 先島諸島(宮古島・石垣島)が盤面の外に落ちてしまう。西へ広げるとともに、
+ * 1度あたりの距離が変わらないよう横幅も同じ比率で広げる
+ * (広げないと日本列島全体が横に潰れてしまう)。
+ */
+const PROJ_BOUNDS = {
+  japan: { LON0: 123.4 },
+};
+
 const OVERRIDES = {
   bolivia: {
     land: BOLIVIA_LAND,
@@ -32,8 +44,9 @@ const OVERRIDES = {
   japan: {
     land: JAPAN_LAND,
     boardScale: BOARD_SCALE.japan,
-    extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES },
-    extraEdges: [...JAPAN_EXTRA_EDGES, ...JAPAN_PREFECTURE_EDGES],
+    projBounds: PROJ_BOUNDS.japan,
+    extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES, ...JAPAN_ISLAND_CITIES },
+    extraEdges: [...JAPAN_EXTRA_EDGES, ...JAPAN_PREFECTURE_EDGES, ...JAPAN_ISLAND_EDGES],
     quizDifficulty: QUIZ_DIFFICULTY.japan,
   },
 };
@@ -51,14 +64,27 @@ export function applyContentOverrides(countryId, content) {
 
   // サムネイル生成時は proj を持たない部分オブジェクトで呼ばれるため、その場合は何もしない
   // (サムネイルは自前のviewBoxで描くので盤面の拡大とは無関係)。
-  if (override.boardScale && content.proj) {
-    const scale = override.boardScale;
-    content.proj = {
-      ...content.proj,
-      BW: Math.round(content.proj.BW * scale),
-      BH: Math.round(content.proj.BH * scale),
-      seg: Math.round((content.proj.seg ?? 64) * scale),
-    };
+  if (content.proj) {
+    let proj = content.proj;
+
+    if (override.projBounds) {
+      const { LON0 = proj.LON0, LON1 = proj.LON1 } = override.projBounds;
+      // 経度1度あたりのピクセル数を保つ(横に潰れないようにする)。
+      const pxPerLon = proj.BW / (proj.LON1 - proj.LON0);
+      proj = { ...proj, LON0, LON1, BW: Math.round(pxPerLon * (LON1 - LON0)) };
+    }
+
+    if (override.boardScale) {
+      const scale = override.boardScale;
+      proj = {
+        ...proj,
+        BW: Math.round(proj.BW * scale),
+        BH: Math.round(proj.BH * scale),
+        seg: Math.round((proj.seg ?? 64) * scale),
+      };
+    }
+
+    content.proj = proj;
   }
 
   // サムネイル生成時は quiz を持たない部分オブジェクトで呼ばれるため読み飛ばす。
@@ -89,7 +115,7 @@ export function applyContentOverrides(countryId, content) {
   }
 
   if (override.extraEdges) {
-    for (const [a, b] of override.extraEdges) {
+    for (const [a, b, kind] of override.extraEdges) {
       for (const id of [a, b]) {
         if (!content.cities[id]) {
           throw new Error(`${countryId}: 路線が存在しない都市 "${id}" を指しています`);
@@ -101,7 +127,8 @@ export function applyContentOverrides(countryId, content) {
       if (duplicated) {
         throw new Error(`${countryId}: 路線 ${a}-${b} は既に存在します`);
       }
-      content.edges.push([a, b]);
+      // 3要素目に "sea" を指定すると航路になる(省略時は陸路)。
+      content.edges.push(kind ? [a, b, kind] : [a, b]);
     }
   }
 

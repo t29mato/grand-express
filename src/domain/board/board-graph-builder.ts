@@ -37,7 +37,8 @@ export function buildBoardGraph(
     adjacency.set(nodeId, []);
   }
 
-  edges.forEach(([aId, bId], edgeIndex) => {
+  edges.forEach((edge, edgeIndex) => {
+    const { from: aId, to: bId } = edge;
     const a = cityById.get(aId);
     const b = cityById.get(bId);
     if (!a || !b) {
@@ -54,17 +55,18 @@ export function buildBoardGraph(
       const nodeId = NodeId(`e${edgeIndex}_${k}`);
       const regionId = t < 0.5 ? a.regionId : b.regionId;
       const between = [a.id, b.id] as const;
+      const edgeKind = edge.kind;
 
       const roll = h32(edgeIndex * 97 + k) % 20;
       let node: BoardNode;
       if (roll < 10) {
-        node = { id: nodeId, type: "quiz", between, regionId };
+        node = { id: nodeId, type: "quiz", between, regionId, edgeKind };
       } else if (roll < 14) {
-        node = { id: nodeId, type: "blue", between, regionId };
+        node = { id: nodeId, type: "blue", between, regionId, edgeKind };
       } else if (roll < 17) {
-        node = { id: nodeId, type: "red", between, regionId };
+        node = { id: nodeId, type: "red", between, regionId, edgeKind };
       } else {
-        node = { id: nodeId, type: "card", between, regionId };
+        node = { id: nodeId, type: "card", between, regionId, edgeKind };
       }
 
       nodes.set(nodeId, node);

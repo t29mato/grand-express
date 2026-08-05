@@ -100,7 +100,16 @@ export const RawCountryContentSchema = z.object({
   proj: RawProjSchema,
   regions: z.record(z.string(), LocalizedTextSchema),
   cities: z.record(z.string(), RawCitySchema),
-  edges: z.array(z.tuple([z.string(), z.string()])),
+  /**
+   * 路線。`[都市A, 都市B]` は陸路、`[都市A, 都市B, "sea"]` は航路。
+   * legacy には航路の概念が無かったため、3要素目は省略可能にしている。
+   */
+  edges: z.array(
+    z.union([
+      z.tuple([z.string(), z.string()]),
+      z.tuple([z.string(), z.string(), z.enum(["rail", "sea"])]),
+    ]),
+  ),
   quiz: z.array(RawQuizSchema),
   items: z.record(z.string(), RawItemSchema),
   spirit: RawSpiritSchema,
