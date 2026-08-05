@@ -28,6 +28,8 @@ jobs:
       - run: npm run lint
       - run: npm run typecheck
       - run: npm run depcruise
+      # 構造を変えたのに依存関係グラフを更新していない場合に落とす。
+      - run: npm run graph:check
       - run: npm run test:coverage
       - run: npm run build
 

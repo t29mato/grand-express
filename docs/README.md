@@ -14,7 +14,8 @@
 | 10-02 | [ドメインモデル(DDD)](./10-architecture/02-domain-model-ddd.md) | 境界づけられたコンテキスト・集約・値オブジェクト・ドメインイベント |
 | 10-03 | [ターゲットのフォルダ構成](./10-architecture/03-target-folder-structure.md) | 移行後の具体的なディレクトリ構造 |
 | 10-04 | [ADR (設計決定記録)](./10-architecture/04-adr/) | 技術選定の理由と代替案(実装時の簡略化点は各ADRに追記済み) |
-| 10-05 | [クラス図](./10-architecture/05-class-diagram.md) | 4層の依存関係・集約・ポート・1手番の流れを図で示す |
+| 10-05 | [構造の図](./10-architecture/05-class-diagram.md) | 集約・ポート・1手番の流れ(手書き。意図を伝える図) |
+| 10-06 | [依存関係グラフ](./10-architecture/06-dependency-graph.md) | 実装から自動生成した依存図(`npm run graph`。CIで陳腐化を検出) |
 | 20-01 | [テスト戦略(TDD)](./20-testing/01-testing-strategy-tdd.md) | テストピラミッド・ツール・カバレッジ方針・E2Eシナリオ |
 | 30 | [用語集(ユビキタス言語)](./30-glossary.md) | ドメイン用語とコード上の命名の対応表 |
 | 40 | [学習設計](./40-learning-design/) | クイズを学習装置として機能させる設計・プレイヤーごとの知識レベル |

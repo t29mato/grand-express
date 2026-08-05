@@ -13,7 +13,9 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "depcruise": "depcruise src --config .dependency-cruiser.cjs",
-    "ci": "npm run lint && npm run typecheck && npm run depcruise && npm run test && npm run build"
+    "ci": "npm run lint && npm run typecheck && npm run depcruise && npm run test && npm run build",
+    "graph": "node scripts/generate-dependency-graph.mjs",
+    "graph:check": "node scripts/generate-dependency-graph.mjs --check"
   },
   "dependencies": {
     "next": "16.3.0",
