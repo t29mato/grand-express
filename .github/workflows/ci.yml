@@ -6,6 +6,16 @@ on:
     branches: [main]
 
 jobs:
+  # ワークフロー定義そのものの静的検査。deploy.yml はシークレット登録まで実行されないため、
+  # 構文や式の誤りに気づくのが遅れやすい。ここで常に検査しておく。
+  actionlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker://rhysd/actionlint:latest
+        with:
+          args: -color
+
   lint-typecheck-test-build:
     runs-on: ubuntu-latest
     steps:
