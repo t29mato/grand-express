@@ -4793,6 +4793,486 @@
           "inc": 48
         }
       ]
+    },
+    "otaru": {
+      "n": {
+        "en": "Otaru",
+        "es": "Otaru",
+        "fr": "Otaru",
+        "ja": "小樽"
+      },
+      "lo": 141,
+      "la": 43.19,
+      "mark": "clocktower",
+      "bg": "port",
+      "reg": "nor",
+      "lp": "l",
+      "tag": {
+        "en": "Canal town of herring money",
+        "es": "Ciudad del canal y el arenque",
+        "fr": "Ville du canal et du hareng",
+        "ja": "鰊で栄えた運河の町"
+      },
+      "fact": {
+        "en": "Herring shoals made this port rich enough to be called the Wall Street of the North, until the fish stopped coming in the 1950s. The gaslit canal and stone warehouses are what the boom left behind.",
+        "es": "Los bancos de arenque enriquecieron tanto al puerto que lo llamaban la Wall Street del Norte, hasta que en los años 50 los peces dejaron de llegar. El canal y los almacenes de piedra son lo que quedó.",
+        "fr": "Les bancs de harengs enrichirent tant ce port qu'on l'appelait le Wall Street du Nord, jusqu'à ce que le poisson disparaisse dans les années 1950. Le canal et les entrepôts de pierre en témoignent.",
+        "ja": "鰊の群れがこの港を「北のウォール街」と呼ばれるほど富ませたが、1950年代に魚は来なくなった。ガス灯の運河と石造倉庫はその名残である。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Canal Warehouse",
+            "es": "Almacén del canal",
+            "fr": "Entrepôt du canal",
+            "ja": "運河の倉庫"
+          },
+          "cost": 260,
+          "inc": 54
+        },
+        {
+          "n": {
+            "en": "Glass Workshop",
+            "es": "Taller de vidrio",
+            "fr": "Atelier de verre",
+            "ja": "硝子工房"
+          },
+          "cost": 220,
+          "inc": 46
+        }
+      ]
+    },
+    "niseko": {
+      "n": {
+        "en": "Niseko",
+        "es": "Niseko",
+        "fr": "Niseko",
+        "ja": "ニセコ"
+      },
+      "lo": 140.69,
+      "la": 42.8,
+      "mark": "fuji",
+      "bg": "snowcity",
+      "reg": "nor",
+      "lp": "l",
+      "tag": {
+        "en": "The lightest snow on earth",
+        "es": "La nieve más ligera del mundo",
+        "fr": "La neige la plus légère du monde",
+        "ja": "世界一軽い雪"
+      },
+      "fact": {
+        "en": "Siberian wind crossing the Sea of Japan dumps up to fifteen metres of exceptionally dry snow here each winter. Australian skiers arrived in the 1990s and never left.",
+        "es": "El viento siberiano que cruza el mar del Japón deja hasta quince metros de nieve muy seca cada invierno. Los esquiadores australianos llegaron en los 90 y se quedaron.",
+        "fr": "Le vent sibérien traversant la mer du Japon dépose jusqu'à quinze mètres de neige très sèche chaque hiver. Les skieurs australiens sont arrivés dans les années 1990 et ne sont jamais repartis.",
+        "ja": "シベリアからの風が日本海を渡って、毎冬15mにも達する極めて乾いた雪を降らせる。1990年代に来たオーストラリア人スキーヤーはそのまま住み着いた。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Powder Ski Lodge",
+            "es": "Refugio de esquí",
+            "fr": "Chalet de ski",
+            "ja": "パウダースノーの宿"
+          },
+          "cost": 300,
+          "inc": 62
+        },
+        {
+          "n": {
+            "en": "Mountain Onsen",
+            "es": "Onsen de montaña",
+            "fr": "Onsen de montagne",
+            "ja": "山の温泉"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "muroran": {
+      "n": {
+        "en": "Muroran",
+        "es": "Muroran",
+        "fr": "Muroran",
+        "ja": "室蘭"
+      },
+      "lo": 140.97,
+      "la": 42.32,
+      "mark": "steam",
+      "bg": "port",
+      "reg": "nor",
+      "lp": "r",
+      "tag": {
+        "en": "Steel furnaces above the sea",
+        "es": "Altos hornos sobre el mar",
+        "fr": "Hauts fourneaux au-dessus de la mer",
+        "ja": "海に臨む製鉄の街"
+      },
+      "fact": {
+        "en": "Coal from nearby mines and a deep ice-free harbour made this Hokkaidō's steel town. Its factories lit at night are now a tourist attraction in their own right.",
+        "es": "El carbón de las minas cercanas y un puerto profundo sin hielo lo convirtieron en la ciudad del acero de Hokkaidō. Sus fábricas iluminadas de noche son hoy una atracción.",
+        "fr": "Le charbon des mines voisines et un port profond libre de glace en firent la ville de l'acier de Hokkaidō. Ses usines illuminées la nuit sont devenues une attraction.",
+        "ja": "近くの炭鉱の石炭と不凍の深い港が、ここを北海道の製鉄の街にした。夜に灯る工場群は今や観光名所である。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Blast Furnace",
+            "es": "Alto horno",
+            "fr": "Haut fourneau",
+            "ja": "高炉"
+          },
+          "cost": 280,
+          "inc": 58
+        },
+        {
+          "n": {
+            "en": "Cape Lighthouse",
+            "es": "Faro del cabo",
+            "fr": "Phare du cap",
+            "ja": "地球岬の灯台"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    },
+    "obihiro": {
+      "n": {
+        "en": "Obihiro",
+        "es": "Obihiro",
+        "fr": "Obihiro",
+        "ja": "帯広"
+      },
+      "lo": 143.2,
+      "la": 42.92,
+      "mark": "ricebale",
+      "bg": "ricefield",
+      "reg": "nor",
+      "lp": "r",
+      "tag": {
+        "en": "Farm belt and draught-horse races",
+        "es": "Cinturón agrícola y carreras de tiro",
+        "fr": "Ceinture agricole et courses de trait",
+        "ja": "畑作地帯とばんえい競馬"
+      },
+      "fact": {
+        "en": "The Tokachi plain grows a large share of Japan's beans, potatoes and beet sugar. Obihiro holds the world's only races where draught horses drag iron sledges up sand ramps.",
+        "es": "La llanura de Tokachi produce buena parte de las alubias, patatas y azúcar de remolacha de Japón. Aquí se corren las únicas carreras de caballos de tiro arrastrando trineos de hierro.",
+        "fr": "La plaine de Tokachi produit une grande part des haricots, pommes de terre et sucre de betterave du Japon. On y court les seules courses de chevaux de trait tirant des traîneaux de fer.",
+        "ja": "十勝平野は日本の豆・じゃがいも・てん菜糖の多くを産する。帯広には、輓馬が鉄のそりを引いて砂の坂を登る世界唯一の競馬がある。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Bean Granary",
+            "es": "Granero de alubias",
+            "fr": "Grenier à haricots",
+            "ja": "豆の倉"
+          },
+          "cost": 240,
+          "inc": 50
+        },
+        {
+          "n": {
+            "en": "Draught Horse Track",
+            "es": "Pista de caballos de tiro",
+            "fr": "Piste des chevaux de trait",
+            "ja": "ばんえい競馬場"
+          },
+          "cost": 260,
+          "inc": 54
+        }
+      ]
+    },
+    "furano": {
+      "n": {
+        "en": "Furano",
+        "es": "Furano",
+        "fr": "Furano",
+        "ja": "富良野"
+      },
+      "lo": 142.38,
+      "la": 43.34,
+      "mark": "garden",
+      "bg": "valley2",
+      "reg": "nor",
+      "lp": "l",
+      "tag": {
+        "en": "Lavender rows in a mountain basin",
+        "es": "Hileras de lavanda en un valle",
+        "fr": "Rangs de lavande dans un bassin",
+        "ja": "山あいのラベンダー畑"
+      },
+      "fact": {
+        "en": "Lavender was grown here for perfume oil until synthetics killed the trade in the 1970s. One farmer kept his field, a railway poster made it famous, and tourism saved the crop.",
+        "es": "Aquí se cultivaba lavanda para perfume hasta que los sintéticos arruinaron el negocio en los 70. Un granjero conservó su campo, un cartel de tren lo hizo famoso y el turismo salvó el cultivo.",
+        "fr": "On y cultivait la lavande pour le parfum jusqu'à ce que les synthétiques ruinent ce commerce dans les années 1970. Un fermier garda son champ, une affiche de train le rendit célèbre, le tourisme sauva la culture.",
+        "ja": "香料用のラベンダー栽培は1970年代に合成香料に押されて壊滅した。一人の農家が畑を残し、鉄道のポスターで有名になり、観光が作物を救った。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Lavender Field",
+            "es": "Campo de lavanda",
+            "fr": "Champ de lavande",
+            "ja": "ラベンダー畑"
+          },
+          "cost": 230,
+          "inc": 48
+        },
+        {
+          "n": {
+            "en": "Cheese Dairy",
+            "es": "Quesería",
+            "fr": "Fromagerie",
+            "ja": "チーズ工房"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    },
+    "kitami": {
+      "n": {
+        "en": "Kitami",
+        "es": "Kitami",
+        "fr": "Kitami",
+        "ja": "北見"
+      },
+      "lo": 143.9,
+      "la": 43.8,
+      "mark": "garden",
+      "bg": "valley2",
+      "reg": "nor",
+      "lp": "r",
+      "tag": {
+        "en": "Onion capital of the north",
+        "es": "Capital de la cebolla del norte",
+        "fr": "Capitale de l'oignon du nord",
+        "ja": "北のたまねぎの都"
+      },
+      "fact": {
+        "en": "A quarter of Japan's onions grow around this inland city, whose dry, sunny summers suit the crop. It once led the world in peppermint oil, supplying most of the global supply before the war.",
+        "es": "Un cuarto de las cebollas de Japón crece en torno a esta ciudad interior, de veranos secos y soleados. Antes de la guerra lideraba el mundo en aceite de menta.",
+        "fr": "Un quart des oignons du Japon poussent autour de cette ville intérieure aux étés secs et ensoleillés. Avant-guerre, elle dominait le marché mondial de l'essence de menthe.",
+        "ja": "日本のたまねぎの4分の1がこの内陸の街の周りで穫れる。乾いて晴れた夏が適しているためだ。戦前は世界のハッカ油の大半を供給していた。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Onion Warehouse",
+            "es": "Almacén de cebollas",
+            "fr": "Entrepôt d'oignons",
+            "ja": "たまねぎの倉庫"
+          },
+          "cost": 220,
+          "inc": 46
+        },
+        {
+          "n": {
+            "en": "Mint Distillery",
+            "es": "Destilería de menta",
+            "fr": "Distillerie de menthe",
+            "ja": "ハッカ蒸留所"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "abashiri": {
+      "n": {
+        "en": "Abashiri",
+        "es": "Abashiri",
+        "fr": "Abashiri",
+        "ja": "網走"
+      },
+      "lo": 144.27,
+      "la": 44.02,
+      "mark": "castle_stone",
+      "bg": "snowcity",
+      "reg": "nor",
+      "lp": "r",
+      "tag": {
+        "en": "Drift ice and a famous prison",
+        "es": "Hielo a la deriva y una prisión célebre",
+        "fr": "Glace dérivante et prison célèbre",
+        "ja": "流氷と監獄の町"
+      },
+      "fact": {
+        "en": "Every February pack ice drifts down from the Amur river and locks the coast solid. The prison built here in 1890 held convicts who cut the roads across Hokkaidō, many dying at the work.",
+        "es": "Cada febrero el hielo baja desde el río Amur y sella la costa. La prisión de 1890 albergó a presos que abrieron las carreteras de Hokkaidō, muchos murieron en la obra.",
+        "fr": "Chaque février, la banquise descend du fleuve Amour et scelle la côte. Le bagne de 1890 y détenait les forçats qui ouvrirent les routes de Hokkaidō, beaucoup y périrent.",
+        "ja": "毎年2月、アムール川から流氷が押し寄せて海岸を閉ざす。1890年の監獄には、北海道の道路を切り開き多くが命を落とした囚人が収容された。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Drift Ice Icebreaker",
+            "es": "Rompehielos",
+            "fr": "Brise-glace",
+            "ja": "流氷砕氷船"
+          },
+          "cost": 280,
+          "inc": 58
+        },
+        {
+          "n": {
+            "en": "Prison Museum",
+            "es": "Museo de la prisión",
+            "fr": "Musée du bagne",
+            "ja": "監獄博物館"
+          },
+          "cost": 230,
+          "inc": 48
+        }
+      ]
+    },
+    "shiretoko": {
+      "n": {
+        "en": "Shiretoko",
+        "es": "Shiretoko",
+        "fr": "Shiretoko",
+        "ja": "知床"
+      },
+      "lo": 145.05,
+      "la": 44.02,
+      "mark": "volcano_m",
+      "bg": "forest",
+      "reg": "nor",
+      "lp": "r",
+      "tag": {
+        "en": "The end of the earth",
+        "es": "El fin de la tierra",
+        "fr": "Le bout du monde",
+        "ja": "地の果て"
+      },
+      "fact": {
+        "en": "Its Ainu name means \"the place where the earth protrudes\", and no road reaches the peninsula's tip. Brown bears, sea eagles and salmon share one of the densest food chains on the planet.",
+        "es": "Su nombre ainu significa «donde la tierra sobresale», y ninguna carretera llega a la punta. Osos pardos, pigargos y salmones forman una de las cadenas alimentarias más densas del planeta.",
+        "fr": "Son nom aïnou signifie « là où la terre s'avance », et aucune route n'atteint la pointe. Ours bruns, pygargues et saumons forment l'une des chaînes alimentaires les plus denses du globe.",
+        "ja": "アイヌ語で「地の突き出たところ」を意味し、半島の先端まで道路は通じていない。ヒグマ・オジロワシ・鮭が地球有数の濃密な食物連鎖をなす。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Wildlife Cruise",
+            "es": "Crucero de fauna",
+            "fr": "Croisière faunique",
+            "ja": "野生動物クルーズ"
+          },
+          "cost": 270,
+          "inc": 56
+        },
+        {
+          "n": {
+            "en": "Cape Onsen Falls",
+            "es": "Cascada termal",
+            "fr": "Cascade thermale",
+            "ja": "カムイワッカの湯の滝"
+          },
+          "cost": 220,
+          "inc": 46
+        }
+      ]
+    },
+    "wakkanai": {
+      "n": {
+        "en": "Wakkanai",
+        "es": "Wakkanai",
+        "fr": "Wakkanai",
+        "ja": "稚内"
+      },
+      "lo": 141.68,
+      "la": 45.42,
+      "mark": "katsuo",
+      "bg": "seaside",
+      "reg": "nor",
+      "lp": "l",
+      "tag": {
+        "en": "Japan's northernmost port",
+        "es": "El puerto más al norte de Japón",
+        "fr": "Le port le plus septentrional du Japon",
+        "ja": "日本最北の港"
+      },
+      "fact": {
+        "en": "On a clear day you can see Sakhalin, 43 km away, from the northern cape. Until 1945 a ferry ran there and Wakkanai was a domestic, not an international, port.",
+        "es": "En un día claro se ve Sajalín, a 43 km, desde el cabo norte. Hasta 1945 había un ferry y Wakkanai era un puerto interior, no internacional.",
+        "fr": "Par temps clair, on voit Sakhaline, à 43 km, depuis le cap nord. Jusqu'en 1945 un ferry y menait et Wakkanai était un port intérieur, non international.",
+        "ja": "晴れた日には宗谷岬から43km先の樺太が見える。1945年までは連絡船が通い、稚内は国際港ではなく国内航路の港だった。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Northern Cape Inn",
+            "es": "Posada del cabo norte",
+            "fr": "Auberge du cap nord",
+            "ja": "宗谷岬の宿"
+          },
+          "cost": 230,
+          "inc": 48
+        },
+        {
+          "n": {
+            "en": "Scallop Quay",
+            "es": "Muelle de vieiras",
+            "fr": "Quai des coquilles",
+            "ja": "帆立の岸壁"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "noboribetsu": {
+      "n": {
+        "en": "Noboribetsu",
+        "es": "Noboribetsu",
+        "fr": "Noboribetsu",
+        "ja": "登別"
+      },
+      "lo": 141.15,
+      "la": 42.45,
+      "mark": "onsen",
+      "bg": "volcano",
+      "reg": "nor",
+      "lp": "r",
+      "tag": {
+        "en": "Hell Valley's boiling springs",
+        "es": "Los manantiales del Valle del Infierno",
+        "fr": "Les sources du Val de l'Enfer",
+        "ja": "地獄谷の湯けむり"
+      },
+      "fact": {
+        "en": "Eleven different kinds of hot water rise from one small valley, which is unusual anywhere in the world. The steaming crater floor has been called Hell Valley for centuries.",
+        "es": "Once tipos distintos de agua termal brotan de un solo valle pequeño, algo insólito en el mundo. El cráter humeante se llama Valle del Infierno desde hace siglos.",
+        "fr": "Onze types d'eau thermale jaillissent d'une seule petite vallée, chose rare au monde. Le fond de cratère fumant s'appelle le Val de l'Enfer depuis des siècles.",
+        "ja": "ひとつの小さな谷から11種類もの泉質が湧く、世界的にも珍しい場所。湯気を上げる火口原は何世紀も「地獄谷」と呼ばれてきた。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Hell Valley Ryokan",
+            "es": "Ryokan del Valle",
+            "fr": "Ryokan du Val",
+            "ja": "地獄谷の旅館"
+          },
+          "cost": 290,
+          "inc": 60
+        },
+        {
+          "n": {
+            "en": "Bear Park",
+            "es": "Parque de osos",
+            "fr": "Parc aux ours",
+            "ja": "クマ牧場"
+          },
+          "cost": 210,
+          "inc": 44
+        }
+      ]
     }
   },
   "edges": [
@@ -5164,6 +5644,58 @@
       "miyakojima",
       "ishigaki",
       "sea"
+    ],
+    [
+      "hakodate",
+      "muroran"
+    ],
+    [
+      "muroran",
+      "noboribetsu"
+    ],
+    [
+      "noboribetsu",
+      "niseko"
+    ],
+    [
+      "niseko",
+      "otaru"
+    ],
+    [
+      "otaru",
+      "sapporo"
+    ],
+    [
+      "asahikawa",
+      "wakkanai"
+    ],
+    [
+      "asahikawa",
+      "furano"
+    ],
+    [
+      "furano",
+      "obihiro"
+    ],
+    [
+      "obihiro",
+      "kushiro"
+    ],
+    [
+      "asahikawa",
+      "kitami"
+    ],
+    [
+      "kitami",
+      "abashiri"
+    ],
+    [
+      "abashiri",
+      "shiretoko"
+    ],
+    [
+      "shiretoko",
+      "kushiro"
     ]
   ],
   "outro": {
