@@ -40,6 +40,8 @@ function city(id: string, cost: number): City {
     latitude: 0,
     tag: sameForAllLocales(""),
     fact: sameForAllLocales(""),
+    artSceneKey: "scene",
+    artGlyphKey: "glyph",
     properties: [{ name: sameForAllLocales("p"), cost, income: 10 }],
   };
 }

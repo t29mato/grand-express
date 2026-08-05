@@ -19,6 +19,8 @@ function city(
     latitude: lat,
     tag: sameForAllLocales(""),
     fact: sameForAllLocales(""),
+    artSceneKey: "scene",
+    artGlyphKey: "glyph",
     properties: [],
   };
 }

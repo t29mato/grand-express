@@ -22,6 +22,10 @@ const RawCitySchema = z.object({
   tag: LocalizedTextSchema,
   fact: LocalizedTextSchema,
   props: z.array(RawPropertySchema),
+  /** 都市イラストの背景シーンのキー(`bg` の要素を指す)。 */
+  bg: z.string(),
+  /** 都市イラストのシンボル(グリフ)のキー(`marks` の要素を指す)。 */
+  mark: z.string(),
 });
 
 const RawItemSchema = z.object({
@@ -98,6 +102,12 @@ export const RawCountryContentSchema = z.object({
   spirit: RawSpiritSchema,
   doom: z.array(RawDoomSchema),
   seasons: z.array(RawSeasonSchema),
+  /** 都市カードの帯に使う配色。 */
+  stripe: z.array(z.string()),
+  /** 都市イラストのシンボル(SVG断片)。キーは各都市の `mark`。 */
+  marks: z.record(z.string(), z.string()),
+  /** 都市イラストの背景シーン(SVG断片)。キーは各都市の `bg`。 */
+  bg: z.record(z.string(), z.string()),
 });
 
 export type RawCountryContent = z.infer<typeof RawCountryContentSchema>;

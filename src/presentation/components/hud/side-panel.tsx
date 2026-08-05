@@ -5,6 +5,7 @@ import { totalIncome, monopolyCount, propertyCount } from "../../../domain/prope
 import { GameEngineContext } from "../../../application/game-engine-context";
 import { economyContextFor } from "../../../application/economy-context";
 import { useLocale } from "../../i18n/locale-context";
+import { CityArt } from "../city/city-art";
 import { LogEntry } from "../../state/game-store";
 
 const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
@@ -16,6 +17,7 @@ export function DestinationCard({ context, session }: { context: GameEngineConte
   return (
     <div className="card dest-card">
       <h2>{t("nextDest")}</h2>
+      <CityArt context={context} cityId={session.destination} bare />
       <div className="dest-city">{tx(destination.name)}</div>
       <div className="dest-tag">{tx(destination.tag)}</div>
       <div className="dest-bonus">+{bonus}</div>

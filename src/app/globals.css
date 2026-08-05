@@ -606,6 +606,15 @@ aside {
   font-weight: 800;
 }
 
+.city-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
 .plist,
 .shoplist {
   display: flex;

@@ -28,6 +28,8 @@ function city(): City {
     latitude: 0,
     tag: sameForAllLocales(""),
     fact: sameForAllLocales(""),
+    artSceneKey: "scene",
+    artGlyphKey: "glyph",
     properties: [
       { name: sameForAllLocales("p0"), cost: 300, income: 40 },
       { name: sameForAllLocales("p1"), cost: 300, income: 40 },

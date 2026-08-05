@@ -5,14 +5,14 @@ import { isCityNode } from "../../../domain/board/node";
 import { GameEngineContext } from "../../../application/game-engine-context";
 import { useLocale } from "../../i18n/locale-context";
 import { renderRichText } from "../../i18n/rich-text";
+import { CityArt } from "../city/city-art";
 import { Modal } from "./modal";
 
 /**
  * ゲーム開始時に一度だけ表示する「出発ストーリー」モーダル
  * (legacyの `startGame()` 内の `modalOnce(...)` の移植)。
- * legacyにあった都市の手描きイラスト(`cityArt()`)は移植しておらず、
- * テキスト情報(開始資金・最初の目的地・賞金・遊び方のヒント)のみを再現している
- * (docs/90-migration/05-visual-comparison.md 参照)。
+ * 出発都市のイラスト(legacyの `cityArt()`)とテキスト情報(開始資金・最初の目的地・
+ * 賞金・遊び方のヒント)の両方を再現している。
  */
 export function IntroModal({
   context,
@@ -32,6 +32,7 @@ export function IntroModal({
 
   return (
     <Modal>
+      {isCityNode(startNode) && <CityArt context={context} cityId={startNode.cityId} />}
       <div className="eyebrow">{t("allAboard")}</div>
       <h3>{t("departure", startCityName)}</h3>
       <p>{renderRichText(t("startBody", player.cash.amount, tx(destination.name), prize))}</p>

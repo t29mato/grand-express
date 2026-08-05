@@ -17,6 +17,10 @@ export interface City {
   readonly tag: LocalizedText;
   readonly fact: LocalizedText;
   readonly properties: readonly PropertyDefinition[];
+  /** 都市イラストの背景シーンのキー(現行コードの `city.bg`)。 */
+  readonly artSceneKey: string;
+  /** 都市イラストのシンボルのキー(現行コードの `city.mark`)。 */
+  readonly artGlyphKey: string;
 }
 
 /** 都市間を結ぶ路線。 */

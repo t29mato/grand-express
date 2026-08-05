@@ -112,17 +112,44 @@ for (const locale of LOCALES) {
   );
 }
 
+/**
+ * 都市イラストの背景シーン(`G.bg`)を評価してSVG文字列として取り出す。
+ *
+ * legacy側の `bg` は `()=>band(...)+dotc(...)+...` という**引数なし・乱数なしの
+ * 純粋関数**で、呼ぶたびに必ず同じSVG断片を返す(組み立てに使う band/dotc/clouds/
+ * treeRow もすべて決定的)。したがって、ここで一度だけ実行して結果の文字列を
+ * 保存すれば、描画結果を1ピクセルも変えずにデータとして持ち運べる。
+ * 関数のままではJSON化できないため、この「評価して固定化する」処理だけを特別扱いする。
+ */
+function evaluateBackgrounds(country) {
+  const out = {};
+  for (const [key, makeScene] of Object.entries(country.bg ?? {})) {
+    if (typeof makeScene !== "function") continue;
+    const svg = makeScene();
+    if (typeof svg !== "string") {
+      throw new Error(`${country.id}.bg.${key} が文字列を返しませんでした`);
+    }
+    // 決定性の確認(2回呼んで同じ結果になること)。将来legacy側に乱数が
+    // 混ざった場合に、静かに壊れるのではなく抽出時点で気づけるようにする。
+    if (makeScene() !== svg) {
+      throw new Error(`${country.id}.bg.${key} の出力が呼び出しごとに変化します`);
+    }
+    out[key] = svg;
+  }
+  return out;
+}
+
 // 国コンテンツ(都市・路線・アイテム・クイズ・季節/厄災の説明文)。
 // 翻訳文字列はここではnext-intlへ分離せず、{en,es,fr,ja}のままインラインで持つ
 // (ADR-0007の実用的な簡略化。理由は本ファイル冒頭のコメント参照)。
-writeFileSync(
-  join(contentDir, "bolivia.content.json"),
-  JSON.stringify(transform(BOLIVIA), null, 2) + "\n",
-);
-writeFileSync(
-  join(contentDir, "japan.content.json"),
-  JSON.stringify(transform(JAPAN), null, 2) + "\n",
-);
+for (const country of [BOLIVIA, JAPAN]) {
+  const content = transform(country);
+  content.bg = evaluateBackgrounds(country);
+  writeFileSync(
+    join(contentDir, `${country.id}.content.json`),
+    JSON.stringify(content, null, 2) + "\n",
+  );
+}
 
 // セットアップ画面の国選択カード用の軽量インデックス(id/name/blurbのみ)。
 // フルコンテンツ(各約185KB)を読み込まずに一覧表示できるようにする(Phase8のバンドルサイズ対策)。

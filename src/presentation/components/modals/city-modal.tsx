@@ -7,6 +7,7 @@ import { incomeAtLevel, sellValueOf, upgradeCost } from "../../../domain/propert
 import { GameEngineContext } from "../../../application/game-engine-context";
 import { stallStockFor } from "../../../application/use-cases/visit-stall/visit-stall.use-case";
 import { useLocale } from "../../i18n/locale-context";
+import { CityArt } from "../city/city-art";
 import { Modal } from "./modal";
 
 export function CityModal({
@@ -37,6 +38,7 @@ export function CityModal({
 
   return (
     <Modal>
+      <CityArt context={context} cityId={cityId} />
       <div className="eyebrow">{t("townStop")}</div>
       <h3>{tx(city.name)}</h3>
       <p style={{ color: "var(--salt-dim)" }}>{tx(city.tag)}</p>

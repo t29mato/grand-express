@@ -66,6 +66,8 @@ function city(id: string, regionId: string, props: Array<[number, number]>): Cit
     latitude: 0,
     tag: sameForAllLocales(""),
     fact: sameForAllLocales(""),
+    artSceneKey: "scene",
+    artGlyphKey: "glyph",
     properties: props.map(([cost, income]) => ({ name: sameForAllLocales("p"), cost, income })),
   };
 }

@@ -6,6 +6,7 @@ import { GameEngineContext } from "../../../application/game-engine-context";
 import { useLocale } from "../../i18n/locale-context";
 import { formatMessage } from "../../i18n/messages";
 import { renderRichText } from "../../i18n/rich-text";
+import { CityArt } from "../city/city-art";
 import { Modal } from "./modal";
 
 /**
@@ -13,8 +14,7 @@ import { Modal } from "./modal";
  * (legacyの `arriveDest` 後半のモーダルの移植)。
  * 新しい目的地・その紹介文・賞金と、厄災の神が誰に憑いたかを伝える。
  *
- * legacyにあった都市の手描きイラスト(`cityArt()`)は移植していない
- * (docs/90-migration/05-visual-comparison.md 参照)。
+ * legacyと同様、新しい目的地のイラスト(`cityArt()`)も表示する。
  */
 export function NextLegModal({
   context,
@@ -53,6 +53,7 @@ export function NextLegModal({
       <p>
         {tx(destination.tag)}. {renderRichText(t("firstWins", prize))}
       </p>
+      <CityArt context={context} cityId={session.destination} />
       {spiritMessage && <div className="fact">{renderRichText(spiritMessage)}</div>}
       <div className="btnrow" style={{ marginTop: 16 }}>
         <button className="btn" onClick={onContinue}>

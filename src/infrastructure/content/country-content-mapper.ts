@@ -31,6 +31,8 @@ function mapCities(raw: RawCountryContent): City[] {
     tag: city.tag,
     fact: city.fact,
     properties: city.props.map((p) => ({ name: p.n, cost: p.cost, income: p.inc })),
+    artSceneKey: city.bg,
+    artGlyphKey: city.mark,
   }));
 }
 
@@ -125,5 +127,8 @@ export function mapRawContentToCountryPack(raw: RawCountryContent): CountryConte
       pleasedTemplate: raw.spirit.pleased,
       wardBodyTemplate: raw.spirit.wardBody,
     },
+    stripeColors: raw.stripe,
+    artScenes: raw.bg,
+    artGlyphs: raw.marks,
   };
 }

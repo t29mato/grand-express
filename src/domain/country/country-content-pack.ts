@@ -49,6 +49,12 @@ export interface CountryContentPack {
   readonly seasons: readonly SeasonDefinition[];
   readonly doomFlavors: readonly DoomFlavor[];
   readonly spirit: SpiritFlavor;
+  /** 都市カードの帯に使う配色(現行コードの `stripe`)。 */
+  readonly stripeColors: readonly string[];
+  /** 都市イラストの背景シーン(SVG断片)。キーは `City.artSceneKey`。 */
+  readonly artScenes: Readonly<Record<string, string>>;
+  /** 都市イラストのシンボル(SVG断片)。キーは `City.artGlyphKey`。 */
+  readonly artGlyphs: Readonly<Record<string, string>>;
 }
 
 export function getCityOrThrow(pack: CountryContentPack, id: CityId): City {
