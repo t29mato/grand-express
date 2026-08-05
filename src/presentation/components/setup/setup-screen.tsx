@@ -72,6 +72,12 @@ export function SetupScreen() {
               className={`ccard${country === entry.id ? " on" : ""}`}
               onClick={() => setCountry(CountryId(entry.id))}
             >
+              <svg
+                className="country-thumb"
+                viewBox={entry.thumbViewBox}
+                role="presentation"
+                dangerouslySetInnerHTML={{ __html: entry.thumbSvg }}
+              />
               <div className="cap">
                 <div className="nm">{tx(entry.name)}</div>
                 <div className="sub">{tx(entry.blurb)}</div>

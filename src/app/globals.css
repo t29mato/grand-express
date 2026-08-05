@@ -108,6 +108,14 @@ h3 {
   border-color: var(--gold);
 }
 
+.country-thumb {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
 .ccard .nm {
   font-weight: 800;
 }

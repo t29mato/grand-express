@@ -130,5 +130,17 @@ export function mapRawContentToCountryPack(raw: RawCountryContent): CountryConte
     stripeColors: raw.stripe,
     artScenes: raw.bg,
     artGlyphs: raw.marks,
+    terrain: {
+      seaColor: raw.sea,
+      seaWaveColor: raw.seaWave,
+      landColor: raw.landBase,
+      coastColor: raw.coast,
+      landPolygons: raw.land,
+      terrainPolygons: raw.terrain,
+      lakes: raw.lakes,
+      rivers: raw.rivers,
+      labels: raw.labels.map(([lo, la, text, water]) => [lo, la, text, water !== 0] as const),
+      decorSvg: raw.decor,
+    },
   };
 }

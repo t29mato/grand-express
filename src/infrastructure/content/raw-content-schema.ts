@@ -108,6 +108,26 @@ export const RawCountryContentSchema = z.object({
   marks: z.record(z.string(), z.string()),
   /** 都市イラストの背景シーン(SVG断片)。キーは各都市の `bg`。 */
   bg: z.record(z.string(), z.string()),
+
+  // --- 盤面の地形(legacyの `drawBoard` が描く背景レイヤー) ---
+  /** 海の塗り色と波模様の線の色。 */
+  sea: z.string(),
+  seaWave: z.string(),
+  /** 陸地の塗り色と海岸線の色。 */
+  landBase: z.string(),
+  coast: z.string(),
+  /** 陸地の輪郭(経度・緯度の多角形)。 */
+  land: z.array(z.array(z.tuple([z.number(), z.number()]))),
+  /** 地形(色と多角形の組)。陸地でクリップして描く。 */
+  terrain: z.array(z.tuple([z.string(), z.array(z.tuple([z.number(), z.number()]))])),
+  /** 湖(経度・緯度・半径x・半径y・回転・色)。 */
+  lakes: z.array(z.tuple([z.number(), z.number(), z.number(), z.number(), z.number(), z.string()])),
+  /** 河川(経度・緯度の折れ線)。 */
+  rivers: z.array(z.array(z.tuple([z.number(), z.number()]))),
+  /** 地名ラベル(経度・緯度・文言・水域かどうか)。 */
+  labels: z.array(z.tuple([z.number(), z.number(), LocalizedTextSchema, z.number()])),
+  /** 盤面の装飾(山・木など)。抽出時に評価済みのSVG断片。 */
+  decor: z.string(),
 });
 
 export type RawCountryContent = z.infer<typeof RawCountryContentSchema>;

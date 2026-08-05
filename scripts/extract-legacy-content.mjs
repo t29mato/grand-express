@@ -139,24 +139,94 @@ function evaluateBackgrounds(country) {
   return out;
 }
 
+/**
+ * 盤面の装飾(`G.decor`)を評価してSVG文字列として取り出す。
+ *
+ * legacy側の `decor` は `(el, g, PX, PY) => {...}` という形で、DOM生成関数 `el` を
+ * 使って山・木・サボテンを描き足す。中身は投影関数と固定の算術だけで乱数を使わないため、
+ * `el` の代わりに「同じ引数でSVG文字列を組み立てるだけの関数」を渡して呼べば、
+ * 描画結果を変えずに静的なSVG断片として取り出せる(`bg` と同じ考え方)。
+ */
+function evaluateDecor(country) {
+  if (typeof country.decor !== "function") return "";
+  const p = country.proj;
+  const px = (lon) => ((lon - p.LON0) / (p.LON1 - p.LON0)) * p.BW;
+  const py = (lat) => ((lat - p.LAT0) / (p.LAT1 - p.LAT0)) * p.BH;
+
+  const parts = [];
+  const fakeEl = (tag, attrs) => {
+    const rendered = Object.entries(attrs ?? {})
+      .map(([key, value]) => ` ${key}="${String(value)}"`)
+      .join("");
+    parts.push(`<${tag}${rendered}/>`);
+    return {};
+  };
+
+  country.decor(fakeEl, {}, px, py);
+  const first = parts.join("");
+
+  // `bg` と同様に決定性を確認する。
+  parts.length = 0;
+  country.decor(fakeEl, {}, px, py);
+  if (parts.join("") !== first) {
+    throw new Error(`${country.id}.decor の出力が呼び出しごとに変化します`);
+  }
+  return first;
+}
+
 // 国コンテンツ(都市・路線・アイテム・クイズ・季節/厄災の説明文)。
 // 翻訳文字列はここではnext-intlへ分離せず、{en,es,fr,ja}のままインラインで持つ
 // (ADR-0007の実用的な簡略化。理由は本ファイル冒頭のコメント参照)。
 for (const country of [BOLIVIA, JAPAN]) {
   const content = transform(country);
   content.bg = evaluateBackgrounds(country);
+  content.decor = evaluateDecor(country);
   writeFileSync(
     join(contentDir, `${country.id}.content.json`),
     JSON.stringify(content, null, 2) + "\n",
   );
 }
 
-// セットアップ画面の国選択カード用の軽量インデックス(id/name/blurbのみ)。
-// フルコンテンツ(各約185KB)を読み込まずに一覧表示できるようにする(Phase8のバンドルサイズ対策)。
+/**
+ * 国選択カードの地図サムネイル(legacyの `countryThumb()` と同じ描画)。
+ *
+ * legacyの関数本体は抽出範囲(`COUNTRIES` の定義まで)より後ろにあるため直接は呼べないが、
+ * 中身は投影・多角形・都市の点を並べるだけの決定的な処理なので、ここで同じ計算を行う。
+ * 生成結果のSVG文字列だけを軽量インデックスに載せることで、セットアップ画面は
+ * 地形データ(land/terrain、数十KB)を読み込まずにサムネイルを表示できる。
+ */
+function renderCountryThumb(country) {
+  const p = country.proj;
+  const px = (lon) => ((lon - p.LON0) / (p.LON1 - p.LON0)) * p.BW;
+  const py = (lat) => ((lat - p.LAT0) / (p.LAT1 - p.LAT0)) * p.BH;
+  const pts = (poly) => poly.map(([lo, la]) => `${px(lo).toFixed(0)},${py(la).toFixed(0)}`).join(" ");
+  const land = country.land
+    .map(
+      (poly) =>
+        `<polygon points="${pts(poly)}" fill="${country.landBase}" stroke="${country.coast}" stroke-width="6"/>`,
+    )
+    .join("");
+  const terrain = country.terrain.map(([color, poly]) => `<polygon points="${pts(poly)}" fill="${color}"/>`).join("");
+  const dots = Object.values(country.cities)
+    .map(
+      (city) =>
+        `<circle cx="${px(city.lo).toFixed(0)}" cy="${py(city.la).toFixed(0)}" r="14" fill="#f6efe2" stroke="#241a10" stroke-width="4"/>`,
+    )
+    .join("");
+  return (
+    `<rect width="${p.BW}" height="${p.BH}" fill="${country.sea}"/>` +
+    `<g>${land}</g><g opacity=".9">${terrain}</g>${dots}`
+  );
+}
+
+// セットアップ画面の国選択カード用の軽量インデックス(id/name/blurb + 地図サムネイル)。
+// フルコンテンツ(各約215KB)を読み込まずに一覧表示できるようにする(Phase8のバンドルサイズ対策)。
 const countryIndex = [BOLIVIA, JAPAN].map((country) => ({
   id: country.id,
   name: toLocaleObject(country.name),
   blurb: toLocaleObject(country.blurb),
+  thumbViewBox: `0 0 ${country.proj.BW} ${country.proj.BH}`,
+  thumbSvg: renderCountryThumb(country),
 }));
 writeFileSync(join(contentDir, "country-index.json"), JSON.stringify(countryIndex, null, 2) + "\n");
 

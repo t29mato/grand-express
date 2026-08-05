@@ -8,6 +8,7 @@ import { GameEngineContext } from "../../../application/game-engine-context";
 import { useBoardLayout } from "../../hooks/use-board-layout";
 import { useCamera } from "../../hooks/use-camera";
 import { useLocale } from "../../i18n/locale-context";
+import { TerrainLayer } from "./terrain-layer";
 
 const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
 const NODE_COLORS: Record<string, string> = {
@@ -76,6 +77,7 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
   return (
     <div style={{ position: "relative" }}>
       <svg viewBox={viewBox} className="board-svg" role="img" aria-label="Game board">
+        <TerrainLayer terrain={context.content.terrain} projection={context.content.projection} />
         <g className="edges">
           {edges.map((line, i) => (
             <line key={i} x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2} stroke="#4a3b7d" strokeWidth={3} />
