@@ -137,6 +137,11 @@ const INLINE_UI_STRINGS = {
   quizHigh: "High-stakes question|Pregunta de alto riesgo|Question à gros enjeu|高額の問題",
   cpuBoughtNothing: "{0} looked around but bought nothing.|{0} miró pero no compró nada.|{0} a regardé mais n'a rien acheté.|{0} は見て回ったが何も買わなかった。",
   // リリースノート・フッター。legacyには無い新規の文言。
+  // セーブデータの概要(セットアップ画面)。
+  savedJourney: "Saved journey|Viaje guardado|Voyage enregistré|保存された旅",
+  monthProgress: "Month {0} of {1}|Mes {0} de {1}|Mois {0} sur {1}|{1}ヶ月中 {0}ヶ月目",
+  discardSave: "Discard|Descartar|Supprimer|削除",
+
   releaseNotes: "What's new|Novedades|Nouveautés|更新情報",
   releaseNotesLead: "What has changed for players, newest first.|Lo que ha cambiado para quienes juegan, de lo más reciente a lo más antiguo.|Ce qui a changé pour les joueurs, du plus récent au plus ancien.|遊ぶ人から見て何が変わったかを、新しい順に載せています。",
   backToGame: "Back to the game|Volver al juego|Retour au jeu|ゲームに戻る",
@@ -288,6 +293,8 @@ const countryIndex = [BOLIVIA, JAPAN].map((country) => {
     id: country.id,
     name: toLocaleObject(country.name),
     blurb: toLocaleObject(country.blurb),
+    // セーブデータの所持金を通貨表記で出すために必要(フルコンテンツを読まずに済ませる)。
+    currency: { prefix: country.cur.pre, suffix: country.cur.post, multiplier: country.cur.mul },
     thumbViewBox: `0 0 ${country.proj.BW} ${country.proj.BH}`,
     thumbSvg: renderCountryThumb({ ...country, land: overridden.land, cities: overridden.cities }),
   };

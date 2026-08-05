@@ -184,6 +184,82 @@ h3 {
   margin: 8px 0;
 }
 
+/* 「続きから」のカード(何が保存されているかを見せる) */
+.saved-card {
+  margin: 14px 0 18px;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, var(--panel2), var(--panel));
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+}
+
+.saved-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.saved-country {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--gold);
+}
+
+.saved-when {
+  color: var(--salt-dim);
+  font-size: 0.88rem;
+}
+
+.saved-progress {
+  margin-top: 10px;
+  height: 6px;
+  border-radius: 999px;
+  background: #0e162699;
+  overflow: hidden;
+}
+
+.saved-progress-bar {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 999px;
+}
+
+.saved-progress-label {
+  margin-top: 5px;
+  color: var(--salt-dim);
+  font-size: 0.78rem;
+}
+
+.saved-players {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.saved-player {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--night2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.82rem;
+}
+
+.saved-player .nm {
+  font-weight: 700;
+}
+
+.saved-player .cash {
+  color: var(--green);
+  font-weight: 800;
+}
+
 .countries {
   display: flex;
   gap: 10px;

@@ -84,12 +84,30 @@ export interface LogEntry {
   readonly tone: "neutral" | "good" | "bad" | "gold";
 }
 
+/**
+ * セーブデータの中身の要約。「続きから」を押す前に、**何が保存されているのか**が
+ * 分かるようにセットアップ画面へ出す(国・進行度・参加者と所持金)。
+ * フルのコンテンツを読み込まずに描けるよう、必要な値だけを持つ。
+ */
+export interface SavedGameSummary {
+  readonly countryId: CountryId;
+  /** 0始まりの経過月。 */
+  readonly month: number;
+  readonly maxMonths: number;
+  readonly players: readonly { readonly name: string; readonly isCpu: boolean; readonly cash: number }[];
+}
+
 export interface GameStoreState {
   context: GameEngineContext | null;
   session: GameSession | null;
   ui: UiState;
   log: readonly LogEntry[];
-  hasSavedGame: boolean;
+  /**
+   * セーブデータの要約(無ければ null)。
+   * サーバー描画時は localStorage を読めないため、初期値は null にして
+   * マウント後に `refreshSavedGame()` で埋める(ハイドレーションのずれを避ける)。
+   */
+  savedGame: SavedGameSummary | null;
   /**
    * 再生中のサイコロ演出。人間・CPUどちらの手番でも同じ経路で表示する
    * (`nonce` は同じ目が続いても演出をやり直すための連番)。
@@ -98,6 +116,10 @@ export interface GameStoreState {
 
   startNewGame(config: { countryId: CountryId; players: readonly PlayerSetup[]; maxMonths: number; cpuLevel: CpuLevel }): Promise<void>;
   loadSavedGame(): Promise<void>;
+  /** セーブデータの要約を読み直す(セットアップ画面のマウント時に呼ぶ)。 */
+  refreshSavedGame(): void;
+  /** セーブデータを消す。 */
+  discardSavedGame(): void;
   /** 出発ストーリーのモーダル(ui.kind === "intro")を閉じてゲームを開始する。 */
   dismissIntro(): void;
   backToSetup(): void;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CountryId } from "../../../domain/shared-kernel/ids";
 import { CpuLevel } from "../../../domain/cpu/cpu-level";
 import { DEFAULT_KNOWLEDGE_LEVEL, KNOWLEDGE_LEVELS, KnowledgeLevel } from "../../../domain/quiz/knowledge-level";
@@ -9,6 +9,7 @@ import { COUNTRY_INDEX } from "../../../infrastructure/content/country-index";
 import { useGameStore } from "../../state/game-store";
 import { useLocale } from "../../i18n/locale-context";
 import { LocaleSwitch } from "../hud/locale-switch";
+import { SavedGameCard } from "./saved-game-card";
 
 const MONTH_OPTIONS = [12, 24, 36];
 
@@ -29,7 +30,15 @@ export function SetupScreen() {
   const { t, tx } = useLocale();
   const startNewGame = useGameStore((s) => s.startNewGame);
   const loadSavedGame = useGameStore((s) => s.loadSavedGame);
-  const hasSavedGame = useGameStore((s) => s.hasSavedGame);
+  const savedGame = useGameStore((s) => s.savedGame);
+  const refreshSavedGame = useGameStore((s) => s.refreshSavedGame);
+  const discardSavedGame = useGameStore((s) => s.discardSavedGame);
+
+  // localStorage はサーバー描画時に読めないため、マウント後に読み直す
+  // (初期描画から差が出るとハイドレーションがずれるため)。
+  useEffect(() => {
+    refreshSavedGame();
+  }, [refreshSavedGame]);
 
   const [country, setCountry] = useState<CountryId>(CountryId("bolivia"));
   const [months, setMonths] = useState(12);
@@ -62,12 +71,8 @@ export function SetupScreen() {
         <h1 style={{ marginTop: 12 }}>{t("setupTitle")}</h1>
         <p className="tagline">{t("tagline")}</p>
 
-        {hasSavedGame && (
-          <div className="btnrow" style={{ margin: "14px 0" }}>
-            <button className="btn" style={{ width: "100%" }} onClick={loadSavedGame}>
-              {t("resume")}
-            </button>
-          </div>
+        {savedGame && (
+          <SavedGameCard saved={savedGame} onResume={loadSavedGame} onDiscard={discardSavedGame} />
         )}
 
         <div className="eyebrow">{t("chooseCountry")}</div>

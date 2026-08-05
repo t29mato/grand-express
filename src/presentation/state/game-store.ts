@@ -13,7 +13,7 @@ import { stallStockFor, buyStallItem } from "../../application/use-cases/visit-s
 import { applyItemUse } from "../../application/use-cases/use-item/use-item.use-case";
 import { resolveMisfortuneStrike } from "../../application/use-cases/resolve-misfortune-strike/resolve-misfortune-strike.use-case";
 import { loadGame, saveGame } from "../../application/use-cases/save-load-game/save-load-game.use-case";
-import { GameStoreState } from "./game-store-types";
+import { GameStoreState, SavedGameSummary } from "./game-store-types";
 import { contentRepository, gameRepository, random, soundAdapter } from "./game-store-dependencies";
 import { logEntry, pushLog } from "./game-store-log";
 import { describeStrike } from "./game-store-formatters";
@@ -22,6 +22,25 @@ import { createTurnFlowActions } from "./game-store-turn-flow";
 
 export type { UiState, LogEntry } from "./game-store-types";
 export { contentRepository, soundAdapter } from "./game-store-dependencies";
+
+/**
+ * 保存済みセッションの要約を読む。localStorageが使えない環境(サーバー描画・
+ * プライベートブラウジング)では null を返す。
+ */
+function readSavedGameSummary(): SavedGameSummary | null {
+  try {
+    const saved = loadGame(gameRepository);
+    if (!saved) return null;
+    return {
+      countryId: saved.countryId,
+      month: saved.month,
+      maxMonths: saved.maxMonths,
+      players: saved.players.map((p) => ({ name: p.name, isCpu: p.isCpu, cash: p.cash.amount })),
+    };
+  } catch {
+    return null;
+  }
+}
 
 export const useGameStore = create<GameStoreState>((set, get) => {
   const {
@@ -42,13 +61,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     ui: { kind: "setup" },
     log: [],
     diceRoll: null,
-    hasSavedGame: (() => {
-      try {
-        return gameRepository.load() !== null;
-      } catch {
-        return false;
-      }
-    })(),
+    savedGame: null,
 
     async startNewGame(config) {
       const content = await contentRepository.load(config.countryId);
@@ -84,6 +97,19 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       await soundAdapter.setCountry(saved.countryId);
       soundAdapter.setRegion(context.getNode(currentPlayer(saved).location).regionId);
       runCpuLoopIfNeeded();
+    },
+
+    refreshSavedGame() {
+      set({ savedGame: readSavedGameSummary() });
+    },
+
+    discardSavedGame() {
+      try {
+        gameRepository.clear();
+      } catch {
+        // ストレージが使えない環境では何もできることがない。
+      }
+      set({ savedGame: null });
     },
 
     clearDiceRoll() {
@@ -263,7 +289,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const { session } = get();
       if (!session) return;
       saveGame(gameRepository, session);
-      set((s) => ({ log: pushLog(s, "saved", [], "gold"), ui: { kind: "saved" } }));
+      set((s) => ({ log: pushLog(s, "saved", [], "gold"), ui: { kind: "saved" }, savedGame: readSavedGameSummary() }));
     },
 
     dismissSavedModal() {

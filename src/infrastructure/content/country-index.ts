@@ -16,6 +16,7 @@ const CountryIndexSchema = z.array(
     id: z.string(),
     name: LocalizedTextSchema,
     blurb: LocalizedTextSchema,
+    currency: z.object({ prefix: z.string(), suffix: z.string(), multiplier: z.number() }),
     thumbViewBox: z.string(),
     thumbSvg: z.string(),
   }),
