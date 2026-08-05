@@ -1,0 +1,55 @@
+name: Deploy to Vercel
+
+# main への push で本番デプロイする。手動実行(workflow_dispatch)にも対応。
+#
+# 動かすには、リポジトリの Settings → Secrets and variables → Actions に
+# 以下の3つを登録する必要がある(登録するまでこのワークフローはスキップされる):
+#   VERCEL_TOKEN     … https://vercel.com/account/tokens で発行
+#   VERCEL_ORG_ID    … Vercelプロジェクトの Settings → General、または
+#                       ローカルで `vercel link` 後の .vercel/project.json
+#   VERCEL_PROJECT_ID … 同上
+#
+# 手順の詳細は docs/90-migration/04-deployment-guide.md を参照。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # シークレット未設定のうちは実行しない(未設定のまま赤くならないようにする)。
+    if: ${{ vars.DEPLOY_ENABLED == 'true' }}
+    environment:
+      name: production
+      url: ${{ steps.deploy.outputs.url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Pull Vercel environment information
+        run: npx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Build
+        run: npx vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Deploy
+        id: deploy
+        run: |
+          url="$(npx vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "Deployed to $url"
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
