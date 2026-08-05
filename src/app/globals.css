@@ -229,11 +229,99 @@ main {
 }
 
 .board-wrap {
+  position: relative;
   background: #141d31;
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 8px;
   min-height: 400px;
+}
+
+/* 3Dダイス演出(legacyのbounce物理をrequestAnimationFrameで移植)。
+   盤面をクリック不可にしないよう pointer-events は無効にしてある。 */
+.dice-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.die3d {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 96px;
+  height: 96px;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.die3d .f {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, #fffdf5, #e4d9be);
+  border-radius: 17px;
+  border: 2px solid #c8b894;
+  box-shadow:
+    inset 0 0 26px #cbbb98,
+    inset 0 6px 10px #ffffffcc;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 13px;
+  backface-visibility: hidden;
+}
+
+.die3d .f i {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  align-self: center;
+  justify-self: center;
+  background: radial-gradient(circle at 35% 30%, #5a4630, #241a10 70%);
+  box-shadow: inset 0 -2px 3px #00000070;
+}
+
+.die-shadow {
+  position: absolute;
+  border-radius: 50%;
+  background: #000;
+  filter: blur(7px);
+  opacity: 0.3;
+}
+
+.die-result {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.4);
+  font-size: 5.4rem;
+  font-weight: 900;
+  color: var(--gold);
+  text-shadow:
+    0 7px 0 #00000066,
+    0 0 40px #f5b31c66;
+  pointer-events: none;
+}
+
+.die-result.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  animation: resPop 0.5s ease;
+}
+
+@keyframes resPop {
+  0% {
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 0;
+  }
+  45% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 1;
+  }
 }
 
 .board-svg {
