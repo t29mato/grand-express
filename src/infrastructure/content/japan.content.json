@@ -102,262 +102,566 @@
   "land": [
     [
       [
-        141.4,
-        45.4
+        141.94,
+        45.52
       ],
       [
-        142.5,
-        44.7
+        142.6,
+        44.9
       ],
       [
         143.9,
-        44.2
+        44.35
       ],
       [
-        145.4,
-        44.3
+        144.75,
+        44.06
       ],
       [
-        145.3,
+        145.32,
+        44.34
+      ],
+      [
+        145.15,
+        43.9
+      ],
+      [
+        144.3,
+        43.35
+      ],
+      [
+        145.15,
         43.4
       ],
       [
-        144.2,
+        145.82,
+        43.38
+      ],
+      [
+        145.35,
         43
       ],
       [
-        145.4,
+        144.4,
+        42.94
+      ],
+      [
+        143.35,
+        42.3
+      ],
+      [
+        143.25,
+        41.92
+      ],
+      [
+        142.4,
+        42.55
+      ],
+      [
+        141.65,
+        42.63
+      ],
+      [
+        140.9,
+        42.35
+      ],
+      [
+        140.98,
+        41.78
+      ],
+      [
+        140.62,
+        41.78
+      ],
+      [
+        140.05,
+        41.9
+      ],
+      [
+        139.86,
+        42.35
+      ],
+      [
+        140.35,
+        42.9
+      ],
+      [
+        140.15,
         43.2
       ],
       [
-        144,
-        42
+        140.42,
+        43.35
       ],
       [
-        142,
-        42.6
-      ],
-      [
-        141.6,
-        42.2
-      ],
-      [
-        140.6,
-        41.8
-      ],
-      [
-        140,
-        42.4
-      ],
-      [
-        140.4,
-        43.3
+        140.98,
+        43.2
       ],
       [
         141.3,
-        43.2
+        43.6
       ],
       [
-        140.4,
-        44.1
+        141.55,
+        44.15
       ],
       [
-        141.4,
-        45.4
+        141.6,
+        44.9
+      ],
+      [
+        141.94,
+        45.52
       ]
     ],
     [
       [
-        140.9,
-        41.5
+        140.91,
+        41.53
       ],
       [
-        141.5,
-        41.3
+        141.43,
+        41.4
       ],
       [
-        141.9,
+        141.39,
+        40.9
+      ],
+      [
+        141.52,
         40.5
       ],
       [
-        141,
-        38.3
-      ],
-      [
-        140.9,
-        37
-      ],
-      [
-        140.1,
-        36.1
-      ],
-      [
-        140.9,
-        35.7
-      ],
-      [
-        139.7,
-        35
-      ],
-      [
-        138.9,
-        34.6
-      ],
-      [
-        137,
-        34.6
-      ],
-      [
-        136.9,
-        34.2
-      ],
-      [
-        136.1,
-        33.6
-      ],
-      [
-        135.1,
-        33.5
-      ],
-      [
-        135,
-        34.3
-      ],
-      [
-        134,
-        34.5
-      ],
-      [
-        132.5,
-        34.4
-      ],
-      [
-        131,
-        34.4
-      ],
-      [
-        130.9,
-        34
-      ],
-      [
-        131.6,
-        34.7
-      ],
-      [
-        132.5,
-        35.4
-      ],
-      [
-        134,
-        35.6
-      ],
-      [
-        135.5,
-        35.7
-      ],
-      [
-        136.7,
-        37.5
-      ],
-      [
-        137.2,
-        36.8
-      ],
-      [
-        138.5,
-        37.8
-      ],
-      [
-        139.9,
+        141.9,
         39.9
       ],
       [
-        140.3,
-        41.2
+        141.99,
+        39.64
       ],
       [
-        140.9,
-        41.5
-      ]
-    ],
-    [
-      [
-        134,
-        34.3
+        141.6,
+        38.95
       ],
       [
-        134.7,
-        33.8
+        141.58,
+        38.3
       ],
       [
-        134.2,
-        33.5
+        140.98,
+        38.26
       ],
       [
-        133,
-        32.7
+        141.03,
+        37.75
       ],
       [
-        132.4,
-        33
+        140.97,
+        36.95
       ],
       [
-        132.8,
-        33.5
+        140.62,
+        36.36
+      ],
+      [
+        140.87,
+        35.71
+      ],
+      [
+        140.4,
+        35.35
+      ],
+      [
+        139.93,
+        34.9
+      ],
+      [
+        139.83,
+        35.25
+      ],
+      [
+        139.75,
+        35.62
+      ],
+      [
+        139.65,
+        35.3
+      ],
+      [
+        139.6,
+        35.15
+      ],
+      [
+        139.15,
+        35.13
+      ],
+      [
+        138.95,
+        34.85
+      ],
+      [
+        138.85,
+        34.6
+      ],
+      [
+        138.75,
+        34.98
+      ],
+      [
+        138.5,
+        34.7
+      ],
+      [
+        138.23,
+        34.6
+      ],
+      [
+        137.5,
+        34.65
+      ],
+      [
+        137.02,
+        34.58
+      ],
+      [
+        136.85,
+        34.85
+      ],
+      [
+        136.75,
+        34.5
+      ],
+      [
+        136.9,
+        34.28
+      ],
+      [
+        136.35,
+        33.85
+      ],
+      [
+        135.95,
+        33.55
+      ],
+      [
+        135.76,
+        33.44
+      ],
+      [
+        135.35,
+        33.62
+      ],
+      [
+        135.1,
+        34.05
+      ],
+      [
+        135.15,
+        34.35
+      ],
+      [
+        135.4,
+        34.65
+      ],
+      [
+        134.99,
+        34.63
+      ],
+      [
+        134.55,
+        34.45
+      ],
+      [
+        133.93,
+        34.48
+      ],
+      [
+        133.25,
+        34.4
+      ],
+      [
+        132.45,
+        34.35
+      ],
+      [
+        131.8,
+        34
+      ],
+      [
+        131.15,
+        33.96
+      ],
+      [
+        130.95,
+        33.95
+      ],
+      [
+        130.88,
+        34.38
+      ],
+      [
+        131.4,
+        34.42
+      ],
+      [
+        132.15,
+        34.68
+      ],
+      [
+        132.9,
+        35.45
       ],
       [
         133.6,
-        34.3
+        35.55
       ],
       [
-        134,
-        34.3
+        134.23,
+        35.53
+      ],
+      [
+        134.8,
+        35.65
+      ],
+      [
+        135.19,
+        35.57
+      ],
+      [
+        135.6,
+        35.5
+      ],
+      [
+        135.95,
+        35.65
+      ],
+      [
+        136.07,
+        35.65
+      ],
+      [
+        136.25,
+        36.2
+      ],
+      [
+        136.63,
+        36.6
+      ],
+      [
+        136.76,
+        37
+      ],
+      [
+        136.85,
+        37.35
+      ],
+      [
+        137.33,
+        37.53
+      ],
+      [
+        137.15,
+        37.15
+      ],
+      [
+        137.2,
+        36.77
+      ],
+      [
+        137.85,
+        37
+      ],
+      [
+        138.24,
+        37.18
+      ],
+      [
+        138.6,
+        37.55
+      ],
+      [
+        139.05,
+        37.92
+      ],
+      [
+        139.55,
+        38.35
+      ],
+      [
+        139.85,
+        38.92
+      ],
+      [
+        139.72,
+        39.55
+      ],
+      [
+        139.7,
+        39.95
+      ],
+      [
+        140.05,
+        39.75
+      ],
+      [
+        140.06,
+        40.2
+      ],
+      [
+        139.95,
+        40.55
+      ],
+      [
+        140.2,
+        40.78
+      ],
+      [
+        140.35,
+        41.15
+      ],
+      [
+        140.6,
+        41.2
+      ],
+      [
+        140.75,
+        40.85
+      ],
+      [
+        140.91,
+        41.53
       ]
     ],
     [
       [
-        130.9,
-        33.9
+        134.6,
+        34.22
       ],
       [
-        131.7,
-        33.6
+        134.75,
+        33.85
       ],
       [
-        131.9,
-        32.9
+        134.18,
+        33.25
+      ],
+      [
+        133.55,
+        33.5
+      ],
+      [
+        133.02,
+        32.72
+      ],
+      [
+        132.55,
+        32.92
+      ],
+      [
+        132.4,
+        33.25
+      ],
+      [
+        132.02,
+        33.35
+      ],
+      [
+        132.55,
+        33.55
+      ],
+      [
+        133,
+        34.07
+      ],
+      [
+        133.6,
+        34.32
+      ],
+      [
+        134.05,
+        34.35
+      ],
+      [
+        134.6,
+        34.22
+      ]
+    ],
+    [
+      [
+        130.96,
+        33.94
       ],
       [
         131.5,
-        31.5
+        33.65
       ],
       [
-        130.7,
-        31
+        131.85,
+        33.28
+      ],
+      [
+        131.9,
+        32.95
+      ],
+      [
+        131.65,
+        32.45
+      ],
+      [
+        131.47,
+        31.9
+      ],
+      [
+        131.05,
+        31.42
+      ],
+      [
+        130.66,
+        30.99
+      ],
+      [
+        130.5,
+        31.25
+      ],
+      [
+        130.3,
+        31.27
       ],
       [
         130.2,
-        31.3
-      ],
-      [
-        130.2,
-        32.2
-      ],
-      [
-        129.5,
-        32.6
-      ],
-      [
-        130,
-        33.2
+        31.75
       ],
       [
         130.4,
-        33.9
+        32.2
       ],
       [
-        130.9,
-        33.9
+        130.2,
+        32.5
+      ],
+      [
+        129.87,
+        32.75
+      ],
+      [
+        129.7,
+        33.05
+      ],
+      [
+        129.97,
+        33.45
+      ],
+      [
+        130.4,
+        33.6
+      ],
+      [
+        130.85,
+        33.75
+      ],
+      [
+        130.96,
+        33.94
       ]
     ],
     [
@@ -388,6 +692,62 @@
       [
         128.4,
         26.9
+      ]
+    ],
+    [
+      [
+        138.24,
+        38.32
+      ],
+      [
+        138.55,
+        38.32
+      ],
+      [
+        138.55,
+        38
+      ],
+      [
+        138.25,
+        37.82
+      ],
+      [
+        138,
+        37.85
+      ],
+      [
+        138.05,
+        38.1
+      ],
+      [
+        138.24,
+        38.32
+      ]
+    ],
+    [
+      [
+        134.65,
+        34.58
+      ],
+      [
+        135,
+        34.55
+      ],
+      [
+        135.02,
+        34.32
+      ],
+      [
+        134.78,
+        34.2
+      ],
+      [
+        134.62,
+        34.35
+      ],
+      [
+        134.65,
+        34.58
       ]
     ]
   ],
@@ -2481,6 +2841,678 @@
           "inc": 58
         }
       ]
+    },
+    "asahikawa": {
+      "n": {
+        "en": "Asahikawa",
+        "es": "Asahikawa",
+        "fr": "Asahikawa",
+        "ja": "旭川"
+      },
+      "lo": 142.36,
+      "la": 43.77,
+      "mark": "clocktower",
+      "bg": "snowcity",
+      "reg": "nor",
+      "lp": "r",
+      "tag": {
+        "en": "Snow country crossroads",
+        "es": "Cruce del país de la nieve",
+        "fr": "Carrefour du pays de neige",
+        "ja": "雪国の十字路"
+      },
+      "fact": {
+        "en": "Hokkaidō's second city sits in a basin that swings between −41°C, the coldest ever recorded in Japan, and hot summers. Its zoo is famous for showing animals as they actually move.",
+        "es": "La segunda ciudad de Hokkaidō está en una cuenca que oscila entre los −41 °C, el récord de frío de Japón, y veranos calurosos. Su zoo es célebre por mostrar a los animales en movimiento real.",
+        "fr": "La deuxième ville de Hokkaidō occupe un bassin oscillant entre −41 °C, record de froid du Japon, et des étés chauds. Son zoo est réputé montrer les animaux en mouvement réel.",
+        "ja": "北海道第2の都市。日本最低気温−41℃を記録した盆地で、夏は暑い。動物本来の動きを見せる旭山動物園で知られる。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Ramen Village",
+            "es": "Aldea del ramen",
+            "fr": "Village du ramen",
+            "ja": "ラーメン村"
+          },
+          "cost": 200,
+          "inc": 42
+        },
+        {
+          "n": {
+            "en": "Winter Zoo",
+            "es": "Zoo de invierno",
+            "fr": "Zoo d'hiver",
+            "ja": "冬の動物園"
+          },
+          "cost": 260,
+          "inc": 54
+        }
+      ]
+    },
+    "kushiro": {
+      "n": {
+        "en": "Kushiro",
+        "es": "Kushiro",
+        "fr": "Kushiro",
+        "ja": "釧路"
+      },
+      "lo": 144.38,
+      "la": 42.98,
+      "mark": "katsuo",
+      "bg": "port",
+      "reg": "nor",
+      "lp": "r",
+      "tag": {
+        "en": "Marsh, fog and red-crowned cranes",
+        "es": "Marisma, niebla y grullas",
+        "fr": "Marais, brume et grues du Japon",
+        "ja": "湿原と霧とタンチョウ"
+      },
+      "fact": {
+        "en": "Japan's largest marshland lies inland, home to the red-crowned crane once thought extinct here. Summer fog rolls off the cold current and swallows the port whole.",
+        "es": "El mayor humedal de Japón alberga a la grulla de corona roja, que aquí se creyó extinta. La niebla veraniega de la corriente fría engulle el puerto.",
+        "fr": "La plus vaste zone humide du Japon abrite la grue à couronne rouge, jadis crue disparue ici. La brume d'été venue du courant froid avale le port.",
+        "ja": "日本最大の湿原が広がり、一度は絶滅したと思われたタンチョウが生きる。夏は寒流由来の霧が港を包む。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Fish Market",
+            "es": "Mercado de pescado",
+            "fr": "Marché aux poissons",
+            "ja": "和商市場"
+          },
+          "cost": 220,
+          "inc": 46
+        },
+        {
+          "n": {
+            "en": "Marsh Boardwalk",
+            "es": "Pasarela del marisma",
+            "fr": "Passerelle du marais",
+            "ja": "湿原の木道"
+          },
+          "cost": 180,
+          "inc": 38
+        }
+      ]
+    },
+    "yamagata": {
+      "n": {
+        "en": "Yamagata",
+        "es": "Yamagata",
+        "fr": "Yamagata",
+        "ja": "山形"
+      },
+      "lo": 140.36,
+      "la": 38.24,
+      "mark": "onsen",
+      "bg": "valley2",
+      "reg": "nor",
+      "lp": "l",
+      "tag": {
+        "en": "Cherries, hot springs and stone steps",
+        "es": "Cerezas, aguas termales y escaleras",
+        "fr": "Cerises, sources chaudes et marches",
+        "ja": "さくらんぼと温泉と石段"
+      },
+      "fact": {
+        "en": "Bashō climbed the 1,015 stone steps of Yamadera and wrote of cicadas boring into the rocks. The basin grows most of Japan's cherries.",
+        "es": "Bashō subió los 1.015 escalones de Yamadera y escribió sobre cigarras perforando la roca. La cuenca produce la mayoría de las cerezas de Japón.",
+        "fr": "Bashō gravit les 1 015 marches de Yamadera et écrivit les cigales perçant le roc. Le bassin produit l'essentiel des cerises du Japon.",
+        "ja": "芭蕉が山寺の1015段を登り「岩にしみ入る蝉の声」と詠んだ地。盆地は日本一のさくらんぼ産地。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Cherry Orchard",
+            "es": "Cerezal",
+            "fr": "Verger de cerisiers",
+            "ja": "さくらんぼ園"
+          },
+          "cost": 240,
+          "inc": 50
+        },
+        {
+          "n": {
+            "en": "Mountain Temple",
+            "es": "Templo de montaña",
+            "fr": "Temple de montagne",
+            "ja": "山寺"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    },
+    "toyama": {
+      "n": {
+        "en": "Toyama",
+        "es": "Toyama",
+        "fr": "Toyama",
+        "ja": "富山"
+      },
+      "lo": 137.21,
+      "la": 36.7,
+      "mark": "garden",
+      "bg": "alps",
+      "reg": "kan",
+      "lp": "r",
+      "tag": {
+        "en": "Alpine wall above a deep bay",
+        "es": "Muro alpino sobre una bahía",
+        "fr": "Mur alpin au-dessus d'une baie",
+        "ja": "深い湾に迫る立山連峰"
+      },
+      "fact": {
+        "en": "The Tateyama range rises 3,000 m barely 25 km from a bay 1,000 m deep. Spring buses run through snow corridors walls of 20 m high.",
+        "es": "La cordillera Tateyama se alza 3.000 m a apenas 25 km de una bahía de 1.000 m de hondo. En primavera los autobuses cruzan corredores de nieve de 20 m.",
+        "fr": "La chaîne Tateyama culmine à 3 000 m à 25 km d'une baie profonde de 1 000 m. Au printemps, les bus traversent des couloirs de neige de 20 m.",
+        "ja": "立山連峰は水深1000mの富山湾からわずか25kmで3000m級に達する。春は高さ20mの雪の大谷をバスが走る。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Firefly Squid Boat",
+            "es": "Barco de calamar luciérnaga",
+            "fr": "Bateau à calmars lucioles",
+            "ja": "ホタルイカ漁船"
+          },
+          "cost": 230,
+          "inc": 48
+        },
+        {
+          "n": {
+            "en": "Alpine Route Station",
+            "es": "Estación de la ruta alpina",
+            "fr": "Gare de la route alpine",
+            "ja": "立山黒部の駅"
+          },
+          "cost": 300,
+          "inc": 62
+        }
+      ]
+    },
+    "takayama": {
+      "n": {
+        "en": "Takayama",
+        "es": "Takayama",
+        "fr": "Takayama",
+        "ja": "高山"
+      },
+      "lo": 137.25,
+      "la": 36.15,
+      "mark": "yatai",
+      "bg": "alps",
+      "reg": "kan",
+      "lp": "l",
+      "tag": {
+        "en": "Carpenters' town in the mountains",
+        "es": "Villa de carpinteros en la montaña",
+        "fr": "Ville de charpentiers en montagne",
+        "ja": "山あいの匠の町"
+      },
+      "fact": {
+        "en": "Hida carpenters were so skilled that the imperial court took them as tax instead of rice. Their descendants build the festival floats that still parade each spring.",
+        "es": "Los carpinteros de Hida eran tan hábiles que la corte los aceptaba como impuesto en vez de arroz. Sus descendientes construyen las carrozas que desfilan cada primavera.",
+        "fr": "Les charpentiers de Hida étaient si habiles que la cour les prenait en guise d'impôt. Leurs descendants bâtissent les chars qui défilent au printemps.",
+        "ja": "飛騨の匠は米の代わりに税として都に徴用されたほどの腕前。その系譜が春の祭屋台を今も作る。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Morning Market",
+            "es": "Mercado matinal",
+            "fr": "Marché du matin",
+            "ja": "朝市"
+          },
+          "cost": 190,
+          "inc": 40
+        },
+        {
+          "n": {
+            "en": "Festival Float Hall",
+            "es": "Sala de carrozas",
+            "fr": "Halle des chars",
+            "ja": "屋台会館"
+          },
+          "cost": 250,
+          "inc": 52
+        }
+      ]
+    },
+    "shizuoka": {
+      "n": {
+        "en": "Shizuoka",
+        "es": "Shizuoka",
+        "fr": "Shizuoka",
+        "ja": "静岡"
+      },
+      "lo": 138.38,
+      "la": 34.98,
+      "mark": "fuji",
+      "bg": "fujiview",
+      "reg": "kan",
+      "lp": "b",
+      "tag": {
+        "en": "Green tea under Mount Fuji",
+        "es": "Té verde bajo el monte Fuji",
+        "fr": "Thé vert au pied du Fuji",
+        "ja": "富士を望む茶どころ"
+      },
+      "fact": {
+        "en": "Nearly 40% of Japan's tea grows on these slopes. Warm currents in Suruga Bay meet water 2,500 m deep, giving the port both sakura shrimp and deep-sea fish.",
+        "es": "Casi el 40% del té japonés crece en estas laderas. La bahía de Suruga alcanza 2.500 m, dando al puerto gambas sakura y peces abisales.",
+        "fr": "Près de 40 % du thé japonais pousse sur ces pentes. La baie de Suruga atteint 2 500 m, offrant crevettes sakura et poissons abyssaux.",
+        "ja": "日本茶の約4割がこの斜面で育つ。水深2500mの駿河湾は桜えびと深海魚をもたらす。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Tea Plantation",
+            "es": "Plantación de té",
+            "fr": "Plantation de thé",
+            "ja": "茶畑"
+          },
+          "cost": 260,
+          "inc": 54
+        },
+        {
+          "n": {
+            "en": "Sakura Shrimp Quay",
+            "es": "Muelle de gambas",
+            "fr": "Quai aux crevettes",
+            "ja": "桜えびの港"
+          },
+          "cost": 210,
+          "inc": 44
+        }
+      ]
+    },
+    "chiba": {
+      "n": {
+        "en": "Chiba",
+        "es": "Chiba",
+        "fr": "Chiba",
+        "ja": "千葉"
+      },
+      "lo": 140.12,
+      "la": 35.6,
+      "mark": "ferriswheel",
+      "bg": "coasttown",
+      "reg": "kan",
+      "lp": "r",
+      "tag": {
+        "en": "Peanuts, soy sauce and the gateway sky",
+        "es": "Cacahuetes, soja y el cielo de entrada",
+        "fr": "Arachides, soja et ciel d'arrivée",
+        "ja": "落花生と醤油と空の玄関"
+      },
+      "fact": {
+        "en": "The Bōsō peninsula's mild winters made it Edo's kitchen garden, and its soy brewers still supply much of the country. Narita, Japan's main international gateway, sits inland.",
+        "es": "Los inviernos suaves de Bōsō lo hicieron la huerta de Edo, y sus fábricas de soja aún surten al país. Narita, principal puerta internacional, está tierra adentro.",
+        "fr": "Les hivers doux de Bōsō en firent le potager d'Edo ; ses brasseries de soja fournissent encore le pays. Narita, principale porte internationale, est à l'intérieur.",
+        "ja": "温暖な房総は江戸の台所となり、醤油醸造は今も全国を支える。内陸には日本の空の玄関・成田がある。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Soy Sauce Brewery",
+            "es": "Fábrica de salsa de soja",
+            "fr": "Brasserie de sauce soja",
+            "ja": "醤油蔵"
+          },
+          "cost": 240,
+          "inc": 50
+        },
+        {
+          "n": {
+            "en": "Seaside Ferris Wheel",
+            "es": "Noria junto al mar",
+            "fr": "Grande roue du bord de mer",
+            "ja": "海辺の観覧車"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    },
+    "okayama": {
+      "n": {
+        "en": "Okayama",
+        "es": "Okayama",
+        "fr": "Okayama",
+        "ja": "岡山"
+      },
+      "lo": 133.92,
+      "la": 34.66,
+      "mark": "garden",
+      "bg": "citygreen",
+      "reg": "kin",
+      "lp": "b",
+      "tag": {
+        "en": "Peach boy's sunny province",
+        "es": "La provincia soleada del niño melocotón",
+        "fr": "La province ensoleillée de Momotarō",
+        "ja": "晴れの国と桃太郎"
+      },
+      "fact": {
+        "en": "The province claims the legend of Momotarō, the boy born from a peach. It calls itself the Land of Sunshine for having the fewest rainy days in Japan.",
+        "es": "La provincia reclama la leyenda de Momotarō, el niño nacido de un melocotón, y se llama Tierra del Sol por tener los días de lluvia más escasos de Japón.",
+        "fr": "La province revendique la légende de Momotarō, l'enfant né d'une pêche, et se dit Pays du Soleil, ayant le moins de jours de pluie du Japon.",
+        "ja": "桃から生まれた桃太郎伝説の地。雨の日が日本一少なく「晴れの国」を名乗る。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Kōrakuen Garden",
+            "es": "Jardín Kōrakuen",
+            "fr": "Jardin Kōrakuen",
+            "ja": "後楽園"
+          },
+          "cost": 300,
+          "inc": 62
+        },
+        {
+          "n": {
+            "en": "Peach Orchard",
+            "es": "Melocotonar",
+            "fr": "Verger de pêchers",
+            "ja": "桃畑"
+          },
+          "cost": 220,
+          "inc": 46
+        }
+      ]
+    },
+    "matsue": {
+      "n": {
+        "en": "Matsue",
+        "es": "Matsue",
+        "fr": "Matsue",
+        "ja": "松江"
+      },
+      "lo": 133.05,
+      "la": 35.47,
+      "mark": "castle_black",
+      "bg": "castletown",
+      "reg": "kin",
+      "lp": "l",
+      "tag": {
+        "en": "Water castle of the myth coast",
+        "es": "Castillo de agua de la costa mítica",
+        "fr": "Château d'eau de la côte des mythes",
+        "ja": "神話の海辺の水の城"
+      },
+      "fact": {
+        "en": "Built between a lagoon and a lake, Matsue is one of only twelve castles with an original keep. Nearby Izumo shrine is where Japan's gods are said to gather each autumn.",
+        "es": "Entre una laguna y un lago, Matsue conserva una de las doce torres originales. En el cercano santuario de Izumo se reúnen los dioses cada otoño.",
+        "fr": "Entre lagune et lac, Matsue garde l'un des douze donjons d'origine. Au sanctuaire d'Izumo voisin, les dieux se réuniraient chaque automne.",
+        "ja": "汽水湖と宍道湖に挟まれた城下町。現存12天守のひとつ。近くの出雲大社には神無月に全国の神が集うとされる。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Lake Sunset Boat",
+            "es": "Barco del atardecer",
+            "fr": "Bateau du couchant",
+            "ja": "宍道湖の遊覧船"
+          },
+          "cost": 210,
+          "inc": 44
+        },
+        {
+          "n": {
+            "en": "Original Keep",
+            "es": "Torre del homenaje",
+            "fr": "Donjon d'origine",
+            "ja": "現存天守"
+          },
+          "cost": 290,
+          "inc": 60
+        }
+      ]
+    },
+    "tottori": {
+      "n": {
+        "en": "Tottori",
+        "es": "Tottori",
+        "fr": "Tottori",
+        "ja": "鳥取"
+      },
+      "lo": 134.24,
+      "la": 35.5,
+      "mark": "star5",
+      "bg": "seaside",
+      "reg": "kin",
+      "lp": "r",
+      "tag": {
+        "en": "Dunes on the Japan Sea",
+        "es": "Dunas del mar de Japón",
+        "fr": "Dunes de la mer du Japon",
+        "ja": "日本海の砂丘"
+      },
+      "fact": {
+        "en": "Sand carried down by the Sendai river and pushed back by winter waves has built dunes 50 m high and 16 km long — a desert edge in a rainy country.",
+        "es": "La arena del río Sendai, empujada por el oleaje invernal, ha formado dunas de 50 m y 16 km — un borde de desierto en un país lluvioso.",
+        "fr": "Le sable du fleuve Sendai, repoussé par la houle d'hiver, forme des dunes de 50 m sur 16 km — un bout de désert en pays pluvieux.",
+        "ja": "千代川が運び冬の波が押し戻した砂が、高さ50m・長さ16kmの砂丘をつくった。雨の国の砂漠。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Dune Camel Ride",
+            "es": "Paseo en camello",
+            "fr": "Balade à dos de chameau",
+            "ja": "砂丘のらくだ"
+          },
+          "cost": 180,
+          "inc": 38
+        },
+        {
+          "n": {
+            "en": "Pear Orchard",
+            "es": "Peral",
+            "fr": "Verger de poiriers",
+            "ja": "梨園"
+          },
+          "cost": 230,
+          "inc": 48
+        }
+      ]
+    },
+    "takamatsu": {
+      "n": {
+        "en": "Takamatsu",
+        "es": "Takamatsu",
+        "fr": "Takamatsu",
+        "ja": "高松"
+      },
+      "lo": 134.05,
+      "la": 34.35,
+      "mark": "garden",
+      "bg": "seaside",
+      "reg": "kin",
+      "lp": "b",
+      "tag": {
+        "en": "Udon and island-dotted sea",
+        "es": "Udon y un mar sembrado de islas",
+        "fr": "Udon et mer parsemée d'îles",
+        "ja": "うどんと島々の海"
+      },
+      "fact": {
+        "en": "Kagawa is Japan's smallest prefecture and eats the most udon; the dry climate that once failed rice suited wheat instead. Ferries fan out to art islands across the Inland Sea.",
+        "es": "Kagawa es la prefectura más pequeña y la que más udon come: el clima seco que arruinaba el arroz favoreció el trigo. Los ferris salen hacia las islas del arte.",
+        "fr": "Kagawa, plus petite préfecture, mange le plus d'udon : le climat sec, mauvais pour le riz, convenait au blé. Les ferries desservent les îles d'art.",
+        "ja": "日本最小の香川県はうどん消費日本一。米に向かない乾いた気候が小麦を育てた。瀬戸内のアートの島へ船が出る。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Udon Counter",
+            "es": "Mostrador de udon",
+            "fr": "Comptoir à udon",
+            "ja": "うどん店"
+          },
+          "cost": 170,
+          "inc": 36
+        },
+        {
+          "n": {
+            "en": "Ritsurin Garden",
+            "es": "Jardín Ritsurin",
+            "fr": "Jardin Ritsurin",
+            "ja": "栗林公園"
+          },
+          "cost": 290,
+          "inc": 60
+        }
+      ]
+    },
+    "tokushima": {
+      "n": {
+        "en": "Tokushima",
+        "es": "Tokushima",
+        "fr": "Tokushima",
+        "ja": "徳島"
+      },
+      "lo": 134.55,
+      "la": 34.07,
+      "mark": "kanto",
+      "bg": "coasttown",
+      "reg": "kin",
+      "lp": "r",
+      "tag": {
+        "en": "Whirlpools and the dancing fool",
+        "es": "Remolinos y el baile del loco",
+        "fr": "Tourbillons et la danse des fous",
+        "ja": "渦潮と阿波おどり"
+      },
+      "fact": {
+        "en": "Tides squeezing through the Naruto strait spin whirlpools up to 20 m across. In August the whole city dances the Awa Odori: \"the dancing fool and the watching fool\".",
+        "es": "Las mareas del estrecho de Naruto giran remolinos de hasta 20 m. En agosto la ciudad baila el Awa Odori: «tonto el que baila, tonto el que mira».",
+        "fr": "Les marées du détroit de Naruto forment des tourbillons de 20 m. En août, la ville danse l'Awa Odori : « fou qui danse, fou qui regarde ».",
+        "ja": "鳴門海峡の潮流は直径20mに達する渦潮を生む。8月は街中が阿波おどり――「踊る阿呆に見る阿呆」。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Whirlpool Boat",
+            "es": "Barco de los remolinos",
+            "fr": "Bateau des tourbillons",
+            "ja": "渦潮観潮船"
+          },
+          "cost": 220,
+          "inc": 46
+        },
+        {
+          "n": {
+            "en": "Indigo Dyehouse",
+            "es": "Tintorería de índigo",
+            "fr": "Teinturerie d'indigo",
+            "ja": "藍染工房"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "miyazaki": {
+      "n": {
+        "en": "Miyazaki",
+        "es": "Miyazaki",
+        "fr": "Miyazaki",
+        "ja": "宮崎"
+      },
+      "lo": 131.42,
+      "la": 31.91,
+      "mark": "torii_wood",
+      "bg": "subtropic",
+      "reg": "kyu",
+      "lp": "r",
+      "tag": {
+        "en": "Sunlit coast of the old myths",
+        "es": "Costa soleada de los viejos mitos",
+        "fr": "Côte ensoleillée des vieux mythes",
+        "ja": "日向神話の陽ざしの海岸"
+      },
+      "fact": {
+        "en": "Hyūga means \"facing the sun\". The Kojiki places the descent of the imperial ancestor on these shores, and the palm-lined coast made it Japan's honeymoon capital in the 1960s.",
+        "es": "Hyūga significa «de cara al sol». El Kojiki sitúa aquí el descenso del ancestro imperial; su costa de palmeras fue capital de las lunas de miel en los 60.",
+        "fr": "Hyūga signifie « face au soleil ». Le Kojiki y place la descente de l'ancêtre impérial ; sa côte de palmiers fut la capitale des lunes de miel des années 60.",
+        "ja": "日向は「日に向かう」の意。古事記は天孫降臨をこの地とする。フェニックス並木の海岸は1960年代の新婚旅行の聖地だった。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Mango Greenhouse",
+            "es": "Invernadero de mangos",
+            "fr": "Serre à mangues",
+            "ja": "マンゴー農園"
+          },
+          "cost": 250,
+          "inc": 52
+        },
+        {
+          "n": {
+            "en": "Shrine in the Cave",
+            "es": "Santuario en la cueva",
+            "fr": "Sanctuaire de la grotte",
+            "ja": "鵜戸神宮"
+          },
+          "cost": 210,
+          "inc": 44
+        }
+      ]
+    },
+    "saga": {
+      "n": {
+        "en": "Saga",
+        "es": "Saga",
+        "fr": "Saga",
+        "ja": "佐賀"
+      },
+      "lo": 130.3,
+      "la": 33.25,
+      "mark": "church",
+      "bg": "ricefield",
+      "reg": "kyu",
+      "lp": "l",
+      "tag": {
+        "en": "Where Japanese porcelain began",
+        "es": "Donde nació la porcelana japonesa",
+        "fr": "Là où naquit la porcelaine japonaise",
+        "ja": "磁器発祥の地"
+      },
+      "fact": {
+        "en": "Korean potters brought here after the 1590s invasions found kaolin at Arita and fired Japan's first porcelain, which Dutch traders soon carried to Europe.",
+        "es": "Alfareros coreanos traídos tras las invasiones de 1590 hallaron caolín en Arita y cocieron la primera porcelana japonesa, que los holandeses llevaron a Europa.",
+        "fr": "Des potiers coréens amenés après les invasions de 1590 trouvèrent du kaolin à Arita et cuisirent la première porcelaine japonaise, exportée par les Hollandais.",
+        "ja": "1590年代の朝鮮出兵で連れられた陶工が有田で磁石を見つけ、日本初の磁器を焼いた。オランダ商人が欧州へ運んだ。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Arita Kiln",
+            "es": "Horno de Arita",
+            "fr": "Four d'Arita",
+            "ja": "有田の窯"
+          },
+          "cost": 280,
+          "inc": 58
+        },
+        {
+          "n": {
+            "en": "Balloon Field",
+            "es": "Campo de globos",
+            "fr": "Champ de montgolfières",
+            "ja": "バルーン会場"
+          },
+          "cost": 190,
+          "inc": 40
+        }
+      ]
     }
   },
   "edges": [
@@ -2635,6 +3667,94 @@
     [
       "kagoshima",
       "naha"
+    ],
+    [
+      "sapporo",
+      "asahikawa"
+    ],
+    [
+      "asahikawa",
+      "kushiro"
+    ],
+    [
+      "sendai",
+      "yamagata"
+    ],
+    [
+      "yamagata",
+      "niigata"
+    ],
+    [
+      "kanazawa",
+      "toyama"
+    ],
+    [
+      "toyama",
+      "takayama"
+    ],
+    [
+      "takayama",
+      "matsumoto"
+    ],
+    [
+      "nagoya",
+      "shizuoka"
+    ],
+    [
+      "shizuoka",
+      "hakone"
+    ],
+    [
+      "tokyo",
+      "chiba"
+    ],
+    [
+      "himeji",
+      "okayama"
+    ],
+    [
+      "okayama",
+      "hiroshima"
+    ],
+    [
+      "okayama",
+      "takamatsu"
+    ],
+    [
+      "takamatsu",
+      "tokushima"
+    ],
+    [
+      "tokushima",
+      "kochi"
+    ],
+    [
+      "matsue",
+      "hiroshima"
+    ],
+    [
+      "matsue",
+      "tottori"
+    ],
+    [
+      "tottori",
+      "himeji"
+    ],
+    [
+      "fukuoka",
+      "saga"
+    ],
+    [
+      "saga",
+      "nagasaki"
+    ],
+    [
+      "kagoshima",
+      "miyazaki"
+    ],
+    [
+      "miyazaki",
+      "beppu"
     ]
   ],
   "outro": {

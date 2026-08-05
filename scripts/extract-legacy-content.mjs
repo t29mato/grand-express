@@ -28,6 +28,7 @@ import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
+import { applyContentOverrides } from "./content-overrides/index.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const legacyPath = join(__dirname, "..", "legacy", "grand-express.html");
@@ -213,6 +214,8 @@ for (const country of [BOLIVIA, JAPAN]) {
   const content = transform(country);
   content.bg = evaluateBackgrounds(country);
   content.decor = evaluateDecor(country);
+  // 移行後にこのリポジトリで追加・改善したコンテンツを反映する。
+  applyContentOverrides(country.id, content);
   writeFileSync(
     join(contentDir, `${country.id}.content.json`),
     JSON.stringify(content, null, 2) + "\n",
@@ -253,13 +256,21 @@ function renderCountryThumb(country) {
 
 // セットアップ画面の国選択カード用の軽量インデックス(id/name/blurb + 地図サムネイル)。
 // フルコンテンツ(各約215KB)を読み込まずに一覧表示できるようにする(Phase8のバンドルサイズ対策)。
-const countryIndex = [BOLIVIA, JAPAN].map((country) => ({
-  id: country.id,
-  name: toLocaleObject(country.name),
-  blurb: toLocaleObject(country.blurb),
-  thumbViewBox: `0 0 ${country.proj.BW} ${country.proj.BH}`,
-  thumbSvg: renderCountryThumb(country),
-}));
+const countryIndex = [BOLIVIA, JAPAN].map((country) => {
+  // サムネイルもオーバーライド後の海岸線・都市で描く。
+  const overridden = applyContentOverrides(country.id, {
+    land: country.land,
+    cities: { ...country.cities },
+    edges: [...country.edges],
+  });
+  return {
+    id: country.id,
+    name: toLocaleObject(country.name),
+    blurb: toLocaleObject(country.blurb),
+    thumbViewBox: `0 0 ${country.proj.BW} ${country.proj.BH}`,
+    thumbSvg: renderCountryThumb({ ...country, land: overridden.land, cities: overridden.cities }),
+  };
+});
 writeFileSync(join(contentDir, "country-index.json"), JSON.stringify(countryIndex, null, 2) + "\n");
 
 console.log("Extracted:");

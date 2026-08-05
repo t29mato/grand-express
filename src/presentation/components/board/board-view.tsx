@@ -19,10 +19,32 @@ const FOLLOW_WIDTH = 520;
 
 /** 路線の3層描画(現行コードの `drawBoard` のレール描画と同じ色・線幅)。 */
 const RAIL_LAYERS: readonly { stroke: string; width: number; dash?: string; opacity?: number }[] = [
-  { stroke: "#20180f", width: 11, opacity: 0.55 },
-  { stroke: "#e6dcc6", width: 6 },
-  { stroke: "#3b3123", width: 6, dash: "1.5 10" },
+  { stroke: "#20180f", width: 9, opacity: 0.55 },
+  { stroke: "#e6dcc6", width: 5, dash: undefined },
+  { stroke: "#3b3123", width: 5, dash: "1.5 9" },
 ];
+
+/**
+ * 盤面上のマーカー寸法。legacyより都市数を増やしたぶん(日本は30→44都市)、
+ * マス同士が重ならないよう一回り小さくしている。
+ */
+/**
+ * この幅より広く映しているとき(=引きの表示)は都市名を隠す。
+ * 都市を増やしたため、全体表示ではラベルが重なって読めなくなるため
+ * (目的地だけは探せるよう常に表示する)。
+ */
+const LABEL_VISIBLE_WIDTH = 760;
+
+const SIZES = {
+  cityRadius: 9,
+  cityInnerRadius: 3.4,
+  cityShadowRx: 15,
+  cityShadowRy: 5.5,
+  cityGlyphScale: 1.0,
+  destRingRadius: 21,
+  squareHalf: 9,
+  haloRadius: 17,
+} as const;
 
 /** 中間マスの色と記号(現行コードの `SQUARE` / `TIER`)。 */
 const SQUARE_STYLES: Record<string, { color: string; glyph: string }> = {
@@ -43,7 +65,7 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
   const positions = useBoardLayout(context);
   const { tx, t } = useLocale();
   const { boardWidth, boardHeight } = context.content.projection;
-  const { viewBox, animateTo, panByPixels, zoomBy, stopAnimation } = useCamera({ boardWidth, boardHeight });
+  const { camera, viewBox, animateTo, panByPixels, zoomBy, stopAnimation } = useCamera({ boardWidth, boardHeight });
   const [overview, setOverview] = useState(false);
   const svgRef = useRef<SVGSVGElement>(null);
   // ドラッグ中の直前のポインタ位置。null ならドラッグしていない。
@@ -193,13 +215,14 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
                 onClick={isChoosable ? () => onChooseNode?.(id) : undefined}
                 style={{ cursor: isChoosable ? "pointer" : "inherit" }}
               >
-                {isChoosable && <circle r={20} className="halo" fill="#f5b31c" opacity={0.6} />}
+                {isChoosable && <circle r={SIZES.haloRadius} className="halo" fill="#f5b31c" opacity={0.6} />}
                 {isCityNode(node) ? (
                   <CityMarker
                     city={context.getCity(node.cityId)}
                     glyphSvg={context.content.artGlyphs[context.getCity(node.cityId).artGlyphKey] ?? ""}
                     label={tx(context.getCity(node.cityId).name)}
                     isDestination={isDestination}
+                    showLabel={isDestination || camera.w <= LABEL_VISIBLE_WIDTH}
                   />
                 ) : (
                   <SquareMarker type={node.type} tier={node.type === "quiz" ? node.tier : undefined} />
@@ -254,21 +277,23 @@ function CityMarker({
   glyphSvg,
   label,
   isDestination,
+  showLabel,
 }: {
   city: City;
   glyphSvg: string;
   label: string;
   isDestination: boolean;
+  showLabel: boolean;
 }) {
-  const scale = 1.25;
+  const scale = SIZES.cityGlyphScale;
   const glyphWidth = 24 * scale;
-  const labelX = city.labelPosition === "left" ? -17 : city.labelPosition === "right" ? 17 : 0;
-  const labelY = city.labelPosition === "bottom" ? 27 : 5;
+  const labelX = city.labelPosition === "left" ? -14 : city.labelPosition === "right" ? 14 : 0;
+  const labelY = city.labelPosition === "bottom" ? 23 : 4;
   const anchor = city.labelPosition === "left" ? "end" : city.labelPosition === "right" ? "start" : "middle";
 
   return (
     <>
-      <ellipse cx={0} cy={2} rx={19} ry={7} fill="#0e1626" opacity={0.35} />
+      <ellipse cx={0} cy={2} rx={SIZES.cityShadowRx} ry={SIZES.cityShadowRy} fill="#0e1626" opacity={0.35} />
       <g
         transform={`translate(${-glyphWidth / 2},${-6 - 24 * scale}) scale(${scale})`}
         stroke="#241a10"
@@ -276,14 +301,16 @@ function CityMarker({
         strokeLinejoin="round"
         dangerouslySetInnerHTML={{ __html: glyphSvg }}
       />
-      <circle r={11} fill="#f6efe2" stroke="#241a10" strokeWidth={3} />
-      <circle r={4} fill="#241a3f" />
+      <circle r={SIZES.cityRadius} fill="#f6efe2" stroke="#241a10" strokeWidth={2.5} />
+      <circle r={SIZES.cityInnerRadius} fill="#241a3f" />
       {isDestination && (
-        <circle r={26} fill="none" stroke="#f5b31c" strokeWidth={4} strokeDasharray="8 9" className="dest-ring" />
+        <circle r={SIZES.destRingRadius} fill="none" stroke="#f5b31c" strokeWidth={3.5} strokeDasharray="8 9" className="dest-ring" />
       )}
-      <text className="city-label" x={labelX} y={labelY} textAnchor={anchor}>
-        {label}
-      </text>
+      {showLabel && (
+        <text className={`city-label${isDestination ? " dest" : ""}`} x={labelX} y={labelY} textAnchor={anchor}>
+          {label}
+        </text>
+      )}
     </>
   );
 }
@@ -295,11 +322,20 @@ function SquareMarker({ type, tier }: { type: string; tier?: string }) {
   const glyph = type === "quiz" ? "?" : (style?.glyph ?? "");
   return (
     <>
-      <rect x={-11} y={-11} width={22} height={22} rx={6.5} fill={color} stroke="#20180f" strokeWidth={3} />
+      <rect
+        x={-SIZES.squareHalf}
+        y={-SIZES.squareHalf}
+        width={SIZES.squareHalf * 2}
+        height={SIZES.squareHalf * 2}
+        rx={5.5}
+        fill={color}
+        stroke="#20180f"
+        strokeWidth={2.5}
+      />
       <text
-        y={5.5}
+        y={4.5}
         textAnchor="middle"
-        fontSize={type === "quiz" ? 14 : 13}
+        fontSize={type === "quiz" ? 12 : 11}
         fontWeight={800}
         fill="#20180f"
         style={{ pointerEvents: "none" }}
