@@ -48,7 +48,7 @@ export function NextLegModal({
     : null;
 
   return (
-    <Modal>
+    <Modal testId="next-leg-modal">
       <div className="eyebrow">{t("nextLeg")}</div>
       <h3>{t("onTo", destinationName)}</h3>
       <p>

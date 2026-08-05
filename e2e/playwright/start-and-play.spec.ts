@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { waitForDiceToSettle } from "./helpers";
 
 test("セットアップからゲーム開始、サイコロを振って移動できる", async ({ page }) => {
   await page.goto("/");
@@ -14,9 +15,9 @@ test("セットアップからゲーム開始、サイコロを振って移動�
 
   await page.locator("#die").click();
 
-  // ロール後、移動可能なマスがハイライトされる(SVG上のクリック可能な円)か、
-  // 何らかの着地処理(モーダル)が表示されるまで待つ。
-  await page.waitForTimeout(600);
+  // サイコロ演出が終わるまで待つと、移動可能なマスのハイライトか
+  // 何らかの着地処理(モーダル)が出そろっている。
+  await waitForDiceToSettle(page);
   const svg = page.locator("svg.board-svg");
   await expect(svg).toBeVisible();
 });

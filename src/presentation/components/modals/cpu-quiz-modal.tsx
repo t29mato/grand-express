@@ -32,7 +32,7 @@ export function CpuQuizModal({
   const chosen = question.options[chosenOptionIndex];
 
   return (
-    <Modal>
+    <Modal testId="cpu-quiz-modal">
       <div className="eyebrow">
         {t(TIER_LABEL[tier])} · {playerName} (CPU)
       </div>

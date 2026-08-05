@@ -2,10 +2,14 @@
 
 import { ReactNode } from "react";
 
-export function Modal({ children }: { children: ReactNode }) {
+export function Modal({ children, testId }: { children: ReactNode; testId?: string }) {
   return (
     <div className="overlay show">
-      <div className="modal-box">{children}</div>
+      {/* testId はE2Eからモーダルの種類を確実に見分けるためのもの
+          (文言での判別は曖昧一致で取り違えるため)。 */}
+      <div className="modal-box" data-testid={testId}>
+        {children}
+      </div>
     </div>
   );
 }

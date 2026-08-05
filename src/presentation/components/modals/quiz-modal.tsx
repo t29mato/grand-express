@@ -19,7 +19,7 @@ export function QuizModal({
   const reward = QUIZ_TIER_REWARDS[tier];
 
   return (
-    <Modal>
+    <Modal testId="quiz-modal">
       <div className="eyebrow">{t("quizTier", tier, reward.winAmount, reward.loseAmount)}</div>
       <h3>{tx(question.question)}</h3>
       <div className="btnrow" style={{ flexDirection: "column" }}>

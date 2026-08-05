@@ -17,7 +17,7 @@ export function GameOverModal({
 }) {
   const { t } = useLocale();
   return (
-    <Modal>
+    <Modal testId="game-over-modal">
       <div className="eyebrow">{t("endOfLine", outcome.session.maxMonths)}</div>
       <h3>{t("wins", outcome.winner.player.name)}</h3>
       <p>{t("finalWorth")}</p>

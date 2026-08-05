@@ -45,7 +45,7 @@ export function CpuCityModal({
     city.properties.every((_, i) => owner.portfolio.has(PropertyRef.of(cityId, PropertyIndex(i))));
 
   return (
-    <Modal>
+    <Modal testId="cpu-city-modal">
       <CityArt context={context} cityId={cityId} />
       {arrivalPrize !== null && (
         <p className="fact">

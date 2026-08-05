@@ -392,16 +392,16 @@ main {
 
 .city-label.dest {
   fill: var(--gold);
-  font-size: 13px;
 }
 
+/* font-size と stroke-width は盤面の縮尺に応じて board-view.tsx から指定する
+   (画面上で一定サイズに見せるため)。 */
 .city-label {
-  font-size: 11.5px;
   fill: var(--salt);
   font-weight: 700;
   paint-order: stroke;
   stroke: #0e1626;
-  stroke-width: 3px;
+  pointer-events: none;
 }
 
 .halo {

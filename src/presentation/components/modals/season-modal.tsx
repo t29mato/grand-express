@@ -15,7 +15,7 @@ export function SeasonModal({ season, onContinue }: { season: SeasonDefinition; 
   const { t, tx, monthName } = useLocale();
 
   return (
-    <Modal>
+    <Modal testId="season-modal">
       <div className="eyebrow">
         {t("monthEvent")} · {monthName(season.monthIndex)}
       </div>

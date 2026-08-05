@@ -3,12 +3,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { NodeId } from "../../../domain/shared-kernel/ids";
 import { isCityNode } from "../../../domain/board/node";
-import { City } from "../../../domain/board/city";
 import { GameSession, currentPlayer } from "../../../domain/game-session/game-session";
 import { GameEngineContext } from "../../../application/game-engine-context";
 import { useBoardLayout } from "../../hooks/use-board-layout";
 import { useCamera } from "../../hooks/use-camera";
 import { useLocale } from "../../i18n/locale-context";
+import { CityLabelPlacement, useCityLabels } from "../../hooks/use-city-labels";
+import { SIZES } from "./board-metrics";
 import { TerrainLayer } from "./terrain-layer";
 import { BoardLegend } from "./board-legend";
 
@@ -28,26 +29,15 @@ const RAIL_LAYERS: readonly { stroke: string; width: number; dash?: string; opac
 ];
 
 /**
- * 盤面上のマーカー寸法。legacyより都市数を増やしたぶん(日本は30→44都市)、
- * マス同士が重ならないよう一回り小さくしている。
+ * 都市名ラベルの画面上の文字サイズ(CSSピクセル)。
+ * SVGの font-size は盤面座標の単位なので、そのまま指定するとズームしても
+ * ラベルの相対サイズが変わらず、いつまでも重なったままになる。
+ * 画面上で一定サイズになるよう毎回換算し、ズームインするほど地図に対して
+ * 小さく=すいて見えるようにする。
  */
-/**
- * 盤面幅に対してこの比より広く映しているとき(=引きの表示)は都市名を隠す。
- * 都市を増やしたため、全体表示ではラベルが重なって読めなくなるため
- * (目的地だけは探せるよう常に表示する)。
- */
-const LABEL_VISIBLE_RATIO = 0.66;
+const LABEL_FONT_PX = 13;
+const DEST_LABEL_FONT_PX = 15;
 
-const SIZES = {
-  cityRadius: 9,
-  cityInnerRadius: 3.4,
-  cityShadowRx: 15,
-  cityShadowRy: 5.5,
-  cityGlyphScale: 1.0,
-  destRingRadius: 21,
-  squareHalf: 9,
-  haloRadius: 17,
-} as const;
 
 /** 中間マスの色と記号(現行コードの `SQUARE` / `TIER`)。 */
 const SQUARE_STYLES: Record<string, { color: string; glyph: string }> = {
@@ -66,11 +56,12 @@ export interface BoardViewProps {
 
 export function BoardView({ context, session, reachable, onChooseNode }: BoardViewProps) {
   const positions = useBoardLayout(context);
-  const { tx, t } = useLocale();
+  const { tx, t, locale } = useLocale();
   const { boardWidth, boardHeight } = context.content.projection;
   const { camera, viewBox, animateTo, panByPixels, zoomBy, stopAnimation } = useCamera({ boardWidth, boardHeight });
   const [overview, setOverview] = useState(false);
   const svgRef = useRef<SVGSVGElement>(null);
+  const [viewportWidthPx, setViewportWidthPx] = useState(0);
   // ドラッグ中の直前のポインタ位置。null ならドラッグしていない。
   const dragRef = useRef<{ x: number; y: number; pointerId: number; moved: boolean } | null>(null);
   const [dragging, setDragging] = useState(false);
@@ -87,6 +78,29 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
     if (pos) animateTo(pos.x, pos.y, boardWidth * FOLLOW_WIDTH_RATIO);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeLocation, overview, boardWidth, boardHeight, positions]);
+
+  // 盤面SVGの実表示幅を追跡する(盤面座標→画面pxの換算に使う)。
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const update = () => setViewportWidthPx(svg.getBoundingClientRect().width);
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(svg);
+    return () => observer.disconnect();
+  }, []);
+
+  // 盤面座標1単位あたりの画面px。これでラベルを画面上で一定サイズに保つ。
+  const unitsPerPx = viewportWidthPx > 0 ? camera.w / viewportWidthPx : 0;
+  // ズーム中に毎フレーム再配置しないよう、文字サイズは0.5単位に丸めてから使う。
+  const labelFontUnits = Math.round(LABEL_FONT_PX * unitsPerPx * 2) / 2;
+  const labelPlacements = useCityLabels({
+    context,
+    positions,
+    fontUnits: labelFontUnits,
+    locale,
+    destination: session.destination,
+  });
 
   // 盤面のドラッグによる手動パン(現行コードの `pointerdown`/`pointermove` 実装の移植)。
   // 移動可能なマスの上から始まったドラッグは、マスのクリックを妨げないよう無視する。
@@ -221,11 +235,11 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
                 {isChoosable && <circle r={SIZES.haloRadius} className="halo" fill="#f5b31c" opacity={0.6} />}
                 {isCityNode(node) ? (
                   <CityMarker
-                    city={context.getCity(node.cityId)}
                     glyphSvg={context.content.artGlyphs[context.getCity(node.cityId).artGlyphKey] ?? ""}
                     label={tx(context.getCity(node.cityId).name)}
                     isDestination={isDestination}
-                    showLabel={isDestination || camera.w <= boardWidth * LABEL_VISIBLE_RATIO}
+                    placement={labelPlacements.get(node.cityId) ?? null}
+                    fontUnits={(isDestination ? DEST_LABEL_FONT_PX / LABEL_FONT_PX : 1) * labelFontUnits}
                   />
                 ) : (
                   <SquareMarker type={node.type} tier={node.type === "quiz" ? node.tier : undefined} />
@@ -276,23 +290,21 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
  * という重ね順・座標・色はlegacyと同じ。
  */
 function CityMarker({
-  city,
   glyphSvg,
   label,
   isDestination,
-  showLabel,
+  placement,
+  fontUnits,
 }: {
-  city: City;
   glyphSvg: string;
   label: string;
   isDestination: boolean;
-  showLabel: boolean;
+  /** 重なりを避けて決めたラベル位置。null なら今の縮尺では表示しない。 */
+  placement: CityLabelPlacement | null;
+  fontUnits: number;
 }) {
   const scale = SIZES.cityGlyphScale;
   const glyphWidth = 24 * scale;
-  const labelX = city.labelPosition === "left" ? -14 : city.labelPosition === "right" ? 14 : 0;
-  const labelY = city.labelPosition === "bottom" ? 23 : 4;
-  const anchor = city.labelPosition === "left" ? "end" : city.labelPosition === "right" ? "start" : "middle";
 
   return (
     <>
@@ -309,8 +321,15 @@ function CityMarker({
       {isDestination && (
         <circle r={SIZES.destRingRadius} fill="none" stroke="#f5b31c" strokeWidth={3.5} strokeDasharray="8 9" className="dest-ring" />
       )}
-      {showLabel && (
-        <text className={`city-label${isDestination ? " dest" : ""}`} x={labelX} y={labelY} textAnchor={anchor}>
+      {placement && (
+        <text
+          className={`city-label${isDestination ? " dest" : ""}`}
+          x={placement.dx}
+          y={placement.dy}
+          textAnchor={placement.anchor}
+          fontSize={fontUnits}
+          strokeWidth={fontUnits * 0.26}
+        >
           {label}
         </text>
       )}

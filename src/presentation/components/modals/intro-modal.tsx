@@ -32,7 +32,7 @@ export function IntroModal({
   const prize = destinationPrize(session).amount;
 
   return (
-    <Modal>
+    <Modal testId="intro-modal">
       {isCityNode(startNode) && <CityArt context={context} cityId={startNode.cityId} />}
       <div className="eyebrow">{t("allAboard")}</div>
       <h3>{t("departure", startCityName)}</h3>

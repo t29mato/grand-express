@@ -7,7 +7,7 @@ import { Modal } from "./modal";
 export function SavedModal({ onClose }: { onClose: () => void }) {
   const { t } = useLocale();
   return (
-    <Modal>
+    <Modal testId="saved-modal">
       <div className="eyebrow">💾 {t("save")}</div>
       <h3>{t("saved")}</h3>
       <p style={{ color: "var(--salt-dim)", marginTop: 8 }}>{t("saveDone")}</p>

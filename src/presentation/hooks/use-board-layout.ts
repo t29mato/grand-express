@@ -10,8 +10,13 @@ export interface NodePosition {
 
 /**
  * 盤面ノードのSVG座標を計算する(Presentation層の責務。ADR-0003)。
- * 都市は経度緯度から投影し、路線上の中間マスは両端の都市を線形補間して配置する
- * (見た目の湾曲(jitter)は現行コードにはあるが、ここでは簡略化して直線配置とする)。
+ * 都市は経度緯度から投影し、路線上の中間マスは両端の都市を線形補間して配置したうえで、
+ * 現行コードと同じ規則で路線に垂直な向きへずらす(jitter)。
+ *
+ * このずれは見た目の変化だけでなく、**同じ都市から似た方向へ延びる路線の中間マスが
+ * 重なるのを防ぐ**役割がある(路線番号 `ei` に依存してずれ幅が変わるため、
+ * 平行に近い路線同士が離れる)。当初は簡略化して直線配置にしていたが、
+ * 都市を増やしたことでマスの重なりが目立つようになったため復元した。
  */
 export function useBoardLayout(context: GameEngineContext): ReadonlyMap<NodeId, NodePosition> {
   return useMemo(() => {
@@ -47,10 +52,21 @@ export function useBoardLayout(context: GameEngineContext): ReadonlyMap<NodeId, 
         positions.set(id, { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
         continue;
       }
+      const edgeIndex = Number(match[1]);
       const k = Number(match[2]);
       const n = siblingCounts.get(`e${match[1]}_`) ?? 1;
       const t = k / (n + 1);
-      positions.set(id, { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t });
+      const dx = b.x - a.x;
+      const dy = b.y - a.y;
+      const length = Math.hypot(dx, dy) || 1;
+      // 現行コードの `((ei*7+k*13)%5-2)*5`。ずれ幅の単位は盤面の縮尺に追従させるため、
+      // 固定値ではなく中間マスの目安距離(seg)から導く(legacyのseg=48で約4.8)。
+      const jitterUnit = (projection.segmentLength ?? 64) / 10;
+      const jitter = (((edgeIndex * 7 + k * 13) % 5) - 2) * jitterUnit;
+      positions.set(id, {
+        x: a.x + dx * t + (-dy / length) * jitter,
+        y: a.y + dy * t + (dx / length) * jitter,
+      });
     }
     return positions;
   }, [context]);

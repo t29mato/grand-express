@@ -39,7 +39,7 @@ export function CityModal({
   const currency = context.content.currency;
 
   return (
-    <Modal>
+    <Modal testId="city-modal">
       <CityArt context={context} cityId={cityId} />
       <div className="eyebrow">{t("townStop")}</div>
       <h3>{tx(city.name)}</h3>
