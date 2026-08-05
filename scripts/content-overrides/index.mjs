@@ -7,16 +7,31 @@
  */
 import { BOLIVIA_LAND } from "./bolivia-geography.mjs";
 import { JAPAN_LAND } from "./japan-geography.mjs";
-import { JAPAN_EXTRA_CITIES, JAPAN_EXTRA_EDGES } from "./japan-cities.mjs";
+import {
+  JAPAN_EXTRA_CITIES,
+  JAPAN_EXTRA_EDGES,
+  JAPAN_PREFECTURE_CITIES,
+  JAPAN_PREFECTURE_EDGES,
+} from "./japan-cities.mjs";
+
+/**
+ * 盤面の拡大率。都市を増やしたぶんマスが詰まって見えるため、盤面の座標系そのものを
+ * 広げて余裕を持たせる。`seg`(中間マス1個あたりの目安距離)も同じ率で広げるので、
+ * **中間マスの数は変えずに、マス同士の間隔だけが広がる**。
+ * マーカーの寸法は盤面座標で固定なので、相対的に小さく=すっきり見える。
+ */
+const BOARD_SCALE = { bolivia: 1.35, japan: 1.75 };
 
 const OVERRIDES = {
   bolivia: {
     land: BOLIVIA_LAND,
+    boardScale: BOARD_SCALE.bolivia,
   },
   japan: {
     land: JAPAN_LAND,
-    extraCities: JAPAN_EXTRA_CITIES,
-    extraEdges: JAPAN_EXTRA_EDGES,
+    boardScale: BOARD_SCALE.japan,
+    extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES },
+    extraEdges: [...JAPAN_EXTRA_EDGES, ...JAPAN_PREFECTURE_EDGES],
   },
 };
 
@@ -30,6 +45,18 @@ export function applyContentOverrides(countryId, content) {
   if (!override) return content;
 
   if (override.land) content.land = override.land;
+
+  // サムネイル生成時は proj を持たない部分オブジェクトで呼ばれるため、その場合は何もしない
+  // (サムネイルは自前のviewBoxで描くので盤面の拡大とは無関係)。
+  if (override.boardScale && content.proj) {
+    const scale = override.boardScale;
+    content.proj = {
+      ...content.proj,
+      BW: Math.round(content.proj.BW * scale),
+      BH: Math.round(content.proj.BH * scale),
+      seg: Math.round((content.proj.seg ?? 64) * scale),
+    };
+  }
 
   if (override.extraCities) {
     for (const [id, city] of Object.entries(override.extraCities)) {

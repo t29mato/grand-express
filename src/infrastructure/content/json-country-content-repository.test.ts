@@ -16,9 +16,9 @@ describe("JsonCountryContentRepository", () => {
     expect(pack.spirit.wardItemKey).toBe("coca");
   });
 
-  it("日本パックを読み込める(legacyの30都市 + 追加14都市)", async () => {
+  it("日本パックを読み込める(legacyの30都市 + 追加22都市 = 全47都道府県)", async () => {
     const pack = await repo.load(CountryId("japan"));
-    expect(pack.cities.length).toBe(44);
+    expect(pack.cities.length).toBe(52);
     expect(pack.items.length).toBe(9);
     expect(pack.seasons.length).toBe(12);
     expect(pack.doomFlavors.length).toBe(7);

@@ -14,8 +14,11 @@ import { BoardLegend } from "./board-legend";
 
 const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
 
-/** 追尾時の視野幅(現行コードの `FOLLOW_W`)。 */
-const FOLLOW_WIDTH = 520;
+/**
+ * 追尾時の視野幅(現行コードの `FOLLOW_W` = 520 / BW 1150 ≒ 0.45)。
+ * 盤面の座標系は国ごと・改訂ごとに変わるため、固定値ではなく盤面幅に対する比で持つ。
+ */
+const FOLLOW_WIDTH_RATIO = 0.45;
 
 /** 路線の3層描画(現行コードの `drawBoard` のレール描画と同じ色・線幅)。 */
 const RAIL_LAYERS: readonly { stroke: string; width: number; dash?: string; opacity?: number }[] = [
@@ -29,11 +32,11 @@ const RAIL_LAYERS: readonly { stroke: string; width: number; dash?: string; opac
  * マス同士が重ならないよう一回り小さくしている。
  */
 /**
- * この幅より広く映しているとき(=引きの表示)は都市名を隠す。
+ * 盤面幅に対してこの比より広く映しているとき(=引きの表示)は都市名を隠す。
  * 都市を増やしたため、全体表示ではラベルが重なって読めなくなるため
  * (目的地だけは探せるよう常に表示する)。
  */
-const LABEL_VISIBLE_WIDTH = 760;
+const LABEL_VISIBLE_RATIO = 0.66;
 
 const SIZES = {
   cityRadius: 9,
@@ -81,7 +84,7 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
       return;
     }
     const pos = positions.get(activeLocation);
-    if (pos) animateTo(pos.x, pos.y, FOLLOW_WIDTH);
+    if (pos) animateTo(pos.x, pos.y, boardWidth * FOLLOW_WIDTH_RATIO);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeLocation, overview, boardWidth, boardHeight, positions]);
 
@@ -222,7 +225,7 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
                     glyphSvg={context.content.artGlyphs[context.getCity(node.cityId).artGlyphKey] ?? ""}
                     label={tx(context.getCity(node.cityId).name)}
                     isDestination={isDestination}
-                    showLabel={isDestination || camera.w <= LABEL_VISIBLE_WIDTH}
+                    showLabel={isDestination || camera.w <= boardWidth * LABEL_VISIBLE_RATIO}
                   />
                 ) : (
                   <SquareMarker type={node.type} tier={node.type === "quiz" ? node.tier : undefined} />

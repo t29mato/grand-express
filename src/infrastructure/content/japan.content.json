@@ -41,13 +41,13 @@
     "ツバメ Tsubame"
   ],
   "proj": {
-    "BW": 1150,
-    "BH": 1400,
+    "BW": 2013,
+    "BH": 2450,
     "LON0": 127,
     "LON1": 146.5,
     "LAT0": 45.8,
     "LAT1": 25.6,
-    "seg": 48
+    "seg": 84
   },
   "sea": "#16263f",
   "seaWave": "#1e3555",
@@ -3513,6 +3513,390 @@
           "inc": 40
         }
       ]
+    },
+    "mito": {
+      "n": {
+        "en": "Mito",
+        "es": "Mito",
+        "fr": "Mito",
+        "ja": "水戸"
+      },
+      "lo": 140.47,
+      "la": 36.37,
+      "mark": "garden",
+      "bg": "citygreen",
+      "reg": "kan",
+      "lp": "r",
+      "tag": {
+        "en": "Plum garden of the Tokugawa branch",
+        "es": "Jardín de ciruelos de los Tokugawa",
+        "fr": "Jardin de pruniers des Tokugawa",
+        "ja": "徳川御三家の梅の庭"
+      },
+      "fact": {
+        "en": "Seat of a Tokugawa branch house whose scholars shaped the thinking that ended the shogunate. Kairakuen, one of Japan's three great gardens, opens its 3,000 plum trees to everyone — unusual for its time.",
+        "es": "Sede de una rama Tokugawa cuyos eruditos moldearon las ideas que acabaron con el shogunato. Kairakuen, uno de los tres grandes jardines, abrió sus 3.000 ciruelos a todos, algo insólito entonces.",
+        "fr": "Siège d'une branche Tokugawa dont les lettrés forgèrent la pensée qui mit fin au shogunat. Kairakuen, l'un des trois grands jardins, ouvrit ses 3 000 pruniers à tous — chose rare alors.",
+        "ja": "徳川御三家のひとつ水戸藩の城下町。水戸学は幕末の思想に大きな影響を与えた。日本三名園の偕楽園は3千本の梅を庶民にも開放した点が当時としては異例。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Plum Garden",
+            "es": "Jardín de ciruelos",
+            "fr": "Jardin de pruniers",
+            "ja": "偕楽園"
+          },
+          "cost": 280,
+          "inc": 58
+        },
+        {
+          "n": {
+            "en": "Nattō Workshop",
+            "es": "Taller de nattō",
+            "fr": "Atelier de nattō",
+            "ja": "納豆工房"
+          },
+          "cost": 190,
+          "inc": 40
+        }
+      ]
+    },
+    "kusatsu": {
+      "n": {
+        "en": "Kusatsu",
+        "es": "Kusatsu",
+        "fr": "Kusatsu",
+        "ja": "草津"
+      },
+      "lo": 138.6,
+      "la": 36.62,
+      "mark": "onsen",
+      "bg": "valley2",
+      "reg": "kan",
+      "lp": "l",
+      "tag": {
+        "en": "Japan's most abundant hot spring",
+        "es": "El manantial más caudaloso de Japón",
+        "fr": "La source la plus abondante du Japon",
+        "ja": "自然湧出量日本一の湯"
+      },
+      "fact": {
+        "en": "More than 30,000 litres of hot water rise here every minute — the largest natural flow in Japan. The water is so hot it is cooled by hand, with long paddles, in a chanting ritual called yumomi.",
+        "es": "Aquí brotan más de 30.000 litros por minuto, el mayor caudal natural de Japón. El agua es tan caliente que se enfría a mano con palas largas, en el ritual cantado del yumomi.",
+        "fr": "Plus de 30 000 litres jaillissent ici chaque minute, le plus fort débit naturel du Japon. L'eau, brûlante, est refroidie à la main avec de longues planches : le rituel chanté du yumomi.",
+        "ja": "毎分3万リットル超と自然湧出量日本一。湯が熱すぎるため、長い板で唄いながら冷ます「湯もみ」が今も伝わる。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Yubatake Inn",
+            "es": "Posada del Yubatake",
+            "fr": "Auberge du Yubatake",
+            "ja": "湯畑の宿"
+          },
+          "cost": 300,
+          "inc": 62
+        },
+        {
+          "n": {
+            "en": "Yumomi Hall",
+            "es": "Sala del yumomi",
+            "fr": "Salle du yumomi",
+            "ja": "湯もみの舞台"
+          },
+          "cost": 220,
+          "inc": 46
+        }
+      ]
+    },
+    "kawagoe": {
+      "n": {
+        "en": "Kawagoe",
+        "es": "Kawagoe",
+        "fr": "Kawagoe",
+        "ja": "川越"
+      },
+      "lo": 139.48,
+      "la": 35.92,
+      "mark": "clocktower",
+      "bg": "castletown",
+      "reg": "kan",
+      "lp": "r",
+      "tag": {
+        "en": "Little Edo of the clay warehouses",
+        "es": "La pequeña Edo de los almacenes",
+        "fr": "La petite Edo aux entrepôts d'argile",
+        "ja": "蔵造りの小江戸"
+      },
+      "fact": {
+        "en": "Merchants rebuilt in fireproof clay-walled kura after an 1893 blaze, so the street still looks like Edo. A wooden bell tower has rung the hours here for nearly four centuries.",
+        "es": "Tras el incendio de 1893 los comerciantes reconstruyeron en kura de arcilla ignífuga; la calle sigue pareciendo Edo. Una torre de madera da las horas desde hace casi cuatro siglos.",
+        "fr": "Après l'incendie de 1893, les marchands rebâtirent en kura d'argile ignifuge ; la rue ressemble encore à Edo. Un beffroi de bois sonne les heures depuis près de quatre siècles.",
+        "ja": "1893年の大火のあと、商人たちが耐火の蔵造りで町を再建したため、今も江戸の面影が残る。木造の時の鐘は約400年にわたり時を告げている。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Kura Street Shop",
+            "es": "Tienda de la calle kura",
+            "fr": "Boutique de la rue des kura",
+            "ja": "蔵造りの商店"
+          },
+          "cost": 260,
+          "inc": 54
+        },
+        {
+          "n": {
+            "en": "Sweet Potato Confectioner",
+            "es": "Confitería de boniato",
+            "fr": "Confiserie à la patate douce",
+            "ja": "芋菓子屋"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    },
+    "fukui": {
+      "n": {
+        "en": "Fukui",
+        "es": "Fukui",
+        "fr": "Fukui",
+        "ja": "福井"
+      },
+      "lo": 136.22,
+      "la": 36.06,
+      "mark": "pagoda",
+      "bg": "valley2",
+      "reg": "kan",
+      "lp": "l",
+      "tag": {
+        "en": "Zen training and buried dinosaurs",
+        "es": "Entrenamiento zen y dinosaurios",
+        "fr": "Entraînement zen et dinosaures",
+        "ja": "禅の道場と恐竜の谷"
+      },
+      "fact": {
+        "en": "Eiheiji, founded in 1244, still trains monks under Dōgen's rule of silence and strict routine. The same prefecture yields most of Japan's dinosaur fossils.",
+        "es": "Eiheiji, fundado en 1244, aún forma monjes bajo la regla de silencio de Dōgen. La misma prefectura aporta la mayoría de los fósiles de dinosaurio de Japón.",
+        "fr": "Eiheiji, fondé en 1244, forme encore des moines sous la règle de silence de Dōgen. La même préfecture livre l'essentiel des fossiles de dinosaures du Japon.",
+        "ja": "1244年開創の永平寺では、道元の定めた沈黙と厳しい作法のもとで今も修行が続く。同じ県は日本の恐竜化石の大半を産出する。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Zen Temple Lodging",
+            "es": "Alojamiento del templo zen",
+            "fr": "Hébergement du temple zen",
+            "ja": "永平寺の宿坊"
+          },
+          "cost": 270,
+          "inc": 56
+        },
+        {
+          "n": {
+            "en": "Fossil Quarry",
+            "es": "Cantera de fósiles",
+            "fr": "Carrière à fossiles",
+            "ja": "恐竜化石の発掘場"
+          },
+          "cost": 230,
+          "inc": 48
+        }
+      ]
+    },
+    "kofu": {
+      "n": {
+        "en": "Kōfu",
+        "es": "Kōfu",
+        "fr": "Kōfu",
+        "ja": "甲府"
+      },
+      "lo": 138.57,
+      "la": 35.66,
+      "mark": "castle_stone",
+      "bg": "fujiview",
+      "reg": "kan",
+      "lp": "r",
+      "tag": {
+        "en": "Takeda's basin of vines and gold",
+        "es": "La cuenca de Takeda, viñas y oro",
+        "fr": "Le bassin de Takeda, vignes et or",
+        "ja": "武田の国 ぶどうと金の盆地"
+      },
+      "fact": {
+        "en": "Takeda Shingen ruled here without ever building a castle, saying his people were his walls. The basin's gold mines funded him; today its slopes grow most of Japan's grapes.",
+        "es": "Takeda Shingen gobernó aquí sin construir castillo: decía que su gente era su muralla. Las minas de oro lo financiaban; hoy sus laderas dan la mayoría de las uvas de Japón.",
+        "fr": "Takeda Shingen régna ici sans château, disant que son peuple était son rempart. Les mines d'or le finançaient ; aujourd'hui ses coteaux donnent l'essentiel du raisin japonais.",
+        "ja": "武田信玄は「人は城、人は石垣」と言い、城を築かずにこの地を治めた。甲州金が財政を支え、今その斜面は日本一のぶどう産地となっている。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Vineyard",
+            "es": "Viñedo",
+            "fr": "Vignoble",
+            "ja": "ぶどう畑"
+          },
+          "cost": 260,
+          "inc": 54
+        },
+        {
+          "n": {
+            "en": "Crystal Workshop",
+            "es": "Taller de cristal",
+            "fr": "Atelier de cristal",
+            "ja": "水晶細工の工房"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "hikone": {
+      "n": {
+        "en": "Hikone",
+        "es": "Hikone",
+        "fr": "Hikone",
+        "ja": "彦根"
+      },
+      "lo": 136.26,
+      "la": 35.28,
+      "mark": "castle_white",
+      "bg": "castletown",
+      "reg": "kin",
+      "lp": "r",
+      "tag": {
+        "en": "National treasure on the great lake",
+        "es": "Tesoro nacional junto al gran lago",
+        "fr": "Trésor national au bord du grand lac",
+        "ja": "琵琶湖畔の国宝の城"
+      },
+      "fact": {
+        "en": "One of only five castles designated a national treasure, kept intact because a petition reached the Meiji emperor as demolition began. It watches over Biwa, Japan's largest lake.",
+        "es": "Uno de los cinco castillos declarados tesoro nacional; se salvó porque una petición llegó al emperador Meiji cuando ya empezaba el derribo. Vigila el Biwa, el mayor lago de Japón.",
+        "fr": "L'un des cinq châteaux classés trésor national, sauvé par une pétition parvenue à l'empereur Meiji alors que la démolition commençait. Il veille sur le Biwa, plus grand lac du Japon.",
+        "ja": "国宝5城のひとつ。取り壊しが始まった折に明治天皇へ嘆願が届き、そのまま残された。日本最大の湖・琵琶湖を見下ろす。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "National Treasure Keep",
+            "es": "Torre tesoro nacional",
+            "fr": "Donjon trésor national",
+            "ja": "国宝天守"
+          },
+          "cost": 320,
+          "inc": 66
+        },
+        {
+          "n": {
+            "en": "Lakeside Teahouse",
+            "es": "Casa de té junto al lago",
+            "fr": "Maison de thé du lac",
+            "ja": "湖畔の茶屋"
+          },
+          "cost": 210,
+          "inc": 44
+        }
+      ]
+    },
+    "koyasan": {
+      "n": {
+        "en": "Kōyasan",
+        "es": "Kōyasan",
+        "fr": "Kōyasan",
+        "ja": "高野山"
+      },
+      "lo": 135.59,
+      "la": 34.21,
+      "mark": "pagoda",
+      "bg": "forest",
+      "reg": "kin",
+      "lp": "l",
+      "tag": {
+        "en": "Mountain city of a hundred temples",
+        "es": "Ciudad monástica de cien templos",
+        "fr": "Cité monastique aux cent temples",
+        "ja": "百二十の寺が集う聖地"
+      },
+      "fact": {
+        "en": "Kūkai founded this monastic town in 816 and, believers hold, still meditates in its inner sanctuary — monks bring him meals twice a day. Two hundred thousand graves line the cedar path there.",
+        "es": "Kūkai fundó esta ciudad monástica en 816 y, según la fe, aún medita en el santuario interior: los monjes le llevan comida dos veces al día. Doscientas mil tumbas bordean el sendero de cedros.",
+        "fr": "Kūkai fonda cette cité monastique en 816 et, selon la foi, y médite encore : les moines lui portent deux repas par jour. Deux cent mille tombes bordent l'allée de cèdres.",
+        "ja": "816年に空海が開いた宗教都市。奥之院では空海が今も瞑想を続けているとされ、僧が日に二度食事を運ぶ。杉木立の参道には20万基の墓が並ぶ。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Temple Lodging",
+            "es": "Alojamiento del templo",
+            "fr": "Logement au temple",
+            "ja": "宿坊"
+          },
+          "cost": 290,
+          "inc": 60
+        },
+        {
+          "n": {
+            "en": "Sesame Tofu Kitchen",
+            "es": "Cocina de tofu de sésamo",
+            "fr": "Cuisine du tofu de sésame",
+            "ja": "胡麻豆腐の店"
+          },
+          "cost": 200,
+          "inc": 42
+        }
+      ]
+    },
+    "hagi": {
+      "n": {
+        "en": "Hagi",
+        "es": "Hagi",
+        "fr": "Hagi",
+        "ja": "萩"
+      },
+      "lo": 131.4,
+      "la": 34.41,
+      "mark": "castle_stone",
+      "bg": "seaside",
+      "reg": "kin",
+      "lp": "l",
+      "tag": {
+        "en": "Where the Meiji Restoration was taught",
+        "es": "Donde se enseñó la Restauración Meiji",
+        "fr": "Où s'enseigna la restauration Meiji",
+        "ja": "明治維新を教えた町"
+      },
+      "fact": {
+        "en": "In a one-room school here, Yoshida Shōin taught the young men who would overthrow the shogunate and lead the new government. The samurai lanes around it are almost unchanged.",
+        "es": "En una escuela de una sola sala, Yoshida Shōin enseñó a los jóvenes que derribarían el shogunato y dirigirían el nuevo gobierno. Las calles samuráis apenas han cambiado.",
+        "fr": "Dans une école d'une seule pièce, Yoshida Shōin forma les jeunes gens qui renversèrent le shogunat et dirigèrent le nouveau gouvernement. Les ruelles de samouraïs sont presque intactes.",
+        "ja": "一室だけの松下村塾で、吉田松陰は幕府を倒し新政府を担う若者たちを教えた。周囲の武家屋敷の町並みはほぼ当時のまま残る。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Private Academy",
+            "es": "Academia privada",
+            "fr": "Académie privée",
+            "ja": "松下村塾"
+          },
+          "cost": 260,
+          "inc": 54
+        },
+        {
+          "n": {
+            "en": "Hagi Ware Kiln",
+            "es": "Horno de cerámica Hagi",
+            "fr": "Four de céramique Hagi",
+            "ja": "萩焼の窯"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
     }
   },
   "edges": [
@@ -3755,6 +4139,70 @@
     [
       "miyazaki",
       "beppu"
+    ],
+    [
+      "mito",
+      "chiba"
+    ],
+    [
+      "mito",
+      "nikko"
+    ],
+    [
+      "kusatsu",
+      "nikko"
+    ],
+    [
+      "kusatsu",
+      "matsumoto"
+    ],
+    [
+      "kawagoe",
+      "tokyo"
+    ],
+    [
+      "kawagoe",
+      "nikko"
+    ],
+    [
+      "fukui",
+      "kanazawa"
+    ],
+    [
+      "fukui",
+      "kyoto"
+    ],
+    [
+      "kofu",
+      "matsumoto"
+    ],
+    [
+      "kofu",
+      "hakone"
+    ],
+    [
+      "hikone",
+      "kyoto"
+    ],
+    [
+      "hikone",
+      "nagoya"
+    ],
+    [
+      "koyasan",
+      "nara"
+    ],
+    [
+      "koyasan",
+      "ise"
+    ],
+    [
+      "hagi",
+      "matsue"
+    ],
+    [
+      "hagi",
+      "hiroshima"
     ]
   ],
   "outro": {
