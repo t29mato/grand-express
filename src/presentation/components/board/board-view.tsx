@@ -161,7 +161,7 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
             ));
           })}
         </g>
-        <BoardLegend boardWidth={boardWidth} boardHeight={boardHeight} />
+        <BoardLegend boardWidth={boardWidth} boardHeight={boardHeight} currency={context.content.currency} />
       </svg>
       <button
         type="button"

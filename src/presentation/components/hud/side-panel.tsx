@@ -6,6 +6,7 @@ import { GameEngineContext } from "../../../application/game-engine-context";
 import { economyContextFor } from "../../../application/economy-context";
 import { useLocale } from "../../i18n/locale-context";
 import { CityArt } from "../city/city-art";
+import { formatMoney } from "../../i18n/money-format";
 import { LogEntry } from "../../state/game-store";
 
 const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
@@ -14,13 +15,14 @@ export function DestinationCard({ context, session }: { context: GameEngineConte
   const { tx, t } = useLocale();
   const destination = context.getCity(session.destination);
   const bonus = 700 + 70 * session.month;
+  const currency = context.content.currency;
   return (
     <div className="card dest-card">
       <h2>{t("nextDest")}</h2>
       <CityArt context={context} cityId={session.destination} bare />
       <div className="dest-city">{tx(destination.name)}</div>
       <div className="dest-tag">{tx(destination.tag)}</div>
-      <div className="dest-bonus">+{bonus}</div>
+      <div className="dest-bonus">+{formatMoney(bonus, currency)}</div>
     </div>
   );
 }
@@ -28,6 +30,7 @@ export function DestinationCard({ context, session }: { context: GameEngineConte
 export function PlayersPanel({ context, session }: { context: GameEngineContext; session: GameSession }) {
   const { tx, t } = useLocale();
   const economyContext = economyContextFor(context, session);
+  const currency = context.content.currency;
   return (
     <div className="card">
       <h2>{t("travelers")}</h2>
@@ -43,11 +46,11 @@ export function PlayersPanel({ context, session }: { context: GameEngineContext;
                 {p.isCpu && <span className="cpu-tag">CPU</span>}
                 {session.misfortune.holderId === p.id && session.misfortune.level > 0 && " 👹"}
                 <div className="pprops">
-                  {propertyCount(p)} {t("biz")} · +{totalIncome(p, economyContext).amount}
+                  {propertyCount(p)} {t("biz")} · +{formatMoney(totalIncome(p, economyContext).amount, currency)}
                   {mono > 0 && ` · 👑${mono}`}
                 </div>
               </span>
-              <span className="pcash">{p.cash.amount}</span>
+              <span className="pcash">{formatMoney(p.cash.amount, currency)}</span>
             </div>
           );
         })}

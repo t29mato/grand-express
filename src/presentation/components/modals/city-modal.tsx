@@ -8,6 +8,7 @@ import { GameEngineContext } from "../../../application/game-engine-context";
 import { stallStockFor } from "../../../application/use-cases/visit-stall/visit-stall.use-case";
 import { useLocale } from "../../i18n/locale-context";
 import { CityArt } from "../city/city-art";
+import { formatMoney } from "../../i18n/money-format";
 import { Modal } from "./modal";
 
 export function CityModal({
@@ -35,6 +36,7 @@ export function CityModal({
   const city = context.getCity(cityId);
   const player = currentPlayer(session);
   const stock = stallStockFor(context, cityId, session.month);
+  const currency = context.content.currency;
 
   return (
     <Modal>
@@ -44,7 +46,7 @@ export function CityModal({
       <p style={{ color: "var(--salt-dim)" }}>{tx(city.tag)}</p>
       {arrivalPrize !== null && (
         <p className="fact">
-          🎯 {t("destReached")} — +{arrivalPrize}
+          🎯 {t("destReached")} — +{formatMoney(arrivalPrize, currency)}
         </p>
       )}
       <div className="plist">
@@ -61,7 +63,7 @@ export function CityModal({
                   <div className="nm">
                     {tx(property.name)} Lv{level}
                   </div>
-                  <div className="sub">+{incomeAtLevel(property.income, level)}/qtr</div>
+                  <div className="sub">+{formatMoney(incomeAtLevel(property.income, level), currency)}/qtr</div>
                 </div>
                 {level < 5 && (
                   <button className="up" disabled={!canInvest} onClick={() => onInvest(ref)}>
@@ -80,7 +82,7 @@ export function CityModal({
               <div className="info">
                 <div className="nm">{tx(property.name)}</div>
                 <div className="sub">
-                  {property.cost} · +{property.income}/qtr {owner && `· ${owner.name}`}
+                  {formatMoney(property.cost, currency)} · +{formatMoney(property.income, currency)}/qtr {owner && `· ${owner.name}`}
                 </div>
               </div>
               {!owner && (
@@ -105,7 +107,7 @@ export function CityModal({
               <div className="info">
                 <div className="nm">{tx(item.name)}</div>
                 <div className="sub">
-                  {tx(item.description)} · {item.price}
+                  {tx(item.description)} · {formatMoney(item.price, currency)}
                 </div>
               </div>
               <button disabled={!canBuy} onClick={() => onBuyItem(key)}>

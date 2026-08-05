@@ -7,6 +7,7 @@ import { useLocale } from "../../i18n/locale-context";
 import { formatMessage } from "../../i18n/messages";
 import { renderRichText } from "../../i18n/rich-text";
 import { CityArt } from "../city/city-art";
+import { formatMoney } from "../../i18n/money-format";
 import { Modal } from "./modal";
 
 /**
@@ -51,7 +52,7 @@ export function NextLegModal({
       <div className="eyebrow">{t("nextLeg")}</div>
       <h3>{t("onTo", destinationName)}</h3>
       <p>
-        {tx(destination.tag)}. {renderRichText(t("firstWins", prize))}
+        {tx(destination.tag)}. {renderRichText(t("firstWins", formatMoney(prize, context.content.currency)))}
       </p>
       <CityArt context={context} cityId={session.destination} />
       {spiritMessage && <div className="fact">{renderRichText(spiritMessage)}</div>}

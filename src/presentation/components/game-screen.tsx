@@ -114,7 +114,9 @@ export function GameScreen() {
           onDone={closeCityModal}
         />
       )}
-      {ui.kind === "game-over" && <GameOverModal outcome={ui.outcome} onPlayAgain={backToSetup} />}
+      {ui.kind === "game-over" && (
+        <GameOverModal outcome={ui.outcome} currency={context.content.currency} onPlayAgain={backToSetup} />
+      )}
     </div>
   );
 }

@@ -51,8 +51,8 @@ describe("NextLegModal", () => {
     renderModal(false);
     const destinationName = context.getCity(session.destination).name.en;
     expect(screen.getByRole("heading", { name: `🧭 On to ${destinationName}` })).toBeInTheDocument();
-    // 賞金(月0なので700)が money クラスで強調表示される。
-    expect(screen.getByText("700")).toHaveClass("money");
+    // 賞金(月0なので700)が、国ごとの通貨表記で money クラスに強調表示される。
+    expect(screen.getByText("Bs 700")).toHaveClass("money");
   });
 
   it("厄災の神が初めて現れるときは arrive の文言を使う", () => {

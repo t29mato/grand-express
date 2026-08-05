@@ -1,10 +1,20 @@
 "use client";
 
+import { CurrencyFormat } from "../../../domain/country/country-content-pack";
 import { EndGameOutcome } from "../../../application/use-cases/end-game/end-game.use-case";
 import { useLocale } from "../../i18n/locale-context";
+import { formatMoney } from "../../i18n/money-format";
 import { Modal } from "./modal";
 
-export function GameOverModal({ outcome, onPlayAgain }: { outcome: EndGameOutcome; onPlayAgain: () => void }) {
+export function GameOverModal({
+  outcome,
+  currency,
+  onPlayAgain,
+}: {
+  outcome: EndGameOutcome;
+  currency: CurrencyFormat;
+  onPlayAgain: () => void;
+}) {
   const { t } = useLocale();
   return (
     <Modal>
@@ -21,7 +31,7 @@ export function GameOverModal({ outcome, onPlayAgain }: { outcome: EndGameOutcom
               </div>
               <div className="sub">{t("townsHeld", r.propertyCount, r.monopolyCount)}</div>
             </div>
-            <span className="pcash">{r.netWorth}</span>
+            <span className="pcash">{formatMoney(r.netWorth, currency)}</span>
           </div>
         ))}
       </div>

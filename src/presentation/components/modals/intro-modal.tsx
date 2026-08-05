@@ -6,6 +6,7 @@ import { GameEngineContext } from "../../../application/game-engine-context";
 import { useLocale } from "../../i18n/locale-context";
 import { renderRichText } from "../../i18n/rich-text";
 import { CityArt } from "../city/city-art";
+import { formatMoney } from "../../i18n/money-format";
 import { Modal } from "./modal";
 
 /**
@@ -35,7 +36,7 @@ export function IntroModal({
       {isCityNode(startNode) && <CityArt context={context} cityId={startNode.cityId} />}
       <div className="eyebrow">{t("allAboard")}</div>
       <h3>{t("departure", startCityName)}</h3>
-      <p>{renderRichText(t("startBody", player.cash.amount, tx(destination.name), prize))}</p>
+      <p>{renderRichText(t("startBody", formatMoney(player.cash.amount, context.content.currency), tx(destination.name), formatMoney(prize, context.content.currency)))}</p>
       <div className="fact">
         <b>{t("tipTitle")}</b> {renderRichText(t("startTip", session.maxMonths))}
       </div>
