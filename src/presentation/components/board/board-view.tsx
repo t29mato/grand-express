@@ -10,6 +10,7 @@ import { useBoardLayout } from "../../hooks/use-board-layout";
 import { useCamera } from "../../hooks/use-camera";
 import { useLocale } from "../../i18n/locale-context";
 import { TerrainLayer } from "./terrain-layer";
+import { BoardLegend } from "./board-legend";
 
 const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
 
@@ -160,6 +161,7 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
             ));
           })}
         </g>
+        <BoardLegend boardWidth={boardWidth} boardHeight={boardHeight} />
       </svg>
       <button
         type="button"

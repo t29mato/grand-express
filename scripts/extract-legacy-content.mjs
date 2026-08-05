@@ -105,6 +105,21 @@ for (const [key, value] of Object.entries(UI)) {
 for (const locale of LOCALES) {
   messagesByLocale[locale].months = MONTHS.map((m) => toLocaleObject(m)[locale]);
 }
+
+/**
+ * legacy側で `UI` に登録されず、使用箇所に `_t(...)` としてインラインで書かれている文言。
+ * `UI` を走査するだけでは拾えないため、ここで明示的に追加する
+ * (再抽出しても同じ結果になるよう、原文はlegacyからそのまま転記している)。
+ */
+const INLINE_UI_STRINGS = {
+  // 盤面右下の凡例の「町」の行(legacy: drawBoard() の rows 最終要素)。
+  townSq: "Town · story, business, items|Pueblo · historia, negocios, objetos|Ville · histoire, affaires, objets|町・解説・物件・アイテム",
+};
+for (const [key, source] of Object.entries(INLINE_UI_STRINGS)) {
+  const [en, es, fr, ja] = source.split("|");
+  const byLocale = { en, es, fr, ja };
+  for (const locale of LOCALES) messagesByLocale[locale][key] = byLocale[locale];
+}
 for (const locale of LOCALES) {
   writeFileSync(
     join(messagesDir, `${locale}.json`),

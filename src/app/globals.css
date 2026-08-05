@@ -358,6 +358,12 @@ main {
   color: var(--night2);
 }
 
+.legend {
+  font-size: 13px;
+  fill: #e8e0cf;
+  font-weight: 600;
+}
+
 .city-label {
   font-size: 13px;
   fill: var(--salt);
