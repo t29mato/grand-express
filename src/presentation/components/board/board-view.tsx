@@ -39,13 +39,18 @@ const LABEL_FONT_PX = 13;
 const DEST_LABEL_FONT_PX = 15;
 
 
-/** 中間マスの色と記号(現行コードの `SQUARE` / `TIER`)。 */
+/**
+ * 中間マスの色と記号(現行コードの `SQUARE`)。
+ * クイズマスは**難易度で色分けしない**。難易度はマスではなく問題の属性になり、
+ * 止まった時点でプレイヤーの知識レベルに応じて抽選されるため、
+ * マスを見て難易度が分かるわけではない。
+ */
 const SQUARE_STYLES: Record<string, { color: string; glyph: string }> = {
+  quiz: { color: "#f5b31c", glyph: "?" },
   blue: { color: "#5b8fe8", glyph: "+" },
   red: { color: "#e05252", glyph: "−" },
   card: { color: "#f5d31c", glyph: "★" },
 };
-const TIER_COLORS: Record<string, string> = { low: "#37b3a4", mid: "#f5b31c", high: "#e8447a" };
 
 export interface BoardViewProps {
   context: GameEngineContext;
@@ -239,7 +244,7 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
                     isDestination={isDestination}
                   />
                 ) : (
-                  <SquareMarker type={node.type} tier={node.type === "quiz" ? node.tier : undefined} />
+                  <SquareMarker type={node.type} />
                 )}
               </g>
             );
@@ -335,10 +340,10 @@ function CityMarker({ glyphSvg, isDestination }: { glyphSvg: string; isDestinati
 }
 
 /** 中間マス(クイズ/青/赤/カード)のマーカー(legacyの `SQUARE`/`TIER` の描画)。 */
-function SquareMarker({ type, tier }: { type: string; tier?: string }) {
+function SquareMarker({ type }: { type: string }) {
   const style = SQUARE_STYLES[type];
-  const color = type === "quiz" ? (TIER_COLORS[tier ?? "low"] ?? "#37b3a4") : (style?.color ?? "#888");
-  const glyph = type === "quiz" ? "?" : (style?.glyph ?? "");
+  const color = style?.color ?? "#888";
+  const glyph = style?.glyph ?? "";
   return (
     <>
       <rect

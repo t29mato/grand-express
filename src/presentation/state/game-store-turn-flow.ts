@@ -14,9 +14,9 @@ import { GameEngineContext } from "../../application/game-engine-context";
 import { GetGameState, LogEntry, SetGameState } from "./game-store-types";
 import { gameRepository, random, soundAdapter } from "./game-store-dependencies";
 import { logEntry, pushLog } from "./game-store-log";
-import { QuizDeck } from "../../domain/quiz/quiz-grading-service";
-import { QuizQuestion } from "../../domain/quiz/quiz-question";
-import { describeCpuTurn, shuffledIndexes, visibleOptionOrder } from "./game-store-formatters";
+import { QuizSelector, rollDifficulty } from "../../domain/quiz/quiz-selection-service";
+import { QuizDifficulty, QuizQuestion } from "../../domain/quiz/quiz-question";
+import { describeCpuTurn, visibleOptionOrder } from "./game-store-formatters";
 
 /**
  * CPUの手番の演出タイミング(ミリ秒)。
@@ -61,20 +61,17 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
    * **人間とCPUで1つを共有する**(袋を分けると重複が戻る)。
    * ゲーム開始・ロード時に作り直す。
    */
-  let quizDeck: QuizDeck | null = null;
+  let quizSelector: QuizSelector | null = null;
 
   function resetQuizDeck(questions: readonly QuizQuestion[]) {
-    quizDeck = new QuizDeck(questions, (items) => {
-      const order = shuffledIndexes(items.length, random);
-      return order.map((i) => items[i]);
-    });
+    quizSelector = new QuizSelector(questions, random);
   }
 
-  /** 山札から1問引く(未初期化なら作ってから引く)。 */
-  function drawQuestion(): QuizQuestion {
+  /** 指定された難易度にいちばん近い問題を、山札から1問引く。 */
+  function drawQuestion(difficulty: QuizDifficulty): QuizQuestion {
     const { context } = get();
-    if (!quizDeck && context) resetQuizDeck(context.content.quiz);
-    return quizDeck!.draw();
+    if (!quizSelector && context) resetQuizDeck(context.content.quiz);
+    return quizSelector!.draw(difficulty);
   }
 
   /** CPUの結果モーダルをプレイヤーが手動で閉じる(演出を飛ばす)。 */
@@ -243,7 +240,6 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
           kind: "cpu-quiz",
           playerName,
           question: landing.question,
-          tier: landing.tier,
           chosenOptionIndex: landing.chosenOptionIndex,
           correct: landing.outcome.correct,
           amount: formatMoney(landing.outcome.amount.amount, context.content.currency),
@@ -366,12 +362,14 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
       return;
     }
     if (node.type === "quiz") {
-      const question = drawQuestion();
+      // 出題する難易度はプレイヤーの知識レベルに応じて抽選する。
+      // どの難易度も確率0にはならないので、くわしい人にもたまに易しい問題が出る。
+      const difficulty = rollDifficulty(player.knowledgeLevel, random);
+      const question = drawQuestion(difficulty);
       set({
         ui: {
           kind: "quiz",
           question,
-          tier: node.tier,
           // 知識レベルが初級なら誤答を1つ伏せて2択にする。
           optionOrder: visibleOptionOrder(question, player.knowledgeLevel, random),
         },

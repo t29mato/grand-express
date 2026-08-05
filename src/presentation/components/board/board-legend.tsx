@@ -1,9 +1,12 @@
 "use client";
 
 import { CurrencyFormat } from "../../../domain/country/country-content-pack";
-import { QUIZ_TIER_REWARDS } from "../../../domain/quiz/quiz-question";
+import { MAX_QUIZ_DIFFICULTY, MIN_QUIZ_DIFFICULTY, quizReward } from "../../../domain/quiz/quiz-question";
 import { useLocale } from "../../i18n/locale-context";
 import { formatMoney } from "../../i18n/money-format";
+
+/** クイズマスの色(board-view の SQUARE_STYLES と同じ)。難易度で色分けはしない。 */
+const SQUARE_QUIZ_COLOR = "#f5b31c";
 
 /**
  * 盤面の右下に置く凡例(legacyの `drawBoard()` 末尾の移植)。
@@ -21,9 +24,14 @@ export function BoardLegend({
   const { t } = useLocale();
 
   const rows: readonly { color: string; label: string }[] = [
-    { color: "#37b3a4", label: `+${formatMoney(QUIZ_TIER_REWARDS.low.winAmount, currency)} / −${formatMoney(QUIZ_TIER_REWARDS.low.loseAmount, currency)}` },
-    { color: "#f5b31c", label: `+${formatMoney(QUIZ_TIER_REWARDS.mid.winAmount, currency)} / −${formatMoney(QUIZ_TIER_REWARDS.mid.loseAmount, currency)}` },
-    { color: "#e8447a", label: `+${formatMoney(QUIZ_TIER_REWARDS.high.winAmount, currency)} / −${formatMoney(QUIZ_TIER_REWARDS.high.loseAmount, currency)}` },
+    {
+      color: SQUARE_QUIZ_COLOR,
+      // 難易度によって増減額が変わるので、凡例では下限〜上限の幅で示す。
+      label: `+${formatMoney(quizReward(MIN_QUIZ_DIFFICULTY).winAmount, currency)}〜${formatMoney(
+        quizReward(MAX_QUIZ_DIFFICULTY).winAmount,
+        currency,
+      )}`,
+    },
     { color: "#5b8fe8", label: t("blueSq") },
     { color: "#e05252", label: t("redSq") },
     { color: "#f5d31c", label: t("cardSq") },
@@ -31,8 +39,8 @@ export function BoardLegend({
   ];
 
   return (
-    <g transform={`translate(${boardWidth - 286},${boardHeight - 232})`} style={{ pointerEvents: "none" }}>
-      <rect x={-14} y={-18} width={286} height={232} rx={12} fill="#141d31" opacity={0.82} />
+    <g transform={`translate(${boardWidth - 286},${boardHeight - 174})`} style={{ pointerEvents: "none" }}>
+      <rect x={-14} y={-18} width={286} height={174} rx={12} fill="#141d31" opacity={0.82} />
       {rows.map((row, i) => {
         const y = i * 29;
         const isTown = i === rows.length - 1;

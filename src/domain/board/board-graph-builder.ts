@@ -4,9 +4,7 @@ import { BoardGraph } from "./board-graph";
 import { City, Edge } from "./city";
 import { h32 } from "./deterministic-hash";
 import { BoardNode } from "./node";
-import { QuizTier } from "../quiz/quiz-question";
 
-const QUIZ_TIERS: readonly QuizTier[] = ["low", "mid", "high"];
 
 function connect(
   adjacency: Map<NodeId, NodeId[]>,
@@ -60,8 +58,7 @@ export function buildBoardGraph(
       const roll = h32(edgeIndex * 97 + k) % 20;
       let node: BoardNode;
       if (roll < 10) {
-        const tier = QUIZ_TIERS[h32(edgeIndex * 211 + k * 7) % 3];
-        node = { id: nodeId, type: "quiz", tier, between, regionId };
+        node = { id: nodeId, type: "quiz", between, regionId };
       } else if (roll < 14) {
         node = { id: nodeId, type: "blue", between, regionId };
       } else if (roll < 17) {

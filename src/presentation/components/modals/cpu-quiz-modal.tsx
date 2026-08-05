@@ -1,11 +1,10 @@
 "use client";
 
-import { QuizQuestion, QuizTier } from "../../../domain/quiz/quiz-question";
+import { QuizQuestion } from "../../../domain/quiz/quiz-question";
 import { useLocale } from "../../i18n/locale-context";
 import { renderRichText } from "../../i18n/rich-text";
+import { DifficultyBadge } from "./difficulty-badge";
 import { Modal } from "./modal";
-
-const TIER_LABEL: Record<QuizTier, string> = { low: "quizLow", mid: "quizMid", high: "quizHigh" };
 
 /**
  * CPUが答えたクイズ(legacyの `autoModal` によるCPU用クイズモーダルの移植)。
@@ -14,7 +13,6 @@ const TIER_LABEL: Record<QuizTier, string> = { low: "quizLow", mid: "quizMid", h
 export function CpuQuizModal({
   playerName,
   question,
-  tier,
   chosenOptionIndex,
   correct,
   amount,
@@ -22,7 +20,6 @@ export function CpuQuizModal({
 }: {
   playerName: string;
   question: QuizQuestion;
-  tier: QuizTier;
   chosenOptionIndex: number;
   correct: boolean;
   amount: string;
@@ -33,8 +30,9 @@ export function CpuQuizModal({
 
   return (
     <Modal testId="cpu-quiz-modal">
-      <div className="eyebrow">
-        {t(TIER_LABEL[tier])} · {playerName} (CPU)
+      <div className="quiz-head">
+        <DifficultyBadge difficulty={question.difficulty} />
+        <span className="quiz-stake">{playerName} (CPU)</span>
       </div>
       <h3>{tx(question.question)}</h3>
       <p>

@@ -179,7 +179,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const { context, session, ui } = get();
       if (!context || !session || ui.kind !== "quiz") return;
       const player = currentPlayer(session);
-      const outcome = answerQuiz(context, session, player.id, ui.question, ui.tier, optionIndex, random);
+      const outcome = answerQuiz(context, session, player.id, ui.question, optionIndex, random);
       if (outcome.correct) soundAdapter.playRight();
       else soundAdapter.playWrong();
       // 手番を進める前に結果(正解・解説)を見せる。フィードバックの無い出題は
@@ -189,7 +189,6 @@ export const useGameStore = create<GameStoreState>((set, get) => {
         ui: {
           kind: "quiz-result",
           question: ui.question,
-          tier: ui.tier,
           chosenOptionIndex: optionIndex,
           correct: outcome.correct,
           amount: formatMoney(outcome.amount.amount, context.content.currency),

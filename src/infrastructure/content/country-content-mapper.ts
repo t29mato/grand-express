@@ -69,6 +69,7 @@ function mapQuiz(raw: RawCountryContent): QuizQuestion[] {
   // 記録するため、問題文そのものではなく短い安定した識別子が必要になる。
   return raw.quiz.map((q, index) => ({
     id: QuizQuestionId(`q${index}`),
+    difficulty: q.difficulty as QuizQuestion["difficulty"],
     question: q.q,
     options: q.o,
     correctOptionIndex: q.a,

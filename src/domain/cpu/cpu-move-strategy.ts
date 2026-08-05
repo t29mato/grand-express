@@ -42,8 +42,9 @@ export function chooseMoveTarget(
       if (hasFreeProperty && context.cash >= city.properties[0].cost) {
         score += 14 + ownedHere * 12;
       }
-    } else if (node.type === "quiz" && node.tier === "high" && context.cash > 300) {
-      score += 4;
+    } else if (node.type === "quiz" && context.cash > 300) {
+      // 難易度はマスではなく問題側の属性になったため、クイズマスは一律に評価する。
+      score += 3;
     }
 
     score += random.nextFloat() * (4 + tuning.scoreNoise);

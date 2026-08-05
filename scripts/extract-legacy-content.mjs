@@ -147,6 +147,10 @@ const INLINE_UI_STRINGS = {
   backToGame: "Back to the game|Volver al juego|Retour au jeu|ゲームに戻る",
   versionLabel: "Version|Versión|Version|バージョン",
 
+  // クイズの難易度表示。
+  difficulty: "Difficulty|Dificultad|Difficulté|難易度",
+  optionsReduced: "One wrong answer is hidden because you are new to this country.|Se oculta una respuesta incorrecta porque el país es nuevo para ti.|Une mauvaise réponse est masquée car ce pays t'est nouveau.|この国がはじめてなので、誤答をひとつ伏せています。",
+
   // 学習まわり(docs/40-learning-design/)。legacyには無い新規の文言。
   correctAnswerWas: "The answer was <b>{0}</b>.|La respuesta era <b>{0}</b>.|La réponse était <b>{0}</b>.|正解は <b>{0}</b> でした。",
   yourAnswer: "You answered: <b>{0}</b>|Respondiste: <b>{0}</b>|Ta réponse : <b>{0}</b>|あなたの回答: <b>{0}</b>",

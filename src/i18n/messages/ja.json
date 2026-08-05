@@ -188,6 +188,8 @@
   "releaseNotesLead": "遊ぶ人から見て何が変わったかを、新しい順に載せています。",
   "backToGame": "ゲームに戻る",
   "versionLabel": "バージョン",
+  "difficulty": "難易度",
+  "optionsReduced": "この国がはじめてなので、誤答をひとつ伏せています。",
   "correctAnswerWas": "正解は <b>{0}</b> でした。",
   "yourAnswer": "あなたの回答: <b>{0}</b>",
   "charmSaved": "🧿 お守りが損失を肩代わりしました。ただし答えは間違いです。",

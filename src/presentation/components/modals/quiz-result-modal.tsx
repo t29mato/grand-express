@@ -1,13 +1,12 @@
 "use client";
 
 import { ItemKey } from "../../../domain/shared-kernel/ids";
-import { QuizQuestion, QuizTier } from "../../../domain/quiz/quiz-question";
+import { QuizQuestion } from "../../../domain/quiz/quiz-question";
 import { GameEngineContext } from "../../../application/game-engine-context";
 import { useLocale } from "../../i18n/locale-context";
 import { renderRichText } from "../../i18n/rich-text";
+import { DifficultyBadge } from "./difficulty-badge";
 import { Modal } from "./modal";
-
-const TIER_LABEL: Record<QuizTier, string> = { low: "quizLow", mid: "quizMid", high: "quizHigh" };
 
 /**
  * 回答後に必ず挟む結果モーダル。
@@ -23,7 +22,6 @@ const TIER_LABEL: Record<QuizTier, string> = { low: "quizLow", mid: "quizMid", h
 export function QuizResultModal({
   context,
   question,
-  tier,
   chosenOptionIndex,
   correct,
   amount,
@@ -33,7 +31,6 @@ export function QuizResultModal({
 }: {
   context: GameEngineContext;
   question: QuizQuestion;
-  tier: QuizTier;
   chosenOptionIndex: number;
   correct: boolean;
   amount: string;
@@ -48,7 +45,9 @@ export function QuizResultModal({
 
   return (
     <Modal testId="quiz-result-modal">
-      <div className="eyebrow">{t(TIER_LABEL[tier])}</div>
+      <div className="quiz-head">
+        <DifficultyBadge difficulty={question.difficulty} />
+      </div>
       <h3>{tx(question.question)}</h3>
 
       <p className={correct ? "quiz-verdict correct" : "quiz-verdict wrong"}>

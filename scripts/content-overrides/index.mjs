@@ -6,6 +6,7 @@
  * 通常のコンテンツ開発は、すべてここに足していく。
  */
 import { BOLIVIA_LAND } from "./bolivia-geography.mjs";
+import { QUIZ_DIFFICULTY } from "./quiz-difficulty.mjs";
 import { JAPAN_LAND } from "./japan-geography.mjs";
 import {
   JAPAN_EXTRA_CITIES,
@@ -26,12 +27,14 @@ const OVERRIDES = {
   bolivia: {
     land: BOLIVIA_LAND,
     boardScale: BOARD_SCALE.bolivia,
+    quizDifficulty: QUIZ_DIFFICULTY.bolivia,
   },
   japan: {
     land: JAPAN_LAND,
     boardScale: BOARD_SCALE.japan,
     extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES },
     extraEdges: [...JAPAN_EXTRA_EDGES, ...JAPAN_PREFECTURE_EDGES],
+    quizDifficulty: QUIZ_DIFFICULTY.japan,
   },
 };
 
@@ -56,6 +59,24 @@ export function applyContentOverrides(countryId, content) {
       BH: Math.round(content.proj.BH * scale),
       seg: Math.round((content.proj.seg ?? 64) * scale),
     };
+  }
+
+  // サムネイル生成時は quiz を持たない部分オブジェクトで呼ばれるため読み飛ばす。
+  if (override.quizDifficulty && content.quiz) {
+    const levels = override.quizDifficulty;
+    if (levels.length !== content.quiz.length) {
+      throw new Error(
+        `${countryId}: クイズの難易度が ${levels.length} 件ですが、問題は ${content.quiz.length} 件あります` +
+          "(問題を増減したら scripts/content-overrides/quiz-difficulty.mjs も更新してください)",
+      );
+    }
+    content.quiz = content.quiz.map((q, i) => {
+      const level = levels[i];
+      if (!Number.isInteger(level) || level < 1 || level > 10) {
+        throw new Error(`${countryId}: 問題 ${i} の難易度 ${level} が範囲外です(1〜10)`);
+      }
+      return { ...q, difficulty: level };
+    });
   }
 
   if (override.extraCities) {

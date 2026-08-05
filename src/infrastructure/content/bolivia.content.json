@@ -2530,7 +2530,8 @@
         "es": "Sucre es la capital constitucional; La Paz es la sede de gobierno, división nacida de la Guerra Federal de 1899.",
         "fr": "Sucre est la capitale constitutionnelle ; La Paz est le siège du gouvernement — une séparation née de la guerre fédérale de 1899.",
         "ja": "スクレが憲法上の首都、ラパスが政府所在地。1899年の連邦戦争以来の分割です。"
-      }
+      },
+      "difficulty": 5
     },
     {
       "q": {
@@ -2565,7 +2566,8 @@
         "es": "La Wiphala de siete colores es bandera cooficial de Bolivia desde la constitución de 2009.",
         "fr": "La Wiphala à sept couleurs est devenue drapeau co-officiel de la Bolivie avec la constitution de 2009.",
         "ja": "七色の市松模様のウィパラは、2009年憲法でボリビアの公式旗のひとつになりました。"
-      }
+      },
+      "difficulty": 7
     },
     {
       "q": {
@@ -2600,7 +2602,8 @@
         "es": "Bolivia perdió su litoral ante Chile, pero conserva una armada que entrena en el Titicaca y celebra el Día del Mar cada 23 de marzo.",
         "fr": "La Bolivie a perdu son littoral au profit du Chili, mais garde une marine qui s'entraîne sur le Titicaca et célèbre le Día del Mar chaque 23 mars.",
         "ja": "チリに海岸を奪われましたが、今も海軍を保持しチチカカ湖で訓練。毎年3月23日は「海の日」です。"
-      }
+      },
+      "difficulty": 5
     },
     {
       "q": {
@@ -2635,7 +2638,8 @@
         "es": "Ambos países creían que el Chaco tenía petróleo. Murieron unas 100.000 personas, muchas de sed más que en combate.",
         "fr": "Les deux pays croyaient le Chaco riche en pétrole. Environ 100 000 personnes moururent, souvent de soif plutôt qu'au combat.",
         "ja": "両国はチャコに石油があると信じました。約10万人が死亡し、その多くは戦闘ではなく渇きによるものでした。"
-      }
+      },
+      "difficulty": 6
     },
     {
       "q": {
@@ -2670,7 +2674,8 @@
         "es": "Aymara y antiguo dirigente de los cocaleros, Morales gobernó casi 14 años.",
         "fr": "Aymara et ancien dirigeant syndical des cultivateurs de coca, Morales a dirigé le pays près de 14 ans.",
         "ja": "アイマラ出身でコカ農民組合の指導者だったモラレスは、約14年間国を率いました。"
-      }
+      },
+      "difficulty": 4
     },
     {
       "q": {
@@ -2705,7 +2710,8 @@
         "es": "Las protestas obligaron a cancelar el contrato del agua, un hito de los movimientos antiprivatización.",
         "fr": "Les manifestations ont contraint le gouvernement à annuler le contrat de l'eau — un jalon des mouvements anti-privatisation.",
         "ja": "大規模な抗議で政府は契約を撤回。世界の反民営化運動の象徴的事例になりました。"
-      }
+      },
+      "difficulty": 6
     },
     {
       "q": {
@@ -2740,7 +2746,8 @@
         "es": "Reconoce 36 naciones y 36 idiomas oficiales, del castellano y el quechua al guaraní.",
         "fr": "Elle reconnaît 36 nations et 36 langues officielles, de l'espagnol et du quechua au guarani.",
         "ja": "36の民族と36の公用語(スペイン語、ケチュア語、グアラニー語など)を認めています。"
-      }
+      },
+      "difficulty": 7
     },
     {
       "q": {
@@ -2775,7 +2782,8 @@
         "es": "Su plata financió al Imperio español durante siglos. Vale un Potosí sigue significando valer una fortuna.",
         "fr": "Son argent finança l'Empire espagnol des siècles durant. « Vale un Potosí » signifie toujours « valoir une fortune ».",
         "ja": "その銀は数世紀にわたりスペイン帝国を支えました。スペイン語で「ポトシの価値がある」は今も「莫大な価値」の意味です。"
-      }
+      },
+      "difficulty": 4
     },
     {
       "q": {
@@ -2810,7 +2818,8 @@
         "es": "Más de 10.000 km² de costra salina y, debajo, una de las mayores reservas de litio del planeta.",
         "fr": "Plus de 10 000 km² de croûte saline — et dessous, l'une des plus grandes réserves de lithium de la planète.",
         "ja": "1万km²を超える塩の地殻。その下には世界有数のリチウム埋蔵量があります。"
-      }
+      },
+      "difficulty": 2
     },
     {
       "q": {
@@ -2845,7 +2854,8 @@
         "es": "A 3.812 m sobre el nivel del mar. El mito inca dice que el sol nació en su Isla del Sol.",
         "fr": "À 3 812 m d'altitude. Le mythe inca dit que le dieu soleil naquit sur son Isla del Sol.",
         "ja": "標高3,812m。インカ神話では太陽神が湖の太陽の島で生まれたとされます。"
-      }
+      },
+      "difficulty": 3
     },
     {
       "q": {
@@ -2880,7 +2890,8 @@
         "es": "La independencia llegó en 1825 tras 16 años de guerra; la nueva república honró al Libertador.",
         "fr": "L'indépendance vint en 1825 après 16 ans de guerre ; la jeune république honora le Libertador.",
         "ja": "16年の戦いを経て1825年に独立。新共和国は解放者シモン・ボリバルの名を冠しました。"
-      }
+      },
+      "difficulty": 2
     },
     {
       "q": {
@@ -2915,7 +2926,8 @@
         "es": "El Carnaval de Oruro es Obra Maestra de la UNESCO y mezcla espíritus andinos con imaginería católica.",
         "fr": "Le carnaval d'Oruro, chef-d'œuvre de l'UNESCO, mêle esprits andins et imagerie catholique.",
         "ja": "オルロのカーニバルはユネスコの傑作。アンデスの精霊とカトリックの図像が融合しています。"
-      }
+      },
+      "difficulty": 7
     },
     {
       "q": {
@@ -2950,7 +2962,8 @@
         "es": "Su Puerta del Sol fue tallada en un solo bloque de andesita por una civilización siglos anterior a los incas.",
         "fr": "Sa Porte du Soleil fut taillée dans un seul bloc d'andésite par une civilisation antérieure aux Incas de plusieurs siècles.",
         "ja": "太陽の門は一枚の安山岩から削り出されたもの。インカに数世紀先行する文明の作です。"
-      }
+      },
+      "difficulty": 6
     },
     {
       "q": {
@@ -2985,7 +2998,8 @@
         "es": "La campaña guerrillera del Che terminó en La Higuera, cerca de Vallegrande.",
         "fr": "La campagne de guérilla du Che s'acheva au village de La Higuera, près de Vallegrande.",
         "ja": "チェ・ゲバラのゲリラ戦は、バジェグランデ近郊のラ・イゲラ村で終わりました。"
-      }
+      },
+      "difficulty": 3
     },
     {
       "q": {
@@ -3020,7 +3034,8 @@
         "es": "Antes signo de exclusión, hoy se lleva con orgullo: hay luchadoras cholitas y escaladoras que suben cumbres de 6.000 m en pollera.",
         "fr": "Jadis marque d'exclusion, la tenue cholita se porte aujourd'hui avec fierté — voyez les catcheuses cholitas et les alpinistes qui gravissent des sommets de 6 000 m en jupe.",
         "ja": "かつて差別の印でしたが今は誇りの装い。チョリータ・レスラーや、スカート姿で6,000m峰に登る登山家もいます。"
-      }
+      },
+      "difficulty": 5
     },
     {
       "q": {
@@ -3055,7 +3070,8 @@
         "es": "Sagrada por milenios y ofrendada a la Pachamama, la hoja es legal y cotidiana en Bolivia, a diferencia de la droga refinada.",
         "fr": "Sacrée depuis des millénaires et offerte à la Pachamama, la feuille est légale et quotidienne en Bolivie — à la différence de la drogue qu'on en tire.",
         "ja": "数千年にわたり神聖視されパチャママに捧げられてきた葉。精製された薬物とは異なり、ボリビアでは合法で日常的です。"
-      }
+      },
+      "difficulty": 3
     },
     {
       "q": {
@@ -3090,7 +3106,8 @@
         "es": "Se come sólo antes del mediodía. Te juzgan por si logras comerla sin derramar el jugo.",
         "fr": "On la mange strictement avant midi. On vous juge à votre capacité d'en manger une sans renverser le jus.",
         "ja": "正午前に食べるのが鉄則。汁をこぼさず食べられるかで腕前を測られます。"
-      }
+      },
+      "difficulty": 7
     },
     {
       "q": {
@@ -3125,7 +3142,8 @@
         "es": "Cultivada sobre los 1.600 m en los valles de Tarija, entre los viñedos más altos del mundo.",
         "fr": "Cultivé au-dessus de 1 600 m dans les vallées de Tarija — parmi les vignobles les plus hauts du monde.",
         "ja": "タリハの標高1,600m超の渓谷で育てられる、世界屈指の高地ぶどうです。"
-      }
+      },
+      "difficulty": 8
     },
     {
       "q": {
@@ -3160,7 +3178,8 @@
         "es": "Las brigadas de cebras danzantes son un querido programa de educación ciudadana desde 2001.",
         "fr": "Les brigades de zèbres dansants forment un programme d'éducation citoyenne très aimé depuis 2001.",
         "ja": "踊るシマウマ隊は2001年から続く人気の市民教育プログラムです。"
-      }
+      },
+      "difficulty": 8
     },
     {
       "q": {
@@ -3195,7 +3214,8 @@
         "es": "Compra una miniatura de lo que deseas — casa, coche, título — y Ekeko puede concedértelo en un año.",
         "fr": "Achète une miniature de ce que tu désires — maison, voiture, diplôme — et Ekeko pourra te l'accorder dans l'année.",
         "ja": "欲しいもの(家・車・卒業証書)のミニチュアを買うと、1年以内に本物が手に入るとされます。"
-      }
+      },
+      "difficulty": 9
     },
     {
       "q": {
@@ -3230,7 +3250,8 @@
         "es": "Líneas de colores sobrevuelan la ciudad del cañón con vista al nevado Illimani.",
         "fr": "Des lignes colorées survolent la ville-canyon avec vue sur l'Illimani enneigé.",
         "ja": "色分けされた路線が峡谷の街の上を滑り、雪のイリマニを望みます。"
-      }
+      },
+      "difficulty": 6
     },
     {
       "q": {
@@ -3265,7 +3286,8 @@
         "es": "Su arquitectura Neoandina convierte los motivos textiles aymaras en fachadas de salón de fiestas.",
         "fr": "Son architecture néo-andine transforme les motifs textiles aymaras en façades de salles de bal fluo.",
         "ja": "彼の「新アンデス建築」はアイマラの織物文様をネオン色の大広間のファサードに変えました。"
-      }
+      },
+      "difficulty": 9
     },
     {
       "q": {
@@ -3300,7 +3322,8 @@
         "es": "Cada agosto se hacen ch'allas, rociando bebida en el suelo, para agradecer a la Tierra viva.",
         "fr": "Chaque août, les Boliviens font des ch'allas — verser une boisson sur le sol — pour remercier la Terre vivante.",
         "ja": "毎年8月、人々は飲み物を地面に注ぐ「チャラ」の儀礼で生きた大地に感謝します。"
-      }
+      },
+      "difficulty": 4
     },
     {
       "q": {
@@ -3335,7 +3358,8 @@
         "es": "La quinua real de Uyuni alimentó a los pueblos andinos 5.000 años antes de ser un superalimento global.",
         "fr": "Le quinoa royal d'Uyuni a nourri les peuples andins pendant 5 000 ans avant de devenir un superaliment mondial.",
         "ja": "ウユニ周辺のロイヤルキヌアは5,000年にわたりアンデスの人々を養い、のち世界的スーパーフードになりました。"
-      }
+      },
+      "difficulty": 5
     },
     {
       "q": {
@@ -3370,7 +3394,8 @@
         "es": "Una pista al borde del precipicio que baja 3.500 m hasta la selva; antes la más mortal, hoy ruta ciclista.",
         "fr": "Une piste à flanc de falaise qui plonge de 3 500 m vers la jungle — jadis la route la plus meurtrière, aujourd'hui une descente à vélo.",
         "ja": "崖沿いに3,500m下ってジャングルへ。かつて世界一危険な道でしたが、今は自転車の名所です。"
-      }
+      },
+      "difficulty": 5
     },
     {
       "q": {
@@ -3405,7 +3430,8 @@
         "es": "El castellano más 35 lenguas indígenas, entre ellas aymara, quechua y guaraní.",
         "fr": "L'espagnol plus 35 langues indigènes, dont l'aymara, le quechua et le guarani.",
         "ja": "スペイン語に加え、アイマラ語・ケチュア語・グアラニー語など35の先住民言語です。"
-      }
+      },
+      "difficulty": 8
     },
     {
       "q": {
@@ -3440,7 +3466,8 @@
         "es": "Miles de páginas de partituras sobrevivieron en los pueblos; un festival las revive cada dos años.",
         "fr": "Des milliers de pages de partitions ont survécu dans les villages ; un festival les ranime tous les deux ans.",
         "ja": "村々に数千ページの楽譜が残り、2年ごとの音楽祭で蘇ります。"
-      }
+      },
+      "difficulty": 8
     },
     {
       "q": {
@@ -3475,7 +3502,8 @@
         "es": "Va de glaciares a selva y alberga una parte enorme de las aves del mundo.",
         "fr": "Il va des glaciers à la forêt tropicale et abrite une part considérable des oiseaux du monde.",
         "ja": "氷河から熱帯雨林までを含み、世界の鳥類のかなりの割合が生息します。"
-      }
+      },
+      "difficulty": 5
     },
     {
       "q": {
@@ -3510,7 +3538,8 @@
         "es": "Los árboles dependen de abejas silvestres y del jochi para reproducirse, así que el negocio protege el bosque en pie.",
         "fr": "Les arbres dépendent d'abeilles sauvages et d'un rongeur, l'agouti, pour se reproduire — le commerce protège donc la forêt debout.",
         "ja": "受粉は野生のランバチ、種子散布は齧歯類アグーチに頼るため、この産業は森を守ることに直結します。"
-      }
+      },
+      "difficulty": 7
     },
     {
       "q": {
@@ -3545,7 +3574,8 @@
         "es": "Los músicos andinos lo crearon a partir de la vihuela española; los antiguos usaban caparazón de quirquincho.",
         "fr": "Les musiciens andins l'ont tiré de la vihuela espagnole ; les caisses anciennes étaient en carapace de tatou.",
         "ja": "スペインのビウエラからアンデスの楽師が生み出した楽器。伝統的な胴はアルマジロの甲羅でした。"
-      }
+      },
+      "difficulty": 6
     },
     {
       "q": {
@@ -3580,7 +3610,8 @@
         "es": "Tras robar una remesa minera cerca de Tupiza, fueron acorralados por soldados en San Vicente.",
         "fr": "Après avoir volé la paie d'une mine près de Tupiza, ils furent encerclés par des soldats à San Vicente.",
         "ja": "トゥピサ近郊で鉱山の給料を奪った後、サンビセンテ村で兵士に追い詰められました。"
-      }
+      },
+      "difficulty": 6
     },
     {
       "q": {
@@ -3615,7 +3646,8 @@
         "es": "También nacionalizó las grandes minas de estaño, uno de los mayores vuelcos sociales de América Latina.",
         "fr": "Elle nationalisa aussi les grandes mines d'étain — l'un des bouleversements sociaux les plus profonds d'Amérique latine.",
         "ja": "大錫鉱山の国有化も実施。ラテンアメリカ有数の徹底した社会変革でした。"
-      }
+      },
+      "difficulty": 7
     },
     {
       "q": {
@@ -3650,7 +3682,8 @@
         "es": "Declarado patrimonio natural nacional, el bufeo nada en los ríos Beni y Mamoré.",
         "fr": "Déclaré patrimoine naturel national, le bufeo nage dans le Beni et le Mamoré.",
         "ja": "国の自然遺産に指定され、ベニ川やマモレ川を泳いでいます。"
-      }
+      },
+      "difficulty": 7
     },
     {
       "q": {
@@ -3685,7 +3718,8 @@
         "es": "Con más de tres metros de envergadura, planea en las térmicas de la cordillera.",
         "fr": "Avec plus de trois mètres d'envergure, il plane sur les ascendances de la cordillère.",
         "ja": "翼開長3mを超え、アンデス山脈の上昇気流に乗って舞います。"
-      }
+      },
+      "difficulty": 4
     },
     {
       "q": {
@@ -3720,7 +3754,8 @@
         "es": "Los queñuales crecen por encima de los 5.000 m, junto a géiseres y aguas termales.",
         "fr": "Les queñuas poussent au-dessus de 5 000 m sur ses pentes, près de geysers et de sources chaudes.",
         "ja": "斜面には標高5,000mを超えて育つケニュアの林があり、間欠泉や温泉も湧きます。"
-      }
+      },
+      "difficulty": 8
     },
     {
       "q": {
@@ -3755,7 +3790,8 @@
         "es": "La fiesta del Pujllay conmemora una victoria de 1816 sobre las fuerzas españolas.",
         "fr": "La fête du Pujllay commémore une victoire de 1816 sur les forces espagnoles.",
         "ja": "プフジャイ祭は1816年のスペイン軍への勝利を記念する祭です。"
-      }
+      },
+      "difficulty": 9
     },
     {
       "q": {
@@ -3790,7 +3826,8 @@
         "es": "Sus estatuas están en los túneles del Cerro Rico, con coca, cigarrillos y alcohol para que proteja en vez de castigar.",
         "fr": "Ses statues siègent dans les galeries du Cerro Rico ; on lui offre coca, cigarettes et alcool pour qu'il protège au lieu de punir.",
         "ja": "セロ・リコの坑道に像が置かれ、コカ・タバコ・酒を供えて加護を願います。"
-      }
+      },
+      "difficulty": 6
     },
     {
       "q": {
@@ -3825,7 +3862,8 @@
         "es": "Se abrevia Bs. Sustituyó al peso boliviano en 1987 tras una hiperinflación.",
         "fr": "Abrégé Bs. Il a remplacé l'ancien peso bolivien en 1987 après une hyperinflation.",
         "ja": "略号はBs。ハイパーインフレを経て1987年に旧ペソ・ボリビアーノから切り替えられました。"
-      }
+      },
+      "difficulty": 4
     },
     {
       "q": {
@@ -3860,7 +3898,8 @@
         "es": "El mayor humedal tropical del mundo, hogar de jaguares, caimanes y del enorme jabirú.",
         "fr": "La plus vaste zone humide tropicale du monde, refuge des jaguars, caïmans et de l'immense jabiru.",
         "ja": "世界最大の熱帯湿地。ジャガー、カイマン、巨大なズグロハゲコウが暮らします。"
-      }
+      },
+      "difficulty": 5
     }
   ],
   "items": {

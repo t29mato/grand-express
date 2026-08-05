@@ -1,5 +1,4 @@
 import { CityId, NodeId, RegionId } from "../shared-kernel/ids";
-import { QuizTier } from "../quiz/quiz-question";
 
 export type NodeType = "city" | "quiz" | "blue" | "red" | "card";
 
@@ -13,9 +12,12 @@ export interface CityNode extends BoardNodeBase {
   readonly cityId: CityId;
 }
 
+/**
+ * クイズマス。難易度は**マスではなく問題の属性**として持つようになったため、
+ * ここには段階を持たない(止まった時点でプレイヤーの知識レベルに応じて抽選する)。
+ */
 export interface QuizNode extends BoardNodeBase {
   readonly type: "quiz";
-  readonly tier: QuizTier;
   readonly between: readonly [CityId, CityId];
 }
 

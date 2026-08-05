@@ -107,7 +107,6 @@ export function GameScreen() {
         <CpuQuizModal
           playerName={ui.playerName}
           question={ui.question}
-          tier={ui.tier}
           chosenOptionIndex={ui.chosenOptionIndex}
           correct={ui.correct}
           amount={ui.amount}
@@ -126,13 +125,17 @@ export function GameScreen() {
         />
       )}
       {ui.kind === "quiz" && (
-        <QuizModal question={ui.question} tier={ui.tier} optionOrder={ui.optionOrder} onAnswer={answerQuizOption} />
+        <QuizModal
+          question={ui.question}
+          currency={context.content.currency}
+          optionOrder={ui.optionOrder}
+          onAnswer={answerQuizOption}
+        />
       )}
       {ui.kind === "quiz-result" && (
         <QuizResultModal
           context={context}
           question={ui.question}
-          tier={ui.tier}
           chosenOptionIndex={ui.chosenOptionIndex}
           correct={ui.correct}
           amount={ui.amount}

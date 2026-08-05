@@ -40,6 +40,8 @@ const RawItemSchema = z.object({
 });
 
 const RawQuizSchema = z.object({
+  /** 問題の難易度(1〜10)。scripts/content-overrides/quiz-difficulty.mjs で付与する。 */
+  difficulty: z.number().int().min(1).max(10),
   q: LocalizedTextSchema,
   o: z.array(LocalizedTextSchema),
   a: z.number(),

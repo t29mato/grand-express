@@ -6,6 +6,7 @@ import { visibleOptionOrder } from "./game-store-formatters";
 
 const question: QuizQuestion = {
   id: QuizQuestionId("q1"),
+  difficulty: 5,
   question: sameForAllLocales("Which one?"),
   options: ["A", "B", "C"].map(sameForAllLocales),
   correctOptionIndex: 2,

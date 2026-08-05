@@ -188,6 +188,8 @@
   "releaseNotesLead": "Ce qui a changé pour les joueurs, du plus récent au plus ancien.",
   "backToGame": "Retour au jeu",
   "versionLabel": "Version",
+  "difficulty": "Difficulté",
+  "optionsReduced": "Une mauvaise réponse est masquée car ce pays t'est nouveau.",
   "correctAnswerWas": "La réponse était <b>{0}</b>.",
   "yourAnswer": "Ta réponse : <b>{0}</b>",
   "charmSaved": "🧿 Ton amulette a absorbé la perte — mais la réponse était fausse.",

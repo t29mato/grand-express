@@ -4245,7 +4245,8 @@
         "es": "Hokkaidō, Honshū, Shikoku y Kyūshū, más unas 14.000 islas menores, entre ellas las Ryūkyū.",
         "fr": "Hokkaidō, Honshū, Shikoku et Kyūshū — plus environ 14 000 îles plus petites, dont l'archipel des Ryūkyū.",
         "ja": "北海道・本州・四国・九州の4島。ほかに琉球諸島を含む約1万4千の島があります。"
-      }
+      },
+      "difficulty": 4
     },
     {
       "q": {
@@ -4280,7 +4281,8 @@
         "es": "Un volcán activo cuya última erupción fue en 1707 y lugar sagrado ascendido por peregrinos desde hace más de mil años.",
         "fr": "Un volcan actif dont la dernière éruption date de 1707, et un lieu sacré gravi par les pèlerins depuis plus de mille ans.",
         "ja": "1707年に最後の噴火をした活火山であり、千年以上前から巡礼者が登る霊山です。"
-      }
+      },
+      "difficulty": 1
     },
     {
       "q": {
@@ -4315,7 +4317,8 @@
         "es": "Kioto albergó la corte imperial de 794 a 1868, cuando el emperador se trasladó a Tokio.",
         "fr": "Kyoto abrita la cour impériale de 794 à 1868, date du transfert de l'empereur à Tokyo.",
         "ja": "794年から1868年まで朝廷が置かれ、その後天皇は東京へ移りました。"
-      }
+      },
+      "difficulty": 3
     },
     {
       "q": {
@@ -4350,7 +4353,8 @@
         "es": "Edo significa 'estuario'. Se renombró Tōkyō, 'capital del este', al mudarse allí el emperador.",
         "fr": "Edo signifie « estuaire ». Rebaptisée Tōkyō, « capitale de l'Est », quand l'empereur s'y installa.",
         "ja": "江戸は「入り江の戸」の意。天皇の東遷にともない「東の京」=東京と改称されました。"
-      }
+      },
+      "difficulty": 4
     },
     {
       "q": {
@@ -4385,7 +4389,8 @@
         "es": "La primera línea unió Tokio y Osaka para los Juegos Olímpicos. En sesenta años no ha tenido ninguna víctima por descarrilamiento o choque.",
         "fr": "La première ligne relia Tokyo à Osaka pour les Jeux olympiques. En soixante ans, aucun passager n'est mort dans un déraillement ou une collision.",
         "ja": "東京五輪に合わせ東京〜大阪間に開業。60年の運行で脱線・衝突による乗客の死亡事故はゼロです。"
-      }
+      },
+      "difficulty": 2
     },
     {
       "q": {
@@ -4420,7 +4425,8 @@
         "es": "El hiragana marca la gramática, el katakana las palabras extranjeras y los kanji el significado: los tres aparecen en una misma frase.",
         "fr": "Les hiragana portent la grammaire, les katakana les mots étrangers, et les kanji le sens — les trois cohabitent dans une même phrase.",
         "ja": "ひらがなは文法、カタカナは外来語、漢字は意味を担い、一文の中に三種類が同居します。"
-      }
+      },
+      "difficulty": 4
     },
     {
       "q": {
@@ -4455,7 +4461,8 @@
         "es": "Mucha gente se casa en un santuario sintoísta y celebra funerales en un templo budista sin ver contradicción.",
         "fr": "Beaucoup se marient dans un sanctuaire shintō et font leurs funérailles au temple bouddhique sans y voir de contradiction.",
         "ja": "神社で結婚式を挙げ、寺で葬式を出す。多くの人はそこに矛盾を感じません。"
-      }
+      },
+      "difficulty": 3
     },
     {
       "q": {
@@ -4490,7 +4497,8 @@
         "es": "Marca el límite entre el espacio cotidiano y el sagrado. El gran torii de Miyajima parece flotar con la marea alta.",
         "fr": "Il marque la limite entre l'espace ordinaire et le sacré. Le grand torii de Miyajima semble flotter à marée haute.",
         "ja": "俗界と聖域の境を示します。宮島の大鳥居は満潮時に海に浮かんで見えます。"
-      }
+      },
+      "difficulty": 3
     },
     {
       "q": {
@@ -4525,7 +4533,8 @@
         "es": "Durante casi 700 años el poder real estuvo en el shogunato mientras el emperador seguía siendo jefe simbólico en Kioto.",
         "fr": "Pendant près de 700 ans, le pouvoir réel appartint au shogunat tandis que l'empereur restait chef symbolique à Kyoto.",
         "ja": "約700年間、実権は幕府にあり、天皇は京都で象徴的な地位にとどまりました。"
-      }
+      },
+      "difficulty": 4
     },
     {
       "q": {
@@ -4560,7 +4569,8 @@
         "es": "Sakoku significa 'país cerrado'. El comercio siguió por Nagasaki con holandeses y chinos, y por Ryūkyū y Tsushima.",
         "fr": "Sakoku signifie « pays fermé ». Le commerce continua par Nagasaki avec les Hollandais et les Chinois, et via Ryūkyū et Tsushima.",
         "ja": "「鎖国」の意。実際には長崎でオランダ・中国と、また琉球や対馬を通じた交易が続きました。"
-      }
+      },
+      "difficulty": 6
     },
     {
       "q": {
@@ -4595,7 +4605,8 @@
         "es": "En una generación Japón construyó ferrocarriles, un ejército moderno y una constitución: una de las transformaciones más rápidas de la historia.",
         "fr": "En une génération, le Japon bâtit des chemins de fer, une armée moderne et une constitution — l'une des mutations les plus rapides de l'histoire.",
         "ja": "一世代のうちに鉄道・近代軍・憲法を整えた、世界史でも屈指の速さの変革でした。"
-      }
+      },
+      "difficulty": 5
     },
     {
       "q": {
@@ -4630,7 +4641,8 @@
         "es": "Los huéspedes duermen en futones sobre tatami, visten yukata y cenan varios platos en su habitación.",
         "fr": "Les hôtes dorment sur des futons posés sur les tatamis, portent un yukata et dînent en plusieurs services dans leur chambre.",
         "ja": "畳に布団を敷いて眠り、浴衣を着て、部屋で会席料理をいただきます。"
-      }
+      },
+      "difficulty": 4
     },
     {
       "q": {
@@ -4665,7 +4677,8 @@
         "es": "Japón tiene unos 110 volcanes activos y registra cerca de una quinta parte de los terremotos más fuertes del mundo.",
         "fr": "Le Japon compte environ 110 volcans actifs et enregistre près d'un cinquième des séismes les plus violents du monde.",
         "ja": "活火山は約110、世界の大地震のおよそ2割がこの国の周辺で起きています。"
-      }
+      },
+      "difficulty": 3
     },
     {
       "q": {
@@ -4700,7 +4713,8 @@
         "es": "El frente de floración avanza hacia el norte durante dos meses, y la gente hace picnic bajo los árboles: el hanami.",
         "fr": "Le front de floraison remonte vers le nord pendant environ deux mois, et l'on pique-nique sous les arbres : le hanami.",
         "ja": "桜前線は約2ヶ月かけて北上し、人々は木の下で花見をします。"
-      }
+      },
+      "difficulty": 1
     },
     {
       "q": {
@@ -4735,7 +4749,8 @@
         "es": "El sushi nació como método de conservar pescado en arroz fermentado; la forma prensada a mano fue comida callejera de Edo.",
         "fr": "Le sushi naquit comme moyen de conserver le poisson dans du riz fermenté ; la forme pressée à la main était une street food d'Edo.",
         "ja": "もとは魚を発酵した飯で保存する技法。手で握る形は江戸の屋台の食べ物でした。"
-      }
+      },
+      "difficulty": 1
     },
     {
       "q": {
@@ -4770,7 +4785,8 @@
         "es": "Hecho con fibra de morera, es tan resistente que sirve para puertas correderas y farolillos; es Patrimonio de la UNESCO.",
         "fr": "Fait de fibre de mûrier, assez solide pour les cloisons coulissantes et les lanternes ; l'artisanat est classé à l'UNESCO.",
         "ja": "楮などの繊維から漉かれ、障子や提灯にも耐える強さ。ユネスコ無形文化遺産です。"
-      }
+      },
+      "difficulty": 5
     },
     {
       "q": {
@@ -4805,7 +4821,8 @@
         "es": "El Buda de bronce mide unos 15 m y consumió gran parte del cobre de Japón en el siglo VIII.",
         "fr": "Le Bouddha de bronze mesure environ 15 m et absorba une grande part du cuivre du Japon au VIIIe siècle.",
         "ja": "青銅の大仏は高さ約15m。8世紀の日本の銅を大量に費やして鋳造されました。"
-      }
+      },
+      "difficulty": 6
     },
     {
       "q": {
@@ -4840,7 +4857,8 @@
         "es": "Su visita es un ritual de 'deidades visitantes' inscrito en la UNESCO, que traen bendiciones además de susto.",
         "fr": "Leur visite est un rituel de « divinités visiteuses » classé à l'UNESCO, apportant bénédictions autant que frayeur.",
         "ja": "ユネスコ無形文化遺産「来訪神」の行事で、恐れとともに祝福をもたらします。"
-      }
+      },
+      "difficulty": 8
     },
     {
       "q": {
@@ -4875,7 +4893,8 @@
         "es": "Comerció por Asia oriental y sudoriental durante 450 años y conservó lengua, música y cocina propias.",
         "fr": "Il commerça en Asie orientale et du Sud-Est pendant 450 ans, gardant sa langue, sa musique et sa cuisine.",
         "ja": "450年にわたり東・東南アジアと交易し、独自の言語・音楽・料理を守りました。"
-      }
+      },
+      "difficulty": 6
     },
     {
       "q": {
@@ -4910,7 +4929,8 @@
         "es": "Su lengua y rituales fueron reprimidos durante más de un siglo; una ley de 2019 los reconoció por fin como pueblo indígena.",
         "fr": "Leur langue et leurs rituels furent réprimés plus d'un siècle ; une loi de 2019 les a enfin reconnus comme peuple autochtone.",
         "ja": "一世紀以上にわたり言語や儀礼が抑圧され、2019年の法律でようやく先住民族と認められました。"
-      }
+      },
+      "difficulty": 5
     },
     {
       "q": {
@@ -4945,7 +4965,8 @@
         "es": "El Parque Memorial de la Paz y la cúpula conservada son un alegato contra las armas nucleares.",
         "fr": "Le parc du Mémorial de la paix et le dôme conservé sont un plaidoyer contre l'arme nucléaire.",
         "ja": "平和記念公園と保存された原爆ドームは、核兵器廃絶を訴え続けています。"
-      }
+      },
+      "difficulty": 1
     },
     {
       "q": {
@@ -4980,7 +5001,8 @@
         "es": "Japón tiene miles, calentados por la actividad volcánica; hasta monos salvajes se bañan en algunos en invierno.",
         "fr": "Le Japon en compte des milliers, chauffés par le volcanisme ; des singes sauvages s'y baignent même en hiver.",
         "ja": "火山活動に温められた湯が全国に数千。冬には野生のサルが入る湯もあります。"
-      }
+      },
+      "difficulty": 2
     },
     {
       "q": {
@@ -5015,7 +5037,8 @@
         "es": "Introducido en 1871 para sustituir una maraña de monedas feudales; el carácter 円 significa 'redondo'.",
         "fr": "Introduit en 1871 pour remplacer un enchevêtrement de monnaies féodales ; le caractère 円 signifie « rond ».",
         "ja": "1871年、乱立していた藩札などを整理して導入。「円」は丸い形を意味します。"
-      }
+      },
+      "difficulty": 1
     },
     {
       "q": {
@@ -5050,7 +5073,8 @@
         "es": "El nō data del siglo XIV. El kabuki es su primo más vivaz, y el bunraku usa marionetas manejadas por tres operadores visibles.",
         "fr": "Le nō date du XIVe siècle. Le kabuki en est le cousin plus vif, et le bunraku emploie des marionnettes mues par trois manipulateurs visibles.",
         "ja": "能は14世紀から。より賑やかな歌舞伎、三人遣いの人形を使う文楽と並ぶ古典芸能です。"
-      }
+      },
+      "difficulty": 6
     },
     {
       "q": {
@@ -5085,7 +5109,8 @@
         "es": "La ceremonia del té construida a su alrededor valora cuatro principios: armonía, respeto, pureza y tranquilidad.",
         "fr": "La cérémonie du thé qui l'entoure repose sur quatre principes : harmonie, respect, pureté et sérénité.",
         "ja": "茶道はこれを中心に「和敬清寂」の四つの心を説きます。"
-      }
+      },
+      "difficulty": 3
     },
     {
       "q": {
@@ -5120,7 +5145,8 @@
         "es": "Tres cordilleras — Hida, Kiso y Akaishi — con más de una docena de cumbres sobre 3.000 m.",
         "fr": "Trois chaînes — Hida, Kiso et Akaishi — avec plus d'une douzaine de sommets au-dessus de 3 000 m.",
         "ja": "飛驒・木曽・赤石の三山脈からなり、3,000m級の峰が十数座そびえます。"
-      }
+      },
+      "difficulty": 6
     },
     {
       "q": {
@@ -5155,7 +5181,8 @@
         "es": "La mayoría se desmantelaron tras 1868 o se perdieron en la guerra; Himeji y Matsumoto están entre los supervivientes.",
         "fr": "La plupart furent démantelés après 1868 ou détruits par la guerre ; Himeji et Matsumoto figurent parmi les rescapés.",
         "ja": "多くは明治以降に取り壊されるか戦災で失われました。姫路城・松本城などが現存天守です。"
-      }
+      },
+      "difficulty": 8
     },
     {
       "q": {
@@ -5190,7 +5217,8 @@
         "es": "De ahí 'País del Sol Naciente': el nombre refleja su posición al este de China.",
         "fr": "D'où « pays du Soleil levant » : le nom reflète sa position à l'est de la Chine.",
         "ja": "「日出づる処」の意で、中国から見て東にある位置に由来します。"
-      }
+      },
+      "difficulty": 4
     },
     {
       "q": {
@@ -5225,7 +5253,8 @@
         "es": "El sumo nació como rito sintoísta; la sal lanzada antes del combate purifica el círculo.",
         "fr": "Le sumo est né comme rite shintō ; le sel jeté avant le combat purifie le cercle.",
         "ja": "神事に起源をもち、取組前にまく塩は土俵を清めるためのものです。"
-      }
+      },
+      "difficulty": 1
     },
     {
       "q": {
@@ -5260,7 +5289,8 @@
         "es": "Un centenar sigue montándose cada tarde, sirviendo ramen, brochetas y cerveza a desconocidos codo con codo.",
         "fr": "Une centaine s'installent encore chaque soir, servant ramen, brochettes et bière à des inconnus assis coude à coude.",
         "ja": "今も毎夕百軒ほどが並び、見知らぬ客同士が肩を並べてラーメンや串焼きを楽しみます。"
-      }
+      },
+      "difficulty": 6
     },
     {
       "q": {
@@ -5295,7 +5325,8 @@
         "es": "La mayoría de las grandes ciudades japonesas fueron destruidas en 1945; Kioto quedó casi intacta.",
         "fr": "La plupart des grandes villes japonaises furent détruites en 1945 ; Kyoto resta largement intacte.",
         "ja": "1945年、多くの大都市が空襲で焼けましたが、京都はほぼ無傷で残りました。"
-      }
+      },
+      "difficulty": 6
     },
     {
       "q": {
@@ -5330,7 +5361,8 @@
         "es": "La palabra implica que las cosas tienen valor y no deben derrocharse; campañas ecologistas de todo el mundo la han adoptado.",
         "fr": "Le mot exprime que les choses ont une valeur et ne doivent pas être gâchées ; des campagnes écologistes l'ont adopté partout dans le monde.",
         "ja": "物には価値があり粗末にすべきでないという感覚。世界の環境運動にも取り入れられた言葉です。"
-      }
+      },
+      "difficulty": 7
     }
   ],
   "items": {

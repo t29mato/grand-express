@@ -8,7 +8,7 @@ import {
   PropertyRef,
 } from "../../domain/shared-kernel/ids";
 import { GameSession } from "../../domain/game-session/game-session";
-import { QuizQuestion, QuizTier } from "../../domain/quiz/quiz-question";
+import { QuizQuestion } from "../../domain/quiz/quiz-question";
 import { CpuLevel } from "../../domain/cpu/cpu-level";
 import { LocalizedText } from "../../domain/shared-kernel/localized-text";
 import { SeasonDefinition } from "../../domain/season/season-effect";
@@ -36,13 +36,12 @@ export type UiState =
       readonly kind: "cpu-quiz";
       readonly playerName: string;
       readonly question: QuizQuestion;
-      readonly tier: QuizTier;
       readonly chosenOptionIndex: number;
       readonly correct: boolean;
       readonly amount: string;
     }
   | { readonly kind: "choosing-square"; readonly steps: number; readonly reachable: ReadonlyMap<NodeId, readonly NodeId[]> }
-  | { readonly kind: "quiz"; readonly question: QuizQuestion; readonly tier: QuizTier; readonly optionOrder: readonly number[] }
+  | { readonly kind: "quiz"; readonly question: QuizQuestion; readonly optionOrder: readonly number[] }
   /**
    * 回答後の結果表示。正解・自分の選択・増減額・解説を見せる学習の要
    * (docs/40-learning-design/01-quiz-as-learning-device.md 案1)。
@@ -50,7 +49,6 @@ export type UiState =
   | {
       readonly kind: "quiz-result";
       readonly question: QuizQuestion;
-      readonly tier: QuizTier;
       readonly chosenOptionIndex: number;
       readonly correct: boolean;
       readonly amount: string;

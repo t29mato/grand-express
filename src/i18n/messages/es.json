@@ -188,6 +188,8 @@
   "releaseNotesLead": "Lo que ha cambiado para quienes juegan, de lo más reciente a lo más antiguo.",
   "backToGame": "Volver al juego",
   "versionLabel": "Versión",
+  "difficulty": "Dificultad",
+  "optionsReduced": "Se oculta una respuesta incorrecta porque el país es nuevo para ti.",
   "correctAnswerWas": "La respuesta era <b>{0}</b>.",
   "yourAnswer": "Respondiste: <b>{0}</b>",
   "charmSaved": "🧿 Tu amuleto absorbió la pérdida, pero la respuesta era incorrecta.",

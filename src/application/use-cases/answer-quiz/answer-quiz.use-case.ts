@@ -1,7 +1,7 @@
 import { ItemKey, PlayerId } from "../../../domain/shared-kernel/ids";
 import { Money } from "../../../domain/shared-kernel/money";
 import { Random } from "../../../domain/shared-kernel/random";
-import { QuizQuestion, QuizTier } from "../../../domain/quiz/quiz-question";
+import { QuizQuestion } from "../../../domain/quiz/quiz-question";
 import { gradeAnswer } from "../../../domain/quiz/quiz-grading-service";
 import { recordMiss } from "../../../domain/quiz/learning-record";
 import { payUpTo, receiveCash, removeItemAt } from "../../../domain/player/player";
@@ -29,14 +29,13 @@ export function answerQuiz(
   session: GameSession,
   playerId: PlayerId,
   question: QuizQuestion,
-  tier: QuizTier,
   chosenOptionIndex: number,
   random: Random,
 ): AnswerQuizOutcome {
   const player = session.players.find((p) => p.id === playerId);
   if (!player) throw new Error(`Unknown player: ${playerId}`);
 
-  const grade = gradeAnswer(question, tier, chosenOptionIndex, player.knowledgeLevel);
+  const grade = gradeAnswer(question, chosenOptionIndex, player.knowledgeLevel);
   const correct = grade.correct;
 
   /*

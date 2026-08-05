@@ -1,5 +1,5 @@
 import { Money } from "../shared-kernel/money";
-import { QUIZ_TIER_REWARDS, QuizQuestion, QuizTier } from "./quiz-question";
+import { QuizQuestion, quizReward } from "./quiz-question";
 import { DEFAULT_KNOWLEDGE_LEVEL, KNOWLEDGE_TUNING, KnowledgeLevel } from "./knowledge-level";
 
 export interface QuizGradeResult {
@@ -15,11 +15,10 @@ export interface QuizGradeResult {
  */
 export function gradeAnswer(
   question: QuizQuestion,
-  tier: QuizTier,
   chosenOptionIndex: number,
   knowledgeLevel: KnowledgeLevel = DEFAULT_KNOWLEDGE_LEVEL,
 ): QuizGradeResult {
-  const reward = QUIZ_TIER_REWARDS[tier];
+  const reward = quizReward(question.difficulty);
   const tuning = KNOWLEDGE_TUNING[knowledgeLevel];
   const correct = chosenOptionIndex === question.correctOptionIndex;
   const base = correct ? reward.winAmount : reward.loseAmount;
@@ -28,22 +27,3 @@ export function gradeAnswer(
   return { correct, amount: Money.of(base * multiplier) };
 }
 
-/** クイズの山札。使い切ったらシャッフルして再構築する(現行コードの `drawQuiz`)。 */
-export class QuizDeck {
-  private bag: QuizQuestion[] = [];
-
-  constructor(
-    private readonly allQuestions: readonly QuizQuestion[],
-    private readonly shuffle: (items: readonly QuizQuestion[]) => QuizQuestion[],
-  ) {}
-
-  draw(): QuizQuestion {
-    if (this.bag.length === 0) {
-      if (this.allQuestions.length === 0) {
-        throw new Error("No quiz questions available");
-      }
-      this.bag = this.shuffle(this.allQuestions);
-    }
-    return this.bag.pop()!;
-  }
-}

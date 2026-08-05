@@ -849,6 +849,86 @@ aside {
   color: var(--red);
 }
 
+/* クイズの難易度表示 */
+.quiz-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.quiz-stake {
+  color: var(--salt-dim);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.difficulty {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.difficulty-label {
+  color: var(--salt-dim);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.difficulty-value {
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.difficulty-max {
+  color: var(--salt-dim);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.difficulty-dots {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.difficulty-dots i {
+  width: 6px;
+  height: 10px;
+  border-radius: 2px;
+  background: #ffffff22;
+}
+
+.difficulty-easy .difficulty-value {
+  color: var(--green);
+}
+.difficulty-easy .difficulty-dots i.on {
+  background: var(--green);
+}
+
+.difficulty-mid .difficulty-value {
+  color: var(--gold);
+}
+.difficulty-mid .difficulty-dots i.on {
+  background: var(--gold);
+}
+
+.difficulty-hard .difficulty-value {
+  color: #e8447a;
+}
+.difficulty-hard .difficulty-dots i.on {
+  background: #e8447a;
+}
+
+.quiz-hint {
+  margin-top: 10px;
+  color: var(--salt-dim);
+  font-size: 0.8rem;
+}
+
 /* クイズ結果の表示 */
 .quiz-verdict {
   margin-top: 10px;

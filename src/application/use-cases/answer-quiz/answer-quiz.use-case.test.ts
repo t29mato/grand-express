@@ -13,6 +13,7 @@ import { answerQuiz } from "./answer-quiz.use-case";
 
 const question: QuizQuestion = {
   id: QuizQuestionId("q-test"),
+  difficulty: 1,
   question: sameForAllLocales("2+2?"),
   options: ["3", "4"].map(sameForAllLocales),
   correctOptionIndex: 1,
@@ -35,7 +36,7 @@ describe("answerQuiz (実データ: ボリビア)", () => {
   }
 
   it("正解すると獲得額が加算される(ボーナス確率に外れた場合)", () => {
-    const result = answerQuiz(context, session(1000), PlayerId("p1"), question, "low", 1, new FixedRandom(0, 0.99));
+    const result = answerQuiz(context, session(1000), PlayerId("p1"), question, 1, new FixedRandom(0, 0.99));
     expect(result.correct).toBe(true);
     expect(result.amount.amount).toBe(100);
     expect(result.session.players[0].cash.amount).toBe(1100);
@@ -43,7 +44,7 @@ describe("answerQuiz (実データ: ボリビア)", () => {
   });
 
   it("不正解だと減点額が減算される", () => {
-    const result = answerQuiz(context, session(1000), PlayerId("p1"), question, "low", 0, new FixedRandom(0, 0.99));
+    const result = answerQuiz(context, session(1000), PlayerId("p1"), question, 0, new FixedRandom(0, 0.99));
     expect(result.correct).toBe(false);
     expect(result.amount.amount).toBe(30);
     expect(result.session.players[0].cash.amount).toBe(970);
@@ -55,7 +56,7 @@ describe("answerQuiz (実データ: ボリビア)", () => {
     // (docs/40-learning-design/01-quiz-as-learning-device.md 案4)。
     let s = session(1000);
     s = { ...s, players: s.players.map((p) => addItem(p, ItemKey("pacha"))) };
-    const result = answerQuiz(context, s, PlayerId("p1"), question, "low", 0, new FixedRandom(0, 0.99));
+    const result = answerQuiz(context, s, PlayerId("p1"), question, 0, new FixedRandom(0, 0.99));
     expect(result.correct).toBe(false);
     expect(result.savedByCharm).toBe(true);
     expect(result.session.players[0].inventory).not.toContain("pacha");
@@ -65,14 +66,14 @@ describe("answerQuiz (実データ: ボリビア)", () => {
   });
 
   it("不正解の問題はおさらい用に記録され、同じ問題は重複しない", () => {
-    const first = answerQuiz(context, session(1000), PlayerId("p1"), question, "low", 0, new FixedRandom(0, 0.99));
+    const first = answerQuiz(context, session(1000), PlayerId("p1"), question, 0, new FixedRandom(0, 0.99));
     expect(first.session.learningRecord.missedQuestionIds).toEqual([question.id]);
-    const second = answerQuiz(context, first.session, PlayerId("p1"), question, "low", 0, new FixedRandom(0, 0.99));
+    const second = answerQuiz(context, first.session, PlayerId("p1"), question, 0, new FixedRandom(0, 0.99));
     expect(second.session.learningRecord.missedQuestionIds).toEqual([question.id]);
   });
 
   it("正解した問題は記録されない", () => {
-    const result = answerQuiz(context, session(1000), PlayerId("p1"), question, "low", 1, new FixedRandom(0, 0.99));
+    const result = answerQuiz(context, session(1000), PlayerId("p1"), question, 1, new FixedRandom(0, 0.99));
     expect(result.correct).toBe(true);
     expect(result.session.learningRecord.missedQuestionIds).toEqual([]);
   });
@@ -83,30 +84,30 @@ describe("answerQuiz (実データ: ボリビア)", () => {
       players: session(1000).players.map((p) => ({ ...p, knowledgeLevel: level })),
     });
     // low ティアは正解+100 / 不正解-30。
-    expect(answerQuiz(context, withLevel("newcomer"), PlayerId("p1"), question, "low", 1, new FixedRandom(0, 0.99)).amount.amount).toBe(150);
-    expect(answerQuiz(context, withLevel("familiar"), PlayerId("p1"), question, "low", 1, new FixedRandom(0, 0.99)).amount.amount).toBe(100);
-    expect(answerQuiz(context, withLevel("local"), PlayerId("p1"), question, "low", 1, new FixedRandom(0, 0.99)).amount.amount).toBe(75);
-    expect(answerQuiz(context, withLevel("newcomer"), PlayerId("p1"), question, "low", 0, new FixedRandom(0, 0.99)).amount.amount).toBe(15);
-    expect(answerQuiz(context, withLevel("local"), PlayerId("p1"), question, "low", 0, new FixedRandom(0, 0.99)).amount.amount).toBe(45);
+    expect(answerQuiz(context, withLevel("newcomer"), PlayerId("p1"), question, 1, new FixedRandom(0, 0.99)).amount.amount).toBe(150);
+    expect(answerQuiz(context, withLevel("familiar"), PlayerId("p1"), question, 1, new FixedRandom(0, 0.99)).amount.amount).toBe(100);
+    expect(answerQuiz(context, withLevel("local"), PlayerId("p1"), question, 1, new FixedRandom(0, 0.99)).amount.amount).toBe(75);
+    expect(answerQuiz(context, withLevel("newcomer"), PlayerId("p1"), question, 0, new FixedRandom(0, 0.99)).amount.amount).toBe(15);
+    expect(answerQuiz(context, withLevel("local"), PlayerId("p1"), question, 0, new FixedRandom(0, 0.99)).amount.amount).toBe(45);
   });
 
   it("CPUはお守りを持っていても自動セーブされない(現行コードの仕様)", () => {
     let s = session(1000, true);
     s = { ...s, players: s.players.map((p) => addItem(p, ItemKey("pacha"))) };
-    const result = answerQuiz(context, s, PlayerId("p1"), question, "low", 0, new FixedRandom(0, 0.99));
+    const result = answerQuiz(context, s, PlayerId("p1"), question, 0, new FixedRandom(0, 0.99));
     expect(result.correct).toBe(false);
     expect(result.savedByCharm).toBe(false);
   });
 
   it("正解時に低確率でボーナスアイテムを獲得する", () => {
-    const result = answerQuiz(context, session(1000), PlayerId("p1"), question, "low", 1, new FixedRandom(0, 0.01));
+    const result = answerQuiz(context, session(1000), PlayerId("p1"), question, 1, new FixedRandom(0, 0.01));
     expect(result.correct).toBe(true);
     expect(result.bonusItem).not.toBeNull();
     expect(result.session.players[0].inventory).toContain(result.bonusItem);
   });
 
   it("残高不足でも払える分だけ減算される(マイナスにならない)", () => {
-    const result = answerQuiz(context, session(10), PlayerId("p1"), question, "high", 0, new FixedRandom(0, 0.99));
+    const result = answerQuiz(context, session(10), PlayerId("p1"), question, 0, new FixedRandom(0, 0.99));
     expect(result.amount.amount).toBe(10);
     expect(result.session.players[0].cash.amount).toBe(0);
   });

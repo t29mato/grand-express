@@ -14,7 +14,9 @@ import { settleSpiritAfterTurn } from "../move-player/settle-spirit-after-turn.u
 import { applyItemUse, UseItemEffectResult } from "../use-item/use-item.use-case";
 import { resolveMisfortuneStrike, MisfortuneStrikeResult } from "../resolve-misfortune-strike/resolve-misfortune-strike.use-case";
 import { answerQuiz, AnswerQuizOutcome } from "../answer-quiz/answer-quiz.use-case";
-import { QuizQuestion, QuizTier } from "../../../domain/quiz/quiz-question";
+import { QuizDifficulty, QuizQuestion } from "../../../domain/quiz/quiz-question";
+import { rollDifficulty } from "../../../domain/quiz/quiz-selection-service";
+import { KnowledgeLevel } from "../../../domain/quiz/knowledge-level";
 import { landOnMoneySquare, MoneySquareOutcome } from "../land-on-square/money-square.use-case";
 import { landOnCardSquare, CardSquareOutcome } from "../land-on-square/card-square.use-case";
 import { arriveAtDestination, ArriveDestinationOutcome } from "../land-on-square/arrive-destination.use-case";
@@ -35,7 +37,7 @@ export type LandingOutcome =
       readonly outcome: AnswerQuizOutcome;
       /** 出題された問題と、CPUが選んだ選択肢(プレイヤーに見せるため)。 */
       readonly question: QuizQuestion;
-      readonly tier: QuizTier;
+      readonly difficulty: QuizDifficulty;
       readonly chosenOptionIndex: number;
     }
   | { readonly type: "money"; readonly outcome: MoneySquareOutcome }
@@ -61,10 +63,21 @@ export interface CpuTurnResult {
  * 同じ問題が続けて出ないようにするため)。省略時は一様ランダムに選ぶ。
  */
 /**
- * クイズの出題元。人間の手番と同じ山札(`QuizDeck`)から引けるよう、
- * 問題の選び方を外から渡せるようにしている。省略時は一様ランダム。
+ * クイズの出題元。人間の手番と同じ山札から引けるよう、問題の選び方を外から渡す。
+ * 引数は抽選された難易度で、実装側はそれに近い問題を返す。
+ * 省略時は一様ランダムに選ぶ。
  */
-export type DrawQuizQuestion = () => QuizQuestion;
+export type DrawQuizQuestion = (difficulty: QuizDifficulty) => QuizQuestion;
+
+/**
+ * CPUの強さを、出題難易度を決めるための知識レベルとして読み替える。
+ * gentle は「その国に不慣れ」、merciless は「よく知っている」に相当する。
+ */
+const CPU_KNOWLEDGE: Readonly<Record<string, KnowledgeLevel>> = {
+  gentle: "newcomer",
+  normal: "familiar",
+  merciless: "local",
+};
 
 export function cpuTakeTurn(
   context: GameEngineContext,
@@ -147,11 +160,15 @@ export function cpuTakeTurn(
       visit: summariseVisit(beforeVisit, current, playerId, landedNode.cityId),
     };
   } else if (landedNode.type === "quiz") {
-    const question = drawQuestion ? drawQuestion() : context.content.quiz[random.nextInt(context.content.quiz.length)];
+    const knowledge = CPU_KNOWLEDGE[playerAfterStrike.cpuLevel ?? "normal"] ?? "familiar";
+    const difficulty = rollDifficulty(knowledge, random);
+    const question = drawQuestion
+      ? drawQuestion(difficulty)
+      : context.content.quiz[random.nextInt(context.content.quiz.length)];
     const chosenOptionIndex = random.nextInt(question.options.length);
-    const outcome = answerQuiz(context, current, playerId, question, landedNode.tier, chosenOptionIndex, random);
+    const outcome = answerQuiz(context, current, playerId, question, chosenOptionIndex, random);
     current = outcome.session;
-    landing = { type: "quiz", outcome, question, tier: landedNode.tier, chosenOptionIndex };
+    landing = { type: "quiz", outcome, question, difficulty: question.difficulty, chosenOptionIndex };
   } else if (landedNode.type === "blue" || landedNode.type === "red") {
     const outcome = landOnMoneySquare(current, playerId, landedNode.type === "blue", random);
     current = outcome.session;
