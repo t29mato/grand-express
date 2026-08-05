@@ -15,6 +15,21 @@ Vercel CLIの認証は、ブラウザでVercelにログインして同意画面�
 アクセストークンはその結果として発行されるため、**トークンを持たない状態から自動で
 認証を完了する方法は存在しない**。以下のいずれかでこの一度きりの壁を越える必要がある。
 
+### 確認済みの事実(2026-08-05)
+
+推測ではなく、実際に以下を確認している。
+
+- `vercel login` を非対話環境で実行すると、CLIがそれを検出して
+  `status: "action_required"` と認証URL(`verification_uri`)を返して終了する。
+- このマシンには Vercel CLI の設定ディレクトリ
+  (`~/Library/Application Support/com.vercel.cli/`)と `auth.json` が既に存在するが、
+  **有効な資格情報は入っていない**。`vercel whoami` を実行すると
+  `Error: No existing credentials found. Please run 'vercel login' or pass "--token"`
+  が返る(過去にCLIを起動したがログインは完了していない状態)。
+- 環境変数にも `VERCEL_TOKEN` 等は設定されていない。
+
+つまり「既にログイン済みだったので自動で続行できる」という抜け道はない。
+
 ## 方法A: ダッシュボードからインポート(最短・推奨)
 
 1. https://vercel.com/new を開く
