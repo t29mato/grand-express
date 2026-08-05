@@ -67,6 +67,13 @@ WBS([02-wbs.md](./02-wbs.md))の各フェーズに対する実際の実施結果
   として失敗していた。ローカルは既存の `node_modules` を使うため `npm install` 系では
   再現せず、`npm ci` でのみ顕在化する種類の不具合だった。`next-intl` を依存から削除し、
   クリーンなディレクトリで `npm ci` が通ることを検証済み。
+  さらに `npm ci` を通した先で2件目の失敗も判明した: `RootLayout` の props に
+  Next.jsが生成するグローバル型 `LayoutProps<"/">` を使っていたが、この型は
+  `next build` 後の `.next/types` に出力されるため、ビルドより先に `tsc --noEmit` を
+  走らせるCIでは解決できなかった。生成物に依存しない `{ children: ReactNode }` に
+  変更して解消。**2件ともCI(クリーンな環境)でのみ再現する種類の不具合**だった
+  (ローカルには既存の `node_modules` と `.next` が残っているため)。
+  修正後、`lint-typecheck-test-build` と `e2e` の両ジョブがグリーンになったことを確認済み。
   **反省点**: この期間、ローカルでの typecheck/lint/test/build がすべて通ることは
   毎回確認していたが、**CIの結果を確認していなかった**ため、赤いまま複数のコミットを
   重ねてしまった。今後は push 後に `gh run list` でCIの結果まで確認すること。
