@@ -21,6 +21,7 @@ function city(
     fact: sameForAllLocales(""),
     artSceneKey: "scene",
     artGlyphKey: "glyph",
+    labelPosition: "bottom" as const,
     properties: [],
   };
 }

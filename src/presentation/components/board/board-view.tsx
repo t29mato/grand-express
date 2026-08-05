@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { NodeId } from "../../../domain/shared-kernel/ids";
 import { isCityNode } from "../../../domain/board/node";
+import { City } from "../../../domain/board/city";
 import { GameSession, currentPlayer } from "../../../domain/game-session/game-session";
 import { GameEngineContext } from "../../../application/game-engine-context";
 import { useBoardLayout } from "../../hooks/use-board-layout";
@@ -11,16 +12,24 @@ import { useLocale } from "../../i18n/locale-context";
 import { TerrainLayer } from "./terrain-layer";
 
 const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
-const NODE_COLORS: Record<string, string> = {
-  city: "#f6efe2",
-  quiz: "#5b8fe8",
-  blue: "#5b8fe8",
-  red: "#e05252",
-  card: "#f5d31c",
-};
 
 /** 追尾時の視野幅(現行コードの `FOLLOW_W`)。 */
 const FOLLOW_WIDTH = 520;
+
+/** 路線の3層描画(現行コードの `drawBoard` のレール描画と同じ色・線幅)。 */
+const RAIL_LAYERS: readonly { stroke: string; width: number; dash?: string; opacity?: number }[] = [
+  { stroke: "#20180f", width: 11, opacity: 0.55 },
+  { stroke: "#e6dcc6", width: 6 },
+  { stroke: "#3b3123", width: 6, dash: "1.5 10" },
+];
+
+/** 中間マスの色と記号(現行コードの `SQUARE` / `TIER`)。 */
+const SQUARE_STYLES: Record<string, { color: string; glyph: string }> = {
+  blue: { color: "#5b8fe8", glyph: "+" },
+  red: { color: "#e05252", glyph: "−" },
+  card: { color: "#f5d31c", glyph: "★" },
+};
+const TIER_COLORS: Record<string, string> = { low: "#37b3a4", mid: "#f5b31c", high: "#e8447a" };
 
 export interface BoardViewProps {
   context: GameEngineContext;
@@ -78,9 +87,28 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
     <div style={{ position: "relative" }}>
       <svg viewBox={viewBox} className="board-svg" role="img" aria-label="Game board">
         <TerrainLayer terrain={context.content.terrain} projection={context.content.projection} />
+        {/* 路線。legacyの `drawBoard` と同じく、暗い縁取り→明るいレール→枕木のダッシュ
+            という3層で描く。legacyは路線1本ずつ3層を重ねるが、ここでは層ごとに
+            まとめて描くことで、隣り合う路線の縁取りが手前の路線を欠けさせないようにしている
+            (都市の合流点は都市のシンボルが上に載るため見た目の差は出ない)。 */}
         <g className="edges">
-          {edges.map((line, i) => (
-            <line key={i} x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2} stroke="#4a3b7d" strokeWidth={3} />
+          {RAIL_LAYERS.map((layer, layerIndex) => (
+            <g key={layerIndex}>
+              {edges.map((line, i) => (
+                <line
+                  key={i}
+                  x1={line.x1}
+                  y1={line.y1}
+                  x2={line.x2}
+                  y2={line.y2}
+                  stroke={layer.stroke}
+                  strokeWidth={layer.width}
+                  strokeLinecap="round"
+                  strokeDasharray={layer.dash}
+                  opacity={layer.opacity}
+                />
+              ))}
+            </g>
           ))}
         </g>
         <g className="nodes">
@@ -89,7 +117,6 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
             if (!pos) return null;
             const isDestination = isCityNode(node) && node.cityId === session.destination;
             const isChoosable = reachable?.has(id) ?? false;
-            const radius = isCityNode(node) ? 14 : 7;
             return (
               <g
                 key={id}
@@ -97,17 +124,16 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
                 onClick={isChoosable ? () => onChooseNode?.(id) : undefined}
                 style={{ cursor: isChoosable ? "pointer" : "default" }}
               >
-                {isChoosable && <circle r={radius + 8} className="halo" fill="#f5b31c" opacity={0.6} />}
-                <circle
-                  r={radius}
-                  fill={NODE_COLORS[node.type] ?? "#888"}
-                  stroke={isDestination ? "#f5b31c" : "#241a3f"}
-                  strokeWidth={isDestination ? 4 : 1.5}
-                />
-                {isCityNode(node) && (
-                  <text y={-radius - 6} textAnchor="middle" className="city-label">
-                    {tx(context.getCity(node.cityId).name)}
-                  </text>
+                {isChoosable && <circle r={20} className="halo" fill="#f5b31c" opacity={0.6} />}
+                {isCityNode(node) ? (
+                  <CityMarker
+                    city={context.getCity(node.cityId)}
+                    glyphSvg={context.content.artGlyphs[context.getCity(node.cityId).artGlyphKey] ?? ""}
+                    label={tx(context.getCity(node.cityId).name)}
+                    isDestination={isDestination}
+                  />
+                ) : (
+                  <SquareMarker type={node.type} tier={node.type === "quiz" ? node.tier : undefined} />
                 )}
               </g>
             );
@@ -145,5 +171,71 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
         🗺
       </button>
     </div>
+  );
+}
+
+/**
+ * 盤面上の都市マーカー(legacyの `drawBoard` の city ノード描画)。
+ * 影の楕円 → 都市のシンボル(1.25倍) → 円 → 中心の点 → 目的地リング → 都市名
+ * という重ね順・座標・色はlegacyと同じ。
+ */
+function CityMarker({
+  city,
+  glyphSvg,
+  label,
+  isDestination,
+}: {
+  city: City;
+  glyphSvg: string;
+  label: string;
+  isDestination: boolean;
+}) {
+  const scale = 1.25;
+  const glyphWidth = 24 * scale;
+  const labelX = city.labelPosition === "left" ? -17 : city.labelPosition === "right" ? 17 : 0;
+  const labelY = city.labelPosition === "bottom" ? 27 : 5;
+  const anchor = city.labelPosition === "left" ? "end" : city.labelPosition === "right" ? "start" : "middle";
+
+  return (
+    <>
+      <ellipse cx={0} cy={2} rx={19} ry={7} fill="#0e1626" opacity={0.35} />
+      <g
+        transform={`translate(${-glyphWidth / 2},${-6 - 24 * scale}) scale(${scale})`}
+        stroke="#241a10"
+        strokeWidth={0.75}
+        strokeLinejoin="round"
+        dangerouslySetInnerHTML={{ __html: glyphSvg }}
+      />
+      <circle r={11} fill="#f6efe2" stroke="#241a10" strokeWidth={3} />
+      <circle r={4} fill="#241a3f" />
+      {isDestination && (
+        <circle r={26} fill="none" stroke="#f5b31c" strokeWidth={4} strokeDasharray="8 9" className="dest-ring" />
+      )}
+      <text className="city-label" x={labelX} y={labelY} textAnchor={anchor}>
+        {label}
+      </text>
+    </>
+  );
+}
+
+/** 中間マス(クイズ/青/赤/カード)のマーカー(legacyの `SQUARE`/`TIER` の描画)。 */
+function SquareMarker({ type, tier }: { type: string; tier?: string }) {
+  const style = SQUARE_STYLES[type];
+  const color = type === "quiz" ? (TIER_COLORS[tier ?? "low"] ?? "#37b3a4") : (style?.color ?? "#888");
+  const glyph = type === "quiz" ? "?" : (style?.glyph ?? "");
+  return (
+    <>
+      <rect x={-11} y={-11} width={22} height={22} rx={6.5} fill={color} stroke="#20180f" strokeWidth={3} />
+      <text
+        y={5.5}
+        textAnchor="middle"
+        fontSize={type === "quiz" ? 14 : 13}
+        fontWeight={800}
+        fill="#20180f"
+        style={{ pointerEvents: "none" }}
+      >
+        {glyph}
+      </text>
+    </>
   );
 }

@@ -33,6 +33,7 @@ function mapCities(raw: RawCountryContent): City[] {
     properties: city.props.map((p) => ({ name: p.n, cost: p.cost, income: p.inc })),
     artSceneKey: city.bg,
     artGlyphKey: city.mark,
+    labelPosition: city.lp === "l" ? "left" : city.lp === "r" ? "right" : "bottom",
   }));
 }
 

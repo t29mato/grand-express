@@ -26,6 +26,8 @@ const RawCitySchema = z.object({
   bg: z.string(),
   /** 都市イラストのシンボル(グリフ)のキー(`marks` の要素を指す)。 */
   mark: z.string(),
+  /** 盤面上の都市名ラベルの位置("l"=左 / "r"=右 / それ以外=下)。 */
+  lp: z.string().optional(),
 });
 
 const RawItemSchema = z.object({

@@ -21,6 +21,8 @@ export interface City {
   readonly artSceneKey: string;
   /** 都市イラストのシンボルのキー(現行コードの `city.mark`)。 */
   readonly artGlyphKey: string;
+  /** 盤面上の都市名ラベルの位置(現行コードの `city.lp`)。 */
+  readonly labelPosition: "left" | "right" | "bottom";
 }
 
 /** 都市間を結ぶ路線。 */

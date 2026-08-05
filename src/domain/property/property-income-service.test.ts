@@ -68,6 +68,7 @@ function city(id: string, regionId: string, props: Array<[number, number]>): Cit
     fact: sameForAllLocales(""),
     artSceneKey: "scene",
     artGlyphKey: "glyph",
+    labelPosition: "bottom" as const,
     properties: props.map(([cost, income]) => ({ name: sameForAllLocales("p"), cost, income })),
   };
 }

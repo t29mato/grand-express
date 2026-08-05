@@ -30,6 +30,7 @@ function city(): City {
     fact: sameForAllLocales(""),
     artSceneKey: "scene",
     artGlyphKey: "glyph",
+    labelPosition: "bottom" as const,
     properties: [
       { name: sameForAllLocales("p0"), cost: 300, income: 40 },
       { name: sameForAllLocales("p1"), cost: 300, income: 40 },

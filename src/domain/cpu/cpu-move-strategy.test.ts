@@ -42,6 +42,7 @@ function city(id: string, cost: number): City {
     fact: sameForAllLocales(""),
     artSceneKey: "scene",
     artGlyphKey: "glyph",
+    labelPosition: "bottom" as const,
     properties: [{ name: sameForAllLocales("p"), cost, income: 10 }],
   };
 }
