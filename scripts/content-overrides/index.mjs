@@ -5,10 +5,14 @@
  * 抽出後にこの定義をマージする。移行(legacyの再現)が終わった後の
  * 通常のコンテンツ開発は、すべてここに足していく。
  */
+import { BOLIVIA_LAND } from "./bolivia-geography.mjs";
 import { JAPAN_LAND } from "./japan-geography.mjs";
 import { JAPAN_EXTRA_CITIES, JAPAN_EXTRA_EDGES } from "./japan-cities.mjs";
 
 const OVERRIDES = {
+  bolivia: {
+    land: BOLIVIA_LAND,
+  },
   japan: {
     land: JAPAN_LAND,
     extraCities: JAPAN_EXTRA_CITIES,
