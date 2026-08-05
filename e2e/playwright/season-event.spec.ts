@@ -27,6 +27,12 @@ async function takeOneTurn(page: Page): Promise<void> {
     await backToRails.click();
     await page.waitForTimeout(300);
   }
+  // 目的地に到着していたら「次の区間」の案内も閉じる。
+  const fullSteam = page.getByRole("button", { name: "Full steam ahead" });
+  if (await fullSteam.isVisible().catch(() => false)) {
+    await fullSteam.click();
+    await page.waitForTimeout(300);
+  }
 }
 
 test("月が替わると季節イベントのモーダルが表示され、閉じるとプレイを続けられる", async ({ page }) => {

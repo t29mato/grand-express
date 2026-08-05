@@ -1,4 +1,4 @@
-import { NodeId } from "../../domain/shared-kernel/ids";
+import { NodeId, PlayerId } from "../../domain/shared-kernel/ids";
 import { currentPlayer, isOver } from "../../domain/game-session/game-session";
 import { isCityNode } from "../../domain/board/node";
 import { SeasonDefinition } from "../../domain/season/season-effect";
@@ -21,6 +21,32 @@ import { describeCpuTurn, shuffledIndexes } from "./game-store-formatters";
  * `create()` コールバックから呼び出す。
  */
 export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
+  /**
+   * 目的地に到着したとき、町のモーダルを閉じたあとに「次の区間」の案内を出すための保留情報。
+   * 到着でない普通の町への停車では null のまま(=案内を出さずにそのまま手番を終える)。
+   */
+  let pendingNextLeg: { firstTimeSpiritAppearance: boolean; spiritHolderId: PlayerId | null } | null = null;
+
+  /**
+   * 町のモーダルを閉じる。目的地への到着だった場合は、続けて「次の区間」の案内を表示し、
+   * それを閉じるまで手番を終えない(legacyの `arriveDest` が `cityStop` のあとに
+   * もう一度モーダルを出すのと同じ流れ)。
+   */
+  function closeCityModal() {
+    if (pendingNextLeg) {
+      const next = pendingNextLeg;
+      pendingNextLeg = null;
+      set({ ui: { kind: "next-leg", ...next } });
+      return;
+    }
+    finishHumanLandingAndAdvance();
+  }
+
+  /** 「次の区間」の案内を閉じて手番を終える。 */
+  function dismissNextLeg() {
+    finishHumanLandingAndAdvance();
+  }
+
   /**
    * 月替わりイベントのモーダル(ui.kind === "season")を閉じて、保留していた手番の続きに進む。
    * legacyの `applySeason()` は月替わりのたびに(1ヶ月目を除き)モーダルを表示して
@@ -150,6 +176,12 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
       const arrival = arriveAtDestination(context, session, player.id, random);
       soundAdapter.playFanfare();
       set((s) => ({ session: arrival.session, log: pushLog(s, `${player.name} reaches the destination! +${arrival.prize}`, "gold") }));
+      // 到着した町での売買を終えたあと(closeCityModal)に「次の区間」の案内を出すため、
+      // 厄災の神の付与結果をここで控えておく(legacyの `arriveDest` の流れと同じ)。
+      pendingNextLeg = {
+        firstTimeSpiritAppearance: arrival.firstTimeSpiritAppearance,
+        spiritHolderId: arrival.spiritHolderId,
+      };
       set({ ui: { kind: "city", cityId: node.cityId, arrivalPrize: arrival.prize } });
       return;
     }
@@ -183,5 +215,12 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     finishHumanLandingAndAdvance();
   }
 
-  return { runCpuLoopIfNeeded, finishHumanLandingAndAdvance, resolveLandingForHuman, dismissSeasonModal };
+  return {
+    runCpuLoopIfNeeded,
+    finishHumanLandingAndAdvance,
+    resolveLandingForHuman,
+    dismissSeasonModal,
+    closeCityModal,
+    dismissNextLeg,
+  };
 }

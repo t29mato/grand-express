@@ -23,8 +23,14 @@ export type { UiState, LogEntry } from "./game-store-types";
 export { contentRepository, soundAdapter } from "./game-store-dependencies";
 
 export const useGameStore = create<GameStoreState>((set, get) => {
-  const { runCpuLoopIfNeeded, finishHumanLandingAndAdvance, resolveLandingForHuman, dismissSeasonModal } =
-    createTurnFlowActions(set, get);
+  const {
+    runCpuLoopIfNeeded,
+    finishHumanLandingAndAdvance,
+    resolveLandingForHuman,
+    dismissSeasonModal,
+    closeCityModal,
+    dismissNextLeg,
+  } = createTurnFlowActions(set, get);
 
   return {
     context: null,
@@ -140,9 +146,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       finishHumanLandingAndAdvance();
     },
 
-    closeCityModal() {
-      finishHumanLandingAndAdvance();
-    },
+    closeCityModal,
 
     buyCityProperty(index) {
       const { context, session, ui } = get();
@@ -212,6 +216,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     },
 
     dismissSeasonModal,
+    dismissNextLeg,
 
     save() {
       const { session } = get();

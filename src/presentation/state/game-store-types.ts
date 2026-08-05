@@ -3,6 +3,7 @@ import {
   CountryId,
   ItemKey,
   NodeId,
+  PlayerId,
   PropertyIndex,
   PropertyRef,
 } from "../../domain/shared-kernel/ids";
@@ -21,6 +22,12 @@ export type UiState =
   | { readonly kind: "choosing-square"; readonly steps: number; readonly reachable: ReadonlyMap<NodeId, readonly NodeId[]> }
   | { readonly kind: "quiz"; readonly question: QuizQuestion; readonly tier: QuizTier; readonly optionOrder: readonly number[] }
   | { readonly kind: "city"; readonly cityId: CityId; readonly arrivalPrize: number | null }
+  /** 目的地に到着し、次の目的地が抽選された直後の案内(legacyの `arriveDest` 後半のモーダル)。 */
+  | {
+      readonly kind: "next-leg";
+      readonly firstTimeSpiritAppearance: boolean;
+      readonly spiritHolderId: PlayerId | null;
+    }
   | { readonly kind: "season"; readonly season: SeasonDefinition }
   | { readonly kind: "game-over"; readonly outcome: EndGameOutcome };
 
@@ -54,6 +61,8 @@ export interface GameStoreState {
   chooseExactDiceValue(value: number): void;
   /** 月替わりイベントのモーダル(ui.kind === "season")を閉じて手番の続きに進む。 */
   dismissSeasonModal(): void;
+  /** 次の区間の案内(ui.kind === "next-leg")を閉じて手番の続きに進む。 */
+  dismissNextLeg(): void;
   save(): void;
 }
 

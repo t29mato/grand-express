@@ -23,6 +23,12 @@ async function dismissOneModal(page: Page): Promise<boolean> {
     await backToRails.click();
     return true;
   }
+  // 目的地に到着したら「次の区間」の案内を閉じる。
+  const fullSteam = page.getByRole("button", { name: "Full steam ahead" });
+  if (await fullSteam.isVisible().catch(() => false)) {
+    await fullSteam.click();
+    return true;
+  }
   // 月が替わったら季節イベントのモーダルを閉じる。
   const continueButton = page.getByRole("button", { name: "Continue", exact: true });
   if (await continueButton.isVisible().catch(() => false)) {
