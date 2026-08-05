@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { NodeId } from "../../domain/shared-kernel/ids";
 import { isCityNode } from "../../domain/board/node";
+import { CountryProjection } from "../../domain/board/board-projection";
 import { GameEngineContext } from "../../application/game-engine-context";
 
 export interface NodePosition {
@@ -68,6 +69,91 @@ export function useBoardLayout(context: GameEngineContext): ReadonlyMap<NodeId, 
         y: a.y + dy * t + (dx / length) * jitter,
       });
     }
-    return positions;
+    return relaxOverlaps(positions, context, projection);
   }, [context]);
+}
+
+/**
+ * マーカー同士が重ならないよう、最小間隔を保つ位置に緩めていく。
+ *
+ * 都市の座標は経度緯度そのままなので、京都・大阪・奈良のように実際に近い都市は
+ * 盤面上でもマーカーの大きさより近くなり、駒やマスが団子になって何が何だか
+ * 分からなくなる。そこで**近すぎる組を互いに押し離す**処理を数十回まわす。
+ *
+ * 都市は地理を保ちたいので動きにくくし(重み小)、中間マスは自由に動かす。
+ * 路線は隣り合うノードの位置を結んで描くので、押し離しても線は繋がったままになる。
+ */
+function relaxOverlaps(
+  positions: Map<NodeId, NodePosition>,
+  context: GameEngineContext,
+  projection: CountryProjection,
+): Map<NodeId, NodePosition> {
+  // 最小間隔は中間マスの目安距離に比例させる(盤面の縮尺が変わっても破綻しないよう)。
+  const minSeparation = (projection.segmentLength ?? 64) * 0.55;
+  const iterations = 90;
+  /** 都市は動かしにくく、中間マスは動かしやすくする重み。 */
+  const CITY_MOBILITY = 0.25;
+  const SQUARE_MOBILITY = 1;
+
+  const ids = [...positions.keys()];
+  const xs = new Float64Array(ids.length);
+  const ys = new Float64Array(ids.length);
+  const mobility = new Float64Array(ids.length);
+  ids.forEach((id, i) => {
+    const at = positions.get(id)!;
+    xs[i] = at.x;
+    ys[i] = at.y;
+    const node = context.graph.nodes.get(id);
+    mobility[i] = node && isCityNode(node) ? CITY_MOBILITY : SQUARE_MOBILITY;
+  });
+
+  const cell = minSeparation;
+  for (let pass = 0; pass < iterations; pass++) {
+    // 近い組だけを見るために、毎回グリッドに振り分ける(総当たりだと重い)。
+    const buckets = new Map<string, number[]>();
+    for (let i = 0; i < ids.length; i++) {
+      const key = `${Math.floor(xs[i] / cell)},${Math.floor(ys[i] / cell)}`;
+      const bucket = buckets.get(key);
+      if (bucket) bucket.push(i);
+      else buckets.set(key, [i]);
+    }
+
+    let moved = false;
+    for (let i = 0; i < ids.length; i++) {
+      const cx = Math.floor(xs[i] / cell);
+      const cy = Math.floor(ys[i] / cell);
+      for (let gx = cx - 1; gx <= cx + 1; gx++) {
+        for (let gy = cy - 1; gy <= cy + 1; gy++) {
+          for (const j of buckets.get(`${gx},${gy}`) ?? []) {
+            if (j <= i) continue;
+            let dx = xs[j] - xs[i];
+            let dy = ys[j] - ys[i];
+            let distance = Math.hypot(dx, dy);
+            if (distance >= minSeparation) continue;
+            if (distance < 1e-6) {
+              // 完全に重なっている場合は、添字から決まる向きへずらす(毎回同じ結果になるように)。
+              dx = Math.cos(i * 2.399963);
+              dy = Math.sin(i * 2.399963);
+              distance = 1;
+            }
+            const push = (minSeparation - distance) / distance;
+            const total = mobility[i] + mobility[j];
+            if (total === 0) continue;
+            const si = (push * mobility[i]) / total;
+            const sj = (push * mobility[j]) / total;
+            xs[i] -= dx * si;
+            ys[i] -= dy * si;
+            xs[j] += dx * sj;
+            ys[j] += dy * sj;
+            moved = true;
+          }
+        }
+      }
+    }
+    if (!moved) break; // これ以上重なりが無ければ早めに切り上げる
+  }
+
+  const relaxed = new Map<NodeId, NodePosition>();
+  ids.forEach((id, i) => relaxed.set(id, { x: xs[i], y: ys[i] }));
+  return relaxed;
 }

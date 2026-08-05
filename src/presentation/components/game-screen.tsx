@@ -75,7 +75,10 @@ export function GameScreen() {
           />
           {diceRoll && <DiceStage key={diceRoll.nonce} targetValue={diceRoll.value} onDone={clearDiceRoll} />}
         </div>
-        <aside>
+        {/* 1画面に収めるためこの列だけスクロールさせている。スクロールできる領域は
+            キーボードからも操作できる必要があるため tabIndex を与える
+            (中の操作要素が全て無効なとき、ここに辿り着けなくなるのを防ぐ)。 */}
+        <aside tabIndex={0} aria-label={t("travelers")}>
           <DestinationCard context={context} session={session} />
           <DiceButton
             session={session}

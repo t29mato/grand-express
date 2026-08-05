@@ -27,9 +27,11 @@ body {
   font-family: system-ui, "Helvetica Neue", Arial, sans-serif;
   background: var(--night);
   color: var(--salt);
-  min-height: 100vh;
+  /* ゲームは1画面に収める。dvh はモバイルのアドレスバー分を考慮した実表示高さ。 */
+  height: 100dvh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 button {
@@ -79,8 +81,14 @@ h3 {
 .notes-screen {
   flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   padding: 24px 16px;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.notes-screen > .notes-card {
+  margin: 0 auto;
 }
 
 .notes-card {
@@ -139,12 +147,22 @@ h3 {
   color: var(--salt);
 }
 
+/*
+ * 中身が画面より高いときにスクロールできるようにする。
+ * `align-items: center` と `overflow` を併用すると、はみ出した上端が
+ * スクロール範囲の外に出て触れなくなるため、中央寄せは子の `margin: auto` で行う。
+ */
 .setup-screen {
   flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   padding: 24px;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.setup-screen > .card {
+  margin: auto;
 }
 
 .card {
@@ -392,6 +410,9 @@ h3 {
   flex: 1;
   display: flex;
   flex-direction: column;
+  /* 中身(盤面・サイドパネル)がそれぞれ内側で収まるので、画面自体はスクロールしない。 */
+  min-height: 0;
+  overflow: hidden;
 }
 
 header {
@@ -442,11 +463,25 @@ main {
   max-width: 1500px;
   width: 100%;
   margin: 0 auto;
+  /* grid の子が内容の高さで膨らまないようにする(これが無いと画面からはみ出す)。 */
+  min-height: 0;
 }
 
 @media (max-width: 940px) {
   main {
     grid-template-columns: 1fr;
+    /* 縦積みになると1画面に収まらないため、この列をスクロールさせる。
+       盤面は画面の6割程度の高さを確保する。 */
+    overflow-y: auto;
+    grid-auto-rows: min-content;
+  }
+
+  .board-wrap {
+    height: 60dvh;
+  }
+
+  aside {
+    overflow: visible;
   }
 }
 
@@ -456,7 +491,9 @@ main {
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 8px;
-  min-height: 400px;
+  /* 盤面は与えられた高さいっぱいに描く(縦横比ではなく枠に合わせる)。 */
+  min-height: 0;
+  overflow: hidden;
 }
 
 /* 3Dダイス演出(legacyのbounce物理をrequestAnimationFrameで移植)。
@@ -548,7 +585,7 @@ main {
 
 .board-svg {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   cursor: grab;
   touch-action: none; /* ドラッグでのパンを妨げないようブラウザ既定のスクロールを無効化 */
@@ -621,6 +658,9 @@ aside {
   flex-direction: column;
   gap: 12px;
   min-width: 0;
+  /* 情報が増えても画面全体を伸ばさず、この列の中だけでスクロールさせる。 */
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .dest-card {

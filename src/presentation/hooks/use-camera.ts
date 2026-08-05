@@ -18,6 +18,13 @@ function easeInOutQuad(k: number): number {
 export interface UseCameraOptions {
   boardWidth: number;
   boardHeight: number;
+  /**
+   * 盤面を表示している枠の縦横比(幅÷高さ)。
+   * viewBox の高さをこの比から決めることで、**枠いっぱいに盤面が映る**。
+   * 盤面自身の比で決めると、枠と比が違うぶん上下または左右に余白が出てしまう。
+   * 未測定(0以下)のときは盤面の比にフォールバックする。
+   */
+  viewportAspect?: number;
 }
 
 export interface UseCameraResult {
@@ -39,7 +46,9 @@ export interface UseCameraResult {
 
 const MIN_WIDTH = 300;
 
-export function useCamera({ boardWidth, boardHeight }: UseCameraOptions): UseCameraResult {
+export function useCamera({ boardWidth, boardHeight, viewportAspect }: UseCameraOptions): UseCameraResult {
+  // viewBox の高さを決める比。枠が未測定なら盤面の比を使う。
+  const aspect = viewportAspect && viewportAspect > 0 ? viewportAspect : boardWidth / boardHeight;
   const [camera, setCamera] = useState<CameraState>({ x: 0, y: 0, w: boardWidth });
   const animationRef = useRef<number | null>(null);
   // アニメーション中でも常に最新のカメラ位置を参照できるようにする
@@ -53,13 +62,13 @@ export function useCamera({ boardWidth, boardHeight }: UseCameraOptions): UseCam
 
   const clamp = useCallback(
     (x: number, y: number, w: number): [number, number] => {
-      const h = (w * boardHeight) / boardWidth;
+      const h = w / aspect;
       return [
         Math.max(-40, Math.min(boardWidth - w + 40, x)),
         Math.max(-40, Math.min(boardHeight - h + 40, y)),
       ];
     },
-    [boardWidth, boardHeight],
+    [boardWidth, boardHeight, aspect],
   );
 
   const stopAnimation = useCallback(() => {
@@ -72,7 +81,7 @@ export function useCamera({ boardWidth, boardHeight }: UseCameraOptions): UseCam
   const animateTo = useCallback(
     (cx: number, cy: number, wRequested: number, ms = 560) => {
       const w = Math.max(MIN_WIDTH, Math.min(boardWidth + 80, wRequested));
-      const h = (w * boardHeight) / boardWidth;
+      const h = w / aspect;
       const [x, y] = clamp(cx - w / 2, cy - h / 2, w);
 
       stopAnimation();
@@ -91,7 +100,7 @@ export function useCamera({ boardWidth, boardHeight }: UseCameraOptions): UseCam
       };
       animationRef.current = requestAnimationFrame(step);
     },
-    [boardWidth, boardHeight, clamp, applyCamera, stopAnimation],
+    [boardWidth, aspect, clamp, applyCamera, stopAnimation],
   );
 
   const panByPixels = useCallback(
@@ -109,19 +118,19 @@ export function useCamera({ boardWidth, boardHeight }: UseCameraOptions): UseCam
     (factor: number) => {
       const current = cameraRef.current;
       const w = Math.max(MIN_WIDTH, Math.min(boardWidth + 80, current.w * factor));
-      const h = (w * boardHeight) / boardWidth;
+      const h = w / aspect;
       // 表示中心を保ったままズームする。
       const cx = current.x + current.w / 2;
-      const cy = current.y + (current.w * boardHeight) / boardWidth / 2;
+      const cy = current.y + current.w / aspect / 2;
       const [x, y] = clamp(cx - w / 2, cy - h / 2, w);
       applyCamera({ x, y, w });
     },
-    [boardWidth, boardHeight, clamp, applyCamera],
+    [boardWidth, aspect, clamp, applyCamera],
   );
 
   useEffect(() => stopAnimation, [stopAnimation]);
 
-  const viewBoxHeight = (camera.w * boardHeight) / boardWidth;
+  const viewBoxHeight = camera.w / aspect;
   const viewBox = `${camera.x.toFixed(1)} ${camera.y.toFixed(1)} ${camera.w.toFixed(1)} ${viewBoxHeight.toFixed(1)}`;
 
   return { camera, viewBox, animateTo, panByPixels, zoomBy, stopAnimation };
