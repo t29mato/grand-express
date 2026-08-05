@@ -11,6 +11,8 @@ interface LocaleContextValue {
   t: (key: string, ...args: (string | number)[]) => string;
   /** コンテンツの{en,es,fr,ja}から現在の言語の文字列を取り出す(現行コードの `tx()`)。 */
   tx: (text: LocalizedText | undefined) => string;
+  /** 月名を取得する(0=4月 … 11=3月。現行コードの `MONTHS[month%12]` に対応)。 */
+  monthName: (monthIndex: number) => string;
 }
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
@@ -29,6 +31,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
         return formatMessage(template, ...args);
       },
       tx: (text) => (text ? text[locale] : ""),
+      monthName: (monthIndex) => messages.months[((monthIndex % 12) + 12) % 12] ?? "",
     };
   }, [locale]);
 

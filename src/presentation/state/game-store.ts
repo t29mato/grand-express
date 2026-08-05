@@ -23,7 +23,8 @@ export type { UiState, LogEntry } from "./game-store-types";
 export { contentRepository, soundAdapter } from "./game-store-dependencies";
 
 export const useGameStore = create<GameStoreState>((set, get) => {
-  const { runCpuLoopIfNeeded, finishHumanLandingAndAdvance, resolveLandingForHuman } = createTurnFlowActions(set, get);
+  const { runCpuLoopIfNeeded, finishHumanLandingAndAdvance, resolveLandingForHuman, dismissSeasonModal } =
+    createTurnFlowActions(set, get);
 
   return {
     context: null,
@@ -209,6 +210,8 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const reachable = reachableNodesFor(context, session, player.id, value);
       set({ ui: { kind: "choosing-square", steps: value, reachable } });
     },
+
+    dismissSeasonModal,
 
     save() {
       const { session } = get();

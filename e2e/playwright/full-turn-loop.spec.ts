@@ -9,18 +9,38 @@ import { test, expect, Page } from "@playwright/test";
  * (docs/90-migration/03-as-built-status.md 参照)。
  */
 
-async function resolveWhateverAppeared(page: Page): Promise<void> {
+/** 開いているモーダルを1つ閉じる。閉じるものがなければ false を返す。 */
+async function dismissOneModal(page: Page): Promise<boolean> {
   // クイズが出たら適当な選択肢をクリックする。
   const quizOption = page.locator(".btn.opt").first();
   if (await quizOption.isVisible().catch(() => false)) {
     await quizOption.click();
-    return;
+    return true;
   }
   // 町に停まったら(購入はせず)そのまま戻る。
   const backToRails = page.getByRole("button", { name: "Back to the rails" });
   if (await backToRails.isVisible().catch(() => false)) {
     await backToRails.click();
-    return;
+    return true;
+  }
+  // 月が替わったら季節イベントのモーダルを閉じる。
+  const continueButton = page.getByRole("button", { name: "Continue", exact: true });
+  if (await continueButton.isVisible().catch(() => false)) {
+    await continueButton.click();
+    return true;
+  }
+  return false;
+}
+
+/**
+ * 1ターンの間に複数のモーダルが連鎖して出ることがある
+ * (例: 町に停まる → 閉じる → 月が替わって季節イベント)。
+ * 開いているものがなくなるまで順に閉じる。
+ */
+async function resolveWhateverAppeared(page: Page): Promise<void> {
+  for (let i = 0; i < 4; i++) {
+    if (!(await dismissOneModal(page))) return;
+    await page.waitForTimeout(200);
   }
 }
 

@@ -9,6 +9,7 @@ import {
 import { GameSession } from "../../domain/game-session/game-session";
 import { QuizQuestion, QuizTier } from "../../domain/quiz/quiz-question";
 import { CpuLevel } from "../../domain/cpu/cpu-level";
+import { SeasonDefinition } from "../../domain/season/season-effect";
 import { GameEngineContext } from "../../application/game-engine-context";
 import { PlayerSetup } from "../../application/use-cases/start-game/start-game.use-case";
 import { EndGameOutcome } from "../../application/use-cases/end-game/end-game.use-case";
@@ -20,6 +21,7 @@ export type UiState =
   | { readonly kind: "choosing-square"; readonly steps: number; readonly reachable: ReadonlyMap<NodeId, readonly NodeId[]> }
   | { readonly kind: "quiz"; readonly question: QuizQuestion; readonly tier: QuizTier; readonly optionOrder: readonly number[] }
   | { readonly kind: "city"; readonly cityId: CityId; readonly arrivalPrize: number | null }
+  | { readonly kind: "season"; readonly season: SeasonDefinition }
   | { readonly kind: "game-over"; readonly outcome: EndGameOutcome };
 
 export interface LogEntry {
@@ -50,6 +52,8 @@ export interface GameStoreState {
   buyCityItem(key: ItemKey): void;
   useInventoryItem(index: number): void;
   chooseExactDiceValue(value: number): void;
+  /** 月替わりイベントのモーダル(ui.kind === "season")を閉じて手番の続きに進む。 */
+  dismissSeasonModal(): void;
   save(): void;
 }
 
