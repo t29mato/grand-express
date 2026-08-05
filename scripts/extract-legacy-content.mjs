@@ -114,6 +114,23 @@ for (const locale of LOCALES) {
 const INLINE_UI_STRINGS = {
   // 盤面右下の凡例の「町」の行(legacy: drawBoard() の rows 最終要素)。
   townSq: "Town · story, business, items|Pueblo · historia, negocios, objetos|Ville · histoire, affaires, objets|町・解説・物件・アイテム",
+
+  // ゲームログ用。legacyはログ文字列を都度組み立てていた(UIカタログに無い)ため、
+  // このアプリでログを多言語化するにあたり新たに用意したもの。
+  newJourneyLog: "🚂 A new journey begins!|🚂 ¡Comienza un nuevo viaje!|🚂 Un nouveau voyage commence !|🚂 新しい旅がはじまりました!",
+  spiritRests: "The spirit rests this turn.|El espíritu descansa este turno.|L'esprit se repose ce tour-ci.|厄災の神はこのターン休んでいる。",
+  spiritBlockedLog: "🧿 <b>{0}</b> wards off the misfortune!|🧿 ¡<b>{0}</b> ahuyenta la desgracia!|🧿 <b>{0}</b> conjure le malheur !|🧿 <b>{0}</b> は厄災を跳ね返した!",
+  spiritStruckLog: "👹 <b>{0}</b> is struck by misfortune.|👹 <b>{0}</b> sufre una desgracia.|👹 <b>{0}</b> subit un malheur.|👹 <b>{0}</b> は厄災に見舞われた。",
+  cardEmptyLog: "🟡 <b>{0}</b> finds nothing.|🟡 <b>{0}</b> no encuentra nada.|🟡 <b>{0}</b> ne trouve rien.|🟡 <b>{0}</b> は何も見つけられなかった。",
+  arriveDestLog: "🎯 <b>{0}</b> reaches the destination! <span style='color:var(--gold)'>+{1}</span>|🎯 ¡<b>{0}</b> llega al destino! <span style='color:var(--gold)'>+{1}</span>|🎯 <b>{0}</b> atteint la destination ! <span style='color:var(--gold)'>+{1}</span>|🎯 <b>{0}</b> が目的地に到着! <span style='color:var(--gold)'>+{1}</span>",
+  investCpuLog: "📈 <b>{0}</b> invests in <b>{1}</b>.|📈 <b>{0}</b> invierte en <b>{1}</b>.|📈 <b>{0}</b> investit dans <b>{1}</b>.|📈 <b>{0}</b> は <b>{1}</b> に投資した。",
+  cpuPassesTown: "<b>{0}</b> passes through the town without buying.|<b>{0}</b> pasa por el pueblo sin comprar.|<b>{0}</b> traverse la ville sans rien acheter.|<b>{0}</b> は何も買わずに町を通り過ぎた。",
+  boughtItemLog: "🛍 <b>{0}</b> buys {1} <b>{2}</b>.|🛍 <b>{0}</b> compra {1} <b>{2}</b>.|🛍 <b>{0}</b> achète {1} <b>{2}</b>.|🛍 <b>{0}</b> は {1} <b>{2}</b> を買った。",
+  usedItemLog: "✨ <b>{0}</b> uses {1} <b>{2}</b>.|✨ <b>{0}</b> usa {1} <b>{2}</b>.|✨ <b>{0}</b> utilise {1} <b>{2}</b>.|✨ <b>{0}</b> は {1} <b>{2}</b> を使った。",
+  seasonLog: "{0} <b>{1}</b>|{0} <b>{1}</b>|{0} <b>{1}</b>|{0} <b>{1}</b>",
+  gameOverLog: "🏁 The journey is over!|🏁 ¡El viaje ha terminado!|🏁 Le voyage est terminé !|🏁 旅が終わりました!",
+  cpuTurnBadge: "{0} is playing…|{0} está jugando…|{0} joue…|{0} が手番を進めています…",
+  saveDone: "Your journey has been saved to this browser. You can close the tab and continue later.|Tu viaje se ha guardado en este navegador. Puedes cerrar la pestaña y continuar más tarde.|Ton voyage est enregistré dans ce navigateur. Tu peux fermer l'onglet et reprendre plus tard.|この旅をブラウザに保存しました。タブを閉じても、あとから続きから遊べます。",
 };
 for (const [key, source] of Object.entries(INLINE_UI_STRINGS)) {
   const [en, es, fr, ja] = source.split("|");

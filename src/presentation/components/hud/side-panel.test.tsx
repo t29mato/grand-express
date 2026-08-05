@@ -9,8 +9,8 @@ describe("TravelLog", () => {
       <LocaleProvider>
         <TravelLog
           log={[
-            { id: 2, text: "second", tone: "good" },
-            { id: 1, text: "first", tone: "neutral" },
+            { id: 2, key: "second", args: [], tone: "good" },
+            { id: 1, key: "first", args: [], tone: "neutral" },
           ]}
         />
       </LocaleProvider>,

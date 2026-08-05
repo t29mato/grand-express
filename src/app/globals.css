@@ -206,6 +206,8 @@ header {
   display: flex;
   align-items: center;
   gap: 12px;
+  /* 言語切替を常設したぶん幅を取るため、狭い画面では折り返す。 */
+  flex-wrap: wrap;
 }
 
 header h1 {
@@ -216,7 +218,25 @@ header h1 {
 .hdr-right {
   margin-left: auto;
   display: flex;
+  align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 560px) {
+  header {
+    padding: 8px 12px;
+  }
+
+  .hdr-right {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .hdr-right .btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
 }
 
 main {
@@ -336,6 +356,12 @@ main {
   width: 100%;
   height: auto;
   display: block;
+  cursor: grab;
+  touch-action: none; /* ドラッグでのパンを妨げないようブラウザ既定のスクロールを無効化 */
+}
+
+.board-svg.dragging {
+  cursor: grabbing;
 }
 
 .cam-toggle {
@@ -629,6 +655,59 @@ aside {
   margin-bottom: 12px;
 }
 
+.prop button,
+.shop button {
+  border: none;
+  border-radius: 8px;
+  padding: 9px 13px;
+  font-weight: 800;
+  font-size: 0.88rem;
+  background: var(--gold);
+  color: var(--night2);
+  white-space: nowrap;
+}
+
+.prop button.up {
+  background: var(--teal);
+  color: #10231f;
+}
+
+.prop button.sell {
+  background: var(--panel);
+  color: var(--salt-dim);
+  border: 1px solid var(--line);
+}
+
+.shop button {
+  background: var(--teal);
+  color: #10231f;
+  padding: 9px 14px;
+}
+
+.prop button:disabled,
+.shop button:disabled {
+  background: #00000030;
+  color: var(--salt-dim);
+  cursor: default;
+  border: none;
+}
+
+.prop.owned {
+  border-style: dashed;
+}
+
+.prop .lv {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--night2);
+  font-weight: 800;
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: 6px;
+  margin-left: 6px;
+  vertical-align: 1px;
+}
+
 .plist,
 .shoplist {
   display: flex;
@@ -645,7 +724,13 @@ aside {
   background: var(--panel2);
   border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 9px 11px;
+  padding: 10px 12px;
+  flex-wrap: wrap;
+}
+
+.shop {
+  background: #37b3a41a;
+  border-color: var(--teal);
 }
 
 .prop .info,

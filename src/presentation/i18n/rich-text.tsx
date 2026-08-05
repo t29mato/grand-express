@@ -2,12 +2,22 @@ import { Fragment, ReactNode } from "react";
 
 /**
  * legacyの文言カタログ(`src/i18n/messages/*.json`)には `<b>` や
- * `<span class='money'>` のような限定的なインラインタグを含む文字列がある
- * (例: `startBody`)。`dangerouslySetInnerHTML` は使わず、この2種類のタグだけを
- * 対象にした最小限のトークナイザーでReact要素へ変換する。
- * それ以外のタグは対象外(現状のカタログで実際に使われている範囲に絞っている)。
+ * `<span class='money'>`、`<span style='color:var(--gold)'>` のような限定的な
+ * インラインタグを含む文字列がある。`dangerouslySetInnerHTML` は使わず、
+ * 実際にカタログで使われている範囲のタグだけをReact要素へ変換する。
+ *
+ * `style` 属性はカタログ内で使われている `color: var(--x)` 形式のみを受け付け、
+ * それ以外の宣言は無視する(想定外の値をそのままCSSに流し込まないため)。
  */
-const TAG_RE = /<b>(.*?)<\/b>|<span class='money'>(.*?)<\/span>/g;
+const TAG_RE = /<b>(.*?)<\/b>|<span\s+(class|style)=['"]([^'"]*)['"]\s*>(.*?)<\/span>/g;
+
+/** `color: var(--gold)` のような単純な色指定だけを取り出す。 */
+const COLOR_RE = /^\s*color\s*:\s*(var\(--[a-z0-9-]+\)|#[0-9a-f]{3,8}|[a-z]+)\s*;?\s*$/i;
+
+function parseStyle(value: string): { color: string } | undefined {
+  const match = COLOR_RE.exec(value);
+  return match ? { color: match[1] } : undefined;
+}
 
 export function renderRichText(text: string): ReactNode {
   const nodes: ReactNode[] = [];
@@ -19,12 +29,20 @@ export function renderRichText(text: string): ReactNode {
     if (match.index > lastIndex) {
       nodes.push(<Fragment key={key++}>{text.slice(lastIndex, match.index)}</Fragment>);
     }
-    if (match[1] !== undefined) {
-      nodes.push(<b key={key++}>{match[1]}</b>);
-    } else {
+    const [, boldContent, attrName, attrValue, spanContent] = match;
+    if (boldContent !== undefined) {
+      nodes.push(<b key={key++}>{boldContent}</b>);
+    } else if (attrName === "class") {
       nodes.push(
-        <span className="money" key={key++}>
-          {match[2]}
+        <span className={attrValue} key={key++}>
+          {spanContent}
+        </span>,
+      );
+    } else {
+      const style = parseStyle(attrValue);
+      nodes.push(
+        <span style={style} key={key++}>
+          {spanContent}
         </span>,
       );
     }

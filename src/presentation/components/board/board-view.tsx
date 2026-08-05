@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { NodeId } from "../../../domain/shared-kernel/ids";
 import { isCityNode } from "../../../domain/board/node";
 import { City } from "../../../domain/board/city";
@@ -43,8 +43,12 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
   const positions = useBoardLayout(context);
   const { tx, t } = useLocale();
   const { boardWidth, boardHeight } = context.content.projection;
-  const { viewBox, animateTo } = useCamera({ boardWidth, boardHeight });
+  const { viewBox, animateTo, panByPixels, zoomBy, stopAnimation } = useCamera({ boardWidth, boardHeight });
   const [overview, setOverview] = useState(false);
+  const svgRef = useRef<SVGSVGElement>(null);
+  // ドラッグ中の直前のポインタ位置。null ならドラッグしていない。
+  const dragRef = useRef<{ x: number; y: number; pointerId: number; moved: boolean } | null>(null);
+  const [dragging, setDragging] = useState(false);
 
   const activeLocation = currentPlayer(session).location;
 
@@ -58,6 +62,59 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
     if (pos) animateTo(pos.x, pos.y, FOLLOW_WIDTH);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeLocation, overview, boardWidth, boardHeight, positions]);
+
+  // 盤面のドラッグによる手動パン(現行コードの `pointerdown`/`pointermove` 実装の移植)。
+  // 移動可能なマスの上から始まったドラッグは、マスのクリックを妨げないよう無視する。
+  const handlePointerDown = useCallback(
+    (e: React.PointerEvent<SVGSVGElement>) => {
+      if (e.button !== 0 && e.pointerType === "mouse") return;
+      if ((e.target as Element).closest?.("[data-choosable='true']")) return;
+      dragRef.current = { x: e.clientX, y: e.clientY, pointerId: e.pointerId, moved: false };
+      setDragging(true);
+      stopAnimation();
+      svgRef.current?.setPointerCapture(e.pointerId);
+    },
+    [stopAnimation],
+  );
+
+  const handlePointerMove = useCallback(
+    (e: React.PointerEvent<SVGSVGElement>) => {
+      const drag = dragRef.current;
+      if (!drag) return;
+      const dx = e.clientX - drag.x;
+      const dy = e.clientY - drag.y;
+      if (!drag.moved && Math.hypot(dx, dy) < 3) return; // 微小な揺れはクリック扱いのまま
+      drag.moved = true;
+      drag.x = e.clientX;
+      drag.y = e.clientY;
+      // SVG要素の `clientWidth` はブラウザによって0を返すことがあるため、
+      // レイアウト済みの実寸が確実に取れる getBoundingClientRect を使う。
+      panByPixels(dx, dy, svgRef.current?.getBoundingClientRect().width ?? 0);
+    },
+    [panByPixels],
+  );
+
+  const endDrag = useCallback((e: React.PointerEvent<SVGSVGElement>) => {
+    const drag = dragRef.current;
+    if (!drag) return;
+    dragRef.current = null;
+    setDragging(false);
+    svgRef.current?.releasePointerCapture?.(e.pointerId);
+  }, []);
+
+  // ホイール/ピンチでのズーム。ページのスクロールを奪わないよう、
+  // 盤面上でのホイール操作のときだけ preventDefault する。
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      stopAnimation();
+      zoomBy(e.deltaY > 0 ? 1.12 : 1 / 1.12);
+    };
+    svg.addEventListener("wheel", onWheel, { passive: false });
+    return () => svg.removeEventListener("wheel", onWheel);
+  }, [zoomBy, stopAnimation]);
 
   const edges = useMemo(() => {
     const lines: { x1: number; y1: number; x2: number; y2: number }[] = [];
@@ -86,7 +143,17 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
 
   return (
     <div style={{ position: "relative" }}>
-      <svg viewBox={viewBox} className="board-svg" role="img" aria-label="Game board">
+      <svg
+        ref={svgRef}
+        viewBox={viewBox}
+        className={`board-svg${dragging ? " dragging" : ""}`}
+        role="img"
+        aria-label="Game board"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+      >
         <TerrainLayer terrain={context.content.terrain} projection={context.content.projection} />
         {/* 路線。legacyの `drawBoard` と同じく、暗い縁取り→明るいレール→枕木のダッシュ
             という3層で描く。legacyは路線1本ずつ3層を重ねるが、ここでは層ごとに
@@ -122,8 +189,9 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
               <g
                 key={id}
                 transform={`translate(${pos.x}, ${pos.y})`}
+                data-choosable={isChoosable ? "true" : undefined}
                 onClick={isChoosable ? () => onChooseNode?.(id) : undefined}
-                style={{ cursor: isChoosable ? "pointer" : "default" }}
+                style={{ cursor: isChoosable ? "pointer" : "inherit" }}
               >
                 {isChoosable && <circle r={20} className="halo" fill="#f5b31c" opacity={0.6} />}
                 {isCityNode(node) ? (

@@ -6,6 +6,7 @@ import { GameEngineContext } from "../../../application/game-engine-context";
 import { economyContextFor } from "../../../application/economy-context";
 import { useLocale } from "../../i18n/locale-context";
 import { CityArt } from "../city/city-art";
+import { renderRichText } from "../../i18n/rich-text";
 import { formatMoney } from "../../i18n/money-format";
 import { LogEntry } from "../../state/game-store";
 
@@ -102,14 +103,16 @@ export function ItemBar({
 }
 
 export function TravelLog({ log }: { log: readonly LogEntry[] }) {
-  const { t } = useLocale();
+  const { t, tx } = useLocale();
+  // ログの引数に含まれる{en,es,fr,ja}(都市名・物件名など)は表示時に現在の言語で解決する。
+  const resolve = (arg: LogEntry["args"][number]) => (typeof arg === "object" ? tx(arg) : arg);
   return (
     <div className="card">
       <h2>{t("travelLog")}</h2>
       <div id="log">
         {log.map((entry) => (
           <p key={entry.id} className={entry.tone}>
-            {entry.text}
+            {renderRichText(t(entry.key, ...entry.args.map(resolve)))}
           </p>
         ))}
       </div>

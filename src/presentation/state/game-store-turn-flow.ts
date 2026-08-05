@@ -1,7 +1,6 @@
 import { NodeId, PlayerId } from "../../domain/shared-kernel/ids";
 import { currentPlayer, isOver } from "../../domain/game-session/game-session";
 import { isCityNode } from "../../domain/board/node";
-import { SeasonDefinition } from "../../domain/season/season-effect";
 import { advanceTurn } from "../../application/use-cases/advance-turn/advance-turn.use-case";
 import { settleSpiritAfterTurn } from "../../application/use-cases/move-player/settle-spirit-after-turn.use-case";
 import { landOnMoneySquare } from "../../application/use-cases/land-on-square/money-square.use-case";
@@ -10,13 +9,21 @@ import { arriveAtDestination } from "../../application/use-cases/land-on-square/
 import { cpuTakeTurn } from "../../application/use-cases/cpu-take-turn/cpu-take-turn.use-case";
 import { endGame } from "../../application/use-cases/end-game/end-game.use-case";
 import { saveGame } from "../../application/use-cases/save-load-game/save-load-game.use-case";
+import { formatMoney } from "../i18n/money-format";
 import { GetGameState, LogEntry, SetGameState } from "./game-store-types";
 import { gameRepository, random, soundAdapter } from "./game-store-dependencies";
-import { newLogId, pushLog } from "./game-store-log";
+import { logEntry, pushLog } from "./game-store-log";
 import { describeCpuTurn, shuffledIndexes } from "./game-store-formatters";
 
+/** CPUの1手番を見せるための間(ミリ秒)。人がログと駒の動きを追える速さにする。 */
+const CPU_TURN_DELAY_MS = 1100;
+
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 /**
- * 手番進行(CPUループ・人間の着地後処理・着地内容の解決)を担う3つの関数。
+ * 手番進行(CPUループ・人間の着地後処理・着地内容の解決)。
  * zustandの `set`/`get` を閉じ込めるため、ファクトリ関数として `game-store.ts` の
  * `create()` コールバックから呼び出す。
  */
@@ -28,10 +35,17 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
   let pendingNextLeg: { firstTimeSpiritAppearance: boolean; spiritHolderId: PlayerId | null } | null = null;
 
   /**
-   * 町のモーダルを閉じる。目的地への到着だった場合は、続けて「次の区間」の案内を表示し、
-   * それを閉じるまで手番を終えない(legacyの `arriveDest` が `cityStop` のあとに
-   * もう一度モーダルを出すのと同じ流れ)。
+   * CPUループの世代番号。`cancelCpuLoop()`(セットアップに戻る等)で繰り上げることで、
+   * 進行中のループが次のステップで自分が古い世代だと気づいて止まれるようにする。
    */
+  let cpuLoopGeneration = 0;
+  let cpuLoopRunning = false;
+
+  function cancelCpuLoop() {
+    cpuLoopGeneration++;
+    cpuLoopRunning = false;
+  }
+
   function closeCityModal() {
     if (pendingNextLeg) {
       const next = pendingNextLeg;
@@ -42,18 +56,10 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     finishHumanLandingAndAdvance();
   }
 
-  /** 「次の区間」の案内を閉じて手番を終える。 */
   function dismissNextLeg() {
     finishHumanLandingAndAdvance();
   }
 
-  /**
-   * 月替わりイベントのモーダル(ui.kind === "season")を閉じて、保留していた手番の続きに進む。
-   * legacyの `applySeason()` は月替わりのたびに(1ヶ月目を除き)モーダルを表示して
-   * `await` で止まるが、季節効果自体(収入補正・現金増減等)はモーダル表示に関わらず
-   * 即座に反映される。このアプリでも `advanceTurn` の時点で効果はすでに `session` へ
-   * 反映済みなので、ここでの再開処理は「表示を閉じてCPUの自動進行を再開する」だけでよい。
-   */
   function dismissSeasonModal() {
     const { context, session } = get();
     if (!context || !session) return;
@@ -64,60 +70,105 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     }
     set({ ui: { kind: "idle" } });
     saveGame(gameRepository, session);
-    runCpuLoopIfNeeded();
+    void runCpuLoopIfNeeded();
   }
 
-  /** 現在の手番プレイヤーがCPUである限り、自動で手番を進め続ける。 */
-  function runCpuLoopIfNeeded() {
-    const { context, session } = get();
-    if (!context || !session || isOver(session)) return;
+  /** 複数行のログをまとめて先頭に積む。 */
+  function appendLogs(entries: readonly LogEntry[]) {
+    if (entries.length === 0) return;
+    set((s) => ({ log: [...[...entries].reverse(), ...s.log].slice(0, 60) }));
+  }
 
-    let current = session;
-    const logs: LogEntry[] = [];
-    let guard = 0;
-    let pendingSeason: SeasonDefinition | undefined;
-    while (!isOver(current) && currentPlayer(current).isCpu && guard < 50) {
-      guard++;
-      const player = currentPlayer(current);
-      const result = cpuTakeTurn(context, current, player.id, random);
-      current = result.session;
-      logs.push({ id: newLogId(), text: describeCpuTurn(player.name, result), tone: "neutral" });
-      if (result.strike?.type === "struck") soundAdapter.playDoom(result.strike.wasKing);
-      const movedPlayer = current.players.find((p) => p.id === player.id);
-      if (movedPlayer) soundAdapter.setRegion(context.getNode(movedPlayer.location).regionId);
+  /**
+   * 現在の手番プレイヤーがCPUである限り、自動で手番を進め続ける。
+   *
+   * legacyはCPUの手番でも駒の移動アニメーションやモーダルを `await` していたため、
+   * 何が起きたか目で追えた。このアプリではドメイン処理自体は同期的に完了するので、
+   * **1手番ごとに間を置き、その都度セッションとログを反映**することで同じ体験にする
+   * (一瞬で全CPUの手番が終わってしまう問題への対応)。
+   */
+  async function runCpuLoopIfNeeded(): Promise<void> {
+    if (cpuLoopRunning) return;
+    const generation = ++cpuLoopGeneration;
+    cpuLoopRunning = true;
+    try {
+      let guard = 0;
+      while (guard++ < 200) {
+        if (generation !== cpuLoopGeneration) return;
+        const { context, session } = get();
+        if (!context || !session || isOver(session)) break;
+        const player = currentPlayer(session);
+        if (!player.isCpu) break;
 
-      if (isOver(current)) break;
-      if (!result.extraTurn) {
-        const adv = advanceTurn(context, current, random);
-        current = adv.session;
-        for (const q of adv.quarterlyIncome) {
-          logs.push({ id: newLogId(), text: `${q.playerId} +${q.amount} (quarterly income)`, tone: "good" });
+        // 「◯◯が手番を進めています」を出してから、少し待って結果を見せる。
+        set({ ui: { kind: "cpu-turn", playerName: player.name } });
+        await delay(CPU_TURN_DELAY_MS * 0.35);
+        if (generation !== cpuLoopGeneration) return;
+
+        const result = cpuTakeTurn(context, session, player.id, random);
+        if (result.strike?.type === "struck") soundAdapter.playDoom(result.strike.wasKing);
+        const moved = result.session.players.find((p) => p.id === player.id);
+        if (moved) soundAdapter.setRegion(context.getNode(moved.location).regionId);
+        if (result.landing?.type === "destination") soundAdapter.playFanfare();
+        else if (result.landing?.type === "quiz") {
+          if (result.landing.outcome.correct) soundAdapter.playRight();
+          else soundAdapter.playWrong();
+        } else if (result.landing?.type === "money") {
+          if (result.landing.outcome.gained) soundAdapter.playCoin();
+          else soundAdapter.playWrong();
         }
+
+        set({ session: result.session });
+        appendLogs(describeCpuTurn(context, player.name, result));
+        await delay(CPU_TURN_DELAY_MS * 0.65);
+        if (generation !== cpuLoopGeneration) return;
+
+        const afterTurn = get().session;
+        if (!afterTurn) return;
+        if (isOver(afterTurn)) break;
+        if (result.extraTurn) continue;
+
+        const adv = advanceTurn(context, afterTurn, random);
+        set({ session: adv.session });
+        appendLogs(
+          adv.quarterlyIncome.map((q) => {
+            const name = adv.session.players.find((p) => p.id === q.playerId)?.name ?? String(q.playerId);
+            return logEntry("quarterly", [name, formatMoney(q.amount, context.content.currency)], "good");
+          }),
+        );
+
+        if (isOver(adv.session)) break;
         if (adv.season) {
-          // 月替わりイベントのモーダルを表示するため、CPUの連続進行を一旦止める
-          // (ダイアログはdismissSeasonModal経由で閉じられ、そこから自動進行を再開する)。
-          pendingSeason = adv.season;
-          break;
+          // 月替わりイベントのモーダルを表示するため、ここで一旦止める
+          // (閉じられたら dismissSeasonModal から自動進行を再開する)。
+          soundAdapter.playChime();
+          appendLogs([logEntry("seasonLog", [adv.season.emoji, adv.season.name], "gold")]);
+          set({ ui: { kind: "season", season: adv.season } });
+          saveGame(gameRepository, adv.session);
+          return;
         }
       }
-    }
 
-    if (isOver(current)) {
-      const outcome = endGame(context, current);
-      soundAdapter.playWin();
-      set((s) => ({ session: outcome.session, ui: { kind: "game-over", outcome }, log: [...logs.reverse(), ...s.log].slice(0, 60) }));
-      return;
-    }
+      if (generation !== cpuLoopGeneration) return;
+      const { context, session } = get();
+      if (!context || !session) return;
 
-    if (pendingSeason) {
-      soundAdapter.playChime();
-      set((s) => ({ session: current, ui: { kind: "season", season: pendingSeason! }, log: [...logs.reverse(), ...s.log].slice(0, 60) }));
-      saveGame(gameRepository, current);
-      return;
-    }
+      if (isOver(session)) {
+        const outcome = endGame(context, session);
+        soundAdapter.playWin();
+        set((s) => ({
+          session: outcome.session,
+          ui: { kind: "game-over", outcome },
+          log: pushLog(s, "gameOverLog", [], "gold"),
+        }));
+        return;
+      }
 
-    set((s) => ({ session: current, ui: { kind: "idle" }, log: [...logs.reverse(), ...s.log].slice(0, 60) }));
-    saveGame(gameRepository, current);
+      set({ ui: { kind: "idle" } });
+      saveGame(gameRepository, session);
+    } finally {
+      if (generation === cpuLoopGeneration) cpuLoopRunning = false;
+    }
   }
 
   function finishHumanLandingAndAdvance() {
@@ -129,13 +180,17 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     if (isOver(current)) {
       const outcome = endGame(context, current);
       soundAdapter.playWin();
-      set((s) => ({ session: outcome.session, ui: { kind: "game-over", outcome }, log: pushLog(s, "Game over", "gold") }));
+      set((s) => ({
+        session: outcome.session,
+        ui: { kind: "game-over", outcome },
+        log: pushLog(s, "gameOverLog", [], "gold"),
+      }));
       return;
     }
 
     if (player.hasExtraTurn) {
       current = { ...current, players: current.players.map((p) => (p.id === player.id ? { ...p, hasExtraTurn: false } : p)) };
-      set((s) => ({ session: current, ui: { kind: "idle" }, log: pushLog(s, `${player.name} takes an extra turn!`, "gold") }));
+      set((s) => ({ session: current, ui: { kind: "idle" }, log: pushLog(s, "extraTurn", [player.name], "gold") }));
       return;
     }
 
@@ -143,17 +198,14 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     current = adv.session;
     if (adv.season) soundAdapter.playChime();
     set((s) => {
-      let log = s.log;
-      if (adv.season) {
-        log = [{ id: newLogId(), text: `${adv.season.emoji} ${adv.season.name.en}`, tone: "gold" }, ...log];
-      }
+      const extra: LogEntry[] = [];
+      if (adv.season) extra.push(logEntry("seasonLog", [adv.season.emoji, adv.season.name], "gold"));
       for (const q of adv.quarterlyIncome) {
-        log = [{ id: newLogId(), text: `+${q.amount} quarterly income (${q.playerId})`, tone: "good" }, ...log];
+        const name = current.players.find((p) => p.id === q.playerId)?.name ?? String(q.playerId);
+        extra.push(logEntry("quarterly", [name, formatMoney(q.amount, context.content.currency)], "good"));
       }
-      // 月が替わったらイベントのモーダルを表示し、閉じられるまで手番の進行を止める
-      // (legacyの `applySeason()` が `await modalOnce(...)` で止めるのと同じ挙動)。
       const ui = adv.season ? ({ kind: "season", season: adv.season } as const) : ({ kind: "idle" } as const);
-      return { session: current, ui, log: log.slice(0, 60) };
+      return { session: current, ui, log: [...extra.reverse(), ...s.log].slice(0, 60) };
     });
 
     if (isOver(current)) {
@@ -162,8 +214,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
       return;
     }
     saveGame(gameRepository, current);
-    // 季節モーダルを出した場合は、閉じたとき(dismissSeasonModal)に自動進行を再開する。
-    if (!adv.season) runCpuLoopIfNeeded();
+    if (!adv.season) void runCpuLoopIfNeeded();
   }
 
   function resolveLandingForHuman(landedNodeId: NodeId) {
@@ -171,13 +222,15 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     if (!context || !session) return;
     const player = currentPlayer(session);
     const node = context.getNode(landedNodeId);
+    const money = (amount: number) => formatMoney(amount, context.content.currency);
 
     if (isCityNode(node) && node.cityId === session.destination) {
       const arrival = arriveAtDestination(context, session, player.id, random);
       soundAdapter.playFanfare();
-      set((s) => ({ session: arrival.session, log: pushLog(s, `${player.name} reaches the destination! +${arrival.prize}`, "gold") }));
-      // 到着した町での売買を終えたあと(closeCityModal)に「次の区間」の案内を出すため、
-      // 厄災の神の付与結果をここで控えておく(legacyの `arriveDest` の流れと同じ)。
+      set((s) => ({
+        session: arrival.session,
+        log: pushLog(s, "arriveDestLog", [player.name, money(arrival.prize)], "gold"),
+      }));
       pendingNextLeg = {
         firstTimeSpiritAppearance: arrival.firstTimeSpiritAppearance,
         spiritHolderId: arrival.spiritHolderId,
@@ -196,7 +249,12 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
       else soundAdapter.playWrong();
       set((s) => ({
         session: outcome.session,
-        log: pushLog(s, outcome.gained ? `${player.name} +${outcome.amount}` : `${player.name} -${outcome.amount}`, outcome.gained ? "good" : "bad"),
+        log: pushLog(
+          s,
+          outcome.gained ? "blueLog" : "redLog",
+          [player.name, money(outcome.amount)],
+          outcome.gained ? "good" : "bad",
+        ),
       }));
       finishHumanLandingAndAdvance();
       return;
@@ -204,7 +262,13 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     if (node.type === "card") {
       const outcome = landOnCardSquare(context, session, player.id, random);
       soundAdapter.playChime();
-      set((s) => ({ session: outcome.session, log: pushLog(s, outcome.itemKey ? `${player.name} found ${outcome.itemKey}` : `${player.name} found nothing`, "gold") }));
+      const item = outcome.itemKey ? context.content.items.find((i) => i.key === outcome.itemKey) : undefined;
+      set((s) => ({
+        session: outcome.session,
+        log: item
+          ? pushLog(s, "cardLog", [player.name, item.emoji, item.name], "gold")
+          : pushLog(s, "cardEmptyLog", [player.name], "neutral"),
+      }));
       finishHumanLandingAndAdvance();
       return;
     }
@@ -217,6 +281,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
 
   return {
     runCpuLoopIfNeeded,
+    cancelCpuLoop,
     finishHumanLandingAndAdvance,
     resolveLandingForHuman,
     dismissSeasonModal,

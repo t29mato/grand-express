@@ -163,5 +163,19 @@
     "Febrero",
     "Marzo"
   ],
-  "townSq": "Pueblo · historia, negocios, objetos"
+  "townSq": "Pueblo · historia, negocios, objetos",
+  "newJourneyLog": "🚂 ¡Comienza un nuevo viaje!",
+  "spiritRests": "El espíritu descansa este turno.",
+  "spiritBlockedLog": "🧿 ¡<b>{0}</b> ahuyenta la desgracia!",
+  "spiritStruckLog": "👹 <b>{0}</b> sufre una desgracia.",
+  "cardEmptyLog": "🟡 <b>{0}</b> no encuentra nada.",
+  "arriveDestLog": "🎯 ¡<b>{0}</b> llega al destino! <span style='color:var(--gold)'>+{1}</span>",
+  "investCpuLog": "📈 <b>{0}</b> invierte en <b>{1}</b>.",
+  "cpuPassesTown": "<b>{0}</b> pasa por el pueblo sin comprar.",
+  "boughtItemLog": "🛍 <b>{0}</b> compra {1} <b>{2}</b>.",
+  "usedItemLog": "✨ <b>{0}</b> usa {1} <b>{2}</b>.",
+  "seasonLog": "{0} <b>{1}</b>",
+  "gameOverLog": "🏁 ¡El viaje ha terminado!",
+  "cpuTurnBadge": "{0} está jugando…",
+  "saveDone": "Tu viaje se ha guardado en este navegador. Puedes cerrar la pestaña y continuar más tarde."
 }

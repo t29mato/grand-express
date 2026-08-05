@@ -163,5 +163,19 @@
     "2月",
     "3月"
   ],
-  "townSq": "町・解説・物件・アイテム"
+  "townSq": "町・解説・物件・アイテム",
+  "newJourneyLog": "🚂 新しい旅がはじまりました!",
+  "spiritRests": "厄災の神はこのターン休んでいる。",
+  "spiritBlockedLog": "🧿 <b>{0}</b> は厄災を跳ね返した!",
+  "spiritStruckLog": "👹 <b>{0}</b> は厄災に見舞われた。",
+  "cardEmptyLog": "🟡 <b>{0}</b> は何も見つけられなかった。",
+  "arriveDestLog": "🎯 <b>{0}</b> が目的地に到着! <span style='color:var(--gold)'>+{1}</span>",
+  "investCpuLog": "📈 <b>{0}</b> は <b>{1}</b> に投資した。",
+  "cpuPassesTown": "<b>{0}</b> は何も買わずに町を通り過ぎた。",
+  "boughtItemLog": "🛍 <b>{0}</b> は {1} <b>{2}</b> を買った。",
+  "usedItemLog": "✨ <b>{0}</b> は {1} <b>{2}</b> を使った。",
+  "seasonLog": "{0} <b>{1}</b>",
+  "gameOverLog": "🏁 旅が終わりました!",
+  "cpuTurnBadge": "{0} が手番を進めています…",
+  "saveDone": "この旅をブラウザに保存しました。タブを閉じても、あとから続きから遊べます。"
 }

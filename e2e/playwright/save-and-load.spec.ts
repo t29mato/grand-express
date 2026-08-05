@@ -7,7 +7,9 @@ test("セーブしてリロードすると、続きから遊べる", async ({ pa
   await page.getByRole("button", { name: "Depart!" }).click();
 
   await page.getByRole("button", { name: "Save", exact: true }).click();
-  await expect(page.getByText("Journey saved.")).toBeVisible();
+  // セーブ完了はモーダルで知らせる(ログにも同じ文言が残る)。
+  await expect(page.getByRole("heading", { name: "Journey saved." })).toBeVisible();
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
 
   await page.reload();
   await expect(page.getByText("Choose your journey")).toBeVisible();

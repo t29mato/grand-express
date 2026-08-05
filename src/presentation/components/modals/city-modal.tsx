@@ -61,7 +61,8 @@ export function CityModal({
               <div className="prop owned" key={i}>
                 <div className="info">
                   <div className="nm">
-                    {tx(property.name)} Lv{level}
+                    {tx(property.name)}
+                    <span className="lv">Lv{level}</span>
                   </div>
                   <div className="sub">+{formatMoney(incomeAtLevel(property.income, level), currency)}/qtr</div>
                 </div>
@@ -71,7 +72,7 @@ export function CityModal({
                   </button>
                 )}
                 <button className="sell" onClick={() => onSell(ref)}>
-                  {t("sellFor", sellValueOf(property.cost, level))}
+                  {t("sellFor", formatMoney(sellValueOf(property.cost, level), currency))}
                 </button>
               </div>
             );

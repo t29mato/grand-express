@@ -2,13 +2,12 @@
 
 import { useState } from "react";
 import { CountryId } from "../../../domain/shared-kernel/ids";
-import { Locale } from "../../../domain/shared-kernel/localized-text";
 import { CpuLevel } from "../../../domain/cpu/cpu-level";
 import { PlayerSetup } from "../../../application/use-cases/start-game/start-game.use-case";
 import { COUNTRY_INDEX } from "../../../infrastructure/content/country-index";
 import { useGameStore } from "../../state/game-store";
 import { useLocale } from "../../i18n/locale-context";
-import { SUPPORTED_LOCALES } from "../../i18n/messages";
+import { LocaleSwitch } from "../hud/locale-switch";
 
 const MONTH_OPTIONS = [12, 24, 36];
 
@@ -18,7 +17,7 @@ interface SlotConfig {
 }
 
 export function SetupScreen() {
-  const { t, tx, locale, setLocale } = useLocale();
+  const { t, tx } = useLocale();
   const startNewGame = useGameStore((s) => s.startNewGame);
   const loadSavedGame = useGameStore((s) => s.loadSavedGame);
   const hasSavedGame = useGameStore((s) => s.hasSavedGame);
@@ -46,13 +45,7 @@ export function SetupScreen() {
   return (
     <div className="setup-screen">
       <div className="card">
-        <div className="langseg">
-          {SUPPORTED_LOCALES.map((l) => (
-            <button key={l} className={l === locale ? "on" : ""} onClick={() => setLocale(l as Locale)}>
-              {l.toUpperCase()}
-            </button>
-          ))}
-        </div>
+        <LocaleSwitch />
         <h1 style={{ marginTop: 12 }}>{t("setupTitle")}</h1>
         <p className="tagline">{t("tagline")}</p>
 
@@ -124,7 +117,7 @@ export function SetupScreen() {
           <div className="seg">
             {MONTH_OPTIONS.map((m) => (
               <button key={m} className={months === m ? "on" : ""} onClick={() => setMonths(m)}>
-                {m / 12} {m === 12 ? t("y1") : `${m / 12}y`}
+                {t(`y${m / 12}`)}
               </button>
             ))}
           </div>

@@ -163,5 +163,19 @@
     "Février",
     "Mars"
   ],
-  "townSq": "Ville · histoire, affaires, objets"
+  "townSq": "Ville · histoire, affaires, objets",
+  "newJourneyLog": "🚂 Un nouveau voyage commence !",
+  "spiritRests": "L'esprit se repose ce tour-ci.",
+  "spiritBlockedLog": "🧿 <b>{0}</b> conjure le malheur !",
+  "spiritStruckLog": "👹 <b>{0}</b> subit un malheur.",
+  "cardEmptyLog": "🟡 <b>{0}</b> ne trouve rien.",
+  "arriveDestLog": "🎯 <b>{0}</b> atteint la destination ! <span style='color:var(--gold)'>+{1}</span>",
+  "investCpuLog": "📈 <b>{0}</b> investit dans <b>{1}</b>.",
+  "cpuPassesTown": "<b>{0}</b> traverse la ville sans rien acheter.",
+  "boughtItemLog": "🛍 <b>{0}</b> achète {1} <b>{2}</b>.",
+  "usedItemLog": "✨ <b>{0}</b> utilise {1} <b>{2}</b>.",
+  "seasonLog": "{0} <b>{1}</b>",
+  "gameOverLog": "🏁 Le voyage est terminé !",
+  "cpuTurnBadge": "{0} joue…",
+  "saveDone": "Ton voyage est enregistré dans ce navigateur. Tu peux fermer l'onglet et reprendre plus tard."
 }

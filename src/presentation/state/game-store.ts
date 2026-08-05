@@ -1,7 +1,7 @@
 "use client";
 
 import { create } from "zustand";
-import { GameSessionId, ItemKey, cityIdToNodeId } from "../../domain/shared-kernel/ids";
+import { GameSessionId, ItemKey, PropertyRef, cityIdToNodeId } from "../../domain/shared-kernel/ids";
 import { currentPlayer } from "../../domain/game-session/game-session";
 import { createGameEngineContext } from "../../application/game-engine-context";
 import { startGame } from "../../application/use-cases/start-game/start-game.use-case";
@@ -15,8 +15,9 @@ import { resolveMisfortuneStrike } from "../../application/use-cases/resolve-mis
 import { loadGame, saveGame } from "../../application/use-cases/save-load-game/save-load-game.use-case";
 import { GameStoreState } from "./game-store-types";
 import { contentRepository, gameRepository, random, soundAdapter } from "./game-store-dependencies";
-import { newLogId, pushLog } from "./game-store-log";
+import { logEntry, pushLog } from "./game-store-log";
 import { describeStrike } from "./game-store-formatters";
+import { formatMoney } from "../i18n/money-format";
 import { createTurnFlowActions } from "./game-store-turn-flow";
 
 export type { UiState, LogEntry } from "./game-store-types";
@@ -25,6 +26,7 @@ export { contentRepository, soundAdapter } from "./game-store-dependencies";
 export const useGameStore = create<GameStoreState>((set, get) => {
   const {
     runCpuLoopIfNeeded,
+    cancelCpuLoop,
     finishHumanLandingAndAdvance,
     resolveLandingForHuman,
     dismissSeasonModal,
@@ -57,7 +59,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       });
       // legacyのstartGame()と同様、出発ストーリーのモーダル(intro)をまず表示し、
       // それを閉じてから(dismissIntro経由で)CPUの自動進行を開始する。
-      set({ context, session, ui: { kind: "intro" }, log: [{ id: newLogId(), text: "New journey started!", tone: "gold" }] });
+      set({ context, session, ui: { kind: "intro" }, log: [logEntry("newJourneyLog", [], "gold")] });
       await soundAdapter.setCountry(config.countryId);
       soundAdapter.setRegion(context.getNode(currentPlayer(session).location).regionId);
       saveGame(gameRepository, session);
@@ -73,15 +75,18 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       if (!saved) return;
       const content = await contentRepository.load(saved.countryId);
       const context = createGameEngineContext(content);
-      set({ context, session: saved, ui: { kind: "idle" }, log: [{ id: newLogId(), text: "Journey restored from your last save.", tone: "gold" }] });
+      set({ context, session: saved, ui: { kind: "idle" }, log: [logEntry("resumed", [], "gold")] });
       await soundAdapter.setCountry(saved.countryId);
       soundAdapter.setRegion(context.getNode(currentPlayer(saved).location).regionId);
       runCpuLoopIfNeeded();
     },
 
     backToSetup() {
+      cancelCpuLoop();
       set({ context: null, session: null, ui: { kind: "setup" }, log: [] });
     },
+
+    cancelCpuLoop,
 
     rollForHumanTurn() {
       const { context, session } = get();
@@ -90,14 +95,14 @@ export const useGameStore = create<GameStoreState>((set, get) => {
 
       if (player.skipNextTurn) {
         const cleared = { ...session, players: session.players.map((p) => (p.id === player.id ? { ...p, skipNextTurn: false } : p)) };
-        set((s) => ({ session: cleared, log: pushLog(s, `${player.name} is stuck and loses the turn.`, "bad") }));
+        set((s) => ({ session: cleared, log: pushLog(s, "stuck", [player.name], "bad") }));
         finishHumanLandingAndAdvance();
         return;
       }
       if (session.misfortune.level > 0 && session.misfortune.holderId === player.id) {
         const strike = resolveMisfortuneStrike(context, session, player.id, random);
         if (strike.result.type === "struck") soundAdapter.playDoom(strike.result.wasKing);
-        set((s) => ({ session: strike.session, log: pushLog(s, describeStrike(player.name, strike.result), "bad") }));
+        set((s) => ({ session: strike.session, log: [describeStrike(player.name, strike.result, context.content.currency), ...s.log].slice(0, 60) }));
         if (currentPlayer(strike.session).skipNextTurn) {
           const cleared = { ...strike.session, players: strike.session.players.map((p) => (p.id === player.id ? { ...p, skipNextTurn: false } : p)) };
           set({ session: cleared });
@@ -123,7 +128,8 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       set((s) => {
         let log = s.log;
         for (const evt of moveResult.spiritPassEvents) {
-          log = [{ id: newLogId(), text: `The spirit passes to ${evt.toPlayerId}!`, tone: "bad" }, ...log];
+          const to = session.players.find((p) => p.id === evt.toPlayerId)?.name ?? String(evt.toPlayerId);
+          log = [logEntry("passLog", [context.content.spirit.emoji, player.name, to], "bad"), ...log];
         }
         return { session: moveResult.session, log };
       });
@@ -141,7 +147,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       set((s) => ({
         session: outcome.session,
         ui: { kind: "idle" },
-        log: pushLog(s, outcome.correct ? `${player.name} answered correctly! +${outcome.amount.amount}` : `${player.name} answered incorrectly. -${outcome.amount.amount}`, outcome.correct ? "good" : "bad"),
+        log: pushLog(s, outcome.correct ? "quizOkLog" : "quizNoLog", [player.name, formatMoney(outcome.amount.amount, context.content.currency)], outcome.correct ? "good" : "bad"),
       }));
       finishHumanLandingAndAdvance();
     },
@@ -155,7 +161,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const result = buyProperty(context, session, player.id, ui.cityId, index);
       if (result.ok) {
         soundAdapter.playBuy();
-        set((s) => ({ session: result.value.session, log: pushLog(s, `${player.name} bought a property`, "gold") }));
+        set((s) => ({ session: result.value.session, log: pushLog(s, "boughtLog", [player.name, context.getCity(ui.cityId).properties[index].name, context.getCity(ui.cityId).name, formatMoney(context.getCity(ui.cityId).properties[index].cost, context.content.currency)], "gold") }));
       }
     },
 
@@ -166,7 +172,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const result = investInProperty(context, session, player.id, ref);
       if (result.ok) {
         soundAdapter.playBuy();
-        set((s) => ({ session: result.value.session, log: pushLog(s, `${player.name} invested in a property`, "gold") }));
+        set((s) => ({ session: result.value.session, log: pushLog(s, "investCpuLog", [player.name, context.getCity(PropertyRef.parse(ref).cityId).properties[PropertyRef.parse(ref).index].name], "gold") }));
       }
     },
 
@@ -177,7 +183,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const result = sellPropertyUseCase(context, session, player.id, ref);
       if (result.ok) {
         soundAdapter.playCoin();
-        set((s) => ({ session: result.value.session, log: pushLog(s, `${player.name} sold a property`, "bad") }));
+        set((s) => ({ session: result.value.session, log: pushLog(s, "sellLog", [player.name, context.getCity(PropertyRef.parse(ref).cityId).properties[PropertyRef.parse(ref).index].name, ""], "bad") }));
       }
     },
 
@@ -188,7 +194,8 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const result = buyStallItem(context, session, player.id, ui.cityId, key);
       if (result.ok) {
         soundAdapter.playBuy();
-        set((s) => ({ session: result.value, log: pushLog(s, `${player.name} bought an item`, "gold") }));
+        const item = context.content.items.find((i) => i.key === key);
+        set((s) => ({ session: result.value, log: pushLog(s, "boughtItemLog", [player.name, item?.emoji ?? "", item?.name ?? key], "gold") }));
       }
     },
 
@@ -196,8 +203,10 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const { context, session } = get();
       if (!context || !session) return;
       const player = currentPlayer(session);
+      // 使用したアイテムはこの後インベントリから消えるため、先に控えておく。
+      const usedItem = context.content.items.find((i) => i.key === player.inventory[index]);
       const result = applyItemUse(context, session, player.id, index, random);
-      set((s) => ({ session: result.session, log: pushLog(s, `${player.name} used an item`, "gold") }));
+      set((s) => ({ session: result.session, log: pushLog(s, "usedItemLog", [player.name, usedItem?.emoji ?? "", usedItem?.name ?? ""], "gold") }));
 
       if (result.result.type === "teleport-to-destination") {
         resolveLandingForHuman(cityIdToNodeId(result.session.destination));
@@ -222,7 +231,11 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const { session } = get();
       if (!session) return;
       saveGame(gameRepository, session);
-      set((s) => ({ log: pushLog(s, "Journey saved.", "gold") }));
+      set((s) => ({ log: pushLog(s, "saved", [], "gold"), ui: { kind: "saved" } }));
+    },
+
+    dismissSavedModal() {
+      set({ ui: { kind: "idle" } });
     },
   };
 });

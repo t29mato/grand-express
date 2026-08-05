@@ -9,7 +9,9 @@ import { BoardView } from "./board/board-view";
 import { DiceButton } from "./hud/dice-button";
 import { DiceStage } from "./hud/dice-stage";
 import { DestinationCard, ItemBar, PlayersPanel, TravelLog } from "./hud/side-panel";
+import { LocaleSwitch } from "./hud/locale-switch";
 import { IntroModal } from "./modals/intro-modal";
+import { SavedModal } from "./modals/saved-modal";
 import { SeasonModal } from "./modals/season-modal";
 import { NextLegModal } from "./modals/next-leg-modal";
 import { QuizModal } from "./modals/quiz-modal";
@@ -36,6 +38,7 @@ export function GameScreen() {
   const dismissIntro = useGameStore((s) => s.dismissIntro);
   const dismissSeasonModal = useGameStore((s) => s.dismissSeasonModal);
   const dismissNextLeg = useGameStore((s) => s.dismissNextLeg);
+  const dismissSavedModal = useGameStore((s) => s.dismissSavedModal);
   const { t } = useLocale();
 
   // ダイスロール直後(idle等 → choosing-square への遷移)を検知し、
@@ -60,6 +63,7 @@ export function GameScreen() {
       <header>
         <h1>Grand Express</h1>
         <div className="hdr-right">
+          <LocaleSwitch />
           <button className="btn ghost" onClick={save}>
             {t("save")}
           </button>
@@ -80,13 +84,19 @@ export function GameScreen() {
         </div>
         <aside>
           <DestinationCard context={context} session={session} />
-          <DiceButton session={session} disabled={player.isCpu || ui.kind !== "idle"} onRoll={rollForHumanTurn} />
+          <DiceButton
+            session={session}
+            disabled={player.isCpu || ui.kind !== "idle"}
+            cpuTurnPlayerName={ui.kind === "cpu-turn" ? ui.playerName : undefined}
+            onRoll={rollForHumanTurn}
+          />
           <ItemBar context={context} session={session} onUseItem={useInventoryItem} />
           <PlayersPanel context={context} session={session} />
           <TravelLog log={log} />
         </aside>
       </main>
 
+      {ui.kind === "saved" && <SavedModal onClose={dismissSavedModal} />}
       {ui.kind === "intro" && <IntroModal context={context} session={session} onDepart={dismissIntro} />}
       {ui.kind === "season" && <SeasonModal season={ui.season} onContinue={dismissSeasonModal} />}
       {ui.kind === "next-leg" && (

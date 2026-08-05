@@ -7,10 +7,13 @@ import { useLocale } from "../../i18n/locale-context";
 export function DiceButton({
   session,
   disabled,
+  cpuTurnPlayerName,
   onRoll,
 }: {
   session: GameSession;
   disabled: boolean;
+  /** CPUが手番を進めている場合、そのプレイヤー名。人間の手番なら undefined。 */
+  cpuTurnPlayerName?: string;
   onRoll: () => void;
 }) {
   const { t } = useLocale();
@@ -27,12 +30,14 @@ export function DiceButton({
   return (
     <div className="card">
       <div className="turn-row">
-        <button id="die" className={rolling ? "rolling" : ""} disabled={disabled} onClick={handleClick}>
+        <button id="die" className={rolling || cpuTurnPlayerName ? "rolling" : ""} disabled={disabled} onClick={handleClick}>
           🎲
         </button>
         <div>
-          <div className="turn-name">{t("turnOf", player.name)}</div>
-          <div className="turn-hint">{player.isCpu ? t("thinking") : t("rollHint")}</div>
+          <div className="turn-name">{t("turnOf", cpuTurnPlayerName ?? player.name)}</div>
+          <div className="turn-hint">
+            {cpuTurnPlayerName ? t("cpuTurnBadge", cpuTurnPlayerName) : player.isCpu ? t("thinking") : t("rollHint")}
+          </div>
         </div>
       </div>
     </div>

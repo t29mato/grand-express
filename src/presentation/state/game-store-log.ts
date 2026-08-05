@@ -1,4 +1,4 @@
-import { GameStoreState, LogEntry } from "./game-store-types";
+import { GameStoreState, LogArg, LogEntry } from "./game-store-types";
 
 let nextLogId = 1;
 
@@ -6,6 +6,20 @@ export function newLogId(): number {
   return nextLogId++;
 }
 
-export function pushLog(state: GameStoreState, text: string, tone: LogEntry["tone"] = "neutral"): LogEntry[] {
-  return [{ id: newLogId(), text, tone }, ...state.log].slice(0, 60);
+/** ログ1行を組み立てる(表示時に翻訳するため、キーと引数のまま保持する)。 */
+export function logEntry(
+  key: string,
+  args: readonly LogArg[] = [],
+  tone: LogEntry["tone"] = "neutral",
+): LogEntry {
+  return { id: newLogId(), key, args, tone };
+}
+
+export function pushLog(
+  state: GameStoreState,
+  key: string,
+  args: readonly LogArg[] = [],
+  tone: LogEntry["tone"] = "neutral",
+): LogEntry[] {
+  return [logEntry(key, args, tone), ...state.log].slice(0, 60);
 }
