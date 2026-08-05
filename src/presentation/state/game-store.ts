@@ -1,218 +1,29 @@
 "use client";
 
 import { create } from "zustand";
-import {
-  CityId,
-  CountryId,
-  GameSessionId,
-  ItemKey,
-  NodeId,
-  PropertyIndex,
-  PropertyRef,
-  cityIdToNodeId,
-} from "../../domain/shared-kernel/ids";
-import { GameSession, currentPlayer, isOver } from "../../domain/game-session/game-session";
-import { isCityNode } from "../../domain/board/node";
-import { QuizQuestion, QuizTier } from "../../domain/quiz/quiz-question";
-import { CpuLevel } from "../../domain/cpu/cpu-level";
-import { GameEngineContext, createGameEngineContext } from "../../application/game-engine-context";
-import { JsonCountryContentRepository } from "../../infrastructure/content/json-country-content-repository";
-import { LocalStorageGameRepository } from "../../infrastructure/persistence/local-storage-game-repository";
-import { CryptoRandomAdapter } from "../../infrastructure/random/crypto-random-adapter";
-import { WebAudioSoundAdapter } from "../../infrastructure/audio/web-audio-sound-adapter";
-import { startGame, PlayerSetup } from "../../application/use-cases/start-game/start-game.use-case";
+import { GameSessionId, ItemKey, cityIdToNodeId } from "../../domain/shared-kernel/ids";
+import { currentPlayer } from "../../domain/game-session/game-session";
+import { createGameEngineContext } from "../../application/game-engine-context";
+import { startGame } from "../../application/use-cases/start-game/start-game.use-case";
 import { rollOneDie } from "../../application/use-cases/roll-dice/roll-dice.use-case";
 import { reachableNodesFor, movePlayerAlongPath } from "../../application/use-cases/move-player/move-player.use-case";
-import { settleSpiritAfterTurn } from "../../application/use-cases/move-player/settle-spirit-after-turn.use-case";
-import { advanceTurn } from "../../application/use-cases/advance-turn/advance-turn.use-case";
 import { answerQuiz } from "../../application/use-cases/answer-quiz/answer-quiz.use-case";
-import { landOnMoneySquare } from "../../application/use-cases/land-on-square/money-square.use-case";
-import { landOnCardSquare } from "../../application/use-cases/land-on-square/card-square.use-case";
-import { arriveAtDestination } from "../../application/use-cases/land-on-square/arrive-destination.use-case";
 import { buyProperty, investInProperty, sellPropertyUseCase } from "../../application/use-cases/property-transactions/property-transactions.use-case";
 import { stallStockFor, buyStallItem } from "../../application/use-cases/visit-stall/visit-stall.use-case";
 import { applyItemUse } from "../../application/use-cases/use-item/use-item.use-case";
 import { resolveMisfortuneStrike } from "../../application/use-cases/resolve-misfortune-strike/resolve-misfortune-strike.use-case";
-import { cpuTakeTurn } from "../../application/use-cases/cpu-take-turn/cpu-take-turn.use-case";
-import { endGame, EndGameOutcome } from "../../application/use-cases/end-game/end-game.use-case";
 import { loadGame, saveGame } from "../../application/use-cases/save-load-game/save-load-game.use-case";
+import { GameStoreState } from "./game-store-types";
+import { contentRepository, gameRepository, random, soundAdapter } from "./game-store-dependencies";
+import { newLogId, pushLog } from "./game-store-log";
+import { describeStrike } from "./game-store-formatters";
+import { createTurnFlowActions } from "./game-store-turn-flow";
 
-export type UiState =
-  | { readonly kind: "setup" }
-  | { readonly kind: "idle" }
-  | { readonly kind: "choosing-square"; readonly steps: number; readonly reachable: ReadonlyMap<NodeId, readonly NodeId[]> }
-  | { readonly kind: "quiz"; readonly question: QuizQuestion; readonly tier: QuizTier; readonly optionOrder: readonly number[] }
-  | { readonly kind: "city"; readonly cityId: CityId; readonly arrivalPrize: number | null }
-  | { readonly kind: "game-over"; readonly outcome: EndGameOutcome };
-
-export interface LogEntry {
-  readonly id: number;
-  readonly text: string;
-  readonly tone: "neutral" | "good" | "bad" | "gold";
-}
-
-interface GameStoreState {
-  context: GameEngineContext | null;
-  session: GameSession | null;
-  ui: UiState;
-  log: readonly LogEntry[];
-  hasSavedGame: boolean;
-
-  startNewGame(config: { countryId: CountryId; players: readonly PlayerSetup[]; maxMonths: number; cpuLevel: CpuLevel }): Promise<void>;
-  loadSavedGame(): Promise<void>;
-  backToSetup(): void;
-  rollForHumanTurn(): void;
-  chooseSquare(nodeId: NodeId): void;
-  answerQuizOption(optionIndex: number): void;
-  closeCityModal(): void;
-  buyCityProperty(index: PropertyIndex): void;
-  investCityProperty(ref: PropertyRef): void;
-  sellCityProperty(ref: PropertyRef): void;
-  buyCityItem(key: ItemKey): void;
-  useInventoryItem(index: number): void;
-  chooseExactDiceValue(value: number): void;
-  save(): void;
-}
-
-let nextLogId = 1;
-
-export const contentRepository = new JsonCountryContentRepository();
-const gameRepository = new LocalStorageGameRepository();
-const random = new CryptoRandomAdapter();
-export const soundAdapter = new WebAudioSoundAdapter();
-
-function pushLog(state: GameStoreState, text: string, tone: LogEntry["tone"] = "neutral"): LogEntry[] {
-  return [{ id: nextLogId++, text, tone }, ...state.log].slice(0, 60);
-}
+export type { UiState, LogEntry } from "./game-store-types";
+export { contentRepository, soundAdapter } from "./game-store-dependencies";
 
 export const useGameStore = create<GameStoreState>((set, get) => {
-  /** 現在の手番プレイヤーがCPUである限り、自動で手番を進め続ける。 */
-  function runCpuLoopIfNeeded() {
-    const { context, session } = get();
-    if (!context || !session || isOver(session)) return;
-
-    let current = session;
-    const logs: LogEntry[] = [];
-    let guard = 0;
-    while (!isOver(current) && currentPlayer(current).isCpu && guard < 50) {
-      guard++;
-      const player = currentPlayer(current);
-      const result = cpuTakeTurn(context, current, player.id, random);
-      current = result.session;
-      logs.push({ id: nextLogId++, text: describeCpuTurn(player.name, result), tone: "neutral" });
-      if (result.strike?.type === "struck") soundAdapter.playDoom(result.strike.wasKing);
-      const movedPlayer = current.players.find((p) => p.id === player.id);
-      if (movedPlayer) soundAdapter.setRegion(context.getNode(movedPlayer.location).regionId);
-
-      if (isOver(current)) break;
-      if (!result.extraTurn) {
-        const adv = advanceTurn(context, current, random);
-        current = adv.session;
-        if (adv.season) {
-          soundAdapter.playChime();
-          logs.push({ id: nextLogId++, text: `${adv.season.emoji} ${adv.season.name.en}`, tone: "gold" });
-        }
-        for (const q of adv.quarterlyIncome) {
-          logs.push({ id: nextLogId++, text: `${q.playerId} +${q.amount} (quarterly income)`, tone: "good" });
-        }
-      }
-    }
-
-    if (isOver(current)) {
-      const outcome = endGame(context, current);
-      soundAdapter.playWin();
-      set((s) => ({ session: outcome.session, ui: { kind: "game-over", outcome }, log: [...logs.reverse(), ...s.log].slice(0, 60) }));
-      return;
-    }
-
-    set((s) => ({ session: current, ui: { kind: "idle" }, log: [...logs.reverse(), ...s.log].slice(0, 60) }));
-    saveGame(gameRepository, current);
-  }
-
-  function finishHumanLandingAndAdvance() {
-    const { context, session } = get();
-    if (!context || !session) return;
-    const player = currentPlayer(session);
-    let current = settleSpiritAfterTurn(context, session);
-
-    if (isOver(current)) {
-      const outcome = endGame(context, current);
-      soundAdapter.playWin();
-      set((s) => ({ session: outcome.session, ui: { kind: "game-over", outcome }, log: pushLog(s, "Game over", "gold") }));
-      return;
-    }
-
-    if (player.hasExtraTurn) {
-      current = { ...current, players: current.players.map((p) => (p.id === player.id ? { ...p, hasExtraTurn: false } : p)) };
-      set((s) => ({ session: current, ui: { kind: "idle" }, log: pushLog(s, `${player.name} takes an extra turn!`, "gold") }));
-      return;
-    }
-
-    const adv = advanceTurn(context, current, random);
-    current = adv.session;
-    set((s) => {
-      let log = s.log;
-      if (adv.season) {
-        soundAdapter.playChime();
-        log = [{ id: nextLogId++, text: `${adv.season.emoji} ${adv.season.name.en}`, tone: "gold" }, ...log];
-      }
-      for (const q of adv.quarterlyIncome) {
-        log = [{ id: nextLogId++, text: `+${q.amount} quarterly income (${q.playerId})`, tone: "good" }, ...log];
-      }
-      return { session: current, ui: { kind: "idle" }, log: log.slice(0, 60) };
-    });
-
-    if (isOver(current)) {
-      const outcome = endGame(context, current);
-      set({ session: outcome.session, ui: { kind: "game-over", outcome } });
-      return;
-    }
-    saveGame(gameRepository, current);
-    runCpuLoopIfNeeded();
-  }
-
-  function resolveLandingForHuman(landedNodeId: NodeId) {
-    const { context, session } = get();
-    if (!context || !session) return;
-    const player = currentPlayer(session);
-    const node = context.getNode(landedNodeId);
-
-    if (isCityNode(node) && node.cityId === session.destination) {
-      const arrival = arriveAtDestination(context, session, player.id, random);
-      soundAdapter.playFanfare();
-      set((s) => ({ session: arrival.session, log: pushLog(s, `${player.name} reaches the destination! +${arrival.prize}`, "gold") }));
-      set({ ui: { kind: "city", cityId: node.cityId, arrivalPrize: arrival.prize } });
-      return;
-    }
-    if (node.type === "quiz") {
-      const question = context.content.quiz[random.nextInt(context.content.quiz.length)];
-      set({ ui: { kind: "quiz", question, tier: node.tier, optionOrder: shuffledIndexes(question.options.length, random) } });
-      return;
-    }
-    if (node.type === "blue" || node.type === "red") {
-      const outcome = landOnMoneySquare(session, player.id, node.type === "blue", random);
-      if (outcome.gained) soundAdapter.playCoin();
-      else soundAdapter.playWrong();
-      set((s) => ({
-        session: outcome.session,
-        log: pushLog(s, outcome.gained ? `${player.name} +${outcome.amount}` : `${player.name} -${outcome.amount}`, outcome.gained ? "good" : "bad"),
-      }));
-      finishHumanLandingAndAdvance();
-      return;
-    }
-    if (node.type === "card") {
-      const outcome = landOnCardSquare(context, session, player.id, random);
-      soundAdapter.playChime();
-      set((s) => ({ session: outcome.session, log: pushLog(s, outcome.itemKey ? `${player.name} found ${outcome.itemKey}` : `${player.name} found nothing`, "gold") }));
-      finishHumanLandingAndAdvance();
-      return;
-    }
-    if (isCityNode(node)) {
-      set({ ui: { kind: "city", cityId: node.cityId, arrivalPrize: null } });
-      return;
-    }
-    finishHumanLandingAndAdvance();
-  }
+  const { runCpuLoopIfNeeded, finishHumanLandingAndAdvance, resolveLandingForHuman } = createTurnFlowActions(set, get);
 
   return {
     context: null,
@@ -237,7 +48,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
         cpuLevel: config.cpuLevel,
         sessionId: GameSessionId(`session-${Date.now()}`),
       });
-      set({ context, session, ui: { kind: "idle" }, log: [{ id: nextLogId++, text: "New journey started!", tone: "gold" }] });
+      set({ context, session, ui: { kind: "idle" }, log: [{ id: newLogId(), text: "New journey started!", tone: "gold" }] });
       await soundAdapter.setCountry(config.countryId);
       soundAdapter.setRegion(context.getNode(currentPlayer(session).location).regionId);
       saveGame(gameRepository, session);
@@ -249,7 +60,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       if (!saved) return;
       const content = await contentRepository.load(saved.countryId);
       const context = createGameEngineContext(content);
-      set({ context, session: saved, ui: { kind: "idle" }, log: [{ id: nextLogId++, text: "Journey restored from your last save.", tone: "gold" }] });
+      set({ context, session: saved, ui: { kind: "idle" }, log: [{ id: newLogId(), text: "Journey restored from your last save.", tone: "gold" }] });
       await soundAdapter.setCountry(saved.countryId);
       soundAdapter.setRegion(context.getNode(currentPlayer(saved).location).regionId);
       runCpuLoopIfNeeded();
@@ -299,7 +110,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       set((s) => {
         let log = s.log;
         for (const evt of moveResult.spiritPassEvents) {
-          log = [{ id: nextLogId++, text: `The spirit passes to ${evt.toPlayerId}!`, tone: "bad" }, ...log];
+          log = [{ id: newLogId(), text: `The spirit passes to ${evt.toPlayerId}!`, tone: "bad" }, ...log];
         }
         return { session: moveResult.session, log };
       });
@@ -401,50 +212,6 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     },
   };
 });
-
-/** クイズの選択肢の表示順をシャッフルする(元のインデックスの並びを返す)。 */
-function shuffledIndexes(length: number, random: { nextInt(n: number): number }): number[] {
-  const indexes = Array.from({ length }, (_, i) => i);
-  for (let i = indexes.length - 1; i > 0; i--) {
-    const j = random.nextInt(i + 1);
-    [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
-  }
-  return indexes;
-}
-
-function describeStrike(playerName: string, result: ReturnType<typeof resolveMisfortuneStrike>["result"]): string {
-  switch (result.type) {
-    case "rested":
-      return `The spirit rests this turn.`;
-    case "warded":
-      return `${playerName} wards off the misfortune!`;
-    case "pleased":
-      return `${playerName} pleases the spirit and gains ${result.amount}!`;
-    case "struck":
-      return `${playerName} is struck by misfortune (${result.outcome.effectId}).`;
-    default:
-      return "";
-  }
-}
-
-function describeCpuTurn(playerName: string, result: ReturnType<typeof cpuTakeTurn>): string {
-  if (result.skippedTurn) return `${playerName} is stuck and loses the turn.`;
-  if (!result.landing) return `${playerName} rolls ${result.steps ?? "?"} and moves.`;
-  switch (result.landing.type) {
-    case "quiz":
-      return `${playerName} answers a quiz (${result.landing.outcome.correct ? "correct" : "wrong"}).`;
-    case "money":
-      return `${playerName} lands on a ${result.landing.outcome.gained ? "blue" : "red"} square.`;
-    case "card":
-      return `${playerName} lands on a card square.`;
-    case "destination":
-      return `${playerName} reaches the destination! +${result.landing.outcome.prize}`;
-    case "city":
-      return `${playerName} visits a town.`;
-    default:
-      return `${playerName} takes a turn.`;
-  }
-}
 
 export function stallStockForCurrentCity(): readonly ItemKey[] {
   const { context, session } = useGameStore.getState();
