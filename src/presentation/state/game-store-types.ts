@@ -15,6 +15,7 @@ import { EndGameOutcome } from "../../application/use-cases/end-game/end-game.us
 
 export type UiState =
   | { readonly kind: "setup" }
+  | { readonly kind: "intro" }
   | { readonly kind: "idle" }
   | { readonly kind: "choosing-square"; readonly steps: number; readonly reachable: ReadonlyMap<NodeId, readonly NodeId[]> }
   | { readonly kind: "quiz"; readonly question: QuizQuestion; readonly tier: QuizTier; readonly optionOrder: readonly number[] }
@@ -36,6 +37,8 @@ export interface GameStoreState {
 
   startNewGame(config: { countryId: CountryId; players: readonly PlayerSetup[]; maxMonths: number; cpuLevel: CpuLevel }): Promise<void>;
   loadSavedGame(): Promise<void>;
+  /** 出発ストーリーのモーダル(ui.kind === "intro")を閉じてゲームを開始する。 */
+  dismissIntro(): void;
   backToSetup(): void;
   rollForHumanTurn(): void;
   chooseSquare(nodeId: NodeId): void;

@@ -48,10 +48,16 @@ export const useGameStore = create<GameStoreState>((set, get) => {
         cpuLevel: config.cpuLevel,
         sessionId: GameSessionId(`session-${Date.now()}`),
       });
-      set({ context, session, ui: { kind: "idle" }, log: [{ id: newLogId(), text: "New journey started!", tone: "gold" }] });
+      // legacyのstartGame()と同様、出発ストーリーのモーダル(intro)をまず表示し、
+      // それを閉じてから(dismissIntro経由で)CPUの自動進行を開始する。
+      set({ context, session, ui: { kind: "intro" }, log: [{ id: newLogId(), text: "New journey started!", tone: "gold" }] });
       await soundAdapter.setCountry(config.countryId);
       soundAdapter.setRegion(context.getNode(currentPlayer(session).location).regionId);
       saveGame(gameRepository, session);
+    },
+
+    dismissIntro() {
+      set({ ui: { kind: "idle" } });
       runCpuLoopIfNeeded();
     },
 

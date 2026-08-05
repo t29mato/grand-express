@@ -9,6 +9,7 @@ import { BoardView } from "./board/board-view";
 import { DiceButton } from "./hud/dice-button";
 import { DiceStage } from "./hud/dice-stage";
 import { DestinationCard, ItemBar, PlayersPanel, TravelLog } from "./hud/side-panel";
+import { IntroModal } from "./modals/intro-modal";
 import { QuizModal } from "./modals/quiz-modal";
 import { CityModal } from "./modals/city-modal";
 import { GameOverModal } from "./modals/game-over-modal";
@@ -30,6 +31,7 @@ export function GameScreen() {
   const useInventoryItem = useGameStore((s) => s.useInventoryItem);
   const save = useGameStore((s) => s.save);
   const backToSetup = useGameStore((s) => s.backToSetup);
+  const dismissIntro = useGameStore((s) => s.dismissIntro);
   const { t } = useLocale();
 
   // ダイスロール直後(idle等 → choosing-square への遷移)を検知し、
@@ -81,6 +83,7 @@ export function GameScreen() {
         </aside>
       </main>
 
+      {ui.kind === "intro" && <IntroModal context={context} session={session} onDepart={dismissIntro} />}
       {ui.kind === "quiz" && (
         <QuizModal question={ui.question} tier={ui.tier} optionOrder={ui.optionOrder} onAnswer={answerQuizOption} />
       )}

@@ -15,6 +15,7 @@ test("モバイル幅でもゲーム画面が縦積みレイアウトで表示�
   await page.goto("/");
   await page.getByRole("button", { name: "Start the journey" }).click();
   await expect(page.locator("#die")).toBeVisible();
+  await page.getByRole("button", { name: "Depart!" }).click();
   const hasHorizontalOverflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
   expect(hasHorizontalOverflow).toBe(false);
 });

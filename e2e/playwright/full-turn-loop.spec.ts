@@ -32,6 +32,7 @@ test("実際の乱数で何ターンもプレイしてもクラッシュしな�
   await expect(page.getByText("Choose your journey")).toBeVisible();
   await page.getByRole("button", { name: "Start the journey" }).click();
   await expect(page.locator("#die")).toBeVisible();
+  await page.getByRole("button", { name: "Depart!" }).click();
 
   for (let turn = 0; turn < 12; turn++) {
     const die = page.locator("#die");
