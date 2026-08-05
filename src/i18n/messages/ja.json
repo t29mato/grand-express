@@ -181,5 +181,14 @@
   "quizMid": "ふつうの問題",
   "quizHigh": "高額の問題",
   "cpuBoughtNothing": "{0} は見て回ったが何も買わなかった。",
+  "correctAnswerWas": "正解は <b>{0}</b> でした。",
+  "yourAnswer": "あなたの回答: <b>{0}</b>",
+  "charmSaved": "🧿 お守りが損失を肩代わりしました。ただし答えは間違いです。",
+  "reviewTitle": "今回のおさらい",
+  "reviewEmpty": "全員ノーミスでした。お見事!",
+  "knowledgeLevel": "この国をどれくらい知っていますか?",
+  "knowledgeNewcomer": "はじめて",
+  "knowledgeFamiliar": "すこし",
+  "knowledgeLocal": "くわしい",
   "saveDone": "この旅をブラウザに保存しました。タブを閉じても、あとから続きから遊べます。"
 }

@@ -1,6 +1,18 @@
-import { CityId, CountryId, GameSessionId, ItemKey, NodeId, PlayerId, PropertyRef, RegionId } from "../../domain/shared-kernel/ids";
+import {
+  CityId,
+  CountryId,
+  GameSessionId,
+  ItemKey,
+  NodeId,
+  PlayerId,
+  PropertyRef,
+  QuizQuestionId,
+  RegionId,
+} from "../../domain/shared-kernel/ids";
 import { Money } from "../../domain/shared-kernel/money";
 import { CpuLevel } from "../../domain/cpu/cpu-level";
+import { KnowledgeLevel, toKnowledgeLevel } from "../../domain/quiz/knowledge-level";
+import { EMPTY_LEARNING_RECORD } from "../../domain/quiz/learning-record";
 import { Player, PropertyLevel } from "../../domain/player/player";
 import { GameSession } from "../../domain/game-session/game-session";
 import { MisfortuneSpiritState } from "../../domain/misfortune/misfortune-spirit";
@@ -14,6 +26,8 @@ export interface PlayerSnapshot {
   readonly name: string;
   readonly isCpu: boolean;
   readonly cpuLevel?: CpuLevel;
+  /** v1のセーブデータには存在しないため、読み込み時は既定値に丸める。 */
+  readonly knowledgeLevel?: KnowledgeLevel;
   readonly cash: number;
   readonly location: string;
   readonly portfolio: Record<string, PropertyLevel>;
@@ -40,6 +54,8 @@ export interface GameSessionSnapshot {
   };
   readonly status: "in-progress" | "finished";
   readonly regionIncomeModifiers: Record<string, number>;
+  /** v1のセーブデータには存在しないため、読み込み時は空として扱う。 */
+  readonly missedQuestionIds?: readonly string[];
 }
 
 function playerToSnapshot(player: Player): PlayerSnapshot {
@@ -48,6 +64,7 @@ function playerToSnapshot(player: Player): PlayerSnapshot {
     name: player.name,
     isCpu: player.isCpu,
     cpuLevel: player.cpuLevel,
+    knowledgeLevel: player.knowledgeLevel,
     cash: player.cash.amount,
     location: player.location,
     portfolio: Object.fromEntries(player.portfolio),
@@ -63,6 +80,8 @@ function playerFromSnapshot(snapshot: PlayerSnapshot): Player {
     name: snapshot.name,
     isCpu: snapshot.isCpu,
     cpuLevel: snapshot.cpuLevel,
+    // v1のセーブデータには knowledgeLevel が無いので既定値(familiar)に丸める。
+    knowledgeLevel: toKnowledgeLevel(snapshot.knowledgeLevel),
     cash: Money.of(snapshot.cash),
     location: NodeId(snapshot.location),
     portfolio: new Map(
@@ -91,6 +110,7 @@ export function toSnapshot(session: GameSession): GameSessionSnapshot {
     misfortune: misfortuneToSnapshot(session.misfortune),
     status: session.status,
     regionIncomeModifiers: Object.fromEntries(session.regionIncomeModifiers),
+    missedQuestionIds: session.learningRecord.missedQuestionIds,
   };
 }
 
@@ -114,5 +134,9 @@ export function fromSnapshot(snapshot: GameSessionSnapshot): GameSession {
     regionIncomeModifiers: new Map(
       Object.entries(snapshot.regionIncomeModifiers).map(([k, v]) => [RegionId(k), v]),
     ),
+    // v1のセーブデータには学習記録が無いので、空として読み込む。
+    learningRecord: snapshot.missedQuestionIds
+      ? { missedQuestionIds: snapshot.missedQuestionIds.map((id) => QuizQuestionId(id)) }
+      : EMPTY_LEARNING_RECORD,
   };
 }

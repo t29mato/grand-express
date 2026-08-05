@@ -181,5 +181,14 @@
   "quizMid": "Question normale",
   "quizHigh": "Question à gros enjeu",
   "cpuBoughtNothing": "{0} a regardé mais n'a rien acheté.",
+  "correctAnswerWas": "La réponse était <b>{0}</b>.",
+  "yourAnswer": "Ta réponse : <b>{0}</b>",
+  "charmSaved": "🧿 Ton amulette a absorbé la perte — mais la réponse était fausse.",
+  "reviewTitle": "Révision du jour",
+  "reviewEmpty": "Personne n'a manqué une question. Beau voyage !",
+  "knowledgeLevel": "Connais-tu bien ce pays ?",
+  "knowledgeNewcomer": "Découverte",
+  "knowledgeFamiliar": "Un peu",
+  "knowledgeLocal": "Très bien",
   "saveDone": "Ton voyage est enregistré dans ce navigateur. Tu peux fermer l'onglet et reprendre plus tard."
 }

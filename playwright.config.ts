@@ -14,6 +14,12 @@ const localURL = "http://localhost:3100";
 export default defineConfig({
   testDir: "./e2e/playwright",
   fullyParallel: true,
+  /**
+   * ゲームを実際にプレイする試験が多く、サイコロ演出やカメラ追尾で
+   * requestAnimationFrame を回し続けるため、多重実行すると互いに処理時間を奪い合って
+   * 時間切れになる。安定性を優先してワーカー数を絞る。
+   */
+  workers: process.env.CI ? 2 : 2,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   reporter: "html",

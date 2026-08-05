@@ -40,6 +40,10 @@ export const PropertyIndex = (value: number): PropertyIndex =>
   value as PropertyIndex;
 
 /** `${CityId}#${PropertyIndex}` 形式のキー。現行コードの `propKey(c,i)` に相当。 */
+/** クイズ問題の識別子。コンテンツ内での並び順から `q0`, `q1`… として与える。 */
+export type QuizQuestionId = Brand<string, "QuizQuestionId">;
+export const QuizQuestionId = (value: string): QuizQuestionId => value as QuizQuestionId;
+
 export type PropertyRef = Brand<string, "PropertyRef">;
 export const PropertyRef = {
   of(cityId: CityId, index: PropertyIndex): PropertyRef {

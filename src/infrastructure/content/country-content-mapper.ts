@@ -1,4 +1,4 @@
-import { CityId, CountryId, ItemKey, RegionId } from "../../domain/shared-kernel/ids";
+import { CityId, CountryId, ItemKey, QuizQuestionId, RegionId } from "../../domain/shared-kernel/ids";
 import { City, Edge } from "../../domain/board/city";
 import { CountryProjection } from "../../domain/board/board-projection";
 import { ItemDefinition, ItemEffect } from "../../domain/item/item";
@@ -65,7 +65,10 @@ function mapItems(raw: RawCountryContent): ItemDefinition[] {
 }
 
 function mapQuiz(raw: RawCountryContent): QuizQuestion[] {
-  return raw.quiz.map((q) => ({
+  // IDはコンテンツ内での並び順から与える。間違えた問題をセーブデータに
+  // 記録するため、問題文そのものではなく短い安定した識別子が必要になる。
+  return raw.quiz.map((q, index) => ({
+    id: QuizQuestionId(`q${index}`),
     question: q.q,
     options: q.o,
     correctOptionIndex: q.a,

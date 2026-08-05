@@ -2,6 +2,7 @@ import { CityId, CountryId, GameSessionId, RegionId } from "../shared-kernel/ids
 import { Money } from "../shared-kernel/money";
 import { Player } from "../player/player";
 import { INITIAL_MISFORTUNE_STATE, MisfortuneSpiritState } from "../misfortune/misfortune-spirit";
+import { EMPTY_LEARNING_RECORD, LearningRecord } from "../quiz/learning-record";
 
 export type GameSessionStatus = "in-progress" | "finished";
 
@@ -21,6 +22,8 @@ export interface GameSession {
   readonly misfortune: MisfortuneSpiritState;
   readonly status: GameSessionStatus;
   readonly regionIncomeModifiers: ReadonlyMap<RegionId, number>;
+  /** この回のプレイで間違えた問題(終了時のおさらいに使う)。 */
+  readonly learningRecord: LearningRecord;
 }
 
 export function createGameSession(params: {
@@ -41,6 +44,7 @@ export function createGameSession(params: {
     misfortune: INITIAL_MISFORTUNE_STATE,
     status: "in-progress",
     regionIncomeModifiers: new Map(),
+    learningRecord: EMPTY_LEARNING_RECORD,
   };
 }
 

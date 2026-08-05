@@ -26,6 +26,7 @@ export { contentRepository, soundAdapter } from "./game-store-dependencies";
 export const useGameStore = create<GameStoreState>((set, get) => {
   const {
     runCpuLoopIfNeeded,
+    resetQuizDeck,
     cancelCpuLoop,
     dismissCpuModal,
     finishHumanLandingAndAdvance,
@@ -59,6 +60,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
         cpuLevel: config.cpuLevel,
         sessionId: GameSessionId(`session-${Date.now()}`),
       });
+      resetQuizDeck(content.quiz);
       // legacyのstartGame()と同様、出発ストーリーのモーダル(intro)をまず表示し、
       // それを閉じてから(dismissIntro経由で)CPUの自動進行を開始する。
       set({ context, session, ui: { kind: "intro" }, log: [logEntry("newJourneyLog", [], "gold")] });
@@ -77,6 +79,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       if (!saved) return;
       const content = await contentRepository.load(saved.countryId);
       const context = createGameEngineContext(content);
+      resetQuizDeck(content.quiz);
       set({ context, session: saved, ui: { kind: "idle" }, log: [logEntry("resumed", [], "gold")] });
       await soundAdapter.setCountry(saved.countryId);
       soundAdapter.setRegion(context.getNode(currentPlayer(saved).location).regionId);
@@ -153,11 +156,27 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const outcome = answerQuiz(context, session, player.id, ui.question, ui.tier, optionIndex, random);
       if (outcome.correct) soundAdapter.playRight();
       else soundAdapter.playWrong();
+      // 手番を進める前に結果(正解・解説)を見せる。フィードバックの無い出題は
+      // 学習にならないため(docs/40-learning-design/01-quiz-as-learning-device.md)。
       set((s) => ({
         session: outcome.session,
-        ui: { kind: "idle" },
+        ui: {
+          kind: "quiz-result",
+          question: ui.question,
+          tier: ui.tier,
+          chosenOptionIndex: optionIndex,
+          correct: outcome.correct,
+          amount: formatMoney(outcome.amount.amount, context.content.currency),
+          savedByCharm: outcome.savedByCharm,
+          bonusItem: outcome.bonusItem,
+        },
         log: pushLog(s, outcome.correct ? "quizOkLog" : "quizNoLog", [player.name, formatMoney(outcome.amount.amount, context.content.currency)], outcome.correct ? "good" : "bad"),
       }));
+    },
+
+    dismissQuizResult() {
+      if (get().ui.kind !== "quiz-result") return;
+      set({ ui: { kind: "idle" } });
       finishHumanLandingAndAdvance();
     },
 

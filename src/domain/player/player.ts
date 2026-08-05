@@ -1,6 +1,7 @@
 import { Money } from "../shared-kernel/money";
 import { ItemKey, NodeId, PlayerId, PropertyRef } from "../shared-kernel/ids";
 import { CpuLevel } from "../cpu/cpu-level";
+import { DEFAULT_KNOWLEDGE_LEVEL, KnowledgeLevel } from "../quiz/knowledge-level";
 
 export const MAX_INVENTORY_SIZE = 5;
 export const MAX_PROPERTY_LEVEL = 5;
@@ -13,6 +14,11 @@ export interface Player {
   readonly name: string;
   readonly isCpu: boolean;
   readonly cpuLevel?: CpuLevel;
+  /**
+   * 対象国への知識レベル。クイズの選択肢数と増減額の補正にのみ使う
+   * (docs/40-learning-design/02-player-knowledge-level.md)。
+   */
+  readonly knowledgeLevel: KnowledgeLevel;
   readonly cash: Money;
   readonly location: NodeId;
   readonly portfolio: ReadonlyMap<PropertyRef, PropertyLevel>;
@@ -26,6 +32,7 @@ export function createPlayer(params: {
   name: string;
   isCpu: boolean;
   cpuLevel?: CpuLevel;
+  knowledgeLevel?: KnowledgeLevel;
   startingCash: Money;
   startingNode: NodeId;
 }): Player {
@@ -34,6 +41,7 @@ export function createPlayer(params: {
     name: params.name,
     isCpu: params.isCpu,
     cpuLevel: params.cpuLevel,
+    knowledgeLevel: params.knowledgeLevel ?? DEFAULT_KNOWLEDGE_LEVEL,
     cash: params.startingCash,
     location: params.startingNode,
     portfolio: new Map(),

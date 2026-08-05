@@ -1,4 +1,6 @@
 import { Random } from "../../domain/shared-kernel/random";
+import { QuizQuestion } from "../../domain/quiz/quiz-question";
+import { KNOWLEDGE_TUNING, KnowledgeLevel } from "../../domain/quiz/knowledge-level";
 import { CurrencyFormat } from "../../domain/country/country-content-pack";
 import { resolveMisfortuneStrike } from "../../application/use-cases/resolve-misfortune-strike/resolve-misfortune-strike.use-case";
 import { CityVisitSummary, cpuTakeTurn } from "../../application/use-cases/cpu-take-turn/cpu-take-turn.use-case";
@@ -15,6 +17,25 @@ export function shuffledIndexes(length: number, random: Pick<Random, "nextInt">)
     [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
   }
   return indexes;
+}
+
+/**
+ * 知識レベルに応じて提示する選択肢を絞る(初級は誤答を1つ伏せて2択にする)。
+ * **伏せるのは必ず誤答**で、正解を伏せてはならない
+ * (docs/40-learning-design/02-player-knowledge-level.md 4-2)。
+ */
+export function visibleOptionOrder(
+  question: QuizQuestion,
+  knowledgeLevel: KnowledgeLevel,
+  random: Pick<Random, "nextInt">,
+): number[] {
+  const total = question.options.length;
+  const limit = Math.min(KNOWLEDGE_TUNING[knowledgeLevel].visibleOptionCount, total);
+  const wrong = shuffledIndexes(total, random).filter((i) => i !== question.correctOptionIndex);
+  const kept = [question.correctOptionIndex, ...wrong.slice(0, Math.max(0, limit - 1))];
+  // 正解が先頭に固定されないよう、最後にもう一度並びを混ぜる。
+  const order = shuffledIndexes(kept.length, random).map((i) => kept[i]);
+  return order;
 }
 
 /** 厄災の神の発動結果を表すログ。 */

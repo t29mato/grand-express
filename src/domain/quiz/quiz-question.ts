@@ -1,9 +1,12 @@
+import { QuizQuestionId } from "../shared-kernel/ids";
 import { LocalizedText } from "../shared-kernel/localized-text";
 
 /** クイズの難易度ティア。マスの色ではなく問題そのものの難度を表す。 */
 export type QuizTier = "low" | "mid" | "high";
 
 export interface QuizQuestion {
+  /** 間違えた問題を記録・復元するための識別子。 */
+  readonly id: QuizQuestionId;
   readonly question: LocalizedText;
   readonly options: readonly LocalizedText[];
   readonly correctOptionIndex: number;

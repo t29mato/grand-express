@@ -181,5 +181,14 @@
   "quizMid": "Pregunta normal",
   "quizHigh": "Pregunta de alto riesgo",
   "cpuBoughtNothing": "{0} miró pero no compró nada.",
+  "correctAnswerWas": "La respuesta era <b>{0}</b>.",
+  "yourAnswer": "Respondiste: <b>{0}</b>",
+  "charmSaved": "🧿 Tu amuleto absorbió la pérdida, pero la respuesta era incorrecta.",
+  "reviewTitle": "Repaso de hoy",
+  "reviewEmpty": "Nadie falló ninguna pregunta. ¡Buen viaje!",
+  "knowledgeLevel": "¿Cuánto conoces este país?",
+  "knowledgeNewcomer": "Es nuevo",
+  "knowledgeFamiliar": "Un poco",
+  "knowledgeLocal": "Muy bien",
   "saveDone": "Tu viaje se ha guardado en este navegador. Puedes cerrar la pestaña y continuar más tarde."
 }

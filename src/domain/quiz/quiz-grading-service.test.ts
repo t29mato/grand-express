@@ -1,9 +1,11 @@
 import { describe, expect, it } from "vitest";
+import { QuizQuestionId } from "../shared-kernel/ids";
 import { sameForAllLocales } from "../shared-kernel/localized-text";
 import { QuizQuestion } from "./quiz-question";
 import { QuizDeck, gradeAnswer } from "./quiz-grading-service";
 
 const sample: QuizQuestion = {
+  id: QuizQuestionId("q-test"),
   question: sameForAllLocales("1+1=?"),
   options: ["1", "2", "3"].map(sameForAllLocales),
   correctOptionIndex: 1,

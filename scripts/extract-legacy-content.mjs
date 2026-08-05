@@ -136,6 +136,16 @@ const INLINE_UI_STRINGS = {
   quizMid: "Standard question|Pregunta normal|Question normale|ふつうの問題",
   quizHigh: "High-stakes question|Pregunta de alto riesgo|Question à gros enjeu|高額の問題",
   cpuBoughtNothing: "{0} looked around but bought nothing.|{0} miró pero no compró nada.|{0} a regardé mais n'a rien acheté.|{0} は見て回ったが何も買わなかった。",
+  // 学習まわり(docs/40-learning-design/)。legacyには無い新規の文言。
+  correctAnswerWas: "The answer was <b>{0}</b>.|La respuesta era <b>{0}</b>.|La réponse était <b>{0}</b>.|正解は <b>{0}</b> でした。",
+  yourAnswer: "You answered: <b>{0}</b>|Respondiste: <b>{0}</b>|Ta réponse : <b>{0}</b>|あなたの回答: <b>{0}</b>",
+  charmSaved: "🧿 Your charm absorbed the loss — but the answer was still wrong.|🧿 Tu amuleto absorbió la pérdida, pero la respuesta era incorrecta.|🧿 Ton amulette a absorbé la perte — mais la réponse était fausse.|🧿 お守りが損失を肩代わりしました。ただし答えは間違いです。",
+  reviewTitle: "Today's review|Repaso de hoy|Révision du jour|今回のおさらい",
+  reviewEmpty: "Nobody missed a question. Well travelled!|Nadie falló ninguna pregunta. ¡Buen viaje!|Personne n'a manqué une question. Beau voyage !|全員ノーミスでした。お見事!",
+  knowledgeLevel: "How well do you know this country?|¿Cuánto conoces este país?|Connais-tu bien ce pays ?|この国をどれくらい知っていますか?",
+  knowledgeNewcomer: "New here|Es nuevo|Découverte|はじめて",
+  knowledgeFamiliar: "A little|Un poco|Un peu|すこし",
+  knowledgeLocal: "Very well|Muy bien|Très bien|くわしい",
   saveDone: "Your journey has been saved to this browser. You can close the tab and continue later.|Tu viaje se ha guardado en este navegador. Puedes cerrar la pestaña y continuar más tarde.|Ton voyage est enregistré dans ce navigateur. Tu peux fermer l'onglet et reprendre plus tard.|この旅をブラウザに保存しました。タブを閉じても、あとから続きから遊べます。",
 };
 for (const [key, source] of Object.entries(INLINE_UI_STRINGS)) {

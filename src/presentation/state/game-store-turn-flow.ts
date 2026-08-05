@@ -14,7 +14,9 @@ import { GameEngineContext } from "../../application/game-engine-context";
 import { GetGameState, LogEntry, SetGameState } from "./game-store-types";
 import { gameRepository, random, soundAdapter } from "./game-store-dependencies";
 import { logEntry, pushLog } from "./game-store-log";
-import { describeCpuTurn, shuffledIndexes } from "./game-store-formatters";
+import { QuizDeck } from "../../domain/quiz/quiz-grading-service";
+import { QuizQuestion } from "../../domain/quiz/quiz-question";
+import { describeCpuTurn, shuffledIndexes, visibleOptionOrder } from "./game-store-formatters";
 
 /**
  * CPUの手番の演出タイミング(ミリ秒)。
@@ -53,6 +55,27 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
    */
   let cpuLoopGeneration = 0;
   let cpuLoopRunning = false;
+
+  /**
+   * クイズの山札。使い切るまで同じ問題が出ないようにするため、
+   * **人間とCPUで1つを共有する**(袋を分けると重複が戻る)。
+   * ゲーム開始・ロード時に作り直す。
+   */
+  let quizDeck: QuizDeck | null = null;
+
+  function resetQuizDeck(questions: readonly QuizQuestion[]) {
+    quizDeck = new QuizDeck(questions, (items) => {
+      const order = shuffledIndexes(items.length, random);
+      return order.map((i) => items[i]);
+    });
+  }
+
+  /** 山札から1問引く(未初期化なら作ってから引く)。 */
+  function drawQuestion(): QuizQuestion {
+    const { context } = get();
+    if (!quizDeck && context) resetQuizDeck(context.content.quiz);
+    return quizDeck!.draw();
+  }
 
   /** CPUの結果モーダルをプレイヤーが手動で閉じる(演出を飛ばす)。 */
   function dismissCpuModal() {
@@ -127,7 +150,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
         await delay(CPU_TIMING.beforeRoll);
         if (generation !== cpuLoopGeneration) return;
 
-        const result = cpuTakeTurn(context, session, player.id, random);
+        const result = cpuTakeTurn(context, session, player.id, random, drawQuestion);
         if (result.strike?.type === "struck") soundAdapter.playDoom(result.strike.wasKing);
 
         // 1. サイコロを人間の手番と同じフル演出で見せる(振った目が分かるように)。
@@ -343,8 +366,16 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
       return;
     }
     if (node.type === "quiz") {
-      const question = context.content.quiz[random.nextInt(context.content.quiz.length)];
-      set({ ui: { kind: "quiz", question, tier: node.tier, optionOrder: shuffledIndexes(question.options.length, random) } });
+      const question = drawQuestion();
+      set({
+        ui: {
+          kind: "quiz",
+          question,
+          tier: node.tier,
+          // 知識レベルが初級なら誤答を1つ伏せて2択にする。
+          optionOrder: visibleOptionOrder(question, player.knowledgeLevel, random),
+        },
+      });
       return;
     }
     if (node.type === "blue" || node.type === "red") {
@@ -385,6 +416,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
 
   return {
     runCpuLoopIfNeeded,
+    resetQuizDeck,
     cancelCpuLoop,
     dismissCpuModal,
     finishHumanLandingAndAdvance,

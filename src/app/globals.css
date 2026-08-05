@@ -130,6 +130,28 @@ h3 {
   align-items: center;
   gap: 10px;
   margin-top: 10px;
+  /* 知識レベルの行を足したぶん、狭い画面では折り返す。 */
+  flex-wrap: wrap;
+}
+
+/* プレイヤー行の下に折り返して置く知識レベルの選択。 */
+.slot-knowledge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding-left: 2px;
+  flex-wrap: wrap;
+}
+
+.slot-knowledge .knowledge-label {
+  color: var(--salt-dim);
+  font-size: 0.8rem;
+}
+
+.slot-knowledge .seg button {
+  padding: 6px 10px;
+  font-size: 0.74rem;
 }
 
 .slot input {
@@ -653,6 +675,63 @@ aside {
 
 .money.neg {
   color: var(--red);
+}
+
+/* クイズ結果の表示 */
+.quiz-verdict {
+  margin-top: 10px;
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.quiz-verdict.correct {
+  color: var(--green);
+}
+
+.quiz-verdict.wrong {
+  color: var(--red);
+}
+
+.quiz-answer {
+  margin-top: 4px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* 終了時のおさらい */
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  max-height: 40vh;
+  overflow-y: auto;
+}
+
+.review-item {
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.review-item .q {
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.review-item .a {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.review-item .f {
+  color: var(--salt-dim);
+  font-size: 0.85rem;
+  margin-top: 4px;
+  line-height: 1.5;
 }
 
 /* CPUが町で何をしたかの表示 */

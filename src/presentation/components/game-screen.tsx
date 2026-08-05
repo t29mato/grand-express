@@ -15,6 +15,7 @@ import { CpuQuizModal } from "./modals/cpu-quiz-modal";
 import { SeasonModal } from "./modals/season-modal";
 import { NextLegModal } from "./modals/next-leg-modal";
 import { QuizModal } from "./modals/quiz-modal";
+import { QuizResultModal } from "./modals/quiz-result-modal";
 import { CityModal } from "./modals/city-modal";
 import { GameOverModal } from "./modals/game-over-modal";
 import { useLocale } from "../i18n/locale-context";
@@ -40,6 +41,7 @@ export function GameScreen() {
   const dismissNextLeg = useGameStore((s) => s.dismissNextLeg);
   const dismissSavedModal = useGameStore((s) => s.dismissSavedModal);
   const dismissCpuModal = useGameStore((s) => s.dismissCpuModal);
+  const dismissQuizResult = useGameStore((s) => s.dismissQuizResult);
   const diceRoll = useGameStore((s) => s.diceRoll);
   const clearDiceRoll = useGameStore((s) => s.clearDiceRoll);
   const { t } = useLocale();
@@ -126,6 +128,19 @@ export function GameScreen() {
       {ui.kind === "quiz" && (
         <QuizModal question={ui.question} tier={ui.tier} optionOrder={ui.optionOrder} onAnswer={answerQuizOption} />
       )}
+      {ui.kind === "quiz-result" && (
+        <QuizResultModal
+          context={context}
+          question={ui.question}
+          tier={ui.tier}
+          chosenOptionIndex={ui.chosenOptionIndex}
+          correct={ui.correct}
+          amount={ui.amount}
+          savedByCharm={ui.savedByCharm}
+          bonusItem={ui.bonusItem}
+          onClose={dismissQuizResult}
+        />
+      )}
       {ui.kind === "city" && (
         <CityModal
           context={context}
@@ -140,7 +155,12 @@ export function GameScreen() {
         />
       )}
       {ui.kind === "game-over" && (
-        <GameOverModal outcome={ui.outcome} currency={context.content.currency} onPlayAgain={backToSetup} />
+        <GameOverModal
+          outcome={ui.outcome}
+          currency={context.content.currency}
+          context={context}
+          onPlayAgain={backToSetup}
+        />
       )}
     </div>
   );

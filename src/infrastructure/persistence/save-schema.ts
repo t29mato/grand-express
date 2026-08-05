@@ -10,6 +10,8 @@ const PlayerSnapshotSchema = z.object({
   name: z.string(),
   isCpu: z.boolean(),
   cpuLevel: z.enum(["gentle", "normal", "merciless"]).optional(),
+  // v1のセーブデータには無いフィールド。読み込み時に既定値へ丸めるため optional。
+  knowledgeLevel: z.enum(["newcomer", "familiar", "local"]).optional(),
   cash: z.number(),
   location: z.string(),
   portfolio: z.record(z.string(), z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4), z.literal(5)])),
@@ -36,6 +38,8 @@ export const GameSessionSnapshotSchemaV1 = z.object({
   }),
   status: z.enum(["in-progress", "finished"]),
   regionIncomeModifiers: z.record(z.string(), z.number()),
+  // v1のセーブデータには無いフィールド(学習記録)。
+  missedQuestionIds: z.array(z.string()).optional(),
 });
 
 /**

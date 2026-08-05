@@ -57,15 +57,21 @@ export interface CpuTurnResult {
 /**
  * CPUの1手番をまるごと実行する(現行コードの `playTurn` のCPU分岐一式)。
  *
- * 簡略化: クイズの出題は `content.quiz` から毎回一様ランダムに選ぶ(現行コードは
- * 山札を使い切るまで重複させない `quizBag` を持つが、山札の状態をGameSessionの
- * 外に持たせる設計上のトレードオフとして、ここでは単純化している)。
+ * クイズの出題は `drawQuestion` で外から渡す(人間の手番と同じ山札を共有し、
+ * 同じ問題が続けて出ないようにするため)。省略時は一様ランダムに選ぶ。
  */
+/**
+ * クイズの出題元。人間の手番と同じ山札(`QuizDeck`)から引けるよう、
+ * 問題の選び方を外から渡せるようにしている。省略時は一様ランダム。
+ */
+export type DrawQuizQuestion = () => QuizQuestion;
+
 export function cpuTakeTurn(
   context: GameEngineContext,
   session: GameSession,
   playerId: PlayerId,
   random: Random,
+  drawQuestion?: DrawQuizQuestion,
 ): CpuTurnResult {
   let current = session;
   const spiritPassEvents: SpiritPassEvent[] = [];
@@ -141,7 +147,7 @@ export function cpuTakeTurn(
       visit: summariseVisit(beforeVisit, current, playerId, landedNode.cityId),
     };
   } else if (landedNode.type === "quiz") {
-    const question = context.content.quiz[random.nextInt(context.content.quiz.length)];
+    const question = drawQuestion ? drawQuestion() : context.content.quiz[random.nextInt(context.content.quiz.length)];
     const chosenOptionIndex = random.nextInt(question.options.length);
     const outcome = answerQuiz(context, current, playerId, question, landedNode.tier, chosenOptionIndex, random);
     current = outcome.session;

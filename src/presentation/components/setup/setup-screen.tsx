@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CountryId } from "../../../domain/shared-kernel/ids";
 import { CpuLevel } from "../../../domain/cpu/cpu-level";
+import { DEFAULT_KNOWLEDGE_LEVEL, KNOWLEDGE_LEVELS, KnowledgeLevel } from "../../../domain/quiz/knowledge-level";
 import { PlayerSetup } from "../../../application/use-cases/start-game/start-game.use-case";
 import { COUNTRY_INDEX } from "../../../infrastructure/content/country-index";
 import { useGameStore } from "../../state/game-store";
@@ -14,7 +15,15 @@ const MONTH_OPTIONS = [12, 24, 36];
 interface SlotConfig {
   name: string;
   mode: "human" | "cpu" | "off";
+  /** 対象国への知識レベル(人間のみ)。CPUは cpuLevel が同じ役割を果たすため不要。 */
+  knowledgeLevel: KnowledgeLevel;
 }
+
+const KNOWLEDGE_LABEL: Record<KnowledgeLevel, string> = {
+  newcomer: "knowledgeNewcomer",
+  familiar: "knowledgeFamiliar",
+  local: "knowledgeLocal",
+};
 
 export function SetupScreen() {
   const { t, tx } = useLocale();
@@ -27,16 +36,20 @@ export function SetupScreen() {
   const [cpuLevel, setCpuLevel] = useState<CpuLevel>("normal");
   const [starting, setStarting] = useState(false);
   const [slots, setSlots] = useState<SlotConfig[]>([
-    { name: "You", mode: "human" },
-    { name: "CPU 1", mode: "cpu" },
-    { name: "CPU 2", mode: "cpu" },
-    { name: "CPU 3", mode: "off" },
+    { name: "You", mode: "human", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
+    { name: "CPU 1", mode: "cpu", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
+    { name: "CPU 2", mode: "cpu", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
+    { name: "CPU 3", mode: "off", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
   ]);
 
   const handleStart = () => {
     const players: PlayerSetup[] = slots
       .filter((s) => s.mode !== "off")
-      .map((s) => ({ name: s.name || "Player", isCpu: s.mode === "cpu" }));
+      .map((s) => ({
+        name: s.name || "Player",
+        isCpu: s.mode === "cpu",
+        knowledgeLevel: s.knowledgeLevel,
+      }));
     if (players.length < 2 || starting) return;
     setStarting(true);
     void startNewGame({ countryId: country, players, maxMonths: months, cpuLevel }).finally(() => setStarting(false));
@@ -109,6 +122,28 @@ export function SetupScreen() {
                 </button>
               ))}
             </div>
+            {/* 知識レベルは人間プレイヤーのみ。CPUは強さ設定が同じ役割を果たす。
+                行が横に長くなるため、レベルのセグメントは次の行へ折り返す。 */}
+            {slot.mode === "human" && (
+              <div className="slot-knowledge">
+                <span className="knowledge-label">{t("knowledgeLevel")}</span>
+                <div className="seg">
+                  {KNOWLEDGE_LEVELS.map((level) => (
+                    <button
+                      key={level}
+                      className={slot.knowledgeLevel === level ? "on" : ""}
+                      onClick={() => {
+                        const next = [...slots];
+                        next[i] = { ...next[i], knowledgeLevel: level };
+                        setSlots(next);
+                      }}
+                    >
+                      {t(KNOWLEDGE_LABEL[level])}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         ))}
 

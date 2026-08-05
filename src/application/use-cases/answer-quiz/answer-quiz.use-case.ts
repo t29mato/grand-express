@@ -1,8 +1,9 @@
 import { ItemKey, PlayerId } from "../../../domain/shared-kernel/ids";
 import { Money } from "../../../domain/shared-kernel/money";
 import { Random } from "../../../domain/shared-kernel/random";
-import { QUIZ_TIER_REWARDS, QuizQuestion, QuizTier } from "../../../domain/quiz/quiz-question";
+import { QuizQuestion, QuizTier } from "../../../domain/quiz/quiz-question";
 import { gradeAnswer } from "../../../domain/quiz/quiz-grading-service";
+import { recordMiss } from "../../../domain/quiz/learning-record";
 import { payUpTo, receiveCash, removeItemAt } from "../../../domain/player/player";
 import { giveRandomItem } from "../../../domain/item/give-random-item";
 import { GameSession, replacePlayer } from "../../../domain/game-session/game-session";
@@ -13,7 +14,7 @@ export interface AnswerQuizOutcome {
   readonly correct: boolean;
   /** 実際に増減した額(不正解時、残高不足なら払える分だけ)。 */
   readonly amount: Money;
-  /** お守り(pacha/daruma)により不正解が正解に変わった場合true。 */
+  /** お守り(pacha/daruma)が損失を肩代わりした場合true(正誤自体は変わらない)。 */
   readonly savedByCharm: boolean;
   /** 正解のボーナスとして追加で獲得したアイテム(あれば)。 */
   readonly bonusItem: ItemKey | null;
@@ -35,10 +36,19 @@ export function answerQuiz(
   const player = session.players.find((p) => p.id === playerId);
   if (!player) throw new Error(`Unknown player: ${playerId}`);
 
-  const grade = gradeAnswer(question, tier, chosenOptionIndex);
+  const grade = gradeAnswer(question, tier, chosenOptionIndex, player.knowledgeLevel);
+  const correct = grade.correct;
 
-  // お守り(pacha/daruma)による自動セーブは人間プレイヤーのみ(現行コードのCPU分岐にはこの判定がない)。
-  let correct = grade.correct;
+  /*
+   * お守り(pacha/daruma)は人間プレイヤーのみ発動する
+   * (現行コードのCPU分岐にはこの判定がない)。
+   *
+   * 【legacyからの意図的な仕様変更】legacyは不正解を無条件に「正解」へ変換し
+   * 賞金も満額与えていたが、それではプレイヤーが自分の間違いに気づかないまま
+   * 先に進んでしまい、学習の信号が消えてしまう。
+   * 本作の目的は学習なので、**正誤の判定は変えず、損失だけを肩代わりする**挙動に
+   * 変更した(docs/40-learning-design/01-quiz-as-learning-device.md 案4)。
+   */
   let savedByCharm = false;
   let currentPlayer = player;
   if (!correct && !player.isCpu) {
@@ -48,16 +58,17 @@ export function answerQuiz(
     });
     if (charmIndex >= 0) {
       currentPlayer = removeItemAt(currentPlayer, charmIndex);
-      correct = true;
       savedByCharm = true;
     }
   }
 
   let amount: Money;
   if (correct) {
-    // お守りでセーブされた場合も、正解と同じ賞金がもらえる(現行コードの `ok?st.win:-st.lose`)。
-    amount = savedByCharm ? Money.of(QUIZ_TIER_REWARDS[tier].winAmount) : grade.amount;
+    amount = grade.amount;
     currentPlayer = receiveCash(currentPlayer, amount);
+  } else if (savedByCharm) {
+    // お守りが損失を防いだので増減なし。正解にはしない。
+    amount = Money.of(0);
   } else {
     const paid = payUpTo(currentPlayer, grade.amount);
     currentPlayer = paid.player;
@@ -65,7 +76,7 @@ export function answerQuiz(
   }
 
   let bonusItem: ItemKey | null = null;
-  if (correct && !savedByCharm) {
+  if (correct) {
     const chance = player.isCpu ? BONUS_ITEM_CHANCE.cpu : BONUS_ITEM_CHANCE.human;
     if (random.nextFloat() < chance) {
       const allKeys = context.content.items.map((i) => i.key);
@@ -75,11 +86,11 @@ export function answerQuiz(
     }
   }
 
-  return {
-    session: replacePlayer(session, currentPlayer),
-    correct,
-    amount,
-    savedByCharm,
-    bonusItem,
-  };
+  // 間違えた問題は、終了時のおさらいのために記録する。
+  const updated = replacePlayer(session, currentPlayer);
+  const withRecord: GameSession = correct
+    ? updated
+    : { ...updated, learningRecord: recordMiss(updated.learningRecord, question.id) };
+
+  return { session: withRecord, correct, amount, savedByCharm, bonusItem };
 }

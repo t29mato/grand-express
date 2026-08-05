@@ -43,6 +43,20 @@ export type UiState =
     }
   | { readonly kind: "choosing-square"; readonly steps: number; readonly reachable: ReadonlyMap<NodeId, readonly NodeId[]> }
   | { readonly kind: "quiz"; readonly question: QuizQuestion; readonly tier: QuizTier; readonly optionOrder: readonly number[] }
+  /**
+   * 回答後の結果表示。正解・自分の選択・増減額・解説を見せる学習の要
+   * (docs/40-learning-design/01-quiz-as-learning-device.md 案1)。
+   */
+  | {
+      readonly kind: "quiz-result";
+      readonly question: QuizQuestion;
+      readonly tier: QuizTier;
+      readonly chosenOptionIndex: number;
+      readonly correct: boolean;
+      readonly amount: string;
+      readonly savedByCharm: boolean;
+      readonly bonusItem: ItemKey | null;
+    }
   | { readonly kind: "city"; readonly cityId: CityId; readonly arrivalPrize: number | null }
   /** 目的地に到着し、次の目的地が抽選された直後の案内(legacyの `arriveDest` 後半のモーダル)。 */
   | {
@@ -90,6 +104,8 @@ export interface GameStoreState {
   rollForHumanTurn(): void;
   chooseSquare(nodeId: NodeId): void;
   answerQuizOption(optionIndex: number): void;
+  /** クイズ結果モーダルを閉じて手番の続きに進む。 */
+  dismissQuizResult(): void;
   closeCityModal(): void;
   buyCityProperty(index: PropertyIndex): void;
   investCityProperty(ref: PropertyRef): void;

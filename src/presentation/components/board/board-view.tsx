@@ -1,14 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { NodeId } from "../../../domain/shared-kernel/ids";
+import { NodeId, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
 import { isCityNode } from "../../../domain/board/node";
 import { GameSession, currentPlayer } from "../../../domain/game-session/game-session";
 import { GameEngineContext } from "../../../application/game-engine-context";
 import { useBoardLayout } from "../../hooks/use-board-layout";
 import { useCamera } from "../../hooks/use-camera";
 import { useLocale } from "../../i18n/locale-context";
-import { CityLabelPlacement, useCityLabels } from "../../hooks/use-city-labels";
+import { useCityLabels } from "../../hooks/use-city-labels";
 import { SIZES } from "./board-metrics";
 import { TerrainLayer } from "./terrain-layer";
 import { BoardLegend } from "./board-legend";
@@ -236,10 +236,7 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
                 {isCityNode(node) ? (
                   <CityMarker
                     glyphSvg={context.content.artGlyphs[context.getCity(node.cityId).artGlyphKey] ?? ""}
-                    label={tx(context.getCity(node.cityId).name)}
                     isDestination={isDestination}
-                    placement={labelPlacements.get(node.cityId) ?? null}
-                    fontUnits={(isDestination ? DEST_LABEL_FONT_PX / LABEL_FONT_PX : 1) * labelFontUnits}
                   />
                 ) : (
                   <SquareMarker type={node.type} tier={node.type === "quiz" ? node.tier : undefined} />
@@ -269,6 +266,31 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
             ));
           })}
         </g>
+        {/* 都市名は独立したレイヤーに描く。マスの<g>に入れるとラベルのぶん
+            バウンディングボックスが広がり、その中心が空白に来てクリック判定が
+            地形ポリゴンに奪われてしまうため(マスを選べなくなる)。
+            最前面に置くことで、他のマーカーに隠れず読めるという利点もある。 */}
+        <g className="city-labels" style={{ pointerEvents: "none" }}>
+          {[...labelPlacements.entries()].map(([cityId, placement]) => {
+            const at = positions.get(cityIdToNodeId(cityId));
+            if (!at) return null;
+            const isDestination = cityId === session.destination;
+            const fontUnits = (isDestination ? DEST_LABEL_FONT_PX / LABEL_FONT_PX : 1) * labelFontUnits;
+            return (
+              <text
+                key={cityId}
+                className={`city-label${isDestination ? " dest" : ""}`}
+                x={at.x + placement.dx}
+                y={at.y + placement.dy}
+                textAnchor={placement.anchor}
+                fontSize={fontUnits}
+                strokeWidth={fontUnits * 0.26}
+              >
+                {tx(context.getCity(cityId).name)}
+              </text>
+            );
+          })}
+        </g>
         <BoardLegend boardWidth={boardWidth} boardHeight={boardHeight} currency={context.content.currency} />
       </svg>
       <button
@@ -289,20 +311,7 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
  * 影の楕円 → 都市のシンボル(1.25倍) → 円 → 中心の点 → 目的地リング → 都市名
  * という重ね順・座標・色はlegacyと同じ。
  */
-function CityMarker({
-  glyphSvg,
-  label,
-  isDestination,
-  placement,
-  fontUnits,
-}: {
-  glyphSvg: string;
-  label: string;
-  isDestination: boolean;
-  /** 重なりを避けて決めたラベル位置。null なら今の縮尺では表示しない。 */
-  placement: CityLabelPlacement | null;
-  fontUnits: number;
-}) {
+function CityMarker({ glyphSvg, isDestination }: { glyphSvg: string; isDestination: boolean }) {
   const scale = SIZES.cityGlyphScale;
   const glyphWidth = 24 * scale;
 
@@ -320,18 +329,6 @@ function CityMarker({
       <circle r={SIZES.cityInnerRadius} fill="#241a3f" />
       {isDestination && (
         <circle r={SIZES.destRingRadius} fill="none" stroke="#f5b31c" strokeWidth={3.5} strokeDasharray="8 9" className="dest-ring" />
-      )}
-      {placement && (
-        <text
-          className={`city-label${isDestination ? " dest" : ""}`}
-          x={placement.dx}
-          y={placement.dy}
-          textAnchor={placement.anchor}
-          fontSize={fontUnits}
-          strokeWidth={fontUnits * 0.26}
-        >
-          {label}
-        </text>
       )}
     </>
   );
