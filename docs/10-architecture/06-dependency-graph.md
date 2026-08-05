@@ -73,200 +73,210 @@ subgraph 1["app"]
 2["globals.css"]
 3["layout.tsx"]
 4["page.tsx"]
+subgraph 5["release-notes"]
+6[" "]
 end
-subgraph 5["application"]
-subgraph 6["dto"]
-7[" "]
 end
-8["economy-context.ts"]
-9["game-engine-context.ts"]
-subgraph A["ports"]
-B[" "]
+subgraph 7["application"]
+subgraph 8["dto"]
+9[" "]
 end
-subgraph C["use-cases"]
+A["economy-context.ts"]
+B["game-engine-context.ts"]
+subgraph C["ports"]
 D[" "]
 end
+subgraph E["use-cases"]
+F[" "]
 end
-subgraph E["domain"]
-subgraph F["board"]
-G[" "]
 end
-subgraph H["country"]
+subgraph G["domain"]
+subgraph H["board"]
 I[" "]
 end
-subgraph J["cpu"]
+subgraph J["country"]
 K[" "]
 end
-subgraph L["game-session"]
+subgraph L["cpu"]
 M[" "]
 end
-subgraph N["item"]
+subgraph N["game-session"]
 O[" "]
 end
-subgraph P["misfortune"]
+subgraph P["item"]
 Q[" "]
 end
-subgraph R["player"]
+subgraph R["misfortune"]
 S[" "]
 end
-subgraph T["property"]
+subgraph T["player"]
 U[" "]
 end
-subgraph V["quiz"]
+subgraph V["property"]
 W[" "]
 end
-subgraph X["season"]
+subgraph X["quiz"]
 Y[" "]
 end
-subgraph Z["shared-kernel"]
+subgraph Z["season"]
 10[" "]
 end
-end
-subgraph 11["i18n"]
-subgraph 12["messages"]
-13[" "]
+subgraph 11["shared-kernel"]
+12[" "]
 end
 end
-subgraph 14["infrastructure"]
-subgraph 15["audio"]
-16[" "]
+subgraph 13["i18n"]
+subgraph 14["messages"]
+15[" "]
 end
-subgraph 17["content"]
+end
+subgraph 16["infrastructure"]
+subgraph 17["audio"]
 18[" "]
 end
-subgraph 19["persistence"]
+subgraph 19["content"]
 1A[" "]
 end
-subgraph 1B["random"]
+subgraph 1B["persistence"]
 1C[" "]
 end
+subgraph 1D["random"]
+1E[" "]
 end
-subgraph 1D["presentation"]
-subgraph 1E["components"]
-1F[" "]
 end
-subgraph 1G["hooks"]
+subgraph 1F["presentation"]
+subgraph 1G["components"]
 1H[" "]
 end
-subgraph 1I["i18n"]
+subgraph 1I["hooks"]
 1J[" "]
 end
-subgraph 1K["state"]
+subgraph 1K["i18n"]
 1L[" "]
 end
+subgraph 1M["release-notes"]
+1N[" "]
+end
+subgraph 1O["state"]
+1P[" "]
 end
 end
+end
+3-->1H
 3-->2
-4-->1F
-7-->K
-7-->M
-7-->Q
-7-->S
-7-->W
-7-->10
-8-->M
-8-->U
-8-->9
-9-->G
-9-->I
-9-->10
-B-->7
+4-->1H
+6-->1H
+9-->M
+9-->O
+9-->S
+9-->U
+9-->Y
+9-->12
+A-->O
+A-->W
+A-->B
 B-->I
-B-->10
-D-->M
-D-->O
-D-->S
-D-->W
-D-->10
+B-->K
+B-->12
 D-->9
-D-->Q
-D-->U
-D-->8
-D-->7
-D-->B
 D-->K
-D-->G
-D-->Y
-G-->10
-G-->W
-I-->G
-I-->O
-I-->Q
-I-->W
+D-->12
+F-->O
+F-->Q
+F-->U
+F-->Y
+F-->12
+F-->B
+F-->S
+F-->W
+F-->A
+F-->9
+F-->D
+F-->M
+F-->I
+F-->10
+I-->12
 I-->Y
-I-->10
-K-->G
+K-->I
+K-->Q
 K-->S
-K-->U
+K-->Y
 K-->10
-K-->O
-M-->Q
-M-->S
+K-->12
+M-->I
+M-->U
 M-->W
-M-->10
-O-->10
+M-->12
+M-->Q
 O-->S
-Q-->S
-Q-->10
-S-->K
-S-->W
-S-->10
-U-->G
-U-->S
-U-->10
-W-->10
-Y-->10
-Y-->S
-16-->B
-16-->18
-18-->B
-18-->I
-18-->10
-18-->G
-18-->O
-18-->W
-18-->Y
-18-->Q
-1A-->7
-1A-->B
-1C-->10
-1F-->1J
-1F-->1L
-1F-->M
-1F-->10
-1F-->9
-1F-->G
-1F-->1H
-1F-->I
-1F-->W
-1F-->8
-1F-->U
-1F-->D
-1F-->S
-1F-->Y
-1F-->K
-1F-->18
-1H-->9
-1H-->G
+O-->U
+O-->Y
+O-->12
+Q-->12
+Q-->U
+S-->U
+S-->12
+U-->M
+U-->Y
+U-->12
+W-->I
+W-->U
+W-->12
+Y-->12
+10-->12
+10-->U
+18-->D
+18-->1A
+1A-->D
+1A-->K
+1A-->12
+1A-->I
+1A-->Q
+1A-->Y
+1A-->10
+1A-->S
+1C-->9
+1C-->D
+1E-->12
+1H-->1L
+1H-->1N
+1H-->1P
+1H-->O
+1H-->12
+1H-->B
+1H-->I
+1H-->1J
+1H-->K
+1H-->Y
+1H-->A
+1H-->W
+1H-->F
+1H-->U
 1H-->10
-1H-->1F
-1J-->10
-1J-->13
+1H-->M
+1H-->1A
+1J-->B
 1J-->I
-1L-->9
-1L-->D
-1L-->M
-1L-->10
-1L-->1J
-1L-->16
-1L-->18
-1L-->1A
-1L-->1C
-1L-->I
-1L-->W
+1J-->12
+1J-->1H
+1L-->12
+1L-->15
 1L-->K
-1L-->Y
-1L-->G
+1N-->12
+1P-->B
+1P-->F
+1P-->O
+1P-->12
+1P-->1L
+1P-->18
+1P-->1A
+1P-->1C
+1P-->1E
+1P-->K
+1P-->Y
+1P-->M
+1P-->10
+1P-->I
 ```
 
 ## 3. ドメインのサブドメイン間の依存

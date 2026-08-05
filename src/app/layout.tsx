@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { AppShell } from "../presentation/components/app-shell";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,7 +14,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {/* 言語の状態とフッターは全ページで共有する。レイアウトはページ遷移で
+            再マウントされないので、リリースノートへ移動しても言語が保たれる。 */}
+        <AppShell>{children}</AppShell>
+      </body>
     </html>
   );
 }

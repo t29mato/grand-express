@@ -136,6 +136,12 @@ const INLINE_UI_STRINGS = {
   quizMid: "Standard question|Pregunta normal|Question normale|ふつうの問題",
   quizHigh: "High-stakes question|Pregunta de alto riesgo|Question à gros enjeu|高額の問題",
   cpuBoughtNothing: "{0} looked around but bought nothing.|{0} miró pero no compró nada.|{0} a regardé mais n'a rien acheté.|{0} は見て回ったが何も買わなかった。",
+  // リリースノート・フッター。legacyには無い新規の文言。
+  releaseNotes: "What's new|Novedades|Nouveautés|更新情報",
+  releaseNotesLead: "What has changed for players, newest first.|Lo que ha cambiado para quienes juegan, de lo más reciente a lo más antiguo.|Ce qui a changé pour les joueurs, du plus récent au plus ancien.|遊ぶ人から見て何が変わったかを、新しい順に載せています。",
+  backToGame: "Back to the game|Volver al juego|Retour au jeu|ゲームに戻る",
+  versionLabel: "Version|Versión|Version|バージョン",
+
   // 学習まわり(docs/40-learning-design/)。legacyには無い新規の文言。
   correctAnswerWas: "The answer was <b>{0}</b>.|La respuesta era <b>{0}</b>.|La réponse était <b>{0}</b>.|正解は <b>{0}</b> でした。",
   yourAnswer: "You answered: <b>{0}</b>|Respondiste: <b>{0}</b>|Ta réponse : <b>{0}</b>|あなたの回答: <b>{0}</b>",
