@@ -100,6 +100,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const result = cpuTakeTurn(context, current, player.id, random);
       current = result.session;
       logs.push({ id: nextLogId++, text: describeCpuTurn(player.name, result), tone: "neutral" });
+      if (result.strike?.type === "struck") soundAdapter.playDoom(result.strike.wasKing);
       const movedPlayer = current.players.find((p) => p.id === player.id);
       if (movedPlayer) soundAdapter.setRegion(context.getNode(movedPlayer.location).regionId);
 
@@ -108,6 +109,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
         const adv = advanceTurn(context, current, random);
         current = adv.session;
         if (adv.season) {
+          soundAdapter.playChime();
           logs.push({ id: nextLogId++, text: `${adv.season.emoji} ${adv.season.name.en}`, tone: "gold" });
         }
         for (const q of adv.quarterlyIncome) {
@@ -118,6 +120,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
 
     if (isOver(current)) {
       const outcome = endGame(context, current);
+      soundAdapter.playWin();
       set((s) => ({ session: outcome.session, ui: { kind: "game-over", outcome }, log: [...logs.reverse(), ...s.log].slice(0, 60) }));
       return;
     }
@@ -134,6 +137,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
 
     if (isOver(current)) {
       const outcome = endGame(context, current);
+      soundAdapter.playWin();
       set((s) => ({ session: outcome.session, ui: { kind: "game-over", outcome }, log: pushLog(s, "Game over", "gold") }));
       return;
     }
@@ -148,7 +152,10 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     current = adv.session;
     set((s) => {
       let log = s.log;
-      if (adv.season) log = [{ id: nextLogId++, text: `${adv.season.emoji} ${adv.season.name.en}`, tone: "gold" }, ...log];
+      if (adv.season) {
+        soundAdapter.playChime();
+        log = [{ id: nextLogId++, text: `${adv.season.emoji} ${adv.season.name.en}`, tone: "gold" }, ...log];
+      }
       for (const q of adv.quarterlyIncome) {
         log = [{ id: nextLogId++, text: `+${q.amount} quarterly income (${q.playerId})`, tone: "good" }, ...log];
       }
@@ -172,6 +179,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
 
     if (isCityNode(node) && node.cityId === session.destination) {
       const arrival = arriveAtDestination(context, session, player.id, random);
+      soundAdapter.playFanfare();
       set((s) => ({ session: arrival.session, log: pushLog(s, `${player.name} reaches the destination! +${arrival.prize}`, "gold") }));
       set({ ui: { kind: "city", cityId: node.cityId, arrivalPrize: arrival.prize } });
       return;
@@ -183,6 +191,8 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     }
     if (node.type === "blue" || node.type === "red") {
       const outcome = landOnMoneySquare(session, player.id, node.type === "blue", random);
+      if (outcome.gained) soundAdapter.playCoin();
+      else soundAdapter.playWrong();
       set((s) => ({
         session: outcome.session,
         log: pushLog(s, outcome.gained ? `${player.name} +${outcome.amount}` : `${player.name} -${outcome.amount}`, outcome.gained ? "good" : "bad"),
@@ -192,6 +202,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     }
     if (node.type === "card") {
       const outcome = landOnCardSquare(context, session, player.id, random);
+      soundAdapter.playChime();
       set((s) => ({ session: outcome.session, log: pushLog(s, outcome.itemKey ? `${player.name} found ${outcome.itemKey}` : `${player.name} found nothing`, "gold") }));
       finishHumanLandingAndAdvance();
       return;
@@ -227,6 +238,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
         sessionId: GameSessionId(`session-${Date.now()}`),
       });
       set({ context, session, ui: { kind: "idle" }, log: [{ id: nextLogId++, text: "New journey started!", tone: "gold" }] });
+      await soundAdapter.setCountry(config.countryId);
       soundAdapter.setRegion(context.getNode(currentPlayer(session).location).regionId);
       saveGame(gameRepository, session);
       runCpuLoopIfNeeded();
@@ -238,6 +250,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const content = await contentRepository.load(saved.countryId);
       const context = createGameEngineContext(content);
       set({ context, session: saved, ui: { kind: "idle" }, log: [{ id: nextLogId++, text: "Journey restored from your last save.", tone: "gold" }] });
+      await soundAdapter.setCountry(saved.countryId);
       soundAdapter.setRegion(context.getNode(currentPlayer(saved).location).regionId);
       runCpuLoopIfNeeded();
     },
@@ -259,6 +272,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       }
       if (session.misfortune.level > 0 && session.misfortune.holderId === player.id) {
         const strike = resolveMisfortuneStrike(context, session, player.id, random);
+        if (strike.result.type === "struck") soundAdapter.playDoom(strike.result.wasKing);
         set((s) => ({ session: strike.session, log: pushLog(s, describeStrike(player.name, strike.result), "bad") }));
         if (currentPlayer(strike.session).skipNextTurn) {
           const cleared = { ...strike.session, players: strike.session.players.map((p) => (p.id === player.id ? { ...p, skipNextTurn: false } : p)) };
@@ -269,7 +283,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       }
 
       const latestSession = get().session!;
-      soundAdapter.playDiceRoll();
+      soundAdapter.playRattle();
       const steps = rollOneDie(random);
       const reachable = reachableNodesFor(context, latestSession, player.id, steps);
       set({ ui: { kind: "choosing-square", steps, reachable } });
@@ -298,7 +312,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       if (!context || !session || ui.kind !== "quiz") return;
       const player = currentPlayer(session);
       const outcome = answerQuiz(context, session, player.id, ui.question, ui.tier, optionIndex, random);
-      if (outcome.correct) soundAdapter.playCoin();
+      if (outcome.correct) soundAdapter.playRight();
       else soundAdapter.playWrong();
       set((s) => ({
         session: outcome.session,
@@ -318,7 +332,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const player = currentPlayer(session);
       const result = buyProperty(context, session, player.id, ui.cityId, index);
       if (result.ok) {
-        soundAdapter.playCoin();
+        soundAdapter.playBuy();
         set((s) => ({ session: result.value.session, log: pushLog(s, `${player.name} bought a property`, "gold") }));
       }
     },
@@ -329,7 +343,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const player = currentPlayer(session);
       const result = investInProperty(context, session, player.id, ref);
       if (result.ok) {
-        soundAdapter.playCoin();
+        soundAdapter.playBuy();
         set((s) => ({ session: result.value.session, log: pushLog(s, `${player.name} invested in a property`, "gold") }));
       }
     },
@@ -340,6 +354,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const player = currentPlayer(session);
       const result = sellPropertyUseCase(context, session, player.id, ref);
       if (result.ok) {
+        soundAdapter.playCoin();
         set((s) => ({ session: result.value.session, log: pushLog(s, `${player.name} sold a property`, "bad") }));
       }
     },
@@ -350,7 +365,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const player = currentPlayer(session);
       const result = buyStallItem(context, session, player.id, ui.cityId, key);
       if (result.ok) {
-        soundAdapter.playCoin();
+        soundAdapter.playBuy();
         set((s) => ({ session: result.value, log: pushLog(s, `${player.name} bought an item`, "gold") }));
       }
     },
