@@ -51,6 +51,23 @@ describe("盤面の移動不変条件", () => {
     }
   });
 
+  it.each(countries)("%s: すべての都市が投影の範囲に収まっている", async (countryId) => {
+    // 範囲外の都市は盤面の外に描かれ、静かに見えなくなる(エラーにもならない)。
+    // 都市を足すときに気づけるよう、ここで押さえておく。
+    const pack = await repo.load(CountryId(countryId));
+    const { lon0, lon1, lat0, lat1 } = pack.projection;
+    const [lonMin, lonMax] = [Math.min(lon0, lon1), Math.max(lon0, lon1)];
+    const [latMin, latMax] = [Math.min(lat0, lat1), Math.max(lat0, lat1)];
+
+    const outside = pack.cities
+      .filter(
+        (c) =>
+          c.longitude < lonMin || c.longitude > lonMax || c.latitude < latMin || c.latitude > latMax,
+      )
+      .map((c) => `${c.id}(${c.longitude}, ${c.latitude})`);
+    expect(outside, `${countryId}: 投影の外にある都市`).toEqual([]);
+  });
+
   it.each(countries)("%s: どのマスからも必ずどこかへ動ける(行き止まりで詰まない)", async (countryId) => {
     const pack = await repo.load(CountryId(countryId));
     const graph = buildBoardGraph(pack.cities, pack.edges, pack.projection);

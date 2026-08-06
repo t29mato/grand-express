@@ -10,6 +10,10 @@ import { QUIZ_DIFFICULTY } from "./quiz-difficulty.mjs";
 import { JAPAN_LAND } from "./japan-geography.mjs";
 import { JAPAN_ISLAND_CITIES, JAPAN_ISLAND_EDGES } from "./japan-islands.mjs";
 import { JAPAN_HOKKAIDO_CITIES, JAPAN_HOKKAIDO_EDGES } from "./japan-hokkaido.mjs";
+import { JAPAN_SIGHTS_KANTO, JAPAN_SIGHTS_KANTO_EDGES } from "./japan-sights-kanto.mjs";
+import { JAPAN_SIGHTS_TOHOKU, JAPAN_SIGHTS_TOHOKU_EDGES } from "./japan-sights-tohoku.mjs";
+import { JAPAN_SIGHTS_KANSAI, JAPAN_SIGHTS_KANSAI_EDGES } from "./japan-sights-kansai.mjs";
+import { JAPAN_SIGHTS_KYUSHU, JAPAN_SIGHTS_KYUSHU_EDGES } from "./japan-sights-kyushu.mjs";
 import {
   JAPAN_EXTRA_CITIES,
   JAPAN_EXTRA_EDGES,
@@ -23,7 +27,7 @@ import {
  * **中間マスの数は変えずに、マス同士の間隔だけが広がる**。
  * マーカーの寸法は盤面座標で固定なので、相対的に小さく=すっきり見える。
  */
-const BOARD_SCALE = { bolivia: 1.35, japan: 1.75 };
+const BOARD_SCALE = { bolivia: 1.35, japan: 2.45 };
 
 /**
  * 投影の経緯度範囲の上書き。
@@ -33,7 +37,9 @@ const BOARD_SCALE = { bolivia: 1.35, japan: 1.75 };
  * (広げないと日本列島全体が横に潰れてしまう)。
  */
 const PROJ_BOUNDS = {
-  japan: { LON0: 123.4 },
+  // 西は石垣・与那国(東経123度台)、南は与那国・竹富(北緯24.3度)まで入れる。
+  // legacy は沖縄本島までしか想定しておらず、先島諸島は盤面の外に落ちていた。
+  japan: { LON0: 122.8, LAT1: 23.8 },
 };
 
 const OVERRIDES = {
@@ -46,8 +52,20 @@ const OVERRIDES = {
     land: JAPAN_LAND,
     boardScale: BOARD_SCALE.japan,
     projBounds: PROJ_BOUNDS.japan,
-    extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES, ...JAPAN_ISLAND_CITIES, ...JAPAN_HOKKAIDO_CITIES },
-    extraEdges: [...JAPAN_EXTRA_EDGES, ...JAPAN_PREFECTURE_EDGES, ...JAPAN_ISLAND_EDGES, ...JAPAN_HOKKAIDO_EDGES],
+    extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES, ...JAPAN_ISLAND_CITIES,
+      ...JAPAN_HOKKAIDO_CITIES,
+      ...JAPAN_SIGHTS_TOHOKU,
+      ...JAPAN_SIGHTS_KANTO,
+      ...JAPAN_SIGHTS_KANSAI,
+      ...JAPAN_SIGHTS_KYUSHU,
+    },
+    extraEdges: [...JAPAN_EXTRA_EDGES, ...JAPAN_PREFECTURE_EDGES, ...JAPAN_ISLAND_EDGES,
+      ...JAPAN_HOKKAIDO_EDGES,
+      ...JAPAN_SIGHTS_TOHOKU_EDGES,
+      ...JAPAN_SIGHTS_KANTO_EDGES,
+      ...JAPAN_SIGHTS_KANSAI_EDGES,
+      ...JAPAN_SIGHTS_KYUSHU_EDGES,
+    ],
     quizDifficulty: QUIZ_DIFFICULTY.japan,
   },
 };
@@ -69,10 +87,25 @@ export function applyContentOverrides(countryId, content) {
     let proj = content.proj;
 
     if (override.projBounds) {
-      const { LON0 = proj.LON0, LON1 = proj.LON1 } = override.projBounds;
-      // 経度1度あたりのピクセル数を保つ(横に潰れないようにする)。
+      const {
+        LON0 = proj.LON0,
+        LON1 = proj.LON1,
+        LAT0 = proj.LAT0,
+        LAT1 = proj.LAT1,
+      } = override.projBounds;
+      // 1度あたりのピクセル数を保つ(範囲を広げたぶん盤面も広げる)。
+      // 保たないと、広げた方向に地図が潰れてしまう。
       const pxPerLon = proj.BW / (proj.LON1 - proj.LON0);
-      proj = { ...proj, LON0, LON1, BW: Math.round(pxPerLon * (LON1 - LON0)) };
+      const pxPerLat = proj.BH / (proj.LAT1 - proj.LAT0);
+      proj = {
+        ...proj,
+        LON0,
+        LON1,
+        LAT0,
+        LAT1,
+        BW: Math.round(pxPerLon * (LON1 - LON0)),
+        BH: Math.round(pxPerLat * (LAT1 - LAT0)),
+      };
     }
 
     if (override.boardScale) {

@@ -23,6 +23,25 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.5.0",
+    date: "2026-08-06",
+    title: t("Japan, town by town|Japón, pueblo a pueblo|Le Japon, ville par ville|町の単位で見る日本"),
+    highlights: [
+      t(
+        "Japan now has 151 towns instead of 74. Alongside the prefectural capitals you can now stop at Tsukuba, Ōarai, Hiraizumi, Ginzan Onsen, Shirakawa-gō, Kamikōchi, Uji, Miyajima, Naoshima, Dazaifu, Aso, Chiran and many more.|Japón pasa de 74 a 151 ciudades. Junto a las capitales ahora puedes parar en Tsukuba, Ōarai, Hiraizumi, Shirakawa-gō, Uji, Miyajima, Naoshima, Dazaifu, Aso y muchas más.|Le Japon passe de 74 à 151 villes. Outre les préfectures, on s'arrête désormais à Tsukuba, Ōarai, Hiraizumi, Shirakawa-gō, Uji, Miyajima, Naoshima, Dazaifu, Aso et bien d'autres.|日本の都市が74から151になりました。県庁所在地に加えて、つくば・大洗・平泉・銀山温泉・白川郷・上高地・宇治・宮島・直島・太宰府・阿蘇・知覧などに立ち寄れます。",
+      ),
+      t(
+        "Each new town has its own story to read when you land there — why the roofs are that steep, why the gods gather there in October, why the town refused to modernise.|Cada nueva ciudad trae su historia al llegar: por qué los tejados son tan inclinados, por qué los dioses se reúnen allí en octubre.|Chaque nouvelle ville a son histoire à lire en y arrivant : pourquoi les toits sont si pentus, pourquoi les dieux s'y réunissent en octobre.|新しい町にはそれぞれ読みものが付いています。なぜ屋根がこれほど急なのか、なぜ十月に神々が集まるのか、なぜ近代化を拒んだのか。",
+      ),
+      t(
+        "The board was widened to match, so the extra towns have room to breathe rather than piling on top of each other.|El tablero se ha ampliado para que las nuevas ciudades tengan espacio y no se amontonen.|Le plateau a été élargi pour que les nouvelles villes respirent au lieu de s'empiler.|盤面もそのぶん広げたので、増えた町が重なり合わずに収まります。",
+      ),
+      t(
+        "The far south-west islands — Ishigaki, Taketomi and Yonaguni — were being drawn off the edge of the board and are now on it.|Las islas del suroeste — Ishigaki, Taketomi y Yonaguni — se dibujaban fuera del tablero y ahora aparecen en él.|Les îles du sud-ouest — Ishigaki, Taketomi et Yonaguni — étaient dessinées hors du plateau ; elles y figurent désormais.|先島諸島(石垣島・竹富島・与那国島)が盤面の外に描かれていたのを直しました。",
+      ),
+    ],
+  },
+  {
     version: "0.4.0",
     date: "2026-08-06",
     title: t("India, and a board you can see|India, y un tablero que se ve entero|L'Inde, et un plateau entièrement visible|インドと、全体が見える盤面"),
