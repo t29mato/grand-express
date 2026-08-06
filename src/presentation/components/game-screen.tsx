@@ -88,6 +88,7 @@ export function GameScreen() {
             cpuTurnPlayerName={
               ui.kind === "cpu-turn" || ui.kind === "cpu-city" || ui.kind === "cpu-quiz" ? ui.playerName : undefined
             }
+            steps={ui.kind === "choosing-square" ? ui.steps : undefined}
             onRoll={rollForHumanTurn}
           />
           <ItemBar context={context} session={session} onUseItem={useInventoryItem} />

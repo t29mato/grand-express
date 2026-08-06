@@ -158,6 +158,9 @@ const INLINE_UI_STRINGS = {
   eventGain: "You come out ahead.|Sales ganando.|Tu t'en sors gagnant.|得をした。",
   eventLoss: "It costs you.|Te cuesta dinero.|Cela te coûte.|出費になった。",
 
+  // 行き先を選んでいる最中の案内。何マス進むのかを出し続ける。
+  chooseSquareHint: "You rolled {0} — choose where to stop.|Has sacado {0}: elige dónde parar.|Tu as fait {0} — choisis où t'arrêter.|出目は{0}。止まる場所を選んでください。",
+
   // クイズの難易度表示。
   difficulty: "Difficulty|Dificultad|Difficulté|難易度",
   optionsReduced: "One wrong answer is hidden because you are new to this country.|Se oculta una respuesta incorrecta porque el país es nuevo para ti.|Une mauvaise réponse est masquée car ce pays t'est nouveau.|この国がはじめてなので、誤答をひとつ伏せています。",

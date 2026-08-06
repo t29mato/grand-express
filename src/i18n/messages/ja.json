@@ -193,6 +193,7 @@
   "cpuQuizHidden": "問題の中身は伏せてあります。同じ問題があなたに回ってくるかもしれません。",
   "eventGain": "得をした。",
   "eventLoss": "出費になった。",
+  "chooseSquareHint": "出目は{0}。止まる場所を選んでください。",
   "difficulty": "難易度",
   "optionsReduced": "この国がはじめてなので、誤答をひとつ伏せています。",
   "correctAnswerWas": "正解は <b>{0}</b> でした。",

@@ -140,8 +140,17 @@ export function DiceStage({
       };
     });
 
+    // 弾む瞬間だけ縦に潰す。これがあると「当たった」感じが出る。
+    const squashAt = (y: number) => {
+      const airborne = Math.min(1, (ground - y) / (H * 0.2));
+      return 1 - (1 - airborne) * 0.22;
+    };
+
     const place = (i: number, x: number, y: number, rx: number, ry: number) => {
-      dice[i].style.transform = `translate3d(${x - 48 * s}px, ${y - 48 * s}px, 0) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(${s}, ${s}, ${s})`;
+      const squash = squashAt(y);
+      dice[i].style.transform =
+        `translate3d(${x - 48 * s}px, ${y - 48 * s}px, 0) rotateX(${rx}deg) rotateY(${ry}deg) ` +
+        `scale3d(${s / squash}, ${s * squash}, ${s})`;
       const air = Math.min(1, (ground - y) / (H * 0.26));
       const sc = (1 - air * 0.45) * s;
       const shadow = shadows[i];
@@ -175,6 +184,18 @@ export function DiceStage({
       };
     }
 
+    /** 着地の砂ぼこり。CSSアニメーションで膨らんで消えるだけの短命な円。 */
+    const puff = (x: number, y: number, scale: number) => {
+      const dot = document.createElement("div");
+      dot.className = "die-puff";
+      dot.style.left = `${x}px`;
+      dot.style.top = `${y}px`;
+      dot.style.width = `${52 * scale}px`;
+      dot.style.height = `${16 * scale}px`;
+      stage.appendChild(dot);
+      setTimeout(() => dot.remove(), 480);
+    };
+
     const t0 = performance.now();
     soundAdapter.playRattle();
 
@@ -191,6 +212,8 @@ export function DiceStage({
       if (seg > lastSeg && seg <= BOUNCES) {
         lastSeg = seg;
         soundAdapter.playThud();
+        // 弾んだ位置に砂ぼこりを出す。音だけより着地が分かりやすい。
+        puff(plans[0].startX + (plans[0].endX - plans[0].startX) * e, ground + 34 * s, s);
       }
 
       plans.forEach((plan, i) => {

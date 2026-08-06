@@ -1229,3 +1229,47 @@ aside {
   height: auto;
   display: block;
 }
+
+/* モーダル内の言語切替。読み物の最中に母語で読み直せるようにするためのもの。
+   本文の邪魔にならないよう右上に小さく置く。 */
+.modal-lang {
+  display: flex;
+  justify-content: flex-end;
+  margin: -8px -8px 8px 0;
+}
+
+.modal-lang .langseg button {
+  padding: 3px 8px;
+  font-size: 0.72rem;
+}
+
+/* 行き先を選んでいる間、サイコロのボタンに出目を出す(何マスか分からなくなるため)。 */
+#die.showing-steps {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--gold);
+}
+
+/* サイコロが弾んだ瞬間の砂ぼこり。膨らみながら薄くなって消える。 */
+.die-puff {
+  position: absolute;
+  border-radius: 50%;
+  background: #f6efe2;
+  opacity: 0.5;
+  transform: translate(-50%, -50%) scale(0.4);
+  pointer-events: none;
+  animation: diePuff 0.45s ease-out forwards;
+}
+
+@keyframes diePuff {
+  to {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .die-puff {
+    display: none;
+  }
+}

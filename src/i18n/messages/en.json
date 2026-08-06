@@ -193,6 +193,7 @@
   "cpuQuizHidden": "The question is hidden — it may come round to you.",
   "eventGain": "You come out ahead.",
   "eventLoss": "It costs you.",
+  "chooseSquareHint": "You rolled {0} — choose where to stop.",
   "difficulty": "Difficulty",
   "optionsReduced": "One wrong answer is hidden because you are new to this country.",
   "correctAnswerWas": "The answer was <b>{0}</b>.",

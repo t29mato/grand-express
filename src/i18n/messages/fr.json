@@ -193,6 +193,7 @@
   "cpuQuizHidden": "La question reste masquée — elle peut vous revenir.",
   "eventGain": "Tu t'en sors gagnant.",
   "eventLoss": "Cela te coûte.",
+  "chooseSquareHint": "Tu as fait {0} — choisis où t'arrêter.",
   "difficulty": "Difficulté",
   "optionsReduced": "Une mauvaise réponse est masquée car ce pays t'est nouveau.",
   "correctAnswerWas": "La réponse était <b>{0}</b>.",

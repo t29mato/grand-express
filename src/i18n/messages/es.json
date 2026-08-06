@@ -193,6 +193,7 @@
   "cpuQuizHidden": "La pregunta queda oculta: puede tocarte a ti.",
   "eventGain": "Sales ganando.",
   "eventLoss": "Te cuesta dinero.",
+  "chooseSquareHint": "Has sacado {0}: elige dónde parar.",
   "difficulty": "Dificultad",
   "optionsReduced": "Se oculta una respuesta incorrecta porque el país es nuevo para ti.",
   "correctAnswerWas": "La respuesta era <b>{0}</b>.",
