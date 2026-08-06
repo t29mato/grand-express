@@ -23,6 +23,34 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.4.0",
+    date: "2026-08-06",
+    title: t("India, and a board you can see|India, y un tablero que se ve entero|L'Inde, et un plateau entièrement visible|インドと、全体が見える盤面"),
+    highlights: [
+      t(
+        "A third country: India, with 60 towns from Leh to Kanyakumari, sea routes to the Andaman and Lakshadweep islands, and 42 new questions.|Un tercer país: la India, con 60 ciudades de Leh a Kanyakumari, rutas marítimas a Andamán y Lakshadweep, y 42 preguntas nuevas.|Un troisième pays : l'Inde, 60 villes de Leh à Kanyakumari, des routes maritimes vers Andaman et Lakshadweep, et 42 nouvelles questions.|3か国目としてインドを追加しました。レーからカニヤークマリまで60都市、アンダマン諸島やラクシャドウィープ諸島への航路、新作クイズ42問。",
+      ),
+      t(
+        "Japan gained 13 island towns reached by sea — from Izu Ōshima and Sado to Amami, Yakushima and Ishigaki — plus 10 more towns in Hokkaidō.|Japón suma 13 ciudades isleñas a las que se llega por mar — de Izu Ōshima y Sado a Amami, Yakushima e Ishigaki — y 10 ciudades más en Hokkaidō.|Le Japon gagne 13 villes insulaires desservies par bateau — d'Izu Ōshima et Sado à Amami, Yakushima et Ishigaki — et 10 villes de plus à Hokkaidō.|日本に、船で渡る島の町を13件(伊豆大島・佐渡から奄美・屋久島・石垣島まで)、北海道に10件を追加しました。",
+      ),
+      t(
+        "Your piece is now a locomotive instead of a dot, so you can find yourself on a crowded map.|Tu ficha es ahora una locomotora en vez de un punto, para encontrarte en un mapa lleno.|Ton pion est désormais une locomotive plutôt qu'un point, pour te repérer sur une carte chargée.|自分の駒が丸から機関車になりました。マーカーの多い地図でも自分の位置が分かります。",
+      ),
+      t(
+        "Items that roll two or three dice now show every die and the total, so the number you see always matches the squares you move.|Los objetos que lanzan dos o tres dados muestran todos los dados y el total: el número que ves coincide con las casillas que avanzas.|Les objets lançant deux ou trois dés les affichent tous avec le total : le nombre affiché correspond aux cases parcourues.|サイコロを2〜3個振るアイテムで、振った数と合計をそのまま表示するようにしました。見えている数と進むマス数が一致します。",
+      ),
+      t(
+        "When a rival answers a question, only the result is shown — the question and answer stay hidden so they are not spoiled for you.|Cuando un rival responde, solo se muestra el resultado: la pregunta y la respuesta quedan ocultas para no destriparlas.|Quand un rival répond, seul le résultat s'affiche : la question et la réponse restent masquées.|CPUがクイズに答えたときは正誤だけを表示し、問題と解説は伏せるようにしました(答えを先に知ってしまわないように)。",
+      ),
+      t(
+        "The whole map now fits in the window, and turning on \"whole map\" really shows all of it.|El mapa entero cabe en la ventana y «mapa completo» muestra de verdad todo el tablero.|La carte entière tient dans la fenêtre, et « carte entière » montre vraiment tout le plateau.|地図全体が画面に収まるようになり、「全体表示」で盤面の端まで見えるようになりました。",
+      ),
+      t(
+        "If your system asks for reduced motion, the dice now settle at once instead of tumbling.|Si tu sistema pide menos movimiento, los dados se posan al instante en vez de rodar.|Si votre système demande moins d'animations, les dés se posent aussitôt au lieu de rouler.|OSの「視差効果を減らす」設定が有効なときは、サイコロが転がる演出を省いてすぐ結果を出します。",
+      ),
+    ],
+  },
+  {
     version: "0.3.0",
     date: "2026-08-06",
     title: t("Learning, properly|Aprender de verdad|Vraiment apprendre|ちゃんと学べるように"),
