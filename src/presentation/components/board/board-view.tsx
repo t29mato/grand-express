@@ -93,6 +93,31 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
   const activePlayerId = currentPlayer(session).id;
   const activeLocation = currentPlayer(session).location;
 
+  // 行き先の候補が全部見えるように、候補と現在地を囲む枠を求める。
+  // 候補が画面の外にあると、そこへ移りたくても押せない(地図を動かさないと選べない)。
+  const candidateFrame = useMemo(() => {
+    if (!reachable || reachable.size === 0) return null;
+    const here = positions.get(activeLocation);
+    const points = [...reachable.keys()].map((id) => positions.get(id)).filter((p) => p !== undefined);
+    if (here) points.push(here);
+    if (points.length === 0) return null;
+
+    const xs = points.map((p) => p.x);
+    const ys = points.map((p) => p.y);
+    const minX = Math.min(...xs);
+    const maxX = Math.max(...xs);
+    const minY = Math.min(...ys);
+    const maxY = Math.max(...ys);
+    // マーカーと都市名のぶんの余白。
+    const margin = SIZES.haloRadius * 4;
+    return {
+      cx: (minX + maxX) / 2,
+      cy: (minY + maxY) / 2,
+      width: maxX - minX + margin * 2,
+      height: maxY - minY + margin * 2,
+    };
+  }, [reachable, positions, activeLocation]);
+
   // 手番のプレイヤーを追尾する(現行コードの `focusNode`)。全体表示モードなら盤面全体を映す。
   useEffect(() => {
     if (overview) {
@@ -100,10 +125,23 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
       animateTo(boardWidth / 2, boardHeight / 2, fitWidth + 60);
       return;
     }
+
+    // マスを選んでいる間は、候補が全部入る大きさまで引く。
+    if (candidateFrame) {
+      const aspect = viewportHeightPx > 0 ? viewportWidthPx / viewportHeightPx : boardWidth / boardHeight;
+      const needed = Math.max(candidateFrame.width, candidateFrame.height * aspect);
+      animateTo(
+        candidateFrame.cx,
+        candidateFrame.cy,
+        Math.max(needed, boardWidth * FOLLOW_WIDTH_RATIO),
+      );
+      return;
+    }
+
     const pos = positions.get(activeLocation);
     if (pos) animateTo(pos.x, pos.y, boardWidth * FOLLOW_WIDTH_RATIO);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeLocation, overview, boardWidth, boardHeight, fitWidth, positions]);
+  }, [activeLocation, overview, boardWidth, boardHeight, fitWidth, positions, candidateFrame]);
 
   // 盤面SVGの実表示サイズを追跡する(盤面座標→画面pxの換算と、viewBoxの縦横比に使う)。
   useEffect(() => {
