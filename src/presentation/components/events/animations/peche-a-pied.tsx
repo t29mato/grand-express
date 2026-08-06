@@ -81,7 +81,12 @@ export function PecheAPied() {
       <g transform="translate(178,196)">
         <path d="M-26,-30 l52,0 l-6,30 -40,0z" fill="#5b8fe8" />
         <path d="M-27,-32 l54,0 l0,7 -54,0z" fill="#4a76c4" />
-        <path d="M-24,-34 q24,-18 48,0" stroke="#3f5f9c" strokeWidth="4" fill="none" />
+        <path
+          d="M-24,-34 q24,-18 48,0"
+          stroke="#3f5f9c"
+          strokeWidth="4"
+          fill="none"
+        />
         <g fill="#c9bda4">
           <ellipse cx="-10" cy="-30" rx="11" ry="6" />
           <ellipse cx="8" cy="-33" rx="11" ry="6" />

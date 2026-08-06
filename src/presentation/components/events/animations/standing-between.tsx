@@ -49,14 +49,17 @@ export function StandingBetween() {
         <path d="M-13,-63 a13,13 0 0 1 26,0z" fill="#3b2f2a" />
         {/* 窓口のほうへ差し出す腕 */}
         <g className="stb-gesture">
-          <rect x="16" y="-46" width="9" height="30" rx="4.5" fill="#f5b31c" />
-          <circle cx="20" cy="-48" r="5.5" fill="#f6efe2" />
+          <rect x="19" y="-48" width="10" height="32" rx="5" fill="#d99a0c" />
+          <circle cx="24" cy="-50" r="6" fill="#f6efe2" />
         </g>
       </g>
 
       {/* 左から来る言葉 */}
       <g className="stb-bubble-l">
-        <path d="M76,74 h58 a8,8 0 0 1 8,8 v22 a8,8 0 0 1 -8,8 h-38 l-12,10 v-10 h-8 a8,8 0 0 1 -8,-8 v-22 a8,8 0 0 1 8,-8z" fill="#f6efe2" />
+        <path
+          d="M76,74 h58 a8,8 0 0 1 8,8 v22 a8,8 0 0 1 -8,8 h-38 l-12,10 v-10 h-8 a8,8 0 0 1 -8,-8 v-22 a8,8 0 0 1 8,-8z"
+          fill="#f6efe2"
+        />
         <g fill="#c93a3a">
           <rect x="80" y="84" width="42" height="5" rx="2.5" />
           <rect x="80" y="95" width="28" height="5" rx="2.5" />
@@ -65,7 +68,10 @@ export function StandingBetween() {
 
       {/* 右から来る言葉 */}
       <g className="stb-bubble-r">
-        <path d="M292,66 h-58 a8,8 0 0 0 -8,8 v22 a8,8 0 0 0 8,8 h38 l12,10 v-10 h8 a8,8 0 0 0 8,-8 v-22 a8,8 0 0 0 -8,-8z" fill="#f6efe2" />
+        <path
+          d="M292,66 h-58 a8,8 0 0 0 -8,8 v22 a8,8 0 0 0 8,8 h38 l12,10 v-10 h8 a8,8 0 0 0 8,-8 v-22 a8,8 0 0 0 -8,-8z"
+          fill="#f6efe2"
+        />
         <g fill="#3d6fc4">
           <rect x="246" y="76" width="42" height="5" rx="2.5" />
           <rect x="264" y="87" width="24" height="5" rx="2.5" />
