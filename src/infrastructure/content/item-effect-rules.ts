@@ -39,4 +39,14 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   panchang: { type: "quiz-save" },
   jugaad: { type: "gain-cash", amount: 380 },
   dabbawala: { type: "extra-turn" },
+  // France
+  montgolfiere: { type: "teleport-to-destination" },
+  chaix: { type: "choose-exact-dice" },
+  corail: { type: "roll-fixed-dice", diceCount: 2 },
+  tgv: { type: "roll-fixed-dice", diceCount: 3 },
+  buis: { type: "none" }, // 厄災の神のward item(passive)
+  feustjean: { type: "repel-spirit" },
+  antiseche: { type: "quiz-save" },
+  brocante: { type: "gain-cash", amount: 380 },
+  relais: { type: "extra-turn" },
 };

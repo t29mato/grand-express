@@ -30,6 +30,7 @@ import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
 import { applyContentOverrides } from "./content-overrides/index.mjs";
 import { buildIndiaContent } from "./countries/india/index.mjs";
+import { buildFranceContent } from "./countries/france/index.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const legacyPath = join(__dirname, "..", "legacy", "grand-express.html");
@@ -290,7 +291,7 @@ for (const country of [BOLIVIA, JAPAN]) {
  * 抽出後のJSONと同じ形で組み立てているため、`transform` も
  * `evaluateBackgrounds` も通す必要がない(最初から文字列・4言語オブジェクト)。
  */
-const AUTHORED_COUNTRIES = [buildIndiaContent()];
+const AUTHORED_COUNTRIES = [buildIndiaContent(), buildFranceContent()];
 for (const content of AUTHORED_COUNTRIES) {
   writeFileSync(
     join(contentDir, `${content.id}.content.json`),
@@ -365,5 +366,5 @@ writeFileSync(join(contentDir, "country-index.json"), JSON.stringify(countryInde
 
 console.log("Extracted:");
 console.log(" - src/i18n/messages/{en,es,fr,ja}.json");
-console.log(" - src/infrastructure/content/{bolivia,japan,india}.content.json");
+console.log(" - src/infrastructure/content/{bolivia,japan,india,france}.content.json");
 console.log(" - src/infrastructure/content/country-index.json");

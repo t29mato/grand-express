@@ -23,6 +23,22 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.9.0",
+    date: "2026-08-07",
+    title: t("France joins the map|Francia se suma al mapa|La France rejoint la carte|フランスが加わりました"),
+    highlights: [
+      t(
+        "A fourth country: France, with 50 towns from Lille to Ajaccio, a sea crossing to Corsica, 40 new questions and 16 things that can happen to you on the road.|Un cuarto país: Francia, con 50 ciudades de Lille a Ajaccio, travesía a Córcega, 40 preguntas y 16 sucesos.|Un quatrième pays : la France, 50 villes de Lille à Ajaccio, une traversée vers la Corse, 40 questions et 16 événements.|4か国目としてフランスを追加しました。リールからアジャクシオまで50都市、コルシカへの航路、新作クイズ40問、道中で起きる出来事16件。",
+      ),
+      t(
+        "The misfortune spirit here is the Ankou of Brittany — not death itself but death's servant, who in the old tales collects souls in a cart. The charm that wards him off is a blessed sprig of box, handed out on Palm Sunday where no palm will grow.|El espíritu de la desgracia es el Ankou bretón, el sirviente de la muerte. El amuleto es una rama de boj bendecida.|L'esprit du malheur est l'Ankou breton, non la mort mais son serviteur. L'amulette est un rameau de buis béni.|厄災の神はブルターニュのアンクー。死そのものではなく「死の下働き」で、荷車で魂を迎えに行くと伝わります。お守りは祝別された黄楊の枝 — 棕櫚が育たない土地で、枝の主日に配られるものです。",
+      ),
+      t(
+        "In August the whole country goes on holiday: Paris earns less, the Mediterranean earns far more, and even the misfortune spirit takes the month off.|En agosto el país entero se va de vacaciones: París gana menos, el Mediterráneo mucho más, y hasta el espíritu descansa.|En août, tout le pays part en vacances : Paris gagne moins, la Méditerranée bien plus, et même l'esprit du malheur prend congé.|8月は国じゅうがヴァカンスに出ます。パリの実入りは減り、地中海は大きく増え、厄災の神まで休みます。",
+      ),
+    ],
+  },
+  {
     version: "0.8.0",
     date: "2026-08-07",
     title: t("The towns come alive|Los pueblos cobran vida|Les villes s'animent|町が動き出しました"),

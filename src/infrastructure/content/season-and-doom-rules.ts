@@ -130,6 +130,58 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
       { op: "region-income-multiplier", regionId: region("gan"), multiplier: 1.15 },
     ],
   ],
+
+  /**
+   * フランス。春の解禁 → 夏のヴァカンス → ぶどうの収穫 → 冬の市、という流れ。
+   * 8月は国じゅうが休むので厄災の神も休ませ、1月のガレット・デ・ロワで
+   * 全員にアイテムが配られる(王冠が当たる、という趣向)。
+   */
+  france: [
+    /* 0 Apr 春の市と復活祭 */ [
+      { op: "region-income-multiplier", regionId: region("idf"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("oue"), multiplier: 1.15 },
+    ],
+    /* 1 May 祝日が続く月 */ [{ op: "all-players-gain-cash", amount: 280 }],
+    /* 2 Jun 音楽祭と長い日 */ [
+      { op: "region-income-multiplier", regionId: region("idf"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("med"), multiplier: 1.2 },
+    ],
+    /* 3 Jul 革命記念日と自転車競技 */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("est"), multiplier: 1.2 },
+    ],
+    /* 4 Aug ヴァカンス(街が空になる) */ [
+      { op: "region-income-multiplier", regionId: region("idf"), multiplier: 0.7 },
+      { op: "region-income-multiplier", regionId: region("med"), multiplier: 1.35 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep ぶどうの収穫 */ [
+      { op: "region-income-multiplier", regionId: region("sud"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("est"), multiplier: 1.25 },
+    ],
+    /* 6 Oct 茸と栗の季節 */ [
+      { op: "region-income-multiplier", regionId: region("oue"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("sud"), multiplier: 1.15 },
+    ],
+    /* 7 Nov 新酒と諸聖人の日 */ [
+      { op: "all-players-gain-cash", amount: 220 },
+      { op: "region-income-multiplier", regionId: region("est"), multiplier: 1.2 },
+    ],
+    /* 8 Dec 冬の市 */ [
+      { op: "region-income-multiplier", regionId: region("est"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("idf"), multiplier: 1.2 },
+    ],
+    /* 9 Jan ガレット・デ・ロワ */ [{ op: "give-item-to-all" }],
+    /* 10 Feb 冬の底とカーニバル */ [
+      { op: "all-players-pay-cash", amount: 180 },
+      { op: "region-income-multiplier", regionId: region("nor"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("med"), multiplier: 1.15 },
+    ],
+    /* 11 Mar 早春 */ [
+      { op: "all-players-pay-cash", amount: 140 },
+      { op: "region-income-multiplier", regionId: region("oue"), multiplier: 1.15 },
+    ],
+  ],
 };
 
 /**
@@ -161,4 +213,12 @@ export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>>
   tollgate: "payOthers",
   wrongtrain: "teleport",
   chori: "steal",
+  // France
+  mistral: "fine",
+  "vendange-ratee": "percentLoss",
+  greve: "skipTurn",
+  "feu-de-garrigue": "loseProperties",
+  "tournee-generale": "payOthers",
+  "rame-coupee": "teleport",
+  "tire-laine": "steal",
 };

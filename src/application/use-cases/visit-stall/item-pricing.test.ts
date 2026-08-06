@@ -13,7 +13,7 @@ import { quizReward, MAX_QUIZ_DIFFICULTY } from "../../../domain/quiz/quiz-quest
  */
 describe("アイテムの値付け", () => {
   const repo = new JsonCountryContentRepository();
-  const countries = ["bolivia", "japan", "india"] as const;
+  const countries = ["bolivia", "japan", "india", "france"] as const;
 
   it.each(countries)("%s: 目的地へ飛ぶアイテムは、いつ買っても賞金より高い", async (countryId) => {
     const pack = await repo.load(CountryId(countryId));
