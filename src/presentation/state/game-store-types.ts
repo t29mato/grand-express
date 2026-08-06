@@ -10,6 +10,7 @@ import {
 import { GameSession } from "../../domain/game-session/game-session";
 import { QuizQuestion } from "../../domain/quiz/quiz-question";
 import { MoneyEvent } from "../../domain/board/money-event";
+import { DoomFlavor } from "../../domain/misfortune/doom-effect";
 import { CpuLevel } from "../../domain/cpu/cpu-level";
 import { LocalizedText } from "../../domain/shared-kernel/localized-text";
 import { SeasonDefinition } from "../../domain/season/season-effect";
@@ -71,6 +72,12 @@ export type UiState =
       readonly event: MoneyEvent;
       readonly amount: string;
       readonly gained: boolean;
+    }
+  | {
+      readonly kind: "doom";
+      readonly playerName: string;
+      readonly flavor: DoomFlavor;
+      readonly wasKing: boolean;
     }
   | { readonly kind: "saved" }
   | { readonly kind: "season"; readonly season: SeasonDefinition }
@@ -155,6 +162,8 @@ export interface GameStoreState {
   dismissCpuModal(): void;
   /** 青マス・赤マスの出来事のモーダルを閉じる。 */
   dismissMoneyEvent(): void;
+  /** 厄災のモーダルを閉じる。 */
+  dismissDoom(): void;
   /** 月替わりイベントのモーダル(ui.kind === "season")を閉じて手番の続きに進む。 */
   dismissSeasonModal(): void;
   /** 次の区間の案内(ui.kind === "next-leg")を閉じて手番の続きに進む。 */

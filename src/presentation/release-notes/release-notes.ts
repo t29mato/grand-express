@@ -23,6 +23,16 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.6.1",
+    date: "2026-08-07",
+    title: t("Misfortune, in pictures|La desgracia, en imágenes|Le malheur, en images|災難が目に見えるように"),
+    highlights: [
+      t(
+        "When the misfortune spirit strikes, you now see what actually happened — a typhoon shutting the shops, a landslide taking the stall down the hillside, a hand slipping into your bag on a packed train. 21 scenes in all.|Cuando golpea la desgracia, ahora ves qué ha pasado: un tifón, un derrumbe, una mano en tu bolsa. 21 escenas.|Quand le malheur frappe, on voit désormais ce qui s'est passé : typhon, glissement de terrain, main dans le sac. 21 scènes.|厄災に見舞われたとき、何が起きたのかが絵で見えるようになりました。台風でシャッターが下りる、地滑りで店が流される、満員電車で荷物に手が伸びる、など21種類。",
+      ),
+    ],
+  },
+  {
     version: "0.6.0",
     date: "2026-08-07",
     title: t("Things that happen to you|Cosas que te pasan|Ce qui vous arrive|旅で起きること"),

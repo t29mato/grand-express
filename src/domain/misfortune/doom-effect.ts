@@ -20,6 +20,12 @@ export type DoomEffectId =
 
 /** フレーバーテキスト(国ごとに異なる)。効果ロジック自体は7種で共通。 */
 export interface DoomFlavor {
+  /**
+   * その国での災難の呼び名(`typhoon` `soroche` など)。
+   * 効果の種類(effectId)は3か国で共通だが、絵と文章は国ごとに違うので、
+   * どの絵を出すかはこちらで決める。
+   */
+  readonly id: string;
   readonly effectId: DoomEffectId;
   readonly name: LocalizedText;
   readonly narrative: LocalizedText;

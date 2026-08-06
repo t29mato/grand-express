@@ -118,7 +118,7 @@ function mapDoomFlavors(raw: RawCountryContent) {
         `No DoomEffectId mapping for doom id "${doom.id}". Add it to src/infrastructure/content/season-and-doom-rules.ts`,
       );
     }
-    return { effectId, name: doom.n, narrative: doom.t };
+    return { id: doom.id, effectId, name: doom.n, narrative: doom.t };
   });
 }
 

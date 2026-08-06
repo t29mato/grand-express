@@ -56,6 +56,12 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     dismissNextLeg,
   } = createTurnFlowActions(set, get);
 
+  /**
+   * 厄災のモーダルを閉じたあと何をするか。
+   * 手番を飛ばされる災難("skip")なら次の人へ、そうでなければサイコロへ。
+   */
+  let pendingAfterDoom: "skip" | "roll" | null = null;
+
   return {
     context: null,
     session: null,
@@ -140,6 +146,19 @@ export const useGameStore = create<GameStoreState>((set, get) => {
         const strike = resolveMisfortuneStrike(context, session, player.id, random);
         if (strike.result.type === "struck") soundAdapter.playDoom(strike.result.wasKing);
         set((s) => ({ session: strike.session, log: [describeStrike(player.name, strike.result, context.content.currency), ...s.log].slice(0, 60) }));
+        // 何が起きたのかを絵と文章で見せる。閉じたあとにサイコロへ進む。
+        if (strike.result.type === "struck") {
+          pendingAfterDoom = currentPlayer(strike.session).skipNextTurn ? "skip" : "roll";
+          set({
+            ui: {
+              kind: "doom",
+              playerName: player.name,
+              flavor: strike.result.flavor,
+              wasKing: strike.result.wasKing,
+            },
+          });
+          return;
+        }
         if (currentPlayer(strike.session).skipNextTurn) {
           const cleared = { ...strike.session, players: strike.session.players.map((p) => (p.id === player.id ? { ...p, skipNextTurn: false } : p)) };
           set({ session: cleared });
@@ -286,6 +305,29 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     dismissSeasonModal,
     dismissNextLeg,
     dismissMoneyEvent,
+
+    /**
+     * 厄災のモーダルを閉じる。
+     * 手番を飛ばされる災難なら次の人へ、そうでなければサイコロへ進む。
+     */
+    dismissDoom() {
+      if (get().ui.kind !== "doom") return;
+      const after = pendingAfterDoom;
+      pendingAfterDoom = null;
+      const { session } = get();
+      if (after === "skip" && session) {
+        const player = currentPlayer(session);
+        set({
+          session: {
+            ...session,
+            players: session.players.map((p) => (p.id === player.id ? { ...p, skipNextTurn: false } : p)),
+          },
+        });
+        finishHumanLandingAndAdvance();
+        return;
+      }
+      set({ ui: { kind: "idle" } });
+    },
 
     save() {
       const { session } = get();

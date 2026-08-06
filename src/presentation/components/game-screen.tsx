@@ -13,6 +13,7 @@ import { SavedModal } from "./modals/saved-modal";
 import { CpuCityModal } from "./modals/cpu-city-modal";
 import { CpuQuizModal } from "./modals/cpu-quiz-modal";
 import { MoneyEventModal } from "./modals/money-event-modal";
+import { DoomModal } from "./modals/doom-modal";
 import { SeasonModal } from "./modals/season-modal";
 import { NextLegModal } from "./modals/next-leg-modal";
 import { QuizModal } from "./modals/quiz-modal";
@@ -43,6 +44,7 @@ export function GameScreen() {
   const dismissSavedModal = useGameStore((s) => s.dismissSavedModal);
   const dismissCpuModal = useGameStore((s) => s.dismissCpuModal);
   const dismissMoneyEvent = useGameStore((s) => s.dismissMoneyEvent);
+  const dismissDoom = useGameStore((s) => s.dismissDoom);
   const dismissQuizResult = useGameStore((s) => s.dismissQuizResult);
   const diceRoll = useGameStore((s) => s.diceRoll);
   const clearDiceRoll = useGameStore((s) => s.clearDiceRoll);
@@ -116,6 +118,16 @@ export function GameScreen() {
           correct={ui.correct}
           amount={ui.amount}
           onClose={dismissCpuModal}
+        />
+      )}
+      {ui.kind === "doom" && (
+        <DoomModal
+          playerName={ui.playerName}
+          countryId={context.content.id}
+          flavor={ui.flavor}
+          spiritEmoji={context.content.spirit.emoji}
+          wasKing={ui.wasKing}
+          onClose={dismissDoom}
         />
       )}
       {ui.kind === "money-event" && (
