@@ -11,6 +11,7 @@ import { JAPAN_LAND } from "./japan-geography.mjs";
 import { JAPAN_ISLAND_CITIES, JAPAN_ISLAND_EDGES } from "./japan-islands.mjs";
 import { JAPAN_HOKKAIDO_CITIES, JAPAN_HOKKAIDO_EDGES } from "./japan-hokkaido.mjs";
 import { JAPAN_MONEY_EVENTS } from "./money-events-japan.mjs";
+import { JAPAN_REMOVED_EDGES } from "./japan-line-pruning.mjs";
 import { BOLIVIA_MONEY_EVENTS } from "./money-events-bolivia.mjs";
 import {
   JAPAN_EXTRA_CITIES,
@@ -68,6 +69,7 @@ const OVERRIDES = {
     boardScale: BOARD_SCALE.japan,
     projBounds: PROJ_BOUNDS.japan,
     moneyEvents: JAPAN_MONEY_EVENTS,
+    removedEdges: JAPAN_REMOVED_EDGES,
     extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES, ...JAPAN_ISLAND_CITIES, ...JAPAN_HOKKAIDO_CITIES },
     extraEdges: [...JAPAN_EXTRA_EDGES, ...JAPAN_PREFECTURE_EDGES, ...JAPAN_ISLAND_EDGES, ...JAPAN_HOKKAIDO_EDGES],
     quizDifficulty: QUIZ_DIFFICULTY.japan,
