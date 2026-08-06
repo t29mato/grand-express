@@ -33,7 +33,7 @@ export function IndiaCapital() {
       </g>
 
       {/* 奥の車線(左から右へ) */}
-      <g className="indcap-lane-far">
+      <g>
         <g className="indcap-car-a">
           {/* バス */}
           <rect x="-12" y="-13" width="24" height="11" rx="2" fill="#e8d8b0" />
@@ -61,7 +61,7 @@ export function IndiaCapital() {
       </g>
 
       {/* 手前の車線(右から左へ) */}
-      <g className="indcap-lane-near">
+      <g>
         <g className="indcap-car-d">
           {/* オートリクシャー */}
           <rect x="-7" y="-10" width="14" height="8" rx="2.8" fill="#3f8a4a" />

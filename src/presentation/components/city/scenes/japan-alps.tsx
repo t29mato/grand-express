@@ -47,7 +47,10 @@ export function JapanAlps() {
 
       <style>{`
         .jal-cloud { animation: jal-cloud-drift 72s linear infinite; animation-delay: -24s; }
-        .jal-drift { animation: jal-blow 6.5s ease-in-out infinite; }
+        .jal-drift {
+          transform-box: fill-box; transform-origin: 0% 50%;
+          animation: jal-blow 6.5s ease-in-out infinite;
+        }
         .jal-d2 { animation-duration: 8s; animation-delay: -2.2s; }
         .jal-d3 { animation-duration: 7.2s; animation-delay: -4.4s; }
         .jal-d4 { animation-duration: 7.6s; animation-delay: -1.1s; }
