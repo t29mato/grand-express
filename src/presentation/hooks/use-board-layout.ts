@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { NodeId } from "../../domain/shared-kernel/ids";
 import { isCityNode } from "../../domain/board/node";
 import { CountryProjection, projectPoint } from "../../domain/board/board-projection";
+import { octilinearDirection, octilinearRoutePoint } from "./octilinear-route";
 import { GameEngineContext } from "../../application/game-engine-context";
 
 export interface NodePosition {
@@ -11,8 +12,11 @@ export interface NodePosition {
 
 /**
  * 盤面ノードのSVG座標を計算する(Presentation層の責務。ADR-0003)。
- * 都市は経度緯度から投影し、路線上の中間マスは両端の都市を線形補間して配置したうえで、
- * 現行コードと同じ規則で路線に垂直な向きへずらす(jitter)。
+ *
+ * 都市は経度緯度から投影する。路線上の中間マスは、**縦・横・45度の3方向だけを使う経路**
+ * (`octilinear-route.ts`)の上に等間隔で並べたうえで、現行コードと同じ規則で
+ * 路線に垂直な向きへずらす(jitter)。路線の線は隣り合うノードを結んで描かれるので、
+ * マスをこの経路に乗せるだけで線も同じ形になる。
  *
  * このずれは見た目の変化だけでなく、**同じ都市から似た方向へ延びる路線の中間マスが
  * 重なるのを防ぐ**役割がある(路線番号 `ei` に依存してずれ幅が変わるため、
@@ -57,16 +61,18 @@ export function useBoardLayout(context: GameEngineContext): ReadonlyMap<NodeId, 
       const k = Number(match[2]);
       const n = siblingCounts.get(`e${match[1]}_`) ?? 1;
       const t = k / (n + 1);
-      const dx = b.x - a.x;
-      const dy = b.y - a.y;
-      const length = Math.hypot(dx, dy) || 1;
       // 現行コードの `((ei*7+k*13)%5-2)*5`。ずれ幅の単位は盤面の縮尺に追従させるため、
       // 固定値ではなく中間マスの目安距離(seg)から導く(legacyのseg=48で約4.8)。
       const jitterUnit = (projection.segmentLength ?? 64) / 10;
       const jitter = (((edgeIndex * 7 + k * 13) % 5) - 2) * jitterUnit;
+      // 45度の脚を先にするかは路線ごとに交互に変える(根元での重なりを避ける)。
+      const diagonalFirst = edgeIndex % 2 === 1;
+      const at = octilinearRoutePoint(a, b, t, diagonalFirst);
+      // ずらす向きは全体の向きではなく、その場の脚に直角にとる。
+      const heading = octilinearDirection(a, b, t, diagonalFirst);
       positions.set(id, {
-        x: a.x + dx * t + (-dy / length) * jitter,
-        y: a.y + dy * t + (dx / length) * jitter,
+        x: at.x + -heading.y * jitter,
+        y: at.y + heading.x * jitter,
       });
     }
     return relaxOverlaps(positions, context, projection);
