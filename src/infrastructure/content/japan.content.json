@@ -210,6 +210,14 @@
         44.9
       ],
       [
+        141.55,
+        45.25
+      ],
+      [
+        141.6,
+        45.5
+      ],
+      [
         141.94,
         45.52
       ]
@@ -401,15 +409,19 @@
       ],
       [
         131.4,
-        34.42
+        34.48
       ],
       [
         132.15,
         34.68
       ],
       [
+        132.6,
+        35.48
+      ],
+      [
         132.9,
-        35.45
+        35.52
       ],
       [
         133.6,
@@ -428,8 +440,20 @@
         35.57
       ],
       [
+        135.28,
+        35.62
+      ],
+      [
+        135.38,
+        35.58
+      ],
+      [
+        135.5,
+        35.62
+      ],
+      [
         135.6,
-        35.5
+        35.55
       ],
       [
         135.95,
@@ -438,6 +462,10 @@
       [
         136.07,
         35.65
+      ],
+      [
+        136.05,
+        36.05
       ],
       [
         136.25,
@@ -452,8 +480,16 @@
         37
       ],
       [
-        136.85,
-        37.35
+        136.72,
+        37.28
+      ],
+      [
+        136.78,
+        37.45
+      ],
+      [
+        137.05,
+        37.52
       ],
       [
         137.33,
@@ -608,7 +644,7 @@
         32.45
       ],
       [
-        131.47,
+        131.56,
         31.9
       ],
       [
@@ -640,12 +676,20 @@
         32.5
       ],
       [
-        129.87,
-        32.75
+        129.75,
+        32.72
       ],
       [
         129.7,
         33.05
+      ],
+      [
+        129.6,
+        33.2
+      ],
+      [
+        129.75,
+        33.38
       ],
       [
         129.97,
@@ -1068,6 +1112,58 @@
       [
         123.68,
         24.42
+      ]
+    ],
+    [
+      [
+        127.28,
+        26.24
+      ],
+      [
+        127.4,
+        26.23
+      ],
+      [
+        127.42,
+        26.13
+      ],
+      [
+        127.32,
+        26.1
+      ],
+      [
+        127.24,
+        26.16
+      ],
+      [
+        127.28,
+        26.24
+      ]
+    ],
+    [
+      [
+        122.93,
+        24.48
+      ],
+      [
+        123.05,
+        24.48
+      ],
+      [
+        123.08,
+        24.42
+      ],
+      [
+        122.98,
+        24.4
+      ],
+      [
+        122.9,
+        24.44
+      ],
+      [
+        122.93,
+        24.48
       ]
     ]
   ],
@@ -8973,24 +9069,12 @@
   },
   "edges": [
     [
-      "sapporo",
-      "hakodate"
-    ],
-    [
       "hakodate",
       "aomori"
     ],
     [
       "aomori",
-      "akita"
-    ],
-    [
-      "aomori",
       "morioka"
-    ],
-    [
-      "morioka",
-      "sendai"
     ],
     [
       "akita",
@@ -9009,10 +9093,6 @@
       "nikko"
     ],
     [
-      "nikko",
-      "tokyo"
-    ],
-    [
       "tokyo",
       "yokohama"
     ],
@@ -9021,44 +9101,12 @@
       "kamakura"
     ],
     [
-      "kamakura",
-      "hakone"
-    ],
-    [
-      "hakone",
-      "nagoya"
-    ],
-    [
-      "tokyo",
-      "matsumoto"
-    ],
-    [
-      "matsumoto",
-      "nagoya"
-    ],
-    [
-      "matsumoto",
-      "kanazawa"
-    ],
-    [
       "kanazawa",
       "niigata"
-    ],
-    [
-      "tokyo",
-      "niigata"
-    ],
-    [
-      "kanazawa",
-      "kyoto"
     ],
     [
       "nagoya",
       "ise"
-    ],
-    [
-      "nagoya",
-      "kyoto"
     ],
     [
       "ise",
@@ -9081,56 +9129,20 @@
       "himeji"
     ],
     [
-      "himeji",
-      "hiroshima"
-    ],
-    [
-      "himeji",
-      "matsuyama"
-    ],
-    [
       "matsuyama",
       "kochi"
-    ],
-    [
-      "kochi",
-      "osaka"
-    ],
-    [
-      "hiroshima",
-      "fukuoka"
-    ],
-    [
-      "fukuoka",
-      "nagasaki"
     ],
     [
       "fukuoka",
       "beppu"
     ],
     [
-      "beppu",
-      "kumamoto"
-    ],
-    [
-      "nagasaki",
-      "kumamoto"
-    ],
-    [
       "kumamoto",
       "kagoshima"
     ],
     [
-      "kagoshima",
-      "naha"
-    ],
-    [
       "sapporo",
       "asahikawa"
-    ],
-    [
-      "asahikawa",
-      "kushiro"
     ],
     [
       "sendai",
@@ -9153,10 +9165,6 @@
       "matsumoto"
     ],
     [
-      "nagoya",
-      "shizuoka"
-    ],
-    [
       "shizuoka",
       "hakone"
     ],
@@ -9167,10 +9175,6 @@
     [
       "himeji",
       "okayama"
-    ],
-    [
-      "okayama",
-      "hiroshima"
     ],
     [
       "okayama",
@@ -9209,10 +9213,6 @@
       "miyazaki"
     ],
     [
-      "miyazaki",
-      "beppu"
-    ],
-    [
       "mito",
       "chiba"
     ],
@@ -9223,10 +9223,6 @@
     [
       "kusatsu",
       "nikko"
-    ],
-    [
-      "kusatsu",
-      "matsumoto"
     ],
     [
       "kawagoe",
@@ -9263,14 +9259,6 @@
     [
       "koyasan",
       "nara"
-    ],
-    [
-      "koyasan",
-      "ise"
-    ],
-    [
-      "hagi",
-      "matsue"
     ],
     [
       "hagi",
@@ -9642,10 +9630,6 @@
       "wajima"
     ],
     [
-      "nagano",
-      "tsumago"
-    ],
-    [
       "tsumago",
       "gifu"
     ],
@@ -9684,10 +9668,6 @@
     [
       "kumano",
       "nachi"
-    ],
-    [
-      "nachi",
-      "ise"
     ],
     [
       "kumano",
@@ -9770,10 +9750,6 @@
     [
       "hagi",
       "shimonoseki"
-    ],
-    [
-      "shimonoseki",
-      "hiroshima"
     ],
     [
       "fukuoka",
