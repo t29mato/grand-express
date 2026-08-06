@@ -458,6 +458,12 @@ main {
   flex: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) minmax(300px, 420px);
+  /*
+   * 行の高さを内容ではなく main の高さから決める。
+   * 既定の `auto` だと行が中身の高さで決まってしまい、盤面SVGを絶対配置にした
+   * 途端に枠がつぶれる(逆に中身が高いと画面からはみ出す)。
+   */
+  grid-template-rows: minmax(0, 1fr);
   gap: 16px;
   padding: 16px;
   max-width: 1500px;
@@ -491,6 +497,8 @@ main {
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 8px;
+  /* 中身(.board-stage)に高さを渡すため、自分の高さを確定させる。 */
+  display: flex;
   /* 盤面は与えられた高さいっぱいに描く(縦横比ではなく枠に合わせる)。 */
   min-height: 0;
   overflow: hidden;
@@ -572,6 +580,12 @@ main {
   animation: resPop 0.5s ease;
 }
 
+/* 「4 + 5 = 9」のような合計表示は横に長いので、はみ出さないよう小さめにする。 */
+.die-result.multi {
+  font-size: 3rem;
+  white-space: nowrap;
+}
+
 @keyframes resPop {
   0% {
     transform: translate(-50%, -50%) scale(0.4);
@@ -583,7 +597,21 @@ main {
   }
 }
 
+/* 盤面SVGと、その上に重ねるボタン類の基準になる箱。枠の内側いっぱいに広げる。 */
+.board-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .board-svg {
+  /*
+   * 枠いっぱいに張り付かせる。`width/height: 100%` だけだと、SVGは viewBox 由来の
+   * 固有縦横比を優先して枠より高くなり、はみ出したぶん(= 盤面の端)が
+   * overflow:hidden で切られてしまう。絶対配置なら固有比を無視して枠の形に合う。
+   */
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
@@ -639,8 +667,20 @@ main {
   animation: pulse 1s infinite;
 }
 
+/* 駒(機関車)。<g transform> で位置を決めるので、滑らせる対象も transform。 */
 .token {
-  transition: cx 0.35s ease, cy 0.35s ease;
+  transition: transform 0.35s ease;
+}
+
+/* 手番のプレイヤーの駒だけ、目印のリングをゆっくり明滅させる。 */
+.token.active .token-ring {
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .token {
+    transition: none;
+  }
 }
 
 @keyframes pulse {
@@ -1162,4 +1202,15 @@ aside {
     animation: none !important;
     transition: none !important;
   }
+}
+
+/* CPUのクイズ結果で「中身は伏せてある」ことを添える一文。本文より控えめにする。 */
+.fact.muted {
+  opacity: 0.75;
+  font-style: italic;
+}
+
+/* CPUが当てたか外したかの一行。 */
+.cpu-quiz-verdict {
+  margin-bottom: 4px;
 }

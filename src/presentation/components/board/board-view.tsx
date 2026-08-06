@@ -10,6 +10,7 @@ import { useCamera } from "../../hooks/use-camera";
 import { useLocale } from "../../i18n/locale-context";
 import { useCityLabels } from "../../hooks/use-city-labels";
 import { SIZES } from "./board-metrics";
+import { TOKEN, TrainToken } from "./train-token";
 import { TerrainLayer } from "./terrain-layer";
 import { BoardLegend } from "./board-legend";
 
@@ -73,32 +74,46 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
   const positions = useBoardLayout(context);
   const { tx, t, locale } = useLocale();
   const { boardWidth, boardHeight } = context.content.projection;
-  const { camera, viewBox, animateTo, panByPixels, zoomBy, stopAnimation } = useCamera({ boardWidth, boardHeight });
   const [overview, setOverview] = useState(false);
   const svgRef = useRef<SVGSVGElement>(null);
   const [viewportWidthPx, setViewportWidthPx] = useState(0);
+  const [viewportHeightPx, setViewportHeightPx] = useState(0);
+  const { camera, viewBox, fitWidth, animateTo, panByPixels, zoomBy, stopAnimation } = useCamera({
+    boardWidth,
+    boardHeight,
+    // 枠の比をカメラに渡すことで、viewBoxの縦横比が枠と一致する。
+    // 一致していないとSVG側で余白付き縮小(preserveAspectRatio)が起き、
+    // 「全体表示」でも盤面の端が見えないことがある。
+    viewportAspect: viewportHeightPx > 0 ? viewportWidthPx / viewportHeightPx : 0,
+  });
   // ドラッグ中の直前のポインタ位置。null ならドラッグしていない。
   const dragRef = useRef<{ x: number; y: number; pointerId: number; moved: boolean } | null>(null);
   const [dragging, setDragging] = useState(false);
 
+  const activePlayerId = currentPlayer(session).id;
   const activeLocation = currentPlayer(session).location;
 
   // 手番のプレイヤーを追尾する(現行コードの `focusNode`)。全体表示モードなら盤面全体を映す。
   useEffect(() => {
     if (overview) {
-      animateTo(boardWidth / 2, boardHeight / 2, boardWidth + 60);
+      // 盤面全体が確実に収まる幅(枠が縦長なら盤面幅より広い)。
+      animateTo(boardWidth / 2, boardHeight / 2, fitWidth + 60);
       return;
     }
     const pos = positions.get(activeLocation);
     if (pos) animateTo(pos.x, pos.y, boardWidth * FOLLOW_WIDTH_RATIO);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeLocation, overview, boardWidth, boardHeight, positions]);
+  }, [activeLocation, overview, boardWidth, boardHeight, fitWidth, positions]);
 
-  // 盤面SVGの実表示幅を追跡する(盤面座標→画面pxの換算に使う)。
+  // 盤面SVGの実表示サイズを追跡する(盤面座標→画面pxの換算と、viewBoxの縦横比に使う)。
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg) return;
-    const update = () => setViewportWidthPx(svg.getBoundingClientRect().width);
+    const update = () => {
+      const rect = svg.getBoundingClientRect();
+      setViewportWidthPx(rect.width);
+      setViewportHeightPx(rect.height);
+    };
     update();
     const observer = new ResizeObserver(update);
     observer.observe(svg);
@@ -199,21 +214,31 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
   }, [context, positions]);
 
   const tokensByNode = useMemo(() => {
-    const map = new Map<string, { name: string; color: string }[]>();
+    const map = new Map<string, { name: string; color: string; isActive: boolean }[]>();
     session.players.forEach((p, i) => {
       const list = map.get(p.location) ?? [];
-      list.push({ name: p.name, color: PLAYER_COLORS[i % PLAYER_COLORS.length] });
+      list.push({
+        name: p.name,
+        color: PLAYER_COLORS[i % PLAYER_COLORS.length],
+        isActive: p.id === activePlayerId,
+      });
       map.set(p.location, list);
     });
     return map;
-  }, [session.players]);
+  }, [session.players, activePlayerId]);
 
   return (
-    <div style={{ position: "relative" }}>
+    // 盤面SVGとその上に重ねるボタン類の基準になる箱。
+    // **高さを枠から受け取る**必要がある(高さ0だと、絶対配置のSVGが
+    // 固有縦横比に戻ってしまい、盤面の端が見えなくなる)。
+    <div className="board-stage">
       <svg
         ref={svgRef}
         viewBox={viewBox}
         className={`board-svg${dragging ? " dragging" : ""}`}
+        // 縦長の盤面を横長の枠に収めると盤面の外側が見える。そこを枠の地色ではなく
+        // 海の色で埋めて、地図が途中で途切れて見えないようにする。
+        style={{ background: context.content.terrain.seaColor }}
         role="img"
         aria-label="Game board"
         onPointerDown={handlePointerDown}
@@ -278,6 +303,9 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
                 key={id}
                 transform={`translate(${pos.x}, ${pos.y})`}
                 data-choosable={isChoosable ? "true" : undefined}
+                /* マスの種類。E2Eから「クイズマスを選ぶ」といった指定ができるようにする
+                   (乱数任せに歩き回って偶然止まるのを待つと、試験が不安定になるため)。 */
+                data-node-kind={isCityNode(node) ? "city" : node.type}
                 onClick={isChoosable ? () => onChooseNode?.(id) : undefined}
                 style={{ cursor: isChoosable ? "pointer" : "inherit" }}
               >
@@ -302,15 +330,12 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
             const pos = positions.get(nodeId as NodeId);
             if (!pos) return null;
             return tokens.map((token, i) => (
-              <circle
+              <TrainToken
                 key={token.name}
-                className="token"
-                cx={pos.x + (i - (tokens.length - 1) / 2) * 10}
-                cy={pos.y}
-                r={5}
-                fill={token.color}
-                stroke="#1b1330"
-                strokeWidth={2}
+                x={pos.x + (i - (tokens.length - 1) / 2) * TOKEN.spacing}
+                y={pos.y}
+                color={token.color}
+                isActive={token.isActive}
               />
             ));
           })}
