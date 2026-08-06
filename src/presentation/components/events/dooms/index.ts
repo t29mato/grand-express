@@ -6,6 +6,13 @@ import { BoliviaOffering } from "./bolivia-offering";
 import { BoliviaSoroche } from "./bolivia-soroche";
 import { BoliviaTheft } from "./bolivia-theft";
 import { BoliviaTranca } from "./bolivia-tranca";
+import { FranceFeuDeGarrigue } from "./france-feu-de-garrigue";
+import { FranceGreve } from "./france-greve";
+import { FranceMistral } from "./france-mistral";
+import { FranceRameCoupee } from "./france-rame-coupee";
+import { FranceTireLaine } from "./france-tire-laine";
+import { FranceTourneeGenerale } from "./france-tournee-generale";
+import { FranceVendangeRatee } from "./france-vendange-ratee";
 import { IndiaBandh } from "./india-bandh";
 import { IndiaChori } from "./india-chori";
 import { IndiaCyclone } from "./india-cyclone";
@@ -20,6 +27,13 @@ import { JapanMaigo } from "./japan-maigo";
 import { JapanQuake } from "./japan-quake";
 import { JapanSuri } from "./japan-suri";
 import { JapanTyphoon } from "./japan-typhoon";
+import { WorldCrossingTheLine } from "./world-crossing-the-line";
+import { WorldCustomsShed } from "./world-customs-shed";
+import { WorldDevaluation } from "./world-devaluation";
+import { WorldExpropriation } from "./world-expropriation";
+import { WorldQuarantine } from "./world-quarantine";
+import { WorldShellGame } from "./world-shell-game";
+import { WorldWrongPort } from "./world-wrong-port";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -38,6 +52,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "bolivia-soroche": BoliviaSoroche,
   "bolivia-theft": BoliviaTheft,
   "bolivia-tranca": BoliviaTranca,
+  "france-feu-de-garrigue": FranceFeuDeGarrigue,
+  "france-greve": FranceGreve,
+  "france-mistral": FranceMistral,
+  "france-rame-coupee": FranceRameCoupee,
+  "france-tire-laine": FranceTireLaine,
+  "france-tournee-generale": FranceTourneeGenerale,
+  "france-vendange-ratee": FranceVendangeRatee,
   "india-bandh": IndiaBandh,
   "india-chori": IndiaChori,
   "india-cyclone": IndiaCyclone,
@@ -52,6 +73,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "japan-quake": JapanQuake,
   "japan-suri": JapanSuri,
   "japan-typhoon": JapanTyphoon,
+  "world-crossing-the-line": WorldCrossingTheLine,
+  "world-customs-shed": WorldCustomsShed,
+  "world-devaluation": WorldDevaluation,
+  "world-expropriation": WorldExpropriation,
+  "world-quarantine": WorldQuarantine,
+  "world-shell-game": WorldShellGame,
+  "world-wrong-port": WorldWrongPort,
 };
 
 /** その国のその災難の絵。無ければ undefined。 */
