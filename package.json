@@ -17,7 +17,8 @@
     "graph": "node scripts/generate-dependency-graph.mjs",
     "graph:check": "node scripts/generate-dependency-graph.mjs --check",
     "shot": "node scripts/shot.mjs",
-    "check": "npm run ci && npm run graph:check && npm run test:e2e"
+    "check": "npm run ci && npm run graph:check && npm run test:e2e",
+    "preview": "node scripts/preview-animation.mjs"
   },
   "dependencies": {
     "next": "16.3.0",

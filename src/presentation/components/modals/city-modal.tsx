@@ -8,6 +8,7 @@ import { GameEngineContext } from "../../../application/game-engine-context";
 import { stallPriceOf, stallStockFor } from "../../../application/use-cases/visit-stall/visit-stall.use-case";
 import { useLocale } from "../../i18n/locale-context";
 import { CityArt } from "../city/city-art";
+import { ArrivalCelebration } from "../events/arrival-celebration";
 import { formatMoney } from "../../i18n/money-format";
 import { Modal } from "./modal";
 
@@ -40,7 +41,15 @@ export function CityModal({
 
   return (
     <Modal testId="city-modal">
-      <CityArt context={context} cityId={cityId} />
+      {/* 目的地に着いたときは、町の絵の代わりに到着のお祝いを見せる。
+          ここがこのゲームでいちばん大きな見せ場なので、金額の文字だけでは寂しい。 */}
+      {arrivalPrize !== null ? (
+        <div className="event-anim">
+          <ArrivalCelebration />
+        </div>
+      ) : (
+        <CityArt context={context} cityId={cityId} />
+      )}
       <div className="eyebrow">{t("townStop")}</div>
       <h3>{tx(city.name)}</h3>
       <p style={{ color: "var(--salt-dim)" }}>{tx(city.tag)}</p>
