@@ -32,15 +32,13 @@ export function BoardLegend({
         currency,
       )}`,
     },
-    { color: "#5b8fe8", label: t("blueSq") },
-    { color: "#e05252", label: t("redSq") },
     { color: "#f5d31c", label: t("cardSq") },
     { color: "#f6efe2", label: t("townSq") },
   ];
 
   return (
-    <g transform={`translate(${boardWidth - 286},${boardHeight - 174})`} style={{ pointerEvents: "none" }}>
-      <rect x={-14} y={-18} width={286} height={174} rx={12} fill="#141d31" opacity={0.82} />
+    <g transform={`translate(${boardWidth - 286},${boardHeight - 116})`} style={{ pointerEvents: "none" }}>
+      <rect x={-14} y={-18} width={286} height={116} rx={12} fill="#141d31" opacity={0.82} />
       {rows.map((row, i) => {
         const y = i * 29;
         const isTown = i === rows.length - 1;

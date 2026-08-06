@@ -3,7 +3,6 @@ import { currentPlayer, isOver } from "../../domain/game-session/game-session";
 import { isCityNode } from "../../domain/board/node";
 import { advanceTurn } from "../../application/use-cases/advance-turn/advance-turn.use-case";
 import { settleSpiritAfterTurn } from "../../application/use-cases/move-player/settle-spirit-after-turn.use-case";
-import { landOnMoneySquare } from "../../application/use-cases/land-on-square/money-square.use-case";
 import { landOnCardSquare } from "../../application/use-cases/land-on-square/card-square.use-case";
 import { arriveAtDestination } from "../../application/use-cases/land-on-square/arrive-destination.use-case";
 import { cpuTakeTurn } from "../../application/use-cases/cpu-take-turn/cpu-take-turn.use-case";
@@ -255,12 +254,6 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
       return generation === cpuLoopGeneration;
     }
 
-    if (landing.type === "money") {
-      if (landing.outcome.gained) soundAdapter.playCoin();
-      else soundAdapter.playWrong();
-      return generation === cpuLoopGeneration;
-    }
-
     if (landing.type === "card") {
       soundAdapter.playChime();
       return generation === cpuLoopGeneration;
@@ -380,22 +373,6 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
           optionOrder: visibleOptionOrder(question, player.knowledgeLevel, random),
         },
       });
-      return;
-    }
-    if (node.type === "blue" || node.type === "red") {
-      const outcome = landOnMoneySquare(session, player.id, node.type === "blue", random);
-      if (outcome.gained) soundAdapter.playCoin();
-      else soundAdapter.playWrong();
-      set((s) => ({
-        session: outcome.session,
-        log: pushLog(
-          s,
-          outcome.gained ? "blueLog" : "redLog",
-          [player.name, money(outcome.amount)],
-          outcome.gained ? "good" : "bad",
-        ),
-      }));
-      finishHumanLandingAndAdvance();
       return;
     }
     if (node.type === "card") {

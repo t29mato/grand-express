@@ -17,7 +17,6 @@ import { answerQuiz, AnswerQuizOutcome } from "../answer-quiz/answer-quiz.use-ca
 import { QuizDifficulty, QuizQuestion } from "../../../domain/quiz/quiz-question";
 import { rollDifficulty } from "../../../domain/quiz/quiz-selection-service";
 import { KnowledgeLevel } from "../../../domain/quiz/knowledge-level";
-import { landOnMoneySquare, MoneySquareOutcome } from "../land-on-square/money-square.use-case";
 import { landOnCardSquare, CardSquareOutcome } from "../land-on-square/card-square.use-case";
 import { arriveAtDestination, ArriveDestinationOutcome } from "../land-on-square/arrive-destination.use-case";
 import { buyProperty, investInProperty } from "../property-transactions/property-transactions.use-case";
@@ -40,7 +39,6 @@ export type LandingOutcome =
       readonly difficulty: QuizDifficulty;
       readonly chosenOptionIndex: number;
     }
-  | { readonly type: "money"; readonly outcome: MoneySquareOutcome }
   | { readonly type: "card"; readonly outcome: CardSquareOutcome }
   | { readonly type: "destination"; readonly outcome: ArriveDestinationOutcome; readonly visit: CityVisitSummary }
   | { readonly type: "city"; readonly visit: CityVisitSummary };
@@ -169,10 +167,6 @@ export function cpuTakeTurn(
     const outcome = answerQuiz(context, current, playerId, question, chosenOptionIndex, random);
     current = outcome.session;
     landing = { type: "quiz", outcome, question, difficulty: question.difficulty, chosenOptionIndex };
-  } else if (landedNode.type === "blue" || landedNode.type === "red") {
-    const outcome = landOnMoneySquare(current, playerId, landedNode.type === "blue", random);
-    current = outcome.session;
-    landing = { type: "money", outcome };
   } else if (landedNode.type === "card") {
     const outcome = landOnCardSquare(context, current, playerId, random);
     current = outcome.session;
