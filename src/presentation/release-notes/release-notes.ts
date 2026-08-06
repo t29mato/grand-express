@@ -23,6 +23,27 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.11.0",
+    date: "2026-08-07",
+    title: t(
+      "Around the World|La vuelta al mundo|Le tour du monde|世界一周がはじまりました",
+    ),
+    highlights: [
+      t(
+        "A fifth board, and the first that is not a country: 60 cities on six continents, 40 new questions, and 90 routes — 50 by land, 40 by sea.|Un quinto tablero, el primero que no es un país: 60 ciudades en seis continentes, 40 preguntas y 90 rutas (50 por tierra, 40 por mar).|Un cinquième plateau, le premier qui n'est pas un pays : 60 villes sur six continents, 40 questions et 90 liaisons (50 par voie de terre, 40 par mer).|5つ目の盤面は、はじめて国ではありません。6大陸60都市、新作クイズ40問、路線90本(陸路50・航路40)。",
+      ),
+      t(
+        "Where the land runs on, you take the train — Moscow to Ulaanbaatar is the Trans-Siberian, and Cairo to Jerusalem crosses the Sinai. Everywhere else you take a ship.|Donde hay tierra, se va en tren: Moscú–Ulán Bator es el Transiberiano. En el resto, en barco.|Là où la terre continue, on prend le train : Moscou–Oulan-Bator, c'est le Transsibérien. Partout ailleurs, le bateau.|陸が続いているところは鉄道で行きます。モスクワからウランバートルはシベリア鉄道、カイロからエルサレムはシナイ半島越えです。それ以外は船旅になります。",
+      ),
+      t(
+        "Because the hemispheres run opposite, no month is good everywhere. July empties Europe and North America while the great migration fills East Africa; December is snow in one half and swimming in the other.|Como los hemisferios van al revés, ningún mes es bueno en todas partes: julio vacía Europa mientras la gran migración llena África oriental.|Les hémisphères étant inversés, aucun mois n'est bon partout : juillet vide l'Europe tandis que la grande migration remplit l'Afrique de l'Est.|南半球と北半球で季節が逆なので、どの月も「どこかが盛りで、どこかが端境期」になります。7月はヨーロッパと北アメリカが休みに入る一方、東アフリカは大移動の季節です。12月は片側が雪で、反対側は海水浴です。",
+      ),
+      t(
+        "The spirit of misfortune here is the Flying Dutchman, the ship that swore to round the Cape whatever came and was never let into port again. His charm is a Saint Christopher medal.|El espíritu de la desgracia es el Holandés Errante. El amuleto es una medalla de San Cristóbal.|L'esprit du malheur est le Hollandais volant. L'amulette est une médaille de saint Christophe.|厄災の神はさまよえるオランダ人。何があろうと喜望峰を回ると誓い、二度と港に入れてもらえなくなった船です。お守りは聖クリストフォロスのメダイ。",
+      ),
+    ],
+  },
+  {
     version: "0.10.0",
     date: "2026-08-07",
     title: t(
