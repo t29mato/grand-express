@@ -46,9 +46,10 @@ describe("盤面配置の前提", () => {
   }
 
   it.each(countries)("%s: すべての都市が陸の上にある", async (countryId) => {
-    // 海岸線は主要な岬と湾だけを拾った近似なので、盤面では陸を少し外へ
-    // 広げて描いている(terrain-layer.tsx の COAST_BUFFER)。その範囲までを陸とみなす。
-    const COAST_BUFFER = 26;
+    // かつては陸を一律に外へ広げて描いていたが、関門海峡(幅1.3)や瀬戸内海が
+    // 埋まって本州・四国・九州が地続きになってしまったのでやめた。
+    // いまは海岸線そのものを都市に合わせて描いてある。
+    const COAST_BUFFER = 0;
     const pack = await repo.load(CountryId(countryId));
     const projection = pack.projection;
     const landPx = pack.terrain.landPolygons.map((poly) =>
