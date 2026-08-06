@@ -18,6 +18,15 @@ export interface MoneyEvent {
    * 「知床でヒグマに出会う」のように土地に強く結びついた話は地方を絞る。
    */
   readonly regionIds: readonly RegionId[];
+  /**
+   * その出来事が起こりうる月(0始まりで 0=4月)。空なら通年。
+   *
+   * 流氷が夏に来たり、モンスーンの氾濫が乾季に起きたりすると嘘になる。
+   * 季節を絞ることで、冬の日本海側は雪の事故が増える、といった偏りが
+   * 自然に生まれる(マスの色そのものは変えない。毎月色が変わると
+   * 盤面の見え方が安定せず、かえって分かりにくくなるため)。
+   */
+  readonly monthIndices: readonly number[];
   readonly emoji: string;
   readonly title: LocalizedText;
   /** 何が起きたのか(2文程度)。 */
@@ -34,12 +43,24 @@ export function eventsFor(
   events: readonly MoneyEvent[],
   kind: MoneyEvent["kind"],
   regionId: RegionId,
+  monthIndex?: number,
 ): readonly MoneyEvent[] {
+  const inSeason = (event: MoneyEvent) =>
+    monthIndex === undefined ||
+    event.monthIndices.length === 0 ||
+    event.monthIndices.includes(monthIndex);
+
   const matching = events.filter(
     (event) =>
       event.kind === kind &&
-      (event.regionIds.length === 0 || event.regionIds.includes(regionId)),
+      (event.regionIds.length === 0 || event.regionIds.includes(regionId)) &&
+      inSeason(event),
   );
-  // その地方向けの話が1つも無い場合に手番が止まらないよう、種別だけで拾い直す。
-  return matching.length > 0 ? matching : events.filter((event) => event.kind === kind);
+  if (matching.length > 0) return matching;
+
+  // 地方と季節の両方に合う話が無いことがある。手番が止まらないよう、
+  // まず季節の条件だけを外し、それでも無ければ種別だけで拾い直す。
+  const ignoringRegion = events.filter((event) => event.kind === kind && inSeason(event));
+  if (ignoringRegion.length > 0) return ignoringRegion;
+  return events.filter((event) => event.kind === kind);
 }

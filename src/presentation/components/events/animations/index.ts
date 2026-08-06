@@ -33,11 +33,14 @@ import { NamahageVisit } from "./namahage-visit";
 import { OnsenRyokan } from "./onsen-ryokan";
 import { PachamamaOffering } from "./pachamama-offering";
 import { RiverBoatWait } from "./river-boat-wait";
+import { RoofSnowClearing } from "./roof-snow-clearing";
 import { RushHourCrush } from "./rush-hour-crush";
 import { SalmonCatch } from "./salmon-catch";
 import { SaltFlatGuide } from "./salt-flat-guide";
 import { SandstormRepair } from "./sandstorm-repair";
 import { ShrineOmikuji } from "./shrine-omikuji";
+import { SnowCountryInn } from "./snow-country-inn";
+import { SnowDerailment } from "./snow-derailment";
 import { Soroche } from "./soroche";
 import { TeaGardenWork } from "./tea-garden-work";
 import { TempleMeal } from "./temple-meal";
@@ -56,8 +59,7 @@ import { ZebraCrossing } from "./zebra-crossing";
  * 使わない)で、`prefers-reduced-motion` が有効なときは動きを止める。
  * 作り方は docs/50-authoring/02-animation-guide.md を参照。
  *
- * **このファイルは足し忘れを防ぐため機械的に整えている。** 絵を足したら
- * ここにも1行足すこと(登録が無い出来事は増減だけを示す汎用の絵になる)。
+ * **このファイルは足し忘れを防ぐため機械的に整えている。**
  */
 export const EVENT_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "apple-orchard": AppleOrchard,
@@ -93,12 +95,15 @@ export const EVENT_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "onsen-ryokan": OnsenRyokan,
   "pachamama-offering": PachamamaOffering,
   "river-boat-wait": RiverBoatWait,
+  "roof-snow-clearing": RoofSnowClearing,
   "rush-hour-crush": RushHourCrush,
   "salmon-catch": SalmonCatch,
   "salt-flat-guide": SaltFlatGuide,
   "sandstorm-repair": SandstormRepair,
   "shiretoko-bear": BearAttack,
   "shrine-omikuji": ShrineOmikuji,
+  "snow-country-inn": SnowCountryInn,
+  "snow-derailment": SnowDerailment,
   "soroche": Soroche,
   "tea-garden-work": TeaGardenWork,
   "temple-meal": TempleMeal,

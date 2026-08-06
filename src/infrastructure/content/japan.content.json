@@ -8596,7 +8596,8 @@
         "es": "Lo dejaste en el tren y te esperaba en objetos perdidos, con el dinero intacto. Cerca del 80% de las carteras entregadas a la policía de Tokio vuelven a su dueño.",
         "fr": "Tu l'avais laissé dans le train ; il t'attendait aux objets trouvés, l'argent intact. Environ 80 % des portefeuilles remis à la police de Tokyo retrouvent leur propriétaire.",
         "ja": "列車に置き忘れた財布が、現金もそのまま遺失物窓口で待っていた。東京で警察に届けられた財布のおよそ8割は持ち主の手に戻る。"
-      }
+      },
+      "months": []
     },
     {
       "id": "vending-change",
@@ -8615,7 +8616,8 @@
         "es": "Una máquina de bebidas te devuelve la moneda con la botella. Japón tiene una máquina por cada 30 personas, la mayor proporción del mundo.",
         "fr": "Un distributeur rend la pièce en plus de la bouteille. Le Japon compte un distributeur pour 30 habitants, le record mondial.",
         "ja": "飲み物の自販機が、ボトルと一緒に硬貨も返してきた。日本の自販機は約30人に1台と、人口あたりで世界一多い。"
-      }
+      },
+      "months": []
     },
     {
       "id": "shrine-omikuji",
@@ -8634,7 +8636,8 @@
         "es": "Sacaste «gran maldición», así que compras un amuleto y atas el papel a una rama. Se dice que atarlo deja allí la mala suerte.",
         "fr": "Tu as tiré « grande malédiction » : tu achètes une amulette et noues le papier à une branche, pour y laisser le mauvais sort.",
         "ja": "神社で大凶を引いたので、お守りを買い、おみくじを枝に結んで帰る。結んでおけば凶を持ち帰らずに済むとされる。"
-      }
+      },
+      "months": []
     },
     {
       "id": "train-delay-taxi",
@@ -8653,7 +8656,8 @@
         "es": "Una revisión de señales detiene la línea y el andén se llena, así que tomas un taxi. Los ferrocarriles emiten certificados de retraso para el trabajo.",
         "fr": "Une vérification de signalisation bloque la ligne et le quai se remplit : tu prends un taxi. Les chemins de fer délivrent des attestations de retard.",
         "ja": "信号確認で運転見合わせ、ホームは人であふれ、諦めてタクシーに乗る。鉄道各社は職場に出せる遅延証明書を配っている。"
-      }
+      },
+      "months": []
     },
     {
       "id": "matsuri-help",
@@ -8672,7 +8676,11 @@
         "es": "Al barrio le faltan manos para el mikoshi y te pagan en efectivo y cerveza. Muchos pueblos aceptan forasteros por falta de jóvenes.",
         "fr": "Le quartier manque de bras pour le mikoshi et te paie en espèces et en bière. Bien des villes accueillent des étrangers faute de jeunes.",
         "ja": "町内会が神輿の担ぎ手を欠いており、日当とビールが出た。若い住民が足りず、よそ者を歓迎する町は多い。"
-      }
+      },
+      "months": [
+        3,
+        4
+      ]
     },
     {
       "id": "drift-ice-cruise",
@@ -8693,7 +8701,12 @@
         "es": "El hielo llega antes de lo previsto y cancelan el ferry; pagas una noche de hotel. Viene del río Amur, a 1.000 km.",
         "fr": "La banquise arrive en avance, le ferry est annulé : tu paies une nuit d'hôtel. Elle descend du fleuve Amour, à 1 000 km.",
         "ja": "流氷が予定より早く接岸し、船が欠航して一泊ぶんの宿代がかかった。氷は1000km離れたアムール川から流れてくる。"
-      }
+      },
+      "months": [
+        9,
+        10,
+        11
+      ]
     },
     {
       "id": "namahage-visit",
@@ -8714,7 +8727,10 @@
         "es": "Visitantes con capas de paja irrumpen buscando holgazanes; la casa les debe comida y bebida. Los invitados aportan al banquete.",
         "fr": "Des visiteurs en capes de paille font irruption pour débusquer les paresseux ; la maison leur doit à boire et à manger.",
         "ja": "藁の蓑をまとった一行が「怠け者はいねが」と押し入り、家は膳と酒を出すことになっている。客人も相応の負担をする。"
-      }
+      },
+      "months": [
+        8
+      ]
     },
     {
       "id": "shiretoko-bear",
@@ -8735,7 +8751,13 @@
         "es": "Retrocedes y abandonas la mochila con la comida del día. Shiretoko tiene una de las mayores densidades de osos pardos del mundo.",
         "fr": "Tu recules en abandonnant le sac contenant les vivres du jour. Le Shiretoko a l'une des plus fortes densités d'ours bruns au monde.",
         "ja": "後ずさりし、その日の食料が入った荷物を置いて逃げた。知床はヒグマの生息密度が世界有数で、登山道は予告なく閉鎖される。"
-      }
+      },
+      "months": [
+        3,
+        4,
+        5,
+        6
+      ]
     },
     {
       "id": "salmon-catch",
@@ -8756,7 +8778,12 @@
         "es": "Echas una mano con las redes al alba y te vas con pescado y dinero. Hokkaidō pesca la gran mayoría del salmón de Japón.",
         "fr": "Tu aides à haler les filets à l'aube et repars avec du poisson et de l'argent. Hokkaidō pêche l'essentiel du saumon japonais.",
         "ja": "夜明けの網揚げを手伝い、魚と現金を持たされた。日本の鮭の大半は北海道で獲れる。"
-      }
+      },
+      "months": [
+        5,
+        6,
+        7
+      ]
     },
     {
       "id": "apple-orchard",
@@ -8777,7 +8804,89 @@
         "es": "Un huerto anda corto de manos y paga por caja. Solo Aomori produce más de la mitad de las manzanas de Japón.",
         "fr": "Un verger manque de bras et paie à la caisse. À elle seule, Aomori produit plus de la moitié des pommes du Japon.",
         "ja": "人手の足りない林檎園で、箱いくらで日当が出た。青森県だけで日本の林檎の半分以上を産する。"
-      }
+      },
+      "months": [
+        6,
+        7
+      ]
+    },
+    {
+      "id": "snow-derailment",
+      "kind": "loss",
+      "regs": [
+        "nor"
+      ],
+      "e": "❄️",
+      "amount": 300,
+      "n": {
+        "en": "The line is buried in snow",
+        "es": "La vía queda sepultada",
+        "fr": "La voie est ensevelie",
+        "ja": "雪で線路が埋まった"
+      },
+      "t": {
+        "en": "A single night of heavy snow buries the track and the whole line stops; you pay for a night and a taxi. The Sea of Japan side gets metres of snow because cold Siberian wind picks up moisture crossing the sea.",
+        "es": "Una noche de nieve sepulta la vía y toda la línea se detiene. El lado del mar del Japón recibe metros de nieve.",
+        "fr": "Une seule nuit de neige ensevelit la voie et toute la ligne s'arrête. Le versant de la mer du Japon reçoit des mètres de neige.",
+        "ja": "一晩の大雪で線路が埋まり、路線が全面運休。宿代とタクシー代がかかった。日本海側は、シベリアからの寒気が海で湿気を含むため数メートルの雪が積もる。"
+      },
+      "months": [
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": "roof-snow-clearing",
+      "kind": "loss",
+      "regs": [
+        "nor"
+      ],
+      "e": "🏠",
+      "amount": 260,
+      "n": {
+        "en": "Paying to clear the roof",
+        "es": "Pagar por quitar la nieve",
+        "fr": "Payer pour déneiger le toit",
+        "ja": "雪下ろしを頼んだ"
+      },
+      "t": {
+        "en": "Snow on the roof gets heavy enough to crush a house, so people pay crews to shovel it off. Deaths from falling while clearing roofs outnumber deaths from avalanches here.",
+        "es": "La nieve del tejado pesa tanto que puede aplastar la casa, así que se paga a cuadrillas para retirarla.",
+        "fr": "La neige du toit pèse assez pour écraser la maison ; on paie des équipes pour la retirer.",
+        "ja": "屋根の雪は家を潰すほど重くなるため、業者に頼んで下ろしてもらう。この地方では雪崩より、雪下ろし中の転落で亡くなる人のほうが多い。"
+      },
+      "months": [
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": "snow-country-inn",
+      "kind": "gain",
+      "regs": [
+        "nor"
+      ],
+      "e": "♨️",
+      "amount": 240,
+      "n": {
+        "en": "The inn is short-handed",
+        "es": "La posada anda corta de manos",
+        "fr": "L'auberge manque de bras",
+        "ja": "雪の宿が人手を欠く"
+      },
+      "t": {
+        "en": "Snow season fills the hot-spring inns but the staff cannot keep up, so they hire on the spot. Guests come precisely because the snow is deep.",
+        "es": "La temporada llena las posadas termales pero falta personal, así que contratan en el acto.",
+        "fr": "La saison remplit les auberges thermales, mais le personnel manque : on embauche sur place.",
+        "ja": "雪の季節は温泉宿が埋まるが人手が足りず、その場で雇ってもらえた。雪が深いからこそ客が来る。"
+      },
+      "months": [
+        8,
+        9,
+        10
+      ]
     },
     {
       "id": "rush-hour-crush",
@@ -8798,7 +8907,8 @@
         "es": "El tren matinal va al doble de su capacidad y algo de tu bolsa no sobrevive. Empleados con guantes blancos aún empujan a los pasajeros.",
         "fr": "Le train du matin roule au double de sa capacité et quelque chose dans ton sac n'y survit pas. Des employés gantés de blanc poussent encore les voyageurs.",
         "ja": "朝の電車は定員のほぼ倍で、鞄の中身が無事では済まなかった。白手袋の駅員が今も乗客を押し込む。"
-      }
+      },
+      "months": []
     },
     {
       "id": "cherry-blossom-spot",
@@ -8819,7 +8929,10 @@
         "es": "Una empresa manda a su novato a sentarse todo el día bajo un árbol; esta vez te pagan a ti. El frente de floración se pronostica en todo el país.",
         "fr": "Une entreprise envoie son nouveau s'asseoir sous un arbre toute la journée ; cette fois, c'est toi qu'on paie. Le front des cerisiers est prévu à l'échelle nationale.",
         "ja": "会社は新人に一日中木の下で場所取りをさせるが、今回はあなたが日当をもらった。桜前線は全国規模で予想・追跡されている。"
-      }
+      },
+      "months": [
+        0
+      ]
     },
     {
       "id": "onsen-ryokan",
@@ -8840,7 +8953,12 @@
         "es": "El baño antes de cenar se convierte en una segunda noche. Japón tiene unos 3.000 balnearios sobre su cinturón volcánico.",
         "fr": "Le bain d'avant-dîner se transforme en seconde nuit à l'auberge. Le Japon compte quelque 3 000 stations thermales sur sa ceinture volcanique.",
         "ja": "夕食前のひと風呂が、そのまま二泊目になった。火山帯の上にある日本には約3000の温泉地がある。"
-      }
+      },
+      "months": [
+        8,
+        9,
+        10
+      ]
     },
     {
       "id": "kuidaore",
@@ -8861,7 +8979,8 @@
         "es": "Takoyaki, kushikatsu, okonomiyaki: Osaka tiene una palabra para arruinarse comiendo. Mojar dos veces la brocheta en la salsa común está prohibidísimo.",
         "fr": "Takoyaki, kushikatsu, okonomiyaki : Osaka a un mot pour se ruiner en mangeant. Retremper une brochette dans la sauce commune est strictement proscrit.",
         "ja": "たこ焼き、串カツ、お好み焼き。大阪には食べて財を失うことを指す言葉がある。串の二度づけは固く禁じられている。"
-      }
+      },
+      "months": []
     },
     {
       "id": "deer-crackers",
@@ -8882,7 +9001,8 @@
         "es": "Compras un paquete de galletas y te rodean antes de abrirlo. Los ciervos de Nara están protegidos como mensajeros de los dioses.",
         "fr": "Tu achètes un paquet de gâteaux et te fais encercler avant de l'ouvrir. Les cerfs de Nara sont protégés comme messagers des dieux.",
         "ja": "鹿煎餅を一袋買った途端に囲まれた。奈良の鹿は神の使いとして保護されており、餌をねだって頭を下げる。"
-      }
+      },
+      "months": []
     },
     {
       "id": "craft-commission",
@@ -8903,7 +9023,8 @@
         "es": "Un taller de cerámica o tejido va con retraso y paga un día de ayuda. Solo Kioto sostiene decenas de oficios nacidos para la ceremonia del té.",
         "fr": "Un atelier de poterie ou de tissage a du retard et paie une journée d'aide. Kyoto à elle seule fait vivre des dizaines de métiers nés du service du thé.",
         "ja": "焼物か織物の工房が納期に追われ、一日の手間賃が出た。京都だけでも、茶の湯を支えるために生まれた工芸が何十種も残る。"
-      }
+      },
+      "months": []
     },
     {
       "id": "yatai-treat",
@@ -8924,7 +9045,8 @@
         "es": "Acabas charlando media noche en un puesto de Fukuoka y el dueño rechaza el pago. La ciudad tiene más puestos que el resto de Japón junto.",
         "fr": "Tu passes la moitié de la nuit à discuter dans une échoppe de Fukuoka et le patron refuse d'être payé. La ville compte plus d'échoppes que tout le reste du Japon.",
         "ja": "福岡の屋台で夜半まで話し込み、主人が代金を受け取らなかった。福岡の屋台は日本の他地域を合わせたより多い。"
-      }
+      },
+      "months": []
     },
     {
       "id": "volcanic-ash",
@@ -8945,7 +9067,8 @@
         "es": "Sakurajima lanza otra columna y pagas dos lavados de coche. Kagoshima reparte bolsas para la ceniza como rutina.",
         "fr": "Sakurajima crache un nouveau panache et tu paies deux lavages de voiture. Kagoshima distribue des sacs à cendre par habitude.",
         "ja": "桜島がまた噴煙を上げ、洗車を二度することになった。鹿児島では降灰袋が配られ、灰の清掃は日常である。"
-      }
+      },
+      "months": []
     },
     {
       "id": "awamori-round",
@@ -8966,7 +9089,8 @@
         "es": "Alguien abre una botella de awamori añejo y la mesa insiste. Las familias de Okinawa guardan una barrica para la mayoría de edad de un hijo.",
         "fr": "Quelqu'un ouvre une bouteille d'awamori vieilli et la tablée insiste. Les familles d'Okinawa gardent un fût pour la majorité d'un enfant.",
         "ja": "古酒の泡盛が開けられ、座に加わることになった。沖縄では子の成人に開けるための甕を寝かせる家がある。"
-      }
+      },
+      "months": []
     }
   ]
 }

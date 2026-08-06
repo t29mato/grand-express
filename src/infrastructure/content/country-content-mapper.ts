@@ -88,6 +88,7 @@ function mapMoneyEvents(raw: RawCountryContent): MoneyEvent[] {
     id: MoneyEventId(event.id),
     kind: event.kind,
     regionIds: event.regs.map(RegionId),
+    monthIndices: event.months ?? [],
     emoji: event.e,
     title: event.n,
     narrative: event.t,

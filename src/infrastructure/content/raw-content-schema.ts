@@ -53,6 +53,8 @@ const RawMoneyEventSchema = z.object({
   kind: z.enum(["gain", "loss"]),
   /** 起こりうる地方。空なら国内どこでも。 */
   regs: z.array(z.string()),
+  /** 起こりうる月(0=4月)。空なら通年。 */
+  months: z.array(z.number()).optional(),
   e: z.string(),
   amount: z.number(),
   n: LocalizedTextSchema,

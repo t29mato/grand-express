@@ -103,17 +103,34 @@ describe("盤面配置の前提", () => {
     expect([...kinds].sort()).toEqual(["blue", "card", "quiz", "red"]);
   });
 
-  it.each(countries)("%s: どの地方でも青マス・赤マスの出来事を引ける", async (countryId) => {
-    // 出来事が1つも無い地方があると、そのマスに止まった時点で手番が止まる。
+  it.each(countries)("%s: どの地方・どの月でも青マス・赤マスの出来事を引ける", async (countryId) => {
+    // 出来事が1つも無い組み合わせがあると、そのマスに止まった時点で手番が止まる。
     const pack = await repo.load(CountryId(countryId));
     for (const regionId of pack.regions.keys()) {
-      for (const kind of ["gain", "loss"] as const) {
-        expect(
-          eventsFor(pack.moneyEvents, kind, regionId).length,
-          `${countryId}/${regionId}/${kind}`,
-        ).toBeGreaterThan(0);
+      for (let month = 0; month < 12; month++) {
+        for (const kind of ["gain", "loss"] as const) {
+          expect(
+            eventsFor(pack.moneyEvents, kind, regionId, month).length,
+            `${countryId}/${regionId}/${month}月/${kind}`,
+          ).toBeGreaterThan(0);
+        }
       }
     }
+  });
+
+  it("日本の北国は、冬に減る出来事のほうが多くなる", async () => {
+    // 雪の事故や雪下ろしが冬にだけ起こるようにした結果、季節で偏りが出る。
+    // 「冬の日本海側は赤が増える」を数で確かめる。
+    const pack = await repo.load(CountryId("japan"));
+    const north = [...pack.regions.keys()].find((r) => r === "nor")!;
+    const count = (kind: "gain" | "loss", month: number) =>
+      eventsFor(pack.moneyEvents, kind, north, month).length;
+
+    const winter = 9; // 1月
+    const summer = 3; // 7月
+    expect(count("loss", winter)).toBeGreaterThan(count("gain", winter));
+    // 夏は偏らない(冬だけの現象であることを示す)。
+    expect(count("loss", summer)).toBeLessThanOrEqual(count("gain", summer));
   });
 
   it.each(countries)("%s: 出来事のIDが重複していない", async (countryId) => {

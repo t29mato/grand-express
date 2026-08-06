@@ -18,8 +18,8 @@ export class MoneyEventSelector {
   ) {}
 
   /** その地方で起こりうる出来事を1つ引く。 */
-  draw(kind: MoneyEvent["kind"], regionId: RegionId): MoneyEvent {
-    const pool = eventsFor(this.allEvents, kind, regionId);
+  draw(kind: MoneyEvent["kind"], regionId: RegionId, monthIndex?: number): MoneyEvent {
+    const pool = eventsFor(this.allEvents, kind, regionId, monthIndex);
     if (pool.length === 0) {
       throw new Error(`No money events of kind "${kind}"`);
     }

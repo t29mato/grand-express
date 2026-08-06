@@ -76,11 +76,12 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
 
   /** その地方で起こりうる出来事を1つ引く。 */
   function drawMoneyEvent(kind: "gain" | "loss", regionId: RegionId) {
-    const { context } = get();
+    const { context, session } = get();
     if (!moneyEventSelector && context) {
       moneyEventSelector = new MoneyEventSelector(context.content.moneyEvents, random);
     }
-    return moneyEventSelector!.draw(kind, regionId);
+    // 季節に合わない話(夏の流氷など)を候補から外す。
+    return moneyEventSelector!.draw(kind, regionId, session?.month);
   }
 
   /** 指定された難易度にいちばん近い問題を、山札から1問引く。 */

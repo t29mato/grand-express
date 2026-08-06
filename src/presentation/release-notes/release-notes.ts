@@ -23,6 +23,19 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.7.0",
+    date: "2026-08-07",
+    title: t("The season decides what happens|La estación decide lo que pasa|La saison décide de ce qui arrive|季節によって起きることが変わります"),
+    highlights: [
+      t(
+        "What happens on a blue or red square now depends on the month as well as the region. Drift ice only strands you in winter, the salmon run only pays in autumn, and cherry-blossom work only comes up in April.|Lo que ocurre en una casilla azul o roja depende ahora del mes además de la región: el hielo a la deriva solo en invierno, el salmón solo en otoño.|Ce qui arrive sur une case bleue ou rouge dépend désormais du mois autant que de la région : la banquise en hiver seulement, le saumon en automne.|青マス・赤マスで起きることが、地方だけでなく月にも左右されるようになりました。流氷で足止めされるのは冬だけ、鮭の水揚げで稼げるのは秋だけ、花見の場所取りは4月だけです。",
+      ),
+      t(
+        "On the Sea of Japan side, winter now brings more misfortune than good luck — buried tracks and roof-clearing bills — while summer stays even.|En el lado del mar del Japón, el invierno trae ahora más desgracias que suertes; el verano se mantiene equilibrado.|Côté mer du Japon, l'hiver apporte désormais plus de malchance que de chance ; l'été reste équilibré.|日本海側の冬は、線路の埋没や雪下ろしの出費で、良いことより悪いことが多くなりました。夏は均衡したままです。",
+      ),
+    ],
+  },
+  {
     version: "0.6.2",
     date: "2026-08-07",
     title: t("Everything has a scene now|Todo tiene su escena|Chaque moment a sa scène|どの場面にも絵がつきました"),
