@@ -24,8 +24,13 @@ if (!input) {
   process.exit(1);
 }
 
-const entryPath = resolve(".preview-entry.tsx");
-const htmlPath = resolve(".preview.html");
+// 並行して何本も撮ることがあるので、ポートも一時ファイル名も実行ごとに変える。
+// 固定にすると「Port already in use」で落ちるうえ、最悪お互いの一時ファイルを
+// 上書きして別の絵を撮ってしまう。
+const tag = `${process.pid}-${Math.floor(Math.random() * 1e6)}`;
+const port = 5200 + (process.pid % 300);
+const entryPath = resolve(`.preview-entry-${tag}.tsx`);
+const htmlPath = resolve(`.preview-${tag}.html`);
 const componentPath = resolve(input);
 
 // 名前付きエクスポートを1つだけ持つ約束なので、最初の関数を描く。
@@ -41,14 +46,14 @@ writeFileSync(
   htmlPath,
   `<!doctype html><html><body style="margin:0;background:#1b1330;display:grid;place-items:center">
 <div id="root" style="width:820px"></div>
-<script type="module" src="/.preview-entry.tsx"></script></body></html>`,
+<script type="module" src="/${entryPath.split("/").pop()}"></script></body></html>`,
 );
 
 const server = await createServer({
   configFile: false,
   root: process.cwd(),
   plugins: [react()],
-  server: { port: 5199, strictPort: true },
+  server: { port, strictPort: false },
   logLevel: "error",
 });
 await server.listen();
@@ -57,7 +62,8 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 860, height: 460 } });
 const errors = [];
 page.on("pageerror", (e) => errors.push(String(e)));
-await page.goto("http://localhost:5199/.preview.html");
+const url = `http://localhost:${server.config.server.port ?? port}/${htmlPath.split("/").pop()}`;
+await page.goto(url);
 await page.waitForSelector("#root svg", { timeout: 15_000 }).catch(() => {});
 await page.waitForTimeout(Number(waitMs));
 mkdirSync(dirname(resolve(output)), { recursive: true });
