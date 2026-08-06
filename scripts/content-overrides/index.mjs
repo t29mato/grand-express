@@ -14,6 +14,7 @@ import { JAPAN_SIGHTS_KANTO, JAPAN_SIGHTS_KANTO_EDGES } from "./japan-sights-kan
 import { JAPAN_SIGHTS_TOHOKU, JAPAN_SIGHTS_TOHOKU_EDGES } from "./japan-sights-tohoku.mjs";
 import { JAPAN_SIGHTS_KANSAI, JAPAN_SIGHTS_KANSAI_EDGES } from "./japan-sights-kansai.mjs";
 import { JAPAN_SIGHTS_KYUSHU, JAPAN_SIGHTS_KYUSHU_EDGES } from "./japan-sights-kyushu.mjs";
+import { JAPAN_REMOVED_EDGES } from "./japan-line-pruning.mjs";
 import {
   JAPAN_EXTRA_CITIES,
   JAPAN_EXTRA_EDGES,
@@ -36,6 +37,21 @@ const BOARD_SCALE = { bolivia: 1.35, japan: 2.45 };
  * 1度あたりの距離が変わらないよう横幅も同じ比率で広げる
  * (広げないと日本列島全体が横に潰れてしまう)。
  */
+/**
+ * legacy の都市座標の補正。
+ *
+ * 抽出元にあった経緯度が実際の位置とずれており、国境の外に描かれていたもの。
+ * legacy(アーカイブ)は書き換えず、ここで正しい値に差し替える。
+ */
+const CITY_COORDS = {
+  bolivia: {
+    // グアヤラメリンはマモレ川沿いのブラジル国境の町(10°49'S 65°21'W)。
+    guayaramerin: { lo: -65.35, la: -10.82 },
+    // ビジャソンはアルゼンチン国境の町(22°06'S 65°36'W)。
+    villazon: { lo: -65.6, la: -22.1 },
+  },
+};
+
 const PROJ_BOUNDS = {
   // 西は石垣・与那国(東経123度台)、南は与那国・竹富(北緯24.3度)まで入れる。
   // legacy は沖縄本島までしか想定しておらず、先島諸島は盤面の外に落ちていた。
@@ -45,6 +61,7 @@ const PROJ_BOUNDS = {
 const OVERRIDES = {
   bolivia: {
     land: BOLIVIA_LAND,
+    cityCoords: CITY_COORDS.bolivia,
     boardScale: BOARD_SCALE.bolivia,
     quizDifficulty: QUIZ_DIFFICULTY.bolivia,
   },
@@ -52,6 +69,7 @@ const OVERRIDES = {
     land: JAPAN_LAND,
     boardScale: BOARD_SCALE.japan,
     projBounds: PROJ_BOUNDS.japan,
+    removedEdges: JAPAN_REMOVED_EDGES,
     extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES, ...JAPAN_ISLAND_CITIES,
       ...JAPAN_HOKKAIDO_CITIES,
       ...JAPAN_SIGHTS_TOHOKU,
@@ -139,6 +157,17 @@ export function applyContentOverrides(countryId, content) {
     });
   }
 
+  // 既存都市の座標補正は、追加より先に行う(追加分と混ざらないように)。
+  if (override.cityCoords && content.cities) {
+    for (const [id, at] of Object.entries(override.cityCoords)) {
+      const city = content.cities[id];
+      if (!city) {
+        throw new Error(`${countryId}: 座標を補正しようとした都市 "${id}" がありません`);
+      }
+      content.cities[id] = { ...city, lo: at.lo ?? city.lo, la: at.la ?? city.la };
+    }
+  }
+
   if (override.extraCities) {
     for (const [id, city] of Object.entries(override.extraCities)) {
       if (content.cities[id]) {
@@ -165,6 +194,24 @@ export function applyContentOverrides(countryId, content) {
       content.edges.push(kind ? [a, b, kind] : [a, b]);
     }
   }
+
+  // 路線の削除は**追加のあと**に行う。外したい路線には、この上書き層で
+  // 足したもの(例: 名古屋—静岡)も含まれるため。
+  if (override.removedEdges && content.edges) {
+    for (const [a, b] of override.removedEdges) {
+      const before = content.edges.length;
+      content.edges = content.edges.filter(
+        ([x, y]) => !((x === a && y === b) || (x === b && y === a)),
+      );
+      if (content.edges.length === before) {
+        throw new Error(
+          `${countryId}: 外そうとした路線 ${a}-${b} が見つかりません` +
+            "(既に消えているか、都市IDの綴りが違います)",
+        );
+      }
+    }
+  }
+
 
   return content;
 }
