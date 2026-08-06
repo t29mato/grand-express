@@ -128,7 +128,7 @@ export function GameScreen() {
         />
       )}
       {ui.kind === "intro" && <IntroModal context={context} session={session} onDepart={dismissIntro} />}
-      {ui.kind === "season" && <SeasonModal season={ui.season} onContinue={dismissSeasonModal} />}
+      {ui.kind === "season" && <SeasonModal season={ui.season} countryId={context.content.id} onContinue={dismissSeasonModal} />}
       {ui.kind === "next-leg" && (
         <NextLegModal
           context={context}

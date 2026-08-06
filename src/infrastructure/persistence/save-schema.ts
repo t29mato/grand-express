@@ -18,6 +18,19 @@ const PlayerSnapshotSchema = z.object({
   inventory: z.array(z.string()),
   skipNextTurn: z.boolean(),
   hasExtraTurn: z.boolean(),
+  /**
+   * 表彰用の記録。これを足す前のセーブデータには無いので任意にしている
+   * (読み込み時に空から数え直す)。
+   */
+  stats: z
+    .object({
+      quizAnswered: z.number(),
+      quizCorrect: z.number(),
+      destinationsReached: z.number(),
+      misfortuneTurns: z.number(),
+      squaresMoved: z.number(),
+    })
+    .optional(),
 });
 
 export const GameSessionSnapshotSchemaV1 = z.object({

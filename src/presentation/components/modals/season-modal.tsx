@@ -3,6 +3,7 @@
 import { SeasonDefinition } from "../../../domain/season/season-effect";
 import { useLocale } from "../../i18n/locale-context";
 import { Modal } from "./modal";
+import { seasonAnimationFor } from "../events/seasons";
 
 /**
  * 月替わりのたびに表示する季節イベントのモーダル
@@ -11,11 +12,27 @@ import { Modal } from "./modal";
  * `advanceTurn` ユースケースの時点ですでにセッションへ反映済みで、
  * このモーダルはその内容を読み物として見せるだけの表示用コンポーネント。
  */
-export function SeasonModal({ season, onContinue }: { season: SeasonDefinition; onContinue: () => void }) {
+export function SeasonModal({
+  season,
+  countryId,
+  onContinue,
+}: {
+  season: SeasonDefinition;
+  /** その国のその月の絵を引くために使う。 */
+  countryId: string;
+  onContinue: () => void;
+}) {
   const { t, tx, monthName } = useLocale();
+  const Scene = seasonAnimationFor(countryId, season.monthIndex);
 
   return (
     <Modal testId="season-modal">
+      {/* 月の絵。まだ用意していない国・月では絵なしで文章だけになる。 */}
+      {Scene && (
+        <div className="event-anim">
+          <Scene />
+        </div>
+      )}
       <div className="eyebrow">
         {t("monthEvent")} · {monthName(season.monthIndex)}
       </div>
