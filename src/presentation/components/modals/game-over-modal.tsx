@@ -2,7 +2,9 @@
 
 import { CurrencyFormat } from "../../../domain/country/country-content-pack";
 import { EndGameOutcome } from "../../../application/use-cases/end-game/end-game.use-case";
+import { useState } from "react";
 import { useLocale } from "../../i18n/locale-context";
+import { AwardCeremony } from "./award-ceremony";
 import { GameEngineContext } from "../../../application/game-engine-context";
 import { formatMoney } from "../../i18n/money-format";
 import { Modal } from "./modal";
@@ -19,10 +21,25 @@ export function GameOverModal({
   onPlayAgain: () => void;
 }) {
   const { t, tx } = useLocale();
+  // 表彰をすべてめくり終えるまで順位を出さない(先に見えると勝負が分かってしまう)。
+  const [ceremonyDone, setCeremonyDone] = useState(outcome.awards.length === 0);
   // 記録されているのはIDだけなので、コンテンツから問題文を引き直す。
   const missed = outcome.session.learningRecord.missedQuestionIds
     .map((id) => context.content.quiz.find((q) => q.id === id))
     .filter((q): q is NonNullable<typeof q> => q !== undefined);
+  if (!ceremonyDone) {
+    return (
+      <Modal testId="award-ceremony-modal">
+        <AwardCeremony
+          awards={outcome.awards}
+          session={outcome.session}
+          context={context}
+          onFinish={() => setCeremonyDone(true)}
+        />
+      </Modal>
+    );
+  }
+
   return (
     <Modal testId="game-over-modal">
       <div className="eyebrow">{t("endOfLine", outcome.session.maxMonths)}</div>

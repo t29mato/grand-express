@@ -1273,3 +1273,42 @@ aside {
     display: none;
   }
 }
+
+/* 表彰式。賞を1つずつめくるので、名前と受賞者を大きく見せる。 */
+.award-stage {
+  margin-bottom: 12px;
+}
+
+.award-name {
+  margin: 4px 0 2px;
+  color: var(--gold);
+}
+
+.award-winner {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0 0 2px;
+}
+
+.award-detail {
+  color: var(--salt-dim);
+  margin: 0;
+}
+
+/* いま何個目の賞かを示す点。 */
+.award-progress {
+  display: flex;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.award-progress span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.award-progress span.on {
+  background: var(--gold);
+}

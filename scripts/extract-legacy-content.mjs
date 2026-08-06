@@ -161,6 +161,25 @@ const INLINE_UI_STRINGS = {
   // 行き先を選んでいる最中の案内。何マス進むのかを出し続ける。
   chooseSquareHint: "You rolled {0} — choose where to stop.|Has sacado {0}: elige dónde parar.|Tu as fait {0} — choisis où t'arrêter.|出目は{0}。止まる場所を選んでください。",
 
+  // ゲーム終了時の表彰。総資産の順位だけだと一目で勝負がついてしまうので、
+  // いろいろな観点の賞を1つずつめくって見せる。
+  awardsTitle: "The prize-giving|Entrega de premios|La remise des prix|表彰式",
+  awardsLead: "Before the final standings — a few awards from this journey.|Antes de la clasificación final, algunos premios de este viaje.|Avant le classement final, quelques prix de ce voyage.|最終順位の前に、この旅の表彰をいくつか。",
+  awardsNext: "Next award|Siguiente premio|Prix suivant|次の賞",
+  awardsToResults: "And the winner is…|Y el ganador es…|Et le gagnant est…|そして優勝は…",
+  awardQuizMaster: "Quiz Master|Maestro del saber|Maître du quiz|クイズ王",
+  awardQuizMasterDetail: "{0} correct answers|{0} respuestas correctas|{0} bonnes réponses|{0}問正解",
+  awardPropertyBaron: "Property Baron|Barón de los negocios|Baron des affaires|物件王",
+  awardPropertyBaronDetail: "{0} businesses owned|{0} negocios en propiedad|{0} affaires possédées|物件{0}件",
+  awardRegionLord: "Lord of the Region|Señor de la región|Seigneur de la région|地方王",
+  awardRegionLordDetail: "{0} businesses in one region|{0} negocios en una sola región|{0} affaires dans une seule région|ひとつの地方に{0}件",
+  awardTraveller: "Great Traveller|Gran viajero|Grand voyageur|旅の達人",
+  awardTravellerDetail: "reached the destination {0} times|llegó al destino {0} veces|a atteint le but {0} fois|目的地に{0}回到着",
+  awardWalker: "Longest Journey|El más andado|Le plus long trajet|いちばん歩いた人",
+  awardWalkerDetail: "{0} squares travelled|{0} casillas recorridas|{0} cases parcourues|{0}マス進んだ",
+  awardUnlucky: "Bravest Under Misfortune|El más sufrido|Le plus éprouvé|厄災に耐えた人",
+  awardUnluckyDetail: "carried the spirit for {0} turns|cargó al espíritu {0} turnos|a porté l'esprit {0} tours|{0}ターン背負った",
+
   // クイズの難易度表示。
   difficulty: "Difficulty|Dificultad|Difficulté|難易度",
   optionsReduced: "One wrong answer is hidden because you are new to this country.|Se oculta una respuesta incorrecta porque el país es nuevo para ti.|Une mauvaise réponse est masquée car ce pays t'est nouveau.|この国がはじめてなので、誤答をひとつ伏せています。",
