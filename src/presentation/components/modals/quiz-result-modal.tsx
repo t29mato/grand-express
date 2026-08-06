@@ -7,6 +7,7 @@ import { useLocale } from "../../i18n/locale-context";
 import { renderRichText } from "../../i18n/rich-text";
 import { DifficultyBadge } from "./difficulty-badge";
 import { Modal } from "./modal";
+import { QuizVerdict } from "../events/quiz-verdict";
 
 /**
  * 回答後に必ず挟む結果モーダル。
@@ -49,6 +50,14 @@ export function QuizResultModal({
         <DifficultyBadge difficulty={question.difficulty} />
       </div>
       <h3>{tx(question.question)}</h3>
+
+      <div className="event-anim quiz-verdict-scene">
+
+
+        <QuizVerdict correct={correct} />
+
+
+      </div>
 
       <p className={correct ? "quiz-verdict correct" : "quiz-verdict wrong"}>
         {correct ? `⭕ ${t("correctPlus", amount)}` : `❌ ${t("wrongMinus", amount)}`}

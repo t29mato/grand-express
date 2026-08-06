@@ -23,10 +23,13 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
-    version: "0.6.1",
+    version: "0.6.2",
     date: "2026-08-07",
-    title: t("Misfortune, in pictures|La desgracia, en imágenes|Le malheur, en images|災難が目に見えるように"),
+    title: t("Everything has a scene now|Todo tiene su escena|Chaque moment a sa scène|どの場面にも絵がつきました"),
     highlights: [
+      t(
+        "Departing, and answering a quiz, now have their own scene: a train pulling out at dawn with someone waving it off, and a circle or cross drawn on screen.|La salida y las respuestas del quiz tienen ahora su escena propia.|Le départ et les réponses au quiz ont désormais leur propre scène.|出発とクイズの正誤にも絵が付きました。夜明けの駅を列車が走り出し、見送る人が手を振ります。正誤は丸やバツが描かれます。",
+      ),
       t(
         "When the misfortune spirit strikes, you now see what actually happened — a typhoon shutting the shops, a landslide taking the stall down the hillside, a hand slipping into your bag on a packed train. 21 scenes in all.|Cuando golpea la desgracia, ahora ves qué ha pasado: un tifón, un derrumbe, una mano en tu bolsa. 21 escenas.|Quand le malheur frappe, on voit désormais ce qui s'est passé : typhon, glissement de terrain, main dans le sac. 21 scènes.|厄災に見舞われたとき、何が起きたのかが絵で見えるようになりました。台風でシャッターが下りる、地滑りで店が流される、満員電車で荷物に手が伸びる、など21種類。",
       ),

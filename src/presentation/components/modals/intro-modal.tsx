@@ -8,6 +8,7 @@ import { renderRichText } from "../../i18n/rich-text";
 import { CityArt } from "../city/city-art";
 import { formatMoney } from "../../i18n/money-format";
 import { Modal } from "./modal";
+import { DepartureScene } from "../events/departure-scene";
 
 /**
  * ゲーム開始時に一度だけ表示する「出発ストーリー」モーダル
@@ -33,6 +34,11 @@ export function IntroModal({
 
   return (
     <Modal testId="intro-modal">
+      <div className="event-anim">
+
+        <DepartureScene />
+
+      </div>
       {isCityNode(startNode) && <CityArt context={context} cityId={startNode.cityId} />}
       <div className="eyebrow">{t("allAboard")}</div>
       <h3>{t("departure", startCityName)}</h3>
