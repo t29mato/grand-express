@@ -153,7 +153,14 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
         // 1. サイコロを人間の手番と同じフル演出で見せる(振った目が分かるように)。
         if (result.steps !== undefined) {
           soundAdapter.playRattle();
-          set((s) => ({ diceRoll: { nonce: (s.diceRoll?.nonce ?? 0) + 1, value: result.steps! } }));
+          set((s) => ({
+            diceRoll: {
+              nonce: (s.diceRoll?.nonce ?? 0) + 1,
+              value: result.steps!,
+              // CPUは複数個振るアイテムを使わない(cpu-item-strategyが対象外にしている)ので常に1個。
+              rolls: [result.steps!],
+            },
+          }));
           await delay(CPU_TIMING.diceAnimation);
           if (generation !== cpuLoopGeneration) return;
         }
@@ -240,7 +247,6 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
           kind: "cpu-quiz",
           playerName,
           question: landing.question,
-          chosenOptionIndex: landing.chosenOptionIndex,
           correct: landing.outcome.correct,
           amount: formatMoney(landing.outcome.amount.amount, context.content.currency),
         },

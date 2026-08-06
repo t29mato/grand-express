@@ -34,9 +34,10 @@ export type UiState =
   /** CPUが答えたクイズ(人間のクイズモーダルに相当。自動で閉じる)。 */
   | {
       readonly kind: "cpu-quiz";
+      // CPUが選んだ選択肢は**保持しない**。画面に出すとカンニングになるため
+      // (cpu-quiz-modal.tsx 参照)。
       readonly playerName: string;
       readonly question: QuizQuestion;
-      readonly chosenOptionIndex: number;
       readonly correct: boolean;
       readonly amount: string;
     }
@@ -110,7 +111,12 @@ export interface GameStoreState {
    * 再生中のサイコロ演出。人間・CPUどちらの手番でも同じ経路で表示する
    * (`nonce` は同じ目が続いても演出をやり直すための連番)。
    */
-  diceRoll: { readonly nonce: number; readonly value: number } | null;
+  /**
+   * 直近のサイコロ。`rolls` は振ったサイコロ1個ずつの目で、
+   * 合計(= 進むマス数)が `value`。アイテムで2〜3個振ると合計が7以上になるため、
+   * 1個のサイコロだけを見せると「目より多く進む」ように見えてしまう。
+   */
+  diceRoll: { readonly nonce: number; readonly value: number; readonly rolls: readonly number[] } | null;
 
   startNewGame(config: { countryId: CountryId; players: readonly PlayerSetup[]; maxMonths: number; cpuLevel: CpuLevel }): Promise<void>;
   loadSavedGame(): Promise<void>;

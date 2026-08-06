@@ -152,7 +152,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const reachable = reachableNodesFor(context, latestSession, player.id, steps);
       set((s) => ({
         ui: { kind: "choosing-square", steps, reachable },
-        diceRoll: { nonce: (s.diceRoll?.nonce ?? 0) + 1, value: steps },
+        diceRoll: { nonce: (s.diceRoll?.nonce ?? 0) + 1, value: steps, rolls: [steps] },
       }));
     },
 
@@ -264,11 +264,12 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       if (result.result.type === "teleport-to-destination") {
         resolveLandingForHuman(cityIdToNodeId(result.session.destination));
       } else if (result.result.type === "rolled") {
-        const steps = result.result.steps;
+        const { steps, rolls } = result.result;
         const reachable = reachableNodesFor(context, result.session, player.id, steps);
         set((s) => ({
           ui: { kind: "choosing-square", steps, reachable },
-          diceRoll: { nonce: (s.diceRoll?.nonce ?? 0) + 1, value: steps },
+          // 振ったサイコロを個数ぶんそのまま見せる(合計だけだと目と進む数が食い違って見える)。
+          diceRoll: { nonce: (s.diceRoll?.nonce ?? 0) + 1, value: steps, rolls },
         }));
       }
     },

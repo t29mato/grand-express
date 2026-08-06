@@ -72,57 +72,115 @@ const FACES: ReadonlyArray<readonly [string, number]> = [
 const BOUNCES = 3;
 const DURATION_MS = 1600;
 const RESULT_LINGER_MS = 700;
+/** 動きを減らす設定のときに、出目だけを見せておく時間。 */
+const REDUCED_MOTION_LINGER_MS = 500;
+
+/** OS/ブラウザ側で「視差効果を減らす」が有効になっているか。 */
+function prefersReducedMotion(): boolean {
+  return typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches === true;
+}
 
 export function DiceStage({
-  targetValue,
+  values,
   onDone,
 }: {
-  /** 表示する出目(1〜6)。 */
-  targetValue: number;
+  /**
+   * 振ったサイコロの目(1〜6)を振った個数ぶん。
+   * 新幹線(2個)・のぞみ(3個)のようなアイテムでは複数個になる。
+   * **合計がそのまま進むマス数**なので、1個に丸めて見せると
+   * 「サイコロの目より多く進んでいる」ように見えてしまう。
+   */
+  values: readonly number[];
   /** 演出が終わったときに呼ばれる。 */
   onDone: () => void;
 }) {
   const stageRef = useRef<HTMLDivElement>(null);
-  const dieRef = useRef<HTMLDivElement>(null);
-  const shadowRef = useRef<HTMLDivElement>(null);
+  const diceRef = useRef<(HTMLDivElement | null)[]>([]);
+  const shadowsRef = useRef<(HTMLDivElement | null)[]>([]);
   const resultRef = useRef<HTMLDivElement>(null);
+  // 出目の並びが変わったときだけ演出をやり直すための鍵。
+  const key = values.join(",");
 
   useEffect(() => {
     const stage = stageRef.current;
-    const die = dieRef.current;
-    const shadow = shadowRef.current;
     const result = resultRef.current;
-    if (!stage || !die || !shadow || !result) return;
+    if (!stage || !result) return;
 
-    const v = Math.min(6, Math.max(1, Math.round(targetValue)));
+    const faces = values.map((v) => Math.min(6, Math.max(1, Math.round(v))));
+    const total = faces.reduce((sum, v) => sum + v, 0);
+    const dice = faces.map((_, i) => diceRef.current[i]).filter((d): d is HTMLDivElement => d !== null);
+    const shadows = faces.map((_, i) => shadowsRef.current[i]).filter((d): d is HTMLDivElement => d !== null);
+    if (dice.length !== faces.length || shadows.length !== faces.length) return;
+
     result.className = "die-result";
     result.textContent = "";
 
     const W = stage.clientWidth || 620;
     const H = stage.clientHeight || 620;
-    const s = Math.max(0.6, Math.min(1.15, W / 640));
-    const startX = W * 0.16;
-    const endX = W * 0.45 + (Math.random() * 0.2 - 0.1) * W;
+    // サイコロが増えるぶんだけ小さくして、重ならないように横に並べる。
+    const s = Math.max(0.42, Math.min(1.15, W / 640) / Math.max(1, faces.length * 0.8));
     const ground = H * 0.58;
-    const [tx0, ty0] = FACE_ROT[v];
-    const rx0 = Math.random() * 360;
-    const ry0 = Math.random() * 360;
-    const spin = 3;
-    const rx1 = tx0 + 360 * (spin + Math.floor(Math.random() * 3)) + 360 * Math.ceil(rx0 / 360);
-    const ry1 = ty0 + 360 * (spin + Math.floor(Math.random() * 3)) + 360 * Math.ceil(ry0 / 360);
+    const spread = W * 0.2;
+
+    // 1個ごとの初期姿勢・着地位置(見た目だけの乱数。ゲーム結果には影響しない)。
+    const plans = faces.map((v, i) => {
+      const [tx0, ty0] = FACE_ROT[v];
+      const rx0 = Math.random() * 360;
+      const ry0 = Math.random() * 360;
+      const spin = 3;
+      const centred = i - (faces.length - 1) / 2;
+      return {
+        startX: W * 0.16 + centred * spread * 0.5,
+        endX: W * 0.45 + centred * spread + (Math.random() * 0.1 - 0.05) * W,
+        rx0,
+        ry0,
+        rx1: tx0 + 360 * (spin + Math.floor(Math.random() * 3)) + 360 * Math.ceil(rx0 / 360),
+        ry1: ty0 + 360 * (spin + Math.floor(Math.random() * 3)) + 360 * Math.ceil(ry0 / 360),
+        face: [tx0, ty0] as const,
+      };
+    });
+
+    const place = (i: number, x: number, y: number, rx: number, ry: number) => {
+      dice[i].style.transform = `translate3d(${x - 48 * s}px, ${y - 48 * s}px, 0) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(${s}, ${s}, ${s})`;
+      const air = Math.min(1, (ground - y) / (H * 0.26));
+      const sc = (1 - air * 0.45) * s;
+      const shadow = shadows[i];
+      shadow.style.width = `${84 * sc}px`;
+      shadow.style.height = `${19 * sc}px`;
+      shadow.style.left = `${x - 42 * sc}px`;
+      shadow.style.top = `${ground + 40 * s}px`;
+      shadow.style.opacity = (0.12 + 0.32 * sc).toFixed(2);
+    };
+
+    // 合計が分かるように、複数個なら「4 + 5 = 9」の形で見せる。
+    const showResult = () => {
+      result.textContent = faces.length > 1 ? `${faces.join(" + ")} = ${total}` : String(total);
+      result.className = `die-result show${faces.length > 1 ? " multi" : ""}`;
+    };
 
     let lastSeg = 0;
     let finished = false;
     let raf = 0;
     let doneTimer: ReturnType<typeof setTimeout> | undefined;
-    const t0 = performance.now();
 
+    // 「視差効果を減らす」設定なら、転がる演出を飛ばして出目だけを見せる。
+    // 毎ターン2秒以上のアニメーションを見せられるのは、動きに弱い人には負担になる。
+    if (prefersReducedMotion()) {
+      plans.forEach((plan, i) => place(i, plan.endX, ground, plan.face[0], plan.face[1]));
+      showResult();
+      soundAdapter.playCoin();
+      doneTimer = setTimeout(onDone, REDUCED_MOTION_LINGER_MS);
+      return () => {
+        if (doneTimer) clearTimeout(doneTimer);
+      };
+    }
+
+    const t0 = performance.now();
     soundAdapter.playRattle();
 
     const frame = (now: number) => {
       const t = Math.min(1, (now - t0) / DURATION_MS);
       const e = 1 - Math.pow(1 - t, 3);
-      const x = startX + (endX - startX) * e;
       const k = Math.min(1, t / 0.88);
       const phase = k * BOUNCES;
       const seg = Math.floor(phase);
@@ -135,21 +193,16 @@ export function DiceStage({
         soundAdapter.playThud();
       }
 
-      die.style.transform = `translate3d(${x - 48 * s}px, ${y - 48 * s}px, 0) rotateX(${rx0 + (rx1 - rx0) * e}deg) rotateY(${ry0 + (ry1 - ry0) * e}deg) scale3d(${s}, ${s}, ${s})`;
-      const air = Math.min(1, (ground - y) / (H * 0.26));
-      const sc = (1 - air * 0.45) * s;
-      shadow.style.width = `${84 * sc}px`;
-      shadow.style.height = `${19 * sc}px`;
-      shadow.style.left = `${x - 42 * sc}px`;
-      shadow.style.top = `${ground + 40 * s}px`;
-      shadow.style.opacity = (0.12 + 0.32 * sc).toFixed(2);
+      plans.forEach((plan, i) => {
+        const x = plan.startX + (plan.endX - plan.startX) * e;
+        place(i, x, y, plan.rx0 + (plan.rx1 - plan.rx0) * e, plan.ry0 + (plan.ry1 - plan.ry0) * e);
+      });
 
       if (t < 1) {
         raf = requestAnimationFrame(frame);
       } else if (!finished) {
         finished = true;
-        result.textContent = String(v);
-        result.className = "die-result show";
+        showResult();
         soundAdapter.playCoin();
         doneTimer = setTimeout(onDone, RESULT_LINGER_MS);
       }
@@ -160,22 +213,38 @@ export function DiceStage({
       cancelAnimationFrame(raf);
       if (doneTimer) clearTimeout(doneTimer);
     };
-    // targetValueが変わるたびに(=新しいロールのたびに)最初から再生する。
+    // 出目が変わるたびに(=新しいロールのたびに)最初から再生する。
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [targetValue]);
+  }, [key]);
 
   return (
     <div className="dice-stage" ref={stageRef} aria-hidden="true">
-      <div className="die-shadow" ref={shadowRef} />
-      <div className="die3d" ref={dieRef}>
-        {FACES.map(([transform, value]) => (
-          <div className="f" style={{ transform }} key={value}>
-            {PIP_POS[value].map(([r, c], i) => (
-              <i key={i} style={{ gridRow: r, gridColumn: c }} />
-            ))}
-          </div>
-        ))}
-      </div>
+      {values.map((_, i) => (
+        <div
+          className="die-shadow"
+          key={`shadow-${i}`}
+          ref={(el) => {
+            shadowsRef.current[i] = el;
+          }}
+        />
+      ))}
+      {values.map((_, i) => (
+        <div
+          className="die3d"
+          key={`die-${i}`}
+          ref={(el) => {
+            diceRef.current[i] = el;
+          }}
+        >
+          {FACES.map(([transform, value]) => (
+            <div className="f" style={{ transform }} key={value}>
+              {PIP_POS[value].map(([r, c], j) => (
+                <i key={j} style={{ gridRow: r, gridColumn: c }} />
+              ))}
+            </div>
+          ))}
+        </div>
+      ))}
       <div className="die-result" ref={resultRef} />
     </div>
   );

@@ -73,7 +73,7 @@ export function GameScreen() {
             reachable={reachableSet}
             onChooseNode={(id) => chooseSquare(id)}
           />
-          {diceRoll && <DiceStage key={diceRoll.nonce} targetValue={diceRoll.value} onDone={clearDiceRoll} />}
+          {diceRoll && <DiceStage key={diceRoll.nonce} values={diceRoll.rolls} onDone={clearDiceRoll} />}
         </div>
         {/* 1画面に収めるためこの列だけスクロールさせている。スクロールできる領域は
             キーボードからも操作できる必要があるため tabIndex を与える
@@ -110,7 +110,6 @@ export function GameScreen() {
         <CpuQuizModal
           playerName={ui.playerName}
           question={ui.question}
-          chosenOptionIndex={ui.chosenOptionIndex}
           correct={ui.correct}
           amount={ui.amount}
           onClose={dismissCpuModal}
