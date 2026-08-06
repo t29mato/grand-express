@@ -15,7 +15,9 @@
     "depcruise": "depcruise src --config .dependency-cruiser.cjs",
     "ci": "npm run lint && npm run typecheck && npm run depcruise && npm run test && npm run build",
     "graph": "node scripts/generate-dependency-graph.mjs",
-    "graph:check": "node scripts/generate-dependency-graph.mjs --check"
+    "graph:check": "node scripts/generate-dependency-graph.mjs --check",
+    "shot": "node scripts/shot.mjs",
+    "check": "npm run ci && npm run graph:check && npm run test:e2e"
   },
   "dependencies": {
     "next": "16.3.0",

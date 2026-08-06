@@ -45,3 +45,6 @@ next-env.d.ts
 
 # 調査用の一時スクリプト(コミットしない)
 scripts/_tmp-*
+
+# 確認用のスクリーンショット(npm run shot)
+screenshots/

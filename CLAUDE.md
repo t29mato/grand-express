@@ -1,5 +1,21 @@
 # プロジェクトルール
 
+## 作業の進め方
+
+- **`git add -A` は使わない。** ファイルを列挙して、意味のある単位でコミットする。
+  (まとめて `add -A` したせいで、関係のない変更が1つのコミットに混ざったことがある)
+- **「できました」と言う前に `npm run check` を通す。**
+  走らせていないものは「走らせていない」と書く。「たぶん大丈夫」は書かない。
+- **原因を推測で語らない。まず計測する。**
+  例:「都市が海に浮く」は、勘で直すと外していた。計測したら
+  *海岸線が粗い21件* と *配置で押し出された24件* のほぼ半々で、両方に手を打つ必要があった。
+- **コンテンツを大量に作る前に、5件だけ作って見せる。**
+  方向が違っていたときに捨てる量を小さくするため。
+  (77都市を書いてから「多すぎた」となり、丸ごと捨てたことがある)
+- **見た目の確認は `npm run shot`。** `next build` からやり直すと1回2〜4分かかる。
+  `npm run dev` を立てたまま `npm run shot -- japan overview` なら数秒で済む。
+  **撮った画像は必ず開いて目で見る。**
+
 ## Git運用
 
 - **コミットはこまめに行う。** 作業をまとめて最後に1回コミットするのではなく、意味のある単位(ドキュメント1つ、機能1つ、フェーズの1タスクなど)ごとに区切ってコミットすること。
@@ -8,6 +24,32 @@
 ## ドキュメント
 
 - **ドキュメントは基本的に日本語で書く。**(コード中のコメント・識別子は英語のままでよい)
+
+## コンテンツ
+
+- **`legacy/grand-express.html` は書き換えない。** アーカイブとして凍結している。
+  追加・修正は `scripts/content-overrides/` か `scripts/countries/` に置き、
+  `node scripts/extract-legacy-content.mjs` で焼き込む。
+- **`src/infrastructure/content/*.content.json` を直接編集しない。** 生成物である。
+- 書き方: [docs/50-authoring/01-content-guide.md](./docs/50-authoring/01-content-guide.md)
+- 絵の作り方: [docs/50-authoring/02-animation-guide.md](./docs/50-authoring/02-animation-guide.md)
+
+## 並行作業
+
+複数のサブエージェントに作業させるときは、**共有ファイルを触らせない**。
+新規ファイルだけを作らせ、登録簿(`animations/index.ts` など)への追記は
+取りまとめ側でまとめて行う。同じファイルを同時に編集すると壊れる。
+
+用意してあるエージェント: `content-author`(文章・データ)/ `board-artist`(絵)/ `checker`(検証)
+
+## よく使うコマンド
+
+| コマンド | 用途 |
+|---|---|
+| `npm run dev` | 開発サーバ(立てっぱなしにする) |
+| `npm run shot -- <国> <場面>` | 画面のスクリーンショット。場面は follow/overview/event/quiz/city/setup |
+| `npm run check` | lint・型・依存・テスト・build・E2E を全部 |
+| `node scripts/extract-legacy-content.mjs` | コンテンツの再抽出 |
 
 ## 参考
 
