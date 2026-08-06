@@ -25,7 +25,13 @@ import { chromium } from "playwright";
 import { mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 
-const COUNTRIES = { bolivia: /Bolivia/, japan: /Japan/, india: /India/, france: /France/ };
+const COUNTRIES = {
+  bolivia: /Bolivia/,
+  japan: /Japan/,
+  india: /India/,
+  france: /France/,
+  world: /Around the World/,
+};
 const SCENES = ["follow", "overview", "event", "quiz", "city", "setup"];
 
 function parseArgs(argv) {

@@ -20,7 +20,7 @@ import { projectPoint } from "../../domain/board/board-projection";
  */
 describe("盤面配置の前提", () => {
   const repo = new JsonCountryContentRepository();
-  const countries = ["bolivia", "japan", "india", "france"] as const;
+  const countries = ["bolivia", "japan", "india", "france", "world"] as const;
 
   function pointInPolygon(x: number, y: number, poly: readonly (readonly [number, number])[]) {
     let hit = false;
