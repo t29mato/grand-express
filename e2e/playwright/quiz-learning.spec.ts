@@ -7,6 +7,10 @@ import { test, expect, Page } from "@playwright/test";
  * 回答したあとに結果モーダルが出て、**自分の選択・正解・解説**が読めることを見る。
  * 出題は乱数に依存するため、クイズマスに止まるまで実際にプレイして待つ。
  */
+// クイズマスに止まるかどうかは乱数任せで、当たるまで何十ターンも回すことがある。
+// サイコロ演出(1回2.3秒)を挟むと並列実行時に時間切れになりやすいので、
+// 「視差効果を減らす」設定で動かして1ターンを短くする。
+// この試験の関心はクイズの結果表示であって、サイコロの見た目ではない。
 test.setTimeout(180_000);
 
 async function openModalId(page: Page): Promise<string | null> {
@@ -17,6 +21,8 @@ test("クイズに答えると結果モーダルで正解と解説が読める",
   const errors: string[] = [];
   page.on("pageerror", (err) => errors.push(String(err)));
 
+  // サイコロ演出を省略させて1ターンを短くする(上のコメント参照)。
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
   // CPUの手番は演出のぶん時間がかかるので、全員を人間にして手番を速く回す
   // (この試験の関心はクイズの結果表示であってCPUの挙動ではない)。
@@ -28,7 +34,7 @@ test("クイズに答えると結果モーダルで正解と解説が読める",
   await page.getByRole("button", { name: "Start the journey" }).click();
   await page.getByRole("button", { name: "Depart!" }).click();
 
-  const deadline = Date.now() + 120_000;
+  const deadline = Date.now() + 150_000;
   let answered = false;
 
   while (Date.now() < deadline && !answered) {
@@ -71,16 +77,21 @@ test("クイズに答えると結果モーダルで正解と解説が読める",
           break;
         }
       }
-      await page.waitForTimeout(250);
+      await page.waitForTimeout(120);
       continue;
     }
 
     // 選べるマスが出ていれば選ぶ。ここを「振った直後だけ」にすると、
     // クリックが一度失敗したときに選択待ちのまま抜け出せなくなる。
+    // **クイズマスが選べるならそれを選ぶ**。偶然止まるのを待つと、
+    // 何十ターンも空振りして時間切れになることがある(この試験の関心は
+    // 「クイズに答えたあと何が読めるか」であって、止まる確率ではない)。
     const choosable = page.locator("svg.board-svg g[data-choosable='true']");
     if ((await choosable.count()) > 0) {
-      await choosable.first().click({ timeout: 6000 }).catch(() => {});
-      await page.waitForTimeout(250);
+      const quizSquare = page.locator("svg.board-svg g[data-choosable='true'][data-node-kind='quiz']");
+      const target = (await quizSquare.count()) > 0 ? quizSquare.first() : choosable.first();
+      await target.click({ timeout: 6000 }).catch(() => {});
+      await page.waitForTimeout(120);
       continue;
     }
 
@@ -93,9 +104,19 @@ test("クイズに答えると結果モーダルで正解と解説が読める",
       await page.locator("#die").click();
       await page.locator(".dice-stage").waitFor({ state: "detached", timeout: 8000 }).catch(() => {});
     }
-    await page.waitForTimeout(250);
+    await page.waitForTimeout(120);
   }
 
-  expect(answered, "クイズマスに止まらなかった").toBe(true);
+  // 落ちたときに「なぜ進めなかったのか」が分かるよう、その瞬間の画面の状態を残す
+  // (モーダルもマスの選択肢もサイコロも無い、という手詰まりを見分けるため)。
+  const stateAtEnd = await page.evaluate(() => ({
+    modal: document.querySelector(".modal-box")?.getAttribute("data-testid") ?? null,
+    choosable: document.querySelectorAll("svg.board-svg g[data-choosable='true']").length,
+    diceStage: document.querySelectorAll(".dice-stage").length,
+    dieDisabled: (document.querySelector("#die") as HTMLButtonElement | null)?.disabled ?? null,
+    turn: document.querySelector(".turn-name")?.textContent ?? null,
+    hint: document.querySelector(".turn-hint")?.textContent ?? null,
+  }));
+  expect(answered, `クイズマスに止まらなかった: ${JSON.stringify(stateAtEnd)}`).toBe(true);
   expect(errors).toEqual([]);
 });
