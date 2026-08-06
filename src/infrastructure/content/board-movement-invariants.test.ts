@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { CountryId } from "../../domain/shared-kernel/ids";
+import { CountryId, NodeId } from "../../domain/shared-kernel/ids";
 import { buildBoardGraph } from "../../domain/board/board-graph-builder";
 import { PathfindingService } from "../../domain/board/pathfinding-service";
 import { JsonCountryContentRepository } from "./json-country-content-repository";
@@ -103,7 +103,7 @@ describe("盤面の移動不変条件", () => {
     }
 
     // 落ちたときに「どの都市が浮いているか」が分かるよう、都市名で報告する。
-    const stranded = pack.cities.filter((c) => !seen.has(c.id)).map((c) => c.id);
+    const stranded = pack.cities.filter((c) => !seen.has(NodeId(c.id))).map((c) => c.id);
     expect(stranded, `${countryId}: 本体から切り離された都市`).toEqual([]);
     expect(seen.size, `${countryId}: 到達できないマスがある`).toBe(graph.nodes.size);
   });
