@@ -14,6 +14,8 @@ const LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   japan: () => import("./japan.content.json").then((m) => m.default),
   india: () => import("./india.content.json").then((m) => m.default),
   france: () => import("./france.content.json").then((m) => m.default),
+  // world: 制作中。盤面ができたら戻す(いま繋ぐと world.content.json が無く、
+  // このファイルを読むテストが全部落ちる)。
 };
 
 /**

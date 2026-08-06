@@ -31,6 +31,7 @@ import { createRequire } from "node:module";
 import { applyContentOverrides } from "./content-overrides/index.mjs";
 import { buildIndiaContent } from "./countries/india/index.mjs";
 import { buildFranceContent } from "./countries/france/index.mjs";
+// import { buildWorldContent } from "./countries/world/index.mjs"; // 制作中
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const legacyPath = join(__dirname, "..", "legacy", "grand-express.html");
