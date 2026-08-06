@@ -23,6 +23,27 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.10.0",
+    date: "2026-08-07",
+    title: t(
+      "A new departure board|Un nuevo tablero de salidas|Un nouveau tableau des départs|入口をつくり直しました",
+    ),
+    highlights: [
+      t(
+        "The first screen now has a train on it. It runs along a dawn ridge, and the golden track ahead of the locomotive is still being laid — the journey you are about to choose.|La primera pantalla tiene ahora un tren que corre al amanecer, con la vía dorada aún tendiéndose por delante.|Le premier écran a maintenant un train qui roule à l'aube, la voie dorée devant lui restant à poser.|最初の画面に汽車が走るようになりました。夜明けの丘を行き、機関車の前には金色の線路がこれから敷かれていきます。これから選ぶ旅です。",
+      ),
+      t(
+        "Choosing a country is now a grid of maps instead of a long list, so you can see every board at once.|Elegir país es ahora una cuadrícula de mapas en vez de una lista larga: se ven todos los tableros a la vez.|Le choix du pays est désormais une grille de cartes plutôt qu'une longue liste : tous les plateaux d'un coup d'œil.|国選びが縦長の一覧から地図のグリッドになり、どの盤面も一目で見渡せます。",
+      ),
+      t(
+        "The settings are sorted into who is riding and the house rules, and the empty fourth seat is hidden until you ask for it. Three travellers and one tap is enough to leave.|Los ajustes se agrupan en quién viaja y las reglas; el cuarto asiento vacío se oculta. Basta un toque para salir.|Les réglages sont regroupés en qui voyage et les règles ; le quatrième siège vide reste caché. Un seul geste suffit pour partir.|設定を「だれが乗る?」と「ルール」に分け、空いている4人目の席は必要になるまで出しません。3人のまま、ひと押しで出発できます。",
+      ),
+      t(
+        "If you prefer things to hold still, the train stops when your device asks for reduced motion.|Si prefieres que nada se mueva, el tren se detiene cuando el dispositivo pide menos movimiento.|Si vous préférez l'immobilité, le train s'arrête lorsque l'appareil demande moins d'animations.|動きが少ないほうがよい設定にしている場合は、汽車も止まります。",
+      ),
+    ],
+  },
+  {
     version: "0.9.0",
     date: "2026-08-07",
     title: t("France joins the map|Francia se suma al mapa|La France rejoint la carte|フランスが加わりました"),
