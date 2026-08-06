@@ -23,6 +23,27 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.12.0",
+    date: "2026-08-07",
+    title: t(
+      "France and the world start moving|Francia y el mundo se ponen en marcha|La France et le monde s'animent|フランスと世界一周も動き出しました",
+    ),
+    highlights: [
+      t(
+        "The two newest boards were still standing still. Now every month, every town, every misfortune and every thing that can happen to you has a picture that moves — 94 new ones.|Los dos tableros más nuevos estaban quietos. Ahora cada mes, cada ciudad, cada desgracia y cada suceso tiene una imagen que se mueve: 94 nuevas.|Les deux plateaux les plus récents restaient immobiles. Désormais chaque mois, chaque ville, chaque malheur et chaque événement a une image animée : 94 nouvelles.|新しい2つの盤面だけが止まったままでした。月替わり・町・厄災・道中の出来事、そのすべてに動く絵が付きました。全94本。",
+      ),
+      t(
+        "On the world board seven of the twelve months are split down the middle, because the hemispheres disagree: cherry blossom on one side and the grape harvest on the other, snow in one half and a beach in the other.|En el tablero mundial, siete de los doce meses se parten por la mitad porque los hemisferios no coinciden: cerezos a un lado y vendimia al otro.|Sur le plateau mondial, sept des douze mois sont coupés en deux, les hémisphères étant en désaccord : cerisiers d'un côté, vendanges de l'autre.|世界一周では12ヶ月のうち7ヶ月が画面の真ん中で割れています。南北で言い分が違うからです。片側で桜が咲き、反対側でぶどうを摘む。片側は雪の市で、反対側は浜辺です。",
+      ),
+      t(
+        "August on the world board is the doldrums: the sails hang flat, the sea turns to a mirror, and even the misfortune spirit cannot move.|Agosto en el tablero mundial es la calma ecuatorial: las velas cuelgan, el mar es un espejo y ni el espíritu puede moverse.|En août, c'est le pot-au-noir : les voiles pendent, la mer devient un miroir, et même l'esprit du malheur ne peut bouger.|世界一周の8月は赤道の無風帯です。帆は垂れ、海は鏡になり、厄災の神まで動けません。",
+      ),
+      t(
+        "In France, Easter begins with the bells flying off to Rome — in the old story it is the bells, not a rabbit, that bring the eggs back.|En Francia, la Pascua empieza con las campanas volando a Roma: en el cuento son ellas, no un conejo, las que traen los huevos.|En France, Pâques commence par les cloches qui s'envolent vers Rome — ce sont elles, non un lapin, qui rapportent les œufs.|フランスの4月は、鐘がローマへ飛んでいくところから始まります。卵を運んでくるのは兎ではなく鐘だ、という言い伝えです。",
+      ),
+    ],
+  },
+  {
     version: "0.11.0",
     date: "2026-08-07",
     title: t(
