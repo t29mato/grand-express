@@ -48,9 +48,32 @@ describe("JsonCountryContentRepository", () => {
     }
   });
 
+  it("インドパックを読み込める(legacyに無い、このリポジトリで書き起こした国)", async () => {
+    const pack = await repo.load(CountryId("india"));
+    expect(pack.cities.length).toBeGreaterThanOrEqual(60);
+    expect(pack.items.length).toBe(9);
+    expect(pack.seasons.length).toBe(12);
+    expect(pack.doomFlavors.length).toBe(7);
+    expect(pack.startCityId).toBe("delhi");
+    expect(pack.spirit.wardItemKey).toBe("nimbumirchi");
+    // 季節効果が12ヶ月ぶん引けている(rules側の登録漏れをここで検出する)。
+    expect(pack.seasons.every((s) => Array.isArray(s.effects))).toBe(true);
+  });
+
+  it("都市が参照する地方・イラストのキーがすべて実在する", async () => {
+    for (const countryId of ["bolivia", "japan", "india"] as const) {
+      const pack = await repo.load(CountryId(countryId));
+      for (const city of pack.cities) {
+        expect(pack.regions.has(city.regionId), `${countryId}: 地方 ${city.regionId}`).toBe(true);
+        expect(pack.artScenes[city.artSceneKey], `${countryId}: 背景 ${city.artSceneKey}`).toBeDefined();
+        expect(pack.artGlyphs[city.artGlyphKey], `${countryId}: 記号 ${city.artGlyphKey}`).toBeDefined();
+      }
+    }
+  });
+
   it("すべての都市が路線でつながっている(孤立した都市がない)", async () => {
     // 路線は手書きのため、追加した都市が盤面から孤立していないことを確認する。
-    for (const countryId of ["bolivia", "japan"] as const) {
+    for (const countryId of ["bolivia", "japan", "india"] as const) {
       const pack = await repo.load(CountryId(countryId));
       const neighbors = new Map<string, string[]>();
       for (const { from: a, to: b } of pack.edges) {
@@ -73,7 +96,7 @@ describe("JsonCountryContentRepository", () => {
   });
 
   it("edgesが参照する都市IDはすべて実在する(参照整合性)", async () => {
-    for (const countryId of ["bolivia", "japan"] as const) {
+    for (const countryId of ["bolivia", "japan", "india"] as const) {
       const pack = await repo.load(CountryId(countryId));
       const cityIds = new Set(pack.cities.map((c) => c.id));
       for (const { from: a, to: b } of pack.edges) {

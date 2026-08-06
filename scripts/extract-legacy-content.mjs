@@ -29,6 +29,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
 import { applyContentOverrides } from "./content-overrides/index.mjs";
+import { buildIndiaContent } from "./countries/india/index.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const legacyPath = join(__dirname, "..", "legacy", "grand-express.html");
@@ -147,6 +148,12 @@ const INLINE_UI_STRINGS = {
   backToGame: "Back to the game|Volver al juego|Retour au jeu|ゲームに戻る",
   versionLabel: "Version|Versión|Version|バージョン",
 
+  // CPUのクイズ結果。問題文・選択肢・解説は伏せる(同じ問題が自分に回ってきたときの
+  // 答え合わせになってしまい、学習にならないため)。
+  cpuQuizCorrect: "<b>{0}</b> answered correctly.|<b>{0}</b> ha respondido bien.|<b>{0}</b> a bien répondu.|<b>{0}</b> は正解した。",
+  cpuQuizWrong: "<b>{0}</b> answered incorrectly.|<b>{0}</b> ha respondido mal.|<b>{0}</b> a mal répondu.|<b>{0}</b> は不正解だった。",
+  cpuQuizHidden: "The question is hidden — it may come round to you.|La pregunta queda oculta: puede tocarte a ti.|La question reste masquée — elle peut vous revenir.|問題の中身は伏せてあります。同じ問題があなたに回ってくるかもしれません。",
+
   // クイズの難易度表示。
   difficulty: "Difficulty|Dificultad|Difficulté|難易度",
   optionsReduced: "One wrong answer is hidden because you are new to this country.|Se oculta una respuesta incorrecta porque el país es nuevo para ti.|Une mauvaise réponse est masquée car ce pays t'est nouveau.|この国がはじめてなので、誤答をひとつ伏せています。",
@@ -253,6 +260,19 @@ for (const country of [BOLIVIA, JAPAN]) {
 }
 
 /**
+ * legacy に無い、このリポジトリで新規に書き起こした国。
+ * 抽出後のJSONと同じ形で組み立てているため、`transform` も
+ * `evaluateBackgrounds` も通す必要がない(最初から文字列・4言語オブジェクト)。
+ */
+const AUTHORED_COUNTRIES = [buildIndiaContent()];
+for (const content of AUTHORED_COUNTRIES) {
+  writeFileSync(
+    join(contentDir, `${content.id}.content.json`),
+    JSON.stringify(content, null, 2) + "\n",
+  );
+}
+
+/**
  * 国選択カードの地図サムネイル(legacyの `countryThumb()` と同じ描画)。
  *
  * legacyの関数本体は抽出範囲(`COUNTRIES` の定義まで)より後ろにあるため直接は呼べないが、
@@ -303,9 +323,21 @@ const countryIndex = [BOLIVIA, JAPAN].map((country) => {
     thumbSvg: renderCountryThumb({ ...country, land: overridden.land, cities: overridden.cities }),
   };
 });
+
+// 新規に書き起こした国も同じ形でインデックスに載せる(名前は既に4言語オブジェクト)。
+for (const content of AUTHORED_COUNTRIES) {
+  countryIndex.push({
+    id: content.id,
+    name: content.name,
+    blurb: content.blurb,
+    currency: { prefix: content.cur.pre, suffix: content.cur.post, multiplier: content.cur.mul },
+    thumbViewBox: `0 0 ${content.proj.BW} ${content.proj.BH}`,
+    thumbSvg: renderCountryThumb(content),
+  });
+}
 writeFileSync(join(contentDir, "country-index.json"), JSON.stringify(countryIndex, null, 2) + "\n");
 
 console.log("Extracted:");
 console.log(" - src/i18n/messages/{en,es,fr,ja}.json");
-console.log(" - src/infrastructure/content/{bolivia,japan}.content.json");
+console.log(" - src/infrastructure/content/{bolivia,japan,india}.content.json");
 console.log(" - src/infrastructure/content/country-index.json");

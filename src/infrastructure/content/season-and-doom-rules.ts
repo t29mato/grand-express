@@ -75,6 +75,61 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
       { op: "region-income-multiplier", regionId: region("kin"), multiplier: 1.15 },
     ],
   ],
+
+  /**
+   * インド。legacy には無い新規の国なので、ここが唯一の定義。
+   * 1年の骨格は「暑季 → モンスーン → 祭りの季節 → 涼季」で、
+   * モンスーンは南(6月)から北東(8月)へ移りながら効いていく。
+   */
+  india: [
+    /* 0 Apr 麦の収穫と初夏 */ [
+      { op: "region-income-multiplier", regionId: region("gan"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("des"), multiplier: 1.15 },
+    ],
+    /* 1 May 酷暑(ルー) */ [
+      { op: "all-players-pay-cash", amount: 200 },
+      { op: "region-income-multiplier", regionId: region("des"), multiplier: 0.7 },
+      { op: "region-income-multiplier", regionId: region("gan"), multiplier: 0.8 },
+    ],
+    /* 2 Jun モンスーン、南から来る */ [
+      { op: "region-income-multiplier", regionId: region("sou"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("him"), multiplier: 0.8 },
+    ],
+    /* 3 Jul 平原一面の雨 */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("gan"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("dec"), multiplier: 1.2 },
+    ],
+    /* 4 Aug 独立記念日と大水 */ [
+      { op: "region-income-multiplier", regionId: region("eas"), multiplier: 0.7 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep ガネーシャ祭 */ [
+      { op: "region-income-multiplier", regionId: region("dec"), multiplier: 1.3 },
+    ],
+    /* 6 Oct ナヴラートリとドゥルガー・プージャー */ [
+      { op: "region-income-multiplier", regionId: region("eas"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("des"), multiplier: 1.2 },
+    ],
+    /* 7 Nov ディワーリー */ [
+      { op: "all-players-gain-cash", amount: 380 },
+      { op: "region-income-multiplier", regionId: region("gan"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("des"), multiplier: 1.2 },
+    ],
+    /* 8 Dec 婚礼の季節 */ [
+      { op: "region-income-multiplier", regionId: region("des"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("him"), multiplier: 0.75 },
+    ],
+    /* 9 Jan サンクラーンティ(凧祭り) */ [{ op: "give-item-to-all" }],
+    /* 10 Feb 旅に最も良い季節 */ [
+      { op: "region-income-multiplier", regionId: region("sou"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("dec"), multiplier: 1.2 },
+    ],
+    /* 11 Mar ホーリー */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("gan"), multiplier: 1.15 },
+    ],
+  ],
 };
 
 /**
@@ -98,4 +153,12 @@ export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>>
   bottakuri: "payOthers",
   maigo: "teleport",
   suri: "steal",
+  // India
+  monsoonflood: "fine",
+  drought: "percentLoss",
+  bandh: "skipTurn",
+  cyclone: "loseProperties",
+  tollgate: "payOthers",
+  wrongtrain: "teleport",
+  chori: "steal",
 };

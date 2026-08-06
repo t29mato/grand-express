@@ -12,6 +12,7 @@ import { mapRawContentToCountryPack } from "./country-content-mapper";
 const LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   bolivia: () => import("./bolivia.content.json").then((m) => m.default),
   japan: () => import("./japan.content.json").then((m) => m.default),
+  india: () => import("./india.content.json").then((m) => m.default),
 };
 
 /**

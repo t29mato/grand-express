@@ -29,4 +29,14 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   nozomi: { type: "roll-fixed-dice", diceCount: 3 },
   manekineko: { type: "gain-cash", amount: 380 },
   tasuki: { type: "extra-turn" },
+  // India(legacy由来ではなく、このリポジトリで書き起こした国)
+  garuda: { type: "teleport-to-destination" },
+  tatkal: { type: "choose-exact-dice" },
+  rajdhani: { type: "roll-fixed-dice", diceCount: 2 },
+  vandebharat: { type: "roll-fixed-dice", diceCount: 3 },
+  nimbumirchi: { type: "none" }, // 厄災の神のward item(passive)
+  neem: { type: "repel-spirit" },
+  panchang: { type: "quiz-save" },
+  jugaad: { type: "gain-cash", amount: 380 },
+  dabbawala: { type: "extra-turn" },
 };
