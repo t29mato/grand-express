@@ -1312,3 +1312,26 @@ aside {
 .award-progress span.on {
   background: var(--gold);
 }
+
+/* 都市イラスト。静止の絵の上に、動きの層を1枚重ねる。 */
+.city-art-stack {
+  position: relative;
+  line-height: 0;
+}
+
+.city-art-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* 都市名の帯(高さ36/246)には重ねない。 */
+.city-art-overlay.with-caption {
+  bottom: 14.6%;
+}
+
+.city-art-overlay svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

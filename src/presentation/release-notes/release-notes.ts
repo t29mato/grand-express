@@ -23,6 +23,19 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.8.0",
+    date: "2026-08-07",
+    title: t("The towns come alive|Los pueblos cobran vida|Les villes s'animent|町が動き出しました"),
+    highlights: [
+      t(
+        "Every town illustration now moves. Waves roll into the harbours, steam rises from the hot springs, snow falls on the northern towns, city windows flicker, and condors glide over the valleys — 43 scenes in all.|Todas las ilustraciones de ciudad se mueven ahora: olas, vapor, nieve, ventanas que parpadean y cóndores. 43 escenas.|Toutes les illustrations de ville s'animent : vagues, vapeur, neige, fenêtres qui clignotent et condors. 43 scènes.|都市のイラストがすべて動くようになりました。港には波が寄せ、温泉からは湯気が立ち、北国には雪が降り、街の窓は明滅し、谷をコンドルが滑空します。全43種類。",
+      ),
+      t(
+        "The original artwork is untouched — the movement is a thin layer laid over it, so the pictures you knew are still there.|El arte original no se ha tocado: el movimiento es una capa fina sobre él.|Les illustrations d'origine sont intactes : le mouvement est une fine couche posée par-dessus.|元の絵はそのままです。動きは上に重ねた薄い層なので、これまでの絵はそのまま残っています。",
+      ),
+    ],
+  },
+  {
     version: "0.7.0",
     date: "2026-08-07",
     title: t("The season decides what happens|La estación decide lo que pasa|La saison décide de ce qui arrive|季節によって起きることが変わります"),

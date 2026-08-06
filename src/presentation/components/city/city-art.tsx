@@ -2,7 +2,9 @@
 
 import { CityId } from "../../../domain/shared-kernel/ids";
 import { GameEngineContext } from "../../../application/game-engine-context";
+import { createElement } from "react";
 import { useLocale } from "../../i18n/locale-context";
+import { citySceneOverlayFor } from "./scenes";
 
 /**
  * 都市のイラスト(legacyの `cityArt(id, opts)` の移植)。
@@ -30,6 +32,9 @@ export function CityArt({
   const scene = scenes[city.artSceneKey] ?? Object.values(scenes)[0] ?? "";
   const glyph = context.content.artGlyphs[city.artGlyphKey] ?? "";
 
+  // 背景の上に重ねる「動きの層」。用意が無い背景は静止のまま。
+  const overlay = citySceneOverlayFor(context.content.id, city.artSceneKey);
+
   const s = 4.1;
   const gy = 152;
   const stripe = context.content.stripeColors;
@@ -41,7 +46,10 @@ export function CityArt({
 
   if (bare) {
     return (
-      <svg viewBox="0 0 400 210" className="city-art" role="presentation" dangerouslySetInnerHTML={{ __html: inner }} />
+      <div className="city-art-stack">
+        <svg viewBox="0 0 400 210" className="city-art" role="presentation" dangerouslySetInnerHTML={{ __html: inner }} />
+        {overlay && <div className="city-art-overlay">{createElement(overlay)}</div>}
+      </div>
     );
   }
 
@@ -54,12 +62,19 @@ export function CityArt({
     )}</text>`;
 
   return (
-    <svg
-      viewBox="0 0 400 246"
-      className="city-art"
-      role="presentation"
-      dangerouslySetInnerHTML={{ __html: inner + caption }}
-    />
+    <div className="city-art-stack">
+      <svg
+        viewBox="0 0 400 246"
+        className="city-art"
+        role="presentation"
+        dangerouslySetInnerHTML={{ __html: inner + caption }}
+      />
+      {/* 動きの層は絵の部分だけに重ねる(下の帯は都市名なので覆わない)。
+          帯36ぶんを除いた 210/246 の高さに収める。 */}
+      {overlay && (
+        <div className="city-art-overlay with-caption">{createElement(overlay)}</div>
+      )}
+    </div>
   );
 }
 
