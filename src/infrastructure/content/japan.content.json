@@ -8717,6 +8717,27 @@
       }
     },
     {
+      "id": "shiretoko-bear",
+      "kind": "loss",
+      "regs": [
+        "nor"
+      ],
+      "e": "🐻",
+      "amount": 240,
+      "n": {
+        "en": "A brown bear on the path",
+        "es": "Un oso pardo en el sendero",
+        "fr": "Un ours brun sur le sentier",
+        "ja": "山道でヒグマに出くわす"
+      },
+      "t": {
+        "en": "You back away and abandon the pack with the day's food in it. Shiretoko has one of the densest brown bear populations in the world, and rangers close trails without warning.",
+        "es": "Retrocedes y abandonas la mochila con la comida del día. Shiretoko tiene una de las mayores densidades de osos pardos del mundo.",
+        "fr": "Tu recules en abandonnant le sac contenant les vivres du jour. Le Shiretoko a l'une des plus fortes densités d'ours bruns au monde.",
+        "ja": "後ずさりし、その日の食料が入った荷物を置いて逃げた。知床はヒグマの生息密度が世界有数で、登山道は予告なく閉鎖される。"
+      }
+    },
+    {
       "id": "salmon-catch",
       "kind": "gain",
       "regs": [

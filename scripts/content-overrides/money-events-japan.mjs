@@ -54,6 +54,11 @@ export const JAPAN_MONEY_EVENTS = [
     "Straw-caped visitors burst in looking for idlers, and the household owes them food and drink. Guests are expected to contribute to the feast.|Visitantes con capas de paja irrumpen buscando holgazanes; la casa les debe comida y bebida. Los invitados aportan al banquete.|Des visiteurs en capes de paille font irruption pour débusquer les paresseux ; la maison leur doit à boire et à manger.|藁の蓑をまとった一行が「怠け者はいねが」と押し入り、家は膳と酒を出すことになっている。客人も相応の負担をする。",
   ),
   ev(
+    "shiretoko-bear", "loss", ["nor"], "🐻", 240,
+    "A brown bear on the path|Un oso pardo en el sendero|Un ours brun sur le sentier|山道でヒグマに出くわす",
+    "You back away and abandon the pack with the day's food in it. Shiretoko has one of the densest brown bear populations in the world, and rangers close trails without warning.|Retrocedes y abandonas la mochila con la comida del día. Shiretoko tiene una de las mayores densidades de osos pardos del mundo.|Tu recules en abandonnant le sac contenant les vivres du jour. Le Shiretoko a l'une des plus fortes densités d'ours bruns au monde.|後ずさりし、その日の食料が入った荷物を置いて逃げた。知床はヒグマの生息密度が世界有数で、登山道は予告なく閉鎖される。",
+  ),
+  ev(
     "salmon-catch", "gain", ["nor"], "🐟", 300,
     "A share of the salmon run|Una parte de la pesca|Une part de la remontée des saumons|鮭の水揚げを分けてもらう",
     "You lend a hand hauling nets at dawn and leave with fish and cash. Hokkaidō lands the great majority of Japan's salmon.|Echas una mano con las redes al alba y te vas con pescado y dinero. Hokkaidō pesca la gran mayoría del salmón de Japón.|Tu aides à haler les filets à l'aube et repars avec du poisson et de l'argent. Hokkaidō pêche l'essentiel du saumon japonais.|夜明けの網揚げを手伝い、魚と現金を持たされた。日本の鮭の大半は北海道で獲れる。",
