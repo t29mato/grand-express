@@ -7,7 +7,7 @@
  *   - ずっと繰り返す(モーダルが開いている数秒のあいだ流れ続ける)
  *   - `prefers-reduced-motion` が有効なら動きを止める
  */
-export function BearAttack() {
+export function ShiretokoBear() {
   return (
     <svg viewBox="0 0 400 210" role="img" aria-hidden="true">
       {/* 森と地面 */}
