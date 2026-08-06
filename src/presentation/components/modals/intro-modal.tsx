@@ -5,7 +5,6 @@ import { isCityNode } from "../../../domain/board/node";
 import { GameEngineContext } from "../../../application/game-engine-context";
 import { useLocale } from "../../i18n/locale-context";
 import { renderRichText } from "../../i18n/rich-text";
-import { CityArt } from "../city/city-art";
 import { formatMoney } from "../../i18n/money-format";
 import { Modal } from "./modal";
 import { DepartureScene } from "../events/departure-scene";
@@ -13,8 +12,10 @@ import { DepartureScene } from "../events/departure-scene";
 /**
  * ゲーム開始時に一度だけ表示する「出発ストーリー」モーダル
  * (legacyの `startGame()` 内の `modalOnce(...)` の移植)。
- * 出発都市のイラスト(legacyの `cityArt()`)とテキスト情報(開始資金・最初の目的地・
- * 賞金・遊び方のヒント)の両方を再現している。
+ * 開始資金・最初の目的地・賞金・遊び方のヒントを出す。
+ *
+ * legacy は出発都市のイラストも一緒に出していたが、絵に動きを入れてからは
+ * **1つのモーダルに動くものを2つ置かない**方針にしたため、汽車が出ていく絵だけにした。
  */
 export function IntroModal({
   context,
@@ -34,12 +35,13 @@ export function IntroModal({
 
   return (
     <Modal testId="intro-modal">
+      {/* 絵は1つだけにする。ここは出発の場面なので、汽車が出ていく絵を採る
+          (町の絵も並べると動くものが2つになり、どちらを見ればよいか分からない)。
+          到着ではお祝いの絵、ふつうに止まった町では町の絵、と city-modal も
+          同じ考え方で1つに絞ってある。出発地の名前は見出しに出るので文字で足りる。 */}
       <div className="event-anim">
-
         <DepartureScene />
-
       </div>
-      {isCityNode(startNode) && <CityArt context={context} cityId={startNode.cityId} />}
       <div className="eyebrow">{t("allAboard")}</div>
       <h3>{t("departure", startCityName)}</h3>
       <p>{renderRichText(t("startBody", formatMoney(player.cash.amount, context.content.currency), tx(destination.name), formatMoney(prize, context.content.currency)))}</p>
