@@ -1,5 +1,6 @@
 "use client";
 
+import { createElement } from "react";
 import { SeasonDefinition } from "../../../domain/season/season-effect";
 import { useLocale } from "../../i18n/locale-context";
 import { Modal } from "./modal";
@@ -23,16 +24,14 @@ export function SeasonModal({
   onContinue: () => void;
 }) {
   const { t, tx, monthName } = useLocale();
-  const Scene = seasonAnimationFor(countryId, season.monthIndex);
+  // createElement で組み立てる。大文字の局所変数をJSXで直に使うと、
+  // 「描画のたびにコンポーネントを作っている」とlintに判定されるため。
+  const scene = seasonAnimationFor(countryId, season.monthIndex);
 
   return (
     <Modal testId="season-modal">
       {/* 月の絵。まだ用意していない国・月では絵なしで文章だけになる。 */}
-      {Scene && (
-        <div className="event-anim">
-          <Scene />
-        </div>
-      )}
+      {scene && <div className="event-anim">{createElement(scene)}</div>}
       <div className="eyebrow">
         {t("monthEvent")} · {monthName(season.monthIndex)}
       </div>

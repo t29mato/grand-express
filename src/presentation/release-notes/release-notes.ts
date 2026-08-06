@@ -23,6 +23,37 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.6.0",
+    date: "2026-08-07",
+    title: t("Things that happen to you|Cosas que te pasan|Ce qui vous arrive|旅で起きること"),
+    highlights: [
+      t(
+        "Blue and red squares are back, but the money no longer moves at random. You get a short story from that region — the drift ice comes early and the ferry is cancelled, a zebra-suited traffic marshal in La Paz returns your dropped bag, a chai seller refuses payment because you are the first customer of the day.|Vuelven las casillas azules y rojas, pero el dinero ya no cambia al azar: ocurre algo propio de esa región.|Les cases bleues et rouges reviennent, mais l'argent ne bouge plus au hasard : il vous arrive quelque chose de propre à cette région.|青マス・赤マスが戻りました。ただし金額はもう運任せではなく、その地方で起こりそうな出来事が起きます。流氷が早く来て船が欠航する、ラパスでシマウマ姿の交通整理に落とし物を拾ってもらう、初商いの客だからとチャイ代を取ってもらえない、など。",
+      ),
+      t(
+        "Everything now moves. 49 events, 36 monthly seasons, the arrival at your destination and the prize-giving all have their own short animation.|Ahora todo se mueve: 49 sucesos, 36 meses, la llegada al destino y la entrega de premios tienen su propia animación.|Tout s'anime : 49 événements, 36 mois, l'arrivée à destination et la remise des prix ont chacun leur animation.|絵が動くようになりました。出来事49件、月ごとの季節36件、目的地への到着、表彰式に、それぞれ専用のアニメーションが付きます。",
+      ),
+      t(
+        "The game now ends with a prize-giving. Awards like Quiz Master and Great Traveller are revealed one at a time, so nobody knows who won until the very last card.|La partida termina con una entrega de premios que se revelan de uno en uno: nadie sabe quién ha ganado hasta el final.|La partie s'achève par une remise des prix dévoilés un à un : nul ne sait qui a gagné avant la toute fin.|ゲームの終わりに表彰式が入りました。クイズ王・旅の達人などの賞を1つずつめくっていくので、最後の1枚まで誰が勝ったか分かりません。",
+      ),
+      t(
+        "Rail lines now run only up, across or at 45°, which makes the board far easier to read.|Las vías van solo en vertical, horizontal o a 45°, lo que hace el tablero mucho más legible.|Les voies ne suivent que la verticale, l'horizontale ou 45°, ce qui rend le plateau bien plus lisible.|線路が縦・横・45度の3方向だけになり、盤面がぐっと見やすくなりました。",
+      ),
+      t(
+        "You can now change language from inside a pop-up, so you can re-read a story in your own language.|Ahora puedes cambiar de idioma dentro de una ventana para releer en tu lengua.|Tu peux changer de langue depuis une fenêtre pour relire dans ta langue.|モーダルの中でも言語を切り替えられます。読み物を自分の言語で読み直せます。",
+      ),
+      t(
+        "The dice roll stays on screen while you choose where to stop, and the dice now land with a thump and a puff of dust.|El resultado del dado permanece mientras eliges dónde parar, y los dados caen con polvo.|Le résultat du dé reste affiché pendant que tu choisis, et les dés atterrissent dans un nuage de poussière.|行き先を選んでいるあいだ出目が残るようになり、サイコロは砂ぼこりを上げて着地します。",
+      ),
+      t(
+        "Item prices were rebalanced — no item is a guaranteed profit any more.|Se han reequilibrado los precios: ningún objeto da ya beneficio garantizado.|Les prix des objets ont été rééquilibrés : aucun n'est plus un profit garanti.|アイテムの値段を見直しました。買うだけで確実に得をするアイテムは無くなりました。",
+      ),
+      t(
+        "Map fixes: Honshū, Shikoku and Kyūshū are separate islands again, and every town now sits on land.|Correcciones del mapa: Honshū, Shikoku y Kyūshū vuelven a ser islas separadas y todas las ciudades están en tierra firme.|Corrections de carte : Honshū, Shikoku et Kyūshū sont de nouveau séparées, et chaque ville est sur la terre ferme.|地図の修正: 本州・四国・九州が再びそれぞれの島になり、すべての町が陸の上に乗りました。",
+      ),
+    ],
+  },
+  {
     version: "0.5.0",
     date: "2026-08-06",
     title: t("Japan, town by town|Japón, pueblo a pueblo|Le Japon, ville par ville|町の単位で見る日本"),
