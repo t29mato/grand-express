@@ -436,6 +436,21 @@ export class WebAudioSoundAdapter implements SoundPort {
     this.bombo(t + 0.36, 0.9);
   }
 
+  playArrival(): void {
+    const ctx = this.context;
+    if (!ctx || !this.sfxGain) return;
+    const t = this.now();
+    // 上りの分散和音のあと、主和音を重ねて響かせる。到着の一区切りを出す。
+    (
+      [
+        [523.25, 0], [659.25, 0.1], [783.99, 0.2], [1046.5, 0.3],
+        [987.77, 0.46], [1046.5, 0.56],
+        [1318.5, 0.72], [1046.5, 0.72], [783.99, 0.72],
+      ] as const
+    ).forEach(([f, d]) => this.flute(t + d, f, d >= 0.72 ? 0.9 : 0.4, 0.18, this.sfxGain!));
+    [0, 0.2, 0.4, 0.56, 0.72].forEach((d) => this.bombo(t + d, 0.85));
+  }
+
   playWin(): void {
     const ctx = this.context;
     if (!ctx || !this.sfxGain) return;

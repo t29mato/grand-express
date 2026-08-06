@@ -309,7 +309,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
 
     if (landing.type === "city" || landing.type === "destination") {
       const visit = landing.visit;
-      if (landing.type === "destination") soundAdapter.playFanfare();
+      if (landing.type === "destination") soundAdapter.playArrival();
       if (visit.purchases.length > 0 || visit.upgrades.length > 0 || visit.boughtItem) soundAdapter.playBuy();
       set({
         ui: {
@@ -396,7 +396,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
 
     if (isCityNode(node) && node.cityId === session.destination) {
       const arrival = arriveAtDestination(context, session, player.id, random);
-      soundAdapter.playFanfare();
+      soundAdapter.playArrival();
       set((s) => ({
         session: arrival.session,
         log: pushLog(s, "arriveDestLog", [player.name, money(arrival.prize)], "gold"),

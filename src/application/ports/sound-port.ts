@@ -23,8 +23,13 @@ export interface SoundPort {
   playTick(): void;
   /** 季節の変わり目・カードマスでの入手音。 */
   playChime(): void;
-  /** 独占達成・目的地到着のファンファーレ。 */
+  /** 独占達成のファンファーレ。 */
   playFanfare(): void;
+  /**
+   * 目的地に着いたときの、少し長い到着の音楽。
+   * 旅のひと区切りなので、他の効果音より一段華やかにする。
+   */
+  playArrival(): void;
   /** 厄災の神の発動音。 */
   playDoom(isKing: boolean): void;
   /** ゲーム終了時の勝利音。 */
