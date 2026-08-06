@@ -10,11 +10,6 @@ import { QUIZ_DIFFICULTY } from "./quiz-difficulty.mjs";
 import { JAPAN_LAND } from "./japan-geography.mjs";
 import { JAPAN_ISLAND_CITIES, JAPAN_ISLAND_EDGES } from "./japan-islands.mjs";
 import { JAPAN_HOKKAIDO_CITIES, JAPAN_HOKKAIDO_EDGES } from "./japan-hokkaido.mjs";
-import { JAPAN_SIGHTS_KANTO, JAPAN_SIGHTS_KANTO_EDGES } from "./japan-sights-kanto.mjs";
-import { JAPAN_SIGHTS_TOHOKU, JAPAN_SIGHTS_TOHOKU_EDGES } from "./japan-sights-tohoku.mjs";
-import { JAPAN_SIGHTS_KANSAI, JAPAN_SIGHTS_KANSAI_EDGES } from "./japan-sights-kansai.mjs";
-import { JAPAN_SIGHTS_KYUSHU, JAPAN_SIGHTS_KYUSHU_EDGES } from "./japan-sights-kyushu.mjs";
-import { JAPAN_REMOVED_EDGES } from "./japan-line-pruning.mjs";
 import {
   JAPAN_EXTRA_CITIES,
   JAPAN_EXTRA_EDGES,
@@ -28,7 +23,7 @@ import {
  * **中間マスの数は変えずに、マス同士の間隔だけが広がる**。
  * マーカーの寸法は盤面座標で固定なので、相対的に小さく=すっきり見える。
  */
-const BOARD_SCALE = { bolivia: 1.35, japan: 2.45 };
+const BOARD_SCALE = { bolivia: 1.35, japan: 1.75 };
 
 /**
  * 投影の経緯度範囲の上書き。
@@ -55,7 +50,7 @@ const CITY_COORDS = {
 const PROJ_BOUNDS = {
   // 西は石垣・与那国(東経123度台)、南は与那国・竹富(北緯24.3度)まで入れる。
   // legacy は沖縄本島までしか想定しておらず、先島諸島は盤面の外に落ちていた。
-  japan: { LON0: 122.8, LAT1: 23.8 },
+  japan: { LON0: 123.4, LAT1: 23.8 },
 };
 
 const OVERRIDES = {
@@ -69,21 +64,8 @@ const OVERRIDES = {
     land: JAPAN_LAND,
     boardScale: BOARD_SCALE.japan,
     projBounds: PROJ_BOUNDS.japan,
-    removedEdges: JAPAN_REMOVED_EDGES,
-    extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES, ...JAPAN_ISLAND_CITIES,
-      ...JAPAN_HOKKAIDO_CITIES,
-      ...JAPAN_SIGHTS_TOHOKU,
-      ...JAPAN_SIGHTS_KANTO,
-      ...JAPAN_SIGHTS_KANSAI,
-      ...JAPAN_SIGHTS_KYUSHU,
-    },
-    extraEdges: [...JAPAN_EXTRA_EDGES, ...JAPAN_PREFECTURE_EDGES, ...JAPAN_ISLAND_EDGES,
-      ...JAPAN_HOKKAIDO_EDGES,
-      ...JAPAN_SIGHTS_TOHOKU_EDGES,
-      ...JAPAN_SIGHTS_KANTO_EDGES,
-      ...JAPAN_SIGHTS_KANSAI_EDGES,
-      ...JAPAN_SIGHTS_KYUSHU_EDGES,
-    ],
+    extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES, ...JAPAN_ISLAND_CITIES, ...JAPAN_HOKKAIDO_CITIES },
+    extraEdges: [...JAPAN_EXTRA_EDGES, ...JAPAN_PREFECTURE_EDGES, ...JAPAN_ISLAND_EDGES, ...JAPAN_HOKKAIDO_EDGES],
     quizDifficulty: QUIZ_DIFFICULTY.japan,
   },
 };
@@ -213,5 +195,7 @@ export function applyContentOverrides(countryId, content) {
   }
 
 
+  // 青マス・赤マスの出来事は legacy に無いので、この層でのみ与える。
+  // サムネイル生成時のような部分オブジェクトでは何もしない。
   return content;
 }

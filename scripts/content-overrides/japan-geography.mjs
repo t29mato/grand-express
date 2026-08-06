@@ -326,24 +326,6 @@ const IRIOMOTE = [
   [123.68, 24.42],
 ];
 
-const KERAMA = [
-  [127.28, 26.24],
-  [127.4, 26.23],
-  [127.42, 26.13],
-  [127.32, 26.1],
-  [127.24, 26.16],
-  [127.28, 26.24],
-];
-
-const YONAGUNI = [
-  [122.93, 24.48],
-  [123.05, 24.48],
-  [123.08, 24.42],
-  [122.98, 24.4],
-  [122.9, 24.44],
-  [122.93, 24.48],
-];
-
 export const JAPAN_LAND = [
   HOKKAIDO,
   HONSHU,
@@ -364,6 +346,4 @@ export const JAPAN_LAND = [
   MIYAKOJIMA,
   ISHIGAKI,
   IRIOMOTE,
-  KERAMA,
-  YONAGUNI,
 ];
