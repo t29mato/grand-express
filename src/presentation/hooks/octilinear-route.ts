@@ -42,7 +42,7 @@ export function octilinearRoutePoint(
 }
 
 /** 軸に沿った脚と45度の脚が切り替わる点。 */
-function octilinearCorner(a: RoutePoint, b: RoutePoint, diagonalFirst: boolean): RoutePoint {
+export function octilinearCorner(a: RoutePoint, b: RoutePoint, diagonalFirst: boolean): RoutePoint {
   const dx = b.x - a.x;
   const dy = b.y - a.y;
   // 45度の脚は、縦横の移動量のうち小さいほうと同じ長さになる。

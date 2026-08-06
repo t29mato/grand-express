@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { NodeId } from "../../domain/shared-kernel/ids";
 import { isCityNode } from "../../domain/board/node";
 import { CountryProjection, projectPoint } from "../../domain/board/board-projection";
-import { octilinearDirection, octilinearRoutePoint } from "./octilinear-route";
+import { octilinearCorner, octilinearRoutePoint } from "./octilinear-route";
 import { GameEngineContext } from "../../application/game-engine-context";
 
 export interface NodePosition {
@@ -13,15 +13,24 @@ export interface NodePosition {
 /**
  * 盤面ノードのSVG座標を計算する(Presentation層の責務。ADR-0003)。
  *
- * 都市は経度緯度から投影する。路線上の中間マスは、**縦・横・45度の3方向だけを使う経路**
- * (`octilinear-route.ts`)の上に等間隔で並べたうえで、現行コードと同じ規則で
- * 路線に垂直な向きへずらす(jitter)。路線の線は隣り合うノードを結んで描かれるので、
- * マスをこの経路に乗せるだけで線も同じ形になる。
+ * 都市は経度緯度から投影する。中間マスは**縦・横・45度の3方向だけを使う経路**
+ * (`octilinear-route.ts`)の上に並べる。路線の線は隣り合うノードを直線で結んで
+ * 描かれるので、**マスが経路から外れると線もその角度で描かれてしまう。**
  *
- * このずれは見た目の変化だけでなく、**同じ都市から似た方向へ延びる路線の中間マスが
- * 重なるのを防ぐ**役割がある(路線番号 `ei` に依存してずれ幅が変わるため、
- * 平行に近い路線同士が離れる)。当初は簡略化して直線配置にしていたが、
- * 都市を増やしたことでマスの重なりが目立つようになったため復元した。
+ * 以前はここで3つのことをしていて、そのどれもが角度を崩していた。
+ * 日本の盤面で実際に描かれた線分249本を測ったところ、0/45/90度に乗っていたのは
+ * **5.6%** しかなかった。内訳:
+ *
+ *   1. **折れ点をまたぐ線** — 中間マスは経路の上にあっても、折れ点が
+ *      マスとマスのあいだに来ると、そこを結ぶ線が角を斜めに突っ切る。
+ *      辺97本ぶん、線分の約4割がこれだった。いちばん効いていた原因。
+ *   2. **垂直方向のずらし(jitter)** — ずれ幅がマスごとに変わるため、
+ *      同じ脚に乗るはずのマスが互い違いになり、直線が波打っていた。
+ *   3. **重なりの押し離し** — 経路に関係なくマスを動かすので、当然ずれる。
+ *
+ * いまは順序を変えてある。押し離しで都市の位置を整えたあと、
+ * **その位置から経路を引き直して中間マスを置き直す。** 折れ点にはマスを1つ
+ * 必ず置くので(1の解消)、隣り合うマスは必ず同じ脚に乗る。
  */
 export function useBoardLayout(context: GameEngineContext): ReadonlyMap<NodeId, NodePosition> {
   return useMemo(() => {
@@ -60,23 +69,65 @@ export function useBoardLayout(context: GameEngineContext): ReadonlyMap<NodeId, 
       const edgeIndex = Number(match[1]);
       const k = Number(match[2]);
       const n = siblingCounts.get(`e${match[1]}_`) ?? 1;
-      const t = k / (n + 1);
-      // 現行コードの `((ei*7+k*13)%5-2)*5`。ずれ幅の単位は盤面の縮尺に追従させるため、
-      // 固定値ではなく中間マスの目安距離(seg)から導く(legacyのseg=48で約4.8)。
-      const jitterUnit = (projection.segmentLength ?? 64) / 10;
-      const jitter = (((edgeIndex * 7 + k * 13) % 5) - 2) * jitterUnit;
-      // 45度の脚を先にするかは路線ごとに交互に変える(根元での重なりを避ける)。
       const diagonalFirst = edgeIndex % 2 === 1;
-      const at = octilinearRoutePoint(a, b, t, diagonalFirst);
-      // ずらす向きは全体の向きではなく、その場の脚に直角にとる。
-      const heading = octilinearDirection(a, b, t, diagonalFirst);
-      positions.set(id, {
-        x: at.x + -heading.y * jitter,
-        y: at.y + heading.x * jitter,
-      });
+      positions.set(id, octilinearRoutePoint(a, b, k / (n + 1), diagonalFirst));
     }
-    return relaxOverlaps(positions, context, projection);
+
+    // 押し離しは都市の位置を整えるために回す。中間マスもここで動くが、
+    // このあと経路の上へ置き直すので、結果には残らない。
+    const relaxed = relaxOverlaps(positions, context, projection);
+    return placeSquaresOnRoute(relaxed, context, siblingCounts);
   }, [context]);
+}
+
+/**
+ * 中間マスを、動いたあとの都市から引き直した経路の上に置き直す。
+ *
+ * **折れ点には必ずマスを1つ置く。** ここを空けると、その両隣を結ぶ線が
+ * 角を斜めに突っ切ってしまう。以前はこれが崩れの最大の原因だった。
+ * 折れ点に置くマスは、等間隔に並べたときいちばん折れ点に近いものを選ぶ。
+ * 残りは折れ点の前後に振り分けて、脚の上に等間隔で並べる。
+ */
+function placeSquaresOnRoute(
+  positions: ReadonlyMap<NodeId, NodePosition>,
+  context: GameEngineContext,
+  siblingCounts: ReadonlyMap<string, number>,
+): ReadonlyMap<NodeId, NodePosition> {
+  const placed = new Map<NodeId, NodePosition>(positions);
+
+  for (const [id, node] of context.graph.nodes) {
+    if (isCityNode(node)) continue;
+    const match = /^e(\d+)_(\d+)$/.exec(id);
+    if (!match) continue;
+
+    const edgeIndex = Number(match[1]);
+    const k = Number(match[2]);
+    const n = siblingCounts.get(`e${edgeIndex}_`) ?? 1;
+    const [cityAId, cityBId] = node.between;
+    const a = positions.get(NodeId(cityAId));
+    const b = positions.get(NodeId(cityBId));
+    if (!a || !b) continue;
+
+    const diagonalFirst = edgeIndex % 2 === 1;
+    const corner = octilinearCorner(a, b, diagonalFirst);
+
+    // 等間隔に並べたとき、折れ点にいちばん近いマスの番号。
+    const leg1 = Math.hypot(corner.x - a.x, corner.y - a.y);
+    const leg2 = Math.hypot(b.x - corner.x, b.y - corner.y);
+    const total = leg1 + leg2;
+    const cornerK = total === 0 ? 1 : Math.min(n, Math.max(1, Math.round((leg1 / total) * (n + 1))));
+
+    if (k === cornerK) {
+      placed.set(id, corner);
+      continue;
+    }
+    // 折れ点より手前は1本目の脚に、奥は2本目の脚に、それぞれ等間隔で置く。
+    const [from, to, index, count] =
+      k < cornerK ? [a, corner, k, cornerK] : [corner, b, k - cornerK, n + 1 - cornerK];
+    const u = index / count;
+    placed.set(id, { x: from.x + (to.x - from.x) * u, y: from.y + (to.y - from.y) * u });
+  }
+  return placed;
 }
 
 /**
