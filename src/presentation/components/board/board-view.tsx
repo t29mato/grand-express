@@ -5,7 +5,7 @@ import { NodeId, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
 import { isCityNode } from "../../../domain/board/node";
 import { GameSession, currentPlayer } from "../../../domain/game-session/game-session";
 import { GameEngineContext } from "../../../application/game-engine-context";
-import { useBoardLayout } from "../../hooks/use-board-layout";
+import { railPolylines, useBoardLayout } from "../../hooks/use-board-layout";
 import { useCamera } from "../../hooks/use-camera";
 import { useLocale } from "../../i18n/locale-context";
 import { useCityLabels } from "../../hooks/use-city-labels";
@@ -232,20 +232,12 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
     type Line = { x1: number; y1: number; x2: number; y2: number };
     const rail: Line[] = [];
     const sea: Line[] = [];
-    for (const [id, neighbors] of context.graph.adjacency) {
-      const from = positions.get(id);
-      if (!from) continue;
-      const fromNode = context.graph.nodes.get(id);
-      for (const neighborId of neighbors) {
-        if (neighborId <= id) continue; // 重複を避ける(双方向なので片方だけ描画)
-        const to = positions.get(neighborId);
-        if (!to) continue;
-        const toNode = context.graph.nodes.get(neighborId);
-        const kind =
-          (fromNode && "edgeKind" in fromNode ? fromNode.edgeKind : undefined) ??
-          (toNode && "edgeKind" in toNode ? toNode.edgeKind : undefined) ??
-          "rail";
-        (kind === "sea" ? sea : rail).push({ x1: from.x, y1: from.y, x2: to.x, y2: to.y });
+    // マスとマスを直接結ぶと、折れ点がそのあいだに来たときに角を斜めに
+    // 突っ切ってしまう。経路そのもの(折れ点を通る折れ線)を描く。
+    for (const { points, kind } of railPolylines(context, positions)) {
+      const target = kind === "sea" ? sea : rail;
+      for (let i = 0; i < points.length - 1; i++) {
+        target.push({ x1: points[i].x, y1: points[i].y, x2: points[i + 1].x, y2: points[i + 1].y });
       }
     }
     return { rail, sea };

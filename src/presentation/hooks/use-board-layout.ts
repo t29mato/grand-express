@@ -28,9 +28,13 @@ export interface NodePosition {
  *      同じ脚に乗るはずのマスが互い違いになり、直線が波打っていた。
  *   3. **重なりの押し離し** — 経路に関係なくマスを動かすので、当然ずれる。
  *
- * いまは順序を変えてある。押し離しで都市の位置を整えたあと、
- * **その位置から経路を引き直して中間マスを置き直す。** 折れ点にはマスを1つ
- * 必ず置くので(1の解消)、隣り合うマスは必ず同じ脚に乗る。
+ * いまはこうしている。
+ *
+ *   - 線は**マスとは切り離して、経路そのものを折れ点ごと描く**(`railPolylines`)。
+ *     これで1が消える。マスがどこに居ても線は折れない
+ *   - マスの位置は経路上の割合 `t` ひとつで持ち、動かすのも `t` だけ。
+ *     座標への変換は経路が受け持つので、どれだけ動かしても経路から外れない
+ *   - 押し離しは都市の位置を整えるためだけに使う
  */
 export function useBoardLayout(context: GameEngineContext): ReadonlyMap<NodeId, NodePosition> {
   return useMemo(() => {
@@ -76,24 +80,39 @@ export function useBoardLayout(context: GameEngineContext): ReadonlyMap<NodeId, 
     // 押し離しは都市の位置を整えるために回す。中間マスもここで動くが、
     // このあと経路の上へ置き直すので、結果には残らない。
     const relaxed = relaxOverlaps(positions, context, projection);
-    return placeSquaresOnRoute(relaxed, context, siblingCounts);
+    const { placed, routes } = placeSquaresOnRoute(relaxed, context, siblingCounts);
+    return slideSquaresAlongRoute(placed, routes, projection);
   }, [context]);
+}
+
+/** 中間マスが経路のどこに居るか。動かすのは `t` だけ。 */
+interface RouteSlot {
+  readonly a: NodePosition;
+  readonly b: NodePosition;
+  readonly diagonalFirst: boolean;
+  /** 経路上の位置(0=a、1=b)。 */
+  readonly t: number;
 }
 
 /**
  * 中間マスを、動いたあとの都市から引き直した経路の上に置き直す。
  *
- * **折れ点には必ずマスを1つ置く。** ここを空けると、その両隣を結ぶ線が
- * 角を斜めに突っ切ってしまう。以前はこれが崩れの最大の原因だった。
- * 折れ点に置くマスは、等間隔に並べたときいちばん折れ点に近いものを選ぶ。
- * 残りは折れ点の前後に振り分けて、脚の上に等間隔で並べる。
+ * **経路上の位置は「割合 t」ひとつで表す。** t から座標への変換は
+ * `octilinearRoutePoint` が折れ点も含めて面倒を見てくれるので、
+ * ここが t を動かしているかぎりマスは必ず経路の上に乗る。
+ *
+ * 折れ点にマスを固定する方式も試したが、路線がもともと真っ直ぐだったり
+ * ほぼ真っ直ぐだったりすると**折れ点が都市とほぼ同じ場所に来て、
+ * 都市のマーカーの下にマスが隠れた**(日本で32か所)。
+ * 線のほうを折れ点を通して描けば固定は要らない(`railPolylines`)。
  */
 function placeSquaresOnRoute(
   positions: ReadonlyMap<NodeId, NodePosition>,
   context: GameEngineContext,
   siblingCounts: ReadonlyMap<string, number>,
-): ReadonlyMap<NodeId, NodePosition> {
+): { placed: Map<NodeId, NodePosition>; routes: Map<NodeId, RouteSlot> } {
   const placed = new Map<NodeId, NodePosition>(positions);
+  const routes = new Map<NodeId, RouteSlot>();
 
   for (const [id, node] of context.graph.nodes) {
     if (isCityNode(node)) continue;
@@ -109,25 +128,144 @@ function placeSquaresOnRoute(
     if (!a || !b) continue;
 
     const diagonalFirst = edgeIndex % 2 === 1;
-    const corner = octilinearCorner(a, b, diagonalFirst);
-
-    // 等間隔に並べたとき、折れ点にいちばん近いマスの番号。
-    const leg1 = Math.hypot(corner.x - a.x, corner.y - a.y);
-    const leg2 = Math.hypot(b.x - corner.x, b.y - corner.y);
-    const total = leg1 + leg2;
-    const cornerK = total === 0 ? 1 : Math.min(n, Math.max(1, Math.round((leg1 / total) * (n + 1))));
-
-    if (k === cornerK) {
-      placed.set(id, corner);
-      continue;
-    }
-    // 折れ点より手前は1本目の脚に、奥は2本目の脚に、それぞれ等間隔で置く。
-    const [from, to, index, count] =
-      k < cornerK ? [a, corner, k, cornerK] : [corner, b, k - cornerK, n + 1 - cornerK];
-    const u = index / count;
-    placed.set(id, { x: from.x + (to.x - from.x) * u, y: from.y + (to.y - from.y) * u });
+    const t = k / (n + 1);
+    routes.set(id, { a, b, diagonalFirst, t });
+    placed.set(id, octilinearRoutePoint(a, b, t, diagonalFirst));
   }
-  return placed;
+  return { placed, routes };
+}
+
+/**
+ * 重なったマーカーを、**経路の上を滑らせて**離す。
+ *
+ * 都市に何本もの路線が集まるところでは、最初のマスが都市のマーカーに
+ * 重なる(大阪や京都で実際にそうなっていた)。かといって自由に押し離すと
+ * 経路から外れ、線がまた斜めになる。
+ *
+ * 動かすのは割合 t だけにする。座標への変換は経路が受け持つので、
+ * どれだけ滑らせても線の角度は 0/45/90 のまま保たれる。
+ * 都市は動かさない(地理を表しているため)。
+ */
+function slideSquaresAlongRoute(
+  placed: Map<NodeId, NodePosition>,
+  routes: ReadonlyMap<NodeId, RouteSlot>,
+  projection: CountryProjection,
+): ReadonlyMap<NodeId, NodePosition> {
+  const minSeparation = (projection.segmentLength ?? 64) * 0.55;
+
+  const ids = [...placed.keys()];
+  const pos = ids.map((id) => ({ ...placed.get(id)! }));
+  const slots = ids.map((id) => routes.get(id));
+
+  for (let pass = 0; pass < 80; pass++) {
+    let moved = false;
+    for (let i = 0; i < ids.length; i++) {
+      const slot = slots[i];
+      if (!slot) continue; // 都市は動かさない
+
+      let pushX = 0;
+      let pushY = 0;
+      for (let j = 0; j < ids.length; j++) {
+        if (i === j) continue;
+        const dx = pos[i].x - pos[j].x;
+        const dy = pos[i].y - pos[j].y;
+        const d = Math.hypot(dx, dy);
+        if (d >= minSeparation) continue;
+        const overlap = minSeparation - d;
+        if (d < 0.001) {
+          // 完全に重なっていると向きが決まらない。経路の先へ逃がす。
+          pushX += slot.b.x - slot.a.x;
+          pushY += slot.b.y - slot.a.y;
+        } else {
+          pushX += (dx / d) * overlap;
+          pushY += (dy / d) * overlap;
+        }
+      }
+      if (pushX === 0 && pushY === 0) continue;
+
+      // 経路に沿った成分だけを取り出し、割合 t の変化に直す。
+      const ahead = octilinearRoutePoint(slot.a, slot.b, Math.min(1, slot.t + 0.02), slot.diagonalFirst);
+      const behind = octilinearRoutePoint(slot.a, slot.b, Math.max(0, slot.t - 0.02), slot.diagonalFirst);
+      const hx = ahead.x - behind.x;
+      const hy = ahead.y - behind.y;
+      const headingLength = Math.hypot(hx, hy);
+      if (headingLength < 0.001) continue;
+      const along = (pushX * hx + pushY * hy) / headingLength;
+
+      // 経路の全長で割って t の増分にする。端は都市なので、都市の手前で止める。
+      const routeLength = routeLengthOf(slot);
+      if (routeLength < 0.001) continue;
+      const margin = Math.min(0.45, minSeparation / routeLength);
+      const nextT = Math.min(1 - margin, Math.max(margin, slot.t + (along * 0.4) / routeLength));
+      if (Math.abs(nextT - slot.t) < 0.0005) continue;
+      slots[i] = { ...slot, t: nextT };
+      pos[i] = octilinearRoutePoint(slot.a, slot.b, nextT, slot.diagonalFirst);
+      moved = true;
+    }
+    if (!moved) break;
+  }
+
+  const result = new Map(placed);
+  ids.forEach((id, i) => result.set(id, pos[i]));
+  return result;
+}
+
+function routeLengthOf(slot: RouteSlot): number {
+  const corner = octilinearCorner(slot.a, slot.b, slot.diagonalFirst);
+  return (
+    Math.hypot(corner.x - slot.a.x, corner.y - slot.a.y) +
+    Math.hypot(slot.b.x - corner.x, slot.b.y - corner.y)
+  );
+}
+
+/**
+ * 路線を描くための折れ線。**折れ点を必ず通す。**
+ *
+ * 線を「隣り合うマスを直線で結ぶ」だけにすると、折れ点がマスとマスのあいだに
+ * 来たときにそこを斜めに突っ切ってしまう。マスの位置とは切り離して、
+ * 経路そのものを描くのが正しい。
+ */
+export function railPolylines(
+  context: GameEngineContext,
+  positions: ReadonlyMap<NodeId, NodePosition>,
+): { points: readonly NodePosition[]; kind: "rail" | "sea" }[] {
+  const byEdge = new Map<number, { ids: NodeId[]; between: readonly [string, string]; kind: "rail" | "sea" }>();
+  for (const [id, node] of context.graph.nodes) {
+    if (isCityNode(node)) continue;
+    const match = /^e(\d+)_(\d+)$/.exec(id);
+    if (!match) continue;
+    const edgeIndex = Number(match[1]);
+    const entry = byEdge.get(edgeIndex);
+    const kind = "edgeKind" in node && node.edgeKind === "sea" ? "sea" : "rail";
+    if (entry) entry.ids.push(id);
+    else byEdge.set(edgeIndex, { ids: [id], between: node.between, kind });
+  }
+
+  const lines: { points: readonly NodePosition[]; kind: "rail" | "sea" }[] = [];
+  for (const [edgeIndex, { ids, between, kind }] of byEdge) {
+    const a = positions.get(NodeId(between[0]));
+    const b = positions.get(NodeId(between[1]));
+    if (!a || !b) continue;
+    const corner = octilinearCorner(a, b, edgeIndex % 2 === 1);
+    const ordered = [...ids].sort(
+      (x, y) => Number(/_(\d+)$/.exec(x)![1]) - Number(/_(\d+)$/.exec(y)![1]),
+    );
+    const squares = ordered.map((id) => positions.get(id)!).filter(Boolean);
+
+    // 折れ点は、1本目の脚に乗っているマスの直後に入れる。
+    // 「線分 a–corner の上にあるか」は、a までの距離と corner までの距離の和が
+    // a–corner の長さと一致するかで判定する(遠回りなら和のほうが大きくなる)。
+    const leg1Length = Math.hypot(corner.x - a.x, corner.y - a.y);
+    const onFirstLeg = (p: NodePosition) =>
+      Math.hypot(p.x - a.x, p.y - a.y) + Math.hypot(p.x - corner.x, p.y - corner.y) <=
+      leg1Length + 0.01;
+    const first: NodePosition[] = [];
+    const second: NodePosition[] = [];
+    for (const p of squares) (onFirstLeg(p) ? first : second).push(p);
+
+    lines.push({ points: [a, ...first, corner, ...second, b], kind });
+  }
+  return lines;
 }
 
 /**
