@@ -10,8 +10,12 @@ import { useGameStore } from "../../state/game-store";
 import { useLocale } from "../../i18n/locale-context";
 import { LocaleSwitch } from "../hud/locale-switch";
 import { SavedGameCard } from "./saved-game-card";
+import { SetupHeroTrain } from "./setup-hero-train";
 
 const MONTH_OPTIONS = [12, 24, 36];
+
+/** 常に見せておく枠の数。4人目は「足す」を押したときだけ現れる。 */
+const ALWAYS_VISIBLE_SLOTS = 3;
 
 interface SlotConfig {
   name: string;
@@ -51,6 +55,15 @@ export function SetupScreen() {
     { name: "CPU 3", mode: "off", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
   ]);
 
+  const updateSlot = (index: number, patch: Partial<SlotConfig>) => {
+    setSlots((prev) => prev.map((slot, i) => (i === index ? { ...slot, ...patch } : slot)));
+  };
+
+  // 空の4枠目をいつも出しておくと「設定画面」に見えるので、
+  // 使うと決めたときだけ現れるようにする。
+  const extraSlotShown = slots[ALWAYS_VISIBLE_SLOTS].mode !== "off";
+  const visibleSlots = extraSlotShown ? slots.length : ALWAYS_VISIBLE_SLOTS;
+
   const handleStart = () => {
     const players: PlayerSetup[] = slots
       .filter((s) => s.mode !== "off")
@@ -66,118 +79,145 @@ export function SetupScreen() {
 
   return (
     <div className="setup-screen">
-      <div className="card">
-        <LocaleSwitch />
-        <h1 style={{ marginTop: 12 }}>{t("setupTitle")}</h1>
-        <p className="tagline">{t("tagline")}</p>
+      <div className="setup-shell">
+        {/* 動きのある見出し。絵は飾りなので aria からは隠し、文字は暗幕の上に置く。 */}
+        <div className="setup-hero">
+          <SetupHeroTrain />
+          <div className="setup-hero-body">
+            <div className="setup-hero-top">
+              <span className="setup-mark">GRAND EXPRESS</span>
+              <LocaleSwitch />
+            </div>
+            <h1 className="setup-title">{t("setupTitle")}</h1>
+            <p className="tagline">{t("tagline")}</p>
+          </div>
+        </div>
 
         {savedGame && (
           <SavedGameCard saved={savedGame} onResume={loadSavedGame} onDiscard={discardSavedGame} />
         )}
 
-        <div className="eyebrow">{t("chooseCountry")}</div>
-        <div className="countries">
-          {COUNTRY_INDEX.map((entry) => (
-            <button
-              key={entry.id}
-              className={`ccard${country === entry.id ? " on" : ""}`}
-              onClick={() => setCountry(CountryId(entry.id))}
-            >
-              <svg
-                className="country-thumb"
-                viewBox={entry.thumbViewBox}
-                role="presentation"
-                dangerouslySetInnerHTML={{ __html: entry.thumbSvg }}
-              />
-              <div className="cap">
-                <div className="nm">{tx(entry.name)}</div>
-                <div className="sub">{tx(entry.blurb)}</div>
-              </div>
-            </button>
-          ))}
-        </div>
-
-        <p className="sub">{t("setupSub")}</p>
-
-        {slots.map((slot, i) => (
-          <div className="slot" key={i}>
-            <input
-              value={slot.name}
-              maxLength={16}
-              aria-label={`Player ${i + 1} name`}
-              onChange={(e) => {
-                const next = [...slots];
-                next[i] = { ...next[i], name: e.target.value };
-                setSlots(next);
-              }}
-            />
-            <div className="seg">
-              {(["human", "cpu", "off"] as const).map((mode) => (
+        <div className="card">
+          <fieldset className="setup-group">
+            <legend className="eyebrow">{t("chooseCountry")}</legend>
+            <div className="country-grid">
+              {COUNTRY_INDEX.map((entry) => (
                 <button
-                  key={mode}
-                  className={slot.mode === mode ? "on" : ""}
-                  disabled={i < 2 && mode === "off"}
-                  onClick={() => {
-                    const next = [...slots];
-                    next[i] = { ...next[i], mode };
-                    setSlots(next);
-                  }}
+                  key={entry.id}
+                  type="button"
+                  className={`ccard${country === entry.id ? " on" : ""}`}
+                  aria-pressed={country === entry.id}
+                  onClick={() => setCountry(CountryId(entry.id))}
                 >
-                  {mode === "human" ? t("human") : mode === "cpu" ? "CPU" : t("off")}
+                  <span className="country-thumb-wrap">
+                    <svg
+                      className="country-thumb"
+                      viewBox={entry.thumbViewBox}
+                      role="presentation"
+                      preserveAspectRatio="xMidYMid meet"
+                      dangerouslySetInnerHTML={{ __html: entry.thumbSvg }}
+                    />
+                  </span>
+                  <span className="cap">
+                    <span className="nm">{tx(entry.name)}</span>
+                    <span className="sub">{tx(entry.blurb)}</span>
+                  </span>
                 </button>
               ))}
             </div>
-            {/* 知識レベルは人間プレイヤーのみ。CPUは強さ設定が同じ役割を果たす。
-                行が横に長くなるため、レベルのセグメントは次の行へ折り返す。 */}
-            {slot.mode === "human" && (
-              <div className="slot-knowledge">
-                <span className="knowledge-label">{t("knowledgeLevel")}</span>
+          </fieldset>
+
+          <div className="setup-cols">
+            <fieldset className="setup-group">
+              <legend className="eyebrow">{t("whoPlays")}</legend>
+              <p className="setup-hint">{t("setupSub")}</p>
+
+              {slots.slice(0, visibleSlots).map((slot, i) => (
+                <div className="slot" key={i}>
+                  <input
+                    value={slot.name}
+                    maxLength={16}
+                    aria-label={t("travellerSlot", i + 1)}
+                    onChange={(e) => updateSlot(i, { name: e.target.value })}
+                  />
+                  <div className="seg">
+                    {(["human", "cpu", "off"] as const).map((mode) => (
+                      <button
+                        key={mode}
+                        type="button"
+                        className={slot.mode === mode ? "on" : ""}
+                        disabled={i < 2 && mode === "off"}
+                        onClick={() => updateSlot(i, { mode })}
+                      >
+                        {mode === "human" ? t("human") : mode === "cpu" ? "CPU" : t("off")}
+                      </button>
+                    ))}
+                  </div>
+                  {/* 知識レベルは人間プレイヤーのみ。CPUは強さ設定が同じ役割を果たす。
+                      行が横に長くなるため、レベルのセグメントは次の行へ折り返す。 */}
+                  {slot.mode === "human" && (
+                    <div className="slot-knowledge">
+                      <span className="knowledge-label">{t("knowledgeLevel")}</span>
+                      <div className="seg">
+                        {KNOWLEDGE_LEVELS.map((level) => (
+                          <button
+                            key={level}
+                            type="button"
+                            className={slot.knowledgeLevel === level ? "on" : ""}
+                            onClick={() => updateSlot(i, { knowledgeLevel: level })}
+                          >
+                            {t(KNOWLEDGE_LABEL[level])}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {!extraSlotShown && (
+                <button
+                  type="button"
+                  className="add-slot"
+                  onClick={() => updateSlot(ALWAYS_VISIBLE_SLOTS, { mode: "cpu" })}
+                >
+                  + {t("addTraveller")}
+                </button>
+              )}
+            </fieldset>
+
+            <fieldset className="setup-group">
+              <legend className="eyebrow">{t("rulesGroup")}</legend>
+
+              <div className="rule-row">
+                <span className="rule-label">{t("length")}</span>
                 <div className="seg">
-                  {KNOWLEDGE_LEVELS.map((level) => (
-                    <button
-                      key={level}
-                      className={slot.knowledgeLevel === level ? "on" : ""}
-                      onClick={() => {
-                        const next = [...slots];
-                        next[i] = { ...next[i], knowledgeLevel: level };
-                        setSlots(next);
-                      }}
-                    >
-                      {t(KNOWLEDGE_LABEL[level])}
+                  {MONTH_OPTIONS.map((m) => (
+                    <button key={m} type="button" className={months === m ? "on" : ""} onClick={() => setMonths(m)}>
+                      {t(`y${m / 12}`)}
                     </button>
                   ))}
                 </div>
               </div>
-            )}
-          </div>
-        ))}
 
-        <div className="slot">
-          <span style={{ fontWeight: 800, flex: 1 }}>{t("length")}</span>
-          <div className="seg">
-            {MONTH_OPTIONS.map((m) => (
-              <button key={m} className={months === m ? "on" : ""} onClick={() => setMonths(m)}>
-                {t(`y${m / 12}`)}
-              </button>
-            ))}
+              <div className="rule-row">
+                <span className="rule-label">{t("cpuLevel")}</span>
+                <div className="seg">
+                  {(["gentle", "normal", "merciless"] as const).map((lv) => (
+                    <button key={lv} type="button" className={cpuLevel === lv ? "on" : ""} onClick={() => setCpuLevel(lv)}>
+                      {lv === "gentle" ? t("lvEasy") : lv === "normal" ? t("lvNormal") : t("lvOni")}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </fieldset>
           </div>
-        </div>
 
-        <div className="slot">
-          <span style={{ fontWeight: 800, flex: 1 }}>{t("cpuLevel")}</span>
-          <div className="seg">
-            {(["gentle", "normal", "merciless"] as const).map((lv) => (
-              <button key={lv} className={cpuLevel === lv ? "on" : ""} onClick={() => setCpuLevel(lv)}>
-                {lv === "gentle" ? t("lvEasy") : lv === "normal" ? t("lvNormal") : t("lvOni")}
-              </button>
-            ))}
+          <div className="btnrow">
+            <button className="btn btn-start" onClick={handleStart} disabled={starting}>
+              {starting ? t("thinking") : t("start")}
+            </button>
           </div>
-        </div>
-
-        <div className="btnrow">
-          <button className="btn" style={{ width: "100%" }} onClick={handleStart} disabled={starting}>
-            {starting ? t("thinking") : t("start")}
-          </button>
         </div>
       </div>
     </div>

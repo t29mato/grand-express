@@ -161,8 +161,25 @@ h3 {
   overflow-y: auto;
 }
 
-.setup-screen > .card {
+/* 見出し・続きから・設定カードをまとめた縦の器。中央寄せはここが受け持つ。 */
+.setup-screen > .setup-shell {
   margin: auto;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* `.card` は他画面と共用で 640px 上限。ここでは器の幅いっぱいに使う。 */
+.setup-shell > .card {
+  max-width: none;
+  padding: 18px;
+}
+
+/* 「つづきから」は器の直下に置くので、間隔は shell の gap に任せる。 */
+.setup-shell > .saved-card {
+  margin: 0;
 }
 
 .card {
@@ -278,41 +295,88 @@ h3 {
   font-weight: 800;
 }
 
-.countries {
-  display: flex;
+/*
+ * 国選択。盤面は増えていく(4→5→…)ので、横に並べるのではなく
+ * 折り返すグリッドにして縦に伸びすぎないようにする。
+ * 375px幅で2列、狭いカードで3列、広ければ4列。
+ */
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 10px;
-  margin: 10px 0;
+  margin: 10px 0 2px;
 }
 
 .ccard {
-  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   background: var(--panel2);
   border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 12px;
+  padding: 8px 8px 10px;
   color: var(--salt);
   text-align: left;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.ccard:hover {
+  border-color: var(--salt-dim);
 }
 
 .ccard.on {
   border-color: var(--gold);
+  background: linear-gradient(160deg, #4a3a86, var(--panel2));
+  box-shadow: 0 0 0 1px var(--gold);
+}
+
+/* 選んだ国に金の丸印を出す(枠線の色だけだと分かりにくい)。 */
+.ccard.on::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: inset 0 0 0 3px var(--panel2);
+}
+
+/*
+ * 国ごとに地図の縦横比が違う(フランス1690×2450、日本1150×1400 など)。
+ * 高さを固定して meet で収めることで、どの国でもカードの背が揃う。
+ */
+.country-thumb-wrap {
+  display: block;
+  background: #1a1230;
+  border-radius: 9px;
+  padding: 4px;
+  margin-bottom: 8px;
 }
 
 .country-thumb {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 8px;
+  height: 126px;
+}
+
+.ccard .cap {
+  display: block;
 }
 
 .ccard .nm {
+  display: block;
   font-weight: 800;
+  line-height: 1.25;
 }
 
 .ccard .sub {
+  display: block;
   color: var(--salt-dim);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  margin-top: 2px;
 }
 
 .slot {
@@ -346,6 +410,8 @@ h3 {
 
 .slot input {
   flex: 1;
+  /* 既定の min-width: auto のままだと縮まず、名前欄と切替が2行に割れる。 */
+  min-width: 0;
   background: var(--night2);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -403,6 +469,227 @@ h3 {
   display: flex;
   gap: 10px;
   margin-top: 14px;
+}
+
+/* ------------------------------------------------------------------ *
+ * セットアップ画面の見出し(動く汽車の帯)
+ * ------------------------------------------------------------------ */
+
+/*
+ * 絵は背景として敷き、文字はその上の暗幕に載せる。
+ * `background` を帯自身に持たせておくことで、絵が読み込まれる前でも
+ * 文字と地の明暗差(コントラスト)が保たれる。
+ */
+.setup-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--night2);
+  min-height: 178px;
+  display: flex;
+}
+
+.setup-hero .hero-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 文字を載せる側だけを暗く落とす。右側は絵をそのまま見せる。 */
+.setup-hero-body {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px 16px;
+  background: linear-gradient(
+    100deg,
+    rgba(27, 19, 48, 0.95) 0%,
+    rgba(27, 19, 48, 0.88) 34%,
+    rgba(27, 19, 48, 0.35) 58%,
+    rgba(27, 19, 48, 0) 76%
+  );
+  display: flex;
+  flex-direction: column;
+}
+
+.setup-hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.setup-mark {
+  color: var(--gold);
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+}
+
+/*
+ * 文言の長さは言語で変わる(仏語・西語は英語より長い)。
+ * 幅を抑えておけば、伸びたときに汽車へ重なる前に折り返す。
+ */
+.setup-title {
+  font-size: 1.9rem;
+  line-height: 1.15;
+  margin-top: auto;
+  max-width: 62%;
+  text-shadow: 0 2px 10px rgba(12, 8, 24, 0.85);
+}
+
+.setup-hero .tagline {
+  margin-bottom: 0;
+  margin-top: 6px;
+  max-width: 62%;
+  color: var(--salt-dim);
+  text-shadow: 0 1px 8px rgba(12, 8, 24, 0.9);
+}
+
+/* ------------------------------------------------------------------ *
+ * セットアップ画面の設定のまとまり
+ * ------------------------------------------------------------------ */
+
+/*
+ * fieldset は既定で `min-width: min-content` のため、grid/flex の中で
+ * 中身より縮まず横スクロールの原因になる。min-width を明示的に潰す。
+ */
+.setup-group {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.setup-group + .setup-group {
+  margin-top: 18px;
+}
+
+.setup-group > legend {
+  padding: 0;
+}
+
+/* 「誰が遊ぶか」と「ルール」を横に並べ、画面が狭ければ縦に積む。 */
+.setup-cols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 820px) {
+  .setup-cols {
+    grid-template-columns: 1.25fr 1fr;
+    gap: 26px;
+  }
+
+  .setup-cols .setup-group + .setup-group {
+    margin-top: 0;
+  }
+}
+
+.setup-hint {
+  color: var(--salt-dim);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  margin: 6px 0 2px;
+}
+
+/* 4人目を足すボタン。既定では出さず、押したときだけ枠が現れる。 */
+.add-slot {
+  margin-top: 10px;
+  width: 100%;
+  background: transparent;
+  color: var(--salt-dim);
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.add-slot:hover {
+  color: var(--salt);
+  border-color: var(--salt-dim);
+}
+
+/* 年数・CPUの強さ。ラベルを上に置いて、狭い幅でも折り返さないようにする。 */
+.rule-row {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.rule-label {
+  font-weight: 800;
+  font-size: 0.86rem;
+}
+
+.rule-row .seg {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.btn-start {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 1.02rem;
+  letter-spacing: 0.02em;
+}
+
+/*
+ * 狭い画面では絵の上に文字を重ねると読みにくい(暗幕を濃くすると絵が消える)。
+ * 帯を上、文字を下に積み替えて、どちらも潰さずに見せる。
+ */
+@media (max-width: 640px) {
+  .setup-hero {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .setup-hero .hero-art {
+    position: static;
+    width: 100%;
+    height: 96px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .setup-hero-body {
+    background: none;
+    padding: 12px 14px 14px;
+  }
+
+  .setup-title,
+  .setup-hero .tagline {
+    max-width: none;
+    text-shadow: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .setup-screen {
+    padding: 14px;
+  }
+
+  .setup-title {
+    font-size: 1.45rem;
+  }
+
+  .country-grid {
+    grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  }
+
+  .country-thumb {
+    height: 88px;
+  }
 }
 
 /* Game screen */

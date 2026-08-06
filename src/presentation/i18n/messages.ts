@@ -3,14 +3,19 @@ import es from "../../i18n/messages/es.json";
 import fr from "../../i18n/messages/fr.json";
 import ja from "../../i18n/messages/ja.json";
 import { Locale } from "../../domain/shared-kernel/localized-text";
+import { SETUP_MESSAGES } from "./setup-messages";
 
 export type UiMessages = typeof en;
 
+/**
+ * `src/i18n/messages/*.json` は抽出の生成物なので、legacy に無いUI文言は
+ * `setup-messages.ts` 側に置いてここで重ねる(生成物を直接書き換えない)。
+ */
 export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
-  en,
-  es,
-  fr,
-  ja: ja as UiMessages,
+  en: { ...en, ...SETUP_MESSAGES.en },
+  es: { ...es, ...SETUP_MESSAGES.es },
+  fr: { ...fr, ...SETUP_MESSAGES.fr },
+  ja: { ...(ja as UiMessages), ...SETUP_MESSAGES.ja },
 };
 
 export const SUPPORTED_LOCALES: readonly Locale[] = ["en", "es", "fr", "ja"];
