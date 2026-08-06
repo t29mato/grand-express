@@ -16,6 +16,7 @@ import { EMPTY_LEARNING_RECORD } from "../../domain/quiz/learning-record";
 import { Player, PropertyLevel } from "../../domain/player/player";
 import { GameSession } from "../../domain/game-session/game-session";
 import { MisfortuneSpiritState } from "../../domain/misfortune/misfortune-spirit";
+import { EMPTY_STATS, PlayerStats } from "../../domain/player/player-stats";
 
 /**
  * `GameSession` はMap等の非JSONネイティブな値を含むため、そのままlocalStorageへ
@@ -34,6 +35,8 @@ export interface PlayerSnapshot {
   readonly inventory: readonly string[];
   readonly skipNextTurn: boolean;
   readonly hasExtraTurn: boolean;
+  /** 表彰用の記録。これ以前のセーブデータには無いので、読み込み時は空にする。 */
+  readonly stats?: PlayerStats;
 }
 
 export interface GameSessionSnapshot {
@@ -71,6 +74,7 @@ function playerToSnapshot(player: Player): PlayerSnapshot {
     inventory: player.inventory,
     skipNextTurn: player.skipNextTurn,
     hasExtraTurn: player.hasExtraTurn,
+    stats: player.stats,
   };
 }
 
@@ -90,6 +94,8 @@ function playerFromSnapshot(snapshot: PlayerSnapshot): Player {
     inventory: snapshot.inventory.map((k) => ItemKey(k)),
     skipNextTurn: snapshot.skipNextTurn,
     hasExtraTurn: snapshot.hasExtraTurn,
+    // 古いセーブデータには記録が無い。空から数え直す。
+    stats: snapshot.stats ?? EMPTY_STATS,
   };
 }
 

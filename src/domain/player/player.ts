@@ -2,6 +2,7 @@ import { Money } from "../shared-kernel/money";
 import { ItemKey, NodeId, PlayerId, PropertyRef } from "../shared-kernel/ids";
 import { CpuLevel } from "../cpu/cpu-level";
 import { DEFAULT_KNOWLEDGE_LEVEL, KnowledgeLevel } from "../quiz/knowledge-level";
+import { EMPTY_STATS, PlayerStats, countUp } from "./player-stats";
 
 export const MAX_INVENTORY_SIZE = 5;
 export const MAX_PROPERTY_LEVEL = 5;
@@ -25,6 +26,8 @@ export interface Player {
   readonly inventory: readonly ItemKey[];
   readonly skipNextTurn: boolean;
   readonly hasExtraTurn: boolean;
+  /** 表彰に使う旅の記録(player-stats.ts)。 */
+  readonly stats: PlayerStats;
 }
 
 export function createPlayer(params: {
@@ -48,6 +51,7 @@ export function createPlayer(params: {
     inventory: [],
     skipNextTurn: false,
     hasExtraTurn: false,
+    stats: EMPTY_STATS,
   };
 }
 
@@ -129,4 +133,9 @@ export function removeRandomProperty(
 
 export function ownsProperty(player: Player, ref: PropertyRef): boolean {
   return player.portfolio.has(ref);
+}
+
+/** 旅の記録(表彰用)を1つ増やす。 */
+export function recordStat(player: Player, field: keyof PlayerStats, by = 1): Player {
+  return { ...player, stats: countUp(player.stats, field, by) };
 }

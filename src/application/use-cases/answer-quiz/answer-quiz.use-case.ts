@@ -4,7 +4,7 @@ import { Random } from "../../../domain/shared-kernel/random";
 import { QuizQuestion } from "../../../domain/quiz/quiz-question";
 import { gradeAnswer } from "../../../domain/quiz/quiz-grading-service";
 import { recordMiss } from "../../../domain/quiz/learning-record";
-import { payUpTo, receiveCash, removeItemAt } from "../../../domain/player/player";
+import { payUpTo, receiveCash, recordStat, removeItemAt } from "../../../domain/player/player";
 import { giveRandomItem } from "../../../domain/item/give-random-item";
 import { GameSession, replacePlayer } from "../../../domain/game-session/game-session";
 import { GameEngineContext } from "../../game-engine-context";
@@ -84,6 +84,10 @@ export function answerQuiz(
       bonusItem = given.itemKey;
     }
   }
+
+  // 表彰(クイズ王)のために、答えた回数と正解数を数えておく。
+  currentPlayer = recordStat(currentPlayer, "quizAnswered");
+  if (correct) currentPlayer = recordStat(currentPlayer, "quizCorrect");
 
   // 間違えた問題は、終了時のおさらいのために記録する。
   const updated = replacePlayer(session, currentPlayer);

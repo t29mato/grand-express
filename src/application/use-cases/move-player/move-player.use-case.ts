@@ -1,5 +1,5 @@
 import { NodeId, PlayerId } from "../../../domain/shared-kernel/ids";
-import { moveTo } from "../../../domain/player/player";
+import { moveTo, recordStat } from "../../../domain/player/player";
 import { GameSession, currentPlayer, replacePlayer } from "../../../domain/game-session/game-session";
 import { passTo } from "../../../domain/misfortune/misfortune-spirit";
 import { GameEngineContext } from "../../game-engine-context";
@@ -44,7 +44,8 @@ export function movePlayerAlongPath(
 
   for (const node of path) {
     const mover = current.players.find((p) => p.id === playerId)!;
-    current = replacePlayer(current, moveTo(mover, node));
+    // 表彰(いちばん歩いた人)のために、進んだマス数を数える。
+    current = replacePlayer(current, recordStat(moveTo(mover, node), "squaresMoved"));
 
     const spiritHolderIsMover = current.misfortune.holderId === playerId && current.misfortune.level > 0;
     if (spiritHolderIsMover) {

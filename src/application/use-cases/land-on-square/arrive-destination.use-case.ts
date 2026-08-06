@@ -1,6 +1,6 @@
 import { PlayerId } from "../../../domain/shared-kernel/ids";
 import { Random } from "../../../domain/shared-kernel/random";
-import { receiveCash } from "../../../domain/player/player";
+import { receiveCash, recordStat } from "../../../domain/player/player";
 import { GameSession, destinationPrize, replacePlayer, setDestination } from "../../../domain/game-session/game-session";
 import { selectNewDestination } from "../../../domain/game-session/destination-selection-service";
 import { findFarthestPlayer } from "../../../domain/game-session/farthest-player-finder";
@@ -31,7 +31,8 @@ export function arriveAtDestination(
   if (!player) throw new Error(`Unknown player: ${playerId}`);
 
   const prize = destinationPrize(session);
-  let current = replacePlayer(session, receiveCash(player, prize));
+  // 表彰(旅の達人)のために、着いた回数を数えておく。
+  let current = replacePlayer(session, recordStat(receiveCash(player, prize), "destinationsReached"));
 
   const oldDestination = current.destination;
   const allCityIds = context.content.cities.map((c) => c.id);

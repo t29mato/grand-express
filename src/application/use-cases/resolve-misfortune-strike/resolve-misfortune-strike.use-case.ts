@@ -1,7 +1,7 @@
 import { PlayerId } from "../../../domain/shared-kernel/ids";
 import { Random } from "../../../domain/shared-kernel/random";
 import { Money } from "../../../domain/shared-kernel/money";
-import { receiveCash, removeItemAt } from "../../../domain/player/player";
+import { receiveCash, recordStat, removeItemAt } from "../../../domain/player/player";
 import { GameSession, replacePlayer } from "../../../domain/game-session/game-session";
 import { DOOM_STRATEGIES, DoomFlavor, DoomOutcome } from "../../../domain/misfortune/doom-effect";
 import { consumeRestIfAny, isKing, recordStrike } from "../../../domain/misfortune/misfortune-spirit";
@@ -35,6 +35,14 @@ export function resolveMisfortuneStrike(
 ): MisfortuneStrikeOutcome {
   if (session.misfortune.level === 0 || session.misfortune.holderId !== playerId) {
     return { session, result: { type: "not-afflicted" } };
+  }
+
+  // 表彰(いちばん厄災を背負った人)のために、憑かれたまま迎えた手番を数える。
+  // 休んでいたり跳ね返したりしても「背負っていた」ことに変わりはないので、
+  // 実際に被害を受けたかどうかとは分けてここで数える。
+  {
+    const holder = session.players.find((p) => p.id === playerId);
+    if (holder) session = replacePlayer(session, recordStat(holder, "misfortuneTurns"));
   }
 
   const { state: afterRest, wasResting } = consumeRestIfAny(session.misfortune);
