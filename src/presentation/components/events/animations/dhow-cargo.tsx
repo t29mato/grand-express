@@ -81,9 +81,9 @@ export function DhowCargo() {
         <circle cx="307" cy="136" r="5" fill="#6faa4a" />
       </g>
       <g fill="#f5b31c" stroke="#c07f0c" strokeWidth="2">
-        <circle className="dhw-coin-a" cx="252" cy="84" r="8" />
-        <circle className="dhw-coin-b" cx="278" cy="70" r="7" />
-        <circle className="dhw-coin-c" cx="228" cy="70" r="6" />
+        <circle className="dhw-coin-a" cx="150" cy="58" r="8" />
+        <circle className="dhw-coin-b" cx="176" cy="44" r="7" />
+        <circle className="dhw-coin-c" cx="126" cy="44" r="6" />
       </g>
 
       <style>{`
