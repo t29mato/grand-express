@@ -5,7 +5,7 @@ import { GameSession, currentPlayer } from "../../../domain/game-session/game-se
 import { ownsProperty } from "../../../domain/player/player";
 import { incomeAtLevel, sellValueOf, upgradeCost } from "../../../domain/property/property-income-service";
 import { GameEngineContext } from "../../../application/game-engine-context";
-import { stallStockFor } from "../../../application/use-cases/visit-stall/visit-stall.use-case";
+import { stallPriceOf, stallStockFor } from "../../../application/use-cases/visit-stall/visit-stall.use-case";
 import { useLocale } from "../../i18n/locale-context";
 import { CityArt } from "../city/city-art";
 import { formatMoney } from "../../i18n/money-format";
@@ -101,14 +101,16 @@ export function CityModal({
       <div className="shoplist">
         {stock.map((key) => {
           const item = context.content.items.find((i) => i.key === key)!;
-          const canBuy = player.inventory.length < 5 && player.cash.amount >= item.price;
+          // 売値は固定ではない(目的地へ飛ぶアイテムは賞金に連動する)。
+          const price = stallPriceOf(context, session, key).amount;
+          const canBuy = player.inventory.length < 5 && player.cash.amount >= price;
           return (
             <div className="shop" key={key}>
               <span className="e">{item.emoji}</span>
               <div className="info">
                 <div className="nm">{tx(item.name)}</div>
                 <div className="sub">
-                  {tx(item.description)} · {formatMoney(item.price, currency)}
+                  {tx(item.description)} · {formatMoney(price, currency)}
                 </div>
               </div>
               <button disabled={!canBuy} onClick={() => onBuyItem(key)}>

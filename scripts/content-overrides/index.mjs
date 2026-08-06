@@ -50,6 +50,17 @@ const CITY_COORDS = {
   },
 };
 
+/**
+ * legacy のアイテム価格の見直し。
+ *
+ * お守り系(quiz-save)は「クイズに外したときの損失を肩代わりする」だけで、
+ * 損失は最大147。340では**どう転んでも損**なので、割に合う値に下げる。
+ */
+const ITEM_PRICES = {
+  bolivia: { pacha: 130 },
+  japan: { daruma: 130 },
+};
+
 const PROJ_BOUNDS = {
   // 西は石垣・与那国(東経123度台)、南は与那国・竹富(北緯24.3度)まで入れる。
   // legacy は沖縄本島までしか想定しておらず、先島諸島は盤面の外に落ちていた。
@@ -60,6 +71,7 @@ const OVERRIDES = {
   bolivia: {
     land: BOLIVIA_LAND,
     cityCoords: CITY_COORDS.bolivia,
+    itemPrices: ITEM_PRICES.bolivia,
     moneyEvents: BOLIVIA_MONEY_EVENTS,
     boardScale: BOARD_SCALE.bolivia,
     quizDifficulty: QUIZ_DIFFICULTY.bolivia,
@@ -68,6 +80,7 @@ const OVERRIDES = {
     land: JAPAN_LAND,
     boardScale: BOARD_SCALE.japan,
     projBounds: PROJ_BOUNDS.japan,
+    itemPrices: ITEM_PRICES.japan,
     moneyEvents: JAPAN_MONEY_EVENTS,
     removedEdges: JAPAN_REMOVED_EDGES,
     extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES, ...JAPAN_ISLAND_CITIES, ...JAPAN_HOKKAIDO_CITIES },
@@ -153,6 +166,15 @@ export function applyContentOverrides(countryId, content) {
         throw new Error(`${countryId}: 座標を補正しようとした都市 "${id}" がありません`);
       }
       content.cities[id] = { ...city, lo: at.lo ?? city.lo, la: at.la ?? city.la };
+    }
+  }
+
+  if (override.itemPrices && content.items) {
+    for (const [key, price] of Object.entries(override.itemPrices)) {
+      if (!content.items[key]) {
+        throw new Error(`${countryId}: 値を変えようとしたアイテム "${key}" がありません`);
+      }
+      content.items[key] = { ...content.items[key], price };
     }
   }
 

@@ -113,7 +113,8 @@ export const INDIA_ITEMS = {
   },
   panchang: {
     e: "📜",
-    price: 340,
+    // クイズを外したときの損失(最大147)を肩代わりするだけなので、それに見合う値。
+    price: 130,
     kind: "passive",
     n: t("Panchang Almanac|Almanaque panchang|Almanach panchang|パンチャーング(暦)"),
     d: t(
