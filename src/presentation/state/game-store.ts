@@ -48,6 +48,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     resetQuizDeck,
     cancelCpuLoop,
     dismissCpuModal,
+    dismissMoneyEvent,
     finishHumanLandingAndAdvance,
     resolveLandingForHuman,
     dismissSeasonModal,
@@ -284,6 +285,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
 
     dismissSeasonModal,
     dismissNextLeg,
+    dismissMoneyEvent,
 
     save() {
       const { session } = get();

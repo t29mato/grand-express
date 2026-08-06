@@ -1,8 +1,9 @@
-import { CityId, CountryId, ItemKey, QuizQuestionId, RegionId } from "../../domain/shared-kernel/ids";
+import { CityId, CountryId, ItemKey, MoneyEventId, QuizQuestionId, RegionId } from "../../domain/shared-kernel/ids";
 import { City, Edge } from "../../domain/board/city";
 import { CountryProjection } from "../../domain/board/board-projection";
 import { ItemDefinition, ItemEffect } from "../../domain/item/item";
 import { QuizQuestion } from "../../domain/quiz/quiz-question";
+import { MoneyEvent } from "../../domain/board/money-event";
 import { SeasonDefinition } from "../../domain/season/season-effect";
 import { CountryContentPack } from "../../domain/country/country-content-pack";
 import { RawCountryContent } from "./raw-content-schema";
@@ -82,6 +83,18 @@ function mapQuiz(raw: RawCountryContent): QuizQuestion[] {
   }));
 }
 
+function mapMoneyEvents(raw: RawCountryContent): MoneyEvent[] {
+  return raw.moneyEvents.map((event) => ({
+    id: MoneyEventId(event.id),
+    kind: event.kind,
+    regionIds: event.regs.map(RegionId),
+    emoji: event.e,
+    title: event.n,
+    narrative: event.t,
+    amount: event.amount,
+  }));
+}
+
 function mapSeasons(raw: RawCountryContent): SeasonDefinition[] {
   const effectsByMonth = SEASON_EFFECTS_BY_COUNTRY[raw.id];
   if (!effectsByMonth) {
@@ -124,6 +137,7 @@ export function mapRawContentToCountryPack(raw: RawCountryContent): CountryConte
     items: mapItems(raw),
     quiz: mapQuiz(raw),
     seasons: mapSeasons(raw),
+    moneyEvents: mapMoneyEvents(raw),
     doomFlavors: mapDoomFlavors(raw),
     spirit: {
       emoji: raw.spirit.e,

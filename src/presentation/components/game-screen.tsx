@@ -12,6 +12,7 @@ import { IntroModal } from "./modals/intro-modal";
 import { SavedModal } from "./modals/saved-modal";
 import { CpuCityModal } from "./modals/cpu-city-modal";
 import { CpuQuizModal } from "./modals/cpu-quiz-modal";
+import { MoneyEventModal } from "./modals/money-event-modal";
 import { SeasonModal } from "./modals/season-modal";
 import { NextLegModal } from "./modals/next-leg-modal";
 import { QuizModal } from "./modals/quiz-modal";
@@ -41,6 +42,7 @@ export function GameScreen() {
   const dismissNextLeg = useGameStore((s) => s.dismissNextLeg);
   const dismissSavedModal = useGameStore((s) => s.dismissSavedModal);
   const dismissCpuModal = useGameStore((s) => s.dismissCpuModal);
+  const dismissMoneyEvent = useGameStore((s) => s.dismissMoneyEvent);
   const dismissQuizResult = useGameStore((s) => s.dismissQuizResult);
   const diceRoll = useGameStore((s) => s.diceRoll);
   const clearDiceRoll = useGameStore((s) => s.clearDiceRoll);
@@ -113,6 +115,15 @@ export function GameScreen() {
           correct={ui.correct}
           amount={ui.amount}
           onClose={dismissCpuModal}
+        />
+      )}
+      {ui.kind === "money-event" && (
+        <MoneyEventModal
+          playerName={ui.playerName}
+          event={ui.event}
+          amount={ui.amount}
+          gained={ui.gained}
+          onClose={dismissMoneyEvent}
         />
       )}
       {ui.kind === "intro" && <IntroModal context={context} session={session} onDepart={dismissIntro} />}

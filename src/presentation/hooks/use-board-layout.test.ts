@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { CountryId } from "../../domain/shared-kernel/ids";
 import { buildBoardGraph } from "../../domain/board/board-graph-builder";
 import { isCityNode } from "../../domain/board/node";
+import { eventsFor } from "../../domain/board/money-event";
 import { JsonCountryContentRepository } from "../../infrastructure/content/json-country-content-repository";
 import { projectPoint } from "../../domain/board/board-projection";
 
@@ -93,11 +94,30 @@ describe("盤面配置の前提", () => {
     expect(tooClose, `${countryId}: 押し離しても重なる都市の組`).toEqual([]);
   });
 
-  it.each(countries)("%s: 中間マスはクイズかカードのみ(青マス・赤マスは廃止)", async (countryId) => {
+  it.each(countries)("%s: 中間マスは4種類そろっている", async (countryId) => {
     const pack = await repo.load(CountryId(countryId));
     const graph = buildBoardGraph(pack.cities, pack.edges, pack.projection);
     const kinds = new Set<string>();
     for (const node of graph.nodes.values()) if (!isCityNode(node)) kinds.add(node.type);
-    expect([...kinds].sort()).toEqual(["card", "quiz"]);
+    expect([...kinds].sort()).toEqual(["blue", "card", "quiz", "red"]);
+  });
+
+  it.each(countries)("%s: どの地方でも青マス・赤マスの出来事を引ける", async (countryId) => {
+    // 出来事が1つも無い地方があると、そのマスに止まった時点で手番が止まる。
+    const pack = await repo.load(CountryId(countryId));
+    for (const regionId of pack.regions.keys()) {
+      for (const kind of ["gain", "loss"] as const) {
+        expect(
+          eventsFor(pack.moneyEvents, kind, regionId).length,
+          `${countryId}/${regionId}/${kind}`,
+        ).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it.each(countries)("%s: 出来事のIDが重複していない", async (countryId) => {
+    const pack = await repo.load(CountryId(countryId));
+    const ids = pack.moneyEvents.map((e) => e.id);
+    expect(new Set(ids).size, `${countryId}: 出来事IDの重複`).toBe(ids.length);
   });
 });

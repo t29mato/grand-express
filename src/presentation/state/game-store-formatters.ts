@@ -97,6 +97,14 @@ export function describeCpuTurn(
             : logEntry("quizNoLog", [playerName, money(landing.outcome.amount.amount)], "bad"),
         );
         break;
+      case "money":
+        return [
+          logEntry(
+            landing.outcome.gained ? "blueLog" : "redLog",
+            [playerName, money(landing.outcome.amount.amount)],
+            landing.outcome.gained ? "good" : "bad",
+          ),
+        ];
       case "card": {
         const item = landing.outcome.itemKey
           ? context.content.items.find((i) => i.key === landing.outcome.itemKey)

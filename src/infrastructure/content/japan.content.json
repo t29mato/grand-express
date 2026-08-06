@@ -41,13 +41,13 @@
     "ツバメ Tsubame"
   ],
   "proj": {
-    "BW": 3425,
-    "BH": 3736,
-    "LON0": 122.8,
+    "BW": 2384,
+    "BH": 2669,
+    "LON0": 123.4,
     "LON1": 146.5,
     "LAT0": 45.8,
     "LAT1": 23.8,
-    "seg": 118
+    "seg": 84
   },
   "sea": "#16263f",
   "seaWave": "#1e3555",
@@ -1112,58 +1112,6 @@
       [
         123.68,
         24.42
-      ]
-    ],
-    [
-      [
-        127.28,
-        26.24
-      ],
-      [
-        127.4,
-        26.23
-      ],
-      [
-        127.42,
-        26.13
-      ],
-      [
-        127.32,
-        26.1
-      ],
-      [
-        127.24,
-        26.16
-      ],
-      [
-        127.28,
-        26.24
-      ]
-    ],
-    [
-      [
-        122.93,
-        24.48
-      ],
-      [
-        123.05,
-        24.48
-      ],
-      [
-        123.08,
-        24.42
-      ],
-      [
-        122.98,
-        24.4
-      ],
-      [
-        122.9,
-        24.44
-      ],
-      [
-        122.93,
-        24.48
       ]
     ]
   ],
@@ -5369,3712 +5317,28 @@
           "inc": 44
         }
       ]
-    },
-    "hirosaki": {
-      "n": {
-        "en": "Hirosaki",
-        "es": "Hirosaki",
-        "fr": "Hirosaki",
-        "ja": "弘前"
-      },
-      "lo": 140.46,
-      "la": 40.6,
-      "reg": "nor",
-      "mark": "castle_white",
-      "bg": "castletown",
-      "lp": "l",
-      "tag": {
-        "en": "Cherry trees pruned like apple trees",
-        "es": "Cerezos podados como manzanos",
-        "fr": "Des cerisiers taillés comme des pommiers",
-        "ja": "林檎のように剪定される桜"
-      },
-      "fact": {
-        "en": "Local growers apply apple-pruning techniques to the castle's 2,600 cherry trees, which is why they flower far more densely than usual. Aomori prefecture grows over half of Japan's apples.",
-        "es": "Los cultivadores aplican técnicas de poda de manzano a los 2.600 cerezos del castillo, por eso florecen mucho más densos. Aomori produce más de la mitad de las manzanas de Japón.",
-        "fr": "Les producteurs appliquent la taille du pommier aux 2 600 cerisiers du château, d'où leur floraison bien plus dense. Aomori produit plus de la moitié des pommes du Japon.",
-        "ja": "弘前公園の2600本の桜は、林檎の剪定技術で手入れされるため花付きが格段に密になる。青森県は日本の林檎の半分以上を産する。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Castle Cherry Park",
-            "es": "Parque del castillo",
-            "fr": "Parc du château",
-            "ja": "弘前公園"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "Apple Orchard",
-            "es": "Manzanar",
-            "fr": "Verger de pommiers",
-            "ja": "林檎園"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "hachinohe": {
-      "n": {
-        "en": "Hachinohe",
-        "es": "Hachinohe",
-        "fr": "Hachinohe",
-        "ja": "八戸"
-      },
-      "lo": 141.49,
-      "la": 40.51,
-      "reg": "nor",
-      "mark": "katsuo",
-      "bg": "port",
-      "lp": "r",
-      "tag": {
-        "en": "The biggest morning market in Japan",
-        "es": "El mayor mercado matinal de Japón",
-        "fr": "Le plus grand marché du matin du Japon",
-        "ja": "日本最大の朝市"
-      },
-      "fact": {
-        "en": "On Sunday mornings 300 stalls line 800 m of riverbank from before dawn, selling everything from squid to secondhand tools. The port's squid catch was long the largest in the country.",
-        "es": "Los domingos, 300 puestos ocupan 800 m de ribera desde antes del alba. La captura de calamar de este puerto fue mucho tiempo la mayor del país.",
-        "fr": "Le dimanche, 300 étals occupent 800 m de berge avant l'aube. Le port fut longtemps le premier du pays pour le calmar.",
-        "ja": "日曜の朝、夜明け前から800mの河川敷に300の露店が並ぶ。烏賊の水揚げは長らく日本一だった。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Riverbank Market",
-            "es": "Mercado del río",
-            "fr": "Marché de la berge",
-            "ja": "館鼻岸壁朝市"
-          },
-          "cost": 270,
-          "inc": 56
-        },
-        {
-          "n": {
-            "en": "Squid Fishing Boat",
-            "es": "Barco calamarero",
-            "fr": "Bateau à calmars",
-            "ja": "烏賊釣り船"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "oga": {
-      "n": {
-        "en": "Oga",
-        "es": "Oga",
-        "fr": "Oga",
-        "ja": "男鹿"
-      },
-      "lo": 139.85,
-      "la": 39.89,
-      "reg": "nor",
-      "mark": "nebuta",
-      "bg": "seaside",
-      "lp": "l",
-      "tag": {
-        "en": "Demons who visit on New Year's Eve",
-        "es": "Demonios que visitan en Nochevieja",
-        "fr": "Des démons en visite le soir du Nouvel An",
-        "ja": "大晦日に来る鬼"
-      },
-      "fact": {
-        "en": "On 31 December men in straw capes and demon masks burst into homes shouting for lazy children, and are then fed and sent on their way politely. The custom, called namahage, is registered with UNESCO.",
-        "es": "El 31 de diciembre, hombres con capas de paja y máscaras de demonio irrumpen en las casas buscando niños perezosos. La costumbre, namahage, está en la lista de la UNESCO.",
-        "fr": "Le 31 décembre, des hommes en capes de paille et masques de démon font irruption chez l'habitant en réclamant les enfants paresseux. Cette coutume, le namahage, est inscrite à l'UNESCO.",
-        "ja": "大晦日、藁の蓑と鬼の面をまとった男たちが「泣く子はいねが」と家々に押し入り、もてなされて帰る。なまはげはユネスコの無形文化遺産である。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Namahage Hall",
-            "es": "Sala del namahage",
-            "fr": "Salle du namahage",
-            "ja": "なまはげ館"
-          },
-          "cost": 270,
-          "inc": 56
-        },
-        {
-          "n": {
-            "en": "Cape Lighthouse",
-            "es": "Faro del cabo",
-            "fr": "Phare du cap",
-            "ja": "入道崎の灯台"
-          },
-          "cost": 240,
-          "inc": 50
-        }
-      ]
-    },
-    "kakunodate": {
-      "n": {
-        "en": "Kakunodate",
-        "es": "Kakunodate",
-        "fr": "Kakunodate",
-        "ja": "角館"
-      },
-      "lo": 140.56,
-      "la": 39.6,
-      "reg": "nor",
-      "mark": "castle_green",
-      "bg": "castletown",
-      "lp": "r",
-      "tag": {
-        "en": "Samurai streets under weeping cherries",
-        "es": "Calles samurái bajo cerezos llorones",
-        "fr": "Rues de samouraïs sous les cerisiers pleureurs",
-        "ja": "武家屋敷と枝垂れ桜"
-      },
-      "fact": {
-        "en": "Six samurai houses stand on their original plots behind dark wooden walls, some still lived in by descendants. The weeping cherries along the street were brought from Kyoto as a bride's dowry in the 1650s.",
-        "es": "Seis casas samurái siguen en sus parcelas originales tras muros de madera oscura. Los cerezos llorones llegaron de Kioto como dote de una novia hacia 1650.",
-        "fr": "Six maisons de samouraïs occupent leurs parcelles d'origine derrière des murs de bois sombre. Les cerisiers pleureurs vinrent de Kyoto en dot vers 1650.",
-        "ja": "黒板塀の奥に六軒の武家屋敷が当時の敷地のまま残り、子孫が住む家もある。通りの枝垂れ桜は1650年代、京から嫁入り道具として持ち込まれた。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Samurai Residence",
-            "es": "Residencia samurái",
-            "fr": "Résidence de samouraï",
-            "ja": "武家屋敷"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "Cherry Bark Craft",
-            "es": "Artesanía de corteza",
-            "fr": "Artisanat d'écorce",
-            "ja": "樺細工の店"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "hiraizumi": {
-      "n": {
-        "en": "Hiraizumi",
-        "es": "Hiraizumi",
-        "fr": "Hiraizumi",
-        "ja": "平泉"
-      },
-      "lo": 141.11,
-      "la": 38.99,
-      "reg": "nor",
-      "mark": "torii_gold",
-      "bg": "forest",
-      "lp": "r",
-      "tag": {
-        "en": "A golden hall built on gold dust",
-        "es": "Un salón dorado hecho con oro",
-        "fr": "Une salle d'or bâtie sur la poudre d'or",
-        "ja": "砂金が築いた金色堂"
-      },
-      "fact": {
-        "en": "For a century the Ōshū Fujiwara used local gold to build a rival capital here, and their 1124 golden hall survives with its lacquer and mother-of-pearl intact. The poet Bashō stood on the ruins and wrote of summer grass.",
-        "es": "Durante un siglo los Fujiwara del norte usaron oro local para levantar una capital rival; su salón dorado de 1124 conserva laca y nácar.",
-        "fr": "Un siècle durant, les Fujiwara du Nord bâtirent avec l'or local une capitale rivale ; leur salle d'or de 1124 garde laque et nacre.",
-        "ja": "奥州藤原氏は一世紀にわたり産金でここに都を築き、1124年の金色堂は漆と螺鈿を保ったまま残る。芭蕉はその跡に立ち「夏草や」の句を残した。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Golden Hall",
-            "es": "Salón dorado",
-            "fr": "Salle d'or",
-            "ja": "金色堂"
-          },
-          "cost": 320,
-          "inc": 66
-        },
-        {
-          "n": {
-            "en": "Pure Land Garden",
-            "es": "Jardín de la Tierra Pura",
-            "fr": "Jardin de la Terre pure",
-            "ja": "浄土庭園"
-          },
-          "cost": 270,
-          "inc": 56
-        }
-      ]
-    },
-    "matsushima": {
-      "n": {
-        "en": "Matsushima",
-        "es": "Matsushima",
-        "fr": "Matsushima",
-        "ja": "松島"
-      },
-      "lo": 141.06,
-      "la": 38.37,
-      "reg": "nor",
-      "mark": "torii_wood",
-      "bg": "seaside",
-      "lp": "r",
-      "tag": {
-        "en": "Two hundred and sixty pine islands",
-        "es": "Doscientas sesenta islas de pinos",
-        "fr": "Deux cent soixante îles de pins",
-        "ja": "二百六十の松の島"
-      },
-      "fact": {
-        "en": "The bay is scattered with pine-topped islets, counted as one of Japan's three most famous views since 1643. Those same islands broke the force of the 2011 tsunami and left the town far less damaged than its neighbours.",
-        "es": "La bahía está sembrada de islotes con pinos, una de las tres vistas más célebres de Japón desde 1643. Esas islas amortiguaron el tsunami de 2011.",
-        "fr": "La baie est parsemée d'îlots couronnés de pins, l'une des trois vues les plus célèbres du Japon depuis 1643. Ces îles brisèrent la force du tsunami de 2011.",
-        "ja": "松を頂く小島が湾に散らばり、1643年以来「日本三景」のひとつに数えられる。その島々が2011年の津波の力を弱め、被害を近隣より小さくした。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Bay Cruise Boat",
-            "es": "Barco de la bahía",
-            "fr": "Bateau de la baie",
-            "ja": "湾内の遊覧船"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Oyster Hut",
-            "es": "Chiringuito de ostras",
-            "fr": "Cabane à huîtres",
-            "ja": "牡蠣小屋"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "ginzan": {
-      "n": {
-        "en": "Ginzan Onsen",
-        "es": "Ginzan Onsen",
-        "fr": "Ginzan Onsen",
-        "ja": "銀山温泉"
-      },
-      "lo": 140.53,
-      "la": 38.57,
-      "reg": "nor",
-      "mark": "onsen",
-      "bg": "snowcity",
-      "lp": "l",
-      "tag": {
-        "en": "Gas lamps on a snowbound street",
-        "es": "Faroles de gas en la nieve",
-        "fr": "Réverbères à gaz sous la neige",
-        "ja": "雪の街に灯るガス灯"
-      },
-      "fact": {
-        "en": "Wooden inns three and four storeys high face each other across a narrow river, lit by gas lamps after dark. The village grew around a silver mine that closed in the 1600s, leaving only the hot springs behind.",
-        "es": "Posadas de madera de tres y cuatro pisos se miran sobre un río estrecho, iluminadas por faroles de gas. El pueblo creció junto a una mina de plata cerrada en el siglo XVII.",
-        "fr": "Des auberges de bois de trois ou quatre étages se font face au-dessus d'une rivière étroite, éclairées au gaz. Le village naquit d'une mine d'argent fermée au XVIIe siècle.",
-        "ja": "三、四階建ての木造旅館が細い川を挟んで向かい合い、日が暮れるとガス灯が灯る。17世紀に閉じた銀山の集落が、湯だけを残して残った。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Wooden Ryokan",
-            "es": "Ryokan de madera",
-            "fr": "Ryokan de bois",
-            "ja": "木造の旅館"
-          },
-          "cost": 300,
-          "inc": 62
-        },
-        {
-          "n": {
-            "en": "Gas Lamp Street",
-            "es": "Calle de faroles",
-            "fr": "Rue des réverbères",
-            "ja": "ガス灯の通り"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "zao": {
-      "n": {
-        "en": "Zaō",
-        "es": "Zaō",
-        "fr": "Zaō",
-        "ja": "蔵王"
-      },
-      "lo": 140.44,
-      "la": 38.14,
-      "reg": "nor",
-      "mark": "fuji",
-      "bg": "snowcity",
-      "lp": "r",
-      "tag": {
-        "en": "Trees frozen into standing monsters",
-        "es": "Árboles helados como monstruos",
-        "fr": "Des arbres gelés en monstres",
-        "ja": "樹氷という名の怪物"
-      },
-      "fact": {
-        "en": "Wet wind off the Sea of Japan freezes onto fir trees layer by layer until they become white shapes called snow monsters. In summer a crater lake on the same mountain changes colour from green to turquoise.",
-        "es": "El viento húmedo del mar del Japón congela los abetos capa a capa hasta convertirlos en «monstruos de nieve». En verano, un lago de cráter cambia de verde a turquesa.",
-        "fr": "Le vent humide de la mer du Japon givre les sapins couche après couche jusqu'à en faire des « monstres de neige ». L'été, un lac de cratère vire du vert au turquoise.",
-        "ja": "日本海からの湿った風が樹に凍りつき、層を重ねて白い「樹氷」になる。同じ山の火口湖は夏、緑から碧へと色を変える。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Snow Monster Ropeway",
-            "es": "Teleférico de los monstruos",
-            "fr": "Téléphérique des monstres",
-            "ja": "樹氷のロープウェイ"
-          },
-          "cost": 300,
-          "inc": 62
-        },
-        {
-          "n": {
-            "en": "Crater Lake Trail",
-            "es": "Sendero del cráter",
-            "fr": "Sentier du cratère",
-            "ja": "御釜への道"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "tono": {
-      "n": {
-        "en": "Tōno",
-        "es": "Tōno",
-        "fr": "Tōno",
-        "ja": "遠野"
-      },
-      "lo": 141.53,
-      "la": 39.33,
-      "reg": "nor",
-      "mark": "ricebale",
-      "bg": "ricefield",
-      "lp": "l",
-      "tag": {
-        "en": "The valley where the folk tales live",
-        "es": "El valle de los cuentos populares",
-        "fr": "La vallée des contes populaires",
-        "ja": "民話の里"
-      },
-      "fact": {
-        "en": "A collection of 119 local legends published in 1910 turned this basin into the home of Japanese folklore, full of river imps and horse-headed spirits. Farmhouses here were built with the stable inside the living quarters.",
-        "es": "Una colección de 119 leyendas publicada en 1910 hizo de esta cuenca la patria del folclore japonés. Sus granjas tenían el establo dentro de la vivienda.",
-        "fr": "Un recueil de 119 légendes publié en 1910 fit de ce bassin le foyer du folklore japonais. Les fermes y abritaient l'écurie dans l'habitation.",
-        "ja": "1910年に刊行された119話の伝承集が、この盆地を日本民俗学の故郷にした。河童や座敷童子の話が伝わり、農家は馬屋を母屋の中に持つ曲り家である。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "L-shaped Farmhouse",
-            "es": "Granja en L",
-            "fr": "Ferme en L",
-            "ja": "曲り家"
-          },
-          "cost": 260,
-          "inc": 54
-        },
-        {
-          "n": {
-            "en": "Kappa Pool",
-            "es": "Charca del kappa",
-            "fr": "Mare du kappa",
-            "ja": "カッパ淵"
-          },
-          "cost": 230,
-          "inc": 48
-        }
-      ]
-    },
-    "osorezan": {
-      "n": {
-        "en": "Osorezan",
-        "es": "Osorezan",
-        "fr": "Osorezan",
-        "ja": "恐山"
-      },
-      "lo": 141.09,
-      "la": 41.32,
-      "reg": "nor",
-      "mark": "torii_wood",
-      "bg": "volcano",
-      "lp": "r",
-      "tag": {
-        "en": "A volcanic valley taken for the afterlife",
-        "es": "Un valle volcánico visto como el más allá",
-        "fr": "Une vallée volcanique prise pour l'au-delà",
-        "ja": "この世の果てとされた火山"
-      },
-      "fact": {
-        "en": "Sulphur vents, bleached rock and a milky lake made people see this crater as the border of the next world. Blind mediums called itako still gather here each July to pass on messages from the dead.",
-        "es": "Fumarolas, roca blanqueada y un lago lechoso hicieron ver este cráter como el umbral del más allá. Médiums ciegas, las itako, se reúnen cada julio.",
-        "fr": "Fumerolles, roches blanchies et lac laiteux firent voir ce cratère comme le seuil de l'au-delà. Des médiums aveugles, les itako, s'y réunissent chaque juillet.",
-        "ja": "硫黄の噴気と白く焼けた岩と乳白の湖が、この火口を「あの世の入口」と見せた。今も七月には、イタコと呼ばれる盲目の巫女が集まり口寄せをする。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Temple Lodging",
-            "es": "Alojamiento del templo",
-            "fr": "Logement du temple",
-            "ja": "寺の宿坊"
-          },
-          "cost": 260,
-          "inc": 54
-        },
-        {
-          "n": {
-            "en": "Crater Hot Spring",
-            "es": "Termas del cráter",
-            "fr": "Source du cratère",
-            "ja": "境内の温泉"
-          },
-          "cost": 240,
-          "inc": 50
-        }
-      ]
-    },
-    "sakata": {
-      "n": {
-        "en": "Sakata",
-        "es": "Sakata",
-        "fr": "Sakata",
-        "ja": "酒田"
-      },
-      "lo": 139.84,
-      "la": 38.91,
-      "reg": "nor",
-      "mark": "ricebale",
-      "bg": "port",
-      "lp": "l",
-      "tag": {
-        "en": "The port that shipped rice to Edo",
-        "es": "El puerto que llevaba arroz a Edo",
-        "fr": "Le port qui expédiait le riz vers Edo",
-        "ja": "江戸へ米を送った港"
-      },
-      "fact": {
-        "en": "Cargo ships rounded the whole country from here to Osaka and Edo, and for a time the town's merchants were richer than most lords. Twelve black-walled rice warehouses from 1893 still stand behind a row of zelkova trees.",
-        "es": "Sus barcos rodeaban el país hasta Osaka y Edo, y sus comerciantes llegaron a ser más ricos que muchos señores. Doce almacenes de arroz de 1893 siguen en pie.",
-        "fr": "Ses navires contournaient le pays jusqu'à Osaka et Edo ; ses marchands furent plus riches que bien des seigneurs. Douze entrepôts à riz de 1893 subsistent.",
-        "ja": "北前船はここから日本を回って大坂・江戸へ向かい、町の商人は大名より富んだ時期もある。1893年の黒壁の米蔵十二棟が、欅並木の奥に今も残る。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Rice Warehouse Row",
-            "es": "Almacenes de arroz",
-            "fr": "Entrepôts à riz",
-            "ja": "山居倉庫"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Merchant Mansion",
-            "es": "Casa del comerciante",
-            "fr": "Demeure de marchand",
-            "ja": "本間家旧本邸"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "tsuruoka": {
-      "n": {
-        "en": "Tsuruoka",
-        "es": "Tsuruoka",
-        "fr": "Tsuruoka",
-        "ja": "鶴岡"
-      },
-      "lo": 139.83,
-      "la": 38.73,
-      "reg": "nor",
-      "mark": "pagoda",
-      "bg": "forest",
-      "lp": "l",
-      "tag": {
-        "en": "Three mountains for past, present and future",
-        "es": "Tres montes: pasado, presente y futuro",
-        "fr": "Trois monts : passé, présent, avenir",
-        "ja": "過去・現在・未来の三山"
-      },
-      "fact": {
-        "en": "Pilgrims walk the Dewa Sanzan in order, each mountain standing for one life: the one lived, the one now, and the one to come. Mountain ascetics here also preserve a vegetarian temple cuisine using wild plants.",
-        "es": "Los peregrinos recorren los Dewa Sanzan en orden: cada monte representa una vida, la pasada, la presente y la futura.",
-        "fr": "Les pèlerins parcourent les Dewa Sanzan dans l'ordre : chaque mont figure une vie — passée, présente, à venir.",
-        "ja": "出羽三山は順に巡るもので、それぞれ過去・現在・未来の生を表す。山伏に伝わる山菜の精進料理も受け継がれている。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Cedar Avenue Pagoda",
-            "es": "Pagoda de los cedros",
-            "fr": "Pagode des cèdres",
-            "ja": "杉並木の五重塔"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "Temple Cuisine Inn",
-            "es": "Posada de cocina de templo",
-            "fr": "Auberge de cuisine monacale",
-            "ja": "精進料理の宿坊"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "ouchijuku": {
-      "n": {
-        "en": "Ōuchi-juku",
-        "es": "Ōuchi-juku",
-        "fr": "Ōuchi-juku",
-        "ja": "大内宿"
-      },
-      "lo": 139.86,
-      "la": 37.31,
-      "reg": "nor",
-      "mark": "castle_green",
-      "bg": "snowcity",
-      "lp": "r",
-      "tag": {
-        "en": "Thatched roofs along an old highway",
-        "es": "Techos de paja en un camino antiguo",
-        "fr": "Toits de chaume le long d'une vieille route",
-        "ja": "街道沿いの茅葺き"
-      },
-      "fact": {
-        "en": "Some thirty thatched houses face each other along a single unpaved street, kept as they were when this was a stop on the road to Aizu. Soba here is traditionally eaten using a spring onion instead of chopsticks.",
-        "es": "Una treintena de casas de paja se alinean en una calle sin asfaltar, tal como cuando era parada del camino a Aizu. La soba se come con un puerro en vez de palillos.",
-        "fr": "Une trentaine de maisons de chaume bordent une rue non pavée, comme au temps où c'était une étape vers Aizu. On y mange la soba avec un poireau en guise de baguettes.",
-        "ja": "三十軒ほどの茅葺き民家が未舗装の一本道に向かい合う。会津へ向かう街道の宿場そのままの姿で、蕎麦は箸の代わりに一本の葱で食べる。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Thatched Teahouse",
-            "es": "Casa de té de paja",
-            "fr": "Maison de thé de chaume",
-            "ja": "茅葺きの茶屋"
-          },
-          "cost": 260,
-          "inc": 54
-        },
-        {
-          "n": {
-            "en": "Negi Soba Shop",
-            "es": "Casa de soba con puerro",
-            "fr": "Maison de soba au poireau",
-            "ja": "ねぎそばの店"
-          },
-          "cost": 240,
-          "inc": 50
-        }
-      ]
-    },
-    "iwaki": {
-      "n": {
-        "en": "Iwaki",
-        "es": "Iwaki",
-        "fr": "Iwaki",
-        "ja": "いわき"
-      },
-      "lo": 140.89,
-      "la": 37.05,
-      "reg": "nor",
-      "mark": "onsen",
-      "bg": "coasttown",
-      "lp": "r",
-      "tag": {
-        "en": "A coal town that built a tropical resort",
-        "es": "Una mina que hizo un balneario tropical",
-        "fr": "Une ville minière devenue station tropicale",
-        "ja": "炭鉱が造った常夏の街"
-      },
-      "fact": {
-        "en": "When the coal mines closed in the 1960s the company used the hot water flooding the shafts to open a Hawaiian-themed spa, and retrained miners' daughters as dancers. It still runs, and the story became a well-known film.",
-        "es": "Al cerrar las minas en los 60, la empresa usó el agua caliente de los pozos para abrir un balneario hawaiano y formó a las hijas de los mineros como bailarinas.",
-        "fr": "À la fermeture des mines dans les années 1960, l'entreprise utilisa l'eau chaude des puits pour ouvrir un spa hawaïen et forma les filles de mineurs comme danseuses.",
-        "ja": "1960年代に炭鉱が閉じると、坑内に湧く温水を使ってハワイアンの温泉施設を開き、炭鉱の娘たちをダンサーとして育てた。今も続き、映画にもなった。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Hula Stage",
-            "es": "Escenario de hula",
-            "fr": "Scène de hula",
-            "ja": "フラのステージ"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "Aquarium",
-            "es": "Acuario",
-            "fr": "Aquarium",
-            "ja": "水族館"
-          },
-          "cost": 270,
-          "inc": 56
-        }
-      ]
-    },
-    "tsukuba": {
-      "n": {
-        "en": "Tsukuba",
-        "es": "Tsukuba",
-        "fr": "Tsukuba",
-        "ja": "つくば"
-      },
-      "lo": 140.11,
-      "la": 36.08,
-      "reg": "kan",
-      "mark": "star5",
-      "bg": "citygreen",
-      "lp": "r",
-      "tag": {
-        "en": "A city built for science",
-        "es": "Una ciudad hecha para la ciencia",
-        "fr": "Une ville bâtie pour la science",
-        "ja": "科学のために造られた街"
-      },
-      "fact": {
-        "en": "The government moved dozens of national laboratories out of Tokyo to this planned city in the 1970s. Japan's astronauts train here, and the rockets are controlled from the same campus.",
-        "es": "El gobierno trasladó decenas de laboratorios nacionales desde Tokio a esta ciudad planificada en los años 70. Aquí entrenan los astronautas japoneses y se controlan los cohetes.",
-        "fr": "L'État a déplacé des dizaines de laboratoires nationaux de Tokyo vers cette ville planifiée dans les années 1970. Les astronautes japonais s'y entraînent et les fusées y sont pilotées.",
-        "ja": "1970年代、政府は数十の国立研究機関を東京からこの計画都市へ移した。日本の宇宙飛行士はここで訓練し、ロケットの管制も同じ敷地から行われる。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Space Centre",
-            "es": "Centro espacial",
-            "fr": "Centre spatial",
-            "ja": "宇宙センター"
-          },
-          "cost": 340,
-          "inc": 70
-        },
-        {
-          "n": {
-            "en": "Mountain Cable Car",
-            "es": "Funicular del monte",
-            "fr": "Funiculaire du mont",
-            "ja": "筑波山のケーブルカー"
-          },
-          "cost": 240,
-          "inc": 50
-        }
-      ]
-    },
-    "oarai": {
-      "n": {
-        "en": "Ōarai",
-        "es": "Ōarai",
-        "fr": "Ōarai",
-        "ja": "大洗"
-      },
-      "lo": 140.57,
-      "la": 36.31,
-      "reg": "kan",
-      "mark": "torii_wood",
-      "bg": "seaside",
-      "lp": "r",
-      "tag": {
-        "en": "A torii gate standing in the waves",
-        "es": "Un torii en pie entre las olas",
-        "fr": "Un torii dressé dans les vagues",
-        "ja": "波間に立つ鳥居"
-      },
-      "fact": {
-        "en": "The Kamiiso torii stands on a rock in the sea, and on clear mornings the sun rises exactly through it. The town's ferries run overnight to Hokkaidō, and its fish market is known for monkfish stew in winter.",
-        "es": "El torii de Kamiiso se alza sobre una roca en el mar y en mañanas claras el sol sale justo a través de él. Sus ferris cruzan de noche a Hokkaidō.",
-        "fr": "Le torii de Kamiiso se dresse sur un rocher dans la mer et, par temps clair, le soleil s'y lève exactement au centre. Ses ferries rejoignent Hokkaidō de nuit.",
-        "ja": "神磯の鳥居は海の岩の上に立ち、晴れた朝には日がその真ん中から昇る。港からは北海道へ夜行のフェリーが出て、冬はあんこう鍋で知られる。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Sunrise Torii",
-            "es": "Torii del amanecer",
-            "fr": "Torii de l'aurore",
-            "ja": "神磯の鳥居"
-          },
-          "cost": 260,
-          "inc": 54
-        },
-        {
-          "n": {
-            "en": "Ferry Terminal",
-            "es": "Terminal de ferris",
-            "fr": "Gare maritime",
-            "ja": "フェリーターミナル"
-          },
-          "cost": 280,
-          "inc": 58
-        }
-      ]
-    },
-    "utsunomiya": {
-      "n": {
-        "en": "Utsunomiya",
-        "es": "Utsunomiya",
-        "fr": "Utsunomiya",
-        "ja": "宇都宮"
-      },
-      "lo": 139.88,
-      "la": 36.56,
-      "reg": "kan",
-      "mark": "yatai",
-      "bg": "castletown",
-      "lp": "l",
-      "tag": {
-        "en": "Dumplings and an underground quarry",
-        "es": "Empanadillas y una cantera subterránea",
-        "fr": "Raviolis et une carrière souterraine",
-        "ja": "餃子と地下の石切場"
-      },
-      "fact": {
-        "en": "This city eats more gyōza dumplings per household than anywhere else in Japan and has a monument to them outside the station. Nearby, a stone quarry worked for a century left a cathedral-sized hall 30 m underground.",
-        "es": "Aquí se comen más gyōza por hogar que en ningún otro sitio de Japón. Cerca, una cantera trabajada un siglo dejó una sala del tamaño de una catedral a 30 m bajo tierra.",
-        "fr": "On y mange plus de gyōza par foyer que partout ailleurs au Japon. Non loin, une carrière exploitée un siècle a laissé une salle grande comme une cathédrale à 30 m sous terre.",
-        "ja": "一世帯あたりの餃子消費量が日本一で、駅前には餃子の像がある。近郊では一世紀にわたる石切りが、地下30mに大聖堂ほどの空間を残した。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Gyōza Alley",
-            "es": "Callejón del gyōza",
-            "fr": "Ruelle des gyōza",
-            "ja": "餃子の通り"
-          },
-          "cost": 260,
-          "inc": 54
-        },
-        {
-          "n": {
-            "en": "Underground Quarry",
-            "es": "Cantera subterránea",
-            "fr": "Carrière souterraine",
-            "ja": "大谷石の地下採石場"
-          },
-          "cost": 290,
-          "inc": 60
-        }
-      ]
-    },
-    "hitachi": {
-      "n": {
-        "en": "Hitachi Seaside",
-        "es": "Costa de Hitachi",
-        "fr": "Côte de Hitachi",
-        "ja": "ひたち海浜"
-      },
-      "lo": 140.6,
-      "la": 36.4,
-      "reg": "kan",
-      "mark": "garden",
-      "bg": "coasttown",
-      "lp": "r",
-      "tag": {
-        "en": "A hill that turns blue each May",
-        "es": "Una colina que azulea cada mayo",
-        "fr": "Une colline qui bleuit chaque mai",
-        "ja": "五月に青くなる丘"
-      },
-      "fact": {
-        "en": "Four and a half million baby-blue-eyes flowers open on one hill in late April, turning it the same colour as the sky behind it. The same hill is scarlet with kochia bushes in October.",
-        "es": "Cuatro millones y medio de nemophilas cubren una colina a finales de abril, del mismo azul que el cielo. En octubre la misma colina enrojece con arbustos de kochia.",
-        "fr": "Quatre millions et demi de némophiles fleurissent sur une colline fin avril, du même bleu que le ciel. En octobre, la même colline rougit de kochias.",
-        "ja": "4月下旬、450万本のネモフィラが丘を覆い、背後の空と同じ色になる。同じ丘は10月にはコキアで真っ赤に染まる。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Flower Hill",
-            "es": "Colina florida",
-            "fr": "Colline fleurie",
-            "ja": "みはらしの丘"
-          },
-          "cost": 300,
-          "inc": 62
-        },
-        {
-          "n": {
-            "en": "Seaside Ferris Wheel",
-            "es": "Noria junto al mar",
-            "fr": "Grande roue du bord de mer",
-            "ja": "海浜の観覧車"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "tomioka": {
-      "n": {
-        "en": "Tomioka",
-        "es": "Tomioka",
-        "fr": "Tomioka",
-        "ja": "富岡"
-      },
-      "lo": 138.89,
-      "la": 36.25,
-      "reg": "kan",
-      "mark": "steam",
-      "bg": "ricefield",
-      "lp": "l",
-      "tag": {
-        "en": "The mill that paid for a modern country",
-        "es": "La fábrica que pagó un país moderno",
-        "fr": "La filature qui paya un pays moderne",
-        "ja": "近代化を支えた製糸場"
-      },
-      "fact": {
-        "en": "Japan's first mechanised silk mill opened here in 1872 with French engineers and 400 young women from across the country. Raw silk was Japan's biggest export for decades and funded much of its industrialisation.",
-        "es": "La primera hilandería mecánica de Japón abrió aquí en 1872 con ingenieros franceses y 400 jóvenes de todo el país. La seda fue su mayor exportación durante décadas.",
-        "fr": "La première filature mécanisée du Japon ouvrit ici en 1872 avec des ingénieurs français et 400 jeunes femmes venues de tout le pays. La soie grège fut des décennies durant sa première exportation.",
-        "ja": "1872年、フランス人技師と全国から集めた400人の女性で、日本初の機械製糸場が開業した。生糸は何十年も最大の輸出品で、工業化の資金を支えた。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Silk Reeling Hall",
-            "es": "Nave de hilado",
-            "fr": "Halle de filature",
-            "ja": "繰糸場"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "Brick Warehouse",
-            "es": "Almacén de ladrillo",
-            "fr": "Entrepôt de brique",
-            "ja": "煉瓦の繭倉庫"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "chichibu": {
-      "n": {
-        "en": "Chichibu",
-        "es": "Chichibu",
-        "fr": "Chichibu",
-        "ja": "秩父"
-      },
-      "lo": 139.08,
-      "la": 35.99,
-      "reg": "kan",
-      "mark": "torii_gold",
-      "bg": "valley2",
-      "lp": "l",
-      "tag": {
-        "en": "Floats and fireworks in December",
-        "es": "Carrozas y fuegos en diciembre",
-        "fr": "Chars et feux d'artifice en décembre",
-        "ja": "師走の屋台と花火"
-      },
-      "fact": {
-        "en": "On 3 December six huge wooden floats are hauled up a slope by ropes while fireworks go off overhead — one of Japan's three great float festivals. The valley is also known for shibazakura carpets and ice curtains in winter.",
-        "es": "El 3 de diciembre seis enormes carrozas de madera suben una cuesta a cuerda entre fuegos artificiales, una de las tres grandes fiestas de carrozas de Japón.",
-        "fr": "Le 3 décembre, six chars de bois géants sont hissés à la corde sur une pente sous les feux d'artifice — l'une des trois grandes fêtes de chars du Japon.",
-        "ja": "12月3日、六台の大きな屋台が綱で坂を曳き上げられ、頭上には花火が上がる。日本三大曳山祭のひとつ。芝桜と冬の氷柱でも知られる。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Night Festival Float",
-            "es": "Carroza nocturna",
-            "fr": "Char de la fête de nuit",
-            "ja": "夜祭の屋台"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Gorge Boat Ride",
-            "es": "Paseo por el desfiladero",
-            "fr": "Descente des gorges",
-            "ja": "長瀞の川下り"
-          },
-          "cost": 240,
-          "inc": 50
-        }
-      ]
-    },
-    "narita": {
-      "n": {
-        "en": "Narita",
-        "es": "Narita",
-        "fr": "Narita",
-        "ja": "成田"
-      },
-      "lo": 140.32,
-      "la": 35.78,
-      "reg": "kan",
-      "mark": "pagoda",
-      "bg": "forest",
-      "lp": "r",
-      "tag": {
-        "en": "A thousand-year temple beside the runway",
-        "es": "Un templo milenario junto a la pista",
-        "fr": "Un temple millénaire près des pistes",
-        "ja": "滑走路の隣の千年の寺"
-      },
-      "fact": {
-        "en": "Naritasan temple has been drawing pilgrims since 940, and the old approach street still sells grilled eel from open kitchens. The country's main international airport was built on farmland next door in 1978 after years of protest.",
-        "es": "El templo Naritasan atrae peregrinos desde el año 940 y su calle de acceso aún asa anguila a la vista. El principal aeropuerto internacional se construyó al lado en 1978.",
-        "fr": "Le temple Naritasan attire les pèlerins depuis 940 et sa rue d'accès grille encore l'anguille à la vue de tous. Le principal aéroport international fut bâti à côté en 1978.",
-        "ja": "成田山は940年から参詣を集め、表参道では今も店先で鰻を焼く。隣接する農地には1978年、長い反対運動を経て日本の玄関口となる空港が造られた。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Temple Approach",
-            "es": "Calle del templo",
-            "fr": "Rue du temple",
-            "ja": "表参道"
-          },
-          "cost": 270,
-          "inc": 56
-        },
-        {
-          "n": {
-            "en": "Airport Hotel",
-            "es": "Hotel del aeropuerto",
-            "fr": "Hôtel d'aéroport",
-            "ja": "空港のホテル"
-          },
-          "cost": 300,
-          "inc": 62
-        }
-      ]
-    },
-    "sawara": {
-      "n": {
-        "en": "Sawara",
-        "es": "Sawara",
-        "fr": "Sawara",
-        "ja": "佐原"
-      },
-      "lo": 140.5,
-      "la": 35.89,
-      "reg": "kan",
-      "mark": "castle_white",
-      "bg": "ricefield",
-      "lp": "l",
-      "tag": {
-        "en": "The man who mapped Japan on foot",
-        "es": "El hombre que midió Japón a pie",
-        "fr": "L'homme qui cartographia le Japon à pied",
-        "ja": "歩いて日本を測った男の町"
-      },
-      "fact": {
-        "en": "Inō Tadataka retired as a merchant here at 49, then walked 40,000 km surveying the coast; his 1821 map was accurate enough for use into the 20th century. Willow-lined canals and Edo-period shops still line the water.",
-        "es": "Inō Tadataka se retiró aquí como comerciante a los 49 y luego recorrió 40.000 km midiendo la costa; su mapa de 1821 se usó hasta el siglo XX.",
-        "fr": "Inō Tadataka, marchand retiré ici à 49 ans, parcourut ensuite 40 000 km pour lever les côtes ; sa carte de 1821 servit jusqu'au XXe siècle.",
-        "ja": "伊能忠敬は49歳でこの町の商いを退いたのち、4万kmを歩いて海岸を測量した。1821年の地図は20世紀まで使えるほど正確だった。柳の運河沿いに江戸期の商家が残る。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Canal Merchant House",
-            "es": "Casa del canal",
-            "fr": "Maison du canal",
-            "ja": "小野川の商家"
-          },
-          "cost": 260,
-          "inc": 54
-        },
-        {
-          "n": {
-            "en": "Surveyor's Museum",
-            "es": "Museo del cartógrafo",
-            "fr": "Musée du géomètre",
-            "ja": "伊能忠敬記念館"
-          },
-          "cost": 240,
-          "inc": 50
-        }
-      ]
-    },
-    "yokosuka": {
-      "n": {
-        "en": "Yokosuka",
-        "es": "Yokosuka",
-        "fr": "Yokosuka",
-        "ja": "横須賀"
-      },
-      "lo": 139.67,
-      "la": 35.28,
-      "reg": "kan",
-      "mark": "steam",
-      "bg": "port",
-      "lp": "r",
-      "tag": {
-        "en": "Where the black ships anchored",
-        "es": "Donde fondearon los barcos negros",
-        "fr": "Où mouillèrent les navires noirs",
-        "ja": "黒船が停泊した湾"
-      },
-      "fact": {
-        "en": "Commodore Perry's steam warships anchored off this coast in 1853 and ended two centuries of near-total isolation within a year. The naval yard built afterwards is still a working base, and navy curry is the local dish.",
-        "es": "Los buques de vapor de Perry fondearon aquí en 1853 y en un año acabaron con dos siglos de aislamiento. El arsenal levantado después sigue en uso.",
-        "fr": "Les vapeurs de guerre de Perry mouillèrent ici en 1853 et mirent fin en un an à deux siècles d'isolement. L'arsenal bâti ensuite reste une base active.",
-        "ja": "1853年、ペリーの蒸気軍艦がこの沖に停泊し、1年のうちに二世紀の鎖国が終わった。その後に築かれた造船所は今も現役の基地で、海軍カレーが名物である。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Dry Dock",
-            "es": "Dique seco",
-            "fr": "Cale sèche",
-            "ja": "ドライドック"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Navy Curry House",
-            "es": "Casa del curry naval",
-            "fr": "Maison du curry naval",
-            "ja": "海軍カレーの店"
-          },
-          "cost": 240,
-          "inc": 50
-        }
-      ]
-    },
-    "odawara": {
-      "n": {
-        "en": "Odawara",
-        "es": "Odawara",
-        "fr": "Odawara",
-        "ja": "小田原"
-      },
-      "lo": 139.15,
-      "la": 35.26,
-      "reg": "kan",
-      "mark": "castle_white",
-      "bg": "castletown",
-      "lp": "l",
-      "tag": {
-        "en": "A castle that held out for a century",
-        "es": "Un castillo que resistió un siglo",
-        "fr": "Un château qui tint un siècle",
-        "ja": "一世紀持ちこたえた城"
-      },
-      "fact": {
-        "en": "The Hōjō clan ruled the Kantō plain from here for a hundred years until Hideyoshi besieged the town with 200,000 men in 1590. The fish-paste kamaboko sold at the station was invented to preserve the day's catch.",
-        "es": "Los Hōjō gobernaron la llanura de Kantō cien años desde aquí, hasta que Hideyoshi la sitió con 200.000 hombres en 1590.",
-        "fr": "Les Hōjō gouvernèrent la plaine du Kantō un siècle depuis ce château, jusqu'au siège d'Hideyoshi et ses 200 000 hommes en 1590.",
-        "ja": "北条氏はここから百年にわたり関東平野を治めたが、1590年に秀吉が20万の兵で包囲した。駅で売られる蒲鉾は、その日の漁を保たせるために生まれた。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Castle Keep",
-            "es": "Torre del homenaje",
-            "fr": "Donjon",
-            "ja": "天守閣"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "Fish Paste Works",
-            "es": "Fábrica de kamaboko",
-            "fr": "Fabrique de kamaboko",
-            "ja": "蒲鉾の工房"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "enoshima": {
-      "n": {
-        "en": "Enoshima",
-        "es": "Enoshima",
-        "fr": "Enoshima",
-        "ja": "江ノ島"
-      },
-      "lo": 139.48,
-      "la": 35.3,
-      "reg": "kan",
-      "mark": "torii_wood",
-      "bg": "seaside",
-      "lp": "b",
-      "tag": {
-        "en": "An island you can walk to",
-        "es": "Una isla a la que se llega a pie",
-        "fr": "Une île où l'on va à pied",
-        "ja": "歩いて渡れる島"
-      },
-      "fact": {
-        "en": "A bridge and a causeway link this rocky island to the beach, and a shrine to the goddess of music has stood on it since 552. On winter afternoons Mount Fuji sits directly behind it across the bay.",
-        "es": "Un puente une esta isla rocosa a la playa, y desde el año 552 hay un santuario a la diosa de la música. En tardes de invierno el Fuji aparece justo detrás.",
-        "fr": "Un pont relie cette île rocheuse à la plage ; un sanctuaire à la déesse de la musique s'y dresse depuis 552. Les après-midi d'hiver, le Fuji se dresse juste derrière.",
-        "ja": "橋と砂州でつながる岩の島。552年から音楽の女神を祀る社がある。冬の午後には、湾の向こうに富士山が真後ろに立つ。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Island Shrine",
-            "es": "Santuario de la isla",
-            "fr": "Sanctuaire de l'île",
-            "ja": "江島神社"
-          },
-          "cost": 270,
-          "inc": 56
-        },
-        {
-          "n": {
-            "en": "Beach Boardwalk",
-            "es": "Paseo de la playa",
-            "fr": "Promenade de plage",
-            "ja": "海岸の遊歩道"
-          },
-          "cost": 240,
-          "inc": 50
-        }
-      ]
-    },
-    "fujiyoshida": {
-      "n": {
-        "en": "Fujiyoshida",
-        "es": "Fujiyoshida",
-        "fr": "Fujiyoshida",
-        "ja": "富士吉田"
-      },
-      "lo": 138.81,
-      "la": 35.49,
-      "reg": "kan",
-      "mark": "fuji",
-      "bg": "fujiview",
-      "lp": "l",
-      "tag": {
-        "en": "The classic view of Mount Fuji",
-        "es": "La vista clásica del Fuji",
-        "fr": "La vue classique du mont Fuji",
-        "ja": "富士山の定番の眺め"
-      },
-      "fact": {
-        "en": "A five-storey pagoda on a hillside staircase frames Mount Fuji in the shot that appears on half the posters about Japan. The town sits at the mountain's northern foot and is the traditional start of the climbing route.",
-        "es": "Una pagoda de cinco pisos enmarca el Fuji en la imagen que aparece en medio los carteles sobre Japón. El pueblo está al pie norte del monte.",
-        "fr": "Une pagode à cinq étages encadre le mont Fuji dans le cliché qui orne la moitié des affiches sur le Japon. La ville est au pied nord de la montagne.",
-        "ja": "石段の上の五重塔が富士山を切り取る、日本の観光ポスターの定番となった構図。町は富士北麓にあり、古くからの登拝口でもある。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Pagoda Viewpoint",
-            "es": "Mirador de la pagoda",
-            "fr": "Belvédère de la pagode",
-            "ja": "忠霊塔の展望"
-          },
-          "cost": 300,
-          "inc": 62
-        },
-        {
-          "n": {
-            "en": "Udon Shop Row",
-            "es": "Calle de udon",
-            "fr": "Rue des udon",
-            "ja": "吉田うどんの店並び"
-          },
-          "cost": 230,
-          "inc": 48
-        }
-      ]
-    },
-    "atami": {
-      "n": {
-        "en": "Atami",
-        "es": "Atami",
-        "fr": "Atami",
-        "ja": "熱海"
-      },
-      "lo": 139.07,
-      "la": 35.1,
-      "reg": "kan",
-      "mark": "onsen",
-      "bg": "coasttown",
-      "lp": "r",
-      "tag": {
-        "en": "Hot springs that rise from the sea floor",
-        "es": "Aguas termales del fondo marino",
-        "fr": "Des sources chaudes venues du fond marin",
-        "ja": "海底から湧く湯"
-      },
-      "fact": {
-        "en": "The name means \"hot sea\": springs once bubbled up offshore and were piped ashore in the 1500s. Tokyo is fifty minutes away by bullet train, which made this the archetypal weekend hot-spring town.",
-        "es": "El nombre significa «mar caliente»: los manantiales brotaban mar adentro y se canalizaron a tierra en el siglo XVI. Tokio queda a cincuenta minutos en tren bala.",
-        "fr": "Le nom signifie « mer chaude » : les sources jaillissaient au large et furent canalisées vers la côte au XVIe siècle. Tokyo est à cinquante minutes en Shinkansen.",
-        "ja": "地名は「熱い海」。かつて沖で湧いていた湯を、16世紀に陸へ引いた。東京から新幹線で50分という近さが、週末の温泉町の原型をつくった。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Cliffside Ryokan",
-            "es": "Ryokan del acantilado",
-            "fr": "Ryokan de la falaise",
-            "ja": "崖の上の旅館"
-          },
-          "cost": 300,
-          "inc": 62
-        },
-        {
-          "n": {
-            "en": "Seafront Fireworks",
-            "es": "Fuegos junto al mar",
-            "fr": "Feux d'artifice du littoral",
-            "ja": "海上花火"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "shimoda": {
-      "n": {
-        "en": "Shimoda",
-        "es": "Shimoda",
-        "fr": "Shimoda",
-        "ja": "下田"
-      },
-      "lo": 138.94,
-      "la": 34.68,
-      "reg": "kan",
-      "mark": "church",
-      "bg": "seaside",
-      "lp": "l",
-      "tag": {
-        "en": "The first port opened to the world",
-        "es": "El primer puerto abierto al mundo",
-        "fr": "Le premier port ouvert au monde",
-        "ja": "最初に開かれた港"
-      },
-      "fact": {
-        "en": "The 1854 treaty that ended Japan's isolation named this small harbour as one of two ports foreigners could enter. The first American consul lived here, and the town keeps the temple where the treaty was signed.",
-        "es": "El tratado de 1854 que acabó con el aislamiento nombró este pequeño puerto como uno de los dos abiertos a extranjeros.",
-        "fr": "Le traité de 1854 qui mit fin à l'isolement désigna ce petit port comme l'un des deux ouverts aux étrangers.",
-        "ja": "鎖国を終わらせた1854年の条約は、この小さな港を外国人が入れる二港のひとつに指定した。初代アメリカ総領事が住み、調印の寺が今も残る。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Treaty Temple",
-            "es": "Templo del tratado",
-            "fr": "Temple du traité",
-            "ja": "了仙寺"
-          },
-          "cost": 260,
-          "inc": 54
-        },
-        {
-          "n": {
-            "en": "Black Ship Cruise",
-            "es": "Crucero del barco negro",
-            "fr": "Croisière du navire noir",
-            "ja": "黒船の遊覧船"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "suwa": {
-      "n": {
-        "en": "Suwa",
-        "es": "Suwa",
-        "fr": "Suwa",
-        "ja": "諏訪"
-      },
-      "lo": 138.11,
-      "la": 36.04,
-      "reg": "kan",
-      "mark": "torii_wood",
-      "bg": "alps",
-      "lp": "l",
-      "tag": {
-        "en": "Riding tree trunks down a mountain",
-        "es": "Bajar troncos montaña abajo",
-        "fr": "Descendre à cheval sur des troncs",
-        "ja": "巨木にまたがって坂を下る"
-      },
-      "fact": {
-        "en": "Every six years men ride sixteen huge fir trunks down a steep slope to renew the shrine's pillars, and people are sometimes killed doing it. In cold winters the frozen lake cracks into a ridge said to be the path of a god.",
-        "es": "Cada seis años, hombres bajan dieciséis troncos enormes por una ladera para renovar los pilares del santuario. En inviernos fríos el lago helado se agrieta en una cresta.",
-        "fr": "Tous les six ans, des hommes dévalent une pente à cheval sur seize troncs de sapin pour renouveler les piliers du sanctuaire. Par grand froid, le lac gelé se fissure en une crête.",
-        "ja": "六年に一度、十六本の大木にまたがって急坂を下り、社の御柱を建て替える。死者が出ることもある。厳冬には凍った湖が盛り上がり、神の通り道と語られる。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Pillar Festival Slope",
-            "es": "Cuesta de los pilares",
-            "fr": "Pente des piliers",
-            "ja": "木落し坂"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Lakeside Onsen",
-            "es": "Onsen del lago",
-            "fr": "Onsen du lac",
-            "ja": "湖畔の温泉"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "kamikochi": {
-      "n": {
-        "en": "Kamikōchi",
-        "es": "Kamikōchi",
-        "fr": "Kamikōchi",
-        "ja": "上高地"
-      },
-      "lo": 137.63,
-      "la": 36.25,
-      "reg": "kan",
-      "mark": "fuji",
-      "bg": "alps",
-      "lp": "l",
-      "tag": {
-        "en": "The valley that named the Japan Alps",
-        "es": "El valle que dio nombre a los Alpes japoneses",
-        "fr": "La vallée qui nomma les Alpes japonaises",
-        "ja": "日本アルプスの名の谷"
-      },
-      "fact": {
-        "en": "A British missionary who climbed here in the 1890s popularised the name \"Japan Alps\", and a peak is named after him. No private cars are allowed in, so the valley stays quiet enough to hear the river.",
-        "es": "Un misionero británico que escaló aquí en los 1890 popularizó el nombre «Alpes japoneses». No se permiten coches privados.",
-        "fr": "Un missionnaire britannique venu grimper ici vers 1890 popularisa le nom d'« Alpes japonaises ». Les voitures particulières y sont interdites.",
-        "ja": "1890年代にここを登った英国人宣教師が「日本アルプス」の名を広め、山のひとつに彼の名が付いた。自家用車は入れないため、川音が聞こえる静けさが保たれている。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Alpine Lodge",
-            "es": "Refugio alpino",
-            "fr": "Refuge alpin",
-            "ja": "山のロッジ"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "River Suspension Bridge",
-            "es": "Puente colgante",
-            "fr": "Pont suspendu",
-            "ja": "河童橋"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "karuizawa": {
-      "n": {
-        "en": "Karuizawa",
-        "es": "Karuizawa",
-        "fr": "Karuizawa",
-        "ja": "軽井沢"
-      },
-      "lo": 138.6,
-      "la": 36.35,
-      "reg": "kan",
-      "mark": "church",
-      "bg": "forest",
-      "lp": "r",
-      "tag": {
-        "en": "A post town turned summer retreat",
-        "es": "Una posta vuelta refugio veraniego",
-        "fr": "Un relais devenu villégiature",
-        "ja": "宿場町から避暑地へ"
-      },
-      "fact": {
-        "en": "A Canadian missionary rented an old post-town house here in 1886 to escape the summer heat, and the idea caught on with Tokyo's elite. The larch woods now hide hundreds of villas and a stone church built in 1895.",
-        "es": "Un misionero canadiense alquiló aquí una casa de posta en 1886 para huir del calor, y la idea prendió entre la élite de Tokio.",
-        "fr": "Un missionnaire canadien loua ici une maison de relais en 1886 pour fuir la chaleur ; l'idée séduisit l'élite de Tokyo.",
-        "ja": "1886年、カナダ人宣教師が避暑のため宿場の古家を借り、それが東京の富裕層に広まった。落葉松の林に数百の別荘と1895年の石の教会が隠れている。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Forest Villa",
-            "es": "Villa del bosque",
-            "fr": "Villa forestière",
-            "ja": "林の別荘"
-          },
-          "cost": 310,
-          "inc": 64
-        },
-        {
-          "n": {
-            "en": "Old Post Road Shops",
-            "es": "Tiendas del camino",
-            "fr": "Boutiques de l'ancienne route",
-            "ja": "旧道の商店"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "nagano": {
-      "n": {
-        "en": "Nagano",
-        "es": "Nagano",
-        "fr": "Nagano",
-        "ja": "長野"
-      },
-      "lo": 138.19,
-      "la": 36.65,
-      "reg": "kan",
-      "mark": "buddha",
-      "bg": "castletown",
-      "lp": "r",
-      "tag": {
-        "en": "A temple older than the sects",
-        "es": "Un templo anterior a las sectas",
-        "fr": "Un temple antérieur aux sectes",
-        "ja": "宗派より古い寺"
-      },
-      "fact": {
-        "en": "Zenkō-ji was founded before Buddhism split into Japanese sects, so it belongs to none of them and welcomes everyone. A pitch-dark passage under the main hall lets visitors grope for a key said to guarantee salvation.",
-        "es": "Zenkō-ji se fundó antes de que el budismo se dividiera en sectas japonesas, así que no pertenece a ninguna. Un pasadizo a oscuras bajo el salón esconde una llave.",
-        "fr": "Zenkō-ji fut fondé avant la division du bouddhisme japonais en sectes : il n'appartient à aucune. Un passage plongé dans le noir cache une clé sous la grande salle.",
-        "ja": "善光寺は日本の宗派が分かれる前に建てられたため、どの宗派にも属さず誰でも受け入れる。本堂の下の真っ暗な回廊では、極楽の錠前を手探りで探す。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Temple Main Hall",
-            "es": "Salón principal",
-            "fr": "Grande salle",
-            "ja": "本堂"
-          },
-          "cost": 300,
-          "inc": 62
-        },
-        {
-          "n": {
-            "en": "Soba Restaurant Row",
-            "es": "Calle de soba",
-            "fr": "Rue des soba",
-            "ja": "門前のそば屋"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "shirakawago": {
-      "n": {
-        "en": "Shirakawa-gō",
-        "es": "Shirakawa-gō",
-        "fr": "Shirakawa-gō",
-        "ja": "白川郷"
-      },
-      "lo": 136.9,
-      "la": 36.26,
-      "reg": "kan",
-      "mark": "castle_green",
-      "bg": "valley2",
-      "lp": "l",
-      "tag": {
-        "en": "Roofs steep enough to shed the snow",
-        "es": "Tejados que descargan la nieve",
-        "fr": "Des toits assez pentus pour la neige",
-        "ja": "雪を落とすための急な屋根"
-      },
-      "fact": {
-        "en": "The thatched roofs are pitched at 60 degrees to shed up to four metres of snow, and the whole village re-thatches each house in turn. The attics under them were used for silkworm rearing, which paid for the timber.",
-        "es": "Los tejados de paja tienen 60 grados para descargar hasta cuatro metros de nieve, y el pueblo entero rehace cada casa por turno.",
-        "fr": "Les toits de chaume à 60 degrés évacuent jusqu'à quatre mètres de neige ; tout le village refait chaque maison à tour de rôle.",
-        "ja": "茅葺きの屋根は4mの雪を落とすため60度に葺かれ、村総出で順に葺き替える。屋根裏では養蚕が営まれ、それが建材の費用を賄った。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Gasshō Farmhouse",
-            "es": "Casa gasshō",
-            "fr": "Ferme gasshō",
-            "ja": "合掌造りの家"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "Hilltop Viewpoint",
-            "es": "Mirador del cerro",
-            "fr": "Belvédère",
-            "ja": "荻町城跡の展望台"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "gujo": {
-      "n": {
-        "en": "Gujō Hachiman",
-        "es": "Gujō Hachiman",
-        "fr": "Gujō Hachiman",
-        "ja": "郡上八幡"
-      },
-      "lo": 136.96,
-      "la": 35.75,
-      "reg": "kan",
-      "mark": "castle_white",
-      "bg": "valley2",
-      "lp": "r",
-      "tag": {
-        "en": "Dancing until sunrise in August",
-        "es": "Bailar hasta el amanecer en agosto",
-        "fr": "Danser jusqu'à l'aube en août",
-        "ja": "夜通し踊る八月"
-      },
-      "fact": {
-        "en": "The town's Obon dance runs for thirty-odd nights each summer, and on four of them everyone dances straight through until dawn. Spring water runs through channels along the streets, and shops still keep fish in them.",
-        "es": "La danza de Obon dura treinta y tantas noches cada verano y en cuatro de ellas se baila hasta el amanecer. Agua de manantial corre por canales en las calles.",
-        "fr": "La danse d'Obon dure une trentaine de nuits chaque été, dont quatre jusqu'à l'aube. L'eau de source court dans des canaux le long des rues.",
-        "ja": "盆踊りはひと夏に三十数夜つづき、うち四夜は夜明けまで踊り明かす。街路には湧き水の水路が流れ、店先ではそこで魚を活かしている。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Dance Ground",
-            "es": "Plaza del baile",
-            "fr": "Place de la danse",
-            "ja": "踊りの会場"
-          },
-          "cost": 270,
-          "inc": 56
-        },
-        {
-          "n": {
-            "en": "Water Channel House",
-            "es": "Casa del canal",
-            "fr": "Maison du canal",
-            "ja": "水路沿いの町家"
-          },
-          "cost": 240,
-          "inc": 50
-        }
-      ]
-    },
-    "inuyama": {
-      "n": {
-        "en": "Inuyama",
-        "es": "Inuyama",
-        "fr": "Inuyama",
-        "ja": "犬山"
-      },
-      "lo": 136.94,
-      "la": 35.38,
-      "reg": "kan",
-      "mark": "castle_black",
-      "bg": "castletown",
-      "lp": "r",
-      "tag": {
-        "en": "The oldest keep still standing",
-        "es": "La torre más antigua en pie",
-        "fr": "Le plus vieux donjon debout",
-        "ja": "現存最古の天守"
-      },
-      "fact": {
-        "en": "Its castle keep dates from 1537 and is one of only twelve in Japan that were never rebuilt. Until 2004 it was the last castle in the country still privately owned, by the family that had held it since 1618.",
-        "es": "Su torre data de 1537 y es una de las doce de Japón nunca reconstruidas. Hasta 2004 fue el último castillo en manos privadas.",
-        "fr": "Son donjon date de 1537 : l'un des douze au Japon jamais reconstruits. Jusqu'en 2004, ce fut le dernier château en mains privées.",
-        "ja": "天守は1537年のもので、再建されていない12の現存天守のひとつ。2004年まで、1618年以来の一族が所有する日本最後の私有城だった。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Original Keep",
-            "es": "Torre original",
-            "fr": "Donjon d'origine",
-            "ja": "現存天守"
-          },
-          "cost": 300,
-          "inc": 62
-        },
-        {
-          "n": {
-            "en": "Cormorant Fishing Boat",
-            "es": "Barca de cormoranes",
-            "fr": "Barque aux cormorans",
-            "ja": "鵜飼の舟"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "gifu": {
-      "n": {
-        "en": "Gifu",
-        "es": "Gifu",
-        "fr": "Gifu",
-        "ja": "岐阜"
-      },
-      "lo": 136.76,
-      "la": 35.42,
-      "reg": "kan",
-      "mark": "castle_black",
-      "bg": "ricefield",
-      "lp": "l",
-      "tag": {
-        "en": "Fishing with birds on a leash",
-        "es": "Pescar con aves atadas",
-        "fr": "Pêcher avec des oiseaux en laisse",
-        "ja": "鵜を綱で操る漁"
-      },
-      "fact": {
-        "en": "Cormorant fishing on the Nagara river has been practised here for 1,300 years, and the fishermen hold the imperial household's appointment. They work at night by firelight, with twelve birds on cords in each hand.",
-        "es": "La pesca con cormoranes en el río Nagara se practica desde hace 1.300 años; los pescadores tienen nombramiento imperial y trabajan de noche a la luz del fuego.",
-        "fr": "La pêche au cormoran sur la Nagara se pratique depuis 1 300 ans ; les pêcheurs sont nommés par la Maison impériale et opèrent de nuit à la lueur du feu.",
-        "ja": "長良川の鵜飼は1300年続き、鵜匠は宮内庁の職を持つ。かがり火のもと、片手に六羽ずつ十二羽の綱をさばいて漁をする。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Cormorant Master's House",
-            "es": "Casa del maestro",
-            "fr": "Maison du maître",
-            "ja": "鵜匠の家"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Paper Lantern Workshop",
-            "es": "Taller de farolillos",
-            "fr": "Atelier de lanternes",
-            "ja": "岐阜提灯の工房"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "hamamatsu": {
-      "n": {
-        "en": "Hamamatsu",
-        "es": "Hamamatsu",
-        "fr": "Hamamatsu",
-        "ja": "浜松"
-      },
-      "lo": 137.73,
-      "la": 34.71,
-      "reg": "kan",
-      "mark": "kettle",
-      "bg": "coasttown",
-      "lp": "r",
-      "tag": {
-        "en": "Pianos, motorbikes and giant kites",
-        "es": "Pianos, motos y cometas gigantes",
-        "fr": "Pianos, motos et cerfs-volants géants",
-        "ja": "ピアノとバイクと大凧"
-      },
-      "fact": {
-        "en": "Yamaha, Kawai, Honda and Suzuki all began in this one city, which still makes most of Japan's pianos. Each May teams fly house-sized kites against each other on the dunes, trying to saw through rivals' lines.",
-        "es": "Yamaha, Kawai, Honda y Suzuki nacieron en esta ciudad, que aún fabrica la mayoría de los pianos de Japón. Cada mayo se enfrentan cometas del tamaño de una casa.",
-        "fr": "Yamaha, Kawai, Honda et Suzuki y sont nés ; la ville produit encore la plupart des pianos du Japon. Chaque mai, des cerfs-volants grands comme des maisons s'affrontent.",
-        "ja": "ヤマハ・カワイ・ホンダ・スズキがいずれもこの街で生まれ、今も日本のピアノの多くを作る。五月には家ほどの大凧を揚げ、糸を擦り切って競い合う。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Piano Factory",
-            "es": "Fábrica de pianos",
-            "fr": "Fabrique de pianos",
-            "ja": "ピアノ工場"
-          },
-          "cost": 310,
-          "inc": 64
-        },
-        {
-          "n": {
-            "en": "Kite Battle Dunes",
-            "es": "Dunas de las cometas",
-            "fr": "Dunes des cerfs-volants",
-            "ja": "大凧の会場"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "wajima": {
-      "n": {
-        "en": "Wajima",
-        "es": "Wajima",
-        "fr": "Wajima",
-        "ja": "輪島"
-      },
-      "lo": 136.9,
-      "la": 37.39,
-      "reg": "kan",
-      "mark": "kettle",
-      "bg": "seaside",
-      "lp": "l",
-      "tag": {
-        "en": "Lacquer built up in a hundred coats",
-        "es": "Laca en cien capas",
-        "fr": "Laque en cent couches",
-        "ja": "百工程を重ねる漆"
-      },
-      "fact": {
-        "en": "Wajima lacquerware passes through more than a hundred steps and several craftspeople before it is finished, and the undercoat mixes in local diatomaceous earth for strength. A morning market has been held on the same street for over a thousand years.",
-        "es": "La laca de Wajima pasa por más de cien pasos y varios artesanos. Un mercado matinal se celebra en la misma calle desde hace más de mil años.",
-        "fr": "La laque de Wajima passe par plus de cent étapes et plusieurs artisans. Un marché du matin se tient dans la même rue depuis plus de mille ans.",
-        "ja": "輪島塗は百を超える工程と複数の職人の手を経て仕上がり、下地には地元の珪藻土を混ぜて丈夫にする。同じ通りで千年以上、朝市が立ってきた。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Lacquer Workshop",
-            "es": "Taller de laca",
-            "fr": "Atelier de laque",
-            "ja": "漆の工房"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "Morning Market Street",
-            "es": "Calle del mercado",
-            "fr": "Rue du marché",
-            "ja": "朝市通り"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "tsumago": {
-      "n": {
-        "en": "Tsumago",
-        "es": "Tsumago",
-        "fr": "Tsumago",
-        "ja": "妻籠"
-      },
-      "lo": 137.6,
-      "la": 35.58,
-      "reg": "kan",
-      "mark": "castle_green",
-      "bg": "forest",
-      "lp": "l",
-      "tag": {
-        "en": "A post town that refused to modernise",
-        "es": "Una posta que rehusó modernizarse",
-        "fr": "Un relais qui refusa la modernité",
-        "ja": "近代化を拒んだ宿場"
-      },
-      "fact": {
-        "en": "When the railway bypassed it the town was left poor and unchanged, and in the 1960s residents agreed never to sell, rent or destroy their old houses. Power lines are buried and vending machines hidden behind wood.",
-        "es": "Cuando el ferrocarril la evitó, el pueblo quedó pobre e intacto; en los 60 sus vecinos acordaron no vender ni destruir sus casas antiguas.",
-        "fr": "Contournée par le chemin de fer, la ville resta pauvre et intacte ; dans les années 1960, ses habitants jurèrent de ne jamais vendre ni détruire leurs vieilles maisons.",
-        "ja": "鉄道が通らなかったため貧しいまま姿を留め、1960年代に住民は「売らない・貸さない・壊さない」を申し合わせた。電線は地中に埋め、自販機は木で覆われている。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Post Inn",
-            "es": "Posada del camino",
-            "fr": "Auberge de relais",
-            "ja": "宿場の旅籠"
-          },
-          "cost": 270,
-          "inc": 56
-        },
-        {
-          "n": {
-            "en": "Nakasendō Trail Hut",
-            "es": "Refugio del Nakasendō",
-            "fr": "Halte du Nakasendō",
-            "ja": "中山道の休み処"
-          },
-          "cost": 230,
-          "inc": 48
-        }
-      ]
-    },
-    "kobe": {
-      "n": {
-        "en": "Kobe",
-        "es": "Kobe",
-        "fr": "Kōbe",
-        "ja": "神戸"
-      },
-      "lo": 135.19,
-      "la": 34.69,
-      "reg": "kin",
-      "mark": "church",
-      "bg": "port",
-      "lp": "l",
-      "tag": {
-        "en": "Foreign houses on a hillside",
-        "es": "Casas extranjeras en la ladera",
-        "fr": "Maisons étrangères à flanc de coteau",
-        "ja": "山手の異人館"
-      },
-      "fact": {
-        "en": "Merchants from Europe and America settled on the slope above the port after 1868 and left rows of Western houses still open to visitors. The 1995 earthquake killed over 6,000 people here and reshaped Japan's disaster planning.",
-        "es": "Comerciantes europeos y americanos se instalaron sobre el puerto tras 1868 y dejaron casas occidentales aún visitables. El terremoto de 1995 mató a más de 6.000 personas.",
-        "fr": "Des marchands d'Europe et d'Amérique s'installèrent au-dessus du port après 1868, laissant des maisons occidentales encore visitables. Le séisme de 1995 y fit plus de 6 000 morts.",
-        "ja": "1868年以降、欧米の商人が港を見下ろす斜面に住み、今も公開される洋館の並びを残した。1995年の震災では6000人以上が亡くなり、日本の防災を作り変えた。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Hillside Western House",
-            "es": "Casa occidental",
-            "fr": "Maison occidentale",
-            "ja": "北野の異人館"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "Harbour Tower",
-            "es": "Torre del puerto",
-            "fr": "Tour du port",
-            "ja": "ポートタワー"
-          },
-          "cost": 280,
-          "inc": 58
-        }
-      ]
-    },
-    "sakai": {
-      "n": {
-        "en": "Sakai",
-        "es": "Sakai",
-        "fr": "Sakai",
-        "ja": "堺"
-      },
-      "lo": 135.48,
-      "la": 34.57,
-      "reg": "kin",
-      "mark": "castle_stone",
-      "bg": "citygreen",
-      "lp": "r",
-      "tag": {
-        "en": "A tomb larger than any pyramid",
-        "es": "Una tumba mayor que cualquier pirámide",
-        "fr": "Un tombeau plus vaste qu'une pyramide",
-        "ja": "ピラミッドより大きい墓"
-      },
-      "fact": {
-        "en": "The keyhole-shaped Nintoku tomb covers a bigger area than the Great Pyramid and can only really be seen from the air. The city's swordsmiths later turned to kitchen knives, and still make most of those used by Japanese chefs.",
-        "es": "La tumba de Nintoku, en forma de ojo de cerradura, ocupa más superficie que la Gran Pirámide. Sus espaderos pasaron a los cuchillos de cocina.",
-        "fr": "Le tombeau de Nintoku, en trou de serrure, couvre plus de surface que la grande pyramide. Ses forgerons d'épées se tournèrent vers les couteaux de cuisine.",
-        "ja": "前方後円墳の仁徳天皇陵は、面積ではクフ王のピラミッドを上回り、空からでないと形が分からない。刀鍛冶は包丁づくりに転じ、今も和包丁の多くを作る。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Keyhole Tomb Viewpoint",
-            "es": "Mirador del túmulo",
-            "fr": "Belvédère du tombeau",
-            "ja": "古墳の展望"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Knife Smithy",
-            "es": "Forja de cuchillos",
-            "fr": "Coutellerie",
-            "ja": "堺の刃物工房"
-          },
-          "cost": 270,
-          "inc": 56
-        }
-      ]
-    },
-    "uji": {
-      "n": {
-        "en": "Uji",
-        "es": "Uji",
-        "fr": "Uji",
-        "ja": "宇治"
-      },
-      "lo": 135.8,
-      "la": 34.89,
-      "reg": "kin",
-      "mark": "torii_gold",
-      "bg": "oldcapital",
-      "lp": "r",
-      "tag": {
-        "en": "The building on the ten-yen coin",
-        "es": "El edificio de la moneda de diez yenes",
-        "fr": "Le bâtiment de la pièce de dix yens",
-        "ja": "十円玉の建物"
-      },
-      "fact": {
-        "en": "The Phoenix Hall of Byōdō-in, built in 1053 as a nobleman's idea of paradise, appears on every ten-yen coin. The town has grown tea since the 1200s and its shaded matcha is still the standard for the tea ceremony.",
-        "es": "El Salón del Fénix del Byōdō-in, de 1053, aparece en cada moneda de diez yenes. La ciudad cultiva té desde el siglo XIII.",
-        "fr": "Le pavillon du Phénix du Byōdō-in, bâti en 1053, figure sur chaque pièce de dix yens. La ville cultive le thé depuis le XIIIe siècle.",
-        "ja": "1053年に貴族が極楽を模して建てた平等院鳳凰堂は、十円玉に描かれている。宇治は13世紀から茶を育て、覆下の抹茶は今も茶の湯の基準である。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Phoenix Hall",
-            "es": "Salón del Fénix",
-            "fr": "Pavillon du Phénix",
-            "ja": "鳳凰堂"
-          },
-          "cost": 310,
-          "inc": 64
-        },
-        {
-          "n": {
-            "en": "Matcha Tea House",
-            "es": "Casa de matcha",
-            "fr": "Maison de matcha",
-            "ja": "抹茶の茶屋"
-          },
-          "cost": 270,
-          "inc": 56
-        }
-      ]
-    },
-    "wakayama": {
-      "n": {
-        "en": "Wakayama",
-        "es": "Wakayama",
-        "fr": "Wakayama",
-        "ja": "和歌山"
-      },
-      "lo": 135.17,
-      "la": 34.23,
-      "reg": "kin",
-      "mark": "castle_white",
-      "bg": "castletown",
-      "lp": "l",
-      "tag": {
-        "en": "Castle, oranges and a cat stationmaster",
-        "es": "Castillo, naranjas y una gata jefa",
-        "fr": "Château, oranges et une chatte cheffe de gare",
-        "ja": "城と蜜柑と猫の駅長"
-      },
-      "fact": {
-        "en": "The prefecture grows more mandarins and plums than any other in Japan. A local railway facing closure appointed a calico cat as stationmaster in 2007, and the visitors she drew saved the line.",
-        "es": "La prefectura produce más mandarinas y ciruelas que ninguna otra. Un tren local nombró jefa de estación a una gata en 2007 y los visitantes salvaron la línea.",
-        "fr": "La préfecture produit plus de mandarines et de prunes que toute autre. Une ligne locale menacée nomma une chatte cheffe de gare en 2007 ; l'afflux de visiteurs la sauva.",
-        "ja": "和歌山は蜜柑と梅の生産量が日本一。廃止寸前の地方鉄道が2007年に三毛猫を駅長にしたところ、訪れる人が増えて路線が存続した。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Mandarin Grove",
-            "es": "Naranjal",
-            "fr": "Verger de mandarines",
-            "ja": "蜜柑山"
-          },
-          "cost": 260,
-          "inc": 54
-        },
-        {
-          "n": {
-            "en": "Cat Station",
-            "es": "Estación de la gata",
-            "fr": "Gare de la chatte",
-            "ja": "猫駅長の駅"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "kumano": {
-      "n": {
-        "en": "Kumano Kodō",
-        "es": "Kumano Kodō",
-        "fr": "Kumano Kodō",
-        "ja": "熊野古道"
-      },
-      "lo": 135.77,
-      "la": 33.84,
-      "reg": "kin",
-      "mark": "torii_wood",
-      "bg": "forest",
-      "lp": "l",
-      "tag": {
-        "en": "A pilgrim path shared with Spain",
-        "es": "Un camino hermanado con España",
-        "fr": "Un chemin jumelé avec l'Espagne",
-        "ja": "スペインと結ばれた巡礼路"
-      },
-      "fact": {
-        "en": "These mountain trails to three shrines are one of only two pilgrimage routes on the World Heritage list — the other is the Camino de Santiago, with which they are formally twinned. Retired emperors walked them over a hundred times.",
-        "es": "Estos senderos a tres santuarios son una de las dos rutas de peregrinación en la lista del Patrimonio Mundial; la otra es el Camino de Santiago, con el que están hermanados.",
-        "fr": "Ces sentiers vers trois sanctuaires forment l'un des deux chemins de pèlerinage classés au patrimoine mondial ; l'autre est celui de Saint-Jacques, auquel ils sont jumelés.",
-        "ja": "三つの社へ向かう山道は、世界遺産に登録された二つの巡礼路のひとつ(もう一方はサンティアゴ巡礼路で、正式に姉妹道である)。上皇たちは百度以上この道を歩いた。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Pilgrim Lodging",
-            "es": "Albergue de peregrinos",
-            "fr": "Gîte de pèlerins",
-            "ja": "巡礼の宿"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Great Shrine Gate",
-            "es": "Portal del gran santuario",
-            "fr": "Portail du grand sanctuaire",
-            "ja": "大斎原の大鳥居"
-          },
-          "cost": 290,
-          "inc": 60
-        }
-      ]
-    },
-    "nachi": {
-      "n": {
-        "en": "Nachi",
-        "es": "Nachi",
-        "fr": "Nachi",
-        "ja": "那智"
-      },
-      "lo": 135.89,
-      "la": 33.67,
-      "reg": "kin",
-      "mark": "pagoda",
-      "bg": "forest",
-      "lp": "r",
-      "tag": {
-        "en": "A waterfall worshipped as a god",
-        "es": "Una cascada venerada como dios",
-        "fr": "Une cascade vénérée comme un dieu",
-        "ja": "滝そのものが神"
-      },
-      "fact": {
-        "en": "The 133 m Nachi Falls is itself the object of worship — the shrine has no hall, only the water. A vermilion pagoda stands beside it in what is probably the most photographed shrine view in Japan.",
-        "es": "La cascada de Nachi, de 133 m, es en sí el objeto de culto: el santuario no tiene salón, solo el agua. Una pagoda bermellón se alza al lado.",
-        "fr": "La cascade de Nachi, haute de 133 m, est elle-même l'objet du culte : le sanctuaire n'a pas de salle, seulement l'eau. Une pagode vermillon se dresse à côté.",
-        "ja": "落差133mの那智の滝は、社殿を持たず滝そのものが御神体である。傍らに立つ朱の三重塔との眺めは、おそらく日本で最も撮られた神社の風景。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Waterfall Shrine",
-            "es": "Santuario de la cascada",
-            "fr": "Sanctuaire de la cascade",
-            "ja": "飛瀧神社"
-          },
-          "cost": 300,
-          "inc": 62
-        },
-        {
-          "n": {
-            "en": "Vermilion Pagoda",
-            "es": "Pagoda bermellón",
-            "fr": "Pagode vermillon",
-            "ja": "三重塔"
-          },
-          "cost": 270,
-          "inc": 56
-        }
-      ]
-    },
-    "amanohashidate": {
-      "n": {
-        "en": "Amanohashidate",
-        "es": "Amanohashidate",
-        "fr": "Amanohashidate",
-        "ja": "天橋立"
-      },
-      "lo": 135.19,
-      "la": 35.57,
-      "reg": "kin",
-      "mark": "torii_wood",
-      "bg": "seaside",
-      "lp": "l",
-      "tag": {
-        "en": "A sandbar you look at upside down",
-        "es": "Una barra de arena vista al revés",
-        "fr": "Un cordon de sable vu à l'envers",
-        "ja": "股のぞきで見る砂洲"
-      },
-      "fact": {
-        "en": "A 3.6 km pine-covered sandbar crosses the bay, counted among Japan's three most famous views. Visitors traditionally turn their backs and bend over to look between their legs, which makes it resemble a bridge to heaven.",
-        "es": "Una barra de arena de 3,6 km con pinos cruza la bahía. Por tradición se mira agachado entre las piernas, y entonces parece un puente al cielo.",
-        "fr": "Un cordon de sable boisé de 3,6 km traverse la baie. Par tradition, on l'observe penché, entre ses jambes : il ressemble alors à un pont vers le ciel.",
-        "ja": "3.6kmの松の砂洲が湾を横切る日本三景のひとつ。背を向けて股の間から覗くと、天に架かる橋のように見えるとされる。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Sandbar Pine Walk",
-            "es": "Paseo de los pinos",
-            "fr": "Allée des pins",
-            "ja": "松並木の道"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Hilltop Viewpoint",
-            "es": "Mirador del cerro",
-            "fr": "Belvédère",
-            "ja": "傘松公園"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "kinosaki": {
-      "n": {
-        "en": "Kinosaki",
-        "es": "Kinosaki",
-        "fr": "Kinosaki",
-        "ja": "城崎"
-      },
-      "lo": 134.81,
-      "la": 35.62,
-      "reg": "kin",
-      "mark": "onsen",
-      "bg": "castletown",
-      "lp": "l",
-      "tag": {
-        "en": "Seven baths and a town in yukata",
-        "es": "Siete baños y un pueblo en yukata",
-        "fr": "Sept bains et une ville en yukata",
-        "ja": "七つの外湯と浴衣の町"
-      },
-      "fact": {
-        "en": "Guests here bathe in seven public bathhouses rather than at their inn, walking between them in yukata and wooden sandals. The willow-lined canal and that habit have kept the whole town feeling like one big ryokan for a century.",
-        "es": "Los huéspedes se bañan en siete casas de baños públicas, no en su posada, caminando entre ellas en yukata y sandalias de madera.",
-        "fr": "Les hôtes se baignent dans sept bains publics plutôt qu'à l'auberge, passant de l'un à l'autre en yukata et sandales de bois.",
-        "ja": "宿ではなく七つの外湯を巡るのが流儀で、浴衣と下駄で町を歩く。柳の川沿いのその習わしが、町全体をひとつの旅館のようにしてきた。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Public Bathhouse",
-            "es": "Casa de baños",
-            "fr": "Bain public",
-            "ja": "外湯"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Canal Ryokan",
-            "es": "Ryokan del canal",
-            "fr": "Ryokan du canal",
-            "ja": "川沿いの旅館"
-          },
-          "cost": 290,
-          "inc": 60
-        }
-      ]
-    },
-    "akashi": {
-      "n": {
-        "en": "Akashi",
-        "es": "Akashi",
-        "fr": "Akashi",
-        "ja": "明石"
-      },
-      "lo": 134.99,
-      "la": 34.65,
-      "reg": "kin",
-      "mark": "castle_white",
-      "bg": "port",
-      "lp": "r",
-      "tag": {
-        "en": "Where Japan's clocks are set",
-        "es": "Donde se ajustan los relojes de Japón",
-        "fr": "Où l'on règle les horloges du Japon",
-        "ja": "日本の時刻が決まる町"
-      },
-      "fact": {
-        "en": "The 135th meridian runs through this town and defines the time for the whole country, marked by a line on the ground. The world's longest suspension bridge until 2022 leaves from here to Awaji island.",
-        "es": "Por esta ciudad pasa el meridiano 135, que fija la hora de todo el país. De aquí parte el que fue el puente colgante más largo del mundo hasta 2022.",
-        "fr": "Le 135e méridien traverse la ville et fixe l'heure du pays entier. De là part le pont suspendu le plus long du monde jusqu'en 2022.",
-        "ja": "東経135度線がこの町を通り、日本標準時を定める。線は地面に刻まれている。2022年まで世界最長だった吊り橋が、ここから淡路島へ渡る。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Meridian Observatory",
-            "es": "Observatorio del meridiano",
-            "fr": "Observatoire du méridien",
-            "ja": "天文科学館"
-          },
-          "cost": 270,
-          "inc": 56
-        },
-        {
-          "n": {
-            "en": "Strait Bridge Tower",
-            "es": "Torre del puente",
-            "fr": "Pylône du pont",
-            "ja": "大橋の主塔"
-          },
-          "cost": 300,
-          "inc": 62
-        }
-      ]
-    },
-    "maizuru": {
-      "n": {
-        "en": "Maizuru",
-        "es": "Maizuru",
-        "fr": "Maizuru",
-        "ja": "舞鶴"
-      },
-      "lo": 135.39,
-      "la": 35.47,
-      "reg": "kin",
-      "mark": "steam",
-      "bg": "port",
-      "lp": "l",
-      "tag": {
-        "en": "The harbour where people came home",
-        "es": "El puerto del regreso",
-        "fr": "Le port des retours",
-        "ja": "引揚げの港"
-      },
-      "fact": {
-        "en": "For thirteen years after 1945 this was the main port where soldiers and settlers returned from the continent — over 660,000 people in all. Red brick naval warehouses from 1900 still line the water.",
-        "es": "Durante trece años tras 1945 fue el puerto principal de retorno de soldados y colonos desde el continente: más de 660.000 personas.",
-        "fr": "Treize ans durant après 1945, ce fut le port principal du retour des soldats et colons venus du continent : plus de 660 000 personnes.",
-        "ja": "1945年から13年にわたり、大陸からの引揚げの主要港だった。帰還した人は66万人を超える。1900年築の赤煉瓦倉庫が今も岸に並ぶ。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Brick Warehouse",
-            "es": "Almacén de ladrillo",
-            "fr": "Entrepôt de brique",
-            "ja": "赤れんが倉庫"
-          },
-          "cost": 270,
-          "inc": 56
-        },
-        {
-          "n": {
-            "en": "Naval Pier",
-            "es": "Muelle naval",
-            "fr": "Quai naval",
-            "ja": "軍港の桟橋"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "kurashiki": {
-      "n": {
-        "en": "Kurashiki",
-        "es": "Kurashiki",
-        "fr": "Kurashiki",
-        "ja": "倉敷"
-      },
-      "lo": 133.77,
-      "la": 34.59,
-      "reg": "kin",
-      "mark": "castle_white",
-      "bg": "castletown",
-      "lp": "r",
-      "tag": {
-        "en": "White walls, a canal, and denim",
-        "es": "Muros blancos, un canal y vaqueros",
-        "fr": "Murs blancs, un canal et du denim",
-        "ja": "白壁の運河とデニム"
-      },
-      "fact": {
-        "en": "Rice was stored in the black-and-white warehouses along this canal, and one of them became Japan's first museum of Western art in 1930. The area later became the birthplace of Japanese denim, which is still woven nearby.",
-        "es": "El arroz se guardaba en los almacenes del canal; uno se convirtió en 1930 en el primer museo de arte occidental de Japón. La zona es cuna del denim japonés.",
-        "fr": "Le riz était stocké dans les entrepôts du canal ; l'un d'eux devint en 1930 le premier musée d'art occidental du Japon. La région est le berceau du denim japonais.",
-        "ja": "運河沿いの白壁なまこ壁の蔵は米倉で、その一つが1930年に日本初の西洋美術館になった。この一帯は国産デニム発祥の地で、今も近くで織られている。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Canal Museum",
-            "es": "Museo del canal",
-            "fr": "Musée du canal",
-            "ja": "運河の美術館"
-          },
-          "cost": 300,
-          "inc": 62
-        },
-        {
-          "n": {
-            "en": "Denim Workshop",
-            "es": "Taller de denim",
-            "fr": "Atelier de denim",
-            "ja": "デニムの工房"
-          },
-          "cost": 270,
-          "inc": 56
-        }
-      ]
-    },
-    "onomichi": {
-      "n": {
-        "en": "Onomichi",
-        "es": "Onomichi",
-        "fr": "Onomichi",
-        "ja": "尾道"
-      },
-      "lo": 133.2,
-      "la": 34.41,
-      "reg": "kin",
-      "mark": "pagoda",
-      "bg": "coasttown",
-      "lp": "l",
-      "tag": {
-        "en": "Temples up the slope, islands out to sea",
-        "es": "Templos en la cuesta, islas al mar",
-        "fr": "Temples sur la pente, îles au large",
-        "ja": "坂の寺と海の島"
-      },
-      "fact": {
-        "en": "Twenty-five temples are scattered up a hillside laced with cat-filled alleys and stone steps. From the harbour a 70 km cycle route hops island to island across the Inland Sea to Shikoku.",
-        "es": "Veinticinco templos salpican una ladera de callejones con gatos y escaleras de piedra. Del puerto sale una ruta ciclista de 70 km que salta de isla en isla.",
-        "fr": "Vingt-cinq temples parsèment une colline de ruelles à chats et d'escaliers de pierre. Du port part une véloroute de 70 km d'île en île.",
-        "ja": "坂の斜面に二十五の寺が散らばり、猫のいる路地と石段が縫う。港からは瀬戸内の島を渡って四国へ至る70kmの自転車道が伸びる。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Hillside Temple",
-            "es": "Templo de la ladera",
-            "fr": "Temple de la pente",
-            "ja": "坂の寺"
-          },
-          "cost": 270,
-          "inc": 56
-        },
-        {
-          "n": {
-            "en": "Island Cycle Route",
-            "es": "Ruta ciclista insular",
-            "fr": "Véloroute des îles",
-            "ja": "しまなみ海道"
-          },
-          "cost": 290,
-          "inc": 60
-        }
-      ]
-    },
-    "miyajima": {
-      "n": {
-        "en": "Miyajima",
-        "es": "Miyajima",
-        "fr": "Miyajima",
-        "ja": "宮島"
-      },
-      "lo": 132.32,
-      "la": 34.3,
-      "reg": "kin",
-      "mark": "torii_gold",
-      "bg": "seaside",
-      "lp": "r",
-      "tag": {
-        "en": "A shrine built out over the tide",
-        "es": "Un santuario sobre la marea",
-        "fr": "Un sanctuaire bâti sur la marée",
-        "ja": "潮の上に建つ社"
-      },
-      "fact": {
-        "en": "The whole island was considered so sacred that the shrine was built on stilts over the water so pilgrims need not set foot on it. At high tide the great vermilion gate appears to float; at low tide you can walk out to it.",
-        "es": "La isla era tan sagrada que el santuario se alzó sobre pilotes en el agua. Con marea alta el gran torii parece flotar; con marea baja se llega a pie.",
-        "fr": "L'île étant tenue pour sacrée, le sanctuaire fut bâti sur pilotis au-dessus de l'eau. À marée haute, le grand torii semble flotter ; à marée basse, on y accède à pied.",
-        "ja": "島全体が神域とされ、参拝者が土を踏まずに済むよう社殿は海上に建てられた。満潮には大鳥居が浮かんで見え、干潮には歩いて近づける。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Floating Torii",
-            "es": "Torii flotante",
-            "fr": "Torii flottant",
-            "ja": "大鳥居"
-          },
-          "cost": 320,
-          "inc": 66
-        },
-        {
-          "n": {
-            "en": "Deer Park Path",
-            "es": "Sendero de los ciervos",
-            "fr": "Allée aux cerfs",
-            "ja": "鹿の参道"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "izumo": {
-      "n": {
-        "en": "Izumo",
-        "es": "Izumo",
-        "fr": "Izumo",
-        "ja": "出雲"
-      },
-      "lo": 132.69,
-      "la": 35.4,
-      "reg": "kin",
-      "mark": "torii_wood",
-      "bg": "seaside",
-      "lp": "l",
-      "tag": {
-        "en": "Where all the gods meet in October",
-        "es": "Donde los dioses se reúnen en octubre",
-        "fr": "Où tous les dieux se réunissent en octobre",
-        "ja": "神々が集まる十月"
-      },
-      "fact": {
-        "en": "The rest of Japan calls the tenth lunar month \"the month without gods\", because they are all said to gather at this shrine — here it is called \"the month with gods\". Visitors clap four times instead of the usual two.",
-        "es": "En el resto de Japón el décimo mes lunar es «el mes sin dioses», porque todos se reúnen en este santuario; aquí se llama «el mes con dioses».",
-        "fr": "Ailleurs au Japon, le dixième mois lunaire est « le mois sans dieux », car tous se réunissent en ce sanctuaire ; ici on l'appelle « le mois avec dieux ».",
-        "ja": "旧暦十月を全国では「神無月」と呼ぶが、神々がこの社に集まるとされるため、出雲では「神在月」という。参拝は二拝四拍手一拝である。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Grand Shrine Hall",
-            "es": "Salón del gran santuario",
-            "fr": "Grande salle du sanctuaire",
-            "ja": "出雲大社の拝殿"
-          },
-          "cost": 310,
-          "inc": 64
-        },
-        {
-          "n": {
-            "en": "Soba Mill",
-            "es": "Molino de soba",
-            "fr": "Moulin à soba",
-            "ja": "出雲そばの製粉所"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "sakaiminato": {
-      "n": {
-        "en": "Sakaiminato",
-        "es": "Sakaiminato",
-        "fr": "Sakaiminato",
-        "ja": "境港"
-      },
-      "lo": 133.23,
-      "la": 35.54,
-      "reg": "kin",
-      "mark": "star5",
-      "bg": "port",
-      "lp": "r",
-      "tag": {
-        "en": "A street lined with bronze goblins",
-        "es": "Una calle de duendes de bronce",
-        "fr": "Une rue bordée de gobelins de bronze",
-        "ja": "妖怪のブロンズが並ぶ通り"
-      },
-      "fact": {
-        "en": "The manga artist who spent his life recording Japan's yōkai spirits grew up here, and 177 bronze figures of them now line the road from the station. The port lands more fish by weight than almost any other in Japan.",
-        "es": "El dibujante que recopiló los espíritus yōkai creció aquí, y 177 figuras de bronce bordean la calle desde la estación.",
-        "fr": "Le mangaka qui consacra sa vie à recenser les esprits yōkai grandit ici ; 177 bronzes les représentent le long de la rue de la gare.",
-        "ja": "日本の妖怪を生涯かけて記録した漫画家の育った町で、駅からの通りに177体のブロンズ像が並ぶ。水揚げ量は日本有数である。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Yōkai Bronze Road",
-            "es": "Calle de los yōkai",
-            "fr": "Rue des yōkai",
-            "ja": "水木しげるロード"
-          },
-          "cost": 270,
-          "inc": 56
-        },
-        {
-          "n": {
-            "en": "Fish Landing Quay",
-            "es": "Muelle pesquero",
-            "fr": "Quai de débarquement",
-            "ja": "水揚げの岸壁"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "naoshima": {
-      "n": {
-        "en": "Naoshima",
-        "es": "Naoshima",
-        "fr": "Naoshima",
-        "ja": "直島"
-      },
-      "lo": 133.99,
-      "la": 34.46,
-      "reg": "kin",
-      "mark": "star5",
-      "bg": "islandhill",
-      "lp": "r",
-      "tag": {
-        "en": "An island that became a museum",
-        "es": "Una isla convertida en museo",
-        "fr": "Une île devenue musée",
-        "ja": "島そのものが美術館"
-      },
-      "fact": {
-        "en": "A declining copper-smelting island was turned into a contemporary art site from 1989, with museums built mostly underground so as not to spoil the skyline. A spotted pumpkin on the old ferry pier has become its emblem.",
-        "es": "Una isla de fundición en declive se convirtió desde 1989 en un centro de arte contemporáneo, con museos casi enterrados. Una calabaza moteada en el muelle es su emblema.",
-        "fr": "Une île de fonderie en déclin devint dès 1989 un site d'art contemporain, aux musées largement enterrés. Une citrouille à pois sur la jetée en est l'emblème.",
-        "ja": "銅の精錬で衰えた島が、1989年から現代美術の島になった。景観を損なわぬよう美術館の多くは地下にある。桟橋の水玉のかぼちゃが島の象徴になった。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Underground Museum",
-            "es": "Museo subterráneo",
-            "fr": "Musée souterrain",
-            "ja": "地中美術館"
-          },
-          "cost": 320,
-          "inc": 66
-        },
-        {
-          "n": {
-            "en": "Pier Sculpture",
-            "es": "Escultura del muelle",
-            "fr": "Sculpture de la jetée",
-            "ja": "桟橋の彫刻"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "naruto": {
-      "n": {
-        "en": "Naruto",
-        "es": "Naruto",
-        "fr": "Naruto",
-        "ja": "鳴門"
-      },
-      "lo": 134.61,
-      "la": 34.17,
-      "reg": "kin",
-      "mark": "katsuo",
-      "bg": "seaside",
-      "lp": "r",
-      "tag": {
-        "en": "Whirlpools twenty metres across",
-        "es": "Remolinos de veinte metros",
-        "fr": "Des tourbillons de vingt mètres",
-        "ja": "直径二十メートルの渦"
-      },
-      "fact": {
-        "en": "Tides moving between the Inland Sea and the Pacific squeeze through this strait at 20 km/h, producing some of the largest whirlpools in the world. A walkway under the bridge lets you look straight down into them.",
-        "es": "Las mareas entre el mar Interior y el Pacífico pasan por este estrecho a 20 km/h, formando de los mayores remolinos del mundo.",
-        "fr": "Les marées entre la mer Intérieure et le Pacifique franchissent ce détroit à 20 km/h, créant parmi les plus grands tourbillons du monde.",
-        "ja": "瀬戸内海と太平洋を行き来する潮が時速20kmでこの海峡を抜け、世界有数の大きさの渦を生む。橋の下の遊歩道からは真下に渦を覗ける。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Whirlpool Boat",
-            "es": "Barco de los remolinos",
-            "fr": "Bateau des tourbillons",
-            "ja": "渦潮の観潮船"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Bridge Walkway",
-            "es": "Pasarela del puente",
-            "fr": "Passerelle du pont",
-            "ja": "渦の道"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "shimonoseki": {
-      "n": {
-        "en": "Shimonoseki",
-        "es": "Shimonoseki",
-        "fr": "Shimonoseki",
-        "ja": "下関"
-      },
-      "lo": 130.94,
-      "la": 33.96,
-      "reg": "kin",
-      "mark": "katsuo",
-      "bg": "port",
-      "lp": "l",
-      "tag": {
-        "en": "Pufferfish and a decisive strait",
-        "es": "Pez globo y un estrecho decisivo",
-        "fr": "Fugu et un détroit décisif",
-        "ja": "ふぐと歴史の海峡"
-      },
-      "fact": {
-        "en": "Most of Japan's pufferfish passes through this port, where a dawn auction is conducted by hand signals inside a cloth bag. The strait outside saw the sea battle that ended the Taira clan in 1185.",
-        "es": "Casi todo el pez globo de Japón pasa por este puerto, cuya subasta al alba se hace con señas dentro de una bolsa de tela.",
-        "fr": "Presque tout le fugu du Japon transite par ce port, dont la criée à l'aube se fait par signes dans un sac de tissu.",
-        "ja": "日本のふぐの多くがこの港を通り、夜明けの競りは布袋の中で指を握り合って行われる。沖の海峡では1185年、平家が滅んだ海戦があった。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Pufferfish Market",
-            "es": "Mercado del fugu",
-            "fr": "Marché au fugu",
-            "ja": "唐戸市場"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Strait Viewpoint",
-            "es": "Mirador del estrecho",
-            "fr": "Belvédère du détroit",
-            "ja": "関門海峡の展望"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "tsuwano": {
-      "n": {
-        "en": "Tsuwano",
-        "es": "Tsuwano",
-        "fr": "Tsuwano",
-        "ja": "津和野"
-      },
-      "lo": 131.77,
-      "la": 34.47,
-      "reg": "kin",
-      "mark": "torii_gold",
-      "bg": "valley2",
-      "lp": "l",
-      "tag": {
-        "en": "Carp in the roadside gutters",
-        "es": "Carpas en las cunetas",
-        "fr": "Des carpes dans les caniveaux",
-        "ja": "側溝を泳ぐ鯉"
-      },
-      "fact": {
-        "en": "Hundreds of koi live in the open channels along the samurai street, said to have been kept originally as emergency food. A tunnel of a thousand vermilion torii gates climbs the hillside above the town.",
-        "es": "Cientos de carpas viven en los canales abiertos de la calle samurái, criadas en origen como reserva de comida. Un túnel de mil torii sube la ladera.",
-        "fr": "Des centaines de carpes vivent dans les caniveaux de la rue des samouraïs, gardées à l'origine comme réserve de nourriture. Un tunnel de mille torii grimpe la colline.",
-        "ja": "武家屋敷の通りの掘割には数百の鯉が泳ぐ。もとは非常用の食糧として飼われたと伝わる。町を見下ろす斜面には千本の朱の鳥居が続く。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Carp Channel Street",
-            "es": "Calle de las carpas",
-            "fr": "Rue aux carpes",
-            "ja": "殿町通り"
-          },
-          "cost": 260,
-          "inc": 54
-        },
-        {
-          "n": {
-            "en": "Thousand Torii Path",
-            "es": "Sendero de mil torii",
-            "fr": "Sentier aux mille torii",
-            "ja": "千本鳥居"
-          },
-          "cost": 280,
-          "inc": 58
-        }
-      ]
-    },
-    "dogo": {
-      "n": {
-        "en": "Dōgo Onsen",
-        "es": "Dōgo Onsen",
-        "fr": "Dōgo Onsen",
-        "ja": "道後温泉"
-      },
-      "lo": 132.79,
-      "la": 33.85,
-      "reg": "kin",
-      "mark": "onsen",
-      "bg": "castletown",
-      "lp": "r",
-      "tag": {
-        "en": "A bathhouse mentioned in ancient chronicles",
-        "es": "Un baño citado en crónicas antiguas",
-        "fr": "Un bain cité dans les chroniques anciennes",
-        "ja": "古代の書に載る湯"
-      },
-      "fact": {
-        "en": "Written records mention this spring as early as the 8th century, making it plausibly the oldest hot spring in continuous use in Japan. The 1894 wooden bathhouse has a private room reserved for the imperial family.",
-        "es": "Hay textos del siglo VIII que citan este manantial, probablemente el más antiguo en uso continuo de Japón. El edificio de 1894 tiene una sala reservada a la familia imperial.",
-        "fr": "Des textes du VIIIe siècle mentionnent cette source, sans doute la plus ancienne encore en usage au Japon. Le bâtiment de 1894 réserve une salle à la famille impériale.",
-        "ja": "8世紀の書物にすでに記され、日本で最も長く使われ続けている湯とされる。1894年の木造の湯屋には皇室専用の浴室がある。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Wooden Bathhouse",
-            "es": "Casa de baños de madera",
-            "fr": "Bain de bois",
-            "ja": "道後温泉本館"
-          },
-          "cost": 300,
-          "inc": 62
-        },
-        {
-          "n": {
-            "en": "Arcade Shops",
-            "es": "Galería comercial",
-            "fr": "Galerie marchande",
-            "ja": "商店街"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "kitakyushu": {
-      "n": {
-        "en": "Kitakyūshū",
-        "es": "Kitakyūshū",
-        "fr": "Kitakyūshū",
-        "ja": "北九州"
-      },
-      "lo": 130.88,
-      "la": 33.88,
-      "reg": "kyu",
-      "mark": "steam",
-      "bg": "port",
-      "lp": "r",
-      "tag": {
-        "en": "The furnace that started heavy industry",
-        "es": "El horno que inició la industria pesada",
-        "fr": "Le haut fourneau des débuts industriels",
-        "ja": "重工業の始まりの高炉"
-      },
-      "fact": {
-        "en": "The state-run steelworks opened here in 1901 and produced most of the country's steel for decades. The strait it faces is only 700 m wide and is crossed by a tunnel with a footpath on the sea floor.",
-        "es": "La acería estatal abrió en 1901 y produjo durante décadas la mayor parte del acero del país. El estrecho tiene solo 700 m y se cruza por un túnel con acera submarina.",
-        "fr": "L'aciérie d'État ouvrit en 1901 et fournit des décennies durant l'essentiel de l'acier du pays. Le détroit ne fait que 700 m ; un tunnel piétonnier passe sous la mer.",
-        "ja": "1901年に官営製鉄所が開き、何十年も国内の鉄の大半を作った。向かいの海峡は幅700mしかなく、海底には歩いて渡れるトンネルがある。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Steel Works",
-            "es": "Acería",
-            "fr": "Aciérie",
-            "ja": "製鉄所"
-          },
-          "cost": 300,
-          "inc": 62
-        },
-        {
-          "n": {
-            "en": "Undersea Footway",
-            "es": "Paso submarino",
-            "fr": "Passage sous-marin",
-            "ja": "関門海底トンネル人道"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "dazaifu": {
-      "n": {
-        "en": "Dazaifu",
-        "es": "Dazaifu",
-        "fr": "Dazaifu",
-        "ja": "太宰府"
-      },
-      "lo": 130.52,
-      "la": 33.52,
-      "reg": "kyu",
-      "mark": "torii_gold",
-      "bg": "oldcapital",
-      "lp": "l",
-      "tag": {
-        "en": "A shrine for exam candidates",
-        "es": "Un santuario para los exámenes",
-        "fr": "Un sanctuaire pour les examens",
-        "ja": "受験生の神社"
-      },
-      "fact": {
-        "en": "A scholar exiled here in 901 died in disgrace; after disasters struck the capital he was enshrined as the god of learning. Students now leave millions of wooden plaques asking to pass their entrance exams.",
-        "es": "Un erudito desterrado aquí en 901 murió en desgracia; tras varias catástrofes en la capital fue divinizado como dios del saber.",
-        "fr": "Un lettré exilé ici en 901 y mourut en disgrâce ; après des catastrophes dans la capitale, il fut divinisé comme dieu du savoir.",
-        "ja": "901年にここへ左遷された学者は失意のうちに没し、都に災いが続いたのち学問の神として祀られた。今は合格を願う絵馬が毎年何百万と奉納される。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Plum Shrine",
-            "es": "Santuario del ciruelo",
-            "fr": "Sanctuaire aux pruniers",
-            "ja": "天満宮"
-          },
-          "cost": 300,
-          "inc": 62
-        },
-        {
-          "n": {
-            "en": "Rice Cake Stall",
-            "es": "Puesto de pasteles",
-            "fr": "Échoppe de gâteaux",
-            "ja": "梅ヶ枝餅の店"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "kurume": {
-      "n": {
-        "en": "Kurume",
-        "es": "Kurume",
-        "fr": "Kurume",
-        "ja": "久留米"
-      },
-      "lo": 130.51,
-      "la": 33.32,
-      "reg": "kyu",
-      "mark": "yatai",
-      "bg": "ricefield",
-      "lp": "r",
-      "tag": {
-        "en": "Where tonkotsu ramen was invented",
-        "es": "Donde nació el ramen tonkotsu",
-        "fr": "Où naquit le ramen tonkotsu",
-        "ja": "豚骨ラーメン発祥の地"
-      },
-      "fact": {
-        "en": "The cloudy pork-bone broth now sold worldwide was created at a street stall here in 1937, reportedly by boiling the stock too hard by accident. The city also gave its name to a hand-dyed cotton weave.",
-        "es": "El caldo turbio de hueso de cerdo nació en un puesto callejero en 1937, al parecer por hervirlo demasiado por error.",
-        "fr": "Le bouillon trouble d'os de porc naquit à une échoppe de rue en 1937, dit-on par une cuisson trop forte accidentelle.",
-        "ja": "世界に広まった白濁の豚骨スープは、1937年にここの屋台で、煮すぎの失敗から生まれたと伝わる。久留米絣の名でも知られる。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Ramen Stall",
-            "es": "Puesto de ramen",
-            "fr": "Échoppe de ramen",
-            "ja": "ラーメンの屋台"
-          },
-          "cost": 260,
-          "inc": 54
-        },
-        {
-          "n": {
-            "en": "Kasuri Weaving Shed",
-            "es": "Taller de kasuri",
-            "fr": "Atelier de kasuri",
-            "ja": "絣の織屋"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "karatsu": {
-      "n": {
-        "en": "Karatsu",
-        "es": "Karatsu",
-        "fr": "Karatsu",
-        "ja": "唐津"
-      },
-      "lo": 129.97,
-      "la": 33.45,
-      "reg": "kyu",
-      "mark": "castle_white",
-      "bg": "seaside",
-      "lp": "l",
-      "tag": {
-        "en": "Fourteen floats hauled through the sand",
-        "es": "Catorce carrozas por la arena",
-        "fr": "Quatorze chars tirés dans le sable",
-        "ja": "砂地を曳く十四台の曳山"
-      },
-      "fact": {
-        "en": "Lacquered floats shaped like lions, helmets and a sea bream are dragged through the streets and onto a sandy beach each November. The name means \"Tang port\": this was the crossing point to the continent.",
-        "es": "Carrozas lacadas con forma de leones, cascos y un besugo se arrastran hasta una playa cada noviembre. El nombre significa «puerto de Tang».",
-        "fr": "Des chars laqués en forme de lions, de casques et d'une daurade sont tirés jusqu'à une plage chaque novembre. Le nom signifie « port des Tang ».",
-        "ja": "獅子や兜、鯛をかたどった漆の曳山を、十一月に町中から砂浜まで曳き回す。地名は「唐の津」、大陸への渡り口だった。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Festival Float Hall",
-            "es": "Sala de carrozas",
-            "fr": "Halle des chars",
-            "ja": "曳山展示場"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Pine Grove Beach",
-            "es": "Playa del pinar",
-            "fr": "Plage des pins",
-            "ja": "虹の松原"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "arita": {
-      "n": {
-        "en": "Arita",
-        "es": "Arita",
-        "fr": "Arita",
-        "ja": "有田"
-      },
-      "lo": 129.89,
-      "la": 33.2,
-      "reg": "kyu",
-      "mark": "kettle",
-      "bg": "valley2",
-      "lp": "r",
-      "tag": {
-        "en": "The first porcelain made in Japan",
-        "es": "La primera porcelana de Japón",
-        "fr": "La première porcelaine du Japon",
-        "ja": "日本磁器のはじまり"
-      },
-      "fact": {
-        "en": "Korean potters brought here after the 1590s invasions found kaolin nearby and fired Japan's first porcelain in 1616. Dutch traders shipped it to Europe, where it was copied at Meissen and Delft.",
-        "es": "Alfareros coreanos traídos tras las invasiones de 1590 hallaron caolín cerca y cocieron la primera porcelana japonesa en 1616. Los holandeses la llevaron a Europa.",
-        "fr": "Des potiers coréens amenés après les invasions de 1590 trouvèrent du kaolin et cuisirent la première porcelaine japonaise en 1616. Les Néerlandais l'exportèrent en Europe.",
-        "ja": "1590年代の出兵で連れられた朝鮮の陶工がこの地で陶石を見つけ、1616年に日本初の磁器を焼いた。オランダ商人が欧州へ運び、マイセンやデルフトで模倣された。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Climbing Kiln",
-            "es": "Horno escalonado",
-            "fr": "Four à chambres",
-            "ja": "登り窯"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Porcelain Shop Street",
-            "es": "Calle de la porcelana",
-            "fr": "Rue de la porcelaine",
-            "ja": "やきものの町並み"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "sasebo": {
-      "n": {
-        "en": "Sasebo",
-        "es": "Sasebo",
-        "fr": "Sasebo",
-        "ja": "佐世保"
-      },
-      "lo": 129.72,
-      "la": 33.18,
-      "reg": "kyu",
-      "mark": "katsuo",
-      "bg": "seaside",
-      "lp": "l",
-      "tag": {
-        "en": "Ninety-nine islands, and rather more",
-        "es": "Noventa y nueve islas, y bastantes más",
-        "fr": "Quatre-vingt-dix-neuf îles, et bien plus",
-        "ja": "九十九島、実は二百八島"
-      },
-      "fact": {
-        "en": "The name Kujūkushima means \"ninety-nine islands\", but there are actually 208 of them scattered off the coast. The naval port here brought American cooks, and the local hamburger has been a speciality since the 1950s.",
-        "es": "Kujūkushima significa «noventa y nueve islas», pero en realidad son 208. El puerto naval trajo cocineros americanos y la hamburguesa local es especialidad desde los 50.",
-        "fr": "Kujūkushima signifie « quatre-vingt-dix-neuf îles », mais on en compte 208. Le port militaire amena des cuisiniers américains ; le hamburger local est une spécialité depuis les années 1950.",
-        "ja": "九十九島という名だが、実際には208の島が沖に散らばる。軍港にアメリカ人の料理人が来たことから、1950年代以来ハンバーガーが名物になった。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Island Cruise",
-            "es": "Crucero de las islas",
-            "fr": "Croisière des îles",
-            "ja": "九十九島の遊覧船"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Burger Stand",
-            "es": "Puesto de hamburguesas",
-            "fr": "Stand de hamburgers",
-            "ja": "バーガーの店"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "shimabara": {
-      "n": {
-        "en": "Shimabara",
-        "es": "Shimabara",
-        "fr": "Shimabara",
-        "ja": "島原"
-      },
-      "lo": 130.37,
-      "la": 32.79,
-      "reg": "kyu",
-      "mark": "castle_white",
-      "bg": "volcano",
-      "lp": "r",
-      "tag": {
-        "en": "Spring water running through the town",
-        "es": "Agua de manantial por el pueblo",
-        "fr": "De l'eau de source dans la ville",
-        "ja": "町を流れる湧き水"
-      },
-      "fact": {
-        "en": "Volcanic ground filters so much water that carp swim in channels between the samurai houses. A 1792 landslide from the mountain caused a tsunami that killed 15,000 people, Japan's worst volcanic disaster.",
-        "es": "El suelo volcánico filtra tanta agua que hay carpas en los canales entre las casas samurái. Un desprendimiento en 1792 causó un tsunami que mató a 15.000 personas.",
-        "fr": "Le sol volcanique filtre tant d'eau que des carpes nagent dans les canaux entre les maisons de samouraïs. Un glissement de terrain en 1792 provoqua un tsunami qui fit 15 000 morts.",
-        "ja": "火山性の地層が水を濾し、武家屋敷の間の水路を鯉が泳ぐ。1792年の山体崩壊は津波を起こし1万5千人が犠牲になった。日本最悪の火山災害である。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Carp Water Street",
-            "es": "Calle del agua",
-            "fr": "Rue de l'eau",
-            "ja": "鯉の泳ぐまち"
-          },
-          "cost": 260,
-          "inc": 54
-        },
-        {
-          "n": {
-            "en": "Volcano Museum",
-            "es": "Museo del volcán",
-            "fr": "Musée du volcan",
-            "ja": "火山の資料館"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "unzen": {
-      "n": {
-        "en": "Unzen",
-        "es": "Unzen",
-        "fr": "Unzen",
-        "ja": "雲仙"
-      },
-      "lo": 130.26,
-      "la": 32.73,
-      "reg": "kyu",
-      "mark": "onsen",
-      "bg": "volcano",
-      "lp": "l",
-      "tag": {
-        "en": "Japan's first national park",
-        "es": "El primer parque nacional de Japón",
-        "fr": "Le premier parc national du Japon",
-        "ja": "日本初の国立公園"
-      },
-      "fact": {
-        "en": "Designated in 1934, this was among the first national parks in the country, chosen for its steaming valleys. The same vents were used in the 1600s to execute Christians, and the site is still called the hells.",
-        "es": "Declarado en 1934, fue de los primeros parques nacionales del país, elegido por sus valles humeantes. Las mismas fumarolas sirvieron en el siglo XVII para ejecutar cristianos.",
-        "fr": "Classé en 1934, il fut l'un des premiers parcs nationaux du pays, choisi pour ses vallées fumantes. Ces mêmes solfatares servirent au XVIIe siècle à exécuter des chrétiens.",
-        "ja": "1934年、蒸気の立つ谷を理由に日本初の国立公園のひとつに指定された。同じ噴気地帯は17世紀にキリシタン処刑の場となり、今も「地獄」と呼ばれる。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Steam Vent Walk",
-            "es": "Paseo de las fumarolas",
-            "fr": "Sentier des solfatares",
-            "ja": "雲仙地獄めぐり"
-          },
-          "cost": 270,
-          "inc": 56
-        },
-        {
-          "n": {
-            "en": "Highland Ryokan",
-            "es": "Ryokan de altura",
-            "fr": "Ryokan d'altitude",
-            "ja": "高原の旅館"
-          },
-          "cost": 280,
-          "inc": 58
-        }
-      ]
-    },
-    "amakusa": {
-      "n": {
-        "en": "Amakusa",
-        "es": "Amakusa",
-        "fr": "Amakusa",
-        "ja": "天草"
-      },
-      "lo": 130.19,
-      "la": 32.46,
-      "reg": "kyu",
-      "mark": "church",
-      "bg": "seaside",
-      "lp": "l",
-      "tag": {
-        "en": "A teenage general and a hidden faith",
-        "es": "Un general adolescente y una fe oculta",
-        "fr": "Un général adolescent et une foi cachée",
-        "ja": "少年の将と隠れた信仰"
-      },
-      "fact": {
-        "en": "A 16-year-old led 37,000 peasants and Christians in a revolt here in 1637; almost all were killed, and the shogunate sealed the country soon after. Churches built after the ban lifted stand among the terraced fields.",
-        "es": "Un joven de 16 años encabezó en 1637 una revuelta de 37.000 campesinos y cristianos; casi todos murieron y el shogunato cerró el país poco después.",
-        "fr": "Un adolescent de 16 ans mena en 1637 une révolte de 37 000 paysans et chrétiens ; presque tous périrent, et le shogunat ferma le pays peu après.",
-        "ja": "1637年、16歳の少年が3万7千の農民とキリシタンを率いて蜂起し、ほぼ全員が討たれた。幕府はその後まもなく国を閉ざした。禁教が解けて建った教会が段畑の間に立つ。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Hilltop Church",
-            "es": "Iglesia del cerro",
-            "fr": "Église du coteau",
-            "ja": "丘の教会"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Dolphin Watch Boat",
-            "es": "Barco de delfines",
-            "fr": "Bateau aux dauphins",
-            "ja": "イルカウォッチングの船"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "aso": {
-      "n": {
-        "en": "Aso",
-        "es": "Aso",
-        "fr": "Aso",
-        "ja": "阿蘇"
-      },
-      "lo": 131.08,
-      "la": 32.88,
-      "reg": "kyu",
-      "mark": "volcano_m",
-      "bg": "volcano",
-      "lp": "r",
-      "tag": {
-        "en": "Towns inside a volcano's crater",
-        "es": "Pueblos dentro de un cráter",
-        "fr": "Des villages dans un cratère",
-        "ja": "火口の中に町がある"
-      },
-      "fact": {
-        "en": "The caldera is 25 km across and holds farms, railways and 50,000 residents inside its walls. The central cone still smokes, and the grasslands around it have been burned off each spring for a thousand years to stop forest returning.",
-        "es": "La caldera mide 25 km y alberga granjas, ferrocarriles y 50.000 habitantes. El cono central humea y los pastizales se queman cada primavera desde hace mil años.",
-        "fr": "La caldeira fait 25 km et abrite fermes, chemins de fer et 50 000 habitants. Le cône central fume ; les prairies sont brûlées chaque printemps depuis mille ans.",
-        "ja": "直径25kmのカルデラの中に田畑と鉄道と5万人の暮らしがある。中央火口丘は今も噴煙を上げ、周囲の草原は森に戻らぬよう千年にわたり毎春焼かれてきた。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Crater Ropeway",
-            "es": "Teleférico del cráter",
-            "fr": "Téléphérique du cratère",
-            "ja": "火口のロープウェイ"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "Grassland Ranch",
-            "es": "Rancho de pastos",
-            "fr": "Ranch de prairie",
-            "ja": "草千里の牧場"
-          },
-          "cost": 270,
-          "inc": 56
-        }
-      ]
-    },
-    "takachiho": {
-      "n": {
-        "en": "Takachiho",
-        "es": "Takachiho",
-        "fr": "Takachiho",
-        "ja": "高千穂"
-      },
-      "lo": 131.31,
-      "la": 32.71,
-      "reg": "kyu",
-      "mark": "torii_wood",
-      "bg": "valley2",
-      "lp": "l",
-      "tag": {
-        "en": "The gorge where the sun hid",
-        "es": "El desfiladero donde se escondió el sol",
-        "fr": "Les gorges où le soleil se cacha",
-        "ja": "天照が隠れた谷"
-      },
-      "fact": {
-        "en": "Myth says the sun goddess shut herself in a cave here and the world went dark until she was lured out by dancing. Village night-kagura retelling the story runs from evening until dawn each winter.",
-        "es": "El mito dice que la diosa del sol se encerró en una cueva y el mundo se oscureció hasta que la sacaron bailando. El kagura nocturno lo cuenta de anochecer al alba.",
-        "fr": "Le mythe dit que la déesse du soleil s'enferma dans une grotte et que le monde s'assombrit jusqu'à ce qu'une danse l'en fasse sortir. Le kagura nocturne le raconte jusqu'à l'aube.",
-        "ja": "天照大神が岩戸に隠れて世が暗くなり、舞によって誘い出されたと伝わる地。冬には夜神楽が夕方から明け方まで演じられる。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Gorge Rowing Boat",
-            "es": "Bote del desfiladero",
-            "fr": "Barque des gorges",
-            "ja": "峡谷の貸しボート"
-          },
-          "cost": 280,
-          "inc": 58
-        },
-        {
-          "n": {
-            "en": "Night Kagura Stage",
-            "es": "Escenario del kagura",
-            "fr": "Scène du kagura",
-            "ja": "夜神楽の舞台"
-          },
-          "cost": 270,
-          "inc": 56
-        }
-      ]
-    },
-    "yufuin": {
-      "n": {
-        "en": "Yufuin",
-        "es": "Yufuin",
-        "fr": "Yufuin",
-        "ja": "湯布院"
-      },
-      "lo": 131.36,
-      "la": 33.26,
-      "reg": "kyu",
-      "mark": "onsen",
-      "bg": "valley2",
-      "lp": "l",
-      "tag": {
-        "en": "A hot-spring town that refused hotels",
-        "es": "Un balneario que rechazó los hoteles",
-        "fr": "Une ville thermale qui refusa les hôtels",
-        "ja": "高層旅館を拒んだ湯の町"
-      },
-      "fact": {
-        "en": "In the 1970s residents blocked large resort development and studied German spa towns instead, keeping the rice fields and small inns. Morning mist collects on the basin floor under a twin-peaked volcano.",
-        "es": "En los 70 los vecinos frenaron los grandes complejos y estudiaron los balnearios alemanes, conservando arrozales y posadas pequeñas.",
-        "fr": "Dans les années 1970, les habitants bloquèrent les grands complexes et s'inspirèrent des villes thermales allemandes, gardant rizières et petites auberges.",
-        "ja": "1970年代、住民は大型リゾート開発を止め、ドイツの湯治町に学んで田んぼと小さな宿を守った。双耳峰の下、朝は盆地に霧がたまる。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Small Inn",
-            "es": "Posada pequeña",
-            "fr": "Petite auberge",
-            "ja": "小さな宿"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "Lakeside Path",
-            "es": "Sendero del lago",
-            "fr": "Sentier du lac",
-            "ja": "金鱗湖の小径"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "kirishima": {
-      "n": {
-        "en": "Kirishima",
-        "es": "Kirishima",
-        "fr": "Kirishima",
-        "ja": "霧島"
-      },
-      "lo": 130.87,
-      "la": 31.86,
-      "reg": "kyu",
-      "mark": "torii_wood",
-      "bg": "volcano",
-      "lp": "r",
-      "tag": {
-        "en": "Where the myths say Japan began",
-        "es": "Donde el mito sitúa el origen de Japón",
-        "fr": "Où le mythe fait naître le Japon",
-        "ja": "神話が語る国の始まり"
-      },
-      "fact": {
-        "en": "Myth places the descent of the imperial ancestor to earth on these peaks, and a shrine has stood at the foot since the 6th century. Over twenty volcanoes are packed into the range, one of which erupts regularly.",
-        "es": "El mito sitúa aquí el descenso del ancestro imperial, y hay un santuario al pie desde el siglo VI. Más de veinte volcanes se apiñan en la sierra.",
-        "fr": "Le mythe place ici la descente de l'ancêtre impérial ; un sanctuaire s'élève au pied depuis le VIe siècle. Plus de vingt volcans se pressent dans le massif.",
-        "ja": "天孫降臨の地とされ、麓には6世紀からの社がある。連峰には二十を超える火山が密集し、その一つは今も定期的に噴火する。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Mountain Shrine",
-            "es": "Santuario de montaña",
-            "fr": "Sanctuaire de montagne",
-            "ja": "霧島神宮"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "Volcanic Onsen",
-            "es": "Onsen volcánico",
-            "fr": "Onsen volcanique",
-            "ja": "火山の温泉"
-          },
-          "cost": 270,
-          "inc": 56
-        }
-      ]
-    },
-    "chiran": {
-      "n": {
-        "en": "Chiran",
-        "es": "Chiran",
-        "fr": "Chiran",
-        "ja": "知覧"
-      },
-      "lo": 130.44,
-      "la": 31.38,
-      "reg": "kyu",
-      "mark": "garden",
-      "bg": "castletown",
-      "lp": "l",
-      "tag": {
-        "en": "Samurai gardens and a last airfield",
-        "es": "Jardines samurái y un último aeródromo",
-        "fr": "Jardins de samouraïs et un dernier aérodrome",
-        "ja": "武家庭園と最後の飛行場"
-      },
-      "fact": {
-        "en": "Seven samurai residences keep dry gardens that borrow the mountain behind them as scenery. From the airfield here over a thousand young pilots flew one-way missions in 1945; their letters home are kept in a museum.",
-        "es": "Siete residencias samurái conservan jardines secos que toman la montaña como fondo. De su aeródromo partieron en 1945 más de mil pilotos jóvenes sin retorno.",
-        "fr": "Sept résidences de samouraïs gardent des jardins secs qui empruntent la montagne comme décor. De cet aérodrome, plus de mille jeunes pilotes partirent sans retour en 1945.",
-        "ja": "七軒の武家屋敷が、背後の山を借景にした枯山水を守る。1945年、この飛行場から千人を超える若い搭乗員が還らぬ出撃をした。遺書が資料館に残る。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Borrowed Scenery Garden",
-            "es": "Jardín de paisaje prestado",
-            "fr": "Jardin en paysage emprunté",
-            "ja": "借景の庭"
-          },
-          "cost": 270,
-          "inc": 56
-        },
-        {
-          "n": {
-            "en": "Tea Plantation",
-            "es": "Plantación de té",
-            "fr": "Plantation de thé",
-            "ja": "知覧茶の茶畑"
-          },
-          "cost": 260,
-          "inc": 54
-        }
-      ]
-    },
-    "ibusuki": {
-      "n": {
-        "en": "Ibusuki",
-        "es": "Ibusuki",
-        "fr": "Ibusuki",
-        "ja": "指宿"
-      },
-      "lo": 130.65,
-      "la": 31.23,
-      "reg": "kyu",
-      "mark": "onsen",
-      "bg": "seaside",
-      "lp": "r",
-      "tag": {
-        "en": "Buried up to the neck in hot sand",
-        "es": "Enterrado en arena caliente",
-        "fr": "Enterré dans le sable chaud",
-        "ja": "砂に埋まる温泉"
-      },
-      "fact": {
-        "en": "Bathers lie on the beach in yukata and are shovelled over with volcanically heated sand for ten minutes at a time. A near-perfect volcanic cone rises from the sea nearby and is climbed in about an hour and a half.",
-        "es": "Los bañistas se tumban en la playa en yukata y los cubren con arena calentada por el volcán durante diez minutos.",
-        "fr": "Les baigneurs s'allongent sur la plage en yukata et sont recouverts de sable chauffé par le volcan pendant dix minutes.",
-        "ja": "浴衣のまま浜に横たわり、火山で温まった砂を十分ほどかけてもらう。近くには海から立つ整った円錐形の火山があり、一時間半ほどで登れる。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Sand Bath Beach",
-            "es": "Playa del baño de arena",
-            "fr": "Plage des bains de sable",
-            "ja": "砂むし温泉"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "Cone Volcano Trail",
-            "es": "Sendero del cono",
-            "fr": "Sentier du cône",
-            "ja": "開聞岳の登山道"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "taketomi": {
-      "n": {
-        "en": "Taketomi",
-        "es": "Taketomi",
-        "fr": "Taketomi",
-        "ja": "竹富島"
-      },
-      "lo": 124.09,
-      "la": 24.33,
-      "reg": "kyu",
-      "mark": "shurigate",
-      "bg": "subtropic",
-      "lp": "l",
-      "tag": {
-        "en": "Coral walls and water buffalo carts",
-        "es": "Muros de coral y carros de búfalo",
-        "fr": "Murs de corail et charrettes à buffles",
-        "ja": "珊瑚の石垣と水牛車"
-      },
-      "fact": {
-        "en": "Every house on this small island has a red tiled roof and a coral stone wall, kept that way by an agreement among residents. Visitors are taken around by water buffalo cart while the driver sings island songs.",
-        "es": "Cada casa de esta pequeña isla tiene tejado rojo y muro de coral, por acuerdo de los vecinos. A los visitantes los pasean en carros de búfalo mientras el conductor canta.",
-        "fr": "Chaque maison de cette petite île a un toit de tuiles rouges et un mur de corail, par accord entre habitants. On promène les visiteurs en charrette à buffle, au son des chants de l'île.",
-        "ja": "島じゅうの家が赤瓦と珊瑚の石垣で揃っており、住民の取り決めで守られている。訪れる人は水牛車で巡り、御者が島の唄をうたう。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Red Tile House",
-            "es": "Casa de tejas rojas",
-            "fr": "Maison aux tuiles rouges",
-            "ja": "赤瓦の家"
-          },
-          "cost": 270,
-          "inc": 56
-        },
-        {
-          "n": {
-            "en": "Buffalo Cart",
-            "es": "Carro de búfalo",
-            "fr": "Charrette à buffle",
-            "ja": "水牛車"
-          },
-          "cost": 250,
-          "inc": 52
-        }
-      ]
-    },
-    "kerama": {
-      "n": {
-        "en": "Kerama",
-        "es": "Kerama",
-        "fr": "Kerama",
-        "ja": "慶良間"
-      },
-      "lo": 127.35,
-      "la": 26.19,
-      "reg": "kyu",
-      "mark": "shurigate",
-      "bg": "subtropic",
-      "lp": "l",
-      "tag": {
-        "en": "A blue with its own name",
-        "es": "Un azul con nombre propio",
-        "fr": "Un bleu qui porte un nom",
-        "ja": "「ケラマブルー」の海"
-      },
-      "fact": {
-        "en": "The water here is clear to 50 m and the shade of blue is known nationally as Kerama Blue. Humpback whales come to these islands to give birth between January and March.",
-        "es": "El agua es transparente hasta 50 m y su tono se conoce en todo el país como «azul Kerama». Las ballenas jorobadas paren aquí entre enero y marzo.",
-        "fr": "L'eau est claire jusqu'à 50 m et sa teinte est connue dans tout le pays sous le nom de « bleu Kerama ». Les baleines à bosse y mettent bas de janvier à mars.",
-        "ja": "透明度は50mに達し、その青は「ケラマブルー」として全国に知られる。1月から3月にはザトウクジラが出産のためこの海に来る。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Reef Diving Base",
-            "es": "Base de buceo",
-            "fr": "Base de plongée",
-            "ja": "ダイビングの拠点"
-          },
-          "cost": 290,
-          "inc": 60
-        },
-        {
-          "n": {
-            "en": "Whale Watch Boat",
-            "es": "Barco ballenero",
-            "fr": "Bateau d'observation",
-            "ja": "ホエールウォッチング船"
-          },
-          "cost": 270,
-          "inc": 56
-        }
-      ]
-    },
-    "yonaguni": {
-      "n": {
-        "en": "Yonaguni",
-        "es": "Yonaguni",
-        "fr": "Yonaguni",
-        "ja": "与那国島"
-      },
-      "lo": 123,
-      "la": 24.45,
-      "reg": "kyu",
-      "mark": "shurigate",
-      "bg": "subtropic",
-      "lp": "r",
-      "tag": {
-        "en": "The westernmost point of Japan",
-        "es": "El punto más occidental de Japón",
-        "fr": "Le point le plus occidental du Japon",
-        "ja": "日本最西端"
-      },
-      "fact": {
-        "en": "Taiwan is 110 km away and visible from the cliffs on clear winter days. Divers found a stepped rock formation offshore in 1986 that is still argued over as either natural or man-made.",
-        "es": "Taiwán está a 110 km y se ve desde los acantilados en días claros de invierno. En 1986 se halló bajo el agua una formación escalonada aún discutida.",
-        "fr": "Taïwan est à 110 km et visible depuis les falaises par temps clair. Une formation rocheuse en gradins découverte en 1986 fait toujours débat.",
-        "ja": "台湾まで110km、冬の晴れた日には断崖から見える。1986年に沖で見つかった階段状の岩は、自然物か人工物かで今も議論が続く。"
-      },
-      "props": [
-        {
-          "n": {
-            "en": "Cliff Viewpoint",
-            "es": "Mirador del acantilado",
-            "fr": "Belvédère de la falaise",
-            "ja": "西崎の展望台"
-          },
-          "cost": 260,
-          "inc": 54
-        },
-        {
-          "n": {
-            "en": "Undersea Ruin Dive",
-            "es": "Buceo a las ruinas",
-            "fr": "Plongée aux ruines",
-            "ja": "海底遺跡のダイビング"
-          },
-          "cost": 280,
-          "inc": 58
-        }
-      ]
     }
   },
   "edges": [
+    [
+      "sapporo",
+      "hakodate"
+    ],
     [
       "hakodate",
       "aomori"
     ],
     [
       "aomori",
+      "akita"
+    ],
+    [
+      "aomori",
       "morioka"
+    ],
+    [
+      "morioka",
+      "sendai"
     ],
     [
       "akita",
@@ -9093,6 +5357,10 @@
       "nikko"
     ],
     [
+      "nikko",
+      "tokyo"
+    ],
+    [
       "tokyo",
       "yokohama"
     ],
@@ -9101,12 +5369,44 @@
       "kamakura"
     ],
     [
+      "kamakura",
+      "hakone"
+    ],
+    [
+      "hakone",
+      "nagoya"
+    ],
+    [
+      "tokyo",
+      "matsumoto"
+    ],
+    [
+      "matsumoto",
+      "nagoya"
+    ],
+    [
+      "matsumoto",
+      "kanazawa"
+    ],
+    [
       "kanazawa",
       "niigata"
     ],
     [
+      "tokyo",
+      "niigata"
+    ],
+    [
+      "kanazawa",
+      "kyoto"
+    ],
+    [
       "nagoya",
       "ise"
+    ],
+    [
+      "nagoya",
+      "kyoto"
     ],
     [
       "ise",
@@ -9129,20 +5429,56 @@
       "himeji"
     ],
     [
+      "himeji",
+      "hiroshima"
+    ],
+    [
+      "himeji",
+      "matsuyama"
+    ],
+    [
       "matsuyama",
       "kochi"
+    ],
+    [
+      "kochi",
+      "osaka"
+    ],
+    [
+      "hiroshima",
+      "fukuoka"
+    ],
+    [
+      "fukuoka",
+      "nagasaki"
     ],
     [
       "fukuoka",
       "beppu"
     ],
     [
+      "beppu",
+      "kumamoto"
+    ],
+    [
+      "nagasaki",
+      "kumamoto"
+    ],
+    [
       "kumamoto",
       "kagoshima"
     ],
     [
+      "kagoshima",
+      "naha"
+    ],
+    [
       "sapporo",
       "asahikawa"
+    ],
+    [
+      "asahikawa",
+      "kushiro"
     ],
     [
       "sendai",
@@ -9165,6 +5501,10 @@
       "matsumoto"
     ],
     [
+      "nagoya",
+      "shizuoka"
+    ],
+    [
       "shizuoka",
       "hakone"
     ],
@@ -9175,6 +5515,10 @@
     [
       "himeji",
       "okayama"
+    ],
+    [
+      "okayama",
+      "hiroshima"
     ],
     [
       "okayama",
@@ -9213,6 +5557,10 @@
       "miyazaki"
     ],
     [
+      "miyazaki",
+      "beppu"
+    ],
+    [
       "mito",
       "chiba"
     ],
@@ -9223,6 +5571,10 @@
     [
       "kusatsu",
       "nikko"
+    ],
+    [
+      "kusatsu",
+      "matsumoto"
     ],
     [
       "kawagoe",
@@ -9259,6 +5611,14 @@
     [
       "koyasan",
       "nara"
+    ],
+    [
+      "koyasan",
+      "ise"
+    ],
+    [
+      "hagi",
+      "matsue"
     ],
     [
       "hagi",
@@ -9380,492 +5740,6 @@
     [
       "shiretoko",
       "kushiro"
-    ],
-    [
-      "aomori",
-      "hirosaki"
-    ],
-    [
-      "aomori",
-      "osorezan"
-    ],
-    [
-      "osorezan",
-      "hachinohe"
-    ],
-    [
-      "hachinohe",
-      "morioka"
-    ],
-    [
-      "akita",
-      "oga"
-    ],
-    [
-      "akita",
-      "kakunodate"
-    ],
-    [
-      "kakunodate",
-      "morioka"
-    ],
-    [
-      "morioka",
-      "tono"
-    ],
-    [
-      "tono",
-      "hiraizumi"
-    ],
-    [
-      "hiraizumi",
-      "sendai"
-    ],
-    [
-      "sendai",
-      "matsushima"
-    ],
-    [
-      "matsushima",
-      "hiraizumi"
-    ],
-    [
-      "yamagata",
-      "ginzan"
-    ],
-    [
-      "ginzan",
-      "sakata"
-    ],
-    [
-      "sakata",
-      "tsuruoka"
-    ],
-    [
-      "tsuruoka",
-      "niigata"
-    ],
-    [
-      "yamagata",
-      "zao"
-    ],
-    [
-      "zao",
-      "sendai"
-    ],
-    [
-      "aizu",
-      "ouchijuku"
-    ],
-    [
-      "ouchijuku",
-      "nikko"
-    ],
-    [
-      "aizu",
-      "iwaki"
-    ],
-    [
-      "iwaki",
-      "mito"
-    ],
-    [
-      "hirosaki",
-      "akita"
-    ],
-    [
-      "mito",
-      "tsukuba"
-    ],
-    [
-      "tsukuba",
-      "chiba"
-    ],
-    [
-      "mito",
-      "oarai"
-    ],
-    [
-      "oarai",
-      "hitachi"
-    ],
-    [
-      "hitachi",
-      "sendai"
-    ],
-    [
-      "nikko",
-      "utsunomiya"
-    ],
-    [
-      "utsunomiya",
-      "mito"
-    ],
-    [
-      "kawagoe",
-      "tomioka"
-    ],
-    [
-      "tomioka",
-      "kusatsu"
-    ],
-    [
-      "kawagoe",
-      "chichibu"
-    ],
-    [
-      "chichibu",
-      "kofu"
-    ],
-    [
-      "chiba",
-      "narita"
-    ],
-    [
-      "narita",
-      "sawara"
-    ],
-    [
-      "yokohama",
-      "yokosuka"
-    ],
-    [
-      "yokosuka",
-      "kamakura"
-    ],
-    [
-      "kamakura",
-      "enoshima"
-    ],
-    [
-      "enoshima",
-      "odawara"
-    ],
-    [
-      "odawara",
-      "hakone"
-    ],
-    [
-      "hakone",
-      "atami"
-    ],
-    [
-      "atami",
-      "shimoda"
-    ],
-    [
-      "shimoda",
-      "shizuoka"
-    ],
-    [
-      "kofu",
-      "fujiyoshida"
-    ],
-    [
-      "fujiyoshida",
-      "hakone"
-    ],
-    [
-      "matsumoto",
-      "suwa"
-    ],
-    [
-      "suwa",
-      "kofu"
-    ],
-    [
-      "matsumoto",
-      "kamikochi"
-    ],
-    [
-      "kamikochi",
-      "takayama"
-    ],
-    [
-      "nagano",
-      "karuizawa"
-    ],
-    [
-      "karuizawa",
-      "kusatsu"
-    ],
-    [
-      "nagano",
-      "matsumoto"
-    ],
-    [
-      "takayama",
-      "shirakawago"
-    ],
-    [
-      "shirakawago",
-      "kanazawa"
-    ],
-    [
-      "shirakawago",
-      "gujo"
-    ],
-    [
-      "gujo",
-      "gifu"
-    ],
-    [
-      "gifu",
-      "inuyama"
-    ],
-    [
-      "inuyama",
-      "nagoya"
-    ],
-    [
-      "nagoya",
-      "hamamatsu"
-    ],
-    [
-      "hamamatsu",
-      "shizuoka"
-    ],
-    [
-      "kanazawa",
-      "wajima"
-    ],
-    [
-      "tsumago",
-      "gifu"
-    ],
-    [
-      "osaka",
-      "kobe"
-    ],
-    [
-      "kobe",
-      "akashi"
-    ],
-    [
-      "akashi",
-      "himeji"
-    ],
-    [
-      "osaka",
-      "sakai"
-    ],
-    [
-      "sakai",
-      "wakayama"
-    ],
-    [
-      "kyoto",
-      "uji"
-    ],
-    [
-      "uji",
-      "nara"
-    ],
-    [
-      "wakayama",
-      "kumano"
-    ],
-    [
-      "kumano",
-      "nachi"
-    ],
-    [
-      "kumano",
-      "koyasan"
-    ],
-    [
-      "kyoto",
-      "amanohashidate"
-    ],
-    [
-      "amanohashidate",
-      "maizuru"
-    ],
-    [
-      "maizuru",
-      "kinosaki"
-    ],
-    [
-      "kinosaki",
-      "tottori"
-    ],
-    [
-      "okayama",
-      "kurashiki"
-    ],
-    [
-      "kurashiki",
-      "onomichi"
-    ],
-    [
-      "onomichi",
-      "hiroshima"
-    ],
-    [
-      "hiroshima",
-      "miyajima"
-    ],
-    [
-      "matsue",
-      "izumo"
-    ],
-    [
-      "izumo",
-      "sakaiminato"
-    ],
-    [
-      "sakaiminato",
-      "tottori"
-    ],
-    [
-      "izumo",
-      "tsuwano"
-    ],
-    [
-      "tsuwano",
-      "hagi"
-    ],
-    [
-      "okayama",
-      "naoshima",
-      "sea"
-    ],
-    [
-      "naoshima",
-      "takamatsu",
-      "sea"
-    ],
-    [
-      "tokushima",
-      "naruto"
-    ],
-    [
-      "naruto",
-      "kobe"
-    ],
-    [
-      "matsuyama",
-      "dogo"
-    ],
-    [
-      "hagi",
-      "shimonoseki"
-    ],
-    [
-      "fukuoka",
-      "kitakyushu"
-    ],
-    [
-      "kitakyushu",
-      "shimonoseki"
-    ],
-    [
-      "fukuoka",
-      "dazaifu"
-    ],
-    [
-      "dazaifu",
-      "kurume"
-    ],
-    [
-      "kurume",
-      "kumamoto"
-    ],
-    [
-      "saga",
-      "karatsu"
-    ],
-    [
-      "karatsu",
-      "fukuoka"
-    ],
-    [
-      "saga",
-      "arita"
-    ],
-    [
-      "arita",
-      "sasebo"
-    ],
-    [
-      "sasebo",
-      "nagasaki"
-    ],
-    [
-      "nagasaki",
-      "shimabara"
-    ],
-    [
-      "shimabara",
-      "unzen"
-    ],
-    [
-      "unzen",
-      "nagasaki"
-    ],
-    [
-      "shimabara",
-      "amakusa",
-      "sea"
-    ],
-    [
-      "amakusa",
-      "kumamoto"
-    ],
-    [
-      "kumamoto",
-      "aso"
-    ],
-    [
-      "aso",
-      "takachiho"
-    ],
-    [
-      "takachiho",
-      "miyazaki"
-    ],
-    [
-      "aso",
-      "yufuin"
-    ],
-    [
-      "yufuin",
-      "beppu"
-    ],
-    [
-      "miyazaki",
-      "kirishima"
-    ],
-    [
-      "kirishima",
-      "kagoshima"
-    ],
-    [
-      "kagoshima",
-      "chiran"
-    ],
-    [
-      "chiran",
-      "ibusuki"
-    ],
-    [
-      "ibusuki",
-      "kagoshima"
-    ],
-    [
-      "naha",
-      "kerama",
-      "sea"
-    ],
-    [
-      "ishigaki",
-      "taketomi",
-      "sea"
-    ],
-    [
-      "taketomi",
-      "yonaguni",
-      "sea"
     ]
   ],
   "outro": {
@@ -12703,5 +8577,375 @@
     "volcano": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"116\" fill=\"#f0a05a\"/><rect x=\"0\" y=\"0\" width=\"400\" height=\"44\" fill=\"#e8834a\"/><circle cx=\"310\" cy=\"32\" r=\"16\" fill=\"#f5d38a\"/><polygon points=\"-20,124 90,34 130,34 240,124\" fill=\"#7a6a5f\"/><g fill=\"#6a5f56\" opacity=\".9\"><ellipse cx=\"110\" cy=\"26\" rx=\"34\" ry=\"12\"/><ellipse cx=\"70\" cy=\"18\" rx=\"22\" ry=\"9\"/><ellipse cx=\"152\" cy=\"20\" rx=\"24\" ry=\"10\"/></g><path d=\"M96,34c6,-8 22,-8 28,0z\" fill=\"#e05252\"/><polygon points=\"200,124 290,60 400,124\" fill=\"#8a7a6a\"/><rect x=\"0\" y=\"120\" width=\"400\" height=\"90\" fill=\"#6f8f56\"/><rect x=\"0\" y=\"156\" width=\"400\" height=\"54\" fill=\"#5f7f4a\"/>",
     "subtropic": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"110\" fill=\"#6fc4e8\"/><circle cx=\"316\" cy=\"30\" r=\"18\" fill=\"#f5b31c\"/><g opacity=\".85\" fill=\"#f6efe2\"><ellipse cx=\"100\" cy=\"26\" rx=\"19.8\" ry=\"8.1\"/><ellipse cx=\"89.2\" cy=\"28.7\" rx=\"12.6\" ry=\"6.3\"/><ellipse cx=\"112.6\" cy=\"28.7\" rx=\"14.4\" ry=\"6.3\"/></g><rect x=\"0\" y=\"106\" width=\"400\" height=\"44\" fill=\"#2fb8c4\"/><rect x=\"0\" y=\"146\" width=\"400\" height=\"64\" fill=\"#f0e2c4\"/><g stroke=\"#8fe0ea\" stroke-width=\"2\" opacity=\".8\"><path d=\"M20,124h70M210,136h80M120,142h64\"/></g><rect x=\"32\" y=\"152\" width=\"5\" height=\"30\" fill=\"#8e5a3c\"/><path d=\"M34,152 q-13.788799976141602,-10.284601754984632 -26.04551106604525,-16.712477851850025\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M34,152 q-4.658742811845375,-15.454813220625093 -8.799847533485709,-25.114071483515776\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M34,152 q6.156362579862039,-15.035081932574533 11.62868487307274,-24.432008140433616\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M34,152 q14.744736797201853,-9.177222981616737 27.85116950582572,-14.912987345127197\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M34,152 q18,0 34,0\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><rect x=\"112\" y=\"152\" width=\"5\" height=\"30\" fill=\"#8e5a3c\"/><path d=\"M114,152 q-13.788799976141602,-10.284601754984632 -26.04551106604525,-16.712477851850025\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M114,152 q-4.658742811845375,-15.454813220625093 -8.799847533485709,-25.114071483515776\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M114,152 q6.156362579862039,-15.035081932574533 11.62868487307274,-24.432008140433616\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M114,152 q14.744736797201853,-9.177222981616737 27.85116950582572,-14.912987345127197\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M114,152 q18,0 34,0\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><rect x=\"192\" y=\"152\" width=\"5\" height=\"30\" fill=\"#8e5a3c\"/><path d=\"M194,152 q-13.788799976141602,-10.284601754984632 -26.04551106604525,-16.712477851850025\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M194,152 q-4.658742811845375,-15.454813220625093 -8.799847533485709,-25.114071483515776\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M194,152 q6.156362579862039,-15.035081932574533 11.62868487307274,-24.432008140433616\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M194,152 q14.744736797201853,-9.177222981616737 27.85116950582572,-14.912987345127197\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M194,152 q18,0 34,0\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><rect x=\"272\" y=\"152\" width=\"5\" height=\"30\" fill=\"#8e5a3c\"/><path d=\"M274,152 q-13.788799976141602,-10.284601754984632 -26.04551106604525,-16.712477851850025\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M274,152 q-4.658742811845375,-15.454813220625093 -8.799847533485709,-25.114071483515776\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M274,152 q6.156362579862039,-15.035081932574533 11.62868487307274,-24.432008140433616\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M274,152 q14.744736797201853,-9.177222981616737 27.85116950582572,-14.912987345127197\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M274,152 q18,0 34,0\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><rect x=\"352\" y=\"152\" width=\"5\" height=\"30\" fill=\"#8e5a3c\"/><path d=\"M354,152 q-13.788799976141602,-10.284601754984632 -26.04551106604525,-16.712477851850025\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M354,152 q-4.658742811845375,-15.454813220625093 -8.799847533485709,-25.114071483515776\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M354,152 q6.156362579862039,-15.035081932574533 11.62868487307274,-24.432008140433616\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M354,152 q14.744736797201853,-9.177222981616737 27.85116950582572,-14.912987345127197\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/><path d=\"M354,152 q18,0 34,0\" stroke=\"#2f8f4a\" stroke-width=\"4\" fill=\"none\"/>"
   },
-  "decor": "<polygon points=\"652.7692307692301,741.7643564356437 691.7692307692301,697.5643564356436 730.7692307692301,741.7643564356437\" fill=\"#8a7f9c\"/><polygon points=\"677.4692307692302,715.7643564356437 691.7692307692301,697.5643564356436 706.0692307692301,715.7643564356437 696.9692307692302,710.5643564356436 691.7692307692301,704.3243564356436 686.5692307692301,710.5643564356436\" fill=\"#f6efe2\"/><polygon points=\"598.0769230769234,673.1089108910891 628.0769230769234,639.1089108910891 658.0769230769234,673.1089108910891\" fill=\"#8a7f9c\"/><polygon points=\"617.0769230769234,653.1089108910891 628.0769230769234,639.1089108910891 639.0769230769234,653.1089108910891 632.0769230769234,649.1089108910891 628.0769230769234,644.3089108910891 624.0769230769234,649.1089108910891\" fill=\"#f6efe2\"/><polygon points=\"635.8717948717954,716.0653465346535 662.8717948717954,685.4653465346535 689.8717948717954,716.0653465346535\" fill=\"#8a7f9c\"/><polygon points=\"652.9717948717954,698.0653465346535 662.8717948717954,685.4653465346535 672.7717948717954,698.0653465346535 666.4717948717954,694.4653465346535 662.8717948717954,690.1453465346534 659.2717948717954,694.4653465346535\" fill=\"#f6efe2\"/><polygon points=\"795.7435897435901,201.10099009900958 819.7435897435901,173.9009900990096 843.7435897435901,201.10099009900958\" fill=\"#8a7f9c\"/><polygon points=\"810.9435897435901,185.10099009900958 819.7435897435901,173.9009900990096 828.54358974359,185.10099009900958 822.9435897435901,181.9009900990096 819.7435897435901,178.0609900990096 816.54358974359,181.9009900990096\" fill=\"#f6efe2\"/><polygon points=\"685.1923076923077,578.8168316831682 707.6923076923077,553.3168316831682 730.1923076923077,578.8168316831682\" fill=\"#8a7f9c\"/><polygon points=\"699.4423076923077,563.8168316831682 707.6923076923077,553.3168316831682 715.9423076923077,563.8168316831682 710.6923076923077,560.8168316831682 707.6923076923077,557.2168316831682 704.6923076923077,560.8168316831682\" fill=\"#f6efe2\"/><polygon points=\"570.1410256410253,680.7118811881188 595.6410256410253,651.8118811881188 621.1410256410253,680.7118811881188\" fill=\"#8a7f9c\"/><polygon points=\"586.2910256410253,663.7118811881188 595.6410256410253,651.8118811881188 604.9910256410253,663.7118811881188 599.0410256410253,660.3118811881188 595.6410256410253,656.2318811881188 592.2410256410253,660.3118811881188\" fill=\"#f6efe2\"/><polygon points=\"763.358974358975,543.4633663366335 784.358974358975,519.6633663366335 805.358974358975,543.4633663366335\" fill=\"#8a7f9c\"/><polygon points=\"776.658974358975,529.4633663366335 784.358974358975,519.6633663366335 792.0589743589751,529.4633663366335 787.158974358975,526.6633663366335 784.358974358975,523.3033663366335 781.5589743589751,526.6633663366335\" fill=\"#f6efe2\"/><polygon points=\"219.29487179487145,905.9455445544553 241.79487179487145,880.4455445544553 264.2948717948715,905.9455445544553\" fill=\"#8a7f9c\"/><polygon points=\"233.54487179487145,890.9455445544553 241.79487179487145,880.4455445544553 250.04487179487145,890.9455445544553 244.79487179487145,887.9455445544553 241.79487179487145,884.3455445544553 238.79487179487145,887.9455445544553\" fill=\"#f6efe2\"/><polygon points=\"194.84615384615364,994.6514851485149 215.84615384615364,970.8514851485149 236.84615384615364,994.6514851485149\" fill=\"#8a7f9c\"/><polygon points=\"208.14615384615365,980.6514851485149 215.84615384615364,970.8514851485149 223.54615384615363,980.6514851485149 218.64615384615365,977.8514851485149 215.84615384615364,974.4914851485149 213.04615384615363,977.8514851485149\" fill=\"#f6efe2\"/><polygon points=\"346.14102564102495,842.8623762376236 365.64102564102495,820.7623762376236 385.14102564102495,842.8623762376236\" fill=\"#8a7f9c\"/><polygon points=\"358.491025641025,829.8623762376236 365.64102564102495,820.7623762376236 372.79102564102493,829.8623762376236 368.241025641025,827.2623762376236 365.64102564102495,824.1423762376236 363.04102564102493,827.2623762376236\" fill=\"#f6efe2\"/><polygon points=\"909.2435897435894,160.2168316831684 934.7435897435894,131.3168316831684 960.2435897435894,160.2168316831684\" fill=\"#8a7f9c\"/><polygon points=\"925.3935897435894,143.2168316831684 934.7435897435894,131.3168316831684 944.0935897435894,143.2168316831684 938.1435897435894,139.8168316831684 934.7435897435894,135.7368316831684 931.3435897435894,139.8168316831684\" fill=\"#f6efe2\"/><polygon points=\"368.28205128205195,731.271287128713 386.28205128205195,710.871287128713 404.28205128205195,731.271287128713\" fill=\"#8a7f9c\"/><polygon points=\"379.68205128205193,719.271287128713 386.28205128205195,710.871287128713 392.882051282052,719.271287128713 388.68205128205193,716.871287128713 386.28205128205195,713.991287128713 383.882051282052,716.871287128713\" fill=\"#f6efe2\"/><circle cx=\"94.35897435897402\" cy=\"83.16831683168289\" r=\"5\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"363.01994301994193\" cy=\"599.1199119911988\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"900.3418803418795\" cy=\"275.6875687568755\" r=\"8\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"120.56980056980098\" cy=\"791.6391639163916\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"657.8917378917367\" cy=\"468.20682068206816\" r=\"7\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"926.5527065527064\" cy=\"984.1584158415841\" r=\"8\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"146.78062678062625\" cy=\"144.7744774477443\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"415.44159544159584\" cy=\"660.7260726072607\" r=\"6\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"952.7635327635317\" cy=\"337.2937293729369\" r=\"8\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"172.9914529914532\" cy=\"853.2453245324529\" r=\"5\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"710.3133903133908\" cy=\"529.8129812981296\" r=\"7\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"978.9743589743587\" cy=\"1045.7645764576457\" r=\"8\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"199.2022792022785\" cy=\"206.38063806380617\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"467.8632478632481\" cy=\"722.3322332233222\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"1005.1851851851856\" cy=\"398.8998899889988\" r=\"8\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"225.41310541310546\" cy=\"914.8514851485147\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"762.735042735043\" cy=\"591.4191419141914\" r=\"7\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"251.62393162393073\" cy=\"267.9867986798676\" r=\"5\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"520.2849002849003\" cy=\"783.9383938393835\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"1057.6068376068379\" cy=\"460.50605060506024\" r=\"8\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"277.8347578347577\" cy=\"976.4576457645765\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"546.4957264957255\" cy=\"137.07370737073686\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"815.1566951566952\" cy=\"653.0253025302528\" r=\"7\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"304.045584045583\" cy=\"329.59295929592946\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"572.7065527065525\" cy=\"845.5445544554453\" r=\"6\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"1110.02849002849\" cy=\"522.112211221122\" r=\"8\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"330.25641025640994\" cy=\"1038.0638063806382\" r=\"5\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"598.9173789173778\" cy=\"198.67986798679826\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"867.5783475783475\" cy=\"714.6314631463142\" r=\"7\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"356.4672364672369\" cy=\"391.19911991199086\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"625.1282051282049\" cy=\"907.1507150715073\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"114.01709401709424\" cy=\"583.7183718371836\" r=\"8\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"651.3390313390317\" cy=\"260.28602860286014\" r=\"6\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"919.9999999999997\" cy=\"776.2376237623762\" r=\"7\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"140.22792022791953\" cy=\"1292.189218921892\" r=\"8\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"408.8888888888891\" cy=\"452.8052805280528\" r=\"5\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"677.549857549857\" cy=\"968.7568756875687\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"946.2108262108266\" cy=\"129.37293729372894\" r=\"7\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"166.43874643874648\" cy=\"645.3245324532448\" r=\"8\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"703.760683760684\" cy=\"321.89218921892154\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"972.4216524216519\" cy=\"837.8437843784379\" r=\"7\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"192.64957264957175\" cy=\"1353.7953795379537\" r=\"8\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"461.31054131054134\" cy=\"514.4114411441142\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"729.9715099715092\" cy=\"1030.36303630363\" r=\"6\" fill=\"#3f8046\" opacity=\".8\"/><path d=\"M547.3589743589747,713.9306930693068 v-10 M561.3589743589747,713.9306930693068 v-10 M543.3589743589747,702.9306930693068 h22 M545.3589743589747,698.9306930693068 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M600.4358974358981,835.217821782178 v-10 M614.4358974358981,835.217821782178 v-10 M596.4358974358981,824.217821782178 h22 M598.4358974358981,820.217821782178 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M653.5128205128215,800.5643564356435 v-10 M667.5128205128215,800.5643564356435 v-10 M649.5128205128215,789.5643564356435 h22 M651.5128205128215,785.5643564356435 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M706.5897435897432,765.9108910891088 v-10 M720.5897435897432,765.9108910891088 v-10 M702.5897435897432,754.9108910891088 h22 M704.5897435897432,750.9108910891088 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M759.6666666666666,731.2574257425741 v-10 M773.6666666666666,731.2574257425741 v-10 M755.6666666666666,720.2574257425741 h22 M757.6666666666666,716.2574257425741 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M812.7435897435901,852.5445544554453 v-10 M826.7435897435901,852.5445544554453 v-10 M808.7435897435901,841.5445544554453 h22 M810.7435897435901,837.5445544554453 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M865.8205128205135,817.8910891089108 v-10 M879.8205128205135,817.8910891089108 v-10 M861.8205128205135,806.8910891089108 h22 M863.8205128205135,802.8910891089108 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M918.8974358974369,783.2376237623762 v-10 M932.8974358974369,783.2376237623762 v-10 M914.8974358974369,772.2376237623762 h22 M916.8974358974369,768.2376237623762 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M971.9743589743587,748.5841584158414 v-10 M985.9743589743587,748.5841584158414 v-10 M967.9743589743587,737.5841584158414 h22 M969.9743589743587,733.5841584158414 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/>"
+  "decor": "<polygon points=\"652.7692307692301,741.7643564356437 691.7692307692301,697.5643564356436 730.7692307692301,741.7643564356437\" fill=\"#8a7f9c\"/><polygon points=\"677.4692307692302,715.7643564356437 691.7692307692301,697.5643564356436 706.0692307692301,715.7643564356437 696.9692307692302,710.5643564356436 691.7692307692301,704.3243564356436 686.5692307692301,710.5643564356436\" fill=\"#f6efe2\"/><polygon points=\"598.0769230769234,673.1089108910891 628.0769230769234,639.1089108910891 658.0769230769234,673.1089108910891\" fill=\"#8a7f9c\"/><polygon points=\"617.0769230769234,653.1089108910891 628.0769230769234,639.1089108910891 639.0769230769234,653.1089108910891 632.0769230769234,649.1089108910891 628.0769230769234,644.3089108910891 624.0769230769234,649.1089108910891\" fill=\"#f6efe2\"/><polygon points=\"635.8717948717954,716.0653465346535 662.8717948717954,685.4653465346535 689.8717948717954,716.0653465346535\" fill=\"#8a7f9c\"/><polygon points=\"652.9717948717954,698.0653465346535 662.8717948717954,685.4653465346535 672.7717948717954,698.0653465346535 666.4717948717954,694.4653465346535 662.8717948717954,690.1453465346534 659.2717948717954,694.4653465346535\" fill=\"#f6efe2\"/><polygon points=\"795.7435897435901,201.10099009900958 819.7435897435901,173.9009900990096 843.7435897435901,201.10099009900958\" fill=\"#8a7f9c\"/><polygon points=\"810.9435897435901,185.10099009900958 819.7435897435901,173.9009900990096 828.54358974359,185.10099009900958 822.9435897435901,181.9009900990096 819.7435897435901,178.0609900990096 816.54358974359,181.9009900990096\" fill=\"#f6efe2\"/><polygon points=\"685.1923076923077,578.8168316831682 707.6923076923077,553.3168316831682 730.1923076923077,578.8168316831682\" fill=\"#8a7f9c\"/><polygon points=\"699.4423076923077,563.8168316831682 707.6923076923077,553.3168316831682 715.9423076923077,563.8168316831682 710.6923076923077,560.8168316831682 707.6923076923077,557.2168316831682 704.6923076923077,560.8168316831682\" fill=\"#f6efe2\"/><polygon points=\"570.1410256410253,680.7118811881188 595.6410256410253,651.8118811881188 621.1410256410253,680.7118811881188\" fill=\"#8a7f9c\"/><polygon points=\"586.2910256410253,663.7118811881188 595.6410256410253,651.8118811881188 604.9910256410253,663.7118811881188 599.0410256410253,660.3118811881188 595.6410256410253,656.2318811881188 592.2410256410253,660.3118811881188\" fill=\"#f6efe2\"/><polygon points=\"763.358974358975,543.4633663366335 784.358974358975,519.6633663366335 805.358974358975,543.4633663366335\" fill=\"#8a7f9c\"/><polygon points=\"776.658974358975,529.4633663366335 784.358974358975,519.6633663366335 792.0589743589751,529.4633663366335 787.158974358975,526.6633663366335 784.358974358975,523.3033663366335 781.5589743589751,526.6633663366335\" fill=\"#f6efe2\"/><polygon points=\"219.29487179487145,905.9455445544553 241.79487179487145,880.4455445544553 264.2948717948715,905.9455445544553\" fill=\"#8a7f9c\"/><polygon points=\"233.54487179487145,890.9455445544553 241.79487179487145,880.4455445544553 250.04487179487145,890.9455445544553 244.79487179487145,887.9455445544553 241.79487179487145,884.3455445544553 238.79487179487145,887.9455445544553\" fill=\"#f6efe2\"/><polygon points=\"194.84615384615364,994.6514851485149 215.84615384615364,970.8514851485149 236.84615384615364,994.6514851485149\" fill=\"#8a7f9c\"/><polygon points=\"208.14615384615365,980.6514851485149 215.84615384615364,970.8514851485149 223.54615384615363,980.6514851485149 218.64615384615365,977.8514851485149 215.84615384615364,974.4914851485149 213.04615384615363,977.8514851485149\" fill=\"#f6efe2\"/><polygon points=\"346.14102564102495,842.8623762376236 365.64102564102495,820.7623762376236 385.14102564102495,842.8623762376236\" fill=\"#8a7f9c\"/><polygon points=\"358.491025641025,829.8623762376236 365.64102564102495,820.7623762376236 372.79102564102493,829.8623762376236 368.241025641025,827.2623762376236 365.64102564102495,824.1423762376236 363.04102564102493,827.2623762376236\" fill=\"#f6efe2\"/><polygon points=\"909.2435897435894,160.2168316831684 934.7435897435894,131.3168316831684 960.2435897435894,160.2168316831684\" fill=\"#8a7f9c\"/><polygon points=\"925.3935897435894,143.2168316831684 934.7435897435894,131.3168316831684 944.0935897435894,143.2168316831684 938.1435897435894,139.8168316831684 934.7435897435894,135.7368316831684 931.3435897435894,139.8168316831684\" fill=\"#f6efe2\"/><polygon points=\"368.28205128205195,731.271287128713 386.28205128205195,710.871287128713 404.28205128205195,731.271287128713\" fill=\"#8a7f9c\"/><polygon points=\"379.68205128205193,719.271287128713 386.28205128205195,710.871287128713 392.882051282052,719.271287128713 388.68205128205193,716.871287128713 386.28205128205195,713.991287128713 383.882051282052,716.871287128713\" fill=\"#f6efe2\"/><circle cx=\"94.35897435897402\" cy=\"83.16831683168289\" r=\"5\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"363.01994301994193\" cy=\"599.1199119911988\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"900.3418803418795\" cy=\"275.6875687568755\" r=\"8\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"120.56980056980098\" cy=\"791.6391639163916\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"657.8917378917367\" cy=\"468.20682068206816\" r=\"7\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"926.5527065527064\" cy=\"984.1584158415841\" r=\"8\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"146.78062678062625\" cy=\"144.7744774477443\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"415.44159544159584\" cy=\"660.7260726072607\" r=\"6\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"952.7635327635317\" cy=\"337.2937293729369\" r=\"8\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"172.9914529914532\" cy=\"853.2453245324529\" r=\"5\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"710.3133903133908\" cy=\"529.8129812981296\" r=\"7\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"978.9743589743587\" cy=\"1045.7645764576457\" r=\"8\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"199.2022792022785\" cy=\"206.38063806380617\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"467.8632478632481\" cy=\"722.3322332233222\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"1005.1851851851856\" cy=\"398.8998899889988\" r=\"8\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"225.41310541310546\" cy=\"914.8514851485147\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"762.735042735043\" cy=\"591.4191419141914\" r=\"7\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"251.62393162393073\" cy=\"267.9867986798676\" r=\"5\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"520.2849002849003\" cy=\"783.9383938393835\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"1057.6068376068379\" cy=\"460.50605060506024\" r=\"8\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"277.8347578347577\" cy=\"976.4576457645765\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"546.4957264957255\" cy=\"137.07370737073686\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"815.1566951566952\" cy=\"653.0253025302528\" r=\"7\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"304.045584045583\" cy=\"329.59295929592946\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"572.7065527065525\" cy=\"845.5445544554453\" r=\"6\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"1110.02849002849\" cy=\"522.112211221122\" r=\"8\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"330.25641025640994\" cy=\"1038.0638063806382\" r=\"5\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"598.9173789173778\" cy=\"198.67986798679826\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"867.5783475783475\" cy=\"714.6314631463142\" r=\"7\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"356.4672364672369\" cy=\"391.19911991199086\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"625.1282051282049\" cy=\"907.1507150715073\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"114.01709401709424\" cy=\"583.7183718371836\" r=\"8\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"651.3390313390317\" cy=\"260.28602860286014\" r=\"6\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"919.9999999999997\" cy=\"776.2376237623762\" r=\"7\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"140.22792022791953\" cy=\"1292.189218921892\" r=\"8\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"408.8888888888891\" cy=\"452.8052805280528\" r=\"5\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"677.549857549857\" cy=\"968.7568756875687\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"946.2108262108266\" cy=\"129.37293729372894\" r=\"7\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"166.43874643874648\" cy=\"645.3245324532448\" r=\"8\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"703.760683760684\" cy=\"321.89218921892154\" r=\"6\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"972.4216524216519\" cy=\"837.8437843784379\" r=\"7\" fill=\"#3f8046\" opacity=\".8\"/><circle cx=\"192.64957264957175\" cy=\"1353.7953795379537\" r=\"8\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"461.31054131054134\" cy=\"514.4114411441142\" r=\"5\" fill=\"#2f6b3f\" opacity=\".8\"/><circle cx=\"729.9715099715092\" cy=\"1030.36303630363\" r=\"6\" fill=\"#3f8046\" opacity=\".8\"/><path d=\"M547.3589743589747,713.9306930693068 v-10 M561.3589743589747,713.9306930693068 v-10 M543.3589743589747,702.9306930693068 h22 M545.3589743589747,698.9306930693068 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M600.4358974358981,835.217821782178 v-10 M614.4358974358981,835.217821782178 v-10 M596.4358974358981,824.217821782178 h22 M598.4358974358981,820.217821782178 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M653.5128205128215,800.5643564356435 v-10 M667.5128205128215,800.5643564356435 v-10 M649.5128205128215,789.5643564356435 h22 M651.5128205128215,785.5643564356435 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M706.5897435897432,765.9108910891088 v-10 M720.5897435897432,765.9108910891088 v-10 M702.5897435897432,754.9108910891088 h22 M704.5897435897432,750.9108910891088 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M759.6666666666666,731.2574257425741 v-10 M773.6666666666666,731.2574257425741 v-10 M755.6666666666666,720.2574257425741 h22 M757.6666666666666,716.2574257425741 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M812.7435897435901,852.5445544554453 v-10 M826.7435897435901,852.5445544554453 v-10 M808.7435897435901,841.5445544554453 h22 M810.7435897435901,837.5445544554453 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M865.8205128205135,817.8910891089108 v-10 M879.8205128205135,817.8910891089108 v-10 M861.8205128205135,806.8910891089108 h22 M863.8205128205135,802.8910891089108 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M918.8974358974369,783.2376237623762 v-10 M932.8974358974369,783.2376237623762 v-10 M914.8974358974369,772.2376237623762 h22 M916.8974358974369,768.2376237623762 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M971.9743589743587,748.5841584158414 v-10 M985.9743589743587,748.5841584158414 v-10 M967.9743589743587,737.5841584158414 h22 M969.9743589743587,733.5841584158414 q11,-4 18,0\" stroke=\"#d4483c\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\"/>",
+  "moneyEvents": [
+    {
+      "id": "lost-wallet-returned",
+      "kind": "gain",
+      "regs": [],
+      "e": "👛",
+      "amount": 320,
+      "n": {
+        "en": "Your wallet came back",
+        "es": "Tu cartera ha vuelto",
+        "fr": "Ton portefeuille est revenu",
+        "ja": "財布が戻ってきた"
+      },
+      "t": {
+        "en": "You left it on the train, and it was waiting at the lost-property office with the cash untouched. Around 80% of wallets handed in to Tokyo police are returned to their owners.",
+        "es": "Lo dejaste en el tren y te esperaba en objetos perdidos, con el dinero intacto. Cerca del 80% de las carteras entregadas a la policía de Tokio vuelven a su dueño.",
+        "fr": "Tu l'avais laissé dans le train ; il t'attendait aux objets trouvés, l'argent intact. Environ 80 % des portefeuilles remis à la police de Tokyo retrouvent leur propriétaire.",
+        "ja": "列車に置き忘れた財布が、現金もそのまま遺失物窓口で待っていた。東京で警察に届けられた財布のおよそ8割は持ち主の手に戻る。"
+      }
+    },
+    {
+      "id": "vending-change",
+      "kind": "gain",
+      "regs": [],
+      "e": "🥤",
+      "amount": 120,
+      "n": {
+        "en": "The machine gives extra",
+        "es": "La máquina da de más",
+        "fr": "Le distributeur rend trop",
+        "ja": "自販機が多く返した"
+      },
+      "t": {
+        "en": "A drinks machine returns your coin along with the bottle. Japan has roughly one vending machine for every 30 people, more per head than anywhere else.",
+        "es": "Una máquina de bebidas te devuelve la moneda con la botella. Japón tiene una máquina por cada 30 personas, la mayor proporción del mundo.",
+        "fr": "Un distributeur rend la pièce en plus de la bouteille. Le Japon compte un distributeur pour 30 habitants, le record mondial.",
+        "ja": "飲み物の自販機が、ボトルと一緒に硬貨も返してきた。日本の自販機は約30人に1台と、人口あたりで世界一多い。"
+      }
+    },
+    {
+      "id": "shrine-omikuji",
+      "kind": "loss",
+      "regs": [],
+      "e": "🎋",
+      "amount": 180,
+      "n": {
+        "en": "A bad fortune slip",
+        "es": "Una suerte adversa",
+        "fr": "Un mauvais oracle",
+        "ja": "凶を引いた"
+      },
+      "t": {
+        "en": "You drew \"great curse\" at the shrine, so you buy a charm and tie the paper to a branch. Tying it there is said to leave the bad luck behind rather than carry it home.",
+        "es": "Sacaste «gran maldición», así que compras un amuleto y atas el papel a una rama. Se dice que atarlo deja allí la mala suerte.",
+        "fr": "Tu as tiré « grande malédiction » : tu achètes une amulette et noues le papier à une branche, pour y laisser le mauvais sort.",
+        "ja": "神社で大凶を引いたので、お守りを買い、おみくじを枝に結んで帰る。結んでおけば凶を持ち帰らずに済むとされる。"
+      }
+    },
+    {
+      "id": "train-delay-taxi",
+      "kind": "loss",
+      "regs": [],
+      "e": "🚕",
+      "amount": 260,
+      "n": {
+        "en": "The line stops, you take a taxi",
+        "es": "Se para la línea, tomas un taxi",
+        "fr": "La ligne s'arrête, tu prends un taxi",
+        "ja": "運転見合わせでタクシー"
+      },
+      "t": {
+        "en": "A signal check halts the line and the platform fills up, so you give in and take a taxi. Japanese railways publish delay certificates you can show at work.",
+        "es": "Una revisión de señales detiene la línea y el andén se llena, así que tomas un taxi. Los ferrocarriles emiten certificados de retraso para el trabajo.",
+        "fr": "Une vérification de signalisation bloque la ligne et le quai se remplit : tu prends un taxi. Les chemins de fer délivrent des attestations de retard.",
+        "ja": "信号確認で運転見合わせ、ホームは人であふれ、諦めてタクシーに乗る。鉄道各社は職場に出せる遅延証明書を配っている。"
+      }
+    },
+    {
+      "id": "matsuri-help",
+      "kind": "gain",
+      "regs": [],
+      "e": "🏮",
+      "amount": 280,
+      "n": {
+        "en": "Asked to carry the shrine",
+        "es": "Te piden llevar el mikoshi",
+        "fr": "On te demande de porter le mikoshi",
+        "ja": "神輿の担ぎ手に呼ばれた"
+      },
+      "t": {
+        "en": "The neighbourhood is short of hands for the portable shrine, and they pay you in cash and beer. Many towns now welcome outsiders because there are not enough young residents.",
+        "es": "Al barrio le faltan manos para el mikoshi y te pagan en efectivo y cerveza. Muchos pueblos aceptan forasteros por falta de jóvenes.",
+        "fr": "Le quartier manque de bras pour le mikoshi et te paie en espèces et en bière. Bien des villes accueillent des étrangers faute de jeunes.",
+        "ja": "町内会が神輿の担ぎ手を欠いており、日当とビールが出た。若い住民が足りず、よそ者を歓迎する町は多い。"
+      }
+    },
+    {
+      "id": "drift-ice-cruise",
+      "kind": "loss",
+      "regs": [
+        "nor"
+      ],
+      "e": "🧊",
+      "amount": 240,
+      "n": {
+        "en": "The drift ice came early",
+        "es": "El hielo llegó pronto",
+        "fr": "La banquise est arrivée tôt",
+        "ja": "流氷が早く来た"
+      },
+      "t": {
+        "en": "The pack ice arrives ahead of schedule and the ferry is cancelled, so you pay for a night's lodging. The ice drifts down from the Amur river, 1,000 km away.",
+        "es": "El hielo llega antes de lo previsto y cancelan el ferry; pagas una noche de hotel. Viene del río Amur, a 1.000 km.",
+        "fr": "La banquise arrive en avance, le ferry est annulé : tu paies une nuit d'hôtel. Elle descend du fleuve Amour, à 1 000 km.",
+        "ja": "流氷が予定より早く接岸し、船が欠航して一泊ぶんの宿代がかかった。氷は1000km離れたアムール川から流れてくる。"
+      }
+    },
+    {
+      "id": "namahage-visit",
+      "kind": "loss",
+      "regs": [
+        "nor"
+      ],
+      "e": "👹",
+      "amount": 200,
+      "n": {
+        "en": "The demons come for you",
+        "es": "Los demonios vienen a por ti",
+        "fr": "Les démons viennent te chercher",
+        "ja": "なまはげが来た"
+      },
+      "t": {
+        "en": "Straw-caped visitors burst in looking for idlers, and the household owes them food and drink. Guests are expected to contribute to the feast.",
+        "es": "Visitantes con capas de paja irrumpen buscando holgazanes; la casa les debe comida y bebida. Los invitados aportan al banquete.",
+        "fr": "Des visiteurs en capes de paille font irruption pour débusquer les paresseux ; la maison leur doit à boire et à manger.",
+        "ja": "藁の蓑をまとった一行が「怠け者はいねが」と押し入り、家は膳と酒を出すことになっている。客人も相応の負担をする。"
+      }
+    },
+    {
+      "id": "salmon-catch",
+      "kind": "gain",
+      "regs": [
+        "nor"
+      ],
+      "e": "🐟",
+      "amount": 300,
+      "n": {
+        "en": "A share of the salmon run",
+        "es": "Una parte de la pesca",
+        "fr": "Une part de la remontée des saumons",
+        "ja": "鮭の水揚げを分けてもらう"
+      },
+      "t": {
+        "en": "You lend a hand hauling nets at dawn and leave with fish and cash. Hokkaidō lands the great majority of Japan's salmon.",
+        "es": "Echas una mano con las redes al alba y te vas con pescado y dinero. Hokkaidō pesca la gran mayoría del salmón de Japón.",
+        "fr": "Tu aides à haler les filets à l'aube et repars avec du poisson et de l'argent. Hokkaidō pêche l'essentiel du saumon japonais.",
+        "ja": "夜明けの網揚げを手伝い、魚と現金を持たされた。日本の鮭の大半は北海道で獲れる。"
+      }
+    },
+    {
+      "id": "apple-orchard",
+      "kind": "gain",
+      "regs": [
+        "nor"
+      ],
+      "e": "🍎",
+      "amount": 240,
+      "n": {
+        "en": "Helping with the apple harvest",
+        "es": "Ayudas en la cosecha de manzanas",
+        "fr": "Tu aides à la récolte des pommes",
+        "ja": "林檎の収穫を手伝う"
+      },
+      "t": {
+        "en": "An orchard is short-handed and pays by the crate. Aomori alone grows more than half of Japan's apples.",
+        "es": "Un huerto anda corto de manos y paga por caja. Solo Aomori produce más de la mitad de las manzanas de Japón.",
+        "fr": "Un verger manque de bras et paie à la caisse. À elle seule, Aomori produit plus de la moitié des pommes du Japon.",
+        "ja": "人手の足りない林檎園で、箱いくらで日当が出た。青森県だけで日本の林檎の半分以上を産する。"
+      }
+    },
+    {
+      "id": "rush-hour-crush",
+      "kind": "loss",
+      "regs": [
+        "kan"
+      ],
+      "e": "🚇",
+      "amount": 220,
+      "n": {
+        "en": "Your glasses go in the crush",
+        "es": "Tus gafas en el apretón",
+        "fr": "Tes lunettes dans la cohue",
+        "ja": "満員電車で眼鏡が折れた"
+      },
+      "t": {
+        "en": "The morning train runs at almost double its capacity and something in your bag does not survive. Station staff in white gloves still push passengers aboard.",
+        "es": "El tren matinal va al doble de su capacidad y algo de tu bolsa no sobrevive. Empleados con guantes blancos aún empujan a los pasajeros.",
+        "fr": "Le train du matin roule au double de sa capacité et quelque chose dans ton sac n'y survit pas. Des employés gantés de blanc poussent encore les voyageurs.",
+        "ja": "朝の電車は定員のほぼ倍で、鞄の中身が無事では済まなかった。白手袋の駅員が今も乗客を押し込む。"
+      }
+    },
+    {
+      "id": "cherry-blossom-spot",
+      "kind": "gain",
+      "regs": [
+        "kan"
+      ],
+      "e": "🌸",
+      "amount": 200,
+      "n": {
+        "en": "Paid to hold the picnic spot",
+        "es": "Te pagan por guardar el sitio",
+        "fr": "Payé pour garder la place",
+        "ja": "花見の場所取りを頼まれた"
+      },
+      "t": {
+        "en": "A company sends its newest recruit to sit under a tree all day; this time they pay you instead. The blossom front is tracked and forecast nationally.",
+        "es": "Una empresa manda a su novato a sentarse todo el día bajo un árbol; esta vez te pagan a ti. El frente de floración se pronostica en todo el país.",
+        "fr": "Une entreprise envoie son nouveau s'asseoir sous un arbre toute la journée ; cette fois, c'est toi qu'on paie. Le front des cerisiers est prévu à l'échelle nationale.",
+        "ja": "会社は新人に一日中木の下で場所取りをさせるが、今回はあなたが日当をもらった。桜前線は全国規模で予想・追跡されている。"
+      }
+    },
+    {
+      "id": "onsen-ryokan",
+      "kind": "loss",
+      "regs": [
+        "kan"
+      ],
+      "e": "♨️",
+      "amount": 300,
+      "n": {
+        "en": "You stay the extra night",
+        "es": "Te quedas una noche más",
+        "fr": "Tu restes une nuit de plus",
+        "ja": "もう一泊してしまった"
+      },
+      "t": {
+        "en": "The bath before dinner turns into a second night at the inn. Japan has around 3,000 hot-spring resorts sitting on its volcanic belt.",
+        "es": "El baño antes de cenar se convierte en una segunda noche. Japón tiene unos 3.000 balnearios sobre su cinturón volcánico.",
+        "fr": "Le bain d'avant-dîner se transforme en seconde nuit à l'auberge. Le Japon compte quelque 3 000 stations thermales sur sa ceinture volcanique.",
+        "ja": "夕食前のひと風呂が、そのまま二泊目になった。火山帯の上にある日本には約3000の温泉地がある。"
+      }
+    },
+    {
+      "id": "kuidaore",
+      "kind": "loss",
+      "regs": [
+        "kin"
+      ],
+      "e": "🐙",
+      "amount": 260,
+      "n": {
+        "en": "Eating yourself broke",
+        "es": "Comer hasta arruinarse",
+        "fr": "Manger jusqu'à la ruine",
+        "ja": "食い倒れた"
+      },
+      "t": {
+        "en": "Takoyaki, then kushikatsu, then okonomiyaki — Osaka has a word for ruining yourself through food. Dipping a skewer twice into the shared sauce is strictly forbidden.",
+        "es": "Takoyaki, kushikatsu, okonomiyaki: Osaka tiene una palabra para arruinarse comiendo. Mojar dos veces la brocheta en la salsa común está prohibidísimo.",
+        "fr": "Takoyaki, kushikatsu, okonomiyaki : Osaka a un mot pour se ruiner en mangeant. Retremper une brochette dans la sauce commune est strictement proscrit.",
+        "ja": "たこ焼き、串カツ、お好み焼き。大阪には食べて財を失うことを指す言葉がある。串の二度づけは固く禁じられている。"
+      }
+    },
+    {
+      "id": "deer-crackers",
+      "kind": "loss",
+      "regs": [
+        "kin"
+      ],
+      "e": "🦌",
+      "amount": 140,
+      "n": {
+        "en": "The deer take the whole packet",
+        "es": "Los ciervos se llevan el paquete",
+        "fr": "Les cerfs emportent tout le paquet",
+        "ja": "鹿に煎餅を全部取られた"
+      },
+      "t": {
+        "en": "You buy one packet of crackers and are surrounded before you can open it. Nara's deer are protected as messengers of the gods and bow for food.",
+        "es": "Compras un paquete de galletas y te rodean antes de abrirlo. Los ciervos de Nara están protegidos como mensajeros de los dioses.",
+        "fr": "Tu achètes un paquet de gâteaux et te fais encercler avant de l'ouvrir. Les cerfs de Nara sont protégés comme messagers des dieux.",
+        "ja": "鹿煎餅を一袋買った途端に囲まれた。奈良の鹿は神の使いとして保護されており、餌をねだって頭を下げる。"
+      }
+    },
+    {
+      "id": "craft-commission",
+      "kind": "gain",
+      "regs": [
+        "kin"
+      ],
+      "e": "🏺",
+      "amount": 320,
+      "n": {
+        "en": "A workshop pays for a hand",
+        "es": "Un taller paga tu ayuda",
+        "fr": "Un atelier paie ton aide",
+        "ja": "工房の手伝いに謝礼"
+      },
+      "t": {
+        "en": "A pottery or weaving workshop is behind on an order and pays for a day's help. Kyoto alone supports dozens of crafts that exist to supply the tea ceremony.",
+        "es": "Un taller de cerámica o tejido va con retraso y paga un día de ayuda. Solo Kioto sostiene decenas de oficios nacidos para la ceremonia del té.",
+        "fr": "Un atelier de poterie ou de tissage a du retard et paie une journée d'aide. Kyoto à elle seule fait vivre des dizaines de métiers nés du service du thé.",
+        "ja": "焼物か織物の工房が納期に追われ、一日の手間賃が出た。京都だけでも、茶の湯を支えるために生まれた工芸が何十種も残る。"
+      }
+    },
+    {
+      "id": "yatai-treat",
+      "kind": "gain",
+      "regs": [
+        "kyu"
+      ],
+      "e": "🍜",
+      "amount": 180,
+      "n": {
+        "en": "The stall owner won't take your money",
+        "es": "El dueño no te cobra",
+        "fr": "Le patron refuse ton argent",
+        "ja": "屋台の主人が取ってくれない"
+      },
+      "t": {
+        "en": "You end up talking half the night at a Fukuoka food stall and the owner waves your payment away. The city has more street stalls than the rest of Japan combined.",
+        "es": "Acabas charlando media noche en un puesto de Fukuoka y el dueño rechaza el pago. La ciudad tiene más puestos que el resto de Japón junto.",
+        "fr": "Tu passes la moitié de la nuit à discuter dans une échoppe de Fukuoka et le patron refuse d'être payé. La ville compte plus d'échoppes que tout le reste du Japon.",
+        "ja": "福岡の屋台で夜半まで話し込み、主人が代金を受け取らなかった。福岡の屋台は日本の他地域を合わせたより多い。"
+      }
+    },
+    {
+      "id": "volcanic-ash",
+      "kind": "loss",
+      "regs": [
+        "kyu"
+      ],
+      "e": "🌋",
+      "amount": 200,
+      "n": {
+        "en": "Ash on everything",
+        "es": "Ceniza por todas partes",
+        "fr": "De la cendre partout",
+        "ja": "灰が降った"
+      },
+      "t": {
+        "en": "Sakurajima sends up another plume and you pay to have the car washed twice. Kagoshima hands out ash bags and sweeps the streets as routine.",
+        "es": "Sakurajima lanza otra columna y pagas dos lavados de coche. Kagoshima reparte bolsas para la ceniza como rutina.",
+        "fr": "Sakurajima crache un nouveau panache et tu paies deux lavages de voiture. Kagoshima distribue des sacs à cendre par habitude.",
+        "ja": "桜島がまた噴煙を上げ、洗車を二度することになった。鹿児島では降灰袋が配られ、灰の清掃は日常である。"
+      }
+    },
+    {
+      "id": "awamori-round",
+      "kind": "loss",
+      "regs": [
+        "kyu"
+      ],
+      "e": "🥃",
+      "amount": 220,
+      "n": {
+        "en": "You buy the round",
+        "es": "Pagas la ronda",
+        "fr": "Tu offres la tournée",
+        "ja": "泡盛を振る舞った"
+      },
+      "t": {
+        "en": "Someone opens a bottle of aged awamori and the table insists you join in. Okinawan families traditionally keep a cask to be drunk at a child's coming of age.",
+        "es": "Alguien abre una botella de awamori añejo y la mesa insiste. Las familias de Okinawa guardan una barrica para la mayoría de edad de un hijo.",
+        "fr": "Quelqu'un ouvre une bouteille d'awamori vieilli et la tablée insiste. Les familles d'Okinawa gardent un fût pour la majorité d'un enfant.",
+        "ja": "古酒の泡盛が開けられ、座に加わることになった。沖縄では子の成人に開けるための甕を寝かせる家がある。"
+      }
+    }
+  ]
 }

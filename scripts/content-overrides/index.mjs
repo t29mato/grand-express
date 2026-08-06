@@ -10,6 +10,8 @@ import { QUIZ_DIFFICULTY } from "./quiz-difficulty.mjs";
 import { JAPAN_LAND } from "./japan-geography.mjs";
 import { JAPAN_ISLAND_CITIES, JAPAN_ISLAND_EDGES } from "./japan-islands.mjs";
 import { JAPAN_HOKKAIDO_CITIES, JAPAN_HOKKAIDO_EDGES } from "./japan-hokkaido.mjs";
+import { JAPAN_MONEY_EVENTS } from "./money-events-japan.mjs";
+import { BOLIVIA_MONEY_EVENTS } from "./money-events-bolivia.mjs";
 import {
   JAPAN_EXTRA_CITIES,
   JAPAN_EXTRA_EDGES,
@@ -57,6 +59,7 @@ const OVERRIDES = {
   bolivia: {
     land: BOLIVIA_LAND,
     cityCoords: CITY_COORDS.bolivia,
+    moneyEvents: BOLIVIA_MONEY_EVENTS,
     boardScale: BOARD_SCALE.bolivia,
     quizDifficulty: QUIZ_DIFFICULTY.bolivia,
   },
@@ -64,6 +67,7 @@ const OVERRIDES = {
     land: JAPAN_LAND,
     boardScale: BOARD_SCALE.japan,
     projBounds: PROJ_BOUNDS.japan,
+    moneyEvents: JAPAN_MONEY_EVENTS,
     extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES, ...JAPAN_ISLAND_CITIES, ...JAPAN_HOKKAIDO_CITIES },
     extraEdges: [...JAPAN_EXTRA_EDGES, ...JAPAN_PREFECTURE_EDGES, ...JAPAN_ISLAND_EDGES, ...JAPAN_HOKKAIDO_EDGES],
     quizDifficulty: QUIZ_DIFFICULTY.japan,
@@ -197,5 +201,18 @@ export function applyContentOverrides(countryId, content) {
 
   // 青マス・赤マスの出来事は legacy に無いので、この層でのみ与える。
   // サムネイル生成時のような部分オブジェクトでは何もしない。
+  // サムネイル生成時は regions を持たない部分オブジェクトで呼ばれるため読み飛ばす。
+  if (override.moneyEvents && content.regions) {
+    const regions = new Set(Object.keys(content.regions));
+    for (const event of override.moneyEvents) {
+      for (const reg of event.regs) {
+        if (!regions.has(reg)) {
+          throw new Error(`${countryId}: 出来事 "${event.id}" が知らない地方 "${reg}" を指しています`);
+        }
+      }
+    }
+    content.moneyEvents = override.moneyEvents;
+  }
+
   return content;
 }

@@ -154,6 +154,10 @@ const INLINE_UI_STRINGS = {
   cpuQuizWrong: "<b>{0}</b> answered incorrectly.|<b>{0}</b> ha respondido mal.|<b>{0}</b> a mal répondu.|<b>{0}</b> は不正解だった。",
   cpuQuizHidden: "The question is hidden — it may come round to you.|La pregunta queda oculta: puede tocarte a ti.|La question reste masquée — elle peut vous revenir.|問題の中身は伏せてあります。同じ問題があなたに回ってくるかもしれません。",
 
+  // 青マス・赤マスの出来事。クイズの「正解!」を流用すると文脈が合わないので別に持つ。
+  eventGain: "You come out ahead.|Sales ganando.|Tu t'en sors gagnant.|得をした。",
+  eventLoss: "It costs you.|Te cuesta dinero.|Cela te coûte.|出費になった。",
+
   // クイズの難易度表示。
   difficulty: "Difficulty|Dificultad|Difficulté|難易度",
   optionsReduced: "One wrong answer is hidden because you are new to this country.|Se oculta una respuesta incorrecta porque el país es nuevo para ti.|Une mauvaise réponse est masquée car ce pays t'est nouveau.|この国がはじめてなので、誤答をひとつ伏せています。",
@@ -170,16 +174,6 @@ const INLINE_UI_STRINGS = {
   knowledgeLocal: "Very well|Muy bien|Très bien|くわしい",
   saveDone: "Your journey has been saved to this browser. You can close the tab and continue later.|Tu viaje se ha guardado en este navegador. Puedes cerrar la pestaña y continuar más tarde.|Ton voyage est enregistré dans ce navigateur. Tu peux fermer l'onglet et reprendre plus tard.|この旅をブラウザに保存しました。タブを閉じても、あとから続きから遊べます。",
 };
-/**
- * 使わなくなったUI文言。青マス・赤マスを廃止したため、legacy の `UI` に
- * 残っていてもロケールJSONには出力しない(使われていない文言が残ると、
- * 翻訳の抜けなのか不要なのか判別できなくなる)。
- */
-const REMOVED_UI_STRINGS = ["blueSq", "redSq", "blueLog", "redLog"];
-for (const locale of LOCALES) {
-  for (const key of REMOVED_UI_STRINGS) delete messagesByLocale[locale][key];
-}
-
 for (const [key, source] of Object.entries(INLINE_UI_STRINGS)) {
   const [en, es, fr, ja] = source.split("|");
   const byLocale = { en, es, fr, ja };

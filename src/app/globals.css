@@ -1214,3 +1214,18 @@ aside {
 .cpu-quiz-verdict {
   margin-bottom: 4px;
 }
+
+/* 青マス・赤マスの出来事の絵。モーダルの幅いっぱいに置く。 */
+.event-anim {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #101a2c;
+  border: 1px solid var(--line);
+  line-height: 0;
+}
+
+.event-anim svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}

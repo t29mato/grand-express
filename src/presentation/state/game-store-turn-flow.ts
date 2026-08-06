@@ -1,4 +1,4 @@
-import { NodeId, PlayerId } from "../../domain/shared-kernel/ids";
+import { NodeId, PlayerId, RegionId } from "../../domain/shared-kernel/ids";
 import { currentPlayer, isOver } from "../../domain/game-session/game-session";
 import { isCityNode } from "../../domain/board/node";
 import { advanceTurn } from "../../application/use-cases/advance-turn/advance-turn.use-case";
@@ -14,6 +14,8 @@ import { GetGameState, LogEntry, SetGameState } from "./game-store-types";
 import { gameRepository, random, soundAdapter } from "./game-store-dependencies";
 import { logEntry, pushLog } from "./game-store-log";
 import { QuizSelector, rollDifficulty } from "../../domain/quiz/quiz-selection-service";
+import { MoneyEventSelector } from "../../domain/board/money-event-selection-service";
+import { applyMoneyEvent } from "../../application/use-cases/land-on-square/money-event.use-case";
 import { QuizDifficulty, QuizQuestion } from "../../domain/quiz/quiz-question";
 import { describeCpuTurn, visibleOptionOrder } from "./game-store-formatters";
 
@@ -66,6 +68,21 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     quizSelector = new QuizSelector(questions, random);
   }
 
+  /**
+   * 青マス・赤マスの出来事の山札。クイズと同じく、同じ話が続けて出ないよう
+   * 人間とCPUで1つを共有する。
+   */
+  let moneyEventSelector: MoneyEventSelector | null = null;
+
+  /** その地方で起こりうる出来事を1つ引く。 */
+  function drawMoneyEvent(kind: "gain" | "loss", regionId: RegionId) {
+    const { context } = get();
+    if (!moneyEventSelector && context) {
+      moneyEventSelector = new MoneyEventSelector(context.content.moneyEvents, random);
+    }
+    return moneyEventSelector!.draw(kind, regionId);
+  }
+
   /** 指定された難易度にいちばん近い問題を、山札から1問引く。 */
   function drawQuestion(difficulty: QuizDifficulty): QuizQuestion {
     const { context } = get();
@@ -98,6 +115,21 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
   }
 
   function dismissNextLeg() {
+    finishHumanLandingAndAdvance();
+  }
+
+  /**
+   * 青マス・赤マスの出来事を閉じる。
+   * 人間の手番なら次へ進め、CPUの手番ならCPUループの待ちを解く。
+   */
+  function dismissMoneyEvent() {
+    if (get().ui.kind !== "money-event") return;
+    const session = get().session;
+    const player = session ? currentPlayer(session) : null;
+    if (player?.isCpu) {
+      set({ ui: { kind: "cpu-turn", playerName: player.name } });
+      return;
+    }
     finishHumanLandingAndAdvance();
   }
 
@@ -146,7 +178,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
         await delay(CPU_TIMING.beforeRoll);
         if (generation !== cpuLoopGeneration) return;
 
-        const result = cpuTakeTurn(context, session, player.id, random, drawQuestion);
+        const result = cpuTakeTurn(context, session, player.id, random, drawQuestion, drawMoneyEvent);
         if (result.strike?.type === "struck") soundAdapter.playDoom(result.strike.wasKing);
 
         // 1. サイコロを人間の手番と同じフル演出で見せる(振った目が分かるように)。
@@ -248,6 +280,22 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
           question: landing.question,
           correct: landing.outcome.correct,
           amount: formatMoney(landing.outcome.amount.amount, context.content.currency),
+        },
+      });
+      await waitForModal(generation);
+      return generation === cpuLoopGeneration;
+    }
+
+    if (landing.type === "money") {
+      if (landing.outcome.gained) soundAdapter.playCoin();
+      else soundAdapter.playWrong();
+      set({
+        ui: {
+          kind: "money-event",
+          playerName,
+          event: landing.outcome.event,
+          amount: formatMoney(landing.outcome.amount.amount, context.content.currency),
+          gained: landing.outcome.gained,
         },
       });
       await waitForModal(generation);
@@ -375,6 +423,30 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
       });
       return;
     }
+    if (node.type === "blue" || node.type === "red") {
+      const event = drawMoneyEvent(node.type === "blue" ? "gain" : "loss", node.regionId);
+      const outcome = applyMoneyEvent(session, player.id, event);
+      if (outcome.gained) soundAdapter.playCoin();
+      else soundAdapter.playWrong();
+      set((s) => ({
+        session: outcome.session,
+        log: pushLog(
+          s,
+          outcome.gained ? "blueLog" : "redLog",
+          [player.name, money(outcome.amount.amount)],
+          outcome.gained ? "good" : "bad",
+        ),
+        ui: {
+          kind: "money-event",
+          playerName: player.name,
+          event: outcome.event,
+          amount: formatMoney(outcome.amount.amount, context.content.currency),
+          gained: outcome.gained,
+        },
+      }));
+      return;
+    }
+
     if (node.type === "card") {
       const outcome = landOnCardSquare(context, session, player.id, random);
       soundAdapter.playChime();
@@ -400,6 +472,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     resetQuizDeck,
     cancelCpuLoop,
     dismissCpuModal,
+    dismissMoneyEvent,
     finishHumanLandingAndAdvance,
     resolveLandingForHuman,
     dismissSeasonModal,

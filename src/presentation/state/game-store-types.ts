@@ -9,6 +9,7 @@ import {
 } from "../../domain/shared-kernel/ids";
 import { GameSession } from "../../domain/game-session/game-session";
 import { QuizQuestion } from "../../domain/quiz/quiz-question";
+import { MoneyEvent } from "../../domain/board/money-event";
 import { CpuLevel } from "../../domain/cpu/cpu-level";
 import { LocalizedText } from "../../domain/shared-kernel/localized-text";
 import { SeasonDefinition } from "../../domain/season/season-effect";
@@ -64,6 +65,13 @@ export type UiState =
       readonly spiritHolderId: PlayerId | null;
     }
   /** セーブ完了を知らせるモーダル。 */
+  | {
+      readonly kind: "money-event";
+      readonly playerName: string;
+      readonly event: MoneyEvent;
+      readonly amount: string;
+      readonly gained: boolean;
+    }
   | { readonly kind: "saved" }
   | { readonly kind: "season"; readonly season: SeasonDefinition }
   | { readonly kind: "game-over"; readonly outcome: EndGameOutcome };
@@ -145,6 +153,8 @@ export interface GameStoreState {
   cancelCpuLoop(): void;
   /** CPUの結果モーダルを閉じて演出を飛ばす。 */
   dismissCpuModal(): void;
+  /** 青マス・赤マスの出来事のモーダルを閉じる。 */
+  dismissMoneyEvent(): void;
   /** 月替わりイベントのモーダル(ui.kind === "season")を閉じて手番の続きに進む。 */
   dismissSeasonModal(): void;
   /** 次の区間の案内(ui.kind === "next-leg")を閉じて手番の続きに進む。 */

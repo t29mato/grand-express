@@ -27,6 +27,7 @@ import {
   renderIndiaDecor,
 } from "./geography.mjs";
 import { INDIA_QUIZ } from "./quiz.mjs";
+import { INDIA_MONEY_EVENTS } from "./money-events.mjs";
 
 /** 盤面装飾は投影に依存するので、ここで一度だけ評価して文字列にする。 */
 function buildDecor() {
@@ -54,6 +55,7 @@ export function buildIndiaContent() {
     spirit: INDIA_SPIRIT,
     doom: INDIA_DOOM,
     seasons: INDIA_SEASONS,
+    moneyEvents: INDIA_MONEY_EVENTS,
     stripe: INDIA_META.stripe,
     marks: INDIA_MARKS,
     bg: INDIA_BG,

@@ -1,7 +1,7 @@
 import { CityId, NodeId, RegionId } from "../shared-kernel/ids";
 import { EdgeKind } from "./city";
 
-export type NodeType = "city" | "quiz" | "card";
+export type NodeType = "city" | "quiz" | "blue" | "red" | "card";
 
 interface BoardNodeBase {
   readonly id: NodeId;
@@ -25,14 +25,14 @@ export interface QuizNode extends BoardNodeBase {
 }
 
 /**
- * カードマス(アイテムが手に入る)。
+ * クイズ以外の中間マス。
  *
- * かつては所持金が増える青マス・減る赤マスもあったが、**学ぶことが目的**の
- * アプリなので、運だけで金額が動くマスは廃止した。中間マスはクイズか
- * カードのどちらかになる。
+ * - `blue` / `red` … 所持金が増える/減る。**金額はルーレットでは決まらず**、
+ *   その地方で起こりそうな出来事(MoneyEvent)を引いて、その話に応じて動く。
+ * - `card` … アイテムが手に入る。
  */
 export interface PlainSquareNode extends BoardNodeBase {
-  readonly type: "card";
+  readonly type: "blue" | "red" | "card";
   readonly between: readonly [CityId, CityId];
   /** この中間マスが乗っている路線の種類(描き分けに使う)。 */
   readonly edgeKind: EdgeKind;

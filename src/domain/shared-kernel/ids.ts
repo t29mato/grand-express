@@ -41,6 +41,9 @@ export const PropertyIndex = (value: number): PropertyIndex =>
 
 /** `${CityId}#${PropertyIndex}` 形式のキー。現行コードの `propKey(c,i)` に相当。 */
 /** クイズ問題の識別子。コンテンツ内での並び順から `q0`, `q1`… として与える。 */
+export type MoneyEventId = Brand<string, "MoneyEventId">;
+export const MoneyEventId = (value: string): MoneyEventId => value as MoneyEventId;
+
 export type QuizQuestionId = Brand<string, "QuizQuestionId">;
 export const QuizQuestionId = (value: string): QuizQuestionId => value as QuizQuestionId;
 

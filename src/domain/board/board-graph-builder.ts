@@ -57,14 +57,19 @@ export function buildBoardGraph(
       const between = [a.id, b.id] as const;
       const edgeKind = edge.kind;
 
-      // 中間マスはクイズかカードのみ(青マス・赤マスは廃止)。
-      // 運だけで所持金が動くマスは、学ぶことが目的のこのアプリでは
-      // ターンを消費するだけで何も残らない。おおよそ4分の3をクイズにする。
+      // 毎回クイズだと重いので、青・赤・カードを挟んで息をつげるようにする。
+      // ただし学ぶことが目的なので、半分はクイズのままにしておく。
       const roll = h32(edgeIndex * 97 + k) % 20;
-      const node: BoardNode =
-        roll < 15
-          ? { id: nodeId, type: "quiz", between, regionId, edgeKind }
-          : { id: nodeId, type: "card", between, regionId, edgeKind };
+      let node: BoardNode;
+      if (roll < 10) {
+        node = { id: nodeId, type: "quiz", between, regionId, edgeKind };
+      } else if (roll < 14) {
+        node = { id: nodeId, type: "blue", between, regionId, edgeKind };
+      } else if (roll < 17) {
+        node = { id: nodeId, type: "red", between, regionId, edgeKind };
+      } else {
+        node = { id: nodeId, type: "card", between, regionId, edgeKind };
+      }
 
       nodes.set(nodeId, node);
       adjacency.set(nodeId, []);

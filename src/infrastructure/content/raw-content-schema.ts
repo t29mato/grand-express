@@ -48,6 +48,17 @@ const RawQuizSchema = z.object({
   f: LocalizedTextSchema,
 });
 
+const RawMoneyEventSchema = z.object({
+  id: z.string(),
+  kind: z.enum(["gain", "loss"]),
+  /** 起こりうる地方。空なら国内どこでも。 */
+  regs: z.array(z.string()),
+  e: z.string(),
+  amount: z.number(),
+  n: LocalizedTextSchema,
+  t: LocalizedTextSchema,
+});
+
 const RawSeasonSchema = z.object({
   e: z.string(),
   n: LocalizedTextSchema,
@@ -115,6 +126,8 @@ export const RawCountryContentSchema = z.object({
   spirit: RawSpiritSchema,
   doom: z.array(RawDoomSchema),
   seasons: z.array(RawSeasonSchema),
+  /** 青マス・赤マスで起きる出来事。 */
+  moneyEvents: z.array(RawMoneyEventSchema),
   /** 都市カードの帯に使う配色。 */
   stripe: z.array(z.string()),
   /** 都市イラストのシンボル(SVG断片)。キーは各都市の `mark`。 */

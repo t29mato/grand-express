@@ -1,4 +1,4 @@
-import { CityId, ItemKey, PlayerId, PropertyIndex, PropertyRef, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
+import { CityId, ItemKey, PlayerId, PropertyIndex, PropertyRef, RegionId, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
 import { Random } from "../../../domain/shared-kernel/random";
 import { CPU_TUNING, CpuTuning } from "../../../domain/cpu/cpu-level";
 import { chooseMoveTarget } from "../../../domain/cpu/cpu-move-strategy";
@@ -18,6 +18,8 @@ import { QuizDifficulty, QuizQuestion } from "../../../domain/quiz/quiz-question
 import { rollDifficulty } from "../../../domain/quiz/quiz-selection-service";
 import { KnowledgeLevel } from "../../../domain/quiz/knowledge-level";
 import { landOnCardSquare, CardSquareOutcome } from "../land-on-square/card-square.use-case";
+import { applyMoneyEvent, MoneyEventOutcome } from "../land-on-square/money-event.use-case";
+import { MoneyEvent } from "../../../domain/board/money-event";
 import { arriveAtDestination, ArriveDestinationOutcome } from "../land-on-square/arrive-destination.use-case";
 import { buyProperty, investInProperty } from "../property-transactions/property-transactions.use-case";
 import { stallStockFor, buyStallItem } from "../visit-stall/visit-stall.use-case";
@@ -39,6 +41,7 @@ export type LandingOutcome =
       readonly difficulty: QuizDifficulty;
       readonly chosenOptionIndex: number;
     }
+  | { readonly type: "money"; readonly outcome: MoneyEventOutcome }
   | { readonly type: "card"; readonly outcome: CardSquareOutcome }
   | { readonly type: "destination"; readonly outcome: ArriveDestinationOutcome; readonly visit: CityVisitSummary }
   | { readonly type: "city"; readonly visit: CityVisitSummary };
@@ -68,6 +71,12 @@ export interface CpuTurnResult {
 export type DrawQuizQuestion = (difficulty: QuizDifficulty) => QuizQuestion;
 
 /**
+ * 青マス・赤マスの出来事を引く関数。クイズと同じく、人間の手番と同じ山札を
+ * 共有させるために外から渡す(分けると同じ話が続けて出る)。
+ */
+export type DrawMoneyEvent = (kind: MoneyEvent["kind"], regionId: RegionId) => MoneyEvent;
+
+/**
  * CPUの強さを、出題難易度を決めるための知識レベルとして読み替える。
  * gentle は「その国に不慣れ」、merciless は「よく知っている」に相当する。
  */
@@ -83,6 +92,7 @@ export function cpuTakeTurn(
   playerId: PlayerId,
   random: Random,
   drawQuestion?: DrawQuizQuestion,
+  drawMoneyEvent?: DrawMoneyEvent,
 ): CpuTurnResult {
   let current = session;
   const spiritPassEvents: SpiritPassEvent[] = [];
@@ -167,6 +177,13 @@ export function cpuTakeTurn(
     const outcome = answerQuiz(context, current, playerId, question, chosenOptionIndex, random);
     current = outcome.session;
     landing = { type: "quiz", outcome, question, difficulty: question.difficulty, chosenOptionIndex };
+  } else if (landedNode.type === "blue" || landedNode.type === "red") {
+    const event = drawMoneyEvent
+      ? drawMoneyEvent(landedNode.type === "blue" ? "gain" : "loss", landedNode.regionId)
+      : context.content.moneyEvents.filter((e) => e.kind === (landedNode.type === "blue" ? "gain" : "loss"))[0];
+    const outcome = applyMoneyEvent(current, playerId, event);
+    current = outcome.session;
+    landing = { type: "money", outcome };
   } else if (landedNode.type === "card") {
     const outcome = landOnCardSquare(context, current, playerId, random);
     current = outcome.session;

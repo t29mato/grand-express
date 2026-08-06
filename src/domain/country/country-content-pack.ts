@@ -5,6 +5,7 @@ import { CountryProjection } from "../board/board-projection";
 import { ItemDefinition } from "../item/item";
 import { QuizQuestion } from "../quiz/quiz-question";
 import { SeasonDefinition } from "../season/season-effect";
+import { MoneyEvent } from "../board/money-event";
 import { DoomFlavor } from "../misfortune/doom-effect";
 
 export interface CurrencyFormat {
@@ -81,6 +82,8 @@ export interface CountryContentPack {
   readonly quiz: readonly QuizQuestion[];
   /** 12件、インデックス0=4月。 */
   readonly seasons: readonly SeasonDefinition[];
+  /** 青マス・赤マスで起きる出来事。 */
+  readonly moneyEvents: readonly MoneyEvent[];
   readonly doomFlavors: readonly DoomFlavor[];
   readonly spirit: SpiritFlavor;
   /** 都市カードの帯に使う配色(現行コードの `stripe`)。 */

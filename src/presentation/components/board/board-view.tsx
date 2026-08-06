@@ -58,6 +58,8 @@ const DEST_LABEL_FONT_PX = 15;
  */
 const SQUARE_STYLES: Record<string, { color: string; glyph: string }> = {
   quiz: { color: "#f5b31c", glyph: "?" },
+  blue: { color: "#5b8fe8", glyph: "+" },
+  red: { color: "#e05252", glyph: "−" },
   card: { color: "#f5d31c", glyph: "★" },
 };
 
