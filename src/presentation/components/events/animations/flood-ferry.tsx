@@ -110,9 +110,14 @@ export function FloodFerry() {
         .ff-cur-c { animation: ff-run 3.8s linear infinite; animation-delay: -2.4s; }
         .ff-cur-d { animation: ff-run 4.8s linear infinite; animation-delay: -3.1s; }
         .ff-cur-e { animation: ff-run 4.1s linear infinite; animation-delay: -0.8s; }
-        .ff-smoke-a { animation: ff-puff 2.6s ease-out infinite; }
-        .ff-smoke-b { animation: ff-puff 2.6s ease-out infinite; animation-delay: -0.9s; }
-        .ff-smoke-c { animation: ff-puff 2.6s ease-out infinite; animation-delay: -1.8s; }
+        .ff-smoke-a, .ff-smoke-b, .ff-smoke-c {
+          transform-box: fill-box;
+          transform-origin: center;
+          animation: ff-puff 2.6s ease-out infinite;
+        }
+        .ff-smoke-a { transform: translate(0, 2px); }
+        .ff-smoke-b { transform: translate(-9px, -14px) scale(1.2); animation-delay: -0.9s; }
+        .ff-smoke-c { transform: translate(-18px, -30px) scale(1.4); animation-delay: -1.8s; }
         .ff-coin-a { transform: translate(0, 2px); animation: ff-drop 2.9s ease-in infinite; }
         .ff-coin-b {
           transform: translate(12px, 26px);
