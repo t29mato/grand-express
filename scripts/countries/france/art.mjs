@@ -670,15 +670,34 @@ export const FRANCE_MARKS = {
     '<g fill="#5f7f96"><rect x="7.8" y="11.6" width="2.6" height="3.8"/><rect x="13.6" y="11.6" width="2.6" height="3.8"/></g>' +
     '<g><rect x="18.2" y="1.2" width="1" height="8" fill="#8a7f66"/><path d="M19.2,1.6h4.2L21.8,3.4l1.6,1.8h-4.2z" fill="#e8443f"/></g>',
 
-  /** ばら窓(ゴシックの大聖堂)。 */
+  /**
+   * ばら窓(ゴシックの大聖堂)。
+   *
+   * 円盤だけだと、大聖堂以外の背景(牧草地・浜辺・運河)では宙に浮いて見える。
+   * 石の壁・控壁・土台を足して「大聖堂の正面が一枚立っている」形にし、
+   * 下端(y=24)が影の楕円に載るようにしてある。円盤の意匠は元のまま。
+   */
   cathedral_rose:
-    '<circle cx="12" cy="12" r="11.4" fill="#cfc7b4"/>' +
-    '<circle cx="12" cy="12" r="9.6" fill="#3f5f9f"/>' +
-    '<g><circle cx="18.6" cy="12" r="2.2" fill="#e8443f"/><circle cx="15.3" cy="17.7" r="2.2" fill="#f5b31c"/><circle cx="8.7" cy="17.7" r="2.2" fill="#5b8fe8"/><circle cx="5.4" cy="12" r="2.2" fill="#e8443f"/><circle cx="8.7" cy="6.3" r="2.2" fill="#f5b31c"/><circle cx="15.3" cy="6.3" r="2.2" fill="#5b8fe8"/></g>' +
-    '<g fill="#dfd8c8"><g><rect x="11.4" y="2.4" width="1.2" height="19.2"/><rect x="2.4" y="11.4" width="19.2" height="1.2"/></g>' +
-    '<g transform="rotate(30 12 12)"><rect x="11.4" y="2.4" width="1.2" height="19.2"/><rect x="2.4" y="11.4" width="19.2" height="1.2"/></g>' +
-    '<g transform="rotate(60 12 12)"><rect x="11.4" y="2.4" width="1.2" height="19.2"/><rect x="2.4" y="11.4" width="19.2" height="1.2"/></g></g>' +
-    '<circle cx="12" cy="12" r="2.8" fill="#e8443f"/><circle cx="12" cy="12" r="1.2" fill="#f5b31c"/>',
+    // 土台(影の楕円に載る一番下)
+    '<rect x="0.8" y="21.2" width="22.4" height="2.8" fill="#bdb49c"/>' +
+    // 両脇の控壁
+    '<g fill="#d5cdb9"><rect x="1.6" y="8.6" width="2.8" height="12.6"/><rect x="19.6" y="8.6" width="2.8" height="12.6"/></g>' +
+    '<g fill="#c2b9a2"><path d="M1.6,8.6L3,5.4L4.4,8.6z"/><path d="M19.6,8.6L21,5.4L22.4,8.6z"/></g>' +
+    // 壁と切妻
+    '<rect x="4" y="5" width="16" height="16.2" fill="#eae4d6"/>' +
+    '<path d="M4,5L12,0.6L20,5z" fill="#cfc7b4"/>' +
+    '<rect x="3.4" y="4.4" width="17.2" height="1.4" fill="#dfd8c8"/>' +
+    // 扉
+    '<path d="M9.8,21.2v-1.6a2.2,2.2 0 0 1 4.4,0v1.6z" fill="#5a4630"/>' +
+    '<rect x="9.8" y="19.4" width="4.4" height="1.8" fill="#5a4630"/>' +
+    // ばら窓
+    '<circle cx="12" cy="11" r="6.2" fill="#cfc7b4"/>' +
+    '<circle cx="12" cy="11" r="5.3" fill="#3f5f9f"/>' +
+    '<g><circle cx="15.5" cy="11" r="1.2" fill="#e8443f"/><circle cx="13.75" cy="14.03" r="1.2" fill="#f5b31c"/><circle cx="10.25" cy="14.03" r="1.2" fill="#5b8fe8"/><circle cx="8.5" cy="11" r="1.2" fill="#e8443f"/><circle cx="10.25" cy="7.97" r="1.2" fill="#f5b31c"/><circle cx="13.75" cy="7.97" r="1.2" fill="#5b8fe8"/></g>' +
+    '<g fill="#dfd8c8" stroke="none"><g><rect x="11.65" y="5.7" width="0.7" height="10.6"/><rect x="6.7" y="10.65" width="10.6" height="0.7"/></g>' +
+    '<g transform="rotate(30 12 11)"><rect x="11.65" y="5.7" width="0.7" height="10.6"/><rect x="6.7" y="10.65" width="10.6" height="0.7"/></g>' +
+    '<g transform="rotate(60 12 11)"><rect x="11.65" y="5.7" width="0.7" height="10.6"/><rect x="6.7" y="10.65" width="10.6" height="0.7"/></g></g>' +
+    '<circle cx="12" cy="11" r="1.6" fill="#e8443f"/><circle cx="12" cy="11" r="0.7" fill="#f5b31c"/>',
 
   /** 葡萄の房。 */
   vine:
@@ -687,11 +706,27 @@ export const FRANCE_MARKS = {
     '<g fill="#6b4a7a"><circle cx="5.6" cy="11.4" r="2.6"/><circle cx="10.4" cy="11.4" r="2.6"/><circle cx="15.2" cy="11.4" r="2.6"/><circle cx="8" cy="15.6" r="2.6"/><circle cx="12.8" cy="15.6" r="2.6"/><circle cx="17.6" cy="15" r="2.4"/><circle cx="10.4" cy="19.6" r="2.5"/><circle cx="15.2" cy="19.4" r="2.4"/></g>' +
     '<g fill="#9a76ab"><circle cx="4.8" cy="10.4" r="0.9"/><circle cx="9.6" cy="10.4" r="0.9"/><circle cx="7.2" cy="14.6" r="0.9"/><circle cx="9.6" cy="18.6" r="0.9"/></g>',
 
-  /** バゲット。 */
+  /**
+   * バゲット。
+   *
+   * 斜め45度の一本だと、橋や運河の背景では宙を飛んでいるように見える。
+   * 横に寝かせて籠と台に載せ、下端(y=24)を水平にしてある。
+   */
   baguette:
-    '<path d="M3.4,20.6c-1.7,-1.7 -1.3,-3.7 1,-6L15,3.6c2.3,-2.3 4.3,-2.7 6,-1s1.3,3.7 -1,6L9,19.6c-2.3,2.3 -4.3,2.7 -5.6,1z" fill="#d8a05c"/>' +
-    '<path d="M5.4,18.6c-1,-1 -0.8,-2.2 0.6,-3.6L17,4c1.4,-1.4 2.6,-1.6 3.6,-0.6z" fill="#e8c088"/>' +
-    '<g stroke="#a8763c" stroke-width="1.5" stroke-linecap="round" fill="none"><path d="M6.6,14.4l3,3M10.2,10.8l3,3M13.8,7.2l3,3"/></g>',
+    // 台と脚
+    '<g fill="#8f6a2c"><rect x="4.4" y="22.2" width="2.6" height="1.8"/><rect x="17" y="22.2" width="2.6" height="1.8"/></g>' +
+    '<rect x="0.4" y="20.4" width="23.2" height="2" rx="0.5" fill="#a8763c"/>' +
+    // 下の一本(いちばん長い)。両端をすぼめて細長くする。
+    '<path d="M1,18c0.6,-1.25 2.2,-2.1 4,-2.3h14c1.8,0.2 3.4,1.05 4,2.3c-0.6,1.25 -2.2,2.1 -4,2.3H5c-1.8,-0.2 -3.4,-1.05 -4,-2.3z" fill="#d8a05c"/>' +
+    '<path d="M5.4,15.85c0.9,-0.1 1.9,-0.15 2.9,-0.15h7.4c1,0 2,0.05 2.9,0.15z" fill="#e8c088" stroke="none"/>' +
+    '<g stroke="#a8763c" stroke-width="1" stroke-linecap="round" fill="none"><path d="M5.8,16.9l1.3,2M10,16.9l1.3,2M14.2,16.9l1.3,2M18.4,16.9l1.3,2"/></g>' +
+    // 中の一本
+    '<path d="M2.6,13.6c0.6,-1.2 2.1,-2 3.8,-2.2h11.2c1.7,0.2 3.2,1 3.8,2.2c-0.6,1.2 -2.1,2 -3.8,2.2H6.4c-1.7,-0.2 -3.2,-1 -3.8,-2.2z" fill="#cf9450"/>' +
+    '<g stroke="#a8763c" stroke-width="0.95" stroke-linecap="round" fill="none"><path d="M7.2,12.6l1.2,1.9M11,12.6l1.2,1.9M14.8,12.6l1.2,1.9"/></g>' +
+    // 上の一本(いちばん短い)
+    '<path d="M4.2,9.2c0.6,-1.15 2,-1.95 3.6,-2.15h8.4c1.6,0.2 3,1 3.6,2.15c-0.6,1.15 -2,1.95 -3.6,2.15H7.8c-1.6,-0.2 -3,-1 -3.6,-2.15z" fill="#d8a05c"/>' +
+    '<path d="M8,7.25c0.8,-0.1 1.7,-0.15 2.6,-0.15h2.8c0.9,0 1.8,0.05 2.6,0.15z" fill="#e8c088" stroke="none"/>' +
+    '<g stroke="#a8763c" stroke-width="0.9" stroke-linecap="round" fill="none"><path d="M8.4,8.3l1.1,1.8M11.8,8.3l1.1,1.8M15.2,8.3l1.1,1.8"/></g>',
 
   /** チーズ(切り分けた楔と気泡)。 */
   cheese:
