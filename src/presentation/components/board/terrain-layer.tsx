@@ -14,6 +14,13 @@ import { useLocale } from "../../i18n/locale-context";
  * (`scripts/extract-legacy-content.mjs` 参照)。コンテンツJSON由来でユーザー入力を
  * 含まないため `dangerouslySetInnerHTML` で挿入している。
  */
+/**
+ * 海岸線を外側へ広げる量(盤面座標)。
+ * 岸沿いの町が海に浮いて見えないだけの太さで、かつ地図の形が目に見えて
+ * 変わらない範囲に留める(都市マーカーの半径は9)。
+ */
+const COAST_BUFFER = 26;
+
 export function TerrainLayer({
   terrain,
   projection,
@@ -39,9 +46,16 @@ export function TerrainLayer({
           <rect width={26} height={26} fill={terrain.seaColor} />
           <path d="M0,13 q6.5,-5 13,0 t13,0" stroke={terrain.seaWaveColor} strokeWidth={2} fill="none" />
         </pattern>
+        {/* 地形帯や装飾を切り抜く形。広げた陸と同じ形にしないと縁が塗り残しになる。 */}
         <clipPath id={landClipId}>
           {terrain.landPolygons.map((polygon, i) => (
-            <polygon key={i} points={toPoints(polygon)} />
+            <polygon
+              key={i}
+              points={toPoints(polygon)}
+              stroke="#000"
+              strokeWidth={COAST_BUFFER * 2}
+              strokeLinejoin="round"
+            />
           ))}
         </clipPath>
       </defs>
@@ -51,15 +65,41 @@ export function TerrainLayer({
 
       {/* 陸の落ち影 */}
       {terrain.landPolygons.map((polygon, i) => (
-        <polygon key={`shadow-${i}`} points={toPoints(polygon)} fill="#0d1424" opacity={0.5} transform="translate(9,13)" />
+        <polygon
+          key={`shadow-${i}`}
+          points={toPoints(polygon)}
+          fill="#0d1424"
+          stroke="#0d1424"
+          strokeWidth={COAST_BUFFER * 2}
+          strokeLinejoin="round"
+          opacity={0.5}
+          transform="translate(9,13)"
+        />
+      ))}
+      {/*
+        海岸線を太い線で縁取って、岸を少しだけ外へ広げる。
+        海岸線の多角形は主要な岬と湾だけを拾った近似なので、入り江に立つ町
+        (函館・輪島・境港など)がそのままだと海に浮いて見えてしまう。
+        外側に海岸線の色、その内側に陸の色を重ねることで、広げた縁にも
+        ちゃんと海岸線が引かれる。
+      */}
+      {terrain.landPolygons.map((polygon, i) => (
+        <polygon
+          key={`coast-${i}`}
+          points={toPoints(polygon)}
+          fill={terrain.coastColor}
+          stroke={terrain.coastColor}
+          strokeWidth={COAST_BUFFER * 2 + 6}
+          strokeLinejoin="round"
+        />
       ))}
       {terrain.landPolygons.map((polygon, i) => (
         <polygon
           key={`land-${i}`}
           points={toPoints(polygon)}
           fill={terrain.landColor}
-          stroke={terrain.coastColor}
-          strokeWidth={3}
+          stroke={terrain.landColor}
+          strokeWidth={COAST_BUFFER * 2}
           strokeLinejoin="round"
         />
       ))}

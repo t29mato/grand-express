@@ -17,6 +17,18 @@ export interface CountryProjection {
   readonly segmentLength?: number;
 }
 
+/**
+ * 経緯度を盤面座標へ落とす。
+ * 盤面の描画・配置・テストで同じ式を使うため、ここだけに置く。
+ */
+export function projectPoint(
+  longitude: number,
+  latitude: number,
+  projection: CountryProjection,
+): { readonly x: number; readonly y: number } {
+  return { x: projectX(longitude, projection), y: projectY(latitude, projection) };
+}
+
 function projectX(longitude: number, projection: CountryProjection): number {
   const { lon0, lon1, boardWidth } = projection;
   return ((longitude - lon0) / (lon1 - lon0)) * boardWidth;

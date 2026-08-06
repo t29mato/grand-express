@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { NodeId } from "../../domain/shared-kernel/ids";
 import { isCityNode } from "../../domain/board/node";
-import { CountryProjection } from "../../domain/board/board-projection";
+import { CountryProjection, projectPoint } from "../../domain/board/board-projection";
 import { GameEngineContext } from "../../application/game-engine-context";
 
 export interface NodePosition {
@@ -22,8 +22,8 @@ export interface NodePosition {
 export function useBoardLayout(context: GameEngineContext): ReadonlyMap<NodeId, NodePosition> {
   return useMemo(() => {
     const { projection } = context.content;
-    const projectX = (lon: number) => ((lon - projection.lon0) / (projection.lon1 - projection.lon0)) * projection.boardWidth;
-    const projectY = (lat: number) => ((lat - projection.lat0) / (projection.lat1 - projection.lat0)) * projection.boardHeight;
+    const projectX = (lon: number) => projectPoint(lon, projection.lat0, projection).x;
+    const projectY = (lat: number) => projectPoint(projection.lon0, lat, projection).y;
 
     const cityPositions = new Map<string, NodePosition>();
     for (const city of context.content.cities) {
@@ -95,17 +95,54 @@ function relaxOverlaps(
   const CITY_MOBILITY = 0.25;
   const SQUARE_MOBILITY = 1;
 
+  /**
+   * 都市が本来の位置から離れてよい上限(盤面座標)。
+   *
+   * 押し離しを無制限にすると、岸沿いの町が海側へ押し出されて「海に浮いた町」に
+   * 見えてしまう。海岸線は縁取りで少し外へ広げてあるので(terrain-layer.tsx の
+   * COAST_BUFFER)、その範囲に収まるだけしか動かさなければ陸から出ない。
+   * 中間マスには上限をかけない——湾を横切る路線の上など、海の上にあってよい。
+   */
+  const CITY_DRIFT_LIMIT = minSeparation * 0.34;
+
   const ids = [...positions.keys()];
   const xs = new Float64Array(ids.length);
   const ys = new Float64Array(ids.length);
   const mobility = new Float64Array(ids.length);
+  // 都市の本来の位置(ここからの距離を上限で抑える)。
+  const anchorX = new Float64Array(ids.length);
+  const anchorY = new Float64Array(ids.length);
+  const isCity = new Uint8Array(ids.length);
   ids.forEach((id, i) => {
     const at = positions.get(id)!;
     xs[i] = at.x;
     ys[i] = at.y;
+    anchorX[i] = at.x;
+    anchorY[i] = at.y;
     const node = context.graph.nodes.get(id);
-    mobility[i] = node && isCityNode(node) ? CITY_MOBILITY : SQUARE_MOBILITY;
+    isCity[i] = node !== undefined && isCityNode(node) ? 1 : 0;
+    mobility[i] = isCity[i] ? CITY_MOBILITY : SQUARE_MOBILITY;
   });
+
+  /** 都市なら、本来の位置から上限を超えないところまで引き戻して動かす。 */
+  const move = (i: number, nx: number, ny: number) => {
+    if (!isCity[i]) {
+      xs[i] = nx;
+      ys[i] = ny;
+      return;
+    }
+    const dx = nx - anchorX[i];
+    const dy = ny - anchorY[i];
+    const drift = Math.hypot(dx, dy);
+    if (drift <= CITY_DRIFT_LIMIT) {
+      xs[i] = nx;
+      ys[i] = ny;
+      return;
+    }
+    const k = CITY_DRIFT_LIMIT / drift;
+    xs[i] = anchorX[i] + dx * k;
+    ys[i] = anchorY[i] + dy * k;
+  };
 
   const cell = minSeparation;
   for (let pass = 0; pass < iterations; pass++) {
@@ -141,10 +178,8 @@ function relaxOverlaps(
             if (total === 0) continue;
             const si = (push * mobility[i]) / total;
             const sj = (push * mobility[j]) / total;
-            xs[i] -= dx * si;
-            ys[i] -= dy * si;
-            xs[j] += dx * sj;
-            ys[j] += dy * sj;
+            move(i, xs[i] - dx * si, ys[i] - dy * si);
+            move(j, xs[j] + dx * sj, ys[j] + dy * sj);
             moved = true;
           }
         }

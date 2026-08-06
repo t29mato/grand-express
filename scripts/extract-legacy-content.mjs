@@ -170,6 +170,16 @@ const INLINE_UI_STRINGS = {
   knowledgeLocal: "Very well|Muy bien|Très bien|くわしい",
   saveDone: "Your journey has been saved to this browser. You can close the tab and continue later.|Tu viaje se ha guardado en este navegador. Puedes cerrar la pestaña y continuar más tarde.|Ton voyage est enregistré dans ce navigateur. Tu peux fermer l'onglet et reprendre plus tard.|この旅をブラウザに保存しました。タブを閉じても、あとから続きから遊べます。",
 };
+/**
+ * 使わなくなったUI文言。青マス・赤マスを廃止したため、legacy の `UI` に
+ * 残っていてもロケールJSONには出力しない(使われていない文言が残ると、
+ * 翻訳の抜けなのか不要なのか判別できなくなる)。
+ */
+const REMOVED_UI_STRINGS = ["blueSq", "redSq", "blueLog", "redLog"];
+for (const locale of LOCALES) {
+  for (const key of REMOVED_UI_STRINGS) delete messagesByLocale[locale][key];
+}
+
 for (const [key, source] of Object.entries(INLINE_UI_STRINGS)) {
   const [en, es, fr, ja] = source.split("|");
   const byLocale = { en, es, fr, ja };
