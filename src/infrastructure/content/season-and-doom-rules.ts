@@ -182,6 +182,67 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
       { op: "region-income-multiplier", regionId: region("oue"), multiplier: 1.15 },
     ],
   ],
+
+  /**
+   * 世界一周。ここだけは**南半球と北半球で季節が逆**なので、どの月も
+   * 「どこかが稼ぎどきで、どこかが端境期」になる。国内の盤面のように
+   * 全体が同時に上下することはない。
+   *
+   * 8月は赤道の無風帯で帆に頼るものが動かないため厄災の神も止まり、
+   * 1月は真夜中がUTC+14から26時間かけて世界を一周するので、
+   * その道中で全員に贈り物が配られる。
+   */
+  world: [
+    /* 0 Apr 北の花と南の収穫 */ [
+      { op: "region-income-multiplier", regionId: region("sam"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("eur"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("asi"), multiplier: 1.15 },
+    ],
+    /* 1 May 氷が解けて北の航路が開く */ [
+      { op: "region-income-multiplier", regionId: region("nam"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("eur"), multiplier: 1.15 },
+    ],
+    /* 2 Jun 白夜とインティ・ライミ */ [
+      { op: "region-income-multiplier", regionId: region("eur"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("sam"), multiplier: 1.2 },
+    ],
+    /* 3 Jul 北半球が休みに入り、東アフリカは大移動 */ [
+      { op: "region-income-multiplier", regionId: region("eur"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("nam"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("afr"), multiplier: 1.3 },
+    ],
+    /* 4 Aug 赤道の無風帯 */ [
+      { op: "region-income-multiplier", regionId: region("oce"), multiplier: 0.7 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep 二つの海の嵐 */ [
+      { op: "all-players-pay-cash", amount: 180 },
+      { op: "region-income-multiplier", regionId: region("asi"), multiplier: 0.75 },
+      { op: "region-income-multiplier", regionId: region("nam"), multiplier: 0.75 },
+    ],
+    /* 6 Oct 紅葉とジャカランダ */ [
+      { op: "region-income-multiplier", regionId: region("nam"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("afr"), multiplier: 1.2 },
+    ],
+    /* 7 Nov ディワーリーと死者の日 */ [
+      { op: "region-income-multiplier", regionId: region("asi"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("nam"), multiplier: 1.2 },
+    ],
+    /* 8 Dec 二つの気温のクリスマス */ [
+      { op: "region-income-multiplier", regionId: region("oce"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("sam"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("eur"), multiplier: 1.2 },
+    ],
+    /* 9 Jan 真夜中が世界を一周する */ [{ op: "give-item-to-all" }],
+    /* 10 Feb 謝肉祭 */ [
+      { op: "region-income-multiplier", regionId: region("sam"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("eur"), multiplier: 0.8 },
+    ],
+    /* 11 Mar 大移動がまた始まる */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("eur"), multiplier: 1.15 },
+    ],
+  ],
 };
 
 /**
@@ -221,4 +282,12 @@ export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>>
   "tournee-generale": "payOthers",
   "rame-coupee": "teleport",
   "tire-laine": "steal",
+  // World
+  "customs-shed": "fine",
+  devaluation: "percentLoss",
+  quarantine: "skipTurn",
+  expropriation: "loseProperties",
+  "crossing-the-line": "payOthers",
+  "wrong-port": "teleport",
+  "shell-game": "steal",
 };

@@ -49,4 +49,14 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   antiseche: { type: "quiz-save" },
   brocante: { type: "gain-cash", amount: 380 },
   relais: { type: "extra-turn" },
+  // World
+  zeppelin: { type: "teleport-to-destination" },
+  chronometer: { type: "choose-exact-dice" },
+  mailsteamer: { type: "roll-fixed-dice", diceCount: 2 },
+  blueriband: { type: "roll-fixed-dice", diceCount: 3 },
+  christopher: { type: "none" }, // 厄災の神のward item(passive)
+  elmo: { type: "repel-spirit" },
+  baedeker: { type: "quiz-save" },
+  posterestante: { type: "gain-cash", amount: 380 },
+  dateline: { type: "extra-turn" },
 };
