@@ -35,16 +35,15 @@ export function DeathRoadBrakes() {
       </g>
 
       {/* 落ちたら戻れない外側 */}
-      <path d="M0,132 L400,182 L400,210 L0,210z" fill="#1c2f27" />
-      <g fill="#132119">
-        <path d="M40,142 L58,210 L34,210z" />
-        <path d="M150,156 L166,210 L138,210z" />
-        <path d="M262,170 L280,210 L250,210z" />
+      <path d="M0,130 L400,180 L400,186 L0,136z" fill="#6b5b44" />
+      <path d="M0,136 L400,186 L400,210 L0,210z" fill="#1b2c33" />
+      <g stroke="#14222a" strokeWidth="6" strokeLinecap="round">
+        <path d="M36,142 L30,210 M92,150 L100,210 M160,158 L152,210 M232,166 L242,210 M304,176 L296,210 M366,182 L374,210" />
       </g>
-      <g fill="#cfdbdb" opacity="0.4">
-        <ellipse cx="88" cy="196" rx="42" ry="9" />
-        <ellipse cx="238" cy="206" rx="48" ry="10" />
-        <ellipse cx="360" cy="200" rx="40" ry="9" />
+      <g fill="#cfdbdb" opacity="0.3">
+        <ellipse cx="76" cy="200" rx="46" ry="8" />
+        <ellipse cx="220" cy="206" rx="52" ry="9" />
+        <ellipse cx="356" cy="198" rx="44" ry="8" />
       </g>
       <g fill="#6f6350">
         <ellipse cx="106" cy="140" rx="7" ry="4" />

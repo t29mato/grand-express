@@ -75,32 +75,33 @@ export function ChaiRefusedPayment() {
         <rect x="-17" y="-56" width="34" height="48" rx="9" fill="#f0e2c4" />
         <path d="M-17,-40 L17,-40" stroke="#c98b3f" strokeWidth="4" />
         <circle cx="0" cy="-68" r="12" fill="#f6efe2" />
-        <path d="M-12,-72 Q0,-86 12,-72 Q0,-79 -12,-72z" fill="#3b2f2a" />
+        <path d="M-11,-75 Q0,-88 11,-75 Q0,-81 -11,-75z" fill="#3b2f2a" />
         <rect x="-6" y="-63" width="12" height="3.5" rx="1.5" fill="#3b2f2a" />
         {/* 高く掲げた腕 */}
         <path
-          d="M-15,-50 L-34,-66 L-58,-98"
+          d="M-15,-50 L-32,-62 L-50,-86"
           stroke="#f0e2c4"
-          strokeWidth="9"
+          strokeWidth="10"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <circle cx="-60" cy="-100" r="6" fill="#f6efe2" />
+        <circle cx="-52" cy="-88" r="6.5" fill="#f6efe2" />
         {/* 受け取らない手 */}
         <g className="cw-palm">
-          <rect x="0" y="-5" width="48" height="10" rx="5" fill="#f0e2c4" />
-          <rect x="42" y="-11" width="14" height="22" rx="6" fill="#f6efe2" />
+          <rect x="0" y="-5" width="46" height="10" rx="5" fill="#f0e2c4" />
+          <rect x="44" y="-10" width="13" height="19" rx="4" fill="#f6efe2" />
           <g fill="#f6efe2">
-            <rect x="52" y="-10" width="8" height="4.5" rx="2" />
-            <rect x="52" y="-4" width="9" height="4.5" rx="2" />
-            <rect x="52" y="2" width="8" height="4.5" rx="2" />
+            <rect x="45" y="-19" width="3.4" height="10" rx="1.7" />
+            <rect x="49.5" y="-21" width="3.4" height="12" rx="1.7" />
+            <rect x="54" y="-19" width="3.4" height="10" rx="1.7" />
+            <rect x="42" y="-4" width="5" height="9" rx="2.5" />
           </g>
         </g>
       </g>
 
       {/* 注ぐ薬缶 */}
-      <g transform="translate(110,76) rotate(28) scale(0.85)">
+      <g transform="translate(118,84) rotate(28) scale(0.72)">
         <g className="cw-kettle">
           <path d="M-16,-8 L16,-8 L12,10 L-12,10z" fill="#b9c2c9" />
           <ellipse cx="0" cy="-8" rx="16" ry="4.5" fill="#d6dde2" />
@@ -128,10 +129,10 @@ export function ChaiRefusedPayment() {
       <ellipse cx="77" cy="104" rx="25" ry="5" fill="#8a9099" />
 
       {/* 注がれるチャイ */}
-      <path d="M133,93 Q136,110 131,126" stroke="#c9772f" strokeWidth="5" fill="none" />
+      <path d="M137,97 Q138,112 131,126" stroke="#c9772f" strokeWidth="5" fill="none" />
       <path
         className="cw-stream"
-        d="M133,93 Q136,110 131,126"
+        d="M137,97 Q138,112 131,126"
         stroke="#f0c489"
         strokeWidth="5"
         strokeDasharray="7 9"

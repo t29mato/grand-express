@@ -57,13 +57,15 @@ export function MissionConcert() {
       <rect y="170" width="400" height="40" fill="#6b4a30" />
       <rect y="170" width="400" height="4" fill="#8a5a30" />
 
-      {/* 空いたままの椅子と譜面台 */}
-      <g transform="translate(104,186)">
-        <rect x="-16" y="-14" width="32" height="6" fill="#8a5a30" />
-        <rect x="10" y="-40" width="6" height="26" fill="#8a5a30" />
-        <rect x="-14" y="-40" width="28" height="5" fill="#8a5a30" />
-        <rect x="-14" y="-8" width="5" height="8" fill="#6b4629" />
-        <rect x="9" y="-8" width="5" height="8" fill="#6b4629" />
+      {/* 一人足りない席 */}
+      <g transform="translate(104,190)">
+        <ellipse cx="0" cy="2" rx="22" ry="5" fill="#4a3423" opacity="0.5" />
+        <rect x="-19" y="-18" width="38" height="7" rx="2" fill="#c9a877" />
+        <rect x="12" y="-48" width="7" height="30" fill="#c9a877" />
+        <rect x="-4" y="-48" width="23" height="6" rx="2" fill="#c9a877" />
+        <rect x="-4" y="-34" width="23" height="5" rx="2" fill="#c9a877" />
+        <rect x="-17" y="-11" width="6" height="11" fill="#a8895f" />
+        <rect x="11" y="-11" width="6" height="11" fill="#a8895f" />
       </g>
 
       {/* 譜面台 */}
@@ -118,8 +120,8 @@ export function MissionConcert() {
         </g>
         {/* 弓を持つ腕 */}
         <g className="ms-arm">
-          <path d="M0,0 L26,10" stroke="#3b2f4a" strokeWidth="8" strokeLinecap="round" fill="none" />
-          <circle cx="28" cy="11" r="5" fill="#f6efe2" />
+          <path d="M0,0 L-16,20" stroke="#3b2f4a" strokeWidth="8" strokeLinecap="round" fill="none" />
+          <circle cx="-18" cy="22" r="5.5" fill="#f6efe2" />
         </g>
       </g>
 
@@ -162,8 +164,8 @@ export function MissionConcert() {
         }
         .ms-arm {
           transform-box: fill-box;
-          transform-origin: 0% 0%;
-          transform: translate(14px, -60px) rotate(-4deg);
+          transform-origin: 100% 0%;
+          transform: translate(14px, -62px) rotate(-4deg);
           animation: ms-elbow 2.2s ease-in-out infinite;
         }
         .ms-note-a, .ms-note-b, .ms-note-c {
@@ -184,8 +186,8 @@ export function MissionConcert() {
           50% { transform: translate(14px, 0); }
         }
         @keyframes ms-elbow {
-          0%, 100% { transform: translate(14px, -60px) rotate(-9deg); }
-          50% { transform: translate(14px, -60px) rotate(3deg); }
+          0%, 100% { transform: translate(14px, -62px) rotate(-11deg); }
+          50% { transform: translate(14px, -62px) rotate(5deg); }
         }
         @keyframes ms-float {
           0% { transform: translate(0, 0) rotate(-6deg); opacity: 0; }

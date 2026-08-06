@@ -24,13 +24,6 @@ export function CoffeeHarvest() {
         <ellipse cx="357" cy="22" rx="46" ry="24" fill="#1f5230" />
       </g>
 
-      {/* 遠くで摘んでいる人 */}
-      <g transform="translate(96,124)" opacity="0.8">
-        <rect x="-4" y="-14" width="8" height="14" rx="3" fill="#f0e2c4" />
-        <circle cx="0" cy="-18" r="4" fill="#f6efe2" />
-        <ellipse cx="0" cy="-21" rx="8" ry="2.5" fill="#c9a877" />
-        <path d="M-7,-6 L7,-6 L5,4 L-5,4z" fill="#c9a877" />
-      </g>
       <g transform="translate(70,140)">
         <ellipse cx="0" cy="-6" rx="26" ry="16" fill="#2f6b3f" />
         <ellipse cx="26" cy="-12" rx="20" ry="13" fill="#3a7d49" />
@@ -38,7 +31,7 @@ export function CoffeeHarvest() {
 
       {/* 実をつけたコーヒーの木 */}
       <g transform="translate(132,172)">
-        <path d="M-4,12 L-1,-26 L5,12z" fill="#6b4629" />
+        <path d="M-4,8 L-2,-26 L3,-26 L5,8z" fill="#6b4629" />
         <g className="cf-branch">
           <ellipse cx="-36" cy="-16" rx="30" ry="20" fill="#2f6b3f" />
           <ellipse cx="2" cy="-34" rx="36" ry="23" fill="#3a7d49" />
