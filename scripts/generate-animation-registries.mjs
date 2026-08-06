@@ -15,15 +15,35 @@
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-/** `france-vendange-ratee` → `FranceVendangeRatee` */
+/**
+ * `france-vendange-ratee` → `FranceVendangeRatee`
+ *
+ * 下線も区切りとして扱う。背景キーに `megacity_asia` があり、ハイフンだけで
+ * 切ると `WorldMegacity_asia` になって実際のexport名と食い違う。
+ */
 function toComponentName(fileId) {
   return fileId
-    .split("-")
+    .split(/[-_]/)
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join("");
 }
 
 const REGISTRIES = [
+  {
+    dir: "src/presentation/components/events/animations",
+    constName: "EVENT_ANIMATIONS",
+    doc: `/**
+ * 出来事ID → 動く絵。
+ *
+ * 1件1ファイルにしてここで束ねる。絵は自己完結したSVG(外部の画像もライブラリも
+ * 使わない)で、\`prefers-reduced-motion\` が有効なときは動きを止める。
+ * 作り方は docs/50-authoring/02-animation-guide.md を参照。
+ *
+ * **このファイルは足し忘れを防ぐため機械的に整えている。**
+ */`,
+    // 引くのは event-animation.tsx が直接添字でやっているので、補助関数は無い。
+    helper: "",
+  },
   {
     dir: "src/presentation/components/events/seasons",
     constName: "SEASON_ANIMATIONS",
@@ -91,9 +111,7 @@ ${doc}
 export const ${constName}: Readonly<Record<string, ComponentType>> = {
 ${entries}
 };
-
-${helper}
-`;
+${helper ? `\n${helper}\n` : ""}`;
 
   const path = join(dir, "index.ts");
   const before = readFileSync(path, "utf8");
