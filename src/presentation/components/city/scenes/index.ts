@@ -13,6 +13,18 @@ import { BoliviaTropicalcity } from "./bolivia-tropicalcity";
 import { BoliviaValley } from "./bolivia-valley";
 import { BoliviaWhitecity } from "./bolivia-whitecity";
 import { BoliviaYungas } from "./bolivia-yungas";
+import { FranceAlps } from "./france-alps";
+import { FranceAtlantic } from "./france-atlantic";
+import { FranceBocage } from "./france-bocage";
+import { FranceCanal } from "./france-canal";
+import { FranceCapital } from "./france-capital";
+import { FranceCathedral } from "./france-cathedral";
+import { FranceChateau } from "./france-chateau";
+import { FranceLavender } from "./france-lavender";
+import { FranceOldtown } from "./france-oldtown";
+import { FrancePyrenees } from "./france-pyrenees";
+import { FranceRiviera } from "./france-riviera";
+import { FranceVineyard } from "./france-vineyard";
 import { IndiaArabianport } from "./india-arabianport";
 import { IndiaBazaar } from "./india-bazaar";
 import { IndiaCapital } from "./india-capital";
@@ -42,6 +54,18 @@ import { JapanSnowcity } from "./japan-snowcity";
 import { JapanSubtropic } from "./japan-subtropic";
 import { JapanValley2 } from "./japan-valley2";
 import { JapanVolcano } from "./japan-volcano";
+import { WorldDesert } from "./world-desert";
+import { WorldHarbour } from "./world-harbour";
+import { WorldIsland } from "./world-island";
+import { WorldMegacityAsia } from "./world-megacity_asia";
+import { WorldMetropolis } from "./world-metropolis";
+import { WorldMountains } from "./world-mountains";
+import { WorldOldworld } from "./world-oldworld";
+import { WorldPlaza } from "./world-plaza";
+import { WorldRuins } from "./world-ruins";
+import { WorldSavanna } from "./world-savanna";
+import { WorldTropics } from "./world-tropics";
+import { WorldTundra } from "./world-tundra";
 
 /**
  * 「国-背景キー」→ 都市イラストに重ねる動きのレイヤー。
@@ -67,6 +91,18 @@ export const CITY_SCENE_OVERLAYS: Readonly<Record<string, ComponentType>> = {
   "bolivia-valley": BoliviaValley,
   "bolivia-whitecity": BoliviaWhitecity,
   "bolivia-yungas": BoliviaYungas,
+  "france-alps": FranceAlps,
+  "france-atlantic": FranceAtlantic,
+  "france-bocage": FranceBocage,
+  "france-canal": FranceCanal,
+  "france-capital": FranceCapital,
+  "france-cathedral": FranceCathedral,
+  "france-chateau": FranceChateau,
+  "france-lavender": FranceLavender,
+  "france-oldtown": FranceOldtown,
+  "france-pyrenees": FrancePyrenees,
+  "france-riviera": FranceRiviera,
+  "france-vineyard": FranceVineyard,
   "india-arabianport": IndiaArabianport,
   "india-bazaar": IndiaBazaar,
   "india-capital": IndiaCapital,
@@ -96,6 +132,18 @@ export const CITY_SCENE_OVERLAYS: Readonly<Record<string, ComponentType>> = {
   "japan-subtropic": JapanSubtropic,
   "japan-valley2": JapanValley2,
   "japan-volcano": JapanVolcano,
+  "world-desert": WorldDesert,
+  "world-harbour": WorldHarbour,
+  "world-island": WorldIsland,
+  "world-megacity_asia": WorldMegacityAsia,
+  "world-metropolis": WorldMetropolis,
+  "world-mountains": WorldMountains,
+  "world-oldworld": WorldOldworld,
+  "world-plaza": WorldPlaza,
+  "world-ruins": WorldRuins,
+  "world-savanna": WorldSavanna,
+  "world-tropics": WorldTropics,
+  "world-tundra": WorldTundra,
 };
 
 /** その国のその背景に重ねる動き。無ければ undefined(静止のまま)。 */
