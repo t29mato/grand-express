@@ -48,3 +48,8 @@ scripts/_tmp-*
 
 # 確認用のスクリーンショット(npm run shot)
 screenshots/
+
+# npm run preview の一時ファイル
+.preview-entry.tsx
+.preview.html
+preview.png
