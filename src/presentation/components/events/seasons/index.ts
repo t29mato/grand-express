@@ -11,6 +11,18 @@ import { Bolivia08 } from "./bolivia-08";
 import { Bolivia09 } from "./bolivia-09";
 import { Bolivia10 } from "./bolivia-10";
 import { Bolivia11 } from "./bolivia-11";
+import { France00 } from "./france-00";
+import { France01 } from "./france-01";
+import { France02 } from "./france-02";
+import { France03 } from "./france-03";
+import { France04 } from "./france-04";
+import { France05 } from "./france-05";
+import { France06 } from "./france-06";
+import { France07 } from "./france-07";
+import { France08 } from "./france-08";
+import { France09 } from "./france-09";
+import { France10 } from "./france-10";
+import { France11 } from "./france-11";
 import { India00 } from "./india-00";
 import { India01 } from "./india-01";
 import { India02 } from "./india-02";
@@ -35,13 +47,21 @@ import { Japan08 } from "./japan-08";
 import { Japan09 } from "./japan-09";
 import { Japan10 } from "./japan-10";
 import { Japan11 } from "./japan-11";
+import { World00 } from "./world-00";
+import { World01 } from "./world-01";
+import { World02 } from "./world-02";
+import { World03 } from "./world-03";
+import { World04 } from "./world-04";
+import { World05 } from "./world-05";
+import { World06 } from "./world-06";
+import { World07 } from "./world-07";
+import { World08 } from "./world-08";
+import { World09 } from "./world-09";
+import { World10 } from "./world-10";
+import { World11 } from "./world-11";
 
 /**
- * 「国-月」→ その月の動く絵。月は0始まりで **0=4月**。
- *
- * 月が替わるたびに季節イベントのモーダルで流す。梅雨なら雨、桜前線なら
- * 花びら、というように、子どもが見ても何の月か分かることを狙っている。
- * 作り方は docs/50-authoring/03-season-animation-guide.md を参照。
+ * 「国-月」→ 月替わりに出る絵。月は0始まり(0=4月)で2桁。
  *
  * **足し忘れを防ぐため機械的に整えている。** 登録が無い月は絵なしで
  * これまでどおり文章だけが出る。
@@ -59,6 +79,18 @@ export const SEASON_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "bolivia-09": Bolivia09,
   "bolivia-10": Bolivia10,
   "bolivia-11": Bolivia11,
+  "france-00": France00,
+  "france-01": France01,
+  "france-02": France02,
+  "france-03": France03,
+  "france-04": France04,
+  "france-05": France05,
+  "france-06": France06,
+  "france-07": France07,
+  "france-08": France08,
+  "france-09": France09,
+  "france-10": France10,
+  "france-11": France11,
   "india-00": India00,
   "india-01": India01,
   "india-02": India02,
@@ -83,6 +115,18 @@ export const SEASON_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "japan-09": Japan09,
   "japan-10": Japan10,
   "japan-11": Japan11,
+  "world-00": World00,
+  "world-01": World01,
+  "world-02": World02,
+  "world-03": World03,
+  "world-04": World04,
+  "world-05": World05,
+  "world-06": World06,
+  "world-07": World07,
+  "world-08": World08,
+  "world-09": World09,
+  "world-10": World10,
+  "world-11": World11,
 };
 
 /** その国のその月の絵。無ければ undefined。 */
