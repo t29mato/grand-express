@@ -89,8 +89,17 @@ test("クイズに答えると結果モーダルで正解と解説が読める",
     const choosable = page.locator("svg.board-svg g[data-choosable='true']");
     if ((await choosable.count()) > 0) {
       const quizSquare = page.locator("svg.board-svg g[data-choosable='true'][data-node-kind='quiz']");
-      const target = (await quizSquare.count()) > 0 ? quizSquare.first() : choosable.first();
-      await target.click({ timeout: 6000 }).catch(() => {});
+      const targets = (await quizSquare.count()) > 0 ? quizSquare : choosable;
+      // 1つ目が押せなかったときに同じ候補を押し続けて詰まらないよう、順に試す。
+      const count = await targets.count();
+      for (let i = 0; i < count; i++) {
+        const clicked = await targets
+          .nth(i)
+          .click({ timeout: 4000 })
+          .then(() => true)
+          .catch(() => false);
+        if (clicked) break;
+      }
       await page.waitForTimeout(120);
       continue;
     }

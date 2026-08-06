@@ -1,4 +1,5 @@
 import { test, expect, Page } from "@playwright/test";
+import { clickAnyChoosableSquare } from "./helpers";
 
 /**
  * 月替わり(全員が1手番ずつ終える)ごとに季節イベントのモーダルが表示されることを、
@@ -69,7 +70,7 @@ test("月が替わると季節イベントのモーダルが表示され、閉�
     // クリックが一度失敗したときに選択待ちのまま抜け出せなくなる。
     const choosable = page.locator("svg.board-svg g[data-choosable='true']");
     if ((await choosable.count()) > 0) {
-      await choosable.first().click({ timeout: 6000 }).catch(() => {});
+      await clickAnyChoosableSquare(page);
       await page.waitForTimeout(250);
       continue;
     }

@@ -24,10 +24,27 @@ export async function rollAndMove(page: Page): Promise<void> {
   if (!(await die.isEnabled().catch(() => false))) return;
   await die.click();
   await waitForDiceToSettle(page);
-  const choosable = page.locator("svg.board-svg g[data-choosable='true']").first();
-  if (await choosable.isVisible({ timeout: 2000 }).catch(() => false)) {
-    await choosable.click({ timeout: 6000 }).catch(() => {});
+  await clickAnyChoosableSquare(page);
+}
+
+/**
+ * 到達可能なマスを1つ選ぶ。押せたら true。
+ *
+ * 1つ目だけを狙うと、そのマスが何かに隠れていた場合に永久に選べず、
+ * 呼び出し側のループが手詰まりになる。押せるまで順に試す。
+ */
+export async function clickAnyChoosableSquare(page: Page): Promise<boolean> {
+  const choosable = page.locator("svg.board-svg g[data-choosable='true']");
+  const count = await choosable.count().catch(() => 0);
+  for (let i = 0; i < count; i++) {
+    const clicked = await choosable
+      .nth(i)
+      .click({ timeout: 4000 })
+      .then(() => true)
+      .catch(() => false);
+    if (clicked) return true;
   }
+  return false;
 }
 
 /**
