@@ -79,4 +79,32 @@ describe("盤面の移動不変条件", () => {
       expect(pathfinding.reachableNodes(node, 6).size, `${countryId}: ${node} から動けない`).toBeGreaterThan(0);
     }
   });
+
+  it.each(countries)("%s: 盤面が2つ以上に分かれていない", async (countryId) => {
+    // 目的地はどの都市からも選ばれうるので、盤面が分かれていると
+    // **たどり着けない目的地**が出る。手番が終わらなくなるが、
+    // 「遠いだけ」との区別がつかず気づきにくい。
+    //
+    // 島を航路でつなぎ忘れるのが典型で、世界一周の盤面のように
+    // 海をまたぐ辺が多いほど起きやすい。ここで機械的に押さえる。
+    const pack = await repo.load(CountryId(countryId));
+    const graph = buildBoardGraph(pack.cities, pack.edges, pack.projection);
+
+    const start = [...graph.nodes.keys()][0];
+    const seen = new Set([start]);
+    const queue = [start];
+    while (queue.length > 0) {
+      for (const next of graph.adjacency.get(queue.shift()!) ?? []) {
+        if (!seen.has(next)) {
+          seen.add(next);
+          queue.push(next);
+        }
+      }
+    }
+
+    // 落ちたときに「どの都市が浮いているか」が分かるよう、都市名で報告する。
+    const stranded = pack.cities.filter((c) => !seen.has(c.id)).map((c) => c.id);
+    expect(stranded, `${countryId}: 本体から切り離された都市`).toEqual([]);
+    expect(seen.size, `${countryId}: 到達できないマスがある`).toBe(graph.nodes.size);
+  });
 });
