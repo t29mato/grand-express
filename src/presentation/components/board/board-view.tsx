@@ -13,6 +13,7 @@ import { SIZES } from "./board-metrics";
 import { TOKEN, TrainToken } from "./train-token";
 import { TerrainLayer } from "./terrain-layer";
 import { BoardLegend } from "./board-legend";
+import { BoardCompass } from "./board-compass";
 
 const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
 
@@ -430,6 +431,7 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
         </g>
       </svg>
       <BoardLegend currency={context.content.currency} />
+      <BoardCompass />
       <button
         type="button"
         className="cam-toggle"

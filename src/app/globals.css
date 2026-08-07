@@ -1746,3 +1746,25 @@ aside {
     display: none;
   }
 }
+
+/* 方位記号。凡例と同じく盤面のSVGの外に置く(地形に被らず、ズームで大きさが変わらない)。
+   凡例が左上なので、こちらは左下。右下は全体表示のボタンが使っている。 */
+.board-compass {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+}
+
+.board-compass svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 640px) {
+  .board-compass {
+    display: none;
+  }
+}
