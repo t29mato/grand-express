@@ -53,6 +53,8 @@ const DEST_LABEL_FONT_PX = 15;
 
 /**
  * 中間マスの色と記号(現行コードの `SQUARE`)。
+ * カードマス(★)は廃止した。マスの種類が4つあると見分けが付きにくく、
+ * アイテムは屋台とクイズの褒美で十分手に入るため。
  * クイズマスは**難易度で色分けしない**。難易度はマスではなく問題の属性になり、
  * 止まった時点でプレイヤーの知識レベルに応じて抽選されるため、
  * マスを見て難易度が分かるわけではない。
@@ -61,7 +63,6 @@ const SQUARE_STYLES: Record<string, { color: string; glyph: string }> = {
   quiz: { color: "#f5b31c", glyph: "?" },
   blue: { color: "#5b8fe8", glyph: "+" },
   red: { color: "#e05252", glyph: "−" },
-  card: { color: "#f5d31c", glyph: "★" },
 };
 
 /**
@@ -394,8 +395,17 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
             </g>
           ))}
         </g>
+        {/* マスを先に、都市をあとに描く。
+            都市のシンボル(鹿・鳥居・城)は円の30px上に描かれるが、押し離しは
+            円の中心から半径で見ているので、マスがシンボルの下に潜り込む。
+            京都と奈良のように都市が近い場所(39px)では、マスの逃げ場そのものが
+            無いことを計測で確かめた(経路を2px刻みで全走査しても空きなし)。
+            動かして避けられないなら、**重ね順で見せる。**
+            マスは同じ形が何十個も並ぶが、鹿や鳥居はその町に1つしかない。 */}
         <g className="nodes">
-          {[...context.graph.nodes].map(([id, node]) => {
+          {[...context.graph.nodes]
+            .sort((a, b) => Number(isCityNode(a[1])) - Number(isCityNode(b[1])))
+            .map(([id, node]) => {
             const pos = positions.get(id);
             if (!pos) return null;
             const isDestination = isCityNode(node) && node.cityId === session.destination;

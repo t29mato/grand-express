@@ -272,6 +272,181 @@ function evaluateDecor(country) {
   return first;
 }
 
+// ── 装飾の外接矩形(`decorBoxes`) ────────────────────────────
+//
+// 中間マスの配置(`src/presentation/hooks/use-board-layout.ts`)が、山・木・鳥居の
+// 上にマスを置かないようにするために要る。`decor` はSVG文字列に評価済みで
+// 「どこに何があるか」が落ちているので、ここで文字列を読み直して座標を復元する。
+//
+// 位置の計算をもう一度書くのではなく出力を読むのは、国ごとに `decor()` の書き方が
+// 違う(legacy2国は `el()` 呼び出し、書き起こし3国は文字列組み立て)ためで、
+// 出力を見るぶんには5国とも同じ1本の経路で済む。
+
+const SVG_NUMBER = /-?\d*\.?\d+(?:e[-+]?\d+)?/gi;
+const svgNumbers = (text) => (text.match(SVG_NUMBER) ?? []).map(Number);
+
+function svgAttr(text, name) {
+  const found = new RegExp(`\\s${name}="([^"]*)"`).exec(text);
+  return found ? found[1] : null;
+}
+
+/**
+ * パスの `d` が通る点。曲線は制御点も点として数える
+ * (外接矩形が実際よりわずかに広く出るが、避ける側としては安全側)。
+ */
+function pathPoints(d) {
+  const points = [];
+  let x = 0;
+  let y = 0;
+  let startX = 0;
+  let startY = 0;
+  for (const [, command, argText] of d.matchAll(/([MmLlHhVvCcSsQqTtAaZz])([^MmLlHhVvCcSsQqTtAaZz]*)/g)) {
+    const a = svgNumbers(argText);
+    const relative = command === command.toLowerCase();
+    switch (command.toUpperCase()) {
+      case "M":
+      case "L":
+      case "T":
+        for (let i = 0; i + 1 < a.length; i += 2) {
+          x = relative ? x + a[i] : a[i];
+          y = relative ? y + a[i + 1] : a[i + 1];
+          if (command.toUpperCase() === "M" && i === 0) {
+            startX = x;
+            startY = y;
+          }
+          points.push([x, y]);
+        }
+        break;
+      case "H":
+        for (const v of a) {
+          x = relative ? x + v : v;
+          points.push([x, y]);
+        }
+        break;
+      case "V":
+        for (const v of a) {
+          y = relative ? y + v : v;
+          points.push([x, y]);
+        }
+        break;
+      case "C":
+        for (let i = 0; i + 5 < a.length; i += 6) {
+          const bx = relative ? x : 0;
+          const by = relative ? y : 0;
+          points.push([bx + a[i], by + a[i + 1]], [bx + a[i + 2], by + a[i + 3]]);
+          x = bx + a[i + 4];
+          y = by + a[i + 5];
+          points.push([x, y]);
+        }
+        break;
+      case "S":
+      case "Q":
+        for (let i = 0; i + 3 < a.length; i += 4) {
+          const bx = relative ? x : 0;
+          const by = relative ? y : 0;
+          points.push([bx + a[i], by + a[i + 1]]);
+          x = bx + a[i + 2];
+          y = by + a[i + 3];
+          points.push([x, y]);
+        }
+        break;
+      case "A":
+        for (let i = 0; i + 6 < a.length; i += 7) {
+          x = relative ? x + a[i + 5] : a[i + 5];
+          y = relative ? y + a[i + 6] : a[i + 6];
+          points.push([x, y]);
+        }
+        break;
+      case "Z":
+        x = startX;
+        y = startY;
+        break;
+    }
+  }
+  return points;
+}
+
+function boxOfPoints(points) {
+  let x0 = Infinity;
+  let y0 = Infinity;
+  let x1 = -Infinity;
+  let y1 = -Infinity;
+  for (const [x, y] of points) {
+    if (!Number.isFinite(x) || !Number.isFinite(y)) continue;
+    x0 = Math.min(x0, x);
+    y0 = Math.min(y0, y);
+    x1 = Math.max(x1, x);
+    y1 = Math.max(y1, y);
+  }
+  return Number.isFinite(x0) ? [x0, y0, x1 - x0, y1 - y0] : null;
+}
+
+function boxOfShape(tag, text) {
+  const n = (name) => Number(svgAttr(text, name));
+  if (tag === "polygon" || tag === "polyline") {
+    const a = svgNumbers(svgAttr(text, "points") ?? "");
+    const points = [];
+    for (let i = 0; i + 1 < a.length; i += 2) points.push([a[i], a[i + 1]]);
+    return boxOfPoints(points);
+  }
+  if (tag === "circle") return [n("cx") - n("r"), n("cy") - n("r"), 2 * n("r"), 2 * n("r")];
+  if (tag === "ellipse") return [n("cx") - n("rx"), n("cy") - n("ry"), 2 * n("rx"), 2 * n("ry")];
+  if (tag === "rect") return [n("x"), n("y"), n("width"), n("height")];
+  if (tag === "path") return boxOfPoints(pathPoints(svgAttr(text, "d") ?? ""));
+  if (tag === "line") return boxOfPoints([[n("x1"), n("y1")], [n("x2"), n("y2")]]);
+  return null;
+}
+
+const boxesTouch = (a, b, gap) =>
+  a[0] - gap < b[0] + b[2] && b[0] - gap < a[0] + a[2] && a[1] - gap < b[1] + b[3] && b[1] - gap < a[1] + a[3];
+
+function unionBox(a, b) {
+  const x0 = Math.min(a[0], b[0]);
+  const y0 = Math.min(a[1], b[1]);
+  const x1 = Math.max(a[0] + a[2], b[0] + b[2]);
+  const y1 = Math.max(a[1] + a[3], b[1] + b[3]);
+  return [x0, y0, x1 - x0, y1 - y0];
+}
+
+/**
+ * 装飾SVGから、飾りひとつぶんの外接矩形 `[x, y, 幅, 高さ]`(盤面座標)を取り出す。
+ * 山の本体と雪のように重なる図形はひとまとまりに束ねる。
+ */
+function evaluateDecorBoxes(svg, gap = 2) {
+  const shapes = [];
+  let groupStroke = 0;
+  for (const [, closing, tag, rest] of svg.matchAll(/<(\/?)([a-zA-Z][a-zA-Z0-9]*)([^>]*)>/g)) {
+    const text = rest.replace(/\/$/, "");
+    if (tag === "g") {
+      // `<g>` に線の太さがまとめて指定されることがある(フランスの葡萄畑)。
+      groupStroke = closing ? 0 : Number(svgAttr(text, "stroke-width") ?? 0) || 0;
+      continue;
+    }
+    const box = boxOfShape(tag, text);
+    if (!box) continue;
+    // 線は中心から太さの半分ぶん外へはみ出す。線端が丸ければ端にも回り込む。
+    const strokeWidth = Number(svgAttr(text, "stroke-width") ?? 0) || groupStroke;
+    const pad = svgAttr(text, "stroke") || groupStroke ? strokeWidth / 2 : 0;
+    shapes.push([box[0] - pad, box[1] - pad, box[2] + 2 * pad, box[3] + 2 * pad]);
+  }
+
+  const merged = [];
+  for (const shape of shapes) {
+    let current = shape;
+    for (let again = true; again; ) {
+      again = false;
+      for (let i = merged.length - 1; i >= 0; i--) {
+        if (!boxesTouch(current, merged[i], gap)) continue;
+        current = unionBox(current, merged[i]);
+        merged.splice(i, 1);
+        again = true;
+      }
+    }
+    merged.push(current);
+  }
+  return merged.map((box) => box.map((v) => Math.round(v * 10) / 10));
+}
+
 // 国コンテンツ(都市・路線・アイテム・クイズ・季節/厄災の説明文)。
 // 翻訳文字列はここではnext-intlへ分離せず、{en,es,fr,ja}のままインラインで持つ
 // (ADR-0007の実用的な簡略化。理由は本ファイル冒頭のコメント参照)。
@@ -281,6 +456,8 @@ for (const country of [BOLIVIA, JAPAN]) {
   content.decor = evaluateDecor(country);
   // 移行後にこのリポジトリで追加・改善したコンテンツを反映する。
   applyContentOverrides(country.id, content);
+  // 上書き層が装飾を差し替えることがあるので、矩形は上書きのあとで取る。
+  content.decorBoxes = evaluateDecorBoxes(content.decor);
   writeFileSync(
     join(contentDir, `${country.id}.content.json`),
     JSON.stringify(content, null, 2) + "\n",
@@ -294,6 +471,7 @@ for (const country of [BOLIVIA, JAPAN]) {
  */
 const AUTHORED_COUNTRIES = [buildIndiaContent(), buildFranceContent(), buildWorldContent()];
 for (const content of AUTHORED_COUNTRIES) {
+  content.decorBoxes = evaluateDecorBoxes(content.decor);
   writeFileSync(
     join(contentDir, `${content.id}.content.json`),
     JSON.stringify(content, null, 2) + "\n",

@@ -4,6 +4,7 @@ import { isCityNode } from "../../domain/board/node";
 import { CountryProjection, projectPoint } from "../../domain/board/board-projection";
 import { octilinearCorner, octilinearRoutePoint } from "./octilinear-route";
 import { GameEngineContext } from "../../application/game-engine-context";
+import { CITY_FOOTPRINT, SQUARE_FOOTPRINT } from "../components/board/board-metrics";
 
 export interface NodePosition {
   readonly x: number;
@@ -37,52 +38,89 @@ export interface NodePosition {
  *   - 押し離しは都市の位置を整えるためだけに使う
  */
 export function useBoardLayout(context: GameEngineContext): ReadonlyMap<NodeId, NodePosition> {
-  return useMemo(() => {
-    const { projection } = context.content;
-    const projectX = (lon: number) => projectPoint(lon, projection.lat0, projection).x;
-    const projectY = (lat: number) => projectPoint(projection.lon0, lat, projection).y;
+  return useMemo(() => computeBoardLayout(context), [context]);
+}
 
-    const cityPositions = new Map<string, NodePosition>();
-    for (const city of context.content.cities) {
-      cityPositions.set(city.id, { x: projectX(city.longitude), y: projectY(city.latitude) });
+/**
+ * 配置の中身。Reactに依存しないので、盤面を描かずに配置だけを測れる
+ * (飾りに乗っているマスを数えるなど)。
+ */
+export function computeBoardLayout(context: GameEngineContext): ReadonlyMap<NodeId, NodePosition> {
+  const { projection } = context.content;
+  const projectX = (lon: number) => projectPoint(lon, projection.lat0, projection).x;
+  const projectY = (lat: number) => projectPoint(projection.lon0, lat, projection).y;
+
+  const cityPositions = new Map<string, NodePosition>();
+  for (const city of context.content.cities) {
+    cityPositions.set(city.id, { x: projectX(city.longitude), y: projectY(city.latitude) });
+  }
+
+  // 同じ路線(e{edgeIndex}_*)に属する中間マスの総数を数え、t=k/(n+1)で線形補間する。
+  const siblingCounts = new Map<string, number>();
+  for (const id of context.graph.nodes.keys()) {
+    const match = /^e(\d+)_(\d+)$/.exec(id);
+    if (!match) continue;
+    const prefix = `e${match[1]}_`;
+    siblingCounts.set(prefix, (siblingCounts.get(prefix) ?? 0) + 1);
+  }
+
+  const positions = new Map<NodeId, NodePosition>();
+  for (const [id, node] of context.graph.nodes) {
+    if (isCityNode(node)) {
+      positions.set(id, cityPositions.get(node.cityId)!);
+      continue;
     }
-
-    // 同じ路線(e{edgeIndex}_*)に属する中間マスの総数を数え、t=k/(n+1)で線形補間する。
-    const siblingCounts = new Map<string, number>();
-    for (const id of context.graph.nodes.keys()) {
-      const match = /^e(\d+)_(\d+)$/.exec(id);
-      if (!match) continue;
-      const prefix = `e${match[1]}_`;
-      siblingCounts.set(prefix, (siblingCounts.get(prefix) ?? 0) + 1);
+    const match = /^e(\d+)_(\d+)$/.exec(id);
+    const [cityAId, cityBId] = node.between;
+    const a = cityPositions.get(cityAId)!;
+    const b = cityPositions.get(cityBId)!;
+    if (!match) {
+      positions.set(id, { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
+      continue;
     }
+    const edgeIndex = Number(match[1]);
+    const k = Number(match[2]);
+    const n = siblingCounts.get(`e${match[1]}_`) ?? 1;
+    const diagonalFirst = edgeIndex % 2 === 1;
+    positions.set(id, octilinearRoutePoint(a, b, k / (n + 1), diagonalFirst));
+  }
 
-    const positions = new Map<NodeId, NodePosition>();
-    for (const [id, node] of context.graph.nodes) {
-      if (isCityNode(node)) {
-        positions.set(id, cityPositions.get(node.cityId)!);
-        continue;
-      }
-      const match = /^e(\d+)_(\d+)$/.exec(id);
-      const [cityAId, cityBId] = node.between;
-      const a = cityPositions.get(cityAId)!;
-      const b = cityPositions.get(cityBId)!;
-      if (!match) {
-        positions.set(id, { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
-        continue;
-      }
-      const edgeIndex = Number(match[1]);
-      const k = Number(match[2]);
-      const n = siblingCounts.get(`e${match[1]}_`) ?? 1;
-      const diagonalFirst = edgeIndex % 2 === 1;
-      positions.set(id, octilinearRoutePoint(a, b, k / (n + 1), diagonalFirst));
-    }
+  // 押し離しは都市の位置を整えるために回す。中間マスもここで動くが、
+  // このあと経路の上へ置き直すので、結果には残らない。
+  const relaxed = relaxOverlaps(positions, context, projection);
+  const { placed, routes } = placeSquaresOnRoute(relaxed, context, siblingCounts);
+  return slideSquaresAlongRoute(placed, routes, projection, collectObstacles(context, placed));
+}
 
-    // 押し離しは都市の位置を整えるために回す。中間マスもここで動くが、
-    // このあと経路の上へ置き直すので、結果には残らない。
-    const relaxed = relaxOverlaps(positions, context, projection);
-    const { placed, routes } = placeSquaresOnRoute(relaxed, context, siblingCounts);
-    return slideSquaresAlongRoute(placed, routes, projection);
-  }, [context]);
+/** 盤面座標の矩形 `[x, y, 幅, 高さ]`。 */
+type Obstacle = readonly [x: number, y: number, width: number, height: number];
+
+/**
+ * マスに踏ませたくないもの。
+ *
+ * 2種類あって、**どちらもマスどうしの押し離しでは避けられていなかった**。
+ *
+ *   1. **地図の飾り**(山・木・鳥居)。`decorSvg` はSVG文字列で位置が読めないため、
+ *      抽出時に取り出した `decorBoxes` を使う。
+ *   2. **都市シンボル**(奈良の鹿など)。シンボルは円の**上**に描かれるので
+ *      (`CITY_FOOTPRINT.top` は -30)、都市の中心から半径で離すやり方だと
+ *      頭の上を素通りしていた。実際、日本ではマス19個がシンボルに乗っていて、
+ *      「京都と奈良のあいだの青マスが鹿を隠している」のはこれ。
+ */
+function collectObstacles(context: GameEngineContext, placed: ReadonlyMap<NodeId, NodePosition>): Obstacle[] {
+  const obstacles: Obstacle[] = [...context.content.terrain.decorBoxes];
+  for (const [id, node] of context.graph.nodes) {
+    if (!isCityNode(node)) continue;
+    const at = placed.get(id);
+    if (!at) continue;
+    obstacles.push([
+      at.x + CITY_FOOTPRINT.left,
+      at.y + CITY_FOOTPRINT.top,
+      CITY_FOOTPRINT.right - CITY_FOOTPRINT.left,
+      CITY_FOOTPRINT.bottom - CITY_FOOTPRINT.top,
+    ]);
+  }
+  return obstacles;
 }
 
 /** 中間マスが経路のどこに居るか。動かすのは `t` だけ。 */
@@ -145,11 +183,16 @@ function placeSquaresOnRoute(
  * 動かすのは割合 t だけにする。座標への変換は経路が受け持つので、
  * どれだけ滑らせても線の角度は 0/45/90 のまま保たれる。
  * 都市は動かさない(地理を表しているため)。
+ *
+ * 地図の飾りと都市シンボル(`obstacles`)も避ける。ただし**マスは経路の上しか
+ * 動けないので、避けきれないことがある**。無理に外へ出すと線が斜めになるので、
+ * そのときは乗ったままにする。
  */
 function slideSquaresAlongRoute(
   placed: Map<NodeId, NodePosition>,
   routes: ReadonlyMap<NodeId, RouteSlot>,
   projection: CountryProjection,
+  obstacles: readonly Obstacle[],
 ): ReadonlyMap<NodeId, NodePosition> {
   const minSeparation = (projection.segmentLength ?? 64) * 0.55;
 
@@ -162,6 +205,14 @@ function slideSquaresAlongRoute(
     for (let i = 0; i < ids.length; i++) {
       const slot = slots[i];
       if (!slot) continue; // 都市は動かさない
+
+      // 経路の向き。押し離しはこの向きの成分だけが効く。
+      const ahead = octilinearRoutePoint(slot.a, slot.b, Math.min(1, slot.t + 0.02), slot.diagonalFirst);
+      const behind = octilinearRoutePoint(slot.a, slot.b, Math.max(0, slot.t - 0.02), slot.diagonalFirst);
+      const hx = ahead.x - behind.x;
+      const hy = ahead.y - behind.y;
+      const headingLength = Math.hypot(hx, hy);
+      if (headingLength < 0.001) continue;
 
       let pushX = 0;
       let pushY = 0;
@@ -181,15 +232,10 @@ function slideSquaresAlongRoute(
           pushY += (dy / d) * overlap;
         }
       }
+
       if (pushX === 0 && pushY === 0) continue;
 
       // 経路に沿った成分だけを取り出し、割合 t の変化に直す。
-      const ahead = octilinearRoutePoint(slot.a, slot.b, Math.min(1, slot.t + 0.02), slot.diagonalFirst);
-      const behind = octilinearRoutePoint(slot.a, slot.b, Math.max(0, slot.t - 0.02), slot.diagonalFirst);
-      const hx = ahead.x - behind.x;
-      const hy = ahead.y - behind.y;
-      const headingLength = Math.hypot(hx, hy);
-      if (headingLength < 0.001) continue;
       const along = (pushX * hx + pushY * hy) / headingLength;
 
       // 経路の全長で割って t の増分にする。端は都市なので、都市の手前で止める。
@@ -205,9 +251,104 @@ function slideSquaresAlongRoute(
     if (!moved) break;
   }
 
+  slideOffObstacles(pos, slots, obstacles, minSeparation);
+
   const result = new Map(placed);
   ids.forEach((id, i) => result.set(id, pos[i]));
   return result;
+}
+
+/** マスの当たり判定(中心が矩形の中にあるか)。矩形をマスの半分ぶん膨らませて判定する。 */
+function squareHitsBox(at: NodePosition, box: Obstacle): boolean {
+  return (
+    at.x > box[0] - SQUARE_FOOTPRINT.right &&
+    at.x < box[0] + box[2] + SQUARE_FOOTPRINT.right &&
+    at.y > box[1] - SQUARE_FOOTPRINT.bottom &&
+    at.y < box[1] + box[3] + SQUARE_FOOTPRINT.bottom
+  );
+}
+
+/**
+ * 飾りや都市シンボルに乗ってしまったマスを、**経路の上を1次元で探して**
+ * いちばん近い空きへずらす。マスどうしの押し離しが落ち着いたあとに一度だけ行う。
+ *
+ * 押し離しと同じ「力を足し合わせる」やり方では動かせなかった。理由は2つあって、
+ * どちらも実測で分かった。
+ *
+ *   - **力が打ち消し合う。** ボリビアの森のように飾りが密集していると、
+ *     ある木から逃げる向きと隣の木から逃げる向きが逆になり、和がほぼ0になる。
+ *   - **マスどうしの押し離しに埋もれる。** あちらは半径46pxの円を離す強い力で、
+ *     飾りから出るぶんの押しはその中に紛れてしまう。
+ *
+ * 探索なら「どこなら空いているか」を直接聞けるので、この2つとも起きない。
+ * **見つからなければ動かさない。** 経路から外すと線が斜めになるため
+ * (0/45/90度だけで描く約束。このファイル冒頭を参照)。
+ */
+function slideOffObstacles(
+  pos: NodePosition[],
+  slots: (RouteSlot | undefined)[],
+  obstacles: readonly Obstacle[],
+  minSeparation: number,
+): void {
+  const STEP_PX = 2;
+
+  for (let i = 0; i < slots.length; i++) {
+    const slot = slots[i];
+    if (!slot) continue;
+    if (!obstacles.some((box) => squareHitsBox(pos[i], box))) continue;
+
+    const routeLength = routeLengthOf(slot);
+    if (routeLength < 0.001) continue;
+    // 探索の範囲は押し離しのときより広く取る。あちらの「都市の中心から半径46px」は
+    // 都市マーカーを隠さないための代用で、ここでは都市の枠そのものを障害物として
+    // 見ているので要らない。実測では、この制限だけに阻まれていたマスが6個あった。
+    const margin = Math.min(0.45, (SQUARE_FOOTPRINT.right + CITY_FOOTPRINT.right) / routeLength);
+    const stepT = STEP_PX / routeLength;
+    const steps = Math.ceil((1 - 2 * margin) / stepT);
+    // この経路に関係のある飾りだけに絞る(全部見ると盤面ぜんぶで数百万回になる)。
+    const nearby = obstacles.filter((box) => boxNearRoute(box, slot));
+
+    let fallback: NodePosition | null = null;
+    let fallbackT = slot.t;
+    let best: NodePosition | null = null;
+    let bestT = slot.t;
+
+    for (let k = 1; k <= steps && !best; k++) {
+      for (const direction of [1, -1]) {
+        const t = Math.min(1 - margin, Math.max(margin, slot.t + direction * k * stepT));
+        if (Math.abs(t - slot.t) < 1e-9) continue;
+        const at = octilinearRoutePoint(slot.a, slot.b, t, slot.diagonalFirst);
+        if (nearby.some((box) => squareHitsBox(at, box))) continue;
+        if (!fallback) {
+          fallback = at;
+          fallbackT = t;
+        }
+        // ほかのマーカーに寄りすぎる位置は避ける。空きが無ければ fallback を使う。
+        const crowded = pos.some((other, j) => j !== i && Math.hypot(at.x - other.x, at.y - other.y) < minSeparation * 0.8);
+        if (!crowded) {
+          best = at;
+          bestT = t;
+          break;
+        }
+      }
+    }
+
+    const chosen = best ?? fallback;
+    if (!chosen) continue; // 経路上に空きが無い。線を曲げるより、乗ったままにする
+    slots[i] = { ...slot, t: best ? bestT : fallbackT };
+    pos[i] = chosen;
+  }
+}
+
+/** 経路の外接矩形の近くにある飾りだけを拾う。 */
+function boxNearRoute(box: Obstacle, slot: RouteSlot): boolean {
+  const corner = octilinearCorner(slot.a, slot.b, slot.diagonalFirst);
+  const pad = SQUARE_FOOTPRINT.right + 1;
+  const minX = Math.min(slot.a.x, slot.b.x, corner.x) - pad;
+  const maxX = Math.max(slot.a.x, slot.b.x, corner.x) + pad;
+  const minY = Math.min(slot.a.y, slot.b.y, corner.y) - pad;
+  const maxY = Math.max(slot.a.y, slot.b.y, corner.y) + pad;
+  return box[0] <= maxX && box[0] + box[2] >= minX && box[1] <= maxY && box[1] + box[3] >= minY;
 }
 
 function routeLengthOf(slot: RouteSlot): number {
@@ -300,6 +441,29 @@ function relaxOverlaps(
    */
   const CITY_DRIFT_LIMIT = minSeparation * 0.34;
 
+  /**
+   * その点が陸の上にあるか。都市を押し離すときに、海へ出さないために使う。
+   * 判定は「海に浮いている都市」のテストと同じ考え方(多角形の内側か、縁に近いか)。
+   */
+  const landPolygons = context.content.terrain.landPolygons.map((poly) =>
+    poly.map(([lo, la]) => {
+      const at = projectPoint(lo, la, projection);
+      return [at.x, at.y] as const;
+    }),
+  );
+  const isOnLand = (x: number, y: number): boolean => {
+    for (const poly of landPolygons) {
+      let hit = false;
+      for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+        const [xi, yi] = poly[i];
+        const [xj, yj] = poly[j];
+        if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) hit = !hit;
+      }
+      if (hit) return true;
+    }
+    return false;
+  };
+
   const ids = [...positions.keys()];
   const xs = new Float64Array(ids.length);
   const ys = new Float64Array(ids.length);
@@ -329,14 +493,32 @@ function relaxOverlaps(
     const dx = nx - anchorX[i];
     const dy = ny - anchorY[i];
     const drift = Math.hypot(dx, dy);
-    if (drift <= CITY_DRIFT_LIMIT) {
-      xs[i] = nx;
-      ys[i] = ny;
-      return;
+    // 距離の上限に加えて、**陸から出ないこと**も条件にする。
+    //
+    // 上限だけで抑えていたときは、盤面が詰まっている国で全都市が上限いっぱい
+    // (世界一周では28px=約3度)まで押され、15都市が海へ出ていた。
+    // 都市の座標を内陸へ寄せて直そうとすると、混み具合が変わって押される向きも
+    // 変わり、別の都市が出る(実測で15件→16件に増えた)。もぐら叩きになる。
+    //
+    // 押し離しは見やすさのための処理なので、**陸を出るくらいなら重なったままの
+    // ほうがよい。** 出るなら、出ない範囲まで戻して置く。
+    const limited = drift > CITY_DRIFT_LIMIT ? CITY_DRIFT_LIMIT / drift : 1;
+    let px = anchorX[i] + dx * limited;
+    let py = anchorY[i] + dy * limited;
+    if (!isOnLand(px, py)) {
+      // 元の位置と押された位置のあいだで、陸に残れるいちばん遠い点を探す。
+      let lo = 0;
+      let hi = limited;
+      for (let step = 0; step < 8; step++) {
+        const mid = (lo + hi) / 2;
+        if (isOnLand(anchorX[i] + dx * mid, anchorY[i] + dy * mid)) lo = mid;
+        else hi = mid;
+      }
+      px = anchorX[i] + dx * lo;
+      py = anchorY[i] + dy * lo;
     }
-    const k = CITY_DRIFT_LIMIT / drift;
-    xs[i] = anchorX[i] + dx * k;
-    ys[i] = anchorY[i] + dy * k;
+    xs[i] = px;
+    ys[i] = py;
   };
 
   const cell = minSeparation;

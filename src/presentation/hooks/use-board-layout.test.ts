@@ -1,10 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { CountryId } from "../../domain/shared-kernel/ids";
+import { CountryId, NodeId } from "../../domain/shared-kernel/ids";
 import { buildBoardGraph } from "../../domain/board/board-graph-builder";
 import { isCityNode } from "../../domain/board/node";
 import { eventsFor } from "../../domain/board/money-event";
 import { JsonCountryContentRepository } from "../../infrastructure/content/json-country-content-repository";
 import { projectPoint } from "../../domain/board/board-projection";
+import { createGameEngineContext } from "../../application/game-engine-context";
+import { renderHook } from "@testing-library/react";
+import { useBoardLayout } from "./use-board-layout";
 
 /**
  * 盤面の見た目に直結する2つの性質を、実データで押さえる。
@@ -14,9 +17,16 @@ import { projectPoint } from "../../domain/board/board-projection";
  * 2. 都市どうしのマーカーが重ならないこと。1のために動きを止めすぎると、
  *    今度は近い町が団子になる。
  *
- * ここでは配置処理そのものではなく**その入力条件**(都市が陸の上にあり、
- * 動かす上限が縁取りの内側に収まること)を確かめる。配置処理はReactフックで
- * DOMに依存するため、描画位置の実測はE2E側に置いている。
+ * **投影しただけの座標ではなく、実際に描かれる座標で見る。**
+ *
+ * 以前はここで `projectPoint` の結果だけを見ていた。都市の元の座標は5盤面とも
+ * 陸の上にあるので、この検査は常に0件で通っていた。ところが押し離し
+ * (`relaxOverlaps`)が都市を最大 `CITY_DRIFT_LIMIT` まで動かすため、
+ * **描かれる位置では28都市が海へ出ていた**(リマ27px・リスボン26px など)。
+ * 「E2Eで見ている」と書いてあったが、そんなE2Eは無かった。
+ *
+ * 通る検査が安心を作ってしまうのがいちばん悪い。フックを実際に回して、
+ * 出てきた座標で判定する。
  */
 describe("盤面配置の前提", () => {
   const repo = new JsonCountryContentRepository();
@@ -59,16 +69,24 @@ describe("盤面配置の前提", () => {
       }),
     );
 
+    // 実際に描かれる位置(押し離しを通したあと)で判定する。
+    const context = createGameEngineContext(pack);
+    const { result } = renderHook(() => useBoardLayout(context));
+    const positions = result.current;
+
+    const onLand = (x: number, y: number) =>
+      landPx.some(
+        (poly) => pointInPolygon(x, y, poly) || distanceToPolygon(x, y, poly) <= COAST_BUFFER,
+      );
+
     const afloat = pack.cities
       .filter((city) => {
-        const at = projectPoint(city.longitude, city.latitude, projection);
-        return !landPx.some(
-          (poly) =>
-            pointInPolygon(at.x, at.y, poly) || distanceToPolygon(at.x, at.y, poly) <= COAST_BUFFER,
-        );
+        const at = positions.get(NodeId(city.id));
+        if (!at) return false;
+        return !onLand(at.x, at.y);
       })
       .map((c) => c.id);
-    expect(afloat, `${countryId}: 海に浮いている都市`).toEqual([]);
+    expect(afloat, `${countryId}: 描画位置で海に浮いている都市`).toEqual([]);
   });
 
   it.each(countries)("%s: 都市どうしが近すぎない(配置で押し離せる範囲に収まる)", async (countryId) => {
@@ -95,12 +113,14 @@ describe("盤面配置の前提", () => {
     expect(tooClose, `${countryId}: 押し離しても重なる都市の組`).toEqual([]);
   });
 
-  it.each(countries)("%s: 中間マスは4種類そろっている", async (countryId) => {
+  it.each(countries)("%s: 中間マスは3種類そろっている", async (countryId) => {
     const pack = await repo.load(CountryId(countryId));
     const graph = buildBoardGraph(pack.cities, pack.edges, pack.projection);
     const kinds = new Set<string>();
     for (const node of graph.nodes.values()) if (!isCityNode(node)) kinds.add(node.type);
-    expect([...kinds].sort()).toEqual(["blue", "card", "quiz", "red"]);
+    // カードマス(★)は廃止した。マスの種類が4つあると見分けが付きにくく、
+    // アイテムは屋台とクイズの褒美で十分手に入るため。
+    expect([...kinds].sort()).toEqual(["blue", "quiz", "red"]);
   });
 
   it.each(countries)("%s: どの地方・どの月でも青マス・赤マスの出来事を引ける", async (countryId) => {
