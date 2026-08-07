@@ -23,6 +23,18 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.14.0",
+    date: "2026-08-07",
+    title: t(
+      "The game gets its old name back|El juego recupera su nombre original|Le jeu retrouve son nom d'origine|もとの名前に戻りました",
+    ),
+    highlights: [
+      t(
+        "This started life on the Bolivian altiplano, and it was called Altiplano Express. The name it picked up later said less, so it has the old one back — even though the trains now run through five parts of the world.|Empezó en el altiplano boliviano y se llamaba Altiplano Express. Recupera aquel nombre, aunque ahora los trenes recorran cinco tableros.|Le jeu est né sur l'altiplano bolivien sous le nom d'Altiplano Express. Il le reprend, même si les trains parcourent désormais cinq plateaux.|このゲームはボリビアのアルティプラーノで生まれ、Altiplano Express という名前でした。あとから付いた名前は当たり障りがなかったので、もとの名前に戻します。いまは5つの盤面を走っていますが、生まれた場所の名前です。",
+      ),
+    ],
+  },
+  {
     version: "0.13.5",
     date: "2026-08-07",
     title: t(
