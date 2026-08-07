@@ -51,7 +51,9 @@ test("月が替わると季節イベントのモーダルが表示され、閉�
   await page.getByRole("button", { name: "Depart!" }).click();
 
   const seasonModal = page.getByTestId("season-modal");
-  const deadline = Date.now() + 90_000;
+  // 試験全体の上限(180秒)にぶつかる手前まで使う。混んでいるマシンでは
+  // 1手番あたりの時間が伸びるため、90秒では月替わりまで届かないことがあった。
+  const deadline = Date.now() + 150_000;
   let reached = false;
 
   while (Date.now() < deadline) {

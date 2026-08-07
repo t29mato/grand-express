@@ -32,6 +32,11 @@ export async function rollAndMove(page: Page): Promise<void> {
  *
  * 1つ目だけを狙うと、そのマスが何かに隠れていた場合に永久に選べず、
  * 呼び出し側のループが手詰まりになる。押せるまで順に試す。
+ *
+ * **1回あたりの待ちは短くする。** 候補は6個前後出るので、1回4秒待つと
+ * 全部外れたときに24秒かかる。マシンが混んでいるときはこれが積み上がり、
+ * 呼び出し側の時間予算を食いつぶす(季節イベントの試験が落ちる原因がこれだった)。
+ * 押せるマスは普通すぐ押せるので、短くしても取りこぼさない。
  */
 export async function clickAnyChoosableSquare(page: Page): Promise<boolean> {
   const choosable = page.locator("svg.board-svg g[data-choosable='true']");
@@ -39,7 +44,7 @@ export async function clickAnyChoosableSquare(page: Page): Promise<boolean> {
   for (let i = 0; i < count; i++) {
     const clicked = await choosable
       .nth(i)
-      .click({ timeout: 4000 })
+      .click({ timeout: 1200 })
       .then(() => true)
       .catch(() => false);
     if (clicked) return true;
