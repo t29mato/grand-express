@@ -9,18 +9,17 @@ import { formatMoney } from "../../i18n/money-format";
 const SQUARE_QUIZ_COLOR = "#f5b31c";
 
 /**
- * 盤面の右下に置く凡例(legacyの `drawBoard()` 末尾の移植)。
- * 行の順序・色・寸法・配置(盤面の右下から `translate(BW-286, BH-232)`)はlegacyと同じ。
+ * マスの見かたを示す凡例。
+ *
+ * legacy は盤面の右下(`translate(BW-286, BH-232)`)にSVGとして置いていたが、
+ * それだと**盤面の右下に陸地がある国で地名に必ず被る**
+ * (フランスのコルシカ島=アジャクシオ、世界一周のオークランド)。
+ * ズームすると凡例まで拡大・縮小されるのも読みにくかった。
+ *
+ * 盤面の座標系から出して、画面の隅に貼るHTMLにした。地図の内容と衝突せず、
+ * どこまで寄っても同じ大きさで読める。
  */
-export function BoardLegend({
-  boardWidth,
-  boardHeight,
-  currency,
-}: {
-  boardWidth: number;
-  boardHeight: number;
-  currency: CurrencyFormat;
-}) {
+export function BoardLegend({ currency }: { currency: CurrencyFormat }) {
   const { t } = useLocale();
 
   const rows: readonly { color: string; label: string }[] = [
@@ -39,24 +38,16 @@ export function BoardLegend({
   ];
 
   return (
-    <g transform={`translate(${boardWidth - 286},${boardHeight - 174})`} style={{ pointerEvents: "none" }}>
-      <rect x={-14} y={-18} width={286} height={174} rx={12} fill="#141d31" opacity={0.82} />
-      {rows.map((row, i) => {
-        const y = i * 29;
-        const isTown = i === rows.length - 1;
-        return (
-          <g key={row.label}>
-            {isTown ? (
-              <circle cx={9.5} cy={y + 9.5} r={9.5} fill={row.color} stroke="#20180f" strokeWidth={2} />
-            ) : (
-              <rect x={0} y={y} width={19} height={19} rx={5} fill={row.color} stroke="#20180f" strokeWidth={2} />
-            )}
-            <text x={30} y={y + 15} className="legend">
-              {row.label}
-            </text>
-          </g>
-        );
-      })}
-    </g>
+    <div className="board-legend" aria-hidden="true">
+      {rows.map((row, i) => (
+        <div className="board-legend-row" key={row.label}>
+          <span
+            className={`board-legend-chip${i === rows.length - 1 ? " town" : ""}`}
+            style={{ background: row.color }}
+          />
+          <span>{row.label}</span>
+        </div>
+      ))}
+    </div>
   );
 }

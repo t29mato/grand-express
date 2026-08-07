@@ -428,8 +428,8 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
             );
           })}
         </g>
-        <BoardLegend boardWidth={boardWidth} boardHeight={boardHeight} currency={context.content.currency} />
       </svg>
+      <BoardLegend currency={context.content.currency} />
       <button
         type="button"
         className="cam-toggle"
