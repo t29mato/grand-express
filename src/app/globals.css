@@ -1667,3 +1667,33 @@ aside {
 .feedback-shell .seg {
   gap: 4px;
 }
+
+/* 町を買った瞬間、持ち主の輪がひと回り広がってから収まる。
+   盤面のどこで所有が動いたかに目が行くようにするため。
+   一度きりの演出なので繰り返さない(ずっと脈打っていると盤面が落ち着かない)。 */
+.own-ring {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: own-ring-pop 620ms ease-out 1;
+}
+
+@keyframes own-ring-pop {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  55% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .own-ring {
+    animation: none;
+  }
+}

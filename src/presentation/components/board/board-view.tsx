@@ -485,7 +485,11 @@ function CityMarker({
       {/* 持ち主の色。物件を1つでも買うと輪が付き、全部そろえると太い二重の輪になる。
           数字を見なくても、盤面が誰の色に染まってきたかが分かるようにするため。 */}
       {ownership && (
+        // key に色と独占を含めることで、持ち主が変わった瞬間に要素が作り直され、
+        // 輪が広がる演出がもう一度再生される(買ったことが目に留まるように)。
         <circle
+          key={`${ownership.color}-${ownership.isMonopoly}`}
+          className="own-ring"
           r={SIZES.cityRadius + (ownership.isMonopoly ? 4.5 : 3)}
           fill="none"
           stroke={ownership.color}
