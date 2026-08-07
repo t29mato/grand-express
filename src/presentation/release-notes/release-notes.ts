@@ -23,6 +23,27 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.12.1",
+    date: "2026-08-07",
+    title: t(
+      "The map reads properly now|Ahora el mapa se lee bien|La carte se lit enfin correctement|地図が読みやすくなりました",
+    ),
+    highlights: [
+      t(
+        "The lines were supposed to run only up, across or at 45° — but only 5% of them actually did. Now every single one does, on all five boards.|Las líneas debían ir solo en vertical, horizontal o a 45°, pero solo el 5% lo hacía. Ahora lo hacen todas, en los cinco tableros.|Les lignes ne devaient aller qu'à la verticale, à l'horizontale ou à 45° — seules 5 % le faisaient. Désormais toutes, sur les cinq plateaux.|線路は縦・横・45度だけで引くはずが、実際にそうなっていたのは5%だけでした。5つの盤面すべてで、全部の線がそうなりました。",
+      ),
+      t(
+        "Around Osaka and Kyoto the squares were sitting on top of the town markers, hiding them. They now slide along the line instead.|Cerca de Osaka y Kioto las casillas tapaban las ciudades. Ahora se desplazan a lo largo de la vía.|Autour d'Osaka et de Kyoto, les cases masquaient les villes. Elles glissent maintenant le long de la voie.|大阪や京都のあたりで、マスが町の印の上に乗って隠していました。線路の上を滑ってよけるようにしました。",
+      ),
+      t(
+        "France was drawn half again too tall. It is a country almost as wide as it is high, and now it looks like one.|Francia se dibujaba una vez y media más alta de lo debido. Es casi tan ancha como alta, y ahora lo parece.|La France était dessinée une fois et demie trop haute. Elle est presque aussi large que haute, et cela se voit enfin.|フランスの形が縦に1.5倍伸びていました。横と縦がほぼ同じ長さの国なので、そう見えるようになりました。",
+      ),
+      t(
+        "The white patch on Hokkaidō had green spikes poking out of it and meant nothing. It now follows the shape of the island — it is the snow country.|La mancha blanca de Hokkaidō tenía picos verdes y no significaba nada. Ahora sigue la forma de la isla: es el país de la nieve.|La tache blanche d'Hokkaidō laissait dépasser des pointes vertes sans rien vouloir dire. Elle épouse désormais l'île : c'est le pays de la neige.|北海道の白い部分から緑がとげのようにはみ出していて、何を表しているのか分からない模様になっていました。島の形に合わせ、雪国だと分かるようにしました。",
+      ),
+    ],
+  },
+  {
     version: "0.12.0",
     date: "2026-08-07",
     title: t(
