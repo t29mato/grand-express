@@ -23,6 +23,27 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.15.0",
+    date: "2026-08-08",
+    title: t(
+      "Ibaraki — a whole board for one province|Ibaraki: un tablero para una sola provincia|Ibaraki : tout un plateau pour une seule province|茨城県の盤面ができました",
+    ),
+    highlights: [
+      t(
+        "A sixth board, and the first that is not a country: one Japanese province, 36 towns, 40 new questions. The same machinery that draws the whole world draws a single province just as well.|Un sexto tablero, el primero que no es un país: una provincia japonesa, 36 ciudades, 40 preguntas.|Un sixième plateau, le premier qui n\'est pas un pays : une province japonaise, 36 villes, 40 questions.|6つ目の盤面は、はじめて「県」です。36の町と新作クイズ40問。世界一周を描く仕組みが、そのまま一つの県にも効きました。",
+      ),
+      t(
+        "In one province there is no such thing as a region having a good year while another has a bad one, so the seasons here are festivals instead: plums at Kairakuen in February, irises at Itako in June, the sea opening at Ōarai in July, fireworks judged at Tsuchiura in October, and the waterfall at Fukuroda freezing solid in January.|En una sola provincia no hay regiones con buenos y malos años, así que las estaciones son fiestas: ciruelos, lirios, la apertura del mar, fuegos artificiales, la cascada helada.|Dans une seule province, pas de région en bonne ou mauvaise année : les saisons sont des fêtes — pruniers, iris, ouverture de la mer, feux d\'artifice, cascade gelée.|一つの県の中に「この地方は好況、あちらは不況」という差はありません。そこで季節は行事にしました。2月の偕楽園の梅、6月の潮来のあやめ、7月の大洗の海開き、10月の土浦の花火、1月に凍りつく袋田の滝。",
+      ),
+      t(
+        "The spirit of misfortune here is the Daidarabō, the giant of the old shell-mound tale, whose footprints filled with water and became the ponds. The charm against him is a shell from that mound.|El espíritu es el Daidarabō, el gigante cuyas huellas se llenaron de agua y formaron los estanques.|L\'esprit est le Daidarabō, le géant dont les empreintes se sont remplies d\'eau pour devenir les étangs.|厄災の神はダイダラボウ。大串貝塚に伝わる巨人で、その足跡に水が溜まって沼になったといいます。お守りはその貝塚の貝。",
+      ),
+      t(
+        "The world board also gained six port towns, so that ships no longer sail across dry land — Kolkata, Mombasa, Belém, Bandar Abbas, Veracruz and Lobito.|El tablero mundial ganó seis puertos para que los barcos ya no naveguen por tierra firme.|Le plateau mondial gagne six ports, pour que les navires ne traversent plus la terre ferme.|世界一周にも港町を6つ足しました。船が陸の上を走らないようにするためです。コルカタ・モンバサ・ベレン・バンダレアッバース・ベラクルス・ロビト。",
+      ),
+    ],
+  },
+  {
     version: "0.14.0",
     date: "2026-08-07",
     title: t(
