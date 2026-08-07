@@ -64,6 +64,37 @@ const SQUARE_STYLES: Record<string, { color: string; glyph: string }> = {
   card: { color: "#f5d31c", glyph: "★" },
 };
 
+/**
+ * 幹線(その国の背骨になる路線)。**都市の並びで書く。**
+ *
+ * 辺に1つずつ印を付ける形にすると、東海道新幹線のように何区間も続く路線を
+ * 表せない(この盤面には tokyo-nagoya のような直通の辺が無く、
+ * 横浜・鎌倉・箱根・静岡を経由する連なりになっている)。
+ * 並びで書けば、途中の区間を書き落とす心配もない。
+ *
+ * いまは日本の2本だけの試作。方向が良ければ他の盤面にも広げ、
+ * 置き場所も content 側へ移す(絵ではなく内容の話なので)。
+ */
+const TRUNK_LINES: Record<string, readonly (readonly string[])[]> = {
+  japan: [
+    // 東北・北海道新幹線
+    ["hakodate", "aomori", "morioka", "sendai"],
+    // 東海道・山陽新幹線(この盤面では鎌倉・箱根を経由して名古屋へ抜ける)
+    ["tokyo", "yokohama", "kamakura", "hakone", "shizuoka", "nagoya", "kyoto", "osaka", "himeji"],
+  ],
+};
+
+/** 幹線に含まれる区間の集合(都市idを並べ替えて `a|b` の形にしたもの)。 */
+function trunkSegments(countryId: string): ReadonlySet<string> {
+  const segments = new Set<string>();
+  for (const chain of TRUNK_LINES[countryId] ?? []) {
+    for (let i = 0; i < chain.length - 1; i++) {
+      segments.add([chain[i], chain[i + 1]].sort().join("|"));
+    }
+  }
+  return segments;
+}
+
 export interface BoardViewProps {
   context: GameEngineContext;
   session: GameSession;
@@ -233,12 +264,15 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
   const cornerRadius = (context.content.projection.segmentLength ?? 64) / 3;
 
   const edges = useMemo(() => {
-    const rail: string[] = [];
-    const sea: string[] = [];
+    const rail: { d: string; isTrunk: boolean }[] = [];
+    const sea: { d: string; isTrunk: boolean }[] = [];
     // マスとマスを直接結ぶと、折れ点がそのあいだに来たときに角を斜めに
     // 突っ切ってしまう。経路そのもの(折れ点を通る折れ線)を描く。
-    for (const { points, kind } of railPolylines(context, positions)) {
-      (kind === "sea" ? sea : rail).push(roundedPath(points, cornerRadius));
+    const trunk = trunkSegments(context.content.id);
+    for (const { points, kind, between } of railPolylines(context, positions)) {
+      const d = roundedPath(points, cornerRadius);
+      if (kind === "sea") sea.push({ d, isTrunk: false });
+      else rail.push({ d, isTrunk: trunk.has([...between].sort().join("|")) });
     }
     return { rail, sea };
   }, [context, positions, cornerRadius]);
@@ -323,10 +357,10 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
           <g className="sea-routes">
             {SEA_LAYERS.map((layer, layerIndex) => (
               <g key={layerIndex}>
-                {edges.sea.map((d, i) => (
+                {edges.sea.map((line, i) => (
                   <path
                     key={i}
-                    d={d}
+                    d={line.d}
                     fill="none"
                     stroke={layer.stroke}
                     strokeWidth={layer.width}
@@ -340,13 +374,14 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
           </g>
           {RAIL_LAYERS.map((layer, layerIndex) => (
             <g key={layerIndex}>
-              {edges.rail.map((d, i) => (
+              {edges.rail.map((line, i) => (
                 <path
                   key={i}
-                  d={d}
+                  d={line.d}
                   fill="none"
                   stroke={layer.stroke}
-                  strokeWidth={layer.width}
+                  /* 幹線は少し太くする。その国の背骨がひと目で分かるように。 */
+                  strokeWidth={line.isTrunk ? layer.width * 1.55 : layer.width}
                   strokeLinecap="round"
                   strokeDasharray={layer.dash}
                   opacity={layer.opacity}

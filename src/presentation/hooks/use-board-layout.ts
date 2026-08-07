@@ -228,7 +228,7 @@ function routeLengthOf(slot: RouteSlot): number {
 export function railPolylines(
   context: GameEngineContext,
   positions: ReadonlyMap<NodeId, NodePosition>,
-): { points: readonly NodePosition[]; kind: "rail" | "sea" }[] {
+): { points: readonly NodePosition[]; kind: "rail" | "sea"; between: readonly [string, string] }[] {
   const byEdge = new Map<number, { ids: NodeId[]; between: readonly [string, string]; kind: "rail" | "sea" }>();
   for (const [id, node] of context.graph.nodes) {
     if (isCityNode(node)) continue;
@@ -241,7 +241,7 @@ export function railPolylines(
     else byEdge.set(edgeIndex, { ids: [id], between: node.between, kind });
   }
 
-  const lines: { points: readonly NodePosition[]; kind: "rail" | "sea" }[] = [];
+  const lines: { points: readonly NodePosition[]; kind: "rail" | "sea"; between: readonly [string, string] }[] = [];
   for (const [edgeIndex, { ids, between, kind }] of byEdge) {
     const a = positions.get(NodeId(between[0]));
     const b = positions.get(NodeId(between[1]));
@@ -263,7 +263,7 @@ export function railPolylines(
     const second: NodePosition[] = [];
     for (const p of squares) (onFirstLeg(p) ? first : second).push(p);
 
-    lines.push({ points: [a, ...first, corner, ...second, b], kind });
+    lines.push({ points: [a, ...first, corner, ...second, b], kind, between });
   }
   return lines;
 }
