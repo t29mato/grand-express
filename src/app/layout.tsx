@@ -4,7 +4,7 @@ import { AppShell } from "../presentation/components/app-shell";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Grand Express — A Rail Fortune Game",
+  title: "Altiplano Express — A Rail Fortune Game",
   description: "A rail fortune game · learn as you ride",
 };
 

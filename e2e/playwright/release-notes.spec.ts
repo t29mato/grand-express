@@ -11,7 +11,7 @@ test("フッターにバージョンが表示され、更新情報ページへ�
   const footer = page.locator(".app-footer");
   await expect(footer).toBeVisible();
   // 0.0.0 のままなら埋め込みに失敗している。
-  await expect(footer.locator(".app-version")).toHaveText(/Grand Express v\d+\.\d+\.\d+/);
+  await expect(footer.locator(".app-version")).toHaveText(/Altiplano Express v\d+\.\d+\.\d+/);
   await expect(footer.locator(".app-version")).not.toHaveText(/v0\.0\.0/);
 
   await page.getByRole("link", { name: "What's new" }).click();

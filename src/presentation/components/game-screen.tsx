@@ -58,7 +58,7 @@ export function GameScreen() {
   return (
     <div className="game-screen">
       <header>
-        <h1>Grand Express</h1>
+        <h1>Altiplano Express</h1>
         <div className="hdr-right">
           <LocaleSwitch />
           <button className="btn ghost" onClick={save}>
