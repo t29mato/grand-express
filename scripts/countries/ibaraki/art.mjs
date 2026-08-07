@@ -28,8 +28,17 @@ function band(y, h, fill) {
 }
 
 /** 空。関東平野は空が広いので、他の盤面より帯を高く取る。 */
-function sky(top = "#8fc4e8", bottom = "#cfe4f0") {
-  return band(0, 92, top) + band(84, 40, bottom);
+/**
+ * 空。**第3引数に「次に来る塗りの開始y」を渡すこと。**
+ *
+ * 既定では y=124 までしか塗らないので、地面が y=128 から始まるシーンでは
+ * あいだの4行が塗り残しになり、カードの地色がそのまま透ける。
+ * エラーにならないので気づけない(茨城で3種が透けていた)。
+ *
+ * `node scripts/check-city-backgrounds.mjs ibaraki` で検査できる。
+ */
+function sky(top = "#8fc4e8", bottom = "#cfe4f0", to = 124) {
+  return band(0, 92, top) + band(84, Math.max(0, to - 84), bottom);
 }
 
 function ground(y, fill) {
@@ -165,7 +174,7 @@ function dryingRack(x, base, w) {
 export const IBARAKI_BG = {
   /** 城下町。堀と土塁の上に低い櫓、手前に梅。 */
   castletown:
-    sky() +
+    sky("#8fc4e8", "#cfe4f0", 128) +
     clouds(78, 32) +
     hills(126, "#8fae7a") +
     ground(126, "#7f9f5f") +
@@ -221,7 +230,7 @@ export const IBARAKI_BG = {
 
   /** 内陸の緑の街。並木と低い建物、遠くに筑波山。 */
   citygreen:
-    sky() +
+    sky("#8fc4e8", "#cfe4f0", 128) +
     clouds(70, 30) +
     tsukuba(320, 128, 54) +
     ground(128, "#7f9f5f") +
@@ -310,7 +319,7 @@ export const IBARAKI_BG = {
    * ここを砂色にすると、谷ではなく砂丘に見える(一度そうなった)。
    */
   valley2:
-    sky("#8fc4e8", "#cfe4f0") +
+    sky("#8fc4e8", "#cfe4f0", 128) +
     `<path d="M0,60L120,210H0z" fill="#5f7f4f"/>` +
     `<path d="M400,50L268,210h132z" fill="#4a6b3f"/>` +
     hills(128, "#6b8f5a", 3) +

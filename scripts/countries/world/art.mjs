@@ -26,8 +26,13 @@ function band(y, h, fill) {
 }
 
 /** 空(グラデーション代わりに2枚重ねる)。 */
-function sky(top, bottom) {
-  return band(0, 84, top) + band(78, 40, bottom);
+/**
+ * `to` は**空を塗り下ろす深さ**。既定の118はこの下にすぐ地面が来る場合の値。
+ * 地面がもっと下から始まるシーンでそのままにすると、あいだが塗り残しになり
+ * カードの地色が透ける。実測(2026-08-08)で12種中9種にこの穴があった。
+ */
+function sky(top, bottom, to = 118) {
+  return band(0, 84, top) + band(78, to - 78, bottom);
 }
 
 function sun(cx, cy, r, fill = "#f5b31c") {
@@ -260,7 +265,7 @@ function neonSigns(list) {
 export const WORLD_BG = {
   /** 高層ビルと広い車道の現代都市。 */
   metropolis:
-    sky("#8fc4e8", "#cfe4f0") +
+    sky("#8fc4e8", "#cfe4f0", 142) +
     sun(336, 30, 14, "#f5d06a") +
     clouds(88, 28) +
     towers(
@@ -294,7 +299,7 @@ export const WORLD_BG = {
 
   /** 尖塔と瓦屋根の旧市街。 */
   oldworld:
-    sky("#9ccbe8", "#cfe4f0") +
+    sky("#9ccbe8", "#cfe4f0", 150) +
     clouds(304, 30) +
     hills(120, "#7a8f5a", 3) +
     roofRow(150, [104, 96, 110, 100, 106, 98, 108], "#e8dfc8", "#c2603c") +
@@ -314,7 +319,7 @@ export const WORLD_BG = {
 
   /** 砂丘とキャラバン。 */
   desert:
-    sky("#f0c48a", "#f8dcb0") +
+    sky("#f0c48a", "#f8dcb0", 132) +
     sun(298, 46, 24, "#f0a83c") +
     `<path d="M0,132c70,-22 130,6 200,-4c70,-10 130,-14 200,4v78H0z" fill="#dcc182"/>` +
     `<path d="M0,158c80,-20 140,4 210,-6c70,-10 120,-8 190,6v52H0z" fill="#cfae6e"/>` +
@@ -352,7 +357,7 @@ export const WORLD_BG = {
 
   /** アカシアと草原。 */
   savanna:
-    sky("#e8c88a", "#f2dcae") +
+    sky("#e8c88a", "#f2dcae", 126) +
     sun(84, 40, 22, "#f0a83c") +
     `<path d="M232,124h132l-24,-30h-84z" fill="#8a7f66"/>` +
     hills(126, "#a89873", 3) +
@@ -388,7 +393,7 @@ export const WORLD_BG = {
 
   /** 雪嶺と石橋の山あい。 */
   mountains:
-    sky("#7fb0d8", "#cfe0ea") +
+    sky("#7fb0d8", "#cfe0ea", 128) +
     `<path d="M0,128l58,-70l38,42l46,-58l54,68l48,-40l60,58l96,0v90H0z" fill="#8fa4b8"/>` +
     `<path d="M58,58l21,24h-42zM142,42l27,34h-54zM306,80l24,22h-48z" fill="#f8fbfd"/>` +
     ground(128, "#5f7f5a") +
@@ -404,7 +409,7 @@ export const WORLD_BG = {
 
   /** 極夜のオーロラと氷。 */
   tundra:
-    band(0, 118, "#1f3350") +
+    band(0, 130, "#1f3350") +
     stars(26) +
     aurora() +
     `<path d="M0,118c60,-14 110,6 180,-2c70,-8 140,4 220,10v84H0z" fill="#cfe0ea"/>` +
@@ -441,7 +446,7 @@ export const WORLD_BG = {
 
   /** 列柱の遺跡。 */
   ruins:
-    sky("#a8c8e0", "#dce8dc") +
+    sky("#a8c8e0", "#dce8dc", 132) +
     clouds(72, 28) +
     hills(124, "#9a9a76", 3) +
     ground(132, "#c9b98c") +
@@ -464,7 +469,7 @@ export const WORLD_BG = {
 
   /** 看板の並ぶアジアの繁華街(夜)。 */
   megacity_asia:
-    band(0, 118, "#1f2f4f") +
+    band(0, 150, "#1f2f4f") +
     stars(18) +
     sun(340, 34, 13, "#f2ede0") +
     towers(
@@ -499,7 +504,7 @@ export const WORLD_BG = {
 
   /** 回廊と鐘楼のある広場。 */
   plaza:
-    sky("#9ccbe8", "#dce8ea") +
+    sky("#9ccbe8", "#dce8ea", 150) +
     clouds(320, 28) +
     sun(58, 34, 15, "#f5d06a") +
     hills(122, "#8a9a6a", 3) +

@@ -17,9 +17,17 @@ function band(y, h, fill) {
   return `<rect x="0" y="${y}" width="${W}" height="${h}" fill="${fill}"/>`;
 }
 
-/** 空(グラデーション代わりに2枚重ねる)。 */
-function sky(top, bottom) {
-  return band(0, 84, top) + band(78, 40, bottom);
+/**
+ * 空(グラデーション代わりに2枚重ねる)。
+ *
+ * `to` は**空を塗り下ろす深さ**。既定の118はこの下にすぐ地面が来る場合の値で、
+ * 地面がもっと下から始まるシーンでは、その位置まで塗り下ろさないと
+ * **空と地面のあいだが塗り残しになり、カードの地色が透ける**。
+ * 実測(2026-08-08)で13種中11種にこの穴があり、gopuram では32行ぶん空いていた。
+ * 塗り残しは目で見つけにくいので、背景を足したら必ず画素で数えること。
+ */
+function sky(top, bottom, to = 118) {
+  return band(0, 84, top) + band(78, to - 78, bottom);
 }
 
 function sun(cx, cy, r, fill = "#f5b31c") {
@@ -86,7 +94,7 @@ function bunting(y) {
 export const INDIA_BG = {
   /** 首都・行政都市(広い並木道と赤砂岩の建物)。 */
   capital:
-    sky("#9ccbe8", "#cfe4f0") +
+    sky("#9ccbe8", "#cfe4f0", 132) +
     sun(322, 32, 15) +
     clouds(96, 30) +
     ground(140, "#c9b98c") +
@@ -102,7 +110,7 @@ export const INDIA_BG = {
 
   /** ガンジスのガート(沐浴の石段)。 */
   ghat:
-    sky("#e8b36a", "#f2d7a8") +
+    sky("#e8b36a", "#f2d7a8", 120) +
     sun(300, 40, 20, "#f08a3c") +
     ground(120, "#c9a877") +
     // 段々のガート
@@ -118,7 +126,7 @@ export const INDIA_BG = {
 
   /** 砂漠の城塞都市。 */
   desertfort:
-    sky("#8fb8d8", "#e2d0a8") +
+    sky("#8fb8d8", "#e2d0a8", 136) +
     sun(80, 34, 17, "#f5d06a") +
     ground(136, "#dcc182") +
     `<path d="M0,150c60,-16 120,-6 180,-16c60,-10 140,-4 220,8v68H0z" fill="#cfae6e"/>` +
@@ -131,7 +139,7 @@ export const INDIA_BG = {
 
   /** 南インドの寺院都市(彩色されたゴープラム)。 */
   gopuram:
-    sky("#8fc4e8", "#d4ead8") +
+    sky("#8fc4e8", "#d4ead8", 150) +
     clouds(310, 28) +
     ground(150, "#9ab45c") +
     // 階段状の塔門
@@ -161,7 +169,7 @@ export const INDIA_BG = {
 
   /** 茶畑の丘(ダージリン・ニルギリ)。 */
   teagarden:
-    sky("#a8cfe0", "#dceae0") +
+    sky("#a8cfe0", "#dceae0", 126) +
     clouds(120, 26, 1.2) +
     hills(120, "#4d7a44", 3) +
     ground(126, "#5f9450") +
@@ -172,7 +180,7 @@ export const INDIA_BG = {
 
   /** ヒマラヤの山あいの町。 */
   himalaya:
-    sky("#7fb0d8", "#cfe0ea") +
+    sky("#7fb0d8", "#cfe0ea", 132) +
     // 雪嶺
     `<path d="M0,132l60,-72l40,44l44,-56l52,66l50,-38l60,56l94,0v90H0z" fill="#e8eef2"/>` +
     `<path d="M60,60l22,26h-44zM144,48l28,36h-56zM306,82l24,22h-48z" fill="#f8fbfd"/>` +
@@ -186,7 +194,7 @@ export const INDIA_BG = {
 
   /** 大都会(高層ビルと高架)。 */
   megacity:
-    sky("#7fa8c8", "#c9d8e0") +
+    sky("#7fa8c8", "#c9d8e0", 150) +
     sun(340, 36, 14, "#f2c05a") +
     // スカイライン
     `<g fill="#4a5566"><rect x="20" y="60" width="34" height="90"/><rect x="66" y="86" width="28" height="64"/><rect x="106" y="44" width="38" height="106"/><rect x="156" y="72" width="30" height="78"/><rect x="198" y="54" width="34" height="96"/><rect x="244" y="88" width="26" height="62"/><rect x="282" y="66" width="36" height="84"/><rect x="330" y="94" width="30" height="56"/></g>` +
@@ -200,7 +208,7 @@ export const INDIA_BG = {
 
   /** river island / 湿地の村(アッサム・ベンガル)。 */
   wetland:
-    sky("#a8c8d8", "#d8e6e0") +
+    sky("#a8c8d8", "#d8e6e0", 130) +
     clouds(90, 32, 1.3) +
     hills(126, "#4d7a44", 3) +
     band(130, 80, "#5f8f7a") +
@@ -214,7 +222,7 @@ export const INDIA_BG = {
 
   /** 綿とダイヤモンドの商都(グジャラート)。 */
   bazaar:
-    sky("#e0c48a", "#f0dcb0") +
+    sky("#e0c48a", "#f0dcb0", 130) +
     sun(60, 36, 16, "#f0a83c") +
     ground(130, "#c9a877") +
     bunting(70) +
@@ -242,7 +250,7 @@ export const INDIA_BG = {
 
   /** 宮殿と湖(ラージャスターン)。 */
   lakepalace:
-    sky("#f0b48a", "#f8d8b8") +
+    sky("#f0b48a", "#f8d8b8", 120) +
     sun(310, 44, 22, "#f2803c") +
     hills(112, "#7a6a58", 3) +
     band(120, 90, "#3f7f9f") +
@@ -257,7 +265,7 @@ export const INDIA_BG = {
 
   /** IT都市の庭園(ベンガルール)。 */
   citypark:
-    sky("#9ccbe8", "#d8e8e0") +
+    sky("#9ccbe8", "#d8e8e0", 140) +
     clouds(300, 30) +
     hills(130, "#4d7a44", 4) +
     ground(140, "#5f9450") +
