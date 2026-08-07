@@ -29,6 +29,8 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
 import { applyContentOverrides } from "./content-overrides/index.mjs";
+import { renderJapanDecor } from "./content-overrides/japan-decor.mjs";
+import { renderBoliviaDecor } from "./content-overrides/bolivia-decor.mjs";
 import { buildIndiaContent } from "./countries/india/index.mjs";
 import { buildFranceContent } from "./countries/france/index.mjs";
 import { buildWorldContent } from "./countries/world/index.mjs";
@@ -244,10 +246,18 @@ function evaluateBackgrounds(country) {
  * 使って山・木・サボテンを描き足す。中身は投影関数と固定の算術だけで乱数を使わないため、
  * `el` の代わりに「同じ引数でSVG文字列を組み立てるだけの関数」を渡して呼べば、
  * 描画結果を変えずに静的なSVG断片として取り出せる(`bg` と同じ考え方)。
+ *
+ * **投影は上書き後のものを渡すこと。** `decor` は経緯度を受け取って盤面座標の
+ * SVGを吐くので、どの投影で評価したかがそのまま焼き込まれる。上書き前の投影で
+ * 評価すると、飾りだけが別の座標系に取り残される。実際そうなっていて、
+ * 日本は61個すべて、ボリビアは104個中26個が陸の外に落ち、陸でクリップされて
+ * **1つも描かれていなかった**(日本の盤面には山も木も鳥居も出ていなかった)。
+ * 日本は範囲(西端127→123.4度)と倍率(1.75倍)の両方が、
+ * ボリビアは倍率(1.35倍)が上書きで変わる。
  */
-function evaluateDecor(country) {
+function evaluateDecor(country, proj) {
   if (typeof country.decor !== "function") return "";
-  const p = country.proj;
+  const p = proj ?? country.proj;
   const px = (lon) => ((lon - p.LON0) / (p.LON1 - p.LON0)) * p.BW;
   const py = (lat) => ((lat - p.LAT0) / (p.LAT1 - p.LAT0)) * p.BH;
 
@@ -447,16 +457,30 @@ function evaluateDecorBoxes(svg, gap = 2) {
   return merged.map((box) => box.map((v) => Math.round(v * 10) / 10));
 }
 
+/**
+ * legacy の装飾を置き換える国。legacy のものは陸の外へ撒いてクリップ任せの作りで、
+ * 実際に見えていたのは日本で山0本、ボリビアでサボテン8本だった(理由は各ファイルの冒頭)。
+ */
+const DECOR_OVERRIDES = { japan: renderJapanDecor, bolivia: renderBoliviaDecor };
+
 // 国コンテンツ(都市・路線・アイテム・クイズ・季節/厄災の説明文)。
 // 翻訳文字列はここではnext-intlへ分離せず、{en,es,fr,ja}のままインラインで持つ
 // (ADR-0007の実用的な簡略化。理由は本ファイル冒頭のコメント参照)。
 for (const country of [BOLIVIA, JAPAN]) {
   const content = transform(country);
   content.bg = evaluateBackgrounds(country);
-  content.decor = evaluateDecor(country);
   // 移行後にこのリポジトリで追加・改善したコンテンツを反映する。
   applyContentOverrides(country.id, content);
-  // 上書き層が装飾を差し替えることがあるので、矩形は上書きのあとで取る。
+  // 装飾は**上書きで確定した投影**で評価する(順序が逆だと陸の外へ落ちる。
+  // 理由は `evaluateDecor` のコメント)。矩形もそのあとで取る。
+  const renderDecor = DECOR_OVERRIDES[country.id];
+  const p = content.proj;
+  content.decor = renderDecor
+    ? renderDecor(
+        (lon) => ((lon - p.LON0) / (p.LON1 - p.LON0)) * p.BW,
+        (lat) => ((lat - p.LAT0) / (p.LAT1 - p.LAT0)) * p.BH,
+      )
+    : evaluateDecor(country, p);
   content.decorBoxes = evaluateDecorBoxes(content.decor);
   writeFileSync(
     join(contentDir, `${country.id}.content.json`),
