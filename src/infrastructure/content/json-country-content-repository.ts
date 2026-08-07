@@ -15,6 +15,7 @@ const LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   india: () => import("./india.content.json").then((m) => m.default),
   france: () => import("./france.content.json").then((m) => m.default),
   world: () => import("./world.content.json").then((m) => m.default),
+  ibaraki: () => import("./ibaraki.content.json").then((m) => m.default),
 };
 
 /**

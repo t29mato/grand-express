@@ -888,6 +888,54 @@
         }
       ]
     },
+    "lobito": {
+      "n": {
+        "en": "Lobito",
+        "es": "Lobito",
+        "fr": "Lobito",
+        "ja": "ロビト"
+      },
+      "lo": 13.54,
+      "la": -12.35,
+      "reg": "afr",
+      "mark": "ship_w",
+      "bg": "harbour",
+      "lp": "l",
+      "tag": {
+        "en": "The Atlantic end of a line that crosses Africa",
+        "es": "El extremo atlántico de una línea que cruza África",
+        "fr": "Le bout atlantique d'une ligne qui traverse l'Afrique",
+        "ja": "アフリカを横断する線路の大西洋側の端"
+      },
+      "fact": {
+        "en": "The Benguela railway runs 1,300 km inland from this bay to the copper mines of the interior, and for most of a century it was the shortest way to get central African copper to a ship. The harbour exists at all because a sandspit curls right across the mouth of the bay and shelters it.",
+        "es": "El ferrocarril de Benguela sube 1.300 km desde esta bahía hasta las minas de cobre del interior; durante casi un siglo fue la vía más corta para sacar ese cobre al mar. El puerto existe porque una restinga cierra la boca de la bahía.",
+        "fr": "Le chemin de fer de Benguela remonte 1 300 km depuis cette baie jusqu'aux mines de cuivre de l'intérieur ; près d'un siècle durant, ce fut la route la plus courte pour embarquer ce cuivre. Le port n'existe que grâce à une flèche de sable qui ferme la baie.",
+        "ja": "ベンゲラ鉄道はこの湾から内陸へ1300km、銅の鉱山まで伸びている。一世紀近くのあいだ、中部アフリカの銅を船に載せる最短の道であった。港があるのは、湾の口を砂嘴が横切って塞ぎ、内側を守っているからである。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Copper Ore Quay",
+            "es": "Muelle del cobre",
+            "fr": "Quai du cuivre",
+            "ja": "銅鉱石の岸壁"
+          },
+          "cost": 300,
+          "inc": 62
+        },
+        {
+          "n": {
+            "en": "Sandspit Fishing Village",
+            "es": "Aldea de la restinga",
+            "fr": "Village de la flèche de sable",
+            "ja": "砂嘴の漁村"
+          },
+          "cost": 250,
+          "inc": 52
+        }
+      ]
+    },
     "veracruz": {
       "n": {
         "en": "Veracruz",
@@ -3333,7 +3381,7 @@
     ],
     [
       "lagos",
-      "capetown",
+      "lobito",
       "sea"
     ],
     [
@@ -3609,6 +3657,11 @@
     [
       "bandarabbas",
       "dubai",
+      "sea"
+    ],
+    [
+      "lobito",
+      "capetown",
       "sea"
     ],
     [
@@ -7144,8 +7197,16 @@
         -10
       ],
       [
-        39.3,
-        -6.8
+        38.85,
+        -7.6
+      ],
+      [
+        38.5,
+        -6.2
+      ],
+      [
+        39.2,
+        -4.6
       ],
       [
         39.7,
@@ -8632,6 +8693,32 @@
       [
         172.7,
         -40.5
+      ]
+    ],
+    [
+      [
+        38.95,
+        -5.3
+      ],
+      [
+        39.85,
+        -5.8
+      ],
+      [
+        39.95,
+        -6.7
+      ],
+      [
+        39.45,
+        -7.3
+      ],
+      [
+        38.9,
+        -6.5
+      ],
+      [
+        38.95,
+        -5.3
       ]
     ],
     [

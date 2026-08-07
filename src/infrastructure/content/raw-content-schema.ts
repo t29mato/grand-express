@@ -156,6 +156,12 @@ export const RawCountryContentSchema = z.object({
   labels: z.array(z.tuple([z.number(), z.number(), LocalizedTextSchema, z.number()])),
   /** 盤面の装飾(山・木など)。抽出時に評価済みのSVG断片。 */
   decor: z.string(),
+  /**
+   * 装飾ひとつぶんの外接矩形 `[x, y, 幅, 高さ]`(盤面座標)。
+   * `decor` はSVG文字列なので位置が読み取れない。中間マスを飾りの上に
+   * 置かないための当たり判定として、抽出時に矩形だけ別に出している。
+   */
+  decorBoxes: z.array(z.tuple([z.number(), z.number(), z.number(), z.number()])),
 });
 
 export type RawCountryContent = z.infer<typeof RawCountryContentSchema>;

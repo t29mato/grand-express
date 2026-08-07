@@ -89,7 +89,7 @@ export function SetupScreen() {
           <SetupHeroTrain />
           <div className="setup-hero-body">
             <div className="setup-hero-top">
-              <span className="setup-mark">GRAND EXPRESS</span>
+              <span className="setup-mark">ALTIPLANO EXPRESS</span>
               <LocaleSwitch />
             </div>
             <h1 className="setup-title">{t("setupTitle")}</h1>

@@ -166,6 +166,7 @@ export function mapRawContentToCountryPack(raw: RawCountryContent): CountryConte
       rivers: raw.rivers,
       labels: raw.labels.map(([lo, la, text, water]) => [lo, la, text, water !== 0] as const),
       decorSvg: raw.decor,
+      decorBoxes: raw.decorBoxes,
     },
   };
 }

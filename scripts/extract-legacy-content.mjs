@@ -34,6 +34,7 @@ import { renderBoliviaDecor } from "./content-overrides/bolivia-decor.mjs";
 import { buildIndiaContent } from "./countries/india/index.mjs";
 import { buildFranceContent } from "./countries/france/index.mjs";
 import { buildWorldContent } from "./countries/world/index.mjs";
+import { buildIbarakiContent } from "./countries/ibaraki/index.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const legacyPath = join(__dirname, "..", "legacy", "grand-express.html");
@@ -493,7 +494,12 @@ for (const country of [BOLIVIA, JAPAN]) {
  * 抽出後のJSONと同じ形で組み立てているため、`transform` も
  * `evaluateBackgrounds` も通す必要がない(最初から文字列・4言語オブジェクト)。
  */
-const AUTHORED_COUNTRIES = [buildIndiaContent(), buildFranceContent(), buildWorldContent()];
+const AUTHORED_COUNTRIES = [
+  buildIndiaContent(),
+  buildFranceContent(),
+  buildWorldContent(),
+  buildIbarakiContent(),
+];
 for (const content of AUTHORED_COUNTRIES) {
   content.decorBoxes = evaluateDecorBoxes(content.decor);
   writeFileSync(
@@ -510,22 +516,62 @@ for (const content of AUTHORED_COUNTRIES) {
  * 生成結果のSVG文字列だけを軽量インデックスに載せることで、セットアップ画面は
  * 地形データ(land/terrain、数十KB)を読み込まずにサムネイルを表示できる。
  */
+/** 国選択カードでサムネイルが表示される一辺(px)。`setup-screen.tsx` のカードに合わせる。 */
+const THUMB_DISPLAY_PX = 146;
+
 function renderCountryThumb(country) {
   const p = country.proj;
   const px = (lon) => ((lon - p.LON0) / (p.LON1 - p.LON0)) * p.BW;
   const py = (lat) => ((lat - p.LAT0) / (p.LAT1 - p.LAT0)) * p.BH;
   const pts = (poly) => poly.map(([lo, la]) => `${px(lo).toFixed(0)},${py(la).toFixed(0)}`).join(" ");
+
+  // **線の太さと点の大きさは「カード上で何pxに見えるか」で決める。**
+  // 以前は盤面座標の固定値(線幅6・半径14)だったが、盤面の最大辺は1680〜3300pxと
+  // 幅があり、カードでは146pxまで縮む。実測すると海岸線は0.27〜0.46px、
+  // 都市の点は0.62〜1.08pxにしかならず、**6枚とも輪郭が消えて緑の塊に見えていた**。
+  // 盤面の縮尺で割り戻して、どの盤面でも同じ太さに見えるようにする。
+  const scale = Math.max(p.BW, p.BH) / THUMB_DISPLAY_PX;
+  const w = (displayPx) => (displayPx * scale).toFixed(1);
+
   const land = country.land
     .map(
       (poly) =>
-        `<polygon points="${pts(poly)}" fill="${country.landBase}" stroke="${country.coast}" stroke-width="6"/>`,
+        `<polygon points="${pts(poly)}" fill="${country.landBase}" stroke="${country.coast}"` +
+        ` stroke-width="${w(1.4)}" stroke-linejoin="round"/>`,
     )
     .join("");
-  const terrain = country.terrain.map(([color, poly]) => `<polygon points="${pts(poly)}" fill="${color}"/>`).join("");
+  // 地形は塗りと同じ色で縁取る。さらに**細長いものほど太く縁取る**。
+  // 霞ヶ浦のような細い水面は、縮めると塗りだけでは糸になって消えてしまい、
+  // 茨城はその湖が県の見分けになっているため。
+  //
+  // 「細さ」は色ではなく形から測る。長方形なら 2×面積÷周長 が短いほうの辺に等しく、
+  // 細長い多角形ならおよその幅になる。色で水を見分ける手もあるが、
+  // 盤面ごとに水の色が違うので形で測るほうが確か。
+  const terrain = country.terrain
+    .map(([color, poly]) => {
+      const board = poly.map(([lo, la]) => [px(lo), py(la)]);
+      let twiceArea = 0;
+      let perimeter = 0;
+      for (let i = 0, j = board.length - 1; i < board.length; j = i++) {
+        twiceArea += board[j][0] * board[i][1] - board[i][0] * board[j][1];
+        perimeter += Math.hypot(board[i][0] - board[j][0], board[i][1] - board[j][1]);
+      }
+      const width = perimeter > 0 ? (2 * Math.abs(twiceArea / 2)) / perimeter : 0;
+      // カード上で最低これだけの太さに見せる。縁取りは両側に付くので、足りないぶんを足す。
+      const MIN_FEATURE_PX = 3.2;
+      const shown = width / scale;
+      const stroke = 0.9 + Math.max(0, MIN_FEATURE_PX - shown);
+      return (
+        `<polygon points="${pts(poly)}" fill="${color}" stroke="${color}"` +
+        ` stroke-width="${w(stroke)}" stroke-linejoin="round"/>`
+      );
+    })
+    .join("");
   const dots = Object.values(country.cities)
     .map(
       (city) =>
-        `<circle cx="${px(city.lo).toFixed(0)}" cy="${py(city.la).toFixed(0)}" r="14" fill="#f6efe2" stroke="#241a10" stroke-width="4"/>`,
+        `<circle cx="${px(city.lo).toFixed(0)}" cy="${py(city.la).toFixed(0)}" r="${w(1.4)}"` +
+        ` fill="#f6efe2" stroke="#241a10" stroke-width="${w(0.45)}"/>`,
     )
     .join("");
   return (
@@ -569,5 +615,5 @@ writeFileSync(join(contentDir, "country-index.json"), JSON.stringify(countryInde
 
 console.log("Extracted:");
 console.log(" - src/i18n/messages/{en,es,fr,ja}.json");
-console.log(" - src/infrastructure/content/{bolivia,japan,india,france,world}.content.json");
+console.log(" - src/infrastructure/content/{bolivia,japan,india,france,world,ibaraki}.content.json");
 console.log(" - src/infrastructure/content/country-index.json");

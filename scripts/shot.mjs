@@ -31,6 +31,7 @@ const COUNTRIES = {
   india: /India/,
   france: /France/,
   world: /Around the World/,
+  ibaraki: /Ibaraki/,
 };
 const SCENES = ["follow", "overview", "event", "quiz", "city", "setup"];
 

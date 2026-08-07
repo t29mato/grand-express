@@ -156,6 +156,14 @@ export const WORLD_CITIES = {
     [prop("Chandni Chowk Shopfront|Local en Chandni Chowk|Boutique de Chandni Chowk|チャンドニー・チョウクの店", 300, 62),
      prop("Stepwell Courtyard|Patio del pozo escalonado|Cour du puits à degrés|階段井戸の庭", 280, 58)],
   ),
+  lobito: city(
+    "Lobito|Lobito|Lobito|ロビト",
+    13.54, -12.35, "afr", "ship_w", "harbour", "l",
+    "The Atlantic end of a line that crosses Africa|El extremo atlántico de una línea que cruza África|Le bout atlantique d'une ligne qui traverse l'Afrique|アフリカを横断する線路の大西洋側の端",
+    "The Benguela railway runs 1,300 km inland from this bay to the copper mines of the interior, and for most of a century it was the shortest way to get central African copper to a ship. The harbour exists at all because a sandspit curls right across the mouth of the bay and shelters it.|El ferrocarril de Benguela sube 1.300 km desde esta bahía hasta las minas de cobre del interior; durante casi un siglo fue la vía más corta para sacar ese cobre al mar. El puerto existe porque una restinga cierra la boca de la bahía.|Le chemin de fer de Benguela remonte 1 300 km depuis cette baie jusqu'aux mines de cuivre de l'intérieur ; près d'un siècle durant, ce fut la route la plus courte pour embarquer ce cuivre. Le port n'existe que grâce à une flèche de sable qui ferme la baie.|ベンゲラ鉄道はこの湾から内陸へ1300km、銅の鉱山まで伸びている。一世紀近くのあいだ、中部アフリカの銅を船に載せる最短の道であった。港があるのは、湾の口を砂嘴が横切って塞ぎ、内側を守っているからである。",
+    [prop("Copper Ore Quay|Muelle del cobre|Quai du cuivre|銅鉱石の岸壁", 300, 62),
+     prop("Sandspit Fishing Village|Aldea de la restinga|Village de la flèche de sable|砂嘴の漁村", 250, 52)],
+  ),
   veracruz: city(
     "Veracruz|Veracruz|Veracruz|ベラクルス",
     -96.13, 19.17, "nam", "ship_w", "harbour", "l",
@@ -612,7 +620,9 @@ export const WORLD_EDGES = [
   ["marrakesh", "cairo"],
   ["dakar", "timbuktu"],
   ["timbuktu", "lagos"],
-  ["lagos", "capetown", "sea"],
+  // ラゴス—ケープタウンは全長424pxのうち266pxがアフリカ大陸の奥を通っていた。
+  // ベンゲラ鉄道の港ロビトで区切る。
+  ["lagos", "lobito", "sea"],
   ["cairo", "addisababa"], // 入れ替え済み(27px → 0px)
   ["cairo", "jerusalem"],
   ["addisababa", "nairobi"],
@@ -708,5 +718,6 @@ export const WORLD_EDGES = [
   ["mombasa", "zanzibar", "sea"], // ナイロビ—ザンジバルの後半。短い海峡を渡る
   ["belem", "salvador"], // マナウス—サルバドールの後半。沿岸だが盤面では陸なので陸路
   ["bandarabbas", "dubai", "sea"], // イスファハン—ドバイの後半。ホルムズ海峡を渡る
+  ["lobito", "capetown", "sea"], // ラゴス—ケープタウンの後半。アフリカ南西岸を下る
   ["veracruz", "mexicocity"], // 港から首都へ。実在の鉄道
 ];
