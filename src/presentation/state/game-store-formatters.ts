@@ -83,8 +83,10 @@ export function describeCpuTurn(
     entries.push(logEntry("rolls", [playerName, result.steps], "neutral"));
   }
   for (const pass of result.spiritPassEvents) {
-    const to = context.content.spirit;
-    entries.push(logEntry("passLog", [to.emoji, playerName, String(pass.toPlayerId)], "bad"));
+    // 押し付けられた相手は**名前**で出す。ここが `String(pass.toPlayerId)` だった頃は
+    // 「CPU 1 が p2 に厄災の神をなすりつけた」と内部IDが表に出ていた。
+    const toName = result.session.players.find((p) => p.id === pass.toPlayerId)?.name ?? String(pass.toPlayerId);
+    entries.push(logEntry("passLog", [context.content.spirit.emoji, playerName, toName], "bad"));
   }
 
   const landing = result.landing;

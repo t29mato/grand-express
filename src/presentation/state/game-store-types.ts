@@ -43,6 +43,13 @@ export type UiState =
       readonly correct: boolean;
       readonly amount: string;
     }
+  /**
+   * サイコロが転がっている最中。**出目はこの状態には持たせない。**
+   * 進むマス数も行けるマスも、演出が着地するまでは画面のどこにも出さない
+   * (出してしまうと、転がっている間にもう答えが分かってしまう)。
+   * 結果は `revealDiceRoll()` が呼ばれた時点で `choosing-square` に変わる。
+   */
+  | { readonly kind: "rolling" }
   | { readonly kind: "choosing-square"; readonly steps: number; readonly reachable: ReadonlyMap<NodeId, readonly NodeId[]> }
   | { readonly kind: "quiz"; readonly question: QuizQuestion; readonly optionOrder: readonly number[] }
   /**
@@ -154,6 +161,11 @@ export interface GameStoreState {
   buyCityItem(key: ItemKey): void;
   useInventoryItem(index: number): void;
   chooseExactDiceValue(value: number): void;
+  /**
+   * サイコロが着地した合図。伏せておいた出目をここで初めて公開し、
+   * `rolling` から `choosing-square` に移す(演出の再生側から呼ぶ)。
+   */
+  revealDiceRoll(): void;
   /** サイコロ演出を消す。 */
   clearDiceRoll(): void;
   /** CPUの自動進行を止める(画面遷移時など)。 */

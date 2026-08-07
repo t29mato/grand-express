@@ -6,6 +6,11 @@ import { Locale } from "../../domain/shared-kernel/localized-text";
 import { SETUP_MESSAGES } from "./setup-messages";
 import { FEEDBACK_MESSAGES } from "./feedback-messages";
 import { GAME_LOG_MESSAGES } from "./game-log-messages";
+import { HUD_MESSAGES } from "./hud-messages";
+import { SOUND_MESSAGES } from "./sound-messages";
+import { ITEM_MESSAGES } from "./item-messages";
+import { LEGEND_MESSAGES } from "./legend-messages";
+import { BOARD_MESSAGES } from "./board-messages";
 
 export type UiMessages = typeof en;
 
@@ -14,10 +19,50 @@ export type UiMessages = typeof en;
  * `setup-messages.ts` 側に置いてここで重ねる(生成物を直接書き換えない)。
  */
 export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
-  en: { ...en, ...SETUP_MESSAGES.en, ...FEEDBACK_MESSAGES.en, ...GAME_LOG_MESSAGES.en },
-  es: { ...es, ...SETUP_MESSAGES.es, ...FEEDBACK_MESSAGES.es, ...GAME_LOG_MESSAGES.es },
-  fr: { ...fr, ...SETUP_MESSAGES.fr, ...FEEDBACK_MESSAGES.fr, ...GAME_LOG_MESSAGES.fr },
-  ja: { ...(ja as UiMessages), ...SETUP_MESSAGES.ja, ...FEEDBACK_MESSAGES.ja, ...GAME_LOG_MESSAGES.ja },
+  en: {
+    ...en,
+    ...SETUP_MESSAGES.en,
+    ...FEEDBACK_MESSAGES.en,
+    ...GAME_LOG_MESSAGES.en,
+    ...SOUND_MESSAGES.en,
+    ...HUD_MESSAGES.en,
+    ...ITEM_MESSAGES.en,
+    ...LEGEND_MESSAGES.en,
+    ...BOARD_MESSAGES.en,
+  },
+  es: {
+    ...es,
+    ...SETUP_MESSAGES.es,
+    ...FEEDBACK_MESSAGES.es,
+    ...GAME_LOG_MESSAGES.es,
+    ...SOUND_MESSAGES.es,
+    ...HUD_MESSAGES.es,
+    ...ITEM_MESSAGES.es,
+    ...LEGEND_MESSAGES.es,
+    ...BOARD_MESSAGES.es,
+  },
+  fr: {
+    ...fr,
+    ...SETUP_MESSAGES.fr,
+    ...FEEDBACK_MESSAGES.fr,
+    ...GAME_LOG_MESSAGES.fr,
+    ...SOUND_MESSAGES.fr,
+    ...HUD_MESSAGES.fr,
+    ...ITEM_MESSAGES.fr,
+    ...LEGEND_MESSAGES.fr,
+    ...BOARD_MESSAGES.fr,
+  },
+  ja: {
+    ...(ja as UiMessages),
+    ...SETUP_MESSAGES.ja,
+    ...FEEDBACK_MESSAGES.ja,
+    ...GAME_LOG_MESSAGES.ja,
+    ...SOUND_MESSAGES.ja,
+    ...HUD_MESSAGES.ja,
+    ...ITEM_MESSAGES.ja,
+    ...LEGEND_MESSAGES.ja,
+    ...BOARD_MESSAGES.ja,
+  },
 };
 
 export const SUPPORTED_LOCALES: readonly Locale[] = ["en", "es", "fr", "ja"];

@@ -64,6 +64,32 @@ export const useGameStore = create<GameStoreState>((set, get) => {
   let pendingAfterDoom: "skip" | "roll" | null = null;
 
   /**
+   * 振ってしまったが、まだ見せていない出目。
+   *
+   * ドメインの抽選はボタンを押した瞬間に済んでいる(演出の途中で結果が変わることはない)。
+   * ただし**それをそのまま画面に出すと、サイコロが転がっている間に答えが分かってしまう**。
+   * 出目・行けるマスはここに預けておき、演出が着地した合図(`revealDiceRoll`)で公開する。
+   */
+  let pendingRoll: { steps: number; reachable: ReadonlyMap<NodeId, readonly NodeId[]> } | null = null;
+
+  /** サイコロ演出を始める。出目は伏せたまま、転がる絵だけを出す。 */
+  function beginRoll(steps: number, reachable: ReadonlyMap<NodeId, readonly NodeId[]>, rolls: readonly number[]) {
+    pendingRoll = { steps, reachable };
+    set((s) => ({
+      ui: { kind: "rolling" },
+      diceRoll: { nonce: (s.diceRoll?.nonce ?? 0) + 1, value: steps, rolls },
+    }));
+  }
+
+  /** 伏せておいた出目を公開する。まだ振っていなければ何もしない。 */
+  function revealPendingRoll() {
+    if (!pendingRoll) return;
+    const { steps, reachable } = pendingRoll;
+    pendingRoll = null;
+    set({ ui: { kind: "choosing-square", steps, reachable } });
+  }
+
+  /**
    * 決まった経路に沿って駒を動かし、着地の処理へ渡す。
    * 自分でマスを選んだとき(`chooseSquare`)も、風まかせで運ばれたとき
    * (`carried-far` のアイテム)も、移動はここを通る。
@@ -142,7 +168,14 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       set({ savedGame: null });
     },
 
+    revealDiceRoll() {
+      revealPendingRoll();
+    },
+
     clearDiceRoll() {
+      // 着地の合図が来ないまま演出が終わった場合の保険。ここで公開しておかないと、
+      // 出目を伏せたまま操作できない状態で止まってしまう。
+      revealPendingRoll();
       set({ diceRoll: null });
     },
 
@@ -151,6 +184,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       // 旅が終わったので、その国のBGMもここで終わりにする(ミュート設定は変えない)。
       // セットアップ画面のテーマ曲は、次に何か操作されたときに鳴り始める。
       soundAdapter.stopMusic();
+      pendingRoll = null;
       set({ context: null, session: null, ui: { kind: "setup" }, log: [], diceRoll: null });
     },
 
@@ -196,10 +230,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const latestSession = get().session!;
       const steps = rollOneDie(random);
       const reachable = reachableNodesFor(context, latestSession, player.id, steps);
-      set((s) => ({
-        ui: { kind: "choosing-square", steps, reachable },
-        diceRoll: { nonce: (s.diceRoll?.nonce ?? 0) + 1, value: steps, rolls: [steps] },
-      }));
+      beginRoll(steps, reachable, [steps]);
     },
 
     chooseSquare(nodeId) {
@@ -309,11 +340,8 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       } else if (result.result.type === "rolled") {
         const { steps, rolls } = result.result;
         const reachable = reachableNodesFor(context, result.session, player.id, steps);
-        set((s) => ({
-          ui: { kind: "choosing-square", steps, reachable },
-          // 振ったサイコロを個数ぶんそのまま見せる(合計だけだと目と進む数が食い違って見える)。
-          diceRoll: { nonce: (s.diceRoll?.nonce ?? 0) + 1, value: steps, rolls },
-        }));
+        // 振ったサイコロを個数ぶんそのまま見せる(合計だけだと目と進む数が食い違って見える)。
+        beginRoll(steps, reachable, rolls);
       }
     },
 

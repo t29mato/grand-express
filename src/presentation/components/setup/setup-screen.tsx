@@ -10,6 +10,7 @@ import { useGameStore } from "../../state/game-store";
 import { useLocale } from "../../i18n/locale-context";
 import { useTitleMusic } from "../../hooks/use-title-music";
 import { LocaleSwitch } from "../hud/locale-switch";
+import { MusicToggle } from "../hud/music-toggle";
 import { SavedGameCard } from "./saved-game-card";
 import { SetupHeroTrain } from "./setup-hero-train";
 
@@ -19,7 +20,13 @@ const MONTH_OPTIONS = [12, 24, 36];
 const ALWAYS_VISIBLE_SLOTS = 3;
 
 interface SlotConfig {
-  name: string;
+  /**
+   * 入力された名前。`null` は「まだ触っていない」= 既定名を使う、の意味。
+   * 既定名を文字列で持ってしまうと、言語を切り替えたときに
+   * 「自分で付けた名前」と見分けが付かず、上書きするか英語のまま残すかの
+   * どちらかしか選べなくなる。持たないことで、既定のときだけ言語に追随する。
+   */
+  name: string | null;
   mode: "human" | "cpu" | "off";
   /** 対象国への知識レベル(人間のみ)。CPUは cpuLevel が同じ役割を果たすため不要。 */
   knowledgeLevel: KnowledgeLevel;
@@ -53,11 +60,18 @@ export function SetupScreen() {
   const [cpuLevel, setCpuLevel] = useState<CpuLevel>("normal");
   const [starting, setStarting] = useState(false);
   const [slots, setSlots] = useState<SlotConfig[]>([
-    { name: "You", mode: "human", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
-    { name: "CPU 1", mode: "cpu", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
-    { name: "CPU 2", mode: "cpu", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
-    { name: "CPU 3", mode: "off", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
+    { name: null, mode: "human", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
+    { name: null, mode: "cpu", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
+    { name: null, mode: "cpu", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
+    { name: null, mode: "off", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
   ]);
+
+  /** 1人目は「あなた」、2人目以降は「CPU 1」「CPU 2」…。表示中の言語で返す。 */
+  const defaultSlotName = (index: number) =>
+    index === 0 ? t("defaultPlayerName") : t("defaultCpuName", index);
+
+  /** 名前欄に出す文字。自分で付けた名前があればそれ、無ければ既定名。 */
+  const slotName = (slot: SlotConfig, index: number) => slot.name ?? defaultSlotName(index);
 
   const updateSlot = (index: number, patch: Partial<SlotConfig>) => {
     setSlots((prev) => prev.map((slot, i) => (i === index ? { ...slot, ...patch } : slot)));
@@ -70,11 +84,13 @@ export function SetupScreen() {
 
   const handleStart = () => {
     const players: PlayerSetup[] = slots
-      .filter((s) => s.mode !== "off")
-      .map((s) => ({
-        name: s.name || "Player",
-        isCpu: s.mode === "cpu",
-        knowledgeLevel: s.knowledgeLevel,
+      .map((slot, i) => ({ slot, i }))
+      .filter(({ slot }) => slot.mode !== "off")
+      .map(({ slot, i }) => ({
+        // 名前欄を空にしたまま始めたときも、英語の "Player" ではなく既定名に戻す。
+        name: slot.name?.trim() || defaultSlotName(i),
+        isCpu: slot.mode === "cpu",
+        knowledgeLevel: slot.knowledgeLevel,
       }));
     if (players.length < 2 || starting) return;
     setStarting(true);
@@ -90,7 +106,10 @@ export function SetupScreen() {
           <div className="setup-hero-body">
             <div className="setup-hero-top">
               <span className="setup-mark">ALTIPLANO EXPRESS</span>
-              <LocaleSwitch />
+              <div className="setup-hero-controls">
+                <LocaleSwitch />
+                <MusicToggle />
+              </div>
             </div>
             <h1 className="setup-title">{t("setupTitle")}</h1>
             <p className="tagline">{t("tagline")}</p>
@@ -139,7 +158,7 @@ export function SetupScreen() {
               {slots.slice(0, visibleSlots).map((slot, i) => (
                 <div className="slot" key={i}>
                   <input
-                    value={slot.name}
+                    value={slotName(slot, i)}
                     maxLength={16}
                     aria-label={t("travellerSlot", i + 1)}
                     onChange={(e) => updateSlot(i, { name: e.target.value })}
