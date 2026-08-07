@@ -34,5 +34,11 @@ export interface SoundPort {
   playDoom(isKing: boolean): void;
   /** ゲーム終了時の勝利音。 */
   playWin(): void;
+  /**
+   * BGMを止める(効果音は止めない)。
+   * ミュート設定そのものは変えないので、次にBGMを指定すればまた鳴り始める。
+   * 旅を終えてセットアップ画面へ戻るときに呼ぶ。
+   */
+  stopMusic(): void;
   setMuted(muted: boolean): void;
 }

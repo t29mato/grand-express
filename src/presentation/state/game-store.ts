@@ -125,6 +125,9 @@ export const useGameStore = create<GameStoreState>((set, get) => {
 
     backToSetup() {
       cancelCpuLoop();
+      // 旅が終わったので、その国のBGMもここで終わりにする(ミュート設定は変えない)。
+      // セットアップ画面のテーマ曲は、次に何か操作されたときに鳴り始める。
+      soundAdapter.stopMusic();
       set({ context: null, session: null, ui: { kind: "setup" }, log: [], diceRoll: null });
     },
 

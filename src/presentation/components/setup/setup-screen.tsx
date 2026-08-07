@@ -8,6 +8,7 @@ import { PlayerSetup } from "../../../application/use-cases/start-game/start-gam
 import { COUNTRY_INDEX } from "../../../infrastructure/content/country-index";
 import { useGameStore } from "../../state/game-store";
 import { useLocale } from "../../i18n/locale-context";
+import { useTitleMusic } from "../../hooks/use-title-music";
 import { LocaleSwitch } from "../hud/locale-switch";
 import { SavedGameCard } from "./saved-game-card";
 import { SetupHeroTrain } from "./setup-hero-train";
@@ -37,6 +38,9 @@ export function SetupScreen() {
   const savedGame = useGameStore((s) => s.savedGame);
   const refreshSavedGame = useGameStore((s) => s.refreshSavedGame);
   const discardSavedGame = useGameStore((s) => s.discardSavedGame);
+
+  // 旅立つ前のテーマ曲。最初に何か触られてから鳴り始める(自動再生ポリシー)。
+  useTitleMusic();
 
   // localStorage はサーバー描画時に読めないため、マウント後に読み直す
   // (初期描画から差が出るとハイドレーションがずれるため)。

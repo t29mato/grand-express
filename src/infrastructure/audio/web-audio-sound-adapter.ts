@@ -1,5 +1,6 @@
 import { SoundPort } from "../../application/ports/sound-port";
 import { CountryStyles, RegionStyle, loadCountryStyles } from "./country-music-styles";
+import { TITLE_STYLES, TITLE_STYLE_KEY } from "./title-music-style";
 
 type AudioContextCtor = typeof AudioContext;
 
@@ -27,6 +28,12 @@ export class WebAudioSoundAdapter implements SoundPort {
   private styleKey: string | null = null;
   private pendingStyleKey: string | null = null;
   private muted = false;
+
+  /**
+   * いまスケジューラに載っている曲の出どころ。
+   * トップ画面のテーマと国のBGMを取り違えて二重に鳴らさないための目印。
+   */
+  private musicSource: "none" | "title" | "country" = "none";
 
   // ── 初期化 ──────────────────────────────────────────
 
@@ -278,6 +285,50 @@ export class WebAudioSoundAdapter implements SoundPort {
     this.styles = styles ?? {};
     this.styleKey = null;
     this.pendingStyleKey = null;
+    this.musicSource = "country";
+    this.restartFromBarStart();
+  }
+
+  /**
+   * トップ画面のテーマ曲を鳴らす(国のBGMとは別の1曲)。
+   *
+   * ブラウザの自動再生ポリシーにより、**最初のユーザー操作より後に**呼ぶ必要がある
+   * (画面を開いた瞬間に呼んでもAudioContextがsuspendedのままで音は出ない)。
+   * ゲームが始まったら `setCountry()` + `setRegion()` がそのまま曲を差し替える。
+   */
+  startTitleMusic(): void {
+    if (this.musicSource !== "title") {
+      this.styles = TITLE_STYLES;
+      this.styleKey = TITLE_STYLE_KEY;
+      this.pendingStyleKey = null;
+      this.musicSource = "title";
+      this.restartFromBarStart();
+    }
+    this.start();
+  }
+
+  /**
+   * 曲を差し替えたときに、新しい曲の1小節目から鳴らし直す。
+   * `nextT`(次に音を置く時刻)はそのままにして、拍の位置だけ戻す
+   * (時刻を巻き戻すと、すでに予約した音と重なってしまうため)。
+   */
+  private restartFromBarStart(): void {
+    this.step = 0;
+  }
+
+  stopMusic(): void {
+    if (this.schedulerHandle) {
+      clearInterval(this.schedulerHandle);
+      this.schedulerHandle = null;
+    }
+    this.running = false;
+    this.musicSource = "none";
+    // ミュート設定(`muted` / `musicOn`)は触らない。止めるのはBGMだけで、
+    // 効果音とミュートの状態はそのまま保つ。
+    if (this.ctx && this.musicGain) {
+      this.musicGain.gain.cancelScheduledValues(this.ctx.currentTime);
+      this.musicGain.gain.setTargetAtTime(0, this.ctx.currentTime, 0.12);
+    }
   }
 
   /** BGMのスケジューラを開始する(未開始なら)。ユーザー操作後に呼ぶ必要がある(自動再生ポリシー対策)。 */
@@ -304,13 +355,12 @@ export class WebAudioSoundAdapter implements SoundPort {
   setMuted(muted: boolean): void {
     this.muted = muted;
     this.musicOn = !muted;
-    if (this.ctx && this.musicGain) {
-      this.musicGain.gain.setTargetAtTime(this.musicOn ? 0.4 : 0, this.ctx.currentTime, 0.25);
+    if (muted) {
+      this.stopMusic();
+      return;
     }
-    if (muted && this.schedulerHandle) {
-      clearInterval(this.schedulerHandle);
-      this.schedulerHandle = null;
-      this.running = false;
+    if (this.ctx && this.musicGain) {
+      this.musicGain.gain.setTargetAtTime(0.4, this.ctx.currentTime, 0.25);
     }
   }
 
