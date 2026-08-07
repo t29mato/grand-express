@@ -15,7 +15,7 @@ import { JAPAN_MONEY_EVENTS } from "./money-events-japan.mjs";
 import { JAPAN_REMOVED_EDGES } from "./japan-line-pruning.mjs";
 import { BOLIVIA_MONEY_EVENTS } from "./money-events-bolivia.mjs";
 import { ITEM_TEXT } from "./item-text.mjs";
-import { JAPAN_CITY_BG, BOLIVIA_CITY_BG } from "./city-bg-gap-fixes.mjs";
+import { CITY_BG } from "./city-backgrounds.mjs";
 import {
   JAPAN_EXTRA_CITIES,
   JAPAN_EXTRA_EDGES,
@@ -85,7 +85,7 @@ const PROJ_BOUNDS = {
 const OVERRIDES = {
   bolivia: {
     land: BOLIVIA_LAND,
-    bg: BOLIVIA_CITY_BG,
+    bg: CITY_BG.bolivia,
     cityCoords: CITY_COORDS.bolivia,
     itemPrices: ITEM_PRICES.bolivia,
     itemText: ITEM_TEXT.bolivia,
@@ -95,7 +95,7 @@ const OVERRIDES = {
   },
   japan: {
     land: JAPAN_LAND,
-    bg: JAPAN_CITY_BG,
+    bg: CITY_BG.japan,
     boardScale: BOARD_SCALE.japan,
     projBounds: PROJ_BOUNDS.japan,
     itemPrices: ITEM_PRICES.japan,

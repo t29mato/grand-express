@@ -4,7 +4,14 @@
  * `marks` は 24×24 の座標系に描くシンボル、`bg` は 400×210 の座標系に描く
  * 背景シーン(いずれもSVG断片の文字列)。他国では legacy の関数を抽出時に
  * 評価して文字列化していたが、インドは最初から文字列として持つ。
+ *
+ * 描き直した背景は `bg-rich.mjs` にあり、末尾で上書きしている。
+ *
+ * ⚠ **中央 x=151〜249 / y=54〜152 は都市のシンボルに隠れる。**
+ *   細部は左右3分の1と、y>170 の手前に置くこと。
+ *   詳しくは docs/50-authoring/12-city-background-guide.md。
  */
+import { INDIA_BG_RICH } from "./bg-rich.mjs";
 
 // ---------------------------------------------------------------------------
 // 背景シーンの組み立て部品(legacy の band/dotc/clouds/treeRow と同じ役割)
@@ -88,10 +95,77 @@ function bunting(y) {
 }
 
 // ---------------------------------------------------------------------------
+// 人と小物
+//
+// 背景を厚くするのに、いちばん効くのが**人**だった(建物だけの町にしない)。
+// 20px前後で描く。同時に、置いたものの大きさが伝わるようになる。
+// ---------------------------------------------------------------------------
+
+/** 小数の桁を抑える。 */
+const r1 = (v) => Math.round(v * 10) / 10;
+
+/** 接地の影。敷かないと浮く。 */
+function shade(cx, cy, rx, ry, o = ".2") {
+  return `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="#000" opacity="${o}"/>`;
+}
+
+/** 人。胴・脚・頭だけ。腕は `arm()` で別に足して、何をしているかを出す。 */
+function person(x, base, h, shirt, skin = "#8a6440") {
+  const hd = r1(h * 0.19);
+  const top = r1(base - h + hd * 1.7);
+  return (
+    `<g><rect x="${r1(x - h * 0.09)}" y="${r1(base - h * 0.4)}" width="${r1(h * 0.08)}" height="${r1(h * 0.4)}" fill="#3f3428"/>` +
+    `<rect x="${r1(x + h * 0.02)}" y="${r1(base - h * 0.4)}" width="${r1(h * 0.08)}" height="${r1(h * 0.4)}" fill="#3f3428"/>` +
+    `<path d="M${r1(x - h * 0.16)},${top}h${r1(h * 0.32)}l${r1(h * 0.03)},${r1(h * 0.42)}h${r1(-h * 0.38)}z" fill="${shirt}"/>` +
+    `<circle cx="${x}" cy="${r1(top - hd * 0.75)}" r="${hd}" fill="${skin}"/></g>`
+  );
+}
+
+function arm(x, y, dx, dy, color = "#8a6440", w = 3) {
+  return `<path d="M${x},${y}l${dx},${dy}" stroke="${color}" stroke-width="${w}" stroke-linecap="round" fill="none"/>`;
+}
+
+/** ガートの竹の傘。これが立っているだけで沐浴場だと分かる。 */
+function parasol(x, base, h, r, fill = "#d8733c") {
+  return (
+    `<path d="M${x},${base}v${-h}" stroke="#6b5330" stroke-width="2.6" fill="none"/>` +
+    `<path d="M${r1(x - r)},${r1(base - h)}q${r},${r1(-r * 0.85)} ${r1(r * 2)},0z" fill="${fill}"/>` +
+    `<path d="M${r1(x - r)},${r1(base - h)}q${r},${r1(-r * 0.85)} ${r1(r * 2)},0" stroke="#8a4426" stroke-width="1.4" fill="none"/>` +
+    `<g stroke="#8a4426" stroke-width="1" opacity=".55" fill="none"><path d="M${x},${r1(base - h)}v${r1(-r * 0.62)}M${r1(x - r * 0.55)},${r1(base - h)}q${r1(r * 0.3)},${r1(-r * 0.5)} ${r1(r * 0.55)},${r1(-r * 0.62)}M${r1(x + r * 0.55)},${r1(base - h)}q${r1(-r * 0.3)},${r1(-r * 0.5)} ${r1(-r * 0.55)},${r1(-r * 0.62)}"/></g>`
+  );
+}
+
+/** 灯明(ディヤ)。葉の皿に灯をひとつ。水に流す。 */
+function diya(x, y, s = 1) {
+  return (
+    `<path d="M${r1(x - 5 * s)},${y}q${r1(5 * s)},${r1(4 * s)} ${r1(10 * s)},0z" fill="#4f8f4a"/>` +
+    `<ellipse cx="${x}" cy="${y}" rx="${r1(5 * s)}" ry="${r1(1.6 * s)}" fill="#6ba85a"/>` +
+    `<path d="M${x},${r1(y - 1)}q${r1(-2.4 * s)},${r1(-4 * s)} 0,${r1(-6.4 * s)}q${r1(2.4 * s)},${r1(2.4 * s)} 0,${r1(6.4 * s)}z" fill="#f5b31c"/>` +
+    `<circle cx="${x}" cy="${r1(y - 3.4 * s)}" r="${r1(1.5 * s)}" fill="#fff0c0"/>`
+  );
+}
+
+/** 川べりの塔(シカラ)。段のある尖塔。 */
+function shikhara(x, base, w, h, body = "#c9603c", trim = "#e0dbcd") {
+  return (
+    `<rect x="${x}" y="${r1(base - h * 0.62)}" width="${w}" height="${r1(h * 0.62)}" fill="${body}"/>` +
+    `<path d="M${x},${r1(base - h * 0.62)}q${r1(w / 2)},${r1(-h * 0.44)} ${w},0z" fill="${body}"/>` +
+    `<path d="M${r1(x + w * 0.18)},${r1(base - h * 0.62)}q${r1(w * 0.32)},${r1(-h * 0.3)} ${r1(w * 0.64)},0z" fill="${trim}" opacity=".55"/>` +
+    `<rect x="${r1(x - 2)}" y="${r1(base - h * 0.66)}" width="${r1(w + 4)}" height="4" fill="${trim}"/>` +
+    // 頂の飾り。**塔の先端の実際の位置に載せる。**
+    // 屋根は二次ベジェなので、頂点は制御点(-0.44h)ではなく **-0.22h**。
+    // 制御点の高さに置いたら、飾りが14px浮いて空に金の玉が漂って見えた。
+    `<circle cx="${r1(x + w / 2)}" cy="${r1(base - h * 0.84 - w * 0.09)}" r="${r1(w * 0.11)}" fill="#f5b31c"/>` +
+    `<rect x="${r1(x + w / 2 - 1)}" y="${r1(base - h * 0.84 - w * 0.3)}" width="2" height="${r1(w * 0.22)}" fill="#f5b31c"/>` +
+    `<rect x="${r1(x + w * 0.36)}" y="${r1(base - h * 0.42)}" width="${r1(w * 0.28)}" height="${r1(h * 0.42)}" fill="#5a4630"/>`
+  );
+}
+
+// ---------------------------------------------------------------------------
 // 背景シーン
 // ---------------------------------------------------------------------------
 
-export const INDIA_BG = {
+const BASE_BG = {
   /** 首都・行政都市(広い並木道と赤砂岩の建物)。 */
   capital:
     sky("#9ccbe8", "#cfe4f0", 132) +
@@ -108,21 +182,103 @@ export const INDIA_BG = {
     `<rect x="0" y="168" width="400" height="42" fill="#6f6a5e"/>` +
     `<g stroke="#f6efe2" stroke-width="3" stroke-dasharray="18 16" opacity=".8"><path d="M0,189h400"/></g>`,
 
-  /** ガンジスのガート(沐浴の石段)。 */
+  /**
+   * ガンジスのガート(沐浴の石段)。**6都市が共用。**
+   * (リシケシュ・ハリドワール・プラヤーグラージ・ワーラーナシー・パトナ・ナーシク)
+   *
+   * 元は23要素で、空と石段4本と川、岸に箱形の寺が2つあるだけだった。
+   * **ガートは人が沐浴し灯明を流す場所なのに、人が1人もいなかった。**
+   *
+   * 層: 夕空 / 町の稜線(塔とハヴェリー)/ 幅と色を変えた石段 / 竹の傘 /
+   * 石段の人々 / 川 / 渡し舟 / 水に流れる灯明。
+   *
+   * 灯明は**シンボルの下(y>170)の中央**にも置いている。ここは隠れない。
+   */
   ghat:
-    sky("#e8b36a", "#f2d7a8", 120) +
-    sun(300, 40, 20, "#f08a3c") +
-    ground(120, "#c9a877") +
-    // 段々のガート
-    `<g fill="#b8a179"><rect x="0" y="120" width="400" height="10"/><rect x="0" y="132" width="400" height="10"/><rect x="0" y="144" width="400" height="10"/><rect x="0" y="156" width="400" height="10"/></g>` +
-    // 川
-    band(168, 42, "#5f7f6a") +
-    ripples(180, "#a8c8b4") +
-    // 岸辺の寺と塔
-    `<g fill="#c9603c"><rect x="40" y="70" width="34" height="50"/><path d="M40,70l17,-26l17,26z"/></g>` +
-    `<g fill="#d8b06a"><rect x="300" y="60" width="26" height="60"/><path d="M300,60l13,-22l13,22z"/></g>` +
-    // 小舟
-    `<path d="M150,178c14,-6 46,-6 60,0c-8,8 -52,8 -60,0z" fill="#7a5a34"/>`,
+    sky("#e2915a", "#f0b87a", 122) +
+    sun(316, 62, 21, "#f2803c") +
+    `<circle cx="316" cy="62" r="26" fill="#f8d8a8" opacity=".14"/>` +
+    `<g fill="#f8dcb0" opacity=".5"><ellipse cx="96" cy="26" rx="34" ry="4.6"/><ellipse cx="70" cy="33" rx="22" ry="3.4"/><ellipse cx="216" cy="18" rx="26" ry="4"/></g>` +
+    // 夕方の鳥
+    `<g stroke="#7a5a3c" stroke-width="1.5" fill="none" stroke-linecap="round"><path d="M120,40q4,-4 8,0q4,-4 8,0M156,30q3.4,-3.4 7,0q3.4,-3.4 7,0M96,52q3,-3 6,0q3,-3 6,0"/></g>` +
+    // ── 町の稜線。**中央はシンボルに隠れるので、目立つ塔は左右に置く**
+    `<g fill="#b08a6a" opacity=".55"><rect x="150" y="86" width="34" height="36"/><rect x="196" y="80" width="28" height="42"/><rect x="234" y="90" width="30" height="32"/></g>` +
+    shikhara(30, 122, 30, 66) +
+    shikhara(74, 122, 22, 46, "#d8a05c") +
+    shikhara(330, 122, 26, 74, "#c26a44") +
+    // ハヴェリー(川に面した館)。窓とバルコニーで密度を出す
+    `<g fill="#e0d2b8"><rect x="104" y="82" width="42" height="40"/><rect x="270" y="88" width="52" height="34"/></g>` +
+    `<g fill="#c9b898"><rect x="100" y="78" width="50" height="6"/><rect x="266" y="84" width="60" height="6"/></g>` +
+    `<g fill="#6b5330"><rect x="110" y="92" width="9" height="14" rx="4.5"/><rect x="124" y="92" width="9" height="14" rx="4.5"/><rect x="278" y="96" width="9" height="14" rx="4.5"/><rect x="292" y="96" width="9" height="14" rx="4.5"/><rect x="306" y="96" width="9" height="14" rx="4.5"/></g>` +
+    `<g fill="#d8733c" opacity=".8"><rect x="106" y="110" width="38" height="4"/><rect x="274" y="114" width="44" height="4"/></g>` +
+    // ── 石段。**幅と色を変える。**同じ帯を等間隔に並べると縞模様に見える
+    ground(122, "#c9a877") +
+    `<g fill="#b8a179"><path d="M0,122h400v9H0z"/><path d="M0,134h400v11H0z"/><path d="M0,148h400v9H0z"/><path d="M0,160h400v11H0z"/></g>` +
+    `<g fill="#a89468"><path d="M0,131h400v3H0z"/><path d="M0,157h400v3H0z"/></g>` +
+    `<g fill="#d8c9a4" opacity=".7"><path d="M0,122h400v2H0z"/><path d="M0,134h400v2H0z"/><path d="M0,148h400v2H0z"/><path d="M0,160h400v2H0z"/></g>` +
+    // 石の縦の目地。**横帯だけだと縞模様に見える。**継ぎ目を段ごとにずらす
+    `<g stroke="#8f7c54" stroke-width="1.3" opacity=".55" fill="none"><path d="M24,122v9M92,122v9M158,122v9M228,122v9M296,122v9M366,122v9M58,134v11M126,134v11M192,134v11M262,134v11M330,134v11M390,134v11M18,148v9M88,148v9M166,148v9M236,148v9M304,148v9M372,148v9M52,160v11M120,160v11M196,160v11M268,160v11M338,160v11"/></g>` +
+    // 水へ下りる階段の切れ目(左右)
+    `<g fill="#a89468"><rect x="86" y="122" width="5" height="49"/><rect x="312" y="122" width="5" height="49"/></g>` +
+    // ── 竹の傘。ガートの目印
+    parasol(60, 150, 30, 19) +
+    parasol(120, 154, 26, 16, "#c95a3c") +
+    parasol(296, 152, 28, 18, "#d88a3c") +
+    parasol(352, 156, 24, 15, "#c95a3c") +
+    // ── 石段の人々(左右へ。中央はシンボルの下敷きになる)
+    shade(46, 168, 11, 3, ".18") +
+    person(44, 168, 20, "#f5b31c") +
+    arm(44, 156, 10, -7) +
+    shade(70, 172, 10, 3, ".18") +
+    person(68, 172, 18, "#e8443f") +
+    shade(134, 166, 10, 3, ".18") +
+    person(132, 166, 19, "#f0e6d2") +
+    arm(132, 154, -9, -6) +
+    shade(286, 170, 11, 3, ".18") +
+    person(284, 170, 21, "#d8733c") +
+    arm(284, 157, 11, 5) +
+    shade(342, 174, 10, 3, ".18") +
+    person(340, 174, 18, "#5b8fe8") +
+    // 座っている僧(オレンジの衣)
+    `<g fill="#e08a2c"><path d="M104,172q9,-6 18,0l3,8h-24z"/></g>` +
+    `<circle cx="113" cy="162" r="4.2" fill="#8a6440"/>` +
+    // ── 川。手前ほど明るく
+    band(172, 16, "#4f7f72") +
+    band(186, 24, "#5f9282") +
+    `<g stroke="#a8c8b4" stroke-width="2" opacity=".55" fill="none"><path d="M20,180h56M120,177h40M250,181h64M334,178h52M46,192h50M180,195h58M296,198h74M14,204h64"/></g>` +
+    // 沐浴する人。**頭だけだと水に浮いた顔に見える。**肩と腕を水面の上に出す
+    `<g><path d="M167,183q9,-11 18,0z" fill="#e8443f"/><circle cx="176" cy="172" r="4.4" fill="#8a6440"/>` +
+    `<path d="M170,176l-7,5M182,176l7,5" stroke="#8a6440" stroke-width="2.6" stroke-linecap="round" fill="none"/></g>` +
+    `<g><path d="M206,187q8,-10 16,0z" fill="#f0e6d2"/><circle cx="214" cy="177" r="4" fill="#8a6440"/>` +
+    `<path d="M209,181l-6,-5M219,181l6,-5" stroke="#8a6440" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>` +
+    `<g stroke="#cfe4dc" stroke-width="1.6" opacity=".7" fill="none"><path d="M160,184q16,5 32,0M198,188q16,5 32,0"/></g>` +
+    // ── 渡し舟。手前の川に2隻。
+    // 濃い茶の船体だけだと水面に開いた穴に見えたので、舷を明るくして縁を立てる
+    shade(88, 201, 30, 4, ".16") +
+    `<path d="M56,190c16,-6 50,-6 66,0c-10,9 -56,9 -66,0z" fill="#5f4227"/>` +
+    `<path d="M58,190c15,-5 48,-5 62,0c-9,4 -53,4 -62,0z" fill="#a8814c"/>` +
+    `<path d="M56,190c16,-6 50,-6 66,0" stroke="#c99a5c" stroke-width="2" fill="none"/>` +
+    `<path d="M96,190v-20" stroke="#4a3a24" stroke-width="2" fill="none"/>` +
+    `<path d="M98,172l14,18h-14z" fill="#f0e6d2"/>` +
+    person(74, 190, 17, "#f5b31c") +
+    shade(336, 200, 26, 4, ".16") +
+    `<path d="M308,196c12,-5 40,-5 52,0c-8,7 -44,7 -52,0z" fill="#5f4227"/>` +
+    `<path d="M310,196c11,-4 38,-4 48,0c-7,3 -41,3 -48,0z" fill="#a8814c"/>` +
+    `<path d="M308,196c12,-5 40,-5 52,0" stroke="#c99a5c" stroke-width="1.8" fill="none"/>` +
+    person(330, 196, 15, "#5b8fe8") +
+    arm(330, 186, 12, -6) +
+    // ── 水に流れる灯明。**y>170 の中央は隠れないので、ここを使う**
+    diya(158, 200, 1.15) +
+    diya(196, 192, 1) +
+    diya(232, 202, 1.1) +
+    diya(268, 190, 0.9) +
+    diya(140, 186, 0.85) +
+    diya(202, 207, 1.2) +
+    `<g fill="#f5b31c" opacity=".22"><ellipse cx="158" cy="203" rx="12" ry="3.4"/><ellipse cx="232" cy="205" rx="11" ry="3"/><ellipse cx="202" cy="210" rx="13" ry="3.4"/></g>` +
+    // 岸に並べた灯明の盆
+    `<ellipse cx="256" cy="167" rx="15" ry="4.6" fill="#a8813c"/>` +
+    diya(250, 165, 0.7) +
+    diya(262, 166, 0.7),
 
   /** 砂漠の城塞都市。 */
   desertfort:
@@ -278,6 +434,12 @@ export const INDIA_BG = {
     `<ellipse cx="200" cy="180" rx="90" ry="22" fill="#4f8f9f"/>` +
     ripples(176, "#bfe8f4"),
 };
+
+/**
+ * 描き直した背景で上書きする。**同じキーは `bg-rich.mjs` のほうが勝つ。**
+ * 1ファイルが長くなりすぎないよう、描き直したものは別ファイルに置いている。
+ */
+export const INDIA_BG = { ...BASE_BG, ...INDIA_BG_RICH };
 
 // ---------------------------------------------------------------------------
 // シンボル(24×24)
