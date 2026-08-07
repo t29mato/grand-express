@@ -23,6 +23,18 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.13.1",
+    date: "2026-08-07",
+    title: t(
+      "You can see the moment a town changes hands|Se ve el momento en que una ciudad cambia de dueño|On voit le moment où une ville change de mains|町の持ち主が変わる瞬間が見えます",
+    ),
+    highlights: [
+      t(
+        "When a town becomes yours, the ring around it swells once and settles. It happens only on the change, so the board stays calm the rest of the time.|Cuando una ciudad pasa a ser tuya, el anillo se ensancha una vez y se asienta. Solo ocurre en el cambio.|Quand une ville devient vôtre, l'anneau s'élargit une fois puis se pose. Cela n'arrive qu'au changement.|町が自分のものになった瞬間、輪がひと回り広がってから収まります。変わったときだけなので、それ以外は盤面が落ち着いたままです。",
+      ),
+    ],
+  },
+  {
     version: "0.13.0",
     date: "2026-08-07",
     title: t(
