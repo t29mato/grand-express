@@ -23,6 +23,18 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.13.5",
+    date: "2026-08-07",
+    title: t(
+      "A compass in the corner|Una brújula en la esquina|Une boussole dans le coin|方位記号を置きました",
+    ),
+    highlights: [
+      t(
+        "Every board is drawn with north at the top, so there is now a compass in the corner to say so. There is no scale bar — on the world board a single bar would be a lie somewhere, because a degree is not the same length everywhere.|Todos los tableros tienen el norte arriba, y ahora una brújula lo indica. No hay escala: en el mapa mundial una sola barra mentiría en algún punto.|Tous les plateaux ont le nord en haut ; une boussole le rappelle. Pas d\'échelle : sur la carte du monde, une seule barre mentirait quelque part.|どの盤面も北が上なので、それを示す方位記号を隅に置きました。縮尺は出していません。世界一周では緯度によって1度の長さが変わるため、1本の尺だとどこかで嘘になるからです。",
+      ),
+    ],
+  },
+  {
     version: "0.13.4",
     date: "2026-08-07",
     title: t(
