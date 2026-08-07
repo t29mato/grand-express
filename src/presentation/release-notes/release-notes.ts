@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.13.0",
+    date: "2026-08-07",
+    title: t(
+      "The map turns your colour|El mapa se tiñe de tu color|La carte prend votre couleur|地図が自分の色に染まります",
+    ),
+    highlights: [
+      t(
+        "Buying a business used to change nothing on the map — you had to read the numbers on the side. Now a town you own wears a ring in your colour.|Comprar un negocio no cambiaba nada en el mapa. Ahora la ciudad que posees lleva un anillo de tu color.|Acheter un commerce ne changeait rien sur la carte. Désormais une ville qui vous appartient porte un anneau de votre couleur.|物件を買っても地図は何も変わらず、横の数字を読むしかありませんでした。持っている町に自分の色の輪が付くようになりました。",
+      ),
+      t(
+        "Own every business in a town and the ring doubles and thickens — you can spot your monopolies across the whole board at a glance.|Si posees todos los negocios de una ciudad, el anillo se dobla y engrosa: tus monopolios se ven de un vistazo.|Possédez tous les commerces d'une ville et l'anneau double et s'épaissit : vos monopoles se repèrent d'un coup d'œil.|町の物件をすべてそろえると輪が太い二重になります。独占した町が盤面のどこにあっても一目で分かります。",
+      ),
+      t(
+        "Where two travellers own the same number in one town, it stays uncoloured — it would be a lie to paint it as anyone's.|Si dos viajeros tienen lo mismo en una ciudad, esta queda sin color: pintarla de uno sería mentir.|Si deux voyageurs en possèdent autant l'un que l'autre, la ville reste incolore : la peindre serait mentir.|2人が同じ数だけ持っている町には色を付けません。どちらかの色で塗ると、盤面が実際より偏って見えてしまうからです。",
+      ),
+    ],
+  },
+  {
     version: "0.12.1",
     date: "2026-08-07",
     title: t(
