@@ -228,20 +228,19 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
    * 種類は中間マスが持つ `edgeKind` から判定する(都市同士が直接繋がる場合は
    * 中間マスが無いので、相手側から辿れなければ陸路として扱う)。
    */
+  // 曲がり角の丸めの半径。マスの間隔に比例させる(盤面の縮尺が変わっても崩れない)。
+  const cornerRadius = (context.content.projection.segmentLength ?? 64) / 3;
+
   const edges = useMemo(() => {
-    type Line = { x1: number; y1: number; x2: number; y2: number };
-    const rail: Line[] = [];
-    const sea: Line[] = [];
+    const rail: string[] = [];
+    const sea: string[] = [];
     // マスとマスを直接結ぶと、折れ点がそのあいだに来たときに角を斜めに
     // 突っ切ってしまう。経路そのもの(折れ点を通る折れ線)を描く。
     for (const { points, kind } of railPolylines(context, positions)) {
-      const target = kind === "sea" ? sea : rail;
-      for (let i = 0; i < points.length - 1; i++) {
-        target.push({ x1: points[i].x, y1: points[i].y, x2: points[i + 1].x, y2: points[i + 1].y });
-      }
+      (kind === "sea" ? sea : rail).push(roundedPath(points, cornerRadius));
     }
     return { rail, sea };
-  }, [context, positions]);
+  }, [context, positions, cornerRadius]);
 
   /**
    * 町ごとの持ち主。
@@ -323,13 +322,11 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
           <g className="sea-routes">
             {SEA_LAYERS.map((layer, layerIndex) => (
               <g key={layerIndex}>
-                {edges.sea.map((line, i) => (
-                  <line
+                {edges.sea.map((d, i) => (
+                  <path
                     key={i}
-                    x1={line.x1}
-                    y1={line.y1}
-                    x2={line.x2}
-                    y2={line.y2}
+                    d={d}
+                    fill="none"
                     stroke={layer.stroke}
                     strokeWidth={layer.width}
                     strokeLinecap="round"
@@ -342,13 +339,11 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
           </g>
           {RAIL_LAYERS.map((layer, layerIndex) => (
             <g key={layerIndex}>
-              {edges.rail.map((line, i) => (
-                <line
+              {edges.rail.map((d, i) => (
+                <path
                   key={i}
-                  x1={line.x1}
-                  y1={line.y1}
-                  x2={line.x2}
-                  y2={line.y2}
+                  d={d}
+                  fill="none"
                   stroke={layer.stroke}
                   strokeWidth={layer.width}
                   strokeLinecap="round"
@@ -506,6 +501,46 @@ function CityMarker({
       )}
     </>
   );
+}
+
+/**
+ * 折れ線を、角を丸めたパスにする。
+ *
+ * 地下鉄の路線図はどれも角が丸い。直角のまま折れると盤面が硬く見えるので、
+ * 折れ点の手前と先を半径ぶん切り落として、そのあいだを二次曲線でつなぐ。
+ * 脚が短いときは半径を縮める(切り落としすぎて線が消えないように)。
+ */
+function roundedPath(points: readonly { x: number; y: number }[], radius: number): string {
+  if (points.length < 2) return "";
+  const parts = [`M${points[0].x.toFixed(2)},${points[0].y.toFixed(2)}`];
+
+  for (let i = 1; i < points.length - 1; i++) {
+    const previous = points[i - 1];
+    const corner = points[i];
+    const next = points[i + 1];
+    const inLength = Math.hypot(corner.x - previous.x, corner.y - previous.y);
+    const outLength = Math.hypot(next.x - corner.x, next.y - corner.y);
+    if (inLength < 0.01 || outLength < 0.01) continue;
+
+    // 両隣の脚の半分を超えて切らない(隣の折れ点と食い合わないように)。
+    const r = Math.min(radius, inLength / 2, outLength / 2);
+    const enter = {
+      x: corner.x - ((corner.x - previous.x) / inLength) * r,
+      y: corner.y - ((corner.y - previous.y) / inLength) * r,
+    };
+    const leave = {
+      x: corner.x + ((next.x - corner.x) / outLength) * r,
+      y: corner.y + ((next.y - corner.y) / outLength) * r,
+    };
+    parts.push(`L${enter.x.toFixed(2)},${enter.y.toFixed(2)}`);
+    parts.push(
+      `Q${corner.x.toFixed(2)},${corner.y.toFixed(2)} ${leave.x.toFixed(2)},${leave.y.toFixed(2)}`,
+    );
+  }
+
+  const last = points[points.length - 1];
+  parts.push(`L${last.x.toFixed(2)},${last.y.toFixed(2)}`);
+  return parts.join(" ");
 }
 
 /** 中間マス(クイズ/青/赤/カード)のマーカー(legacyの `SQUARE`/`TIER` の描画)。 */
