@@ -5,9 +5,11 @@ import { JsonCountryContentRepository } from "./json-country-content-repository"
 describe("JsonCountryContentRepository", () => {
   const repo = new JsonCountryContentRepository();
 
-  it("ボリビアパックを読み込める(都市30・アイテム9・季節12・厄災7)", async () => {
+  it("ボリビアパックを読み込める(legacyの30都市 + 追加分。アイテム9・季節12・厄災7)", async () => {
     const pack = await repo.load(CountryId("bolivia"));
-    expect(pack.cities.length).toBe(30);
+    // 日本と同じく、都市は継続的に増やしているので下限だけを守る
+    // (上限を固定すると、足すたびに赤くなるだけで何も守れない)。
+    expect(pack.cities.length).toBeGreaterThanOrEqual(30);
     expect(pack.items.length).toBe(9);
     expect(pack.seasons.length).toBe(12);
     expect(pack.doomFlavors.length).toBe(7);

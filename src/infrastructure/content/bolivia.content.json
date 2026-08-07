@@ -2354,6 +2354,246 @@
           "inc": 42
         }
       ]
+    },
+    "challapata": {
+      "n": {
+        "en": "Challapata",
+        "es": "Challapata",
+        "fr": "Challapata",
+        "ja": "チャジャパタ"
+      },
+      "lo": -66.58,
+      "la": -18.9,
+      "mark": "boat",
+      "bg": "altiplano",
+      "reg": "alt",
+      "lp": "r",
+      "tag": {
+        "en": "The shore of a lake that left",
+        "es": "La orilla de un lago que se fue",
+        "fr": "La rive d'un lac qui s'en est allé",
+        "ja": "消えた湖のほとり"
+      },
+      "fact": {
+        "en": "The Desaguadero river drains Lake Titicaca and ends here, at Lake Poopó — it never reaches the sea, so whatever the water carries down stays on the altiplano. That is why this plateau tastes of salt. In 2015 the lake evaporated away entirely, and the fishing families had to leave.",
+        "es": "El río Desaguadero desagua el Titicaca y muere aquí, en el lago Poopó: nunca llega al mar, así que todo lo que arrastra el agua se queda en el altiplano. Por eso esta meseta sabe a sal. En 2015 el lago se evaporó por completo y las familias pescadoras tuvieron que marcharse.",
+        "fr": "Le Desaguadero, émissaire du Titicaca, s'achève ici, au lac Poopó : il n'atteint jamais la mer, et tout ce que l'eau charrie reste sur l'altiplano. D'où le goût de sel de ce plateau. En 2015, le lac s'est entièrement évaporé et les familles de pêcheurs ont dû partir.",
+        "ja": "チチカカ湖から流れ出たデサグアデーロ川は、ここポーポー湖で行き止まりになる。海に届かないので、水が運んできたものはアルティプラーノに残り続ける。この高原が塩の味をしているのはそのためだ。2015年に湖は干上がり、漁で暮らしていた人たちは土地を離れた。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Lakebed Salt Pans",
+            "es": "Salinas del lecho",
+            "fr": "Salines du lit du lac",
+            "ja": "湖底の塩田"
+          },
+          "cost": 210,
+          "inc": 44
+        },
+        {
+          "n": {
+            "en": "Livestock Fair",
+            "es": "Feria de ganado",
+            "fr": "Foire aux bestiaux",
+            "ja": "家畜の市"
+          },
+          "cost": 240,
+          "inc": 50
+        }
+      ]
+    },
+    "chulumani": {
+      "n": {
+        "en": "Chulumani",
+        "es": "Chulumani",
+        "fr": "Chulumani",
+        "ja": "チュルマニ"
+      },
+      "lo": -67.53,
+      "la": -16.41,
+      "mark": "waterfall",
+      "bg": "yungas",
+      "reg": "val",
+      "lp": "r",
+      "tag": {
+        "en": "Terraces of the South Yungas",
+        "es": "Terrazas de los Yungas del sur",
+        "fr": "Terrasses des Yungas du sud",
+        "ja": "南ユンガスの段々畑"
+      },
+      "fact": {
+        "en": "The slopes here are cut into takanas, stone terraces older than the Inca, and they still grow coca. The leaf is legal and everyday in Bolivia — chewed against hunger and altitude, and named in the constitution as part of the country's heritage.",
+        "es": "Las laderas están labradas en takanas, terrazas de piedra anteriores a los incas, y siguen dando coca. La hoja es legal y cotidiana en Bolivia: se mastica contra el hambre y la altura, y la constitución la nombra patrimonio del país.",
+        "fr": "Les pentes sont taillées en takanas, terrasses de pierre antérieures aux Incas, et produisent toujours de la coca. La feuille est légale et quotidienne en Bolivie : mâchée contre la faim et l'altitude, elle est inscrite au patrimoine dans la constitution.",
+        "ja": "斜面はタカナと呼ばれる石積みの段々畑で、インカより古い。いまもコカを育てる。ボリビアでコカの葉は合法で日常のもの。空腹と高地に噛んで備え、憲法に国の遺産として書かれている。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Coca Terrace",
+            "es": "Terraza de coca",
+            "fr": "Terrasse de coca",
+            "ja": "コカの段々畑"
+          },
+          "cost": 240,
+          "inc": 50
+        },
+        {
+          "n": {
+            "en": "Citrus Grove",
+            "es": "Huerto de cítricos",
+            "fr": "Verger d'agrumes",
+            "ja": "柑橘の果樹園"
+          },
+          "cost": 190,
+          "inc": 40
+        }
+      ]
+    },
+    "totora": {
+      "n": {
+        "en": "Totora",
+        "es": "Totora",
+        "fr": "Totora",
+        "ja": "トタラ"
+      },
+      "lo": -65.19,
+      "la": -17.73,
+      "mark": "belltower",
+      "bg": "valley",
+      "reg": "val",
+      "lp": "b",
+      "tag": {
+        "en": "Rebuilt in mud, on purpose",
+        "es": "Reconstruida en adobe, a propósito",
+        "fr": "Rebâtie en adobe, volontairement",
+        "ja": "あえて土で建て直した町"
+      },
+      "fact": {
+        "en": "An earthquake in 1998 brought down much of this colonial town. Rather than rebuild in concrete, Totora was raised again in adobe and tile on the old street plan, and is now a national monument. Its valley grows the ají that colours Bolivian cooking red.",
+        "es": "Un terremoto en 1998 derribó gran parte de esta villa colonial. En vez de hormigón, Totora se rehízo en adobe y teja sobre el trazado antiguo, y hoy es monumento nacional. Su valle cultiva el ají que enrojece la cocina boliviana.",
+        "fr": "Un séisme en 1998 a jeté à bas une grande part de ce bourg colonial. Plutôt que le béton, Totora fut relevée en adobe et tuile sur le plan ancien ; elle est aujourd'hui monument national. Sa vallée cultive l'ají qui rougit la cuisine bolivienne.",
+        "ja": "1998年の地震で植民地時代の町並みの多くが崩れた。コンクリートではなく日干し煉瓦と瓦で、昔の町割りのまま建て直され、いまは国の記念物になっている。谷ではボリビア料理を赤くする唐辛子アヒを育てる。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Adobe Workshop",
+            "es": "Taller de adobe",
+            "fr": "Atelier d'adobe",
+            "ja": "日干し煉瓦の工房"
+          },
+          "cost": 170,
+          "inc": 36
+        },
+        {
+          "n": {
+            "en": "Chilli Drying Yard",
+            "es": "Secadero de ají",
+            "fr": "Séchoir à ají",
+            "ja": "唐辛子の干し場"
+          },
+          "cost": 210,
+          "inc": 44
+        }
+      ]
+    },
+    "punata": {
+      "n": {
+        "en": "Punata",
+        "es": "Punata",
+        "fr": "Punata",
+        "ja": "プナタ"
+      },
+      "lo": -65.83,
+      "la": -17.54,
+      "mark": "cathedral",
+      "bg": "valley",
+      "reg": "val",
+      "lp": "r",
+      "tag": {
+        "en": "A white flag means the chicha is ready",
+        "es": "Bandera blanca: hay chicha",
+        "fr": "Drapeau blanc : la chicha est prête",
+        "ja": "白い旗はチチャができた合図"
+      },
+      "fact": {
+        "en": "Chicha here is maize beer fermented in clay jars, and a white flag on a pole outside means today's batch is ready to drink. The valley is watered by canals dug in colonial times off the Tunari range, which is why so much maize grows this high.",
+        "es": "La chicha es cerveza de maíz fermentada en cántaros de barro, y una bandera blanca en un palo anuncia que la tanda del día ya se puede beber. Canales coloniales traen agua de la cordillera del Tunari: por eso crece tanto maíz a esta altura.",
+        "fr": "La chicha est une bière de maïs fermentée en jarres, et un drapeau blanc sur une perche annonce que la cuvée du jour est prête. Des canaux creusés à l'époque coloniale captent l'eau du Tunari : d'où tant de maïs à cette altitude.",
+        "ja": "チチャはトウモロコシの酒で、素焼きの甕で発酵させる。棒に白い旗が出ていれば、その日のぶんが飲めるという合図。谷は植民地時代に掘られた水路でトゥナリ山群から水を引いており、この高さでトウモロコシが実るのはそのおかげ。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Chicha House",
+            "es": "Chichería",
+            "fr": "Chichería",
+            "ja": "チチャの店"
+          },
+          "cost": 200,
+          "inc": 42
+        },
+        {
+          "n": {
+            "en": "Thursday Market",
+            "es": "Mercado del jueves",
+            "fr": "Marché du jeudi",
+            "ja": "木曜の市"
+          },
+          "cost": 230,
+          "inc": 48
+        }
+      ]
+    },
+    "yacuiba": {
+      "n": {
+        "en": "Yacuiba",
+        "es": "Yacuiba",
+        "fr": "Yacuiba",
+        "ja": "ヤクイバ"
+      },
+      "lo": -63.68,
+      "la": -22.02,
+      "mark": "arch",
+      "bg": "chaco",
+      "reg": "cha",
+      "lp": "l",
+      "tag": {
+        "en": "The line ends at the gas",
+        "es": "La vía termina en el gas",
+        "fr": "La voie s'arrête au gaz",
+        "ja": "線路はガスで終わる"
+      },
+      "fact": {
+        "en": "The railway down from Santa Cruz stops here at the Argentine border. Argentina paid to build it in the 1950s in exchange for Bolivian gas, and the fields around the town still send most of what they pump abroad.",
+        "es": "El ferrocarril que baja de Santa Cruz se detiene aquí, en la frontera argentina. Argentina pagó su construcción en los años cincuenta a cambio de gas boliviano, y los campos de los alrededores siguen enviando fuera casi todo lo que extraen.",
+        "fr": "Le chemin de fer descendu de Santa Cruz s'arrête ici, à la frontière argentine. L'Argentine en paya la construction dans les années 1950 en échange du gaz bolivien, et les gisements alentour expédient encore l'essentiel de leur production à l'étranger.",
+        "ja": "サンタクルスから下ってきた鉄道は、アルゼンチン国境のここで終わる。1950年代にアルゼンチンがボリビアのガスと引き換えに建設費を出した線で、周りのガス田はいまも産出のほとんどを国外へ送っている。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Border Freight Yard",
+            "es": "Patio de carga",
+            "fr": "Gare de fret",
+            "ja": "国境の貨物駅"
+          },
+          "cost": 250,
+          "inc": 52
+        },
+        {
+          "n": {
+            "en": "Chaco Gas Depot",
+            "es": "Depósito de gas",
+            "fr": "Dépôt de gaz",
+            "ja": "チャコのガス基地"
+          },
+          "cost": 280,
+          "inc": 58
+        }
+      ]
     }
   },
   "edges": [
@@ -2504,6 +2744,42 @@
     [
       "villamontes",
       "santacruz"
+    ],
+    [
+      "oruro",
+      "challapata"
+    ],
+    [
+      "challapata",
+      "potosi"
+    ],
+    [
+      "lapaz",
+      "chulumani"
+    ],
+    [
+      "chulumani",
+      "coroico"
+    ],
+    [
+      "cochabamba",
+      "punata"
+    ],
+    [
+      "punata",
+      "totora"
+    ],
+    [
+      "totora",
+      "aiquile"
+    ],
+    [
+      "villamontes",
+      "yacuiba"
+    ],
+    [
+      "yacuiba",
+      "tarija"
     ]
   ],
   "outro": {
@@ -5620,7 +5896,7 @@
     "rubber": "<rect x=\"10.4\" y=\"12\" width=\"3.2\" height=\"12\" fill=\"#7a5230\"/><circle cx=\"12\" cy=\"8\" r=\"7\" fill=\"#2f6b3f\"/><circle cx=\"5.6\" cy=\"11\" r=\"4.2\" fill=\"#3f8046\"/><circle cx=\"18.4\" cy=\"11\" r=\"4.2\" fill=\"#256035\"/><path d=\"M10.4,14l-3.4,3.4\" stroke=\"#e2d8c4\" stroke-width=\"1.2\"/><path d=\"M4.6,17h3.6v3h-3.6z\" fill=\"#e2d8c4\"/>"
   },
   "bg": {
-    "amazon": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"140\" fill=\"#8fd0ea\"/><circle cx=\"330\" cy=\"40\" r=\"17\" fill=\"#f5b31c\"/><g opacity=\".85\" fill=\"#f6efe2\"><ellipse cx=\"110\" cy=\"30\" rx=\"19.8\" ry=\"8.1\"/><ellipse cx=\"99.2\" cy=\"32.7\" rx=\"12.6\" ry=\"6.3\"/><ellipse cx=\"122.6\" cy=\"32.7\" rx=\"14.4\" ry=\"6.3\"/></g><circle cx=\"3\" cy=\"112\" r=\"20\" fill=\"#3f8046\"/><circle cx=\"50\" cy=\"117\" r=\"31\" fill=\"#2f6b3f\"/><circle cx=\"97\" cy=\"122\" r=\"30\" fill=\"#3f8046\"/><circle cx=\"144\" cy=\"115\" r=\"29\" fill=\"#2f6b3f\"/><circle cx=\"191\" cy=\"120\" r=\"28\" fill=\"#3f8046\"/><circle cx=\"238\" cy=\"113\" r=\"27\" fill=\"#2f6b3f\"/><circle cx=\"285\" cy=\"118\" r=\"26\" fill=\"#3f8046\"/><circle cx=\"332\" cy=\"123\" r=\"25\" fill=\"#2f6b3f\"/><circle cx=\"379\" cy=\"116\" r=\"24\" fill=\"#3f8046\"/><circle cx=\"6\" cy=\"121\" r=\"23\" fill=\"#2f6b3f\"/><circle cx=\"53\" cy=\"114\" r=\"22\" fill=\"#3f8046\"/><rect x=\"0\" y=\"140\" width=\"400\" height=\"70\" fill=\"#3f8046\"/><rect x=\"0\" y=\"176\" width=\"400\" height=\"34\" fill=\"#4f8fd8\"/><g stroke=\"#7fb6e8\" stroke-width=\"2\" opacity=\".8\"><path d=\"M20,186h70M240,196h90\"/></g>",
+    "amazon": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"74.9\" fill=\"#9fc9dc\"/><rect x=\"0\" y=\"68.6\" width=\"400\" height=\"37.4\" fill=\"#dbe6dc\"/><circle cx=\"316\" cy=\"34\" r=\"13\" fill=\"#f7e9b0\" opacity=\".8\"/><circle cx=\"316\" cy=\"34\" r=\"24\" fill=\"#f7e9b0\" opacity=\".18\"/><g fill=\"#f6efe2\"><ellipse cx=\"96\" cy=\"24\" rx=\"36\" ry=\"5\" opacity=\".55\"/><ellipse cx=\"66\" cy=\"31\" rx=\"22\" ry=\"3.4\" opacity=\".4\"/><ellipse cx=\"286\" cy=\"20\" rx=\"28\" ry=\"4\" opacity=\".45\"/></g><path d=\"M0,118q22,-14 44,-6q20,8 40,-4q22,-13 46,-2q24,10 44,-6q22,-16 46,-4q24,12 46,-2q22,-13 46,-4q22,9 44,-2q18,-9 44,-4V210H0z\" fill=\"#7f9e88\"/><g fill=\"#e8f0ea\"><ellipse cx=\"130\" cy=\"121\" rx=\"180\" ry=\"11\" opacity=\".26\"/><ellipse cx=\"320\" cy=\"125\" rx=\"140\" ry=\"9\" opacity=\".22\"/></g><ellipse cx=\"28\" cy=\"112\" rx=\"34\" ry=\"17\" fill=\"#4a8a52\"/><ellipse cx=\"16.4\" cy=\"117.8\" rx=\"21.1\" ry=\"12.2\" fill=\"#31693e\"/><ellipse cx=\"42.3\" cy=\"116.4\" rx=\"17\" ry=\"10.5\" fill=\"#31693e\" opacity=\".75\"/><ellipse cx=\"96\" cy=\"104\" rx=\"40\" ry=\"20\" fill=\"#3f8046\"/><ellipse cx=\"82.4\" cy=\"110.8\" rx=\"24.8\" ry=\"14.4\" fill=\"#2b5f39\"/><ellipse cx=\"112.8\" cy=\"109.2\" rx=\"20\" ry=\"12.4\" fill=\"#2b5f39\" opacity=\".75\"/><ellipse cx=\"168\" cy=\"110\" rx=\"36\" ry=\"18\" fill=\"#4a8a52\"/><ellipse cx=\"155.8\" cy=\"116.1\" rx=\"22.3\" ry=\"13\" fill=\"#31693e\"/><ellipse cx=\"183.1\" cy=\"114.7\" rx=\"18\" ry=\"11.2\" fill=\"#31693e\" opacity=\".75\"/><ellipse cx=\"240\" cy=\"102\" rx=\"42\" ry=\"21\" fill=\"#3f8046\"/><ellipse cx=\"225.7\" cy=\"109.1\" rx=\"26\" ry=\"15.1\" fill=\"#2b5f39\"/><ellipse cx=\"257.6\" cy=\"107.5\" rx=\"21\" ry=\"13\" fill=\"#2b5f39\" opacity=\".75\"/><ellipse cx=\"308\" cy=\"110\" rx=\"34\" ry=\"17\" fill=\"#4a8a52\"/><ellipse cx=\"296.4\" cy=\"115.8\" rx=\"21.1\" ry=\"12.2\" fill=\"#31693e\"/><ellipse cx=\"322.3\" cy=\"114.4\" rx=\"17\" ry=\"10.5\" fill=\"#31693e\" opacity=\".75\"/><ellipse cx=\"372\" cy=\"106\" rx=\"38\" ry=\"19\" fill=\"#3f8046\"/><ellipse cx=\"359.1\" cy=\"112.5\" rx=\"23.6\" ry=\"13.7\" fill=\"#2b5f39\"/><ellipse cx=\"388\" cy=\"110.9\" rx=\"19\" ry=\"11.8\" fill=\"#2b5f39\" opacity=\".75\"/><g><path d=\"M58,128v-52\" stroke=\"#4a3a28\" stroke-width=\"2.3\" fill=\"none\"/><path d=\"M58,95.8l-8.3,-5.2M58,91.6l8.8,-4.2\" stroke=\"#4a3a28\" stroke-width=\"1.5\" fill=\"none\"/><ellipse cx=\"58\" cy=\"80.2\" rx=\"17.7\" ry=\"8.3\" fill=\"#28583a\"/><ellipse cx=\"47.6\" cy=\"85.4\" rx=\"10.4\" ry=\"5.7\" fill=\"#28583a\"/><ellipse cx=\"68.9\" cy=\"84.3\" rx=\"9.9\" ry=\"5.2\" fill=\"#28583a\"/></g><g><path d=\"M126,124v-44\" stroke=\"#4a3a28\" stroke-width=\"2\" fill=\"none\"/><path d=\"M126,96.7l-7,-4.4M126,93.2l7.5,-3.5\" stroke=\"#4a3a28\" stroke-width=\"1.2\" fill=\"none\"/><ellipse cx=\"126\" cy=\"83.5\" rx=\"15\" ry=\"7\" fill=\"#28583a\"/><ellipse cx=\"117.2\" cy=\"87.9\" rx=\"8.8\" ry=\"4.8\" fill=\"#28583a\"/><ellipse cx=\"135.2\" cy=\"87\" rx=\"8.4\" ry=\"4.4\" fill=\"#28583a\"/></g><g><path d=\"M330,126v-48\" stroke=\"#4a3a28\" stroke-width=\"2.2\" fill=\"none\"/><path d=\"M330,96.2l-7.7,-4.8M330,92.4l8.2,-3.8\" stroke=\"#4a3a28\" stroke-width=\"1.3\" fill=\"none\"/><ellipse cx=\"330\" cy=\"81.8\" rx=\"16.3\" ry=\"7.7\" fill=\"#28583a\"/><ellipse cx=\"320.4\" cy=\"86.6\" rx=\"9.6\" ry=\"5.3\" fill=\"#28583a\"/><ellipse cx=\"340.1\" cy=\"85.7\" rx=\"9.1\" ry=\"4.8\" fill=\"#28583a\"/></g><g><path d=\"M388,130v-40\" stroke=\"#4a3a28\" stroke-width=\"1.8\" fill=\"none\"/><path d=\"M388,105.2l-6.4,-4M388,102l6.8,-3.2\" stroke=\"#4a3a28\" stroke-width=\"1.1\" fill=\"none\"/><ellipse cx=\"388\" cy=\"93.2\" rx=\"13.6\" ry=\"6.4\" fill=\"#28583a\"/><ellipse cx=\"380\" cy=\"97.2\" rx=\"8\" ry=\"4.4\" fill=\"#28583a\"/><ellipse cx=\"396.4\" cy=\"96.4\" rx=\"7.6\" ry=\"4\" fill=\"#28583a\"/></g><g><path d=\"M20,150Q21.6,125.8 24,106\" stroke=\"#6b5638\" stroke-width=\"2.4\" fill=\"none\"/><path d=\"M24,106Q13.4,97.6 5.5,98.7\" stroke=\"#2f6b3f\" stroke-width=\"1.8\" fill=\"none\"/><path d=\"M20.3,103.3l-1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M16.6,101l-1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M12.9,99.6l-1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M9.2,98.9l-1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M24,106Q13.4,102.8 5.5,105.3\" stroke=\"#2f6b3f\" stroke-width=\"1.8\" fill=\"none\"/><path d=\"M20.3,104.6l-1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M16.6,103.6l-1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M12.9,103.5l-1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M9.2,104.2l-1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M24,106Q16.6,107.1 11.1,110.6\" stroke=\"#2f6b3f\" stroke-width=\"1.8\" fill=\"none\"/><path d=\"M21.4,105.6l-1.2,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M18.8,105.8l-1.2,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M16.2,106.7l-1.2,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M13.7,108.4l-1.2,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M24,106Q34.6,97.6 42.5,98.7\" stroke=\"#2f6b3f\" stroke-width=\"1.8\" fill=\"none\"/><path d=\"M27.7,103.3l1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M31.4,101l1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M35.1,99.6l1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M38.8,98.9l1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M24,106Q34.6,102.8 42.5,105.3\" stroke=\"#2f6b3f\" stroke-width=\"1.8\" fill=\"none\"/><path d=\"M27.7,104.6l1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M31.4,103.6l1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M35.1,103.5l1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M38.8,104.2l1.8,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M24,106Q31.4,107.1 36.9,110.6\" stroke=\"#2f6b3f\" stroke-width=\"1.8\" fill=\"none\"/><path d=\"M26.6,105.6l1.2,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M29.2,105.8l1.2,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M31.8,106.7l1.2,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M34.3,108.4l1.2,3.1\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/></g><g><path d=\"M356,152Q354,131.1 351,114\" stroke=\"#6b5638\" stroke-width=\"2.1\" fill=\"none\"/><path d=\"M351,114Q341.9,106.7 335,107.7\" stroke=\"#2f6b3f\" stroke-width=\"1.8\" fill=\"none\"/><path d=\"M347.8,111.6l-1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M344.6,109.7l-1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M341.4,108.4l-1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M338.2,107.9l-1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M351,114Q341.9,111.3 335,113.4\" stroke=\"#2f6b3f\" stroke-width=\"1.8\" fill=\"none\"/><path d=\"M347.8,112.8l-1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M344.6,112l-1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M341.4,111.9l-1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M338.2,112.4l-1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M351,114Q344.6,114.9 339.8,118\" stroke=\"#2f6b3f\" stroke-width=\"1.8\" fill=\"none\"/><path d=\"M348.8,113.7l-1.1,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M346.5,113.8l-1.1,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M344.3,114.6l-1.1,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M342.1,116.1l-1.1,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M351,114Q360.1,106.7 367,107.7\" stroke=\"#2f6b3f\" stroke-width=\"1.8\" fill=\"none\"/><path d=\"M354.2,111.6l1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M357.4,109.7l1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M360.6,108.4l1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M363.8,107.9l1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M351,114Q360.1,111.3 367,113.4\" stroke=\"#2f6b3f\" stroke-width=\"1.8\" fill=\"none\"/><path d=\"M354.2,112.8l1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M357.4,112l1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M360.6,111.9l1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M363.8,112.4l1.5,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M351,114Q357.4,114.9 362.2,118\" stroke=\"#2f6b3f\" stroke-width=\"1.8\" fill=\"none\"/><path d=\"M353.2,113.7l1.1,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M355.5,113.8l1.1,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M357.7,114.6l1.1,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M359.9,116.1l1.1,2.7\" stroke=\"#3f8046\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/></g><path d=\"M0,132q40,10 84,4q46,-6 92,6q48,10 96,-4q44,-12 88,4q22,6 40,2V210H0z\" fill=\"#2b5f39\"/><path d=\"M0,150q54,-6 108,2q52,8 104,-2v18H0z\" fill=\"#6f8a4e\"/><g><g stroke=\"#5c4632\" stroke-width=\"2\"><path d=\"M18,143.7v8.3M44,143.7v8.3M31,143.7v8.3\"/></g><rect x=\"16\" y=\"132.3\" width=\"30\" height=\"11.4\" fill=\"#e0cfae\"/><path d=\"M12.4,132.3h37.2l-4.2,-6.8h-28.8z\" fill=\"#8a5a3a\"/><rect x=\"26.8\" y=\"135.9\" width=\"7.2\" height=\"7.8\" fill=\"#5c4632\"/></g><g><g stroke=\"#5c4632\" stroke-width=\"2\"><path d=\"M58,147v7M80,147v7M69,147v7\"/></g><rect x=\"56\" y=\"137.3\" width=\"26\" height=\"9.7\" fill=\"#e0cfae\"/><path d=\"M52.9,137.3h32.2l-3.6,-5.7h-25z\" fill=\"#7a7f84\"/><rect x=\"65.4\" y=\"140.4\" width=\"6.2\" height=\"6.6\" fill=\"#5c4632\"/></g><g><g stroke=\"#5c4632\" stroke-width=\"2\"><path d=\"M98,145.3v7.7M122,145.3v7.7M110,145.3v7.7\"/></g><rect x=\"96\" y=\"134.7\" width=\"28\" height=\"10.6\" fill=\"#e0cfae\"/><path d=\"M92.6,134.7h34.7l-3.9,-6.2h-26.9z\" fill=\"#8a5a3a\"/><rect x=\"106.1\" y=\"138.1\" width=\"6.7\" height=\"7.2\" fill=\"#5c4632\"/></g><path d=\"M52,166h58v4H52z\" fill=\"#8a6a44\"/><g stroke=\"#5c4632\" stroke-width=\"2\"><path d=\"M60,170v8M84,170v9M106,170v8\"/></g><path d=\"M0,166q100,-5 200,1q100,6 200,-3v46H0z\" fill=\"#7d7a5c\"/><path d=\"M0,166q100,-5 200,1q100,6 200,-3v10q-100,8 -200,2q-100,-6 -200,1z\" fill=\"#41563d\" opacity=\".8\"/><path d=\"M0,182q104,-4 202,2q98,6 198,-3v29H0z\" fill=\"#6e6b4f\"/><path d=\"M0,197q106,-3 204,2q96,5 196,-2v13H0z\" fill=\"#5f5d44\"/><g fill=\"#aebfbc\" opacity=\".22\"><ellipse cx=\"86\" cy=\"186\" rx=\"70\" ry=\"7\"/><ellipse cx=\"300\" cy=\"196\" rx=\"84\" ry=\"8\"/></g><path d=\"M18,176h46M96,176h30M186,176h52M268,176h44M340,176h44\" stroke=\"#e2d6ac\" stroke-width=\"1.8\" opacity=\".7\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M8,188h40M72,188h46M176,188h18M232,188h20M318,188h52\" stroke=\"#dccfa2\" stroke-width=\"1.8\" opacity=\".6\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M26,200h44M104,200h48M190,200h46M306,200h10M348,200h40\" stroke=\"#d2c496\" stroke-width=\"1.8\" opacity=\".52\" stroke-linecap=\"round\" fill=\"none\"/><g><path d=\"M130,184.5q21,4 42,0q-21,6 -42,0z\" fill=\"#3f3524\" opacity=\".28\"/><g><path d=\"M136,159.1h30l-2.5,-5.9h-25z\" fill=\"#c9a86a\"/><g stroke=\"#5c4632\" stroke-width=\"1.4\"><path d=\"M138,159.1v13.7M164,159.1v13.7\"/></g></g><path d=\"M126,176q25,14.3 50,0q-25,-4.5 -50,0z\" fill=\"#8a6a44\"/><path d=\"M131,177q20,5.9 40,0q-20,-3.2 -40,0z\" fill=\"#c9ab7c\"/><path d=\"M126,176q25,-4.5 50,0\" stroke=\"#4a3826\" stroke-width=\"1.6\" fill=\"none\"/></g><g><rect x=\"170\" y=\"163\" width=\"4\" height=\"10\" fill=\"#2f6b7f\"/><circle cx=\"172\" cy=\"160\" r=\"3.2\" fill=\"#c98d5f\"/><path d=\"M175,162l10,-9\" stroke=\"#8a6a44\" stroke-width=\"1.8\" stroke-linecap=\"round\" fill=\"none\"/></g><g><path d=\"M256.3,199q22.7,4 45.4,0q-22.7,6 -45.4,0z\" fill=\"#3f3524\" opacity=\".28\"/><path d=\"M252,190q27,15.4 54,0q-27,-4.9 -54,0z\" fill=\"#7a5c3c\"/><path d=\"M257.4,191.1q21.6,6.3 43.2,0q-21.6,-3.5 -43.2,0z\" fill=\"#c9ab7c\"/><path d=\"M252,190q27,-4.9 54,0\" stroke=\"#4a3826\" stroke-width=\"1.6\" fill=\"none\"/></g><g><rect x=\"292\" y=\"177\" width=\"4\" height=\"10\" fill=\"#c4452f\"/><circle cx=\"294\" cy=\"174\" r=\"3.2\" fill=\"#c98d5f\"/><path d=\"M290,176l-11,-8\" stroke=\"#8a6a44\" stroke-width=\"1.8\" stroke-linecap=\"round\" fill=\"none\"/></g><path d=\"M0,210v-40q30,4 54,14q26,10 40,26z\" fill=\"#9c8258\"/><path d=\"M0,210v-28q26,4 46,14q20,10 30,14z\" fill=\"#7a6442\"/><g fill=\"#c9b48a\"><ellipse cx=\"26\" cy=\"192\" rx=\"10\" ry=\"7\"/><ellipse cx=\"44\" cy=\"198\" rx=\"9\" ry=\"6.5\"/><ellipse cx=\"16\" cy=\"202\" rx=\"9\" ry=\"6\"/></g><g stroke=\"#9c8258\" stroke-width=\"1.2\" fill=\"none\"><path d=\"M20,187q6,-3 12,0M38,193q6,-3 11,0M10,197q6,-3 11,0\"/></g><g><rect x=\"62\" y=\"188\" width=\"5\" height=\"14\" fill=\"#3f5f2f\"/><rect x=\"69\" y=\"188\" width=\"5\" height=\"14\" fill=\"#3f5f2f\"/><path d=\"M60,180h16l2,10h-20z\" fill=\"#e8dcc0\"/><circle cx=\"68\" cy=\"175\" r=\"5\" fill=\"#c98d5f\"/><ellipse cx=\"68\" cy=\"168\" rx=\"9\" ry=\"4\" fill=\"#c9b48a\"/></g><ellipse cx=\"112\" cy=\"204\" rx=\"16\" ry=\"3\" fill=\"#000\" opacity=\".22\"/><g><circle cx=\"102\" cy=\"200\" r=\"6\" fill=\"#33302b\"/><circle cx=\"124\" cy=\"200\" r=\"6\" fill=\"#33302b\"/><path d=\"M100,200l8,-12h12l6,12z\" fill=\"#c4452f\"/><path d=\"M108,188l-4,-7\" stroke=\"#5c4632\" stroke-width=\"2\" stroke-linecap=\"round\" fill=\"none\"/><rect x=\"110\" y=\"176\" width=\"5\" height=\"12\" fill=\"#2f6b7f\"/><circle cx=\"112\" cy=\"172\" r=\"4.2\" fill=\"#c98d5f\"/></g><g><path d=\"M364,210v-17\" stroke=\"#5f7f3a\" stroke-width=\"3.5\" fill=\"none\"/><path d=\"M364,193Q349,181.3 341,189.3Q350,191.3 364,195z\" fill=\"#4f8a3c\"/><path d=\"M364,194Q349,186.3 341,189.3\" stroke=\"#3a6b2c\" stroke-width=\"1.2\" fill=\"none\"/><path d=\"M364,193Q351.3,190 344.5,198Q352.1,200 364,195z\" fill=\"#4f8a3c\"/><path d=\"M364,194Q351.3,195 344.5,198\" stroke=\"#3a6b2c\" stroke-width=\"1.2\" fill=\"none\"/><path d=\"M364,193Q379,180 387,188Q378,190 364,195z\" fill=\"#4f8a3c\"/><path d=\"M364,194Q379,185 387,188\" stroke=\"#3a6b2c\" stroke-width=\"1.2\" fill=\"none\"/><path d=\"M364,193Q377.5,189.5 384.7,197.5Q376.6,199.5 364,195z\" fill=\"#4f8a3c\"/><path d=\"M364,194Q377.5,194.5 384.7,197.5\" stroke=\"#3a6b2c\" stroke-width=\"1.2\" fill=\"none\"/><path d=\"M364,193Q365.5,171.3 366.3,179.3Q365.4,181.3 364,195z\" fill=\"#4f8a3c\"/><path d=\"M364,194Q365.5,176.3 366.3,179.3\" stroke=\"#3a6b2c\" stroke-width=\"1.2\" fill=\"none\"/></g><path d=\"M0,210q18,-14 12,-30q22,10 26,30z\" fill=\"#2b5f39\"/>",
     "savanna": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"116\" fill=\"#a8d8f0\"/><g opacity=\".85\" fill=\"#f6efe2\"><ellipse cx=\"80\" cy=\"30\" rx=\"24.200000000000003\" ry=\"9.9\"/><ellipse cx=\"66.8\" cy=\"33.3\" rx=\"15.400000000000002\" ry=\"7.700000000000001\"/><ellipse cx=\"95.4\" cy=\"33.3\" rx=\"17.6\" ry=\"7.700000000000001\"/></g><g opacity=\".85\" fill=\"#f6efe2\"><ellipse cx=\"260\" cy=\"22\" rx=\"17.6\" ry=\"7.2\"/><ellipse cx=\"250.4\" cy=\"24.4\" rx=\"11.200000000000001\" ry=\"5.6000000000000005\"/><ellipse cx=\"271.2\" cy=\"24.4\" rx=\"12.8\" ry=\"5.6000000000000005\"/></g><circle cx=\"52\" cy=\"40\" r=\"16\" fill=\"#f5b31c\"/><rect x=\"0\" y=\"114\" width=\"400\" height=\"96\" fill=\"#8fbf62\"/><rect x=\"0\" y=\"152\" width=\"400\" height=\"58\" fill=\"#7cae52\"/><g fill=\"none\" stroke=\"#5b9fe0\" stroke-width=\"7\" opacity=\".85\"><path d=\"M-10,140C80,132 160,150 250,138C310,130 370,140 410,134\"/><path d=\"M-10,186C90,178 180,194 280,182C340,174 380,182 410,178\"/></g>",
     "chaco": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"116\" fill=\"#f2c98a\"/><rect x=\"0\" y=\"0\" width=\"400\" height=\"50\" fill=\"#eeb96a\"/><circle cx=\"316\" cy=\"44\" r=\"20\" fill=\"#f5d38a\"/><rect x=\"0\" y=\"114\" width=\"400\" height=\"96\" fill=\"#b8a95e\"/><rect x=\"0\" y=\"150\" width=\"400\" height=\"60\" fill=\"#a89a52\"/><path d=\"M24,150 v-34 M24,126 l-11,-9 M24,132 l11,-11\" stroke=\"#6f7a3a\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M82,163 v-34 M82,139 l-11,-9 M82,145 l11,-11\" stroke=\"#6f7a3a\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M140,156 v-34 M140,132 l-11,-9 M140,138 l11,-11\" stroke=\"#6f7a3a\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M198,169 v-34 M198,145 l-11,-9 M198,151 l11,-11\" stroke=\"#6f7a3a\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M256,162 v-34 M256,138 l-11,-9 M256,144 l11,-11\" stroke=\"#6f7a3a\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M314,155 v-34 M314,131 l-11,-9 M314,137 l11,-11\" stroke=\"#6f7a3a\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M372,168 v-34 M372,144 l-11,-9 M372,150 l11,-11\" stroke=\"#6f7a3a\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/>",
     "pantanal": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"116\" fill=\"#f0a05a\"/><rect x=\"0\" y=\"0\" width=\"400\" height=\"50\" fill=\"#e8834a\"/><circle cx=\"300\" cy=\"92\" r=\"26\" fill=\"#f5d38a\"/><rect x=\"0\" y=\"114\" width=\"400\" height=\"96\" fill=\"#c9713f\"/><rect x=\"0\" y=\"150\" width=\"400\" height=\"60\" fill=\"#a85a35\"/><g stroke=\"#f5d38a\" stroke-width=\"2\" opacity=\".5\"><path d=\"M230,132h100M170,152h80M270,172h90\"/></g><g><path d=\"M40,206c0,-26 -8,-42 -4,-60M58,206c0,-24 8,-40 4,-58M76,206c0,-22 8,-36 6,-54\" stroke=\"#4a6b3a\" stroke-width=\"5\" fill=\"none\"/></g>",
