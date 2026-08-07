@@ -14,6 +14,7 @@ import { JAPAN_HOKKAIDO_CITIES, JAPAN_HOKKAIDO_EDGES } from "./japan-hokkaido.mj
 import { JAPAN_MONEY_EVENTS } from "./money-events-japan.mjs";
 import { JAPAN_REMOVED_EDGES } from "./japan-line-pruning.mjs";
 import { BOLIVIA_MONEY_EVENTS } from "./money-events-bolivia.mjs";
+import { ITEM_TEXT } from "./item-text.mjs";
 import {
   JAPAN_EXTRA_CITIES,
   JAPAN_EXTRA_EDGES,
@@ -47,7 +48,15 @@ const CITY_COORDS = {
     // グアヤラメリンはマモレ川沿いのブラジル国境の町(10°49'S 65°21'W)。
     guayaramerin: { lo: -65.35, la: -10.82 },
     // ビジャソンはアルゼンチン国境の町(22°06'S 65°36'W)。
-    villazon: { lo: -65.6, la: -22.1 },
+    // 国境の折れがちょうどこの緯度を通るため、線がアルゼンチン側へ出ないよう
+    // わずかに北へ寄せてある。
+    villazon: { lo: -65.6, la: -22.02 },
+    // ウユニは 20°28'S 66°50'W。legacy の値は0.4度ほど西にずれており、
+    // サハマからの線がチリ側へはみ出す原因になっていた。
+    uyuni: { lo: -66.83, la: -20.46 },
+    // コビハは 11°01'S 68°45'W。legacy の値は西に寄りすぎていて、
+    // リベラルタへの線がブラジル側へ出ていた。
+    cobija: { lo: -68.85, la: -11.1 },
   },
 };
 
@@ -56,10 +65,14 @@ const CITY_COORDS = {
  *
  * お守り系(quiz-save)は「クイズに外したときの損失を肩代わりする」だけで、
  * 損失は最大147。340では**どう転んでも損**なので、割に合う値に下げる。
+ *
+ * 移動アイテム(エケコ人形・飛行機)は560だった。目的地へ確実に着けた頃の値段で、
+ * いまは向きが選べない(遠ざかることもある)ので、思い通りに動ける
+ * サイコロ2個振り(360)より安い240に下げる。
  */
 const ITEM_PRICES = {
-  bolivia: { pacha: 130 },
-  japan: { daruma: 130 },
+  bolivia: { pacha: 130, ekeko: 240 },
+  japan: { daruma: 130, hikouki: 240 },
 };
 
 const PROJ_BOUNDS = {
@@ -73,6 +86,7 @@ const OVERRIDES = {
     land: BOLIVIA_LAND,
     cityCoords: CITY_COORDS.bolivia,
     itemPrices: ITEM_PRICES.bolivia,
+    itemText: ITEM_TEXT.bolivia,
     moneyEvents: BOLIVIA_MONEY_EVENTS,
     boardScale: BOARD_SCALE.bolivia,
     quizDifficulty: QUIZ_DIFFICULTY.bolivia,
@@ -82,8 +96,24 @@ const OVERRIDES = {
     boardScale: BOARD_SCALE.japan,
     projBounds: PROJ_BOUNDS.japan,
     itemPrices: ITEM_PRICES.japan,
+    itemText: ITEM_TEXT.japan,
     moneyEvents: JAPAN_MONEY_EVENTS,
     removedEdges: JAPAN_REMOVED_EDGES,
+    // 金沢—新潟は途中の富山を素通りする長距離線で、縦・横・45度で引くと
+    // 富山湾を丸ごと横切り、204pxにわたって海の上を走っていた。
+    // 北陸本線の実際の順路どおり、富山から新潟へつなぎ替える。
+    //
+    // つなぎ替えるだけでは直らない。経路が「先に斜めへ折れるか」は**並び順の偶奇**で
+    // 決まっていて、この位置(奇数番目)だと日本海へ張り出す向きになるためで、
+    // 実測でも 214px 残った。そこで、**どちらの折れ方でも陸に収まる**
+    // 松本—名古屋と場所を入れ替えている(下2行はその入れ替え)。
+    rewiredEdges: [
+      { from: ["matsumoto", "nagoya"], to: ["toyama", "niigata"] },
+      { from: ["kanazawa", "niigata"], to: ["matsumoto", "nagoya"] },
+    ],
+    // 鹿児島—那覇は legacy では陸路になっているが、あいだは650kmの東シナ海で
+    // 鉄道は無い(実際に通っているのは鹿児島—奄美—那覇のフェリー)。
+    edgeKinds: [["kagoshima", "naha", "sea"]],
     terrain: JAPAN_TERRAIN,
     extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES, ...JAPAN_ISLAND_CITIES, ...JAPAN_HOKKAIDO_CITIES },
     extraEdges: [...JAPAN_EXTRA_EDGES, ...JAPAN_PREFECTURE_EDGES, ...JAPAN_ISLAND_EDGES, ...JAPAN_HOKKAIDO_EDGES],
@@ -181,6 +211,15 @@ export function applyContentOverrides(countryId, content) {
     }
   }
 
+  if (override.itemText && content.items) {
+    for (const [key, fields] of Object.entries(override.itemText)) {
+      if (!content.items[key]) {
+        throw new Error(`${countryId}: 文言を変えようとしたアイテム "${key}" がありません`);
+      }
+      content.items[key] = { ...content.items[key], ...fields };
+    }
+  }
+
   if (override.extraCities) {
     for (const [id, city] of Object.entries(override.extraCities)) {
       if (content.cities[id]) {
@@ -208,8 +247,57 @@ export function applyContentOverrides(countryId, content) {
     }
   }
 
+  // 路線のつなぎ替え。**並び順を変えずに、端の町だけ差し替える。**
+  // 消して足し直すと後ろ全部の添字がずれるため(下の edgeKinds と同じ理由)。
+  if (override.rewiredEdges) {
+    for (const { from, to } of override.rewiredEdges) {
+      const [a, b] = from;
+      const edge = content.edges.find(
+        ([x, y]) => (x === a && y === b) || (x === b && y === a),
+      );
+      if (!edge) {
+        throw new Error(`${countryId}: つなぎ替えようとした路線 ${a}-${b} がありません`);
+      }
+      for (const id of to) {
+        if (!content.cities[id]) {
+          throw new Error(`${countryId}: 路線が存在しない都市 "${id}" を指しています`);
+        }
+      }
+      edge[0] = to[0];
+      edge[1] = to[1];
+    }
+  }
+
+  // 陸路 ↔ 航路の付け替え。**並び順を変えずに種類だけ差し替える。**
+  // いったん消して足し直すと、その路線より後ろの全部の添字がずれる。添字の偶奇は
+  // 経路の折れる向きを決めているので、関係のない路線の引き方まで変わってしまう。
+  if (override.edgeKinds) {
+    for (const [a, b, kind] of override.edgeKinds) {
+      const edge = content.edges.find(
+        ([x, y]) => (x === a && y === b) || (x === b && y === a),
+      );
+      if (!edge) {
+        throw new Error(`${countryId}: 種類を変えようとした路線 ${a}-${b} がありません`);
+      }
+      edge.length = 2;
+      if (kind) edge.push(kind);
+    }
+  }
+
   // 路線の削除は**追加のあと**に行う。外したい路線には、この上書き層で
   // 足したもの(例: 名古屋—静岡)も含まれるため。
+  //
+  // ⚠ **路線を増やす・減らすと、無関係な路線の形まで変わる。**
+  //   経路が「先に斜めへ折れるか」(`use-board-layout.ts` の `diagonalFirst`)は
+  //   **並び順の偶奇** `edgeIndex % 2` で決まっている。途中の1本を消すと、
+  //   それより後ろ全部の添字が1ずれて折れ方が裏返る。
+  //   日本で1本消したとき、81本ぶんの添字がずれ、海の上を通る線の長さが
+  //   470px → 899px に増えた(実測)。マスの種類も `h32(edgeIndex * 97 + k)` で
+  //   決まっているので、同時に並びかたが変わる。
+  //
+  //   なので「この路線だけ直したい」ときは、消して足し直すのではなく
+  //   **並び順を保つ** `rewiredEdges`(つなぎ先)/ `edgeKinds`(陸路↔航路)を使うこと。
+  //   増減が必要なときは、直したあとに必ず盤面全体を数え直すこと。
   if (override.removedEdges && content.edges) {
     for (const [a, b] of override.removedEdges) {
       const before = content.edges.length;

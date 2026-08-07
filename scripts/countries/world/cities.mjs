@@ -539,17 +539,20 @@ export const WORLD_EDGES = [
   ["amsterdam", "prague"],
   ["prague", "vienna"],
   ["prague", "stockholm"],
+  // ↓ このあと何本か並びを入れ替えてある。経路が先に斜めへ折れるかは
+  //    **並び順の偶奇**で決まるので、順番を変えると線の形が変わる。
+  //    海の上を通っていた線を、隣とだけ入れ替えて陸に乗せている。
   ["stockholm", "moscow"],
   ["vienna", "rome"],
   ["vienna", "istanbul"],
   ["rome", "athens", "sea"],
-  ["barcelona", "lisbon"],
   ["athens", "istanbul"],
+  ["barcelona", "lisbon"], // 入れ替え済み(31px → 0px)
   ["istanbul", "moscow"],
 
   // ヨーロッパから陸続きの東へ(オリエント急行・シベリア鉄道)
-  ["istanbul", "jerusalem"],
   ["moscow", "samarkand"],
+  ["istanbul", "jerusalem"], // 入れ替え済み(59px → 0px)
   ["moscow", "ulaanbaatar"],
 
   // ヨーロッパ ↔ アフリカ
@@ -570,8 +573,8 @@ export const WORLD_EDGES = [
   ["dakar", "timbuktu"],
   ["timbuktu", "lagos"],
   ["lagos", "capetown", "sea"],
+  ["cairo", "addisababa"], // 入れ替え済み(27px → 0px)
   ["cairo", "jerusalem"],
-  ["cairo", "addisababa"],
   ["addisababa", "nairobi"],
   ["nairobi", "zanzibar", "sea"],
   ["nairobi", "capetown"],
@@ -585,7 +588,9 @@ export const WORLD_EDGES = [
   ["isfahan", "samarkand"],
   ["samarkand", "delhi"],
   ["delhi", "mumbai"],
-  ["delhi", "bangkok"],
+  // デリー—バンコクはインドとミャンマーのあいだで線路が繋がっておらず、
+  // 陸路として引くとベンガル湾を横切る。航路にする。
+  ["delhi", "bangkok", "sea"],
   ["dubai", "mumbai", "sea"],
   ["mumbai", "singapore", "sea"],
   ["bangkok", "singapore"],
@@ -616,19 +621,21 @@ export const WORLD_EDGES = [
   // 北アメリカ
   ["honolulu", "sanfrancisco", "sea"],
   ["honolulu", "vancouver", "sea"],
-  ["vancouver", "sanfrancisco"],
   ["vancouver", "chicago"],
+  ["vancouver", "sanfrancisco"], // 入れ替え済み(17px → 0px)
+  ["sanfrancisco", "mexicocity"], // 入れ替え済み(118px → 0px)
   ["sanfrancisco", "chicago"],
-  ["sanfrancisco", "mexicocity"],
   ["chicago", "toronto"],
   ["chicago", "neworleans"],
+  ["newyork", "neworleans"], // 入れ替え済み(42px → 0px)
   ["toronto", "newyork"],
-  ["newyork", "neworleans"],
   ["neworleans", "havana", "sea"],
   ["havana", "mexicocity", "sea"],
 
   // 北アメリカ ↔ 南アメリカ
-  ["mexicocity", "cartagena"],
+  // メキシコシティ—カルタヘナはダリエン地峡で道が途切れており、鉄道は無い。
+  // 縦・横・45度ではどちらの折れ方でも191pxカリブ海の上を走るので航路にする。
+  ["mexicocity", "cartagena", "sea"],
   ["havana", "cartagena", "sea"],
 
   // 南アメリカ
@@ -637,9 +644,9 @@ export const WORLD_EDGES = [
   ["manaus", "lima"],
   ["manaus", "salvador", "sea"],
   ["lima", "cusco"],
+  ["salvador", "rio"], // 入れ替え済み(52px → 0px)
+  ["rio", "buenosaires"], // 入れ替え済み(177px → 8px)
   ["cusco", "buenosaires"],
-  ["salvador", "rio"],
-  ["rio", "buenosaires"],
   ["buenosaires", "ushuaia", "sea"],
   ["ushuaia", "lima", "sea"],
 ];

@@ -52,8 +52,10 @@ export const JAPAN_HOKKAIDO_CITIES = {
   },
   muroran: {
     n: t("Muroran|Muroran|Muroran|室蘭"),
-    lo: 140.97,
-    la: 42.32,
+    // 絵鞆岬の鉤形の先(140.97, 42.32)に置くとマーカーの押し離しで海へ出る。
+    // 市街の中心である東室蘭側に寄せてある。
+    lo: 141.02,
+    la: 42.35,
     mark: "steam",
     bg: "port",
     reg: "nor",
@@ -171,8 +173,10 @@ export const JAPAN_HOKKAIDO_CITIES = {
   },
   noboribetsu: {
     n: t("Noboribetsu|Noboribetsu|Noboribetsu|登別"),
-    lo: 141.15,
-    la: 42.45,
+    // 室蘭と近すぎると、押し離しで室蘭が噴火湾へ押し出される。
+    // 温泉街のある内陸側(北東)に取ってある。
+    lo: 141.22,
+    la: 42.48,
     mark: "onsen",
     bg: "volcano",
     reg: "nor",

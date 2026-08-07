@@ -445,7 +445,8 @@ export const INDIA_CITIES = {
   ),
   chennai: city(
     "Chennai|Chennai|Chennai|チェンナイ",
-    80.27, 13.08, "sou", "gopuramark", "megacity", "r",
+    // 岸ちょうどに置くと、マーカーの押し離しで海側へ出てしまう。少し内陸に寄せる。
+    80.18, 13.08, "sou", "gopuramark", "megacity", "r",
     "The first English foothold in India|El primer asentamiento inglés en la India|Le premier comptoir anglais en Inde|英国最初の拠点",
     "The East India Company bought a strip of sand here in 1639 and built Fort St George, the first English settlement in India. The city's beach is one of the longest urban beaches in the world.|La Compañía de las Indias compró aquí una franja de arena en 1639 y alzó Fort St George, el primer asentamiento inglés en la India. Su playa urbana es de las más largas del mundo.|La Compagnie des Indes acheta ici une bande de sable en 1639 et bâtit Fort St George, premier établissement anglais en Inde. Sa plage urbaine est l'une des plus longues du monde.|東インド会社は1639年にここの砂州を買い、インド最初の英国人居留地セント・ジョージ砦を築いた。市の浜は世界有数の長さを持つ都市の砂浜である。",
     [prop("Fort Trading House|Casa de comercio|Comptoir du fort|砦の商館", 310, 64),
@@ -564,8 +565,10 @@ export const INDIA_EDGES = [
   ["jodhpur", "bikaner"],
   ["jodhpur", "udaipur"],
   ["udaipur", "ahmedabad"],
-  ["ahmedabad", "bhuj"],
+  // ドワールカー行きは、この並び順だと経路がカッチ湾を斜めに横切る。
+  // 順を入れ替えて、サウラーシュトラ半島を横に抜ける引き方にする。
   ["ahmedabad", "dwarka"],
+  ["ahmedabad", "bhuj"],
   ["ahmedabad", "surat"],
   ["ahmedabad", "indore"],
   ["surat", "mumbai"],
@@ -597,7 +600,10 @@ export const INDIA_EDGES = [
   ["pondicherry", "mahabalipuram"],
   ["mahabalipuram", "chennai"],
   ["chennai", "bengaluru"],
-  ["chennai", "visakhapatnam"],
+  // チェンナイ〜ヴィシャーカパトナムは、実際の東海岸本線が内陸のヴィジャヤワーダを
+  // 大きく迂回する。縦・横・45度で引くと必ずベンガル湾を横切ってしまうので、
+  // ここは沿岸航路として扱う(どちらも大きな港町)。
+  ["chennai", "visakhapatnam", "sea"],
   ["visakhapatnam", "puri"],
   ["puri", "bhubaneswar"],
   ["bhubaneswar", "kolkata"],
