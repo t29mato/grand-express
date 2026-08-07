@@ -131,6 +131,21 @@ export function applyContentOverrides(countryId, content) {
   if (!override) return content;
 
   if (override.land) content.land = override.land;
+
+  /**
+   * 都市の背景の差し替え。
+   *
+   * legacy由来の国(ボリビア・日本)は背景も legacy に書かれているが、
+   * `legacy/grand-express.html` は凍結しているので直接は直せない。
+   * ここでキーごとに上書きする(全部を置き換えるのではなく、書いたものだけ)。
+   *
+   * **背景の中央25%は都市のシンボルに隠れる**(x=151〜249 / y=54〜152。
+   * `city-art.tsx` が s=4.1 / gy=152 で描くため)。細部は左右3分の1と
+   * 手前に置くこと。中央に主役を置くと、そのぶん見えない。
+   */
+  if (override.bg && content.bg) {
+    for (const [key, svg] of Object.entries(override.bg)) content.bg[key] = svg;
+  }
   if (override.terrain && content.terrain) content.terrain = override.terrain;
 
   // サムネイル生成時は proj を持たない部分オブジェクトで呼ばれるため、その場合は何もしない
