@@ -181,6 +181,13 @@ export function TerrainLayer({
               opacity={0.6}
               fontSize={19}
               letterSpacing={2}
+              /* 雪国やアルプスの白い塗りの上だと、明るい文字がそのままでは読めない
+                 (ピレネーで実際に読めなかった)。暗い縁取りを下に敷いて、
+                 白でも緑でも読めるようにする。paint-order で縁取りを文字の下へ。 */
+              stroke="#1b2233"
+              strokeWidth={3.5}
+              strokeOpacity={0.55}
+              paintOrder="stroke"
             >
               {tx(text)}
             </text>
