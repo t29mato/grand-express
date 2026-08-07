@@ -14,6 +14,16 @@ import { useLocale } from "../../i18n/locale-context";
  * (`scripts/extract-legacy-content.mjs` 参照)。コンテンツJSON由来でユーザー入力を
  * 含まないため `dangerouslySetInnerHTML` で挿入している。
  */
+/**
+ * 浅瀬の帯。外側(広い)から内側(狭い)の順に重ねる。
+ * 幅は盤面座標。狭い盤面でも広い盤面でも岸のまわりだけに収まる大きさにしてある。
+ */
+const SHELF_BANDS: readonly { width: number; opacity: number }[] = [
+  { width: 54, opacity: 0.035 },
+  { width: 32, opacity: 0.045 },
+  { width: 15, opacity: 0.055 },
+];
+
 export function TerrainLayer({
   terrain,
   projection,
@@ -48,6 +58,24 @@ export function TerrainLayer({
 
       <rect x={0} y={0} width={bw} height={bh} fill={terrain.seaColor} />
       <rect x={0} y={0} width={bw} height={bh} fill={`url(#${seaPatternId})`} />
+
+      {/* 岸から沖への浅瀬。海がのっぺりした一色だと陸との境が硬く、
+          地図というより切り絵に見える。陸の輪郭を太い線でなぞって、
+          岸に近いほど明るい帯を敷く(線の内側は陸に隠れるので外側だけが残る)。
+          色は白の薄がけにして、どの国の海の色でも自然に明るくなるようにしている。 */}
+      {SHELF_BANDS.map((band) =>
+        terrain.landPolygons.map((polygon, i) => (
+          <polygon
+            key={`shelf-${band.width}-${i}`}
+            points={toPoints(polygon)}
+            fill="none"
+            stroke="#ffffff"
+            strokeWidth={band.width}
+            strokeOpacity={band.opacity}
+            strokeLinejoin="round"
+          />
+        )),
+      )}
 
       {/* 陸の落ち影 */}
       {terrain.landPolygons.map((polygon, i) => (
