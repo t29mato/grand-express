@@ -23,6 +23,135 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.20.0",
+    date: "2026-08-08",
+    title: t(
+      "What your items do is written on them now|Ahora tus objetos dicen lo que hacen|Vos objets disent enfin ce qu'ils font|アイテムに、何が起きるかが書いてあります",
+    ),
+    highlights: [
+      t(
+        "An item's effect was only written in a tooltip you had to hover over, so on a phone there was no way to read it at all. Each item now carries its effect under its name, where you can just see it.|El efecto de cada objeto solo aparecía al pasar el ratón por encima, así que en el móvil no había forma de leerlo. Ahora cada objeto lleva su efecto bajo el nombre, a la vista.|L'effet d'un objet n'apparaissait qu'au survol de la souris : sur téléphone, impossible de le lire. Chaque objet affiche désormais son effet sous son nom, simplement visible.|アイテムの効果は、マウスを乗せたときだけ出る吹き出しにしか書いてありませんでした。携帯では読む方法がなかったということです。今は名前の下に効果が書いてあり、そのまま目に入ります。",
+      ),
+      t(
+        "Items you can use right now say so, and the ones that work on their own say that instead — you no longer have to tap one to find out whether tapping does anything.|Los objetos que puedes usar ahora lo indican, y los que actúan solos también: ya no hace falta pulsarlos para averiguar si sirven.|Les objets utilisables maintenant le disent, et ceux qui agissent seuls aussi : plus besoin d'en presser un pour savoir s'il se passe quelque chose.|いま使えるアイテムには「使える」と、ひとりでに働くものには「自動」と出ます。押してみないと押せるかどうか分からない、ということがなくなりました。",
+      ),
+      t(
+        "The square guide now folds away, and it says what each colour actually does rather than only naming it.|La guía de casillas ahora se pliega, y explica qué hace cada color en vez de solo nombrarlo.|Le guide des cases se replie désormais, et il dit ce que fait chaque couleur au lieu de seulement la nommer.|マスの見かたは、たためるようになりました。色の名前だけでなく、止まると何が起きるかを書いています。",
+      ),
+      t(
+        "When something happens on your turn, a short line slides in near the board. The travel log was at the bottom of the side panel, where nobody looks mid-game.|Cuando ocurre algo en tu turno, aparece una línea breve junto al tablero. El diario de viaje estaba al fondo del panel, donde nadie mira jugando.|Quand il se passe quelque chose pendant votre tour, une ligne courte glisse près du plateau. Le journal de voyage était en bas du panneau, là où personne ne regarde en jouant.|自分の番に何かが起きると、盤面のそばに短い一行が流れます。旅の記録は横のパネルのいちばん下にあり、遊んでいる最中は目に入らない場所でした。",
+      ),
+    ],
+  },
+  {
+    version: "0.19.0",
+    date: "2026-08-08",
+    title: t(
+      "Money now lands with some weight|El dinero ahora se nota|L\'argent se fait enfin sentir|お金の増減に手応えが付きました",
+    ),
+    highlights: [
+      t(
+        "Your money no longer flicks from one number to the next. It rolls, and how long it takes depends on how much moved: small change counts up quickly, a big prize takes its time.|Tu dinero ya no salta de una cifra a otra: va rodando, y cuanto mayor es el cambio, más tarda en contarse.|Votre argent ne saute plus d\'un chiffre à l\'autre : il défile, et plus la somme est grosse, plus le compte est long.|所持金がいきなり切り替わらず、数字が転がって増減します。動いた大きさで時間が変わり、小銭は速く、大金はゆっくり数えます。",
+      ),
+      t(
+        "A gain lifts and turns gold, a loss dips and turns red, and the amount appears beside the total — so you can see what just happened without reading the log.|Lo que ganas sube y se vuelve dorado; lo que pierdes baja y se vuelve rojo, y la cantidad aparece junto al total.|Un gain monte et devient doré, une perte descend et devient rouge, et le montant s\'affiche à côté du total.|増えるときは金色に持ち上がり、減るときは赤く沈みます。動いた額が金額の横に出るので、旅の記録を読まなくても何が起きたか分かります。",
+      ),
+      t(
+        "Arriving at your destination scatters coins, and a heavy loss shakes the number. Everyday quiz wins and blue squares stay quiet, and other travellers’ money moves without the fuss, so the big moments are the ones that stand out.|Llegar a tu destino hace saltar monedas y una pérdida fuerte sacude la cifra. Los aciertos corrientes y el dinero de los demás se mueven sin alboroto.|Arriver à destination fait jaillir des pièces, une grosse perte fait trembler le chiffre. Le quotidien et l\'argent des autres restent discrets.|目的地に着くとコインが弾け、大きく減ると数字が揺れます。ふだんのクイズや青マス、それに他の旅人のお金は静かに動くので、見せ場だけが際立ちます。",
+      ),
+      t(
+        "If your device is set to reduce motion, nothing rolls or scatters — the numbers simply change.|Si tu dispositivo reduce el movimiento, nada rueda ni salta: las cifras cambian sin más.|Si votre appareil limite les animations, rien ne défile ni ne jaillit : les chiffres changent, tout simplement.|端末で動きを減らす設定にしている場合は、転がりもコインも出ず、数字がそのまま変わります。",
+      ),
+    ],
+  },
+  {
+    version: "0.18.1",
+    date: "2026-08-08",
+    title: t(
+      "The legend no longer swallows your taps|La leyenda ya no se traga tus toques|La légende n'avale plus vos clics|凡例がマスの押しを吸い取らなくなりました",
+    ),
+    highlights: [
+      t(
+        "The square guide sits in the top-left corner of the map, and squares underneath it could not be tapped at all. On the round-the-world board that corner is Europe, so London and its neighbours were impossible to choose at some window widths.|La guía de casillas está en la esquina superior izquierda del mapa y las casillas que quedaban debajo no se podían pulsar. En el tablero de la vuelta al mundo esa esquina es Europa, así que Londres y sus vecinas no se podían elegir con ciertos anchos de ventana.|Le guide des cases occupe le coin supérieur gauche de la carte, et les cases situées dessous ne réagissaient pas du tout. Sur le plateau du tour du monde, ce coin, c'est l'Europe : Londres et ses voisines étaient donc impossibles à choisir à certaines largeurs de fenêtre.|マスの見かたは地図の左上に置いてあり、その下に来たマスがまったく押せませんでした。世界一周の盤面では左上がヨーロッパなので、窓の幅によってはロンドンとその周りが選べなくなっていました。",
+      ),
+    ],
+  },
+  {
+    version: "0.17.0",
+    date: "2026-08-08",
+    title: t(
+      "You can see where you may go, and the board answers when you press it|Ahora se ve adónde puedes ir, y el tablero responde al pulsarlo|On voit où l'on peut aller, et le plateau répond quand on le presse|行けるマスが見えるようになり、押したら盤面が返事をします",
+    ),
+    highlights: [
+      t(
+        "The squares you can reach were already being marked, but in the same gold as the quiz squares, so the mark vanished among them. Reachable squares now wear a thick white ring and everything else is dimmed, so they stand out at a glance.|Las casillas alcanzables ya se marcaban, pero con el mismo dorado que las de preguntas, así que la marca se perdía entre ellas. Ahora llevan un grueso anillo blanco y el resto se atenúa, para verlas de un vistazo.|Les cases accessibles étaient déjà marquées, mais dans le même doré que les cases quiz : la marque s'y perdait. Elles portent désormais un large anneau blanc et le reste s'assombrit, pour les repérer d'un coup d'œil.|行けるマスには前から印が付いていましたが、クイズマスと同じ金色だったので、黄色いマスの中に紛れて見えませんでした。白い太い輪を付け、ほかを暗く沈めるようにしたので、ひと目で分かります。",
+      ),
+      t(
+        "Pressing a square you cannot reach used to do nothing at all, which looked broken. It now bumps back with a short sound and a red ring, so you can tell the game heard you and the square is simply out of range.|Pulsar una casilla inalcanzable no hacía absolutamente nada y parecía una avería. Ahora rebota con un sonido breve y un anillo rojo, para saber que el juego te oyó y que la casilla queda fuera de alcance.|Presser une case hors de portée ne produisait rien du tout, ce qui semblait cassé. Elle recule maintenant d'un cran avec un son bref et un anneau rouge : le jeu vous a bien entendu, la case est simplement trop loin.|届かないマスを押しても本当に何も起きず、壊れているように見えていました。今は軽く弾んで短い音と赤い輪を返すので、「聞こえてはいるが、そのマスには届かない」と分かります。",
+      ),
+      t(
+        "The die now lifts when you point at it and sinks when you press it, and it glows softly while it is your turn to roll — it was hard to tell it was a button at all.|El dado ahora se eleva al apuntarlo y se hunde al pulsarlo, y brilla suavemente cuando te toca tirar: antes costaba ver que fuera un botón.|Le dé se soulève au survol et s'enfonce quand on le presse, et il brille doucement quand c'est à vous de lancer : on ne devinait pas que c'était un bouton.|サイコロは、指を乗せると浮き上がり、押すと沈むようになりました。自分の番のあいだは金色にゆっくり光ります。これまでボタンだと気づきにくいものでした。",
+      ),
+      t(
+        "The whole-map button now shows whether it is on: it turns gold, changes its picture, and puts a label beside itself, so you can tell the overview from the view you actually play in.|El botón de mapa completo ahora indica si está activo: se vuelve dorado, cambia de dibujo y muestra una etiqueta al lado, para distinguir la vista general de la de juego.|Le bouton carte entière indique désormais s'il est actif : il devient doré, change de dessin et affiche une étiquette à côté, pour distinguer la vue générale de celle où l'on joue.|全体表示のボタンが、押されているかどうかを見せるようになりました。金色になり、絵柄が変わり、脇に名前が出ます。確認用の俯瞰と、実際に遊ぶ表示を見分けられます。",
+      ),
+    ],
+  },
+  {
+    version: "0.16.2",
+    date: "2026-08-08",
+    title: t(
+      "The board is no longer covered on tablet-sized windows|El tablero ya no queda tapado en ventanas de tamaño tableta|Le plateau n'est plus recouvert sur les fenêtres de taille tablette|タブレットくらいの幅で盤面が隠れなくなりました",
+    ),
+    highlights: [
+      t(
+        "At in-between window widths the side panel was drawn on top of the map and hid the board. It now sits below the map, the way it does on a phone.|Con anchos de ventana intermedios, el panel lateral se dibujaba sobre el mapa y tapaba el tablero. Ahora queda debajo del mapa, como en el móvil.|Aux largeurs de fenêtre intermédiaires, le panneau latéral se dessinait par-dessus la carte et masquait le plateau. Il se place désormais sous la carte, comme sur téléphone.|中くらいの幅にすると、右側のパネルが地図の上に重なって盤面を隠していました。携帯と同じように、地図の下に並ぶようにしました。",
+      ),
+      t(
+        "The starting player names now follow the language you are playing in. A name you type yourself is kept when you switch language.|Los nombres iniciales ahora siguen el idioma en el que juegas. Si escribes tu propio nombre, se conserva al cambiar de idioma.|Les noms de départ suivent désormais la langue dans laquelle vous jouez. Un nom que vous saisissez est conservé si vous changez de langue.|最初のプレイヤー名が、遊んでいる言語に合うようになりました(日本語なら「あなた」)。自分で付けた名前は、言語を切り替えても残ります。",
+      ),
+      t(
+        "When several trains stop on the same square they no longer pile up. They spread out so every colour stays visible, and the train whose turn it is is drawn in front.|Cuando varios trenes coinciden en la misma casilla, ya no se amontonan: se reparten para que se vea cada color, y el tren de quien tiene el turno se dibuja delante.|Quand plusieurs trains s'arrêtent sur la même case, ils ne se chevauchent plus : ils se répartissent pour que chaque couleur reste visible, et le train dont c'est le tour passe devant.|同じマスに何台も止まったとき、駒が重なって見えなくなるのをやめました。少しずつずらして全員の色が見えるようにし、手番の駒を手前に描いています。",
+      ),
+    ],
+  },
+  {
+    version: "0.16.1",
+    date: "2026-08-08",
+    title: t(
+      "The dice keep the number to themselves until they stop|Los dados se guardan el número hasta pararse|Les dés gardent leur chiffre jusqu'à l'arrêt|サイコロは止まるまで出目を見せません",
+    ),
+    highlights: [
+      t(
+        "Pressing the die used to show the number and light up the squares you could reach straight away, while the die was still in the air. Now nothing is shown until it lands.|Antes, al pulsar el dado el número aparecía al instante y las casillas se iluminaban mientras el dado seguía en el aire. Ahora no se muestra nada hasta que cae.|Auparavant, le chiffre s'affichait dès la pression et les cases s'allumaient alors que le dé roulait encore. Désormais, rien n'apparaît avant qu'il ne se pose.|これまでは押した瞬間に出目が出て、行けるマスも光っていました。サイコロがまだ転がっている間にです。止まるまで何も出さないようにしました。",
+      ),
+      t(
+        "The roll itself was redone. The bounces get lower and closer together as it settles, and the die goes a little too far and rocks back instead of stopping dead.|También se rehízo la tirada: los rebotes son más bajos y seguidos al final, y el dado se pasa un poco y se balancea en vez de frenar en seco.|Le lancer a été refait : les rebonds deviennent plus bas et plus rapprochés, et le dé dépasse légèrement puis oscille au lieu de s'arrêter net.|転がり方も作り直しました。弾むたびに低く、そして間隔が短くなり、止まりぎわは少し行き過ぎてから揺れて収まります。",
+      ),
+      t(
+        "The faces are shaded differently from each other, so the die reads as a cube instead of a flat card, and it comes to rest at a slight angle.|Las caras tienen sombras distintas entre sí: el dado se ve como un cubo y no como una ficha plana, y queda algo inclinado al detenerse.|Les faces sont ombrées différemment les unes des autres : le dé ressemble à un cube et non à une carte plate, et il s'immobilise légèrement de biais.|面ごとに明るさを変えたので、平たい札ではなく立方体に見えます。止まるときも少し斜めを向きます。",
+      ),
+    ],
+  },
+  {
+    version: "0.16.0",
+    date: "2026-08-08",
+    title: t(
+      "The music can be turned off|Ahora se puede silenciar la música|La musique peut être coupée|音楽を止められるようになりました",
+    ),
+    highlights: [
+      t(
+        "There is a music button in the header now, on the title screen and while you play. Until today there was no way to stop the music from inside the game.|Ahora hay un botón de música en la cabecera, en la pantalla de inicio y durante la partida. Hasta hoy no había forma de detener la música desde el juego.|Un bouton de musique apparaît dans l\'en-tête, sur l\'écran d\'accueil comme en cours de partie. Jusqu\'ici, rien ne permettait de couper la musique depuis le jeu.|トップ画面とゲーム画面のヘッダーに、音楽ボタンが付きました。これまで画面から音楽を止める手段がありませんでした。",
+      ),
+      t(
+        "It stops the music only. The dice, the coins and the rest of the sound effects keep playing, because those are the game answering what you just did.|Solo detiene la música: los dados, las monedas y los demás efectos siguen sonando, porque son la respuesta del juego a lo que acabas de hacer.|Elle ne coupe que la musique : les dés, les pièces et les autres effets continuent, car ce sont les réponses du jeu à ce que vous venez de faire.|止まるのは音楽だけです。サイコロやお金の効果音は残ります。あれは自分の操作に対する返事なので。",
+      ),
+      t(
+        "Your choice is remembered. Turn the music off today and it is still off the next time you open the game.|Tu elección se recuerda: si la silencias hoy, seguirá silenciada la próxima vez que abras el juego.|Votre choix est retenu : musique coupée aujourd\'hui, musique toujours coupée à la prochaine ouverture.|選んだ状態は覚えています。今日切っておけば、次に開いたときも切れたままです。",
+      ),
+    ],
+  },
+  {
     version: "0.15.1",
     date: "2026-08-08",
     title: t(
