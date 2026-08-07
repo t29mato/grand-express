@@ -18,6 +18,41 @@ import { useLocale } from "../../i18n/locale-context";
  * 浅瀬の帯。外側(広い)から内側(狭い)の順に重ねる。
  * 幅は盤面座標。狭い盤面でも広い盤面でも岸のまわりだけに収まる大きさにしてある。
  */
+/**
+ * 月ごとの陸の色みかけ。0=4月。
+ *
+ * 季節の仕組み(月ごとの収入倍率・12本の絵)はすでにあるのに、
+ * **盤面だけが1年じゅう同じ色**だった。月が替わったことが地図にも出るように、
+ * 陸の上に薄い色を1枚かける。
+ *
+ * **濃さは実際に並べて決めた。** 最初は不透明度0.07〜0.14にしたが、
+ * 12ヶ月を並べると**1月と7月が区別できなかった**(WBSの合格条件は
+ * 「1月と7月が違って見えること」)。0.24〜0.44まで上げて初めて差が出た。
+ *
+ * 4月は当初「花の桃色」にしたが、桃色を緑にかけると濁った灰緑になったので
+ * 淡い暖色に替えた。**緑地の上にかける色は、単体で綺麗でも重ねると濁る。**
+ *
+ * 未確認: この値は平らな緑(#7aa85a)の上で並べて決めた。実際の盤面には
+ * 地方ごとの色分けと雪国の白が乗るので、**月を進めて実機で見る確認がまだ**。
+ *
+ * 南半球を含む世界一周では北と南で季節が逆になるが、いまは盤面全体に
+ * 同じ色をかけている。大陸ごとに変えるなら地方の多角形が要る(いまは無い)。
+ */
+const SEASON_WASH: readonly { color: string; opacity: number }[] = [
+  { color: "#e8d0b0", opacity: 0.26 }, //  4月 花(桃色を緑にかけると濁るので、淡い暖色にした)
+  { color: "#c8f08a", opacity: 0.26 }, //  5月 新緑
+  { color: "#8fd4b0", opacity: 0.24 }, //  6月 雨と緑
+  { color: "#ffe07a", opacity: 0.28 }, //  7月 盛夏
+  { color: "#ffcf5a", opacity: 0.3 }, //  8月 日差し
+  { color: "#e8c878", opacity: 0.26 }, //  9月 実り
+  { color: "#f59a4a", opacity: 0.34 }, // 10月 紅葉
+  { color: "#d97a3a", opacity: 0.34 }, // 11月 晩秋
+  { color: "#b8d4f0", opacity: 0.34 }, // 12月 冬の入り
+  { color: "#e0f0ff", opacity: 0.44 }, //  1月 真冬
+  { color: "#cfe4f7", opacity: 0.4 }, //  2月 冬の底
+  { color: "#e0f0b0", opacity: 0.26 }, //  3月 早春
+];
+
 const SHELF_BANDS: readonly { width: number; opacity: number }[] = [
   { width: 54, opacity: 0.035 },
   { width: 32, opacity: 0.045 },
@@ -27,9 +62,12 @@ const SHELF_BANDS: readonly { width: number; opacity: number }[] = [
 export function TerrainLayer({
   terrain,
   projection,
+  monthIndex,
 }: {
   terrain: CountryTerrain;
   projection: CountryProjection;
+  /** いまの月(0=4月)。季節の色みかけに使う。 */
+  monthIndex: number;
 }) {
   const { tx } = useLocale();
   // 同じページに複数の盤面が現れても衝突しないようIDを一意化する。
@@ -93,6 +131,16 @@ export function TerrainLayer({
       ))}
 
       <g clipPath={`url(#${landClipId})`}>
+        {/* 季節の色みかけ。地形や雪国の塗りより先に敷き、その上に地形を重ねる
+            ことで、季節が気配として出つつ塗り分けは読めるままになる。 */}
+        <rect
+          x={0}
+          y={0}
+          width={bw}
+          height={bh}
+          fill={SEASON_WASH[((monthIndex % 12) + 12) % 12].color}
+          opacity={SEASON_WASH[((monthIndex % 12) + 12) % 12].opacity}
+        />
         {terrain.terrainPolygons.map(([color, polygon], i) => (
           <polygon key={`ter-${i}`} points={toPoints(polygon)} fill={color} />
         ))}

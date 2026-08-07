@@ -347,7 +347,11 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
       >
-        <TerrainLayer terrain={context.content.terrain} projection={context.content.projection} />
+        <TerrainLayer
+          terrain={context.content.terrain}
+          projection={context.content.projection}
+          monthIndex={session.month}
+        />
         {/* 路線。legacyの `drawBoard` と同じく、暗い縁取り→明るいレール→枕木のダッシュ
             という3層で描く。legacyは路線1本ずつ3層を重ねるが、ここでは層ごとに
             まとめて描くことで、隣り合う路線の縁取りが手前の路線を欠けさせないようにしている
