@@ -26,6 +26,7 @@ import {
   renderWorldDecor,
 } from "./geography.mjs";
 import { WORLD_MONEY_EVENTS } from "./money-events.mjs";
+import { WORLD_STYLES } from "./music.mjs";
 import { WORLD_QUIZ } from "./quiz.mjs";
 
 /** 盤面装飾は投影に依存するので、ここで一度だけ評価して文字列にする。 */
@@ -67,5 +68,6 @@ export function buildWorldContent() {
     rivers: WORLD_RIVERS,
     labels: WORLD_LABELS,
     decor: buildDecor(),
+    styles: WORLD_STYLES,
   };
 }

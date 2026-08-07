@@ -28,6 +28,7 @@ import {
 } from "./geography.mjs";
 import { INDIA_QUIZ } from "./quiz.mjs";
 import { INDIA_MONEY_EVENTS } from "./money-events.mjs";
+import { INDIA_STYLES } from "./music.mjs";
 
 /** 盤面装飾は投影に依存するので、ここで一度だけ評価して文字列にする。 */
 function buildDecor() {
@@ -69,5 +70,6 @@ export function buildIndiaContent() {
     rivers: INDIA_RIVERS,
     labels: INDIA_LABELS,
     decor: buildDecor(),
+    styles: INDIA_STYLES,
   };
 }

@@ -26,6 +26,7 @@ import {
   renderFranceDecor,
 } from "./geography.mjs";
 import { FRANCE_MONEY_EVENTS } from "./money-events.mjs";
+import { FRANCE_STYLES } from "./music.mjs";
 import { FRANCE_QUIZ } from "./quiz.mjs";
 
 /** 盤面装飾は投影に依存するので、ここで一度だけ評価して文字列にする。 */
@@ -67,5 +68,6 @@ export function buildFranceContent() {
     rivers: FRANCE_RIVERS,
     labels: FRANCE_LABELS,
     decor: buildDecor(),
+    styles: FRANCE_STYLES,
   };
 }

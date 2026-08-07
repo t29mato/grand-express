@@ -1,8 +1,10 @@
 /**
  * 国コンテンツJSON内の `styles`(地方ごとの音楽データ)の型と動的読み込み。
- * legacyの `BOLIVIA.styles`/`JAPAN.styles` をそのまま抽出したもの
+ * ボリビア・日本はlegacyの `BOLIVIA.styles`/`JAPAN.styles` をそのまま抽出したもの
  * (docs/90-migration/00-characterization-samples.md 等と同様、
  * scripts/extract-legacy-content.mjs で機械的に抽出済み)。
+ * インド・フランス・世界一周はlegacyに無いので、このリポジトリで
+ * `scripts/countries/{india,france,world}/music.mjs` に書き起こしている。
  *
  * 音楽データはゲームルールに一切関与しないため、Domain層の
  * `CountryContentPack` には含めず、Infrastructure層(音声アダプタ)専用の
@@ -37,6 +39,9 @@ export type CountryStyles = Readonly<Record<string, RegionStyle>>;
 const STYLE_LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   bolivia: () => import("../content/bolivia.content.json").then((m) => (m.default as { styles: unknown }).styles),
   japan: () => import("../content/japan.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  india: () => import("../content/india.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  france: () => import("../content/france.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  world: () => import("../content/world.content.json").then((m) => (m.default as { styles: unknown }).styles),
 };
 
 /**
