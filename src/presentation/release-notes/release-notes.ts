@@ -23,6 +23,18 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.13.3",
+    date: "2026-08-07",
+    title: t(
+      "Ajaccio is readable again|Ajaccio vuelve a leerse|Ajaccio est de nouveau lisible|アジャクシオが読めるようになりました",
+    ),
+    highlights: [
+      t(
+        "The key to the squares sat on the board itself, so it covered whatever was in the bottom-right corner — Corsica on the French map, New Zealand on the world one. It now sits in the corner of the screen instead, and stays the same size however far you zoom in.|La leyenda tapaba lo que hubiera en la esquina inferior derecha: Córcega, Nueva Zelanda. Ahora va en la esquina de la pantalla y no cambia de tamaño al acercar.|La légende masquait ce qui se trouvait en bas à droite : la Corse, la Nouvelle-Zélande. Elle est désormais dans le coin de l'écran et garde sa taille quel que soit le zoom.|マスの見かたの表が盤面の上に載っていたため、右下にあるもの——フランスならコルシカ島、世界一周ならニュージーランド——を覆っていました。画面の隅に移し、どれだけ寄せても同じ大きさで読めるようにしました。",
+      ),
+    ],
+  },
+  {
     version: "0.13.2",
     date: "2026-08-07",
     title: t(
