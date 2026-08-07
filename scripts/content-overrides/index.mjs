@@ -147,7 +147,15 @@ export function applyContentOverrides(countryId, content) {
    * 手前に置くこと。中央に主役を置くと、そのぶん見えない。
    */
   if (override.bg && content.bg) {
-    for (const [key, svg] of Object.entries(override.bg)) content.bg[key] = svg;
+    for (const [key, replacement] of Object.entries(override.bg)) {
+      // 文字列なら丸ごと差し替え、関数なら**元の絵を受け取って直す**。
+      //
+      // legacy の背景を少しだけ直したいとき、丸ごと書き写すと20KB近くになり、
+      // 次に読む人が「どこを変えたのか」を差分で追えなくなる。
+      // 関数なら `(prev) => prev.replace(a, b)` の1行で済み、意図も残る。
+      content.bg[key] =
+        typeof replacement === "function" ? replacement(content.bg[key]) : replacement;
+    }
   }
   if (override.terrain && content.terrain) content.terrain = override.terrain;
 
