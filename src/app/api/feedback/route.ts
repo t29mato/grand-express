@@ -8,8 +8,11 @@ import { NextRequest, NextResponse } from "next/server";
  * ソースコードのリポジトリとは**別の、issue専用の公開リポジトリ**を使う
  * (コードは非公開のままにしたいので)。設定は環境変数:
  *
- *   FEEDBACK_REPO   例 `t29mato/grand-express-feedback`
- *   FEEDBACK_TOKEN  そのリポジトリの Issues:write だけを持つ細粒度トークン
+ *   NEXT_PUBLIC_FEEDBACK_REPO  例 `t29mato/grand-express-feedback`
+ *     公開リポジトリの名前なので秘密ではない。フッターのリンクを出すかの
+ *     判定にも使うため NEXT_PUBLIC_ にしてある。
+ *   FEEDBACK_TOKEN  そのリポジトリの Issues:write だけを持つ細粒度トークン。
+ *     **こちらは秘密。NEXT_PUBLIC_ を付けてはいけない。**
  *
  * どちらか欠けていれば 503 を返す。画面側はそれを見て
  * 「GitHubで直接書く」リンクに切り替える。
@@ -54,7 +57,7 @@ function isRateLimited(ip: string): boolean {
 }
 
 export async function POST(request: NextRequest) {
-  const repo = process.env.FEEDBACK_REPO;
+  const repo = process.env.NEXT_PUBLIC_FEEDBACK_REPO;
   const token = process.env.FEEDBACK_TOKEN;
   if (!repo || !token) {
     return NextResponse.json({ error: "not-configured" }, { status: 503 });

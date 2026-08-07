@@ -30,12 +30,16 @@ GitHub の **fine-grained personal access token** を作る。
 
 Vercel の Environment Variables に2つ入れる。
 
-| 名前 | 値 |
-|---|---|
-| `FEEDBACK_REPO` | `t29mato/grand-express-feedback` |
-| `FEEDBACK_TOKEN` | 上で作ったトークン |
+| 名前 | 値 | 秘密か |
+|---|---|---|
+| `NEXT_PUBLIC_FEEDBACK_REPO` | `t29mato/grand-express-feedback` | 公開リポジトリの名前なので秘密ではない |
+| `FEEDBACK_TOKEN` | 上で作ったトークン | **秘密。`NEXT_PUBLIC_` を付けてはいけない** |
 
-`NEXT_PUBLIC_` を**付けないこと。** 付けるとブラウザに配られてしまう。
+リポジトリ名が `NEXT_PUBLIC_` なのは、**フッターに「ご意見を送る」を出すかどうかの
+判定に使う**ため。未設定のあいだはリンク自体が出ないので、押しても「準備中」しか
+出ない行き止まりを見せずに済む。
+
+トークンに `NEXT_PUBLIC_` を付けるとブラウザに配られてしまう。絶対に付けないこと。
 
 入れたら再デプロイすれば効く。
 

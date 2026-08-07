@@ -19,9 +19,13 @@ export function AppFooter() {
       <Link href="/release-notes" className="footer-link">
         {t("releaseNotes")}
       </Link>
-      <Link href="/feedback" className="footer-link">
-        {t("feedbackLink")}
-      </Link>
+      {/* 送り先が未設定のうちはリンクを出さない。押しても「準備中」しか
+          出ないので、行き止まりを見せないほうがよい。 */}
+      {process.env.NEXT_PUBLIC_FEEDBACK_REPO && (
+        <Link href="/feedback" className="footer-link">
+          {t("feedbackLink")}
+        </Link>
+      )}
     </footer>
   );
 }
