@@ -23,6 +23,18 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.15.1",
+    date: "2026-08-08",
+    title: t(
+      "Eight lakes come back|Vuelven ocho lagos|Huit lacs réapparaissent|消えていた湖が戻りました",
+    ),
+    highlights: [
+      t(
+        "Eight lakes had never once been drawn — Chilika and the Dal, Geneva and Annecy among them. They were written in degrees where the board wanted pixels, so each came out less than one pixel across and vanished without a trace.|Ocho lagos nunca se habían dibujado: estaban escritos en grados donde el tablero esperaba píxeles.|Huit lacs n\'avaient jamais été dessinés : ils étaient écrits en degrés là où le plateau attendait des pixels.|8つの湖が一度も描かれていませんでした。チルカ湖、ダル湖、レマン湖、アヌシー湖など。盤面がピクセルで受け取るところに度で書かれていて、1ピクセルに満たない大きさになって消えていました。",
+      ),
+    ],
+  },
+  {
     version: "0.15.0",
     date: "2026-08-08",
     title: t(
