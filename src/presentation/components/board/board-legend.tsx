@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { CurrencyFormat } from "../../../domain/country/country-content-pack";
 import { MAX_QUIZ_DIFFICULTY, MIN_QUIZ_DIFFICULTY, quizReward } from "../../../domain/quiz/quiz-question";
 import { useLocale } from "../../i18n/locale-context";
@@ -18,35 +19,56 @@ const SQUARE_QUIZ_COLOR = "#f5b31c";
  *
  * 盤面の座標系から出して、画面の隅に貼るHTMLにした。地図の内容と衝突せず、
  * どこまで寄っても同じ大きさで読める。
+ *
+ * 書く内容は**色の名前ではなく起きること**。「青マス」「赤マス」とだけ
+ * 書いてあった頃は、赤に止まって所持金が減るまで赤が危ないと分からなかった。
+ *
+ * 狭い画面では常時出すと地図を覆ってしまうので、たたんでボタンにする。
+ * 以前は単に非表示にしていたが、それだと**スマホで遊ぶ人は凡例を一度も
+ * 見られない**(いちばん説明を必要とする人に届かない)。
  */
 export function BoardLegend({ currency }: { currency: CurrencyFormat }) {
   const { t } = useLocale();
+  const [open, setOpen] = useState(false);
 
-  const rows: readonly { color: string; label: string }[] = [
-    {
-      color: SQUARE_QUIZ_COLOR,
-      // 難易度によって増減額が変わるので、凡例では下限〜上限の幅で示す。
-      label: `+${formatMoney(quizReward(MIN_QUIZ_DIFFICULTY).winAmount, currency)}〜${formatMoney(
-        quizReward(MAX_QUIZ_DIFFICULTY).winAmount,
-        currency,
-      )}`,
-    },
-    { color: "#5b8fe8", label: t("blueSq") },
-    { color: "#e05252", label: t("redSq") },
-    { color: "#f6efe2", label: t("townSq") },
+  // 難易度によって増減額が変わるので、凡例では下限〜上限の幅で示す。
+  const quizRange = `+${formatMoney(quizReward(MIN_QUIZ_DIFFICULTY).winAmount, currency)}〜${formatMoney(
+    quizReward(MAX_QUIZ_DIFFICULTY).winAmount,
+    currency,
+  )}`;
+
+  const rows: readonly { color: string; label: string; town?: boolean }[] = [
+    { color: SQUARE_QUIZ_COLOR, label: t("legendQuiz", quizRange) },
+    { color: "#5b8fe8", label: t("legendBlue") },
+    { color: "#e05252", label: t("legendRed") },
+    { color: "#f6efe2", label: t("townSq"), town: true },
   ];
 
   return (
-    <div className="board-legend" aria-hidden="true">
-      {rows.map((row, i) => (
-        <div className="board-legend-row" key={row.label}>
-          <span
-            className={`board-legend-chip${i === rows.length - 1 ? " town" : ""}`}
-            style={{ background: row.color }}
-          />
-          <span>{row.label}</span>
-        </div>
-      ))}
+    <div className="board-legend-wrap">
+      {/* 狭い画面だけに出るたたみボタン。広い画面ではCSSで隠す。 */}
+      <button
+        type="button"
+        className="board-legend-toggle"
+        aria-expanded={open}
+        aria-controls="board-legend"
+        onClick={() => setOpen((v) => !v)}
+      >
+        <span aria-hidden="true">{open ? "×" : "?"}</span>
+        <span>{t("legendTitle")}</span>
+      </button>
+      <div id="board-legend" className={`board-legend${open ? " open" : ""}`}>
+        <div className="board-legend-title">{t("legendTitle")}</div>
+        {rows.map((row) => (
+          <div className="board-legend-row" key={row.label}>
+            <span
+              className={`board-legend-chip${row.town ? " town" : ""}`}
+              style={{ background: row.color }}
+            />
+            <span>{row.label}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

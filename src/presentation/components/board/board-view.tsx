@@ -10,12 +10,18 @@ import { useCamera } from "../../hooks/use-camera";
 import { useLocale } from "../../i18n/locale-context";
 import { useCityLabels } from "../../hooks/use-city-labels";
 import { SIZES } from "./board-metrics";
-import { TOKEN, TrainToken } from "./train-token";
+import { TrainToken } from "./train-token";
+import { tokenPlacements } from "./token-layout";
 import { TerrainLayer } from "./terrain-layer";
 import { BoardLegend } from "./board-legend";
 import { BoardCompass } from "./board-compass";
+import { candidateLabel, directionFrom, nextFocusIndex, orderByAzimuth } from "./candidate-guide";
+import { soundAdapter } from "../../state/game-store-dependencies";
 
 const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
+
+/** 候補が無いときに返す空配列。毎回作ると、これを見ている効果が毎描画で走る。 */
+const EMPTY_NODES: readonly NodeId[] = [];
 
 /**
  * 追尾時の視野幅(現行コードの `FOLLOW_W` = 520 / BW 1150 ≒ 0.45)。
@@ -107,14 +113,26 @@ export interface BoardViewProps {
   context: GameEngineContext;
   session: GameSession;
   reachable: ReadonlySet<NodeId> | null;
+  /** サイコロの目(= 進むマス数)。読み上げの案内に使う。 */
+  steps?: number;
   onChooseNode?: (id: NodeId) => void;
 }
 
-export function BoardView({ context, session, reachable, onChooseNode }: BoardViewProps) {
+export function BoardView({ context, session, reachable, steps, onChooseNode }: BoardViewProps) {
   const positions = useBoardLayout(context);
   const { tx, t, locale } = useLocale();
   const { boardWidth, boardHeight } = context.content.projection;
   const [overview, setOverview] = useState(false);
+  /**
+   * 「そこには行けません」と返しているマス。
+   * 押しても何も起きないと、壊れているのか操作を間違えたのかが分からない
+   * (遊んだ人が「反応していないのでは」と繰り返し戸惑った箇所)。
+   * `nonce` は同じマスを続けて押したときに演出をやり直すための連番。
+   */
+  const [rejected, setRejected] = useState<{ id: NodeId; nonce: number } | null>(null);
+  const rejectCount = useRef(0);
+  /** 直前の操作が「盤面を動かした」だったか。動かした流れの click は選択とみなさない。 */
+  const dragMovedRef = useRef(false);
   const svgRef = useRef<SVGSVGElement>(null);
   const [viewportWidthPx, setViewportWidthPx] = useState(0);
   const [viewportHeightPx, setViewportHeightPx] = useState(0);
@@ -132,6 +150,109 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
 
   const activePlayerId = currentPlayer(session).id;
   const activeLocation = currentPlayer(session).location;
+
+  /**
+   * 候補の中身から作る鍵。
+   *
+   * **`reachable` は毎回中身の同じ新しい Set が渡ってくる**
+   * (`game-screen.tsx` が描画のたびに `new Set(...)` を作っている)。
+   * そのまま useMemo の依存にすると、下の並べ替えと読み上げ文が
+   * **毎フレーム作り直される。** カメラが動いているあいだ BoardView は
+   * 1秒に60回描き直されるので、読み上げ文のための最短距離探索(候補ごとに
+   * 盤面全体のBFS)がその回数だけ走っていた。中身で比べれば1回で済む。
+   */
+  const reachableKey = reachable ? [...reachable].sort().join("|") : "";
+
+  /**
+   * 行き先の候補を、**現在地から見た方位角で北から時計回り**に並べたもの。
+   * DOM順(都市を後ろに寄せただけ)のまま矢印キーに割り当てると、
+   * 「次」が地図を飛び回って予測できない。
+   */
+  const orderedCandidates = useMemo(
+    () => (reachableKey ? orderByAzimuth(reachableKey.split("|") as NodeId[], positions, activeLocation) : EMPTY_NODES),
+    [reachableKey, positions, activeLocation],
+  );
+
+  /** 読み上げ文。方位・マスの種類・目的地までの残りの3つ。 */
+  const candidateLabels = useMemo(() => {
+    const here = positions.get(activeLocation);
+    if (!here) return [];
+    return orderedCandidates.map((id) => {
+      const pos = positions.get(id);
+      const direction = pos ? directionFrom(here, pos) : "dirN";
+      return candidateLabel({ context, session, t, tx }, id, direction);
+    });
+  }, [orderedCandidates, positions, activeLocation, context, session, t, tx]);
+
+  /**
+   * いまフォーカスしている候補の番号(ローミングtabindexの「選択中」)。
+   *
+   * 候補が入れ替わったら先頭に戻す。効果の中で戻すのではなく**描画中に直す**
+   * (Reactが勧めている書き方。効果でやると、古い番号のまま1回描かれてしまう)。
+   */
+  const candidateKey = orderedCandidates.join("|");
+  const [seenCandidateKey, setSeenCandidateKey] = useState(candidateKey);
+  const [focusIndex, setFocusIndex] = useState(0);
+  if (candidateKey !== seenCandidateKey) {
+    setSeenCandidateKey(candidateKey);
+    setFocusIndex(0);
+  }
+  /** 候補のDOM要素。矢印キーでフォーカスを移すために持っておく。 */
+  const candidateRefs = useRef(new Map<NodeId, SVGGElement>());
+  const registerCandidate = useCallback((id: NodeId, el: SVGGElement | null) => {
+    if (el) candidateRefs.current.set(id, el);
+    else candidateRefs.current.delete(id);
+  }, []);
+
+  /** 番号で指した候補へ実際にフォーカスを移す。 */
+  const focusCandidateAt = useCallback(
+    (index: number) => {
+      const id = orderedCandidates[index];
+      if (!id) return;
+      setFocusIndex(index);
+      candidateRefs.current.get(id)?.focus();
+    },
+    [orderedCandidates],
+  );
+
+  /** 直前の操作がキーボードだったか。勝手にフォーカスを移してよいかの判断に使う。 */
+  const lastInputWasKeyboardRef = useRef(false);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Tab" || e.key === "Enter" || e.key === " " || e.key.startsWith("Arrow")) {
+        lastInputWasKeyboardRef.current = true;
+      }
+    };
+    const onPointer = () => {
+      lastInputWasKeyboardRef.current = false;
+    };
+    window.addEventListener("keydown", onKey, true);
+    window.addEventListener("pointerdown", onPointer, true);
+    return () => {
+      window.removeEventListener("keydown", onKey, true);
+      window.removeEventListener("pointerdown", onPointer, true);
+    };
+  }, []);
+
+  /**
+   * 候補が出たら、先頭の候補へフォーカスを移す。
+   *
+   * DOM順は 盤面 → サイドパネル なので、**サイコロのボタンは候補より後ろにある。**
+   * 振った直後にTabを押しても候補には進めない(戻る向きになる)。
+   * 振ったら必ずどれかを選ぶしかない場面なので、勝手に移っても迷子にならない。
+   *
+   * **キーボードで操作している人にだけ移す。** マウスで遊んでいる人にとっては、
+   * 盤面が勝手にフォーカスを奪う動きは邪魔になるだけなので、
+   * 直前の操作がキーボードだったときに限る。
+   */
+  useEffect(() => {
+    if (orderedCandidates.length === 0) return;
+    if (!lastInputWasKeyboardRef.current) return;
+    const id = orderedCandidates[0];
+    // 候補の <g> が描かれてから移す。
+    const timer = setTimeout(() => candidateRefs.current.get(id)?.focus(), 0);
+    return () => clearTimeout(timer);
+  }, [orderedCandidates]);
 
   // 行き先の候補が全部見えるように、候補と現在地を囲む枠を求める。
   // 候補が画面の外にあると、そこへ移りたくても押せない(地図を動かさないと選べない)。
@@ -215,11 +336,15 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
   const handlePointerDown = useCallback(
     (e: React.PointerEvent<SVGSVGElement>) => {
       if (e.button !== 0 && e.pointerType === "mouse") return;
-      if ((e.target as Element).closest?.("[data-choosable='true']")) return;
+      // **ここではまだポインタを捕まえない。**押した時点で捕まえると、そのあとの
+      // click が押したマスではなく <svg> に飛んでしまい、マスを押しても
+      // 何も起きなくなる(届かないマスに「行けません」を返せなくなる)。
+      // 捕まえるのは、実際に指が動いてドラッグだと確定してから。
+      // 前の操作の結果を持ち越さない。地図を動かしたあと、その click が
+      // 盤面の余白に落ちると印が立ったままになり、次に押したマスが無視されてしまう。
+      dragMovedRef.current = false;
       dragRef.current = { x: e.clientX, y: e.clientY, pointerId: e.pointerId, moved: false };
-      setDragging(true);
       stopAnimation();
-      svgRef.current?.setPointerCapture(e.pointerId);
     },
     [stopAnimation],
   );
@@ -231,7 +356,12 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
       const dx = e.clientX - drag.x;
       const dy = e.clientY - drag.y;
       if (!drag.moved && Math.hypot(dx, dy) < 3) return; // 微小な揺れはクリック扱いのまま
-      drag.moved = true;
+      if (!drag.moved) {
+        // ここで初めてドラッグと確定する。枠の外へ出ても追えるよう、ここで捕まえる。
+        drag.moved = true;
+        setDragging(true);
+        svgRef.current?.setPointerCapture(drag.pointerId);
+      }
       drag.x = e.clientX;
       drag.y = e.clientY;
       // SVG要素の `clientWidth` はブラウザによって0を返すことがあるため、
@@ -244,10 +374,66 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
   const endDrag = useCallback((e: React.PointerEvent<SVGSVGElement>) => {
     const drag = dragRef.current;
     if (!drag) return;
+    // このあと発火する click が、地図を動かしただけのものかどうかを覚えておく。
+    dragMovedRef.current = drag.moved;
     dragRef.current = null;
     setDragging(false);
-    svgRef.current?.releasePointerCapture?.(e.pointerId);
+    // 捕まえていないポインタを離そうとすると例外になる環境があるため、持っているときだけ。
+    if (svgRef.current?.hasPointerCapture?.(e.pointerId)) svgRef.current.releasePointerCapture(e.pointerId);
   }, []);
+
+  /**
+   * マスが押されたとき。届くマスなら選び、**届かないマスにも必ず何かを返す。**
+   * 無反応だと「壊れているのか、押す場所を間違えたのか」が分からない。
+   */
+  const handleNodeClick = useCallback(
+    (id: NodeId, isChoosable: boolean) => {
+      // 地図をドラッグして指を離しただけのときは、マスを押したことにしない
+      // (印は次に押し下げたときに倒れるので、ここでは触らない)。
+      if (dragMovedRef.current) return;
+      if (isChoosable) {
+        onChooseNode?.(id);
+        return;
+      }
+      // 行き先を選んでいる最中でなければ、そもそもマスは押すものではない。
+      if (!reachable) return;
+      soundAdapter.playThud();
+      rejectCount.current += 1;
+      setRejected({ id, nonce: rejectCount.current });
+    },
+    [onChooseNode, reachable],
+  );
+
+  /**
+   * 候補の上でキーが押されたとき。
+   *
+   * **`<g role="button">` は本物の <button> ではない。** Enter も Space も
+   * クリックに変換されないことを実機で確かめてある(押しても何も起きなかった)。
+   * ここで自分で拾わないと、キーボードからはマスを選べない。
+   */
+  const handleCandidateKeyDown = useCallback(
+    (e: React.KeyboardEvent<SVGGElement>, id: NodeId, index: number) => {
+      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+        // Space はページを送るので止める。
+        e.preventDefault();
+        onChooseNode?.(id);
+        return;
+      }
+      const next = nextFocusIndex(e.key, index, orderedCandidates.length);
+      if (next === null) return;
+      // 矢印での移動は盤面のスクロールや上下移動に取られたくない。
+      e.preventDefault();
+      focusCandidateAt(next);
+    },
+    [onChooseNode, orderedCandidates.length, focusCandidateAt],
+  );
+
+  // 「行けません」の演出は短く。出しっぱなしにすると盤面が読みづらくなる。
+  useEffect(() => {
+    if (!rejected) return;
+    const timer = setTimeout(() => setRejected(null), 430);
+    return () => clearTimeout(timer);
+  }, [rejected]);
 
   // ホイール/ピンチでのズーム。ページのスクロールを奪わないよう、
   // 盤面上でのホイール操作のときだけ preventDefault する。
@@ -344,27 +530,39 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
       <svg
         ref={svgRef}
         viewBox={viewBox}
-        className={`board-svg${dragging ? " dragging" : ""}`}
+        /* 行き先を選んでいる間は `choosing` を付ける。届かないものを沈めて、
+           届くマスだけが明るく残るようにするため(CSS側で処理)。 */
+        className={`board-svg${dragging ? " dragging" : ""}${reachable ? " choosing" : ""}`}
         // 縦長の盤面を横長の枠に収めると盤面の外側が見える。そこを枠の地色ではなく
         // 海の色で埋めて、地図が途中で途切れて見えないようにする。
         style={{ background: context.content.terrain.seaColor }}
-        role="img"
-        aria-label="Game board"
+        /* **`role="img"` は付けない。** ARIAの img ロールは
+           "Children Presentational: True" で、中身がまるごと1つの画像として
+           扱われる。付いていた頃は、127〜225個のマスの記号と全都市名が
+           1つの読み上げ名に流し込まれ、行き先のマスは押すどころか
+           個別の要素としても見えなかった(ariaSnapshotで確認)。
+           盤面の飾り(地形・路線・都市名・駒)は下で aria-hidden にして、
+           **ツリーに残すのは行き先の候補だけ**にしている。 */
+        aria-label={t("boardLabel")}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
       >
-        <TerrainLayer
-          terrain={context.content.terrain}
-          projection={context.content.projection}
-          monthIndex={session.month}
-        />
+        {/* TerrainLayer はフラグメントを返すので、aria-hidden を付ける先が無い。
+            ここで包む(transform を持たない <g> なので描画には影響しない)。 */}
+        <g aria-hidden="true">
+          <TerrainLayer
+            terrain={context.content.terrain}
+            projection={context.content.projection}
+            monthIndex={session.month}
+          />
+        </g>
         {/* 路線。legacyの `drawBoard` と同じく、暗い縁取り→明るいレール→枕木のダッシュ
             という3層で描く。legacyは路線1本ずつ3層を重ねるが、ここでは層ごとに
             まとめて描くことで、隣り合う路線の縁取りが手前の路線を欠けさせないようにしている
             (都市の合流点は都市のシンボルが上に載るため見た目の差は出ない)。 */}
-        <g className="edges">
+        <g className="edges" aria-hidden="true">
           {/* 航路。陸路の下に敷き、波打つ点線で船の道と分かるようにする。 */}
           <g className="sea-routes">
             {SEA_LAYERS.map((layer, layerIndex) => (
@@ -415,7 +613,26 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
             無いことを計測で確かめた(経路を2px刻みで全走査しても空きなし)。
             動かして避けられないなら、**重ね順で見せる。**
             マスは同じ形が何十個も並ぶが、鹿や鳥居はその町に1つしかない。 */}
-        <g className="nodes">
+        {/* 行き先の候補のまとまり。**Tab停止はこのグループで1つだけ**にして、
+            候補のあいだは矢印キーで送る(ローミングtabindex)。
+            候補以外のマスは `aria-hidden` でツリーから外す。盤面には
+            127〜225個のマスがあり、全部をTab順に入れると使い物にならない
+            (実測: 候補は2〜15個。5盤面で数えた)。
+
+            **DOM順は方位順になっていない。** ここの並びは上の重ね順
+            (マス→都市)がそのまま出るため、矢印キーの順(方位順)とは食い違う。
+            並べ替えれば揃うが、そうすると候補のマスが都市のシンボルの上に
+            載ってしまい、重ね順を測って決めた判断を壊す。
+            矢印で送るぶんには方位順なので、そちらを主の操作として扱う。 */}
+        <g
+          className="nodes"
+          role={orderedCandidates.length > 0 ? "group" : undefined}
+          aria-label={
+            orderedCandidates.length > 0
+              ? t("candidatesGroup", steps ?? 0, orderedCandidates.length)
+              : undefined
+          }
+        >
           {[...context.graph.nodes]
             .sort((a, b) => Number(isCityNode(a[1])) - Number(isCityNode(b[1])))
             .map(([id, node]) => {
@@ -423,27 +640,59 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
             if (!pos) return null;
             const isDestination = isCityNode(node) && node.cityId === session.destination;
             const isChoosable = reachable?.has(id) ?? false;
+            const isRejected = rejected?.id === id;
+            const candidateIndex = isChoosable ? orderedCandidates.indexOf(id) : -1;
+            const isFocusedCandidate = candidateIndex >= 0 && candidateIndex === focusIndex;
             return (
               <g
                 key={id}
+                ref={isChoosable ? (el) => registerCandidate(id, el) : undefined}
                 transform={`translate(${pos.x}, ${pos.y})`}
                 data-choosable={isChoosable ? "true" : undefined}
                 /* マスの種類。E2Eから「クイズマスを選ぶ」といった指定ができるようにする
                    (乱数任せに歩き回って偶然止まるのを待つと、試験が不安定になるため)。 */
                 data-node-kind={isCityNode(node) ? "city" : node.type}
-                onClick={isChoosable ? () => onChooseNode?.(id) : undefined}
-                style={{ cursor: isChoosable ? "pointer" : "inherit" }}
+                /* 「行けません」を返している間だけ、沈めた明るさから戻す
+                   (沈めたままだと、せっかくの赤い輪まで薄くなって見えない)。 */
+                data-rejected={isRejected ? "true" : undefined}
+                /* 目的地は沈めきらない。どちらへ向かうかは、行き先を選ぶときに
+                   いちばん見たい情報なので。 */
+                data-destination={isDestination ? "true" : undefined}
+                /* 候補だけをボタンとして見せる。残りは飾りなので読み上げから外す。 */
+                role={isChoosable ? "button" : undefined}
+                aria-hidden={isChoosable ? undefined : true}
+                aria-label={candidateIndex >= 0 ? candidateLabels[candidateIndex] : undefined}
+                /* ローミングtabindex。Tabで入れるのは選択中の1つだけ。 */
+                tabIndex={isChoosable ? (isFocusedCandidate ? 0 : -1) : undefined}
+                onFocus={candidateIndex >= 0 ? () => setFocusIndex(candidateIndex) : undefined}
+                /* **`<g role="button">` では Enter も Space もクリックにならない。**
+                   本物の <button> ではないので、ブラウザが変換してくれない
+                   (実機で確認済み)。自分で拾う。 */
+                onKeyDown={isChoosable ? (e) => handleCandidateKeyDown(e, id, candidateIndex) : undefined}
+                /* 届かないマスにもクリックを受けさせる。無反応で返さないため。 */
+                onClick={() => handleNodeClick(id, isChoosable)}
+                style={{ cursor: isChoosable ? "pointer" : reachable ? "not-allowed" : "inherit" }}
               >
-                {isChoosable && <circle r={SIZES.haloRadius} className="halo" fill="#f5b31c" opacity={0.6} />}
-                {isCityNode(node) ? (
-                  <CityMarker
-                    glyphSvg={context.content.artGlyphs[context.getCity(node.cityId).artGlyphKey] ?? ""}
-                    isDestination={isDestination}
-                    ownership={ownershipByCity.get(node.cityId)}
-                  />
-                ) : (
-                  <SquareMarker type={node.type} />
-                )}
+                {/* 揺らすのは内側の<g>。外側は transform 属性で位置を決めているので、
+                    そこにCSSの transform を当てると原点に飛んでしまう。
+                    key に nonce を入れているのは、同じマスを続けて押したときに
+                    アニメーションを頭から流し直すため。 */}
+                <g
+                  key={isRejected ? `reject-${rejected.nonce}` : "still"}
+                  className={isRejected ? "node-reject" : undefined}
+                >
+                  {isChoosable && <circle r={SIZES.haloRadius} className="halo" />}
+                  {isRejected && <circle r={SIZES.haloRadius} className="reject-ring" />}
+                  {isCityNode(node) ? (
+                    <CityMarker
+                      glyphSvg={context.content.artGlyphs[context.getCity(node.cityId).artGlyphKey] ?? ""}
+                      isDestination={isDestination}
+                      ownership={ownershipByCity.get(node.cityId)}
+                    />
+                  ) : (
+                    <SquareMarker type={node.type} />
+                  )}
+                </g>
               </g>
             );
           })}
@@ -451,17 +700,24 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
         {/* 駒は純粋な表示用マーカー。手前に描画されるため、下のマスへのクリックを
             妨げないよう pointer-events を無効化する(他プレイヤーが乗っているマスへも
             移動できる必要があるため)。 */}
-        <g className="tokens" style={{ pointerEvents: "none" }}>
+        <g className="tokens" style={{ pointerEvents: "none" }} aria-hidden="true">
           {[...tokensByNode.entries()].map(([nodeId, tokens]) => {
             const pos = positions.get(nodeId as NodeId);
             if (!pos) return null;
-            return tokens.map((token, i) => (
+            const placements = tokenPlacements(tokens.length);
+            // 手番の駒は最後に描いて、他の駒の下に隠れないようにする
+            // (置き場所は元の並び順で決めてから、描く順だけを入れ替える)。
+            const drawOrder = tokens
+              .map((token, i) => ({ token, placement: placements[i] }))
+              .sort((a, b) => Number(a.token.isActive) - Number(b.token.isActive));
+            return drawOrder.map(({ token, placement }) => (
               <TrainToken
                 key={token.name}
-                x={pos.x + (i - (tokens.length - 1) / 2) * TOKEN.spacing}
-                y={pos.y}
+                x={pos.x + placement.dx}
+                y={pos.y + placement.dy}
                 color={token.color}
                 isActive={token.isActive}
+                scale={placement.scale}
               />
             ));
           })}
@@ -470,7 +726,7 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
             バウンディングボックスが広がり、その中心が空白に来てクリック判定が
             地形ポリゴンに奪われてしまうため(マスを選べなくなる)。
             最前面に置くことで、他のマーカーに隠れず読めるという利点もある。 */}
-        <g className="city-labels" style={{ pointerEvents: "none" }}>
+        <g className="city-labels" style={{ pointerEvents: "none" }} aria-hidden="true">
           {[...labelPlacements.entries()].map(([cityId, placement]) => {
             const at = positions.get(cityIdToNodeId(cityId));
             if (!at) return null;
@@ -494,14 +750,24 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
       </svg>
       <BoardLegend currency={context.content.currency} />
       <BoardCompass />
+      {/* 全体表示に入っているかどうかが見た目で分かるようにする。
+          絵柄・脇のラベル・説明のどれもが状態で変わる(絵柄だけだと気づかれない)。 */}
       <button
         type="button"
         className="cam-toggle"
+        data-testid="cam-toggle"
+        /* 読み上げのために、名前は入り切りで変えず「全体表示」で固定し、
+           いま俯瞰しているかどうかは `aria-pressed` で伝える
+           (music-toggle.tsx と同じ形)。マウスの人には `title` で次の動作を出す。 */
+        aria-label={t("overviewLabel")}
         aria-pressed={overview}
         onClick={() => setOverview((v) => !v)}
-        title={t("overview")}
+        title={overview ? t("overviewBack") : t("overviewLabel")}
+        data-on-label={t("overviewLabel")}
       >
-        🗺
+        {/* 色だけに頼らないよう、絵柄も変える(俯瞰中は「戻る=拡大」)。
+            名前は aria-label が持つので、絵は読み上げから外す。 */}
+        <span aria-hidden="true">{overview ? "🔍" : "🗺"}</span>
       </button>
     </div>
   );

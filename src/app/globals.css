@@ -450,6 +450,43 @@ h3 {
   width: fit-content;
 }
 
+/*
+ * 音楽の入り切りボタン。言語切替の丸いピルと並ぶので、高さと丸みを揃える。
+ * 鳴っているときは金色、切っているときは沈んだ色にし、
+ * 色を見分けられなくても分かるように、切っているときは音符に斜線が入る。
+ */
+.music-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 34px;
+  height: 32px;
+  padding: 0;
+  background: var(--night2);
+  color: var(--salt-dim);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.music-toggle.on {
+  background: var(--gold);
+  color: var(--night2);
+  border-color: var(--gold);
+}
+
+.music-toggle svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* セットアップ画面では、言語切替と音楽ボタンを見出しの右肩にひとまとめにする。 */
+.setup-hero-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .btn {
   background: var(--gold);
   color: var(--night2);
@@ -763,6 +800,14 @@ main {
 @media (max-width: 940px) {
   main {
     grid-template-columns: 1fr;
+    /*
+     * 行の決め方も2列のときとは逆にする。
+     * 2列用の `minmax(0, 1fr)` を残したままだと、下に積んだサイドパネル
+     * (min-content で1000px超)が main の高さを食い尽くし、余った空間が
+     * 無くなって1行目が 0px に潰れる。潰れた行から盤面(60dvh)が溢れて
+     * サイドパネルの上に重なって描かれていた。縦積みでは内容の高さで決める。
+     */
+    grid-template-rows: auto;
     /* 縦積みになると1画面に収まらないため、この列をスクロールさせる。
        盤面は画面の6割程度の高さを確保する。 */
     overflow-y: auto;
@@ -815,12 +860,13 @@ main {
 .die3d .f {
   position: absolute;
   inset: 0;
-  background: linear-gradient(150deg, #fffdf5, #e4d9be);
-  border-radius: 17px;
-  border: 2px solid #c8b894;
+  background: linear-gradient(150deg, #fffdf5, #e8dcc0 62%, #d6c8a6);
+  border-radius: 15px;
+  border: 2px solid #b8a67e;
   box-shadow:
-    inset 0 0 26px #cbbb98,
-    inset 0 6px 10px #ffffffcc;
+    inset 0 0 22px #c3b18c,
+    inset 0 7px 12px #ffffffdd,
+    inset 0 -6px 10px #a8966c66;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -828,14 +874,69 @@ main {
   backface-visibility: hidden;
 }
 
+/* 面ごとの明るさ。CSSの3Dには光源が無いので、隣り合う面が同じ明るさだと
+   稜線が消えて平たい札に見える。上を明るく、下と裏を暗くして立体に見せる。
+   面の並びは dice-stage.tsx の FACES と同じ(前・裏・右・左・上・下)。
+   `filter` で暗くすると preserve-3d が平たくなる場合があるので、色そのものを変える。 */
+.die3d .f4 {
+  background: linear-gradient(150deg, #fffffa, #f2e8cf 62%, #e3d7b7);
+  border-color: #c6b78e;
+}
+.die3d .f2 {
+  background: linear-gradient(150deg, #f3f0e6, #d9ceb3 62%, #c7ba9c);
+  border-color: #ab9a74;
+}
+.die3d .f3 {
+  background: linear-gradient(150deg, #e9e5da, #cdc2a8 62%, #bcb093);
+  border-color: #a2916d;
+}
+.die3d .f1 {
+  background: linear-gradient(150deg, #e2ded3, #c5baa2 62%, #b4a88c);
+  border-color: #9c8c69;
+}
+.die3d .f5 {
+  background: linear-gradient(150deg, #d8d4ca, #bab09a 62%, #a99e84);
+  border-color: #93845f;
+}
+
 .die3d .f i {
-  width: 17px;
-  height: 17px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   align-self: center;
   justify-self: center;
-  background: radial-gradient(circle at 35% 30%, #5a4630, #241a10 70%);
-  box-shadow: inset 0 -2px 3px #00000070;
+  /* 彫って墨を入れた穴に見せる。上辺に地の色の照り返しを一本入れると窪んで見える。 */
+  background: radial-gradient(circle at 38% 32%, #6b543a, #1d150c 72%);
+  box-shadow:
+    inset 0 -2px 3px #00000080,
+    inset 0 2px 2px #00000060,
+    0 1px 0 #fffdf5aa;
+}
+
+/* 止まった瞬間に地面へ広がる衝撃の輪。砂ぼこりより速く、鋭く消える。
+   サイコロ自体を光らせないのは、`filter` を当てると立方体が平たくなるため。 */
+.die-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid #ffe9a8;
+  transform: translate(-50%, -50%) scale(0.3);
+  opacity: 0.85;
+  pointer-events: none;
+  animation: dieRing 0.42s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+
+@keyframes dieRing {
+  to {
+    transform: translate(-50%, -50%) scale(1.9);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .die-ring {
+    display: none;
+  }
 }
 
 .die-shadow {
@@ -925,9 +1026,39 @@ main {
   place-items: center;
 }
 
+.cam-toggle:hover {
+  border-color: var(--salt-dim);
+  background: #2f2455;
+}
+
+/*
+ * 全体表示に切り替わっていることを、押されたボタンの側でも見せる。
+ * 「どちらが操作できる普通の表示で、どちらが確認用の俯瞰なのか分からない」と
+ * 言われた箇所。金色に塗るだけでは弱かったので、光る枠と文字も足す。
+ */
 .cam-toggle[aria-pressed="true"] {
   background: var(--gold);
   color: var(--night2);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px #f5b31c44;
+}
+
+/* 全体表示のあいだ、ボタンの脇に何の表示かを出しておく。 */
+.cam-toggle[aria-pressed="true"]::after {
+  content: attr(data-on-label);
+  position: absolute;
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  background: var(--gold);
+  color: var(--night2);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 4px 9px;
+  border-radius: 999px;
+  pointer-events: none;
 }
 
 .legend {
@@ -950,8 +1081,124 @@ main {
   pointer-events: none;
 }
 
+/*
+ * 行き先を選んでいる間の見せ方。
+ *
+ * 以前は届くマスに金色(#f5b31c)の光輪を重ねていたが、盤面のクイズマスもカードマスも
+ * ほぼ同じ金色で、**同じ色の上に同じ色を重ねていた**。遊んだ人が座標を目で計算して
+ * 5回押しても当たらず、最後はSVGを直接読んで位置を割り出したほどだった。
+ *
+ * 盤面には黄・青・赤・白がもう使われていて、新しい色相を足す余地がない。
+ * そこで**色相ではなく明るさで差をつける**:届かないものを沈め、届くマスだけを
+ * 白い太い輪で残す。「光らせる」より「他を暗くする」ほうがコントラストが出る。
+ */
+.board-svg.choosing .nodes > g:not([data-choosable="true"]) {
+  opacity: 0.26;
+}
+
+/* 目的地は沈めきらない。どこへ向かっているかは、行き先を選ぶときにこそ見たい。 */
+.board-svg.choosing .nodes > g[data-destination="true"] {
+  opacity: 0.8;
+}
+
+/* 「行けません」と返しているマスだけは、沈めた明るさから戻して見せる。
+   同じ詳細度なので、上の規則よりあとに置くことで勝たせている。 */
+.board-svg.choosing .nodes > g[data-rejected="true"] {
+  opacity: 1;
+}
+
+.board-svg.choosing .city-labels {
+  opacity: 0.3;
+}
+
+.board-svg.choosing .edges {
+  opacity: 0.45;
+}
+
+/* 届くマスの輪。白は盤面でいちばん明るく、太い輪はどのマスとも形が違う。 */
 .halo {
-  animation: pulse 1s infinite;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 5;
+  filter: drop-shadow(0 0 7px #ffffffd9);
+  animation: haloPulse 1.15s ease-in-out infinite;
+}
+
+@keyframes haloPulse {
+  0%,
+  100% {
+    stroke-width: 4.5;
+    opacity: 0.85;
+  }
+  50% {
+    stroke-width: 8;
+    opacity: 1;
+  }
+}
+
+/* 「そこには行けません」の返事。押しても無反応なのがいちばん困るので、
+   軽く弾ませて、赤い輪を一瞬出す。 */
+.node-reject {
+  animation: nodeReject 0.36s ease-in-out;
+}
+
+@keyframes nodeReject {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-3.5px);
+  }
+  45% {
+    transform: translateX(3.5px);
+  }
+  72% {
+    transform: translateX(-2px);
+  }
+}
+
+.reject-ring {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 6;
+  opacity: 0.95;
+  animation: rejectFade 0.42s ease-out forwards;
+}
+
+@keyframes rejectFade {
+  to {
+    stroke-width: 11;
+    opacity: 0;
+  }
+}
+
+/* 動きを減らす設定では、弾ませる代わりに輪の色だけで伝える
+   (アニメーションは全体の指定で止まるので、止まった状態が見えていればよい)。 */
+@media (prefers-reduced-motion: reduce) {
+  .halo {
+    stroke-width: 7;
+    opacity: 1;
+  }
+}
+
+/* キーボードで選んでいる候補のマス。
+   ブラウザ既定の outline はSVGの <g> にも描かれる(実機で確認)が、色が
+   青一色なので**海の上に来ると紺に沈む。**盤面のどこに来ても見えるよう、
+   金色の枠と黒い縁を自分で指定する(金は盤面のどの地色にも無い色)。
+   `outline-offset` を空けているのは、白い光輪(.halo)と重ねないため。 */
+.board-svg g.nodes > g[role="button"]:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* 光輪が明滅していると、どれにフォーカスがあるのか枠だけでは埋もれる。
+   選んでいるマスの光輪は明滅を止めて、太く出しっぱなしにする。 */
+.board-svg g.nodes > g[role="button"]:focus-visible .halo {
+  animation: none;
+  stroke-width: 7;
+  opacity: 1;
 }
 
 /* 駒(機関車)。<g transform> で位置を決めるので、滑らせる対象も transform。 */
@@ -1028,7 +1275,55 @@ aside {
   border: none;
   background: var(--salt);
   font-size: 1.8rem;
+  /* 下辺の厚みで「積み木のように押し込める」ことを見せる。 */
   box-shadow: 0 6px 0 #b9ad97;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease;
+}
+
+/*
+ * 押せることに気づかれなかったので、触れる前・触れたとき・押した瞬間の3段階で返す。
+ * 遊んだ人が「ボタンらしい立体感やホバー時の反応がなく、押せることに気づきにくい」と
+ * 書いていた箇所。`cursor: pointer` だけでは足りない。
+ */
+#die:not(:disabled) {
+  /* 自分の番のあいだ、金色の輪がゆっくり脈打って「ここを押す」と示す。 */
+  animation: dieReady 2.2s ease-in-out infinite;
+}
+
+#die:not(:disabled):hover {
+  background: #fffdf5;
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 0 #b9ad97,
+    0 8px 16px #00000055;
+}
+
+/* 押し込むと下辺の厚みが減って、実際に沈んだように見える。 */
+#die:not(:disabled):active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #b9ad97;
+}
+
+#die:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@keyframes dieReady {
+  0%,
+  100% {
+    box-shadow:
+      0 6px 0 #b9ad97,
+      0 0 0 0 #f5b31c00;
+  }
+  50% {
+    box-shadow:
+      0 6px 0 #b9ad97,
+      0 0 0 7px #f5b31c40;
+  }
 }
 
 #die:disabled {
@@ -1058,31 +1353,109 @@ aside {
   font-size: 0.88rem;
 }
 
+/* いまどこに居て、目的地まであと何マスか。
+   盤面を目で読まなくても現在地が分かるようにするための一文。見出しは付けない
+   (1行しかないので、見出しがあるとかえって読むものが増える)。 */
+.board-status {
+  padding: 11px 14px;
+}
+
+.board-status-line {
+  color: var(--salt-dim);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+/* 持ちものの札。
+   もとは絵文字＋名前だけの小さなチップを横に並べ、効果は `title` に隠していたが、
+   触る画面では `title` が出ないので実質「説明が無い」状態だった。
+   効果を常に見せるため、都市の売店(`.shop`)と同じ縦積みの札にしている
+   ——買ったときに読んだものが、そのまま持ちもの欄にある。 */
 .items {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 7px;
 }
 
 .item {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
   background: var(--panel2);
   border: 1px solid var(--line);
-  border-radius: 9px;
-  padding: 7px 10px;
+  border-radius: 10px;
+  padding: 9px 11px;
   font-size: 0.85rem;
+  color: inherit;
+  font-family: inherit;
 }
 
+.item .e {
+  font-size: 1.35rem;
+  line-height: 1;
+  flex: none;
+}
+
+.item .info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.item .nm {
+  font-weight: 800;
+}
+
+.item .sub {
+  color: var(--salt-dim);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+/* 押せる札。枠の色だけで示すと色が見えない人に伝わらないので、
+   「使う」という言葉も一緒に出す。 */
 .item.usable {
   border-color: var(--gold);
+  background: #f5b31c14;
   cursor: pointer;
 }
 
+.item-tap {
+  flex: none;
+  align-self: center;
+  background: var(--gold);
+  color: #241a3f;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 5px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.item.usable:hover .item-tap,
+.item.usable:focus-visible .item-tap {
+  background: #ffc93f;
+}
+
+/* 押しても何も起きないアイテム。条件が揃うと勝手に効くので、
+   壊れているわけではないことを言葉で示す。 */
 .item.passive {
-  opacity: 0.85;
   border-style: dashed;
+}
+
+.item-auto {
+  flex: none;
+  align-self: center;
+  border: 1px solid var(--line);
+  color: var(--salt-dim);
+  font-size: 0.72rem;
+  padding: 4px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 .empty {
@@ -1141,6 +1514,175 @@ aside {
   color: var(--green);
 }
 
+/* ------------------------------------------------------------------ *
+ * 所持金の増減の演出
+ * ------------------------------------------------------------------ */
+
+/* 目には出さず、読み上げにだけ渡す文字。 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*
+ * 数字の幅を等幅にする。桁ごとに幅が変わると、転がっているあいだ行が小刻みに
+ * 揺れて読みにくい(通貨によって桁数が違うので、4言語すべてで効く)。
+ */
+.money-ticker {
+  position: relative;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* 増えるあいだは金色に持ち上がり、減るあいだは赤く沈む。 */
+.money-ticker.up {
+  color: var(--gold);
+  animation: cash-up 420ms ease-out;
+}
+
+.money-ticker.down {
+  color: var(--red);
+  animation: cash-down 420ms ease-out;
+}
+
+/* 大きく減ったときだけ揺らす(小さな上下と手応えを変えるため)。 */
+.money-ticker.shake {
+  color: var(--red);
+  animation: cash-shake 480ms ease-out;
+}
+
+@keyframes cash-up {
+  0% { transform: translateY(3px) scale(1); }
+  40% { transform: translateY(-3px) scale(1.12); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes cash-down {
+  0% { transform: translateY(-2px) scale(1); }
+  45% { transform: translateY(3px) scale(0.95); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes cash-shake {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-4px); }
+  30% { transform: translateX(4px); }
+  45% { transform: translateX(-3px); }
+  60% { transform: translateX(2px); }
+  80% { transform: translateX(-1px); }
+}
+
+/*
+ * 増減した額。**絶対配置で数字の上に浮かせる。**
+ * 行に流し込むと、桁数の違うぶん(Bs 1,200 / $70,000 / ¥120,000)行が伸び縮みする。
+ */
+/*
+ * **金額の左に置く。**真上(right:0 / top:0)に重ねたら、額と増減が
+ * 重なってどちらも読めなかった(撮って気づいた)。
+ * 物件が増えると左の説明文も伸びるので、重なっても読めるよう札にしている。
+ */
+.money-delta {
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  margin-top: -0.8em;
+  margin-right: 8px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--night2);
+  border: 1px solid var(--line);
+  font-size: 0.78em;
+  font-weight: 800;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.money-delta.big {
+  font-size: 0.92em;
+}
+
+.money-delta.up {
+  color: var(--green);
+  animation: delta-up 900ms ease-out forwards;
+}
+
+.money-delta.down {
+  color: var(--red);
+  animation: delta-down 900ms ease-out forwards;
+}
+
+/* 上下の振れ幅は小さくする。行の高さ(約44px)から飛び出すと隣の行に被る。 */
+@keyframes delta-up {
+  0% { opacity: 0; transform: translateY(7px); }
+  20% { opacity: 1; transform: translateY(0); }
+  70% { opacity: 1; transform: translateY(-4px); }
+  100% { opacity: 0; transform: translateY(-11px); }
+}
+
+@keyframes delta-down {
+  0% { opacity: 0; transform: translateY(-7px); }
+  20% { opacity: 1; transform: translateY(0); }
+  70% { opacity: 1; transform: translateY(4px); }
+  100% { opacity: 0; transform: translateY(11px); }
+}
+
+/* 弾けるコイン。上へ散ってから重さで落ちる。 */
+.coin-burst {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.coin {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #ffe9a8 0%, var(--gold) 55%, #b8790d 100%);
+  box-shadow: 0 0 6px rgba(245, 179, 28, 0.8);
+  opacity: 0;
+  animation: coin-fly 760ms cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+@keyframes coin-fly {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.4); }
+  12% { opacity: 1; transform: translate(calc(var(--dx) * 0.25), calc(var(--dy) * 0.45)) scale(1); }
+  60% { opacity: 1; transform: translate(calc(var(--dx) * 0.85), var(--dy)) scale(1); }
+  100% { opacity: 0; transform: translate(var(--dx), calc(var(--dy) * 0.15 + 14px)) scale(0.7); }
+}
+
+/*
+ * 動きを減らす設定のときは、演出を全部止める。
+ * 数字は転がらずに即座に変わる(JS側でも転がりを飛ばしている)。
+ */
+@media (prefers-reduced-motion: reduce) {
+  .money-ticker,
+  .money-ticker.up,
+  .money-ticker.down,
+  .money-ticker.shake,
+  .coin {
+    animation: none;
+  }
+
+  .money-delta,
+  .coin-burst {
+    display: none;
+  }
+}
+
 .date-chip {
   background: var(--panel2);
   border: 1px solid var(--line);
@@ -1176,6 +1718,65 @@ aside {
 #log p.gold {
   border-color: var(--gold);
   color: var(--salt);
+}
+
+/* 直近の出来事を画面の上に一瞬だけ出す帯。
+   旅の記録はサイドバーのいちばん下にあって、遊んでいる最中は目に入らない。
+
+   画面に固定して出す。盤面の中に置くと、狭い画面で下(サイコロのある側)まで
+   スクロールしている間に、上の盤面ごと画面の外へ出てしまう。
+   ヘッダーに重なるが `pointer-events: none` なので、下のボタンはそのまま押せる。 */
+.log-toast-slot {
+  position: fixed;
+  top: 8px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 12px;
+  /* モーダル(z-index: 50)より**手前**。ここに出るのは、モーダルが
+     説明しないことだけ(「9マス流された」「厄災の神が移った」「四半期収入」)。
+     運ばれた先の町のモーダルは、なぜそこに居るのかを教えてくれない。
+     後ろに置くと、こういう行はほぼ毎回モーダルに隠れて出ないままになる。
+     `pointer-events: none` なので、モーダルのボタンはそのまま押せる。 */
+  z-index: 60;
+  pointer-events: none;
+}
+
+.log-toast {
+  max-width: min(560px, 100%);
+  background: rgb(20 29 49 / 0.95);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--line);
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: var(--salt);
+  box-shadow: 0 6px 20px #00000055;
+  /* 既定が「見えている状態」であることが大事。透明から始めて動きで見せると、
+     prefers-reduced-motion で animation が消えたときに出てこなくなる。 */
+  opacity: 1;
+  animation: log-toast-in 220ms ease-out;
+}
+
+.log-toast.good {
+  border-left-color: var(--green);
+}
+
+.log-toast.bad {
+  border-left-color: var(--red);
+}
+
+.log-toast.gold {
+  border-left-color: var(--gold);
+}
+
+@keyframes log-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
 }
 
 /* Modals */
@@ -1706,10 +2307,21 @@ aside {
    コルシカ島やニュージーランドが来て被ったままだった(全体表示で確認)。
    5つの盤面はどれも左上が海で、全体表示のボタンも右下にあるので、
    左上がいちばん空いている。 */
-.board-legend {
+.board-legend-wrap {
   position: absolute;
   left: 12px;
   top: 12px;
+  z-index: 2;
+  /*
+   * 当たり判定を持たせない。中の `.board-legend` だけを透かしても、
+   * この器が押しを受け取ってしまい、**下にあるマスが押せなくなる**。
+   * 左上は世界一周ではヨーロッパが来るので、幅によってはロンドン周辺が
+   * まるごと選べなくなっていた(1180px以下で最大23マス)。
+   */
+  pointer-events: none;
+}
+
+.board-legend {
   display: grid;
   gap: 5px;
   padding: 10px 12px;
@@ -1718,7 +2330,15 @@ aside {
   border: 1px solid var(--line);
   font-size: 0.72rem;
   color: var(--salt-dim, #cfc4b0);
+  /* 地図をなぞる操作を邪魔しない(凡例は読むだけのもの)。 */
   pointer-events: none;
+}
+
+.board-legend-title {
+  font-weight: 800;
+  color: var(--salt);
+  letter-spacing: 0.04em;
+  margin-bottom: 1px;
 }
 
 .board-legend-row {
@@ -1740,10 +2360,57 @@ aside {
   border-radius: 50%;
 }
 
-/* 狭い画面では場所を食うので出さない(盤面そのものを見るほうが大事)。 */
+/* たたみボタンは狭い画面専用。広い画面では凡例を常に出しておくので要らない。
+   器の当たり判定を切っているので、押せる必要があるここだけ戻す。 */
+.board-legend-toggle {
+  display: none;
+  pointer-events: auto;
+}
+
+/* 狭い画面では常時出すと地図を覆ってしまうので、たたんでボタンにする。
+   以前はまるごと非表示にしていたが、それだと**スマホで遊ぶ人には凡例が
+   一度も出ない**。説明をいちばん必要とする人に届かないのでは意味がない。 */
 @media (max-width: 640px) {
+  .board-legend-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px 7px 9px;
+    border-radius: 999px;
+    background: rgb(20 29 49 / 0.92);
+    border: 1px solid var(--line);
+    color: var(--salt);
+    font-size: 0.75rem;
+    font-weight: 800;
+    /* 指で押せる大きさを確保する。 */
+    min-height: 34px;
+  }
+
   .board-legend {
     display: none;
+    margin-top: 6px;
+    font-size: 0.75rem;
+    /* 地図の幅を越えて溢れないようにする。 */
+    max-width: calc(100vw - 48px);
+  }
+
+  .board-legend.open {
+    display: grid;
+  }
+
+  /* 見出しはボタンに出ているので中では省く(狭い画面で1行ぶん惜しい)。 */
+  .board-legend-title {
+    display: none;
+  }
+
+  .board-legend-row {
+    /* 文が長い言語では折り返す(はみ出させない)。 */
+    white-space: normal;
+    align-items: flex-start;
+  }
+
+  .board-legend-chip {
+    margin-top: 2px;
   }
 }
 
