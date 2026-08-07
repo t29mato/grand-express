@@ -5,6 +5,7 @@
  * 抽出後にこの定義をマージする。移行(legacyの再現)が終わった後の
  * 通常のコンテンツ開発は、すべてここに足していく。
  */
+import { JAPAN_TERRAIN } from "./japan-terrain.mjs";
 import { BOLIVIA_LAND } from "./bolivia-geography.mjs";
 import { QUIZ_DIFFICULTY } from "./quiz-difficulty.mjs";
 import { JAPAN_LAND } from "./japan-geography.mjs";
@@ -83,6 +84,7 @@ const OVERRIDES = {
     itemPrices: ITEM_PRICES.japan,
     moneyEvents: JAPAN_MONEY_EVENTS,
     removedEdges: JAPAN_REMOVED_EDGES,
+    terrain: JAPAN_TERRAIN,
     extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES, ...JAPAN_ISLAND_CITIES, ...JAPAN_HOKKAIDO_CITIES },
     extraEdges: [...JAPAN_EXTRA_EDGES, ...JAPAN_PREFECTURE_EDGES, ...JAPAN_ISLAND_EDGES, ...JAPAN_HOKKAIDO_EDGES],
     quizDifficulty: QUIZ_DIFFICULTY.japan,
@@ -99,6 +101,7 @@ export function applyContentOverrides(countryId, content) {
   if (!override) return content;
 
   if (override.land) content.land = override.land;
+  if (override.terrain && content.terrain) content.terrain = override.terrain;
 
   // サムネイル生成時は proj を持たない部分オブジェクトで呼ばれるため、その場合は何もしない
   // (サムネイルは自前のviewBoxで描くので盤面の拡大とは無関係)。
