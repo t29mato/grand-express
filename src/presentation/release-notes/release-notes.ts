@@ -23,6 +23,18 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.13.2",
+    date: "2026-08-07",
+    title: t(
+      "The lines bend, not snap|Las líneas se curvan, no se quiebran|Les lignes s'incurvent au lieu de casser|線路の角が丸くなりました",
+    ),
+    highlights: [
+      t(
+        "Where a line changed direction it used to turn a hard right angle. It now sweeps round the bend, the way an underground map does — the board reads softer without losing any of its straightness.|Donde una línea cambiaba de dirección giraba en ángulo recto. Ahora describe una curva, como en un plano de metro.|Là où une ligne changeait de direction, elle formait un angle droit. Elle décrit désormais une courbe, comme sur un plan de métro.|線路が向きを変えるところが直角に折れていました。地下鉄の路線図と同じように、なめらかに回り込むようにしました。まっすぐさはそのままに、盤面の当たりが柔らかくなります。",
+      ),
+    ],
+  },
+  {
     version: "0.13.1",
     date: "2026-08-07",
     title: t(
