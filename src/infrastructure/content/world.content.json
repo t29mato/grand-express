@@ -888,6 +888,198 @@
         }
       ]
     },
+    "veracruz": {
+      "n": {
+        "en": "Veracruz",
+        "es": "Veracruz",
+        "fr": "Veracruz",
+        "ja": "ベラクルス"
+      },
+      "lo": -96.13,
+      "la": 19.17,
+      "reg": "nam",
+      "mark": "ship_w",
+      "bg": "harbour",
+      "lp": "l",
+      "tag": {
+        "en": "The one gate Spain allowed to the Americas",
+        "es": "La única puerta que España abrió a América",
+        "fr": "La seule porte que l'Espagne ouvrit aux Amériques",
+        "ja": "スペインが新大陸に許した唯一の門"
+      },
+      "fact": {
+        "en": "For most of three centuries this was the only harbour through which Spain permitted trade with its American colonies, so every shipment of silver and every imported book passed across this quay. Couples still dance the danzón in the main square on ordinary weekday evenings.",
+        "es": "Durante casi tres siglos fue el único puerto por el que España permitió comerciar con sus colonias americanas: toda la plata y todo libro importado pasaron por este muelle. Aún se baila danzón en la plaza entre semana.",
+        "fr": "Trois siècles durant ou presque, ce fut le seul port par lequel l'Espagne autorisa le commerce avec ses colonies : tout l'argent et tout livre importé passèrent par ce quai. On y danse encore le danzón sur la grand-place en semaine.",
+        "ja": "三世紀近くのあいだ、スペインが新大陸の植民地との交易を許した港はここだけだった。銀の積荷も輸入された書物も、すべてこの岸壁を通った。いまも平日の夕方、広場では男女がダンソンを踊っている。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Silver Customs House",
+            "es": "Aduana de la plata",
+            "fr": "Douane de l'argent",
+            "ja": "銀の税関"
+          },
+          "cost": 300,
+          "inc": 62
+        },
+        {
+          "n": {
+            "en": "Danzón Bandstand",
+            "es": "Quiosco del danzón",
+            "fr": "Kiosque du danzón",
+            "ja": "ダンソンの野外舞台"
+          },
+          "cost": 260,
+          "inc": 54
+        }
+      ]
+    },
+    "bandarabbas": {
+      "n": {
+        "en": "Bandar Abbas",
+        "es": "Bandar Abbás",
+        "fr": "Bandar Abbas",
+        "ja": "バンダレ・アッバース"
+      },
+      "lo": 56.31,
+      "la": 27.23,
+      "reg": "asi",
+      "mark": "ship_w",
+      "bg": "harbour",
+      "lp": "r",
+      "tag": {
+        "en": "A port a shah took back and named after himself",
+        "es": "Un puerto que un sah recuperó y bautizó con su nombre",
+        "fr": "Un port qu'un chah reprit et nomma de son nom",
+        "ja": "王が奪い返し、自らの名を付けた港"
+      },
+      "fact": {
+        "en": "Shah Abbas drove the Portuguese out of this harbour in 1622, with English ships helping, and gave the place his own name. The strait outside is barely 40 km across at its narrowest, and roughly a fifth of the world's seaborne oil still passes through it.",
+        "es": "El sah Abbás expulsó a los portugueses de este puerto en 1622, con ayuda de naves inglesas, y le dio su propio nombre. El estrecho de enfrente apenas mide 40 km en su punto más angosto.",
+        "fr": "Le chah Abbas chassa les Portugais de ce port en 1622, avec l'aide de navires anglais, et lui donna son propre nom. Le détroit au large fait à peine 40 km au plus étroit.",
+        "ja": "1622年、シャー・アッバースは英国船の助けを借りてポルトガル人をこの港から追い出し、自らの名を土地に与えた。沖の海峡は最も狭いところで40kmしかなく、いまも世界の海上輸送される石油のおよそ五分の一がここを通る。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Wind-Tower House",
+            "es": "Casa de torre de viento",
+            "fr": "Maison à tour à vent",
+            "ja": "バードギールの家"
+          },
+          "cost": 280,
+          "inc": 58
+        },
+        {
+          "n": {
+            "en": "Strait Pilot Boat",
+            "es": "Barca del práctico",
+            "fr": "Vedette du pilote",
+            "ja": "海峡の水先船"
+          },
+          "cost": 300,
+          "inc": 62
+        }
+      ]
+    },
+    "mombasa": {
+      "n": {
+        "en": "Mombasa",
+        "es": "Mombasa",
+        "fr": "Mombasa",
+        "ja": "モンバサ"
+      },
+      "lo": 39.67,
+      "la": -4.05,
+      "reg": "afr",
+      "mark": "ship_w",
+      "bg": "harbour",
+      "lp": "r",
+      "tag": {
+        "en": "A fort that changed hands nine times",
+        "es": "Un fuerte que cambió de manos nueve veces",
+        "fr": "Un fort qui changea neuf fois de mains",
+        "ja": "九度も主が変わった砦"
+      },
+      "fact": {
+        "en": "Fort Jesus was built by the Portuguese in 1593 and then taken and retaken nine times in two centuries by Omani, Portuguese and British forces. The old harbour below it still fills with dhows that ride the monsoon down from Arabia and wait months for the wind to turn.",
+        "es": "El fuerte Jesús lo alzaron los portugueses en 1593 y cambió de manos nueve veces en dos siglos entre omaníes, portugueses y británicos. En el puerto viejo aún fondean dhows que bajan con el monzón desde Arabia.",
+        "fr": "Le fort Jésus fut bâti par les Portugais en 1593 puis pris et repris neuf fois en deux siècles par Omanais, Portugais et Britanniques. Le vieux port accueille encore les boutres qui descendent d'Arabie avec la mousson.",
+        "ja": "フォート・ジーザスは1593年にポルトガル人が築き、二世紀のあいだにオマーン・ポルトガル・英国のあいだで九度も主が変わった。下の旧港にはいまも、季節風に乗ってアラビアから下ってくるダウ船が入り、風の向きが変わるまで何か月も待つ。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Old Harbour Dhow",
+            "es": "Dhow del puerto viejo",
+            "fr": "Boutre du vieux port",
+            "ja": "旧港のダウ船"
+          },
+          "cost": 300,
+          "inc": 62
+        },
+        {
+          "n": {
+            "en": "Coral Stone Fort",
+            "es": "Fuerte de piedra coralina",
+            "fr": "Fort en pierre de corail",
+            "ja": "珊瑚石の砦"
+          },
+          "cost": 280,
+          "inc": 58
+        }
+      ]
+    },
+    "belem": {
+      "n": {
+        "en": "Belém",
+        "es": "Belém",
+        "fr": "Belém",
+        "ja": "ベレン"
+      },
+      "lo": -48.5,
+      "la": -1.46,
+      "reg": "sam",
+      "mark": "palm_w",
+      "bg": "tropics",
+      "lp": "l",
+      "tag": {
+        "en": "A city roofed by mango trees",
+        "es": "Una ciudad techada de mangos",
+        "fr": "Une ville couverte de manguiers",
+        "ja": "マンゴーの木が屋根になる街"
+      },
+      "fact": {
+        "en": "Thousands of mango trees were planted along the streets a century ago and now meet overhead, shading the pavements through the equatorial heat. The river mouth beside the city holds Marajó, an island larger than Switzerland, where water buffalo outnumber people.",
+        "es": "Hace un siglo se plantaron miles de mangos en las calles y hoy se juntan arriba, dando sombra bajo el calor ecuatorial. En la boca del río está Marajó, isla mayor que Suiza, con más búfalos que personas.",
+        "fr": "On planta il y a un siècle des milliers de manguiers dans les rues ; leurs cimes se rejoignent aujourd'hui et ombragent les trottoirs sous la chaleur équatoriale. À l'embouchure s'étend Marajó, île plus grande que la Suisse.",
+        "ja": "一世紀前に街路へ植えられた何千本ものマンゴーの木は、いまでは頭上で枝を交わし、赤道の暑さの中で歩道に日陰を作る。街の脇の河口には、スイスより大きいマラジョー島があり、人より水牛のほうが多い。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Ver-o-Peso Market",
+            "es": "Mercado Ver-o-Peso",
+            "fr": "Marché Ver-o-Peso",
+            "ja": "ヴェル・オ・ペーゾ市場"
+          },
+          "cost": 300,
+          "inc": 62
+        },
+        {
+          "n": {
+            "en": "River Boat Quay",
+            "es": "Muelle fluvial",
+            "fr": "Quai fluvial",
+            "ja": "川舟の桟橋"
+          },
+          "cost": 260,
+          "inc": 54
+        }
+      ]
+    },
     "kolkata": {
       "n": {
         "en": "Kolkata",
@@ -3158,8 +3350,7 @@
     ],
     [
       "nairobi",
-      "zanzibar",
-      "sea"
+      "mombasa"
     ],
     [
       "nairobi",
@@ -3171,8 +3362,7 @@
     ],
     [
       "isfahan",
-      "dubai",
-      "sea"
+      "bandarabbas"
     ],
     [
       "zanzibar",
@@ -3347,11 +3537,11 @@
     ],
     [
       "havana",
-      "mexicocity",
+      "veracruz",
       "sea"
     ],
     [
-      "mexicocity",
+      "veracruz",
       "cartagena",
       "sea"
     ],
@@ -3374,8 +3564,7 @@
     ],
     [
       "manaus",
-      "salvador",
-      "sea"
+      "belem"
     ],
     [
       "lima",
@@ -3407,6 +3596,24 @@
       "kolkata",
       "bangkok",
       "sea"
+    ],
+    [
+      "mombasa",
+      "zanzibar",
+      "sea"
+    ],
+    [
+      "belem",
+      "salvador"
+    ],
+    [
+      "bandarabbas",
+      "dubai",
+      "sea"
+    ],
+    [
+      "veracruz",
+      "mexicocity"
     ]
   ],
   "quiz": [

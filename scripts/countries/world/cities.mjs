@@ -156,6 +156,38 @@ export const WORLD_CITIES = {
     [prop("Chandni Chowk Shopfront|Local en Chandni Chowk|Boutique de Chandni Chowk|チャンドニー・チョウクの店", 300, 62),
      prop("Stepwell Courtyard|Patio del pozo escalonado|Cour du puits à degrés|階段井戸の庭", 280, 58)],
   ),
+  veracruz: city(
+    "Veracruz|Veracruz|Veracruz|ベラクルス",
+    -96.13, 19.17, "nam", "ship_w", "harbour", "l",
+    "The one gate Spain allowed to the Americas|La única puerta que España abrió a América|La seule porte que l'Espagne ouvrit aux Amériques|スペインが新大陸に許した唯一の門",
+    "For most of three centuries this was the only harbour through which Spain permitted trade with its American colonies, so every shipment of silver and every imported book passed across this quay. Couples still dance the danzón in the main square on ordinary weekday evenings.|Durante casi tres siglos fue el único puerto por el que España permitió comerciar con sus colonias americanas: toda la plata y todo libro importado pasaron por este muelle. Aún se baila danzón en la plaza entre semana.|Trois siècles durant ou presque, ce fut le seul port par lequel l'Espagne autorisa le commerce avec ses colonies : tout l'argent et tout livre importé passèrent par ce quai. On y danse encore le danzón sur la grand-place en semaine.|三世紀近くのあいだ、スペインが新大陸の植民地との交易を許した港はここだけだった。銀の積荷も輸入された書物も、すべてこの岸壁を通った。いまも平日の夕方、広場では男女がダンソンを踊っている。",
+    [prop("Silver Customs House|Aduana de la plata|Douane de l'argent|銀の税関", 300, 62),
+     prop("Danzón Bandstand|Quiosco del danzón|Kiosque du danzón|ダンソンの野外舞台", 260, 54)],
+  ),
+  bandarabbas: city(
+    "Bandar Abbas|Bandar Abbás|Bandar Abbas|バンダレ・アッバース",
+    56.31, 27.23, "asi", "ship_w", "harbour", "r",
+    "A port a shah took back and named after himself|Un puerto que un sah recuperó y bautizó con su nombre|Un port qu'un chah reprit et nomma de son nom|王が奪い返し、自らの名を付けた港",
+    "Shah Abbas drove the Portuguese out of this harbour in 1622, with English ships helping, and gave the place his own name. The strait outside is barely 40 km across at its narrowest, and roughly a fifth of the world's seaborne oil still passes through it.|El sah Abbás expulsó a los portugueses de este puerto en 1622, con ayuda de naves inglesas, y le dio su propio nombre. El estrecho de enfrente apenas mide 40 km en su punto más angosto.|Le chah Abbas chassa les Portugais de ce port en 1622, avec l'aide de navires anglais, et lui donna son propre nom. Le détroit au large fait à peine 40 km au plus étroit.|1622年、シャー・アッバースは英国船の助けを借りてポルトガル人をこの港から追い出し、自らの名を土地に与えた。沖の海峡は最も狭いところで40kmしかなく、いまも世界の海上輸送される石油のおよそ五分の一がここを通る。",
+    [prop("Wind-Tower House|Casa de torre de viento|Maison à tour à vent|バードギールの家", 280, 58),
+     prop("Strait Pilot Boat|Barca del práctico|Vedette du pilote|海峡の水先船", 300, 62)],
+  ),
+  mombasa: city(
+    "Mombasa|Mombasa|Mombasa|モンバサ",
+    39.67, -4.05, "afr", "ship_w", "harbour", "r",
+    "A fort that changed hands nine times|Un fuerte que cambió de manos nueve veces|Un fort qui changea neuf fois de mains|九度も主が変わった砦",
+    "Fort Jesus was built by the Portuguese in 1593 and then taken and retaken nine times in two centuries by Omani, Portuguese and British forces. The old harbour below it still fills with dhows that ride the monsoon down from Arabia and wait months for the wind to turn.|El fuerte Jesús lo alzaron los portugueses en 1593 y cambió de manos nueve veces en dos siglos entre omaníes, portugueses y británicos. En el puerto viejo aún fondean dhows que bajan con el monzón desde Arabia.|Le fort Jésus fut bâti par les Portugais en 1593 puis pris et repris neuf fois en deux siècles par Omanais, Portugais et Britanniques. Le vieux port accueille encore les boutres qui descendent d'Arabie avec la mousson.|フォート・ジーザスは1593年にポルトガル人が築き、二世紀のあいだにオマーン・ポルトガル・英国のあいだで九度も主が変わった。下の旧港にはいまも、季節風に乗ってアラビアから下ってくるダウ船が入り、風の向きが変わるまで何か月も待つ。",
+    [prop("Old Harbour Dhow|Dhow del puerto viejo|Boutre du vieux port|旧港のダウ船", 300, 62),
+     prop("Coral Stone Fort|Fuerte de piedra coralina|Fort en pierre de corail|珊瑚石の砦", 280, 58)],
+  ),
+  belem: city(
+    "Belém|Belém|Belém|ベレン",
+    -48.50, -1.46, "sam", "palm_w", "tropics", "l",
+    "A city roofed by mango trees|Una ciudad techada de mangos|Une ville couverte de manguiers|マンゴーの木が屋根になる街",
+    "Thousands of mango trees were planted along the streets a century ago and now meet overhead, shading the pavements through the equatorial heat. The river mouth beside the city holds Marajó, an island larger than Switzerland, where water buffalo outnumber people.|Hace un siglo se plantaron miles de mangos en las calles y hoy se juntan arriba, dando sombra bajo el calor ecuatorial. En la boca del río está Marajó, isla mayor que Suiza, con más búfalos que personas.|On planta il y a un siècle des milliers de manguiers dans les rues ; leurs cimes se rejoignent aujourd'hui et ombragent les trottoirs sous la chaleur équatoriale. À l'embouchure s'étend Marajó, île plus grande que la Suisse.|一世紀前に街路へ植えられた何千本ものマンゴーの木は、いまでは頭上で枝を交わし、赤道の暑さの中で歩道に日陰を作る。街の脇の河口には、スイスより大きいマラジョー島があり、人より水牛のほうが多い。",
+    [prop("Ver-o-Peso Market|Mercado Ver-o-Peso|Marché Ver-o-Peso|ヴェル・オ・ペーゾ市場", 300, 62),
+     prop("River Boat Quay|Muelle fluvial|Quai fluvial|川舟の桟橋", 260, 54)],
+  ),
   kolkata: city(
     "Kolkata|Calcuta|Calcutta|コルカタ",
     88.36, 22.57, "asi", "bridge_w", "megacity_asia", "r",
@@ -584,12 +616,16 @@ export const WORLD_EDGES = [
   ["cairo", "addisababa"], // 入れ替え済み(27px → 0px)
   ["cairo", "jerusalem"],
   ["addisababa", "nairobi"],
-  ["nairobi", "zanzibar", "sea"],
+  // ナイロビは64px内陸で、ザンジバル行きの航路が全長87pxまるごと陸を通っていた。
+  // 実在のウガンダ鉄道どおりモンバサまで陸路で出て、そこから船にする。
+  ["nairobi", "mombasa"],
   ["nairobi", "capetown"],
 
   // 中東 ↔ アジア
   ["jerusalem", "isfahan"],
-  ["isfahan", "dubai", "sea"],
+  // イスファハンは53px内陸。実在の鉄道どおりバンダレ・アッバースまで陸路で出て、
+  // ホルムズ海峡だけを船で渡る。
+  ["isfahan", "bandarabbas"],
   ["zanzibar", "dubai", "sea"],
 
   // アジア
@@ -640,19 +676,24 @@ export const WORLD_EDGES = [
   ["newyork", "neworleans"], // 入れ替え済み(42px → 0px)
   ["toronto", "newyork"],
   ["neworleans", "havana", "sea"],
-  ["havana", "mexicocity", "sea"],
+  // メキシコシティは24px内陸(実際の港はベラクルス)。船はベラクルスに着け、
+  // そこから内陸へは陸路にする。
+  ["havana", "veracruz", "sea"],
 
   // 北アメリカ ↔ 南アメリカ
-  // メキシコシティ—カルタヘナはダリエン地峡で道が途切れており、鉄道は無い。
-  // 縦・横・45度ではどちらの折れ方でも191pxカリブ海の上を走るので航路にする。
-  ["mexicocity", "cartagena", "sea"],
+  // ダリエン地峡で道が途切れており鉄道は無いので航路。ただしメキシコシティは
+  // 内陸なので、港のベラクルスから出す。
+  ["veracruz", "cartagena", "sea"],
   ["havana", "cartagena", "sea"],
 
   // 南アメリカ
   ["cartagena", "lima"],
   ["cartagena", "manaus"],
   ["manaus", "lima"],
-  ["manaus", "salvador", "sea"],
+  // マナウス—ベレンはアマゾン川そのものだが、**盤面に川は描かれていない**ので
+  // 一面の陸に見える。そこへ破線の航路を引くと壊れて見えるだけなので、
+  // 陸路として引く(全長120pxが100%陸の上)。アマゾン河口のベレンで区切ってある。
+  ["manaus", "belem"],
   ["lima", "cusco"],
   ["salvador", "rio"], // 入れ替え済み(52px → 0px)
   ["rio", "buenosaires"], // 入れ替え済み(177px → 8px)
@@ -664,4 +705,8 @@ export const WORLD_EDGES = [
   // 添字がずれて偶奇が変わり、無関係な路線の折れ方まで変わる
   // (`use-board-layout.ts` の `diagonalFirst` が `edgeIndex % 2` で決まるため)。
   ["kolkata", "bangkok", "sea"], // デリー—バンコクの後半。ベンガル湾を渡る
+  ["mombasa", "zanzibar", "sea"], // ナイロビ—ザンジバルの後半。短い海峡を渡る
+  ["belem", "salvador"], // マナウス—サルバドールの後半。沿岸だが盤面では陸なので陸路
+  ["bandarabbas", "dubai", "sea"], // イスファハン—ドバイの後半。ホルムズ海峡を渡る
+  ["veracruz", "mexicocity"], // 港から首都へ。実在の鉄道
 ];

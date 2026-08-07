@@ -243,6 +243,63 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
       { op: "region-income-multiplier", regionId: region("eur"), multiplier: 1.15 },
     ],
   ],
+
+  /**
+   * 茨城。**県単位なので「地方まるごとの好不況」が書けない。**
+   * 県北が不況で県南が好況、というほどの差は一つの県の中には無く、
+   * 書けば嘘になる。そこで**その月にその場所で実際に起きる行事**で差をつける。
+   *
+   * 梅(2月・偕楽園)、桃(3月・城跡)、あやめ(6月・潮来)、海開き(7月・大洗)、
+   * 花火(10月・土浦)、紅葉(11月・袋田)、干し芋(12月・那珂湊)、
+   * 氷瀑(1月・袋田)。土地の暮らしの周期そのものが季節になっている。
+   *
+   * 8月は「雷と、雷でないもの」。関東平野の雷は夏の風物で、
+   * 厄災の神(ダイダラボウ)もこの月は雷に紛れて休む。
+   */
+  ibaraki: [
+    /* 0 Apr 田に水が入る */ [
+      { op: "region-income-multiplier", regionId: region("nan"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("sei"), multiplier: 1.2 },
+    ],
+    /* 1 May メロンと新茶 */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("rok"), multiplier: 1.25 },
+    ],
+    /* 2 Jun 水路のあやめ(潮来) */ [
+      { op: "region-income-multiplier", regionId: region("rok"), multiplier: 1.3 },
+    ],
+    /* 3 Jul 海が開く(大洗・鹿島灘) */ [
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("rok"), multiplier: 1.2 },
+    ],
+    /* 4 Aug 雷と、雷でないもの */ [
+      { op: "all-players-pay-cash", amount: 160 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep 梨と、それを落とす風 */ [
+      { op: "region-income-multiplier", regionId: region("sei"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("hok"), multiplier: 0.8 },
+    ],
+    /* 6 Oct 技を裁かれる花火(土浦) */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "region-income-multiplier", regionId: region("nan"), multiplier: 1.3 },
+    ],
+    /* 7 Nov 渓谷が色を変える(袋田) */ [
+      { op: "region-income-multiplier", regionId: region("hok"), multiplier: 1.35 },
+    ],
+    /* 8 Dec 干し場が立つ(那珂湊) */ [
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("hok"), multiplier: 1.15 },
+    ],
+    /* 9 Jan 滝が止まる(袋田の氷瀑) */ [{ op: "give-item-to-all" }],
+    /* 10 Feb 何よりも先に梅(偕楽園) */ [
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.35 },
+    ],
+    /* 11 Mar 城跡の桃 */ [
+      { op: "all-players-gain-cash", amount: 200 },
+      { op: "region-income-multiplier", regionId: region("sei"), multiplier: 1.15 },
+    ],
+  ],
 };
 
 /**
@@ -290,4 +347,12 @@ export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>>
   "crossing-the-line": "payOthers",
   "wrong-port": "teleport",
   "shell-game": "steal",
+  // Ibaraki
+  kaminari: "fine",
+  "mizu-ga-hikanai": "percentLoss",
+  "karakkaze-doom": "skipTurn",
+  "shio-ga-noboru": "loseProperties",
+  "hakobi-ga-tsukanai": "payOthers",
+  "ashiato-numa": "teleport",
+  "hoshiba-ga-nureru": "steal",
 };

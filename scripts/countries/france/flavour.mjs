@@ -43,11 +43,11 @@ export const FRANCE_REGIONS = {
 export const FRANCE_ITEMS = {
   montgolfiere: {
     e: "🎈",
-    price: 560,
+    price: 240,
     kind: "move",
     n: t("Montgolfier Balloon|Globo de los Montgolfier|Montgolfière|モンゴルフィエの気球"),
     d: t(
-      "Fly straight to the destination.|Vuela directo al destino.|Vole droit au but.|目的地へ一気に飛ぶ。",
+      "Carried 8–12 squares. The wind picks where you come down.|Te lleva de 8 a 12 casillas. El viento elige dónde bajas.|Emporté de 8 à 12 cases. C'est le vent qui choisit où tu redescends.|8〜12マス運ばれる。どこに降りるかは風まかせ。",
     ),
     f: t(
       "The first passengers of a hot-air balloon, in September 1783, were a sheep, a duck and a rooster; two men rose over Paris two months later.|Los primeros pasajeros de un globo, en septiembre de 1783, fueron una oveja, un pato y un gallo; dos hombres se elevaron sobre París dos meses después.|Les premiers passagers d'une montgolfière, en septembre 1783, furent un mouton, un canard et un coq ; deux hommes s'élevèrent au-dessus de Paris deux mois plus tard.|1783年9月、熱気球に最初に乗ったのは羊と家鴨と雄鶏でした。人を乗せてパリの空に上がったのは、その二か月後です。",

@@ -41,11 +41,11 @@ export const INDIA_REGIONS = {
 export const INDIA_ITEMS = {
   garuda: {
     e: "🦅",
-    price: 560,
+    price: 240,
     kind: "move",
     n: t("Garuda's Flight|El vuelo de Garuda|Le vol de Garuda|ガルーダの飛翔"),
     d: t(
-      "Fly straight to the destination.|Vuela directo al destino.|Vole droit au but.|目的地へ一気に飛ぶ。",
+      "Carried 8–12 squares. The great bird takes no requests.|Te lleva de 8 a 12 casillas. El ave no acepta peticiones.|Emporté de 8 à 12 cases. L'oiseau n'accepte aucune demande.|8〜12マス運ばれる。神鳥に行き先の注文はできない。",
     ),
     f: t(
       "Garuda, the eagle who carries Vishnu, appears on temple gateways and on the tail of India's national airline.|Garuda, el águila que lleva a Vishnu, aparece en las puertas de los templos y en la cola de la aerolínea nacional.|Garuda, l'aigle qui porte Vishnou, orne les portes des temples et la queue de la compagnie nationale.|ヴィシュヌ神を乗せる神鳥ガルーダは、寺院の門にもインドの国営航空の尾翼にも描かれています。",

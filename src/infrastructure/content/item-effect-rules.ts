@@ -5,12 +5,18 @@
  *
  * 対応関係は legacy/grand-express.html の `humanAction`/`cpuItems` を
  * 読んで書き起こしたもの。両国ともキーは異なるが効果の種類は共通。
+ *
+ * 各国に1つある移動アイテム(気球・飛行機など)だけは legacy と効果が違う。
+ * legacy は目的地への瞬間移動だったが、確実に着けるとサイコロを振る意味が
+ * 無くなるため、`carried-far`(8〜12マス進むが向きは選べない)に置き換えた。
+ * 8〜12は、サイコロ3個振り(3〜18・平均10.5)と同じくらい大きく動きつつ、
+ * 向きが選べないぶん博打になる幅として決めている。
  */
 import { ItemEffect } from "../../domain/item/item";
 
 export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   // Bolivia
-  ekeko: { type: "teleport-to-destination" },
+  ekeko: { type: "carried-far", minSteps: 8, maxSteps: 12 },
   pass: { type: "choose-exact-dice" },
   ferro: { type: "roll-fixed-dice", diceCount: 2 },
   coca: { type: "none" }, // 厄災の神のward item(passive)。発動抑止は別ロジックで自動処理。
@@ -20,7 +26,7 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   expreso: { type: "roll-fixed-dice", diceCount: 3 },
   singani: { type: "gain-cash", amount: 380 },
   // Japan
-  hikouki: { type: "teleport-to-destination" },
+  hikouki: { type: "carried-far", minSteps: 8, maxSteps: 12 },
   taxi: { type: "choose-exact-dice" },
   shinkansen: { type: "roll-fixed-dice", diceCount: 2 },
   omamori: { type: "none" }, // 厄災の神のward item(passive)
@@ -30,7 +36,7 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   manekineko: { type: "gain-cash", amount: 380 },
   tasuki: { type: "extra-turn" },
   // India(legacy由来ではなく、このリポジトリで書き起こした国)
-  garuda: { type: "teleport-to-destination" },
+  garuda: { type: "carried-far", minSteps: 8, maxSteps: 12 },
   tatkal: { type: "choose-exact-dice" },
   rajdhani: { type: "roll-fixed-dice", diceCount: 2 },
   vandebharat: { type: "roll-fixed-dice", diceCount: 3 },
@@ -40,7 +46,7 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   jugaad: { type: "gain-cash", amount: 380 },
   dabbawala: { type: "extra-turn" },
   // France
-  montgolfiere: { type: "teleport-to-destination" },
+  montgolfiere: { type: "carried-far", minSteps: 8, maxSteps: 12 },
   chaix: { type: "choose-exact-dice" },
   corail: { type: "roll-fixed-dice", diceCount: 2 },
   tgv: { type: "roll-fixed-dice", diceCount: 3 },
@@ -50,7 +56,7 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   brocante: { type: "gain-cash", amount: 380 },
   relais: { type: "extra-turn" },
   // World
-  zeppelin: { type: "teleport-to-destination" },
+  zeppelin: { type: "carried-far", minSteps: 8, maxSteps: 12 },
   chronometer: { type: "choose-exact-dice" },
   mailsteamer: { type: "roll-fixed-dice", diceCount: 2 },
   blueriband: { type: "roll-fixed-dice", diceCount: 3 },
@@ -59,4 +65,14 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   baedeker: { type: "quiz-save" },
   posterestante: { type: "gain-cash", amount: 380 },
   dateline: { type: "extra-turn" },
+  // Ibaraki(県単位の盤面。国と同じ仕組みで動く)
+  hobiki: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  jikokuhyo: { type: "choose-exact-dice" },
+  tokiwa: { type: "roll-fixed-dice", diceCount: 2 },
+  tsukubaex: { type: "roll-fixed-dice", diceCount: 3 },
+  ookushigai: { type: "none" }, // 厄災の神(ダイダラボウ)のward item(passive)
+  kashimatachi: { type: "repel-spirit" },
+  kodokan: { type: "quiz-save" },
+  kasamayaki: { type: "gain-cash", amount: 380 },
+  gamanoabura: { type: "extra-turn" },
 };
