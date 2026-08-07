@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { NodeId, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
+import { CityId, NodeId, PlayerId, PropertyRef, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
 import { isCityNode } from "../../../domain/board/node";
 import { GameSession, currentPlayer } from "../../../domain/game-session/game-session";
 import { GameEngineContext } from "../../../application/game-engine-context";
@@ -243,6 +243,43 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
     return { rail, sea };
   }, [context, positions]);
 
+  /**
+   * 町ごとの持ち主。
+   *
+   * 桃鉄の面白さの核は「地図が自分の色に染まっていくのを見る」ことなのに、
+   * これまで物件を買っても盤面は何も変わらず、所有は横の数字でしか
+   * 分からなかった。いちばん多く持っている人の色を町に付ける。
+   * 同数で並んだときは色を付けない(誰の町とも言えないため)。
+   */
+  const ownershipByCity = useMemo(() => {
+    const countsByCity = new Map<string, Map<PlayerId, number>>();
+    session.players.forEach((player) => {
+      for (const ref of player.portfolio.keys()) {
+        const { cityId } = PropertyRef.parse(ref);
+        const perPlayer = countsByCity.get(cityId) ?? new Map<PlayerId, number>();
+        perPlayer.set(player.id, (perPlayer.get(player.id) ?? 0) + 1);
+        countsByCity.set(cityId, perPlayer);
+      }
+    });
+
+    const colorByPlayer = new Map(
+      session.players.map((player, i) => [player.id, PLAYER_COLORS[i % PLAYER_COLORS.length]]),
+    );
+    const result = new Map<string, CityOwnership>();
+    for (const [cityId, perPlayer] of countsByCity) {
+      const ranked = [...perPlayer.entries()].sort((a, b) => b[1] - a[1]);
+      if (ranked.length > 1 && ranked[0][1] === ranked[1][1]) continue;
+      const [playerId, owned] = ranked[0];
+      const color = colorByPlayer.get(playerId);
+      if (!color) continue;
+      result.set(cityId, {
+        color,
+        isMonopoly: owned === context.getCity(CityId(cityId)).properties.length,
+      });
+    }
+    return result;
+  }, [session.players, context]);
+
   const tokensByNode = useMemo(() => {
     const map = new Map<string, { name: string; color: string; isActive: boolean }[]>();
     session.players.forEach((p, i) => {
@@ -344,6 +381,7 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
                   <CityMarker
                     glyphSvg={context.content.artGlyphs[context.getCity(node.cityId).artGlyphKey] ?? ""}
                     isDestination={isDestination}
+                    ownership={ownershipByCity.get(node.cityId)}
                   />
                 ) : (
                   <SquareMarker type={node.type} />
@@ -415,7 +453,22 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
  * 影の楕円 → 都市のシンボル(1.25倍) → 円 → 中心の点 → 目的地リング → 都市名
  * という重ね順・座標・色はlegacyと同じ。
  */
-function CityMarker({ glyphSvg, isDestination }: { glyphSvg: string; isDestination: boolean }) {
+/** その町を誰がどれだけ持っているか。 */
+interface CityOwnership {
+  readonly color: string;
+  /** その町の物件を全部持っている(独占)。 */
+  readonly isMonopoly: boolean;
+}
+
+function CityMarker({
+  glyphSvg,
+  isDestination,
+  ownership,
+}: {
+  glyphSvg: string;
+  isDestination: boolean;
+  ownership?: CityOwnership;
+}) {
   const scale = SIZES.cityGlyphScale;
   const glyphWidth = 24 * scale;
 
@@ -429,8 +482,21 @@ function CityMarker({ glyphSvg, isDestination }: { glyphSvg: string; isDestinati
         strokeLinejoin="round"
         dangerouslySetInnerHTML={{ __html: glyphSvg }}
       />
+      {/* 持ち主の色。物件を1つでも買うと輪が付き、全部そろえると太い二重の輪になる。
+          数字を見なくても、盤面が誰の色に染まってきたかが分かるようにするため。 */}
+      {ownership && (
+        <circle
+          r={SIZES.cityRadius + (ownership.isMonopoly ? 4.5 : 3)}
+          fill="none"
+          stroke={ownership.color}
+          strokeWidth={ownership.isMonopoly ? 5 : 3}
+        />
+      )}
+      {ownership?.isMonopoly && (
+        <circle r={SIZES.cityRadius + 8.5} fill="none" stroke={ownership.color} strokeWidth={1.5} opacity={0.7} />
+      )}
       <circle r={SIZES.cityRadius} fill="#f6efe2" stroke="#241a10" strokeWidth={2.5} />
-      <circle r={SIZES.cityInnerRadius} fill="#241a3f" />
+      <circle r={SIZES.cityInnerRadius} fill={ownership ? ownership.color : "#241a3f"} />
       {isDestination && (
         <circle r={SIZES.destRingRadius} fill="none" stroke="#f5b31c" strokeWidth={3.5} strokeDasharray="8 9" className="dest-ring" />
       )}
