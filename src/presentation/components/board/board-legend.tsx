@@ -33,7 +33,6 @@ export function BoardLegend({ currency }: { currency: CurrencyFormat }) {
     },
     { color: "#5b8fe8", label: t("blueSq") },
     { color: "#e05252", label: t("redSq") },
-    { color: "#f5d31c", label: t("cardSq") },
     { color: "#f6efe2", label: t("townSq") },
   ];
 

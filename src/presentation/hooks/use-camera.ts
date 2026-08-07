@@ -71,11 +71,15 @@ export function useCamera({ boardWidth, boardHeight, viewportAspect }: UseCamera
   const clamp = useCallback(
     (x: number, y: number, w: number): [number, number] => {
       const h = w / aspect;
-      // 見えている範囲が盤面より広い軸は、端に寄せず中央に置く
-      // (寄せると盤面の反対側に海だけの帯ができてしまう)。
+      // 見えている範囲が盤面より広い軸は、盤面が画面から出ない範囲に収めるだけにする。
+      //
+      // 以前はここで**中央へ強制的に寄せて**いた。そのため、盤面いっぱいまで
+      // 引くたびにカメラが中央へ飛び、「ズームすると必ず真ん中へ動く」という
+      // 挙動になっていた(フランスは盤面が小さめなので、この条件に早く当たる)。
+      // 盤面が全部見えていれば、どこを中心に置いていても地図としては困らない。
       const clampAxis = (value: number, boardSize: number, viewSize: number) =>
         viewSize >= boardSize
-          ? (boardSize - viewSize) / 2
+          ? Math.max(boardSize - viewSize, Math.min(0, value))
           : Math.max(-40, Math.min(boardSize - viewSize + 40, value));
       return [clampAxis(x, boardWidth, w), clampAxis(y, boardHeight, h)];
     },

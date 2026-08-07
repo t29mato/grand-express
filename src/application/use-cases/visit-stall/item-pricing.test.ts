@@ -1,32 +1,36 @@
 import { describe, expect, it } from "vitest";
 import { CountryId } from "../../../domain/shared-kernel/ids";
-import { Money } from "../../../domain/shared-kernel/money";
 import { JsonCountryContentRepository } from "../../../infrastructure/content/json-country-content-repository";
 import { isSoldAtStall, itemPrice } from "../../../domain/item/item-pricing";
 import { quizReward, MAX_QUIZ_DIFFICULTY } from "../../../domain/quiz/quiz-question";
 
 /**
- * 屋台に「買うだけで確実に得をするアイテム」を並べない。
+ * 屋台に「買うだけで確実に得をするアイテム」を並べない。選択が選択でなくなるため。
  *
- * 選択が選択でなくなるため。特に目的地へ飛ぶアイテムは、賞金が
- * `700 + 70×月` で育つので、固定価格だと終盤ほど確定利益が大きくなる。
+ * 移動アイテムのうち1つ(気球・飛行機など)は、**進む向きが選べない**。
+ * 遠くまで行けるが目的地から遠ざかることもあるので、
+ * 距離も向きも自分で決められるアイテムより安くなければ、誰も選ばない。
  */
 describe("アイテムの値付け", () => {
   const repo = new JsonCountryContentRepository();
-  const countries = ["bolivia", "japan", "india", "france", "world"] as const;
+  const countries = ["bolivia", "japan", "india", "france", "world", "ibaraki"] as const;
 
-  it.each(countries)("%s: 目的地へ飛ぶアイテムは、いつ買っても賞金より高い", async (countryId) => {
+  it.each(countries)("%s: 向きの選べない移動アイテムは、思い通りに動けるアイテムより安い", async (countryId) => {
     const pack = await repo.load(CountryId(countryId));
-    const teleport = pack.items.find((i) => i.effect.type === "teleport-to-destination");
-    expect(teleport, `${countryId}: 瞬間移動アイテムが無い`).toBeDefined();
+    const carried = pack.items.find((i) => i.effect.type === "carried-far");
+    expect(carried, `${countryId}: 向きの選べない移動アイテムが無い`).toBeDefined();
 
-    // 3年ぶん(36ヶ月)のどの時点でも、賞金目当てに買うと損になること。
-    for (let month = 0; month < 36; month++) {
-      const prize = Money.of(700 + 70 * month);
+    // 距離か向きを自分で決められる移動アイテム(サイコロを選ぶ/複数個振る)。
+    const controllable = pack.items.filter(
+      (i) => i.effect.type === "choose-exact-dice" || i.effect.type === "roll-fixed-dice",
+    );
+    expect(controllable.length, `${countryId}: 比べる相手の移動アイテムが無い`).toBeGreaterThan(0);
+
+    for (const item of controllable) {
       expect(
-        itemPrice(teleport!, prize).amount,
-        `${countryId}: ${month}ヶ月目に買うと確定で儲かってしまう`,
-      ).toBeGreaterThan(prize.amount);
+        itemPrice(carried!).amount,
+        `${countryId}: ${carried!.key} が ${item.key} より安くない`,
+      ).toBeLessThan(itemPrice(item).amount);
     }
   });
 

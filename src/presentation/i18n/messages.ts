@@ -5,6 +5,7 @@ import ja from "../../i18n/messages/ja.json";
 import { Locale } from "../../domain/shared-kernel/localized-text";
 import { SETUP_MESSAGES } from "./setup-messages";
 import { FEEDBACK_MESSAGES } from "./feedback-messages";
+import { GAME_LOG_MESSAGES } from "./game-log-messages";
 
 export type UiMessages = typeof en;
 
@@ -13,10 +14,10 @@ export type UiMessages = typeof en;
  * `setup-messages.ts` 側に置いてここで重ねる(生成物を直接書き換えない)。
  */
 export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
-  en: { ...en, ...SETUP_MESSAGES.en, ...FEEDBACK_MESSAGES.en },
-  es: { ...es, ...SETUP_MESSAGES.es, ...FEEDBACK_MESSAGES.es },
-  fr: { ...fr, ...SETUP_MESSAGES.fr, ...FEEDBACK_MESSAGES.fr },
-  ja: { ...(ja as UiMessages), ...SETUP_MESSAGES.ja, ...FEEDBACK_MESSAGES.ja },
+  en: { ...en, ...SETUP_MESSAGES.en, ...FEEDBACK_MESSAGES.en, ...GAME_LOG_MESSAGES.en },
+  es: { ...es, ...SETUP_MESSAGES.es, ...FEEDBACK_MESSAGES.es, ...GAME_LOG_MESSAGES.es },
+  fr: { ...fr, ...SETUP_MESSAGES.fr, ...FEEDBACK_MESSAGES.fr, ...GAME_LOG_MESSAGES.fr },
+  ja: { ...(ja as UiMessages), ...SETUP_MESSAGES.ja, ...FEEDBACK_MESSAGES.ja, ...GAME_LOG_MESSAGES.ja },
 };
 
 export const SUPPORTED_LOCALES: readonly Locale[] = ["en", "es", "fr", "ja"];

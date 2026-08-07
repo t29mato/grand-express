@@ -46,6 +46,13 @@ export interface CountryTerrain {
   ])[];
   /** 山・木などの装飾(抽出時に評価済みのSVG断片)。 */
   readonly decorSvg: string;
+  /**
+   * 装飾ひとつぶんの外接矩形 `[x, y, 幅, 高さ]`。**盤面座標**で、
+   * ほかの地形データ(経度・緯度)と違って投影済みであることに注意
+   * (`decorSvg` 自体が投影済みのSVGなので、そこから取り出している)。
+   * 中間マスを飾りの上に置かないための当たり判定に使う。
+   */
+  readonly decorBoxes: readonly (readonly [x: number, y: number, width: number, height: number])[];
 }
 
 /** 「厄災の神」のフレーバー(名前・絵文字・各種メッセージテンプレート)。 */

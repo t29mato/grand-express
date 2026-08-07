@@ -1,8 +1,9 @@
 "use client";
 
 import { create } from "zustand";
-import { GameSessionId, ItemKey, PropertyRef, cityIdToNodeId } from "../../domain/shared-kernel/ids";
+import { GameSessionId, ItemKey, NodeId, PropertyRef } from "../../domain/shared-kernel/ids";
 import { currentPlayer } from "../../domain/game-session/game-session";
+import { isCityNode } from "../../domain/board/node";
 import { createGameEngineContext } from "../../application/game-engine-context";
 import { startGame } from "../../application/use-cases/start-game/start-game.use-case";
 import { rollOneDie } from "../../application/use-cases/roll-dice/roll-dice.use-case";
@@ -61,6 +62,28 @@ export const useGameStore = create<GameStoreState>((set, get) => {
    * 手番を飛ばされる災難("skip")なら次の人へ、そうでなければサイコロへ。
    */
   let pendingAfterDoom: "skip" | "roll" | null = null;
+
+  /**
+   * 決まった経路に沿って駒を動かし、着地の処理へ渡す。
+   * 自分でマスを選んだとき(`chooseSquare`)も、風まかせで運ばれたとき
+   * (`carried-far` のアイテム)も、移動はここを通る。
+   */
+  function walkAlongPath(path: readonly NodeId[]) {
+    const { context, session } = get();
+    if (!context || !session) return;
+    const player = currentPlayer(session);
+    const moveResult = movePlayerAlongPath(session, player.id, path);
+    set((s) => {
+      let log = s.log;
+      for (const evt of moveResult.spiritPassEvents) {
+        const to = session.players.find((p) => p.id === evt.toPlayerId)?.name ?? String(evt.toPlayerId);
+        log = [logEntry("passLog", [context.content.spirit.emoji, player.name, to], "bad"), ...log];
+      }
+      return { session: moveResult.session, log };
+    });
+    soundAdapter.setRegion(context.getNode(moveResult.finalNode).regionId);
+    resolveLandingForHuman(moveResult.finalNode);
+  }
 
   return {
     context: null,
@@ -184,18 +207,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       if (!context || !session || ui.kind !== "choosing-square") return;
       const path = ui.reachable.get(nodeId);
       if (!path) return;
-      const player = currentPlayer(session);
-      const moveResult = movePlayerAlongPath(session, player.id, path);
-      set((s) => {
-        let log = s.log;
-        for (const evt of moveResult.spiritPassEvents) {
-          const to = session.players.find((p) => p.id === evt.toPlayerId)?.name ?? String(evt.toPlayerId);
-          log = [logEntry("passLog", [context.content.spirit.emoji, player.name, to], "bad"), ...log];
-        }
-        return { session: moveResult.session, log };
-      });
-      soundAdapter.setRegion(context.getNode(moveResult.finalNode).regionId);
-      resolveLandingForHuman(moveResult.finalNode);
+      walkAlongPath(path);
     },
 
     answerQuizOption(optionIndex) {
@@ -284,8 +296,16 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const result = applyItemUse(context, session, player.id, index, random);
       set((s) => ({ session: result.session, log: pushLog(s, "usedItemLog", [player.name, usedItem?.emoji ?? "", usedItem?.name ?? ""], "gold") }));
 
-      if (result.result.type === "teleport-to-destination") {
-        resolveLandingForHuman(cityIdToNodeId(result.session.destination));
+      if (result.result.type === "carried-far") {
+        // 行き先は抽選済み。選ばせずにそのまま運ぶ(向きが選べないのが、このアイテムの肝)。
+        const { steps, path, toNode } = result.result;
+        const landing = context.getNode(toNode);
+        set((s) => ({
+          log: isCityNode(landing)
+            ? pushLog(s, "carriedToLog", [player.name, steps, context.getCity(landing.cityId).name], "gold")
+            : pushLog(s, "carriedLog", [player.name, steps], "gold"),
+        }));
+        walkAlongPath(path);
       } else if (result.result.type === "rolled") {
         const { steps, rolls } = result.result;
         const reachable = reachableNodesFor(context, result.session, player.id, steps);

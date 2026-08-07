@@ -13,10 +13,11 @@ import { ItemDefinition } from "./item";
  *
  * どちらも「買わない理由がない」ため、選択が選択でなくなる。
  * ここで価格と品揃えを決め直す。
+ *
+ * 飛行機のほうは、値段ではなく効果を変えて解いた。目的地へ確実に着くのをやめ、
+ * 大きく進むが向きは選べない `carried-far` にしたので、賞金との連動は要らなくなった
+ * (儲かるとは限らないため)。いまはどのアイテムも素の固定価格で売る。
  */
-
-/** 目的地へ飛ぶアイテムの、賞金に対する上乗せ率。 */
-const TELEPORT_PRICE_RATIO = 1.2;
 
 /**
  * 屋台に並ぶかどうか。
@@ -29,17 +30,7 @@ export function isSoldAtStall(item: ItemDefinition): boolean {
   return item.effect.type !== "gain-cash";
 }
 
-/**
- * いまの売値。
- *
- * 目的地へ飛ぶアイテムは、その時点の賞金に連動させる。固定価格だと、
- * 賞金が育つ終盤ほど「買えば確実に儲かる」度合いが大きくなってしまう。
- * 賞金より2割高くしておけば、賞金目当てに買うと損になり、
- * **早く着きたい・他の人に先を越されたくないときに買う**アイテムになる。
- */
-export function itemPrice(item: ItemDefinition, destinationPrize: Money): Money {
-  if (item.effect.type === "teleport-to-destination") {
-    return Money.of(Math.ceil(destinationPrize.amount * TELEPORT_PRICE_RATIO));
-  }
+/** いまの売値。 */
+export function itemPrice(item: ItemDefinition): Money {
   return Money.of(item.price);
 }

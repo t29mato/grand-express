@@ -1,4 +1,4 @@
-import { PlayerId } from "../../../domain/shared-kernel/ids";
+import { NodeId, PlayerId } from "../../../domain/shared-kernel/ids";
 import { Money } from "../../../domain/shared-kernel/money";
 import { Random } from "../../../domain/shared-kernel/random";
 import { Player, receiveCash, removeItemAt } from "../../../domain/player/player";
@@ -8,7 +8,16 @@ import { GameEngineContext } from "../../game-engine-context";
 import { rollDice } from "../roll-dice/roll-dice.use-case";
 
 export type UseItemEffectResult =
-  | { readonly type: "teleport-to-destination" }
+  /**
+   * 大きく進むが、行き先は選べない。`path` は運ばれる道のり(1マスずつ)で、
+   * `toNode` はその終点。どちらへ運ばれるかは抽選済みで、呼び出し側に選択の余地はない。
+   */
+  | {
+      readonly type: "carried-far";
+      readonly steps: number;
+      readonly path: readonly NodeId[];
+      readonly toNode: NodeId;
+    }
   | { readonly type: "await-exact-dice-choice" }
   | { readonly type: "rolled"; readonly steps: number; readonly rolls: readonly number[] }
   | { readonly type: "gained-cash"; readonly amount: number }
@@ -41,8 +50,19 @@ export function applyItemUse(
   let sessionAfterConsuming = replacePlayer(session, playerWithoutItem);
 
   switch (item.effect.type) {
-    case "teleport-to-destination":
-      return { session: sessionAfterConsuming, result: { type: "teleport-to-destination" } };
+    case "carried-far": {
+      const { minSteps, maxSteps } = item.effect;
+      const steps = minSteps + random.nextInt(maxSteps - minSteps + 1);
+      // その距離で行ける先をすべて出し、その中から**こちらで**1つ引く。
+      // 行き先を返さず距離だけ返すと呼び出し側が選べてしまい、
+      // 「どっちへ行くか分からない」ではなくなる。
+      const destinations = [...context.pathfinding.reachableNodes(player.location, steps)];
+      if (destinations.length === 0) {
+        return { session: sessionAfterConsuming, result: { type: "no-effect" } };
+      }
+      const [toNode, path] = destinations[random.nextInt(destinations.length)];
+      return { session: sessionAfterConsuming, result: { type: "carried-far", steps, path, toNode } };
+    }
 
     case "choose-exact-dice":
       return { session: sessionAfterConsuming, result: { type: "await-exact-dice-choice" } };

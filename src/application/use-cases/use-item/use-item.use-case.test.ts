@@ -1,5 +1,5 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import { CityId, CountryId, GameSessionId, ItemKey, NodeId, PlayerId } from "../../../domain/shared-kernel/ids";
+import { CityId, CountryId, GameSessionId, ItemKey, NodeId, PlayerId, cityIdToNodeId } from "../../../domain/shared-kernel/ids";
 import { Money } from "../../../domain/shared-kernel/money";
 import { createGameSession } from "../../../domain/game-session/game-session";
 import { addItem, createPlayer } from "../../../domain/player/player";
@@ -24,10 +24,37 @@ describe("applyItemUse (実データ: ボリビアの9アイテム)", () => {
     return createGameSession({ id: GameSessionId("s"), countryId: CountryId("bolivia"), maxMonths: 12, players: [p1, p2], destination: CityId("sucre") });
   }
 
-  it("ekeko(move)は目的地へのテレポートを要求する", () => {
-    const { session, result } = applyItemUse(context, sessionWithItem("ekeko"), PlayerId("p1"), 0, new DeterministicRandom());
-    expect(result).toEqual({ type: "teleport-to-destination" });
+  it("ekeko(move)は8〜12マス運ばれ、行き先まで決まった状態で返る", () => {
+    // 1つ目の乱数が距離(8+0)、2つ目が行き先の抽選。
+    const { session, result } = applyItemUse(context, sessionWithItem("ekeko"), PlayerId("p1"), 0, new DeterministicRandom([0]));
+    expect(result.type).toBe("carried-far");
+    if (result.type !== "carried-far") return;
+    expect(result.steps).toBe(8);
+    // 呼び出し側に選ぶ余地を残さないため、経路と終点まで返す。
+    expect(result.path).toHaveLength(8);
+    expect(result.toNode).toBe(result.path[result.path.length - 1]);
     expect(session.players[0].inventory).toHaveLength(0);
+  });
+
+  it("ekekoは目的地から遠ざかることもある(向きが選べない)", () => {
+    // 「どっちへ行くか分からない」ことが、このアイテムの肝。近づくだけなら
+    // 目的地へ飛ぶアイテムと変わらないので、遠ざかる引きがあることを押さえる。
+    const start = NodeId("lapaz");
+    const goal = cityIdToNodeId(CityId("sucre"));
+    const before = context.pathfinding.distance(start, goal);
+
+    const after: number[] = [];
+    for (let pick = 0; pick < 20; pick++) {
+      // 距離は8で固定し(1つ目=0)、行き先の抽選だけを振り替える(2つ目=pick)。
+      const random = new DeterministicRandom([0, pick]);
+      const { result } = applyItemUse(context, sessionWithItem("ekeko"), PlayerId("p1"), 0, random);
+      if (result.type !== "carried-far") continue;
+      after.push(context.pathfinding.distance(result.toNode, goal));
+    }
+
+    expect(after.length).toBeGreaterThan(0);
+    expect(Math.max(...after), "どの引きでも目的地に近づいてしまう").toBeGreaterThan(before);
+    expect(Math.min(...after), "どの引きでも目的地から遠ざかってしまう").toBeLessThan(before);
   });
 
   it("pass(choose-exact-dice)はUIでの選択待ちを返す", () => {

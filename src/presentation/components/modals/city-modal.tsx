@@ -110,8 +110,7 @@ export function CityModal({
       <div className="shoplist">
         {stock.map((key) => {
           const item = context.content.items.find((i) => i.key === key)!;
-          // 売値は固定ではない(目的地へ飛ぶアイテムは賞金に連動する)。
-          const price = stallPriceOf(context, session, key).amount;
+          const price = stallPriceOf(context, key).amount;
           const canBuy = player.inventory.length < 5 && player.cash.amount >= price;
           return (
             <div className="shop" key={key}>

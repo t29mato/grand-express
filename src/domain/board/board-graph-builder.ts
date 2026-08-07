@@ -57,18 +57,20 @@ export function buildBoardGraph(
       const between = [a.id, b.id] as const;
       const edgeKind = edge.kind;
 
-      // 毎回クイズだと重いので、青・赤・カードを挟んで息をつげるようにする。
+      // 毎回クイズだと重いので、青マス・赤マスを挟んで息をつげるようにする。
       // ただし学ぶことが目的なので、半分はクイズのままにしておく。
+      //
+      // カードマス(星)は廃止した。アイテムは屋台とクイズの褒美で十分手に入り、
+      // マスの種類が4つあると盤面の見分けが付きにくかった。
+      // その4分の1ぶんは青マス・赤マスへ回している。
       const roll = h32(edgeIndex * 97 + k) % 20;
       let node: BoardNode;
       if (roll < 10) {
         node = { id: nodeId, type: "quiz", between, regionId, edgeKind };
-      } else if (roll < 14) {
+      } else if (roll < 16) {
         node = { id: nodeId, type: "blue", between, regionId, edgeKind };
-      } else if (roll < 17) {
-        node = { id: nodeId, type: "red", between, regionId, edgeKind };
       } else {
-        node = { id: nodeId, type: "card", between, regionId, edgeKind };
+        node = { id: nodeId, type: "red", between, regionId, edgeKind };
       }
 
       nodes.set(nodeId, node);

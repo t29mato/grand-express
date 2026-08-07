@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Award, AWARD_TEXT_KEYS } from "../../../domain/game-session/awards";
 import { GameSession } from "../../../domain/game-session/game-session";
 import { GameEngineContext } from "../../../application/game-engine-context";
 import { useLocale } from "../../i18n/locale-context";
 import { AwardTrophy } from "../events/award-trophy";
+import { soundAdapter } from "../../state/game-store-dependencies";
 
 /**
  * 表彰式。
@@ -15,6 +16,10 @@ import { AwardTrophy } from "../events/award-trophy";
  * 最後まで誰が勝ったのか分からないようにする。
  *
  * 賞が1つも無い旅(短い旅など)では何も挟まず、そのまま順位へ進む。
+ *
+ * ここは旅の終わりなので、**他のどの場面よりも華やかにする。**
+ * 1つめくるごとにファンファーレを鳴らし、最後の1つは勝利の音に変える。
+ * 紙吹雪も、最後だけ量を増やす。
  */
 export function AwardCeremony({
   awards,
@@ -32,6 +37,13 @@ export function AwardCeremony({
   const award = awards[shown];
   const last = shown >= awards.length - 1;
 
+  // 賞がめくられるたびに鳴らす。最後の1つは勝利の音にして、区切りを付ける。
+  useEffect(() => {
+    if (!awards[shown]) return;
+    if (shown >= awards.length - 1) soundAdapter.playWin();
+    else soundAdapter.playFanfare();
+  }, [shown, awards]);
+
   if (!award) return null;
 
   const winner = session.players.find((p) => p.id === award.winnerId);
@@ -45,8 +57,14 @@ export function AwardCeremony({
       <p style={{ color: "var(--salt-dim)" }}>{t("awardsLead")}</p>
 
       {/* key を変えることで、賞がめくられるたびに絵が最初から再生される。 */}
-      <div className="event-anim award-stage" key={award.id}>
+      <div className={`event-anim award-stage${last ? " finale" : ""}`} key={award.id}>
         <AwardTrophy />
+        {/* 紙吹雪。最後の賞だけ倍に増やして、締めくくりを分かるようにする。 */}
+        <div className="award-confetti" aria-hidden="true">
+          {Array.from({ length: last ? 28 : 14 }, (_, i) => (
+            <span key={i} style={{ ["--i" as string]: i }} />
+          ))}
+        </div>
       </div>
 
       <h3 className="award-name">{t(keys.name)}</h3>

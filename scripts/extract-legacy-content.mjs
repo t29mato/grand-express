@@ -558,7 +558,12 @@ function renderCountryThumb(country) {
       }
       const width = perimeter > 0 ? (2 * Math.abs(twiceArea / 2)) / perimeter : 0;
       // カード上で最低これだけの太さに見せる。縁取りは両側に付くので、足りないぶんを足す。
-      const MIN_FEATURE_PX = 3.2;
+      // **水面だけは厚めに取る。** 陸の中の水はその土地の見分けになることが多く
+      // (茨城は霞ヶ浦がそれ)、地形の色分けより先に目に入ってほしいため。
+      // 水かどうかは「青が他の成分より明確に強い」で見る。実測すると、水以外の地形色は
+      // 6盤面とも青の差が8以下、霞ヶ浦は53で、あいだが十分に空いている。
+      const isWater = /^#[0-9a-f]{6}$/i.test(color) && blueDominance(color) > 30;
+      const MIN_FEATURE_PX = isWater ? 8 : 3.2;
       const shown = width / scale;
       const stroke = 0.9 + Math.max(0, MIN_FEATURE_PX - shown);
       return (

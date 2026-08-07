@@ -8,8 +8,15 @@ import { LocalizedText } from "../shared-kernel/localized-text";
  * コンテンツデータ側(infrastructure/content)で指定する。
  */
 export type ItemEffect =
-  /** 目的地まで一気に移動する(kind: move。ekeko/hikouki)。 */
-  | { readonly type: "teleport-to-destination" }
+  /**
+   * 大きく進むが、**進む向きは選べない**(kind: move。ekeko/hikouki)。
+   * `minSteps`〜`maxSteps` マスぶん進み、その距離で行ける先の中から行き先が抽選される。
+   * 目的地に近づくこともあれば、遠ざかることもある。
+   *
+   * もとは目的地への瞬間移動だったが、それでは**サイコロを振って進む面白さが
+   * 無くなる**ため、「遠くへ運ばれるが、どこへ着くかは分からない」効果に変えた。
+   */
+  | { readonly type: "carried-far"; readonly minSteps: number; readonly maxSteps: number }
   /** 1〜6の中から移動距離を選べる(pass/taxi)。 */
   | { readonly type: "choose-exact-dice" }
   /** 複数個のサイコロを振り合計値だけ移動する(ferro/shinkansen=2個、expreso/nozomi=3個)。 */

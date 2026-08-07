@@ -30,7 +30,7 @@ import { useBoardLayout } from "./use-board-layout";
  */
 describe("盤面配置の前提", () => {
   const repo = new JsonCountryContentRepository();
-  const countries = ["bolivia", "japan", "india", "france", "world"] as const;
+  const countries = ["bolivia", "japan", "india", "france", "world", "ibaraki"] as const;
 
   function pointInPolygon(x: number, y: number, poly: readonly (readonly [number, number])[]) {
     let hit = false;
