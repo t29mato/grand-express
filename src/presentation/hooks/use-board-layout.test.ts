@@ -113,6 +113,42 @@ describe("盤面配置の前提", () => {
     expect(tooClose, `${countryId}: 押し離しても重なる都市の組`).toEqual([]);
   });
 
+  it.each(countries)("%s: 湖が画面に出る大きさで、陸の上にある", async (countryId) => {
+    // 湖は **2つの理由で静かに消える。**
+    //
+    //   1. 半径の単位を間違える。terrain-layer は rx をピクセルとして渡すのに、
+    //      インドとフランスは度のつもりで書かれていて 1px 未満になっていた
+    //      (インド5件・フランス3件が、誰にも気づかれず消えていた)
+    //   2. 中心が陸の外にある。湖は陸地でクリップして描かれるので、
+    //      海側にあると半径が正しくても出ない
+    //
+    // どちらもエラーにならない。半径だけ直して「直った」と言うと1のほうしか
+    // 塞げないので、両方をここで見る。
+    const pack = await repo.load(CountryId(countryId));
+    const { projection } = pack;
+    const landPx = pack.terrain.landPolygons.map((poly) =>
+      poly.map(([lo, la]) => {
+        const at = projectPoint(lo, la, projection);
+        return [at.x, at.y] as const;
+      }),
+    );
+
+    const tooSmall: string[] = [];
+    const offLand: string[] = [];
+    pack.terrain.lakes.forEach(([lo, la, rx, ry], i) => {
+      if (rx < 2 || ry < 2) tooSmall.push(`lakes[${i}] ${rx}×${ry}px`);
+      const at = projectPoint(lo, la, projection);
+      const onLand = landPx.some(
+        (poly) =>
+          pointInPolygon(at.x, at.y, poly) || distanceToPolygon(at.x, at.y, poly) <= 0,
+      );
+      if (!onLand) offLand.push(`lakes[${i}] (${lo}, ${la})`);
+    });
+
+    expect(tooSmall, `${countryId}: 小さすぎて見えない湖(半径は度ではなくpxで書く)`).toEqual([]);
+    expect(offLand, `${countryId}: 陸の外にあってクリップで消える湖`).toEqual([]);
+  });
+
   it.each(countries)("%s: 中間マスは3種類そろっている", async (countryId) => {
     const pack = await repo.load(CountryId(countryId));
     const graph = buildBoardGraph(pack.cities, pack.edges, pack.projection);

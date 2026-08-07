@@ -519,6 +519,12 @@ for (const content of AUTHORED_COUNTRIES) {
 /** 国選択カードでサムネイルが表示される一辺(px)。`setup-screen.tsx` のカードに合わせる。 */
 const THUMB_DISPLAY_PX = 146;
 
+/** 青が他の成分よりどれだけ強いか。水面の色を地形の色から見分けるのに使う。 */
+function blueDominance(color) {
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(color.slice(i, i + 2), 16));
+  return b - Math.max(r, g);
+}
+
 function renderCountryThumb(country) {
   const p = country.proj;
   const px = (lon) => ((lon - p.LON0) / (p.LON1 - p.LON0)) * p.BW;
