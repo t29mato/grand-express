@@ -75,6 +75,44 @@ const RESULT_LINGER_MS = 700;
 /** 動きを減らす設定のときに、出目だけを見せておく時間。 */
 const REDUCED_MOTION_LINGER_MS = 500;
 
+/** 最後に接地する時刻(全体を1としたときの位置)。ここから先は転がらず、揺れが収まるだけ。 */
+const LAND_AT = 0.84;
+/** 一度弾むごとに、次の高さがこの割合まで落ちる。 */
+const BOUNCE_DECAY = 0.4;
+/**
+ * 転がりの減速の効き方。
+ * 2 だと一定の摩擦で素直に止まるが、最後の接地よりだいぶ前に目が読めてしまう。
+ * 1.5 にすると接地の直前まで回り続け、地面に「捕まって」止まるように見える。
+ */
+const SPIN_POWER = 1.5;
+/** 止まりぎわに行き過ぎて戻る角度。ぴたりと止まると作り物に見える。 */
+const OVERSHOOT_DEG = 13;
+
+/**
+ * 弾むたびの滞空時間(正規化)。高さが r 倍なら滞空は √r 倍になるので、
+ * 弾むほど低く、**そして短く**なる。等間隔で弾ませると浮いて見える。
+ */
+const ARC_SPAN: readonly number[] = Array.from({ length: BOUNCES }, (_, i) => Math.pow(BOUNCE_DECAY, i / 2));
+const ARC_TOTAL = ARC_SPAN.reduce((sum, s) => sum + s, 0);
+/** 各弧の始まり(正規化時間 0〜1)。境目がそのまま接地の瞬間。 */
+const ARC_START: readonly number[] = ARC_SPAN.reduce<number[]>((acc, s, i) => {
+  acc.push(i === 0 ? 0 : acc[i - 1] + ARC_SPAN[i - 1] / ARC_TOTAL);
+  return acc;
+}, []);
+
+/** 転がりの進み具合。最後の接地(LAND_AT)でちょうど目的の角度に届く。 */
+function spinProgress(t: number): number {
+  return 1 - Math.pow(1 - Math.min(1, t / LAND_AT), SPIN_POWER);
+}
+
+/**
+ * 接地してからの揺り戻し。行き過ぎた角度が往復しながら 0 に収まる。
+ * s=0 で 1(行き過ぎた分そのまま)、s=1 でちょうど 0。
+ */
+function settleWobble(s: number): number {
+  return Math.cos(s * Math.PI * 2.2) * Math.pow(1 - s, 2);
+}
+
 /** OS/ブラウザ側で「視差効果を減らす」が有効になっているか。 */
 function prefersReducedMotion(): boolean {
   return typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches === true;
@@ -82,6 +120,7 @@ function prefersReducedMotion(): boolean {
 
 export function DiceStage({
   values,
+  onReveal,
   onDone,
 }: {
   /**
@@ -91,6 +130,12 @@ export function DiceStage({
    * 「サイコロの目より多く進んでいる」ように見えてしまう。
    */
   values: readonly number[];
+  /**
+   * サイコロが着地して、出目が読める状態になった瞬間に呼ばれる。
+   * ここで初めて画面の他の場所(進むマス数・行けるマスのハイライト)に
+   * 結果を出す。転がっている間に出すと、演出を見る意味が無くなる。
+   */
+  onReveal?: () => void;
   /** 演出が終わったときに呼ばれる。 */
   onDone: () => void;
 }) {
@@ -124,7 +169,11 @@ export function DiceStage({
 
     // 1個ごとの初期姿勢・着地位置(見た目だけの乱数。ゲーム結果には影響しない)。
     const plans = faces.map((v, i) => {
-      const [tx0, ty0] = FACE_ROT[v];
+      const [faceX, faceY] = FACE_ROT[v];
+      // 真正面を向いて止まると、立方体ではなく平たい札に見える。少しだけ傾けて止め、
+      // 隣の面がわずかに見えるようにする(この程度の傾きなら目は変わらず読める)。
+      const tx0 = faceX - (9 + Math.random() * 7);
+      const ty0 = faceY + (Math.random() < 0.5 ? -1 : 1) * (10 + Math.random() * 8);
       const rx0 = Math.random() * 360;
       const ry0 = Math.random() * 360;
       const spin = 3;
@@ -136,6 +185,9 @@ export function DiceStage({
         ry0,
         rx1: tx0 + 360 * (spin + Math.floor(Math.random() * 3)) + 360 * Math.ceil(rx0 / 360),
         ry1: ty0 + 360 * (spin + Math.floor(Math.random() * 3)) + 360 * Math.ceil(ry0 / 360),
+        // 行き過ぎて戻る角度。向きと大きさを1個ずつ変えて、揃って揺れないようにする。
+        overX: OVERSHOOT_DEG * (0.7 + Math.random() * 0.6) * (Math.random() < 0.5 ? -1 : 1),
+        overY: OVERSHOOT_DEG * 0.7 * (0.7 + Math.random() * 0.6) * (Math.random() < 0.5 ? -1 : 1),
         face: [tx0, ty0] as const,
       };
     });
@@ -162,13 +214,17 @@ export function DiceStage({
     };
 
     // 合計が分かるように、複数個なら「4 + 5 = 9」の形で見せる。
+    // 出目を伏せていた画面の他の場所も、ここで初めて一斉に開く。
     const showResult = () => {
       result.textContent = faces.length > 1 ? `${faces.join(" + ")} = ${total}` : String(total);
       result.className = `die-result show${faces.length > 1 ? " multi" : ""}`;
+      onReveal?.();
     };
 
-    let lastSeg = 0;
-    let finished = false;
+    /** 次に接地する弧の番号。最後の1回が「止まった」瞬間になる。 */
+    let nextImpact = 0;
+    let landed = false;
+    let ended = false;
     let raf = 0;
     let doneTimer: ReturnType<typeof setTimeout> | undefined;
 
@@ -196,37 +252,81 @@ export function DiceStage({
       setTimeout(() => dot.remove(), 480);
     };
 
+    /** 止まった瞬間に地面へ広がる衝撃の輪。 */
+    const ring = (x: number, y: number, scale: number) => {
+      const el = document.createElement("div");
+      el.className = "die-ring";
+      el.style.left = `${x}px`;
+      el.style.top = `${y}px`;
+      el.style.width = `${104 * scale}px`;
+      el.style.height = `${34 * scale}px`;
+      stage.appendChild(el);
+      setTimeout(() => el.remove(), 460);
+    };
+
+    /** 接地する瞬間(弾みの正規化時間)。最後の1つで止まる。 */
+    const impactAt = [...ARC_START.slice(1), 1];
+
+    /**
+     * 最後に接地した瞬間。ここで初めて目を見せる。
+     * この後は少し揺り戻すだけなので、答えが分かっても待たされた感じにならない。
+     */
+    const land = (x: number) => {
+      if (landed) return;
+      landed = true;
+      // 止まった手応え。輪が広がるのと、目が出るのと、音を同じ瞬間に揃える。
+      ring(x, ground + 34 * s, s);
+      showResult();
+      soundAdapter.playCoin();
+    };
+
     const t0 = performance.now();
     soundAdapter.playRattle();
 
     const frame = (now: number) => {
       const t = Math.min(1, (now - t0) / DURATION_MS);
-      const e = 1 - Math.pow(1 - t, 3);
-      const k = Math.min(1, t / 0.88);
-      const phase = k * BOUNCES;
-      const seg = Math.floor(phase);
-      const frac = phase - seg;
-      const amp = H * 0.25 * Math.pow(0.45, seg) * (1 - k * 0.15);
-      const y = t >= 1 ? ground : ground - Math.abs(Math.sin(Math.PI * frac)) * amp;
+      // 弾んでいる間の進み具合。最後の接地(LAND_AT)で1になり、以降は転がらない。
+      const b = Math.min(1, t / LAND_AT);
+      // 横に転がる距離。弾みが終わるのと同時に止まる。
+      const e = 1 - Math.pow(1 - b, 2.4);
+      const flying = b < 1;
 
-      if (seg > lastSeg && seg <= BOUNCES) {
-        lastSeg = seg;
+      while (nextImpact < impactAt.length && b >= impactAt[nextImpact]) {
+        const isLast = nextImpact === impactAt.length - 1;
+        nextImpact++;
         soundAdapter.playThud();
+        const at = plans[0].startX + (plans[0].endX - plans[0].startX) * e;
         // 弾んだ位置に砂ぼこりを出す。音だけより着地が分かりやすい。
-        puff(plans[0].startX + (plans[0].endX - plans[0].startX) * e, ground + 34 * s, s);
+        // 最後の接地はいちばん大きく出して、止まったことを目でも分かるようにする。
+        puff(at, ground + 34 * s, s * (isLast ? 1.5 : 1));
+        if (isLast) land(at);
       }
 
+      // 何回目の弧を飛んでいるか。弾むほど低く、そして短くなる。
+      const seg = Math.min(BOUNCES - 1, nextImpact);
+      const frac = flying ? (b - ARC_START[seg]) / (ARC_SPAN[seg] / ARC_TOTAL) : 1;
+      const amp = H * 0.26 * Math.pow(BOUNCE_DECAY, seg);
+      // 接地後は、行き過ぎた分が戻るのに合わせてわずかに浮き沈みする。
+      const settle = flying ? 0 : (t - LAND_AT) / (1 - LAND_AT);
+      const y = flying ? ground - Math.sin(Math.PI * frac) * amp : ground - Math.abs(settleWobble(settle)) * H * 0.012;
+
+      const g = spinProgress(t);
       plans.forEach((plan, i) => {
         const x = plan.startX + (plan.endX - plan.startX) * e;
-        place(i, x, y, plan.rx0 + (plan.rx1 - plan.rx0) * e, plan.ry0 + (plan.ry1 - plan.ry0) * e);
+        // 転がっている間は行き過ぎた角度まで回し、接地してからその分を揺り戻す。
+        // 目的の角度でぴたりと止めると、機械が止まったように見えてしまう。
+        const w = settleWobble(settle);
+        const rx = flying ? plan.rx0 + (plan.rx1 + plan.overX - plan.rx0) * g : plan.rx1 + plan.overX * w;
+        const ry = flying ? plan.ry0 + (plan.ry1 + plan.overY - plan.ry0) * g : plan.ry1 + plan.overY * w;
+        place(i, x, y, rx, ry);
       });
 
       if (t < 1) {
         raf = requestAnimationFrame(frame);
-      } else if (!finished) {
-        finished = true;
-        showResult();
-        soundAdapter.playCoin();
+      } else if (!ended) {
+        ended = true;
+        // 転がりが終わる前に接地の合図が来なかったときの保険。
+        land(plans[0].endX);
         doneTimer = setTimeout(onDone, RESULT_LINGER_MS);
       }
     };
@@ -259,8 +359,10 @@ export function DiceStage({
             diceRef.current[i] = el;
           }}
         >
-          {FACES.map(([transform, value]) => (
-            <div className="f" style={{ transform }} key={value}>
+          {FACES.map(([transform, value], faceIndex) => (
+            // 面ごとの明るさを変えるためのクラス。隣り合う面の明るさが違わないと、
+            // 立方体ではなく平たい札に見えてしまう(FACES の並び順と対応)。
+            <div className={`f f${faceIndex}`} style={{ transform }} key={value}>
               {PIP_POS[value].map(([r, c], j) => (
                 <i key={j} style={{ gridRow: r, gridColumn: c }} />
               ))}

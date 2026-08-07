@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { GameSession, currentPlayer } from "../../../domain/game-session/game-session";
 import { useLocale } from "../../i18n/locale-context";
 
@@ -8,6 +7,7 @@ export function DiceButton({
   session,
   disabled,
   cpuTurnPlayerName,
+  rolling,
   steps,
   onRoll,
 }: {
@@ -16,8 +16,14 @@ export function DiceButton({
   /** CPUが手番を進めている場合、そのプレイヤー名。人間の手番なら undefined。 */
   cpuTurnPlayerName?: string;
   /**
-   * 行き先を選んでいる最中の出目。
-   * サイコロの演出が消えたあとも「何マス進むのか」が分かるように出しておく
+   * サイコロが転がっている最中かどうか。
+   * **この間は出目を出さない。**転がっている絵の横に答えが書いてあると、
+   * 止まるのを待つ理由が無くなってしまう。
+   */
+  rolling?: boolean;
+  /**
+   * 行き先を選んでいる最中の出目。サイコロが止まってから渡される。
+   * 演出が消えたあとも「何マス進むのか」が分かるように出しておく
    * (盤面のハイライトだけでは、何マスぶんだったか思い出せない)。
    */
   steps?: number;
@@ -25,13 +31,10 @@ export function DiceButton({
 }) {
   const { t } = useLocale();
   const player = currentPlayer(session);
-  const [rolling, setRolling] = useState(false);
 
   const handleClick = () => {
     if (disabled || rolling) return;
-    setRolling(true);
     onRoll();
-    setTimeout(() => setRolling(false), 350);
   };
 
   return (
@@ -50,11 +53,13 @@ export function DiceButton({
           <div className="turn-hint">
             {cpuTurnPlayerName
               ? t("cpuTurnBadge", cpuTurnPlayerName)
-              : steps !== undefined
-                ? t("chooseSquareHint", String(steps))
-                : player.isCpu
-                  ? t("thinking")
-                  : t("rollHint")}
+              : rolling
+                ? t("rollingHint")
+                : steps !== undefined
+                  ? t("chooseSquareHint", String(steps))
+                  : player.isCpu
+                    ? t("thinking")
+                    : t("rollHint")}
           </div>
         </div>
       </div>

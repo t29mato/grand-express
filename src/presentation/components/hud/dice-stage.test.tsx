@@ -51,6 +51,33 @@ describe("DiceStage", () => {
     vi.useRealTimers();
   });
 
+  /**
+   * 出目を画面の他の場所(進むマス数・行けるマスのハイライト)に出してよいのは、
+   * サイコロが着地してから。転がっている最中に合図を出すと、
+   * 演出を見ている間にもう答えが分かってしまう。
+   */
+  it("着地して出目を見せるのと同時に、公開の合図を出す", () => {
+    const onReveal = vi.fn();
+    const { container } = render(<DiceStage values={[4]} onReveal={onReveal} onDone={() => {}} />);
+    // 動きを減らす設定なので、転がりを飛ばして即座に着地している。
+    expect(container.querySelector(".die-result")?.textContent).toBe("4");
+    expect(onReveal).toHaveBeenCalledTimes(1);
+  });
+
+  it("転がっている間は公開の合図を出さない", () => {
+    // 動きを減らさない、通常の演出で描画する。
+    vi.stubGlobal("matchMedia", () => ({
+      matches: false,
+      media: "",
+      addEventListener: () => {},
+      removeEventListener: () => {},
+    }));
+    const onReveal = vi.fn();
+    const { container } = render(<DiceStage values={[4]} onReveal={onReveal} onDone={() => {}} />);
+    expect(onReveal).not.toHaveBeenCalled();
+    expect(container.querySelector(".die-result")?.textContent).toBe("");
+  });
+
   it("演出は盤面のクリックを妨げない", () => {
     const { container } = render(<DiceStage values={[2]} onDone={() => {}} />);
     // aria-hidden かつ pointer-events:none(CSS)で、下のマスを選べる状態を保つ。

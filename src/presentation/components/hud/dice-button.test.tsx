@@ -43,4 +43,30 @@ describe("DiceButton", () => {
     );
     expect(screen.getByText(/Alex/)).toBeInTheDocument();
   });
+
+  /**
+   * 転がっている最中に出目が読めてしまうと、止まるのを待つ理由が無くなる。
+   * サイコロの絵の横に答えが書いてあった不具合の再発防止。
+   */
+  it("転がっている間は出目もマス数も出さない", () => {
+    render(
+      <LocaleProvider>
+        <DiceButton session={session()} disabled rolling onRoll={vi.fn()} />
+      </LocaleProvider>,
+    );
+    const button = screen.getByRole("button");
+    expect(button.textContent).toBe("🎲");
+    expect(screen.queryByText(/You rolled/)).toBeNull();
+    expect(screen.getByText(/rolling/i)).toBeInTheDocument();
+  });
+
+  it("止まってから出目とマス数を出す", () => {
+    render(
+      <LocaleProvider>
+        <DiceButton session={session()} disabled steps={4} onRoll={vi.fn()} />
+      </LocaleProvider>,
+    );
+    expect(screen.getByRole("button").textContent).toBe("4");
+    expect(screen.getByText(/You rolled 4/)).toBeInTheDocument();
+  });
 });
