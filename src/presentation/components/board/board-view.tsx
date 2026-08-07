@@ -24,9 +24,16 @@ const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
 const FOLLOW_WIDTH_RATIO = 0.45;
 
 /** 路線の3層描画(現行コードの `drawBoard` のレール描画と同じ色・線幅)。 */
-const RAIL_LAYERS: readonly { stroke: string; width: number; dash?: string; opacity?: number }[] = [
+const RAIL_LAYERS: readonly {
+  stroke: string;
+  width: number;
+  dash?: string;
+  opacity?: number;
+  /** レールそのものの層。幹線はここだけ色を変える(縁取りと枕木はそのまま)。 */
+  isRailSurface?: boolean;
+}[] = [
   { stroke: "#20180f", width: 9, opacity: 0.55 },
-  { stroke: "#e6dcc6", width: 5, dash: undefined },
+  { stroke: "#e6dcc6", width: 5, dash: undefined, isRailSurface: true },
   { stroke: "#3b3123", width: 5, dash: "1.5 9" },
 ];
 
@@ -384,9 +391,15 @@ export function BoardView({ context, session, reachable, onChooseNode }: BoardVi
                   key={i}
                   d={line.d}
                   fill="none"
-                  stroke={layer.stroke}
-                  /* 幹線は少し太くする。その国の背骨がひと目で分かるように。 */
-                  strokeWidth={line.isTrunk ? layer.width * 1.55 : layer.width}
+                  /* 幹線はレールを金色にする。**全体表示では見えない。**
+                     盤面が約3倍に縮み、路線の上に20px間隔でマスが並ぶので、
+                     線の見えている面積が数pxしかない。太さ1.55倍・レール金色・
+                     縁取り金色の3案を試して、3案とも全体表示では差が出なかった
+                     (撮って確認)。寄った画面(遊んでいるとき)でなら分かる。
+                     全体表示でも示すなら、線ではなく帯や都市の大小といった
+                     別の手段が要る。 */
+                  stroke={line.isTrunk && layer.isRailSurface ? "#e8b04a" : layer.stroke}
+                  strokeWidth={layer.width}
                   strokeLinecap="round"
                   strokeDasharray={layer.dash}
                   opacity={layer.opacity}
