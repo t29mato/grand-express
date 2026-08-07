@@ -19,6 +19,9 @@ export function AppFooter() {
       <Link href="/release-notes" className="footer-link">
         {t("releaseNotes")}
       </Link>
+      <Link href="/feedback" className="footer-link">
+        {t("feedbackLink")}
+      </Link>
     </footer>
   );
 }

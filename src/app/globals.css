@@ -1622,3 +1622,48 @@ aside {
   height: 100%;
   display: block;
 }
+
+/* ── ご意見の画面 ─────────────────────────────────────────────
+   セットアップ画面と同じ器を使うが、あちらは `.setup-shell` が中央寄せを
+   受け持っている。こちらはカード1枚だけなので、カード自身を中央に置く。 */
+.feedback-shell {
+  margin: auto;
+  width: 100%;
+  max-width: 640px;
+}
+
+/* 入力欄は既定の白いままだと画面から浮くので、盤面と同じ暗い面に合わせる。 */
+.feedback-shell input,
+.feedback-shell textarea,
+.feedback-shell select {
+  background: var(--ink, #1b1330);
+  color: var(--salt, #f6efe2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+.feedback-shell textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.5;
+}
+
+.feedback-shell input::placeholder,
+.feedback-shell textarea::placeholder {
+  color: var(--salt-dim, #9d93b5);
+}
+
+.feedback-shell input:focus-visible,
+.feedback-shell textarea:focus-visible,
+.feedback-shell select:focus-visible {
+  outline: 2px solid var(--gold, #f5b31c);
+  outline-offset: 1px;
+}
+
+/* 種別の選択は数が多く、狭い画面では折り返す。折り返した行が詰まらないよう間隔を持たせる。 */
+.feedback-shell .seg {
+  gap: 4px;
+}

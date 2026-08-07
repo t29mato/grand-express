@@ -48,10 +48,10 @@ end
 4-->6
 A-->4
 A-->6
+C-->A
 C-->6
 C-->8
 C-->4
-C-->A
 ```
 
 - `infrastructure` から `application` への矢印は、**ポート(インターフェース)を実装
@@ -70,214 +70,221 @@ flowchart LR
 
 subgraph 0["src"]
 subgraph 1["app"]
-2["globals.css"]
-3["layout.tsx"]
-4["page.tsx"]
-subgraph 5["release-notes"]
-6[" "]
+subgraph 2["api"]
+3[" "]
+end
+subgraph 4["feedback"]
+5[" "]
+end
+6["globals.css"]
+7["layout.tsx"]
+8["page.tsx"]
+subgraph 9["release-notes"]
+A[" "]
 end
 end
-subgraph 7["application"]
-subgraph 8["dto"]
-9[" "]
-end
-A["economy-context.ts"]
-B["game-engine-context.ts"]
-subgraph C["ports"]
+subgraph B["application"]
+subgraph C["dto"]
 D[" "]
 end
-subgraph E["use-cases"]
-F[" "]
+E["economy-context.ts"]
+F["game-engine-context.ts"]
+subgraph G["ports"]
+H[" "]
+end
+subgraph I["use-cases"]
+J[" "]
 end
 end
-subgraph G["domain"]
-subgraph H["board"]
-I[" "]
-end
-subgraph J["country"]
-K[" "]
-end
-subgraph L["cpu"]
+subgraph K["domain"]
+subgraph L["board"]
 M[" "]
 end
-subgraph N["game-session"]
+subgraph N["country"]
 O[" "]
 end
-subgraph P["item"]
+subgraph P["cpu"]
 Q[" "]
 end
-subgraph R["misfortune"]
+subgraph R["game-session"]
 S[" "]
 end
-subgraph T["player"]
+subgraph T["item"]
 U[" "]
 end
-subgraph V["property"]
+subgraph V["misfortune"]
 W[" "]
 end
-subgraph X["quiz"]
+subgraph X["player"]
 Y[" "]
 end
-subgraph Z["season"]
+subgraph Z["property"]
 10[" "]
 end
-subgraph 11["shared-kernel"]
+subgraph 11["quiz"]
 12[" "]
 end
+subgraph 13["season"]
+14[" "]
 end
-subgraph 13["i18n"]
-subgraph 14["messages"]
-15[" "]
+subgraph 15["shared-kernel"]
+16[" "]
 end
 end
-subgraph 16["infrastructure"]
-subgraph 17["audio"]
-18[" "]
+subgraph 17["i18n"]
+subgraph 18["messages"]
+19[" "]
 end
-subgraph 19["content"]
-1A[" "]
 end
-subgraph 1B["persistence"]
+subgraph 1A["infrastructure"]
+subgraph 1B["audio"]
 1C[" "]
 end
-subgraph 1D["random"]
+subgraph 1D["content"]
 1E[" "]
 end
+subgraph 1F["persistence"]
+1G[" "]
 end
-subgraph 1F["presentation"]
-subgraph 1G["components"]
-1H[" "]
+subgraph 1H["random"]
+1I[" "]
 end
-subgraph 1I["hooks"]
-1J[" "]
 end
-subgraph 1K["i18n"]
+subgraph 1J["presentation"]
+subgraph 1K["components"]
 1L[" "]
 end
-subgraph 1M["release-notes"]
+subgraph 1M["hooks"]
 1N[" "]
 end
-subgraph 1O["state"]
+subgraph 1O["i18n"]
 1P[" "]
 end
+subgraph 1Q["release-notes"]
+1R[" "]
+end
+subgraph 1S["state"]
+1T[" "]
 end
 end
-3-->1H
-3-->2
-4-->1H
-6-->1H
-9-->M
-9-->O
-9-->S
-9-->U
-9-->Y
-9-->12
-A-->O
-A-->W
-A-->B
-B-->I
-B-->K
-B-->12
-D-->9
-D-->K
+end
+5-->1L
+7-->1L
+7-->6
+8-->1L
+A-->1L
+D-->Q
+D-->S
+D-->W
+D-->Y
 D-->12
-F-->O
-F-->Q
-F-->U
-F-->Y
-F-->12
-F-->B
-F-->S
-F-->W
-F-->A
-F-->9
-F-->D
+D-->16
+E-->S
+E-->10
+E-->F
 F-->M
-F-->I
-F-->10
-I-->12
-K-->I
-K-->Q
-K-->S
-K-->Y
-K-->10
-K-->12
-M-->I
-M-->U
-M-->W
-M-->12
-M-->Q
-O-->S
+F-->O
+F-->16
+H-->D
+H-->O
+H-->16
+J-->S
+J-->U
+J-->Y
+J-->12
+J-->16
+J-->F
+J-->W
+J-->10
+J-->E
+J-->D
+J-->H
+J-->Q
+J-->M
+J-->14
+M-->16
+O-->M
 O-->U
-O-->Y
+O-->W
 O-->12
-Q-->12
+O-->14
+O-->16
+Q-->M
+Q-->Y
+Q-->10
+Q-->16
 Q-->U
-S-->U
+S-->W
+S-->Y
 S-->12
-U-->M
+S-->16
+U-->16
 U-->Y
-U-->12
-W-->I
-W-->U
-W-->12
+W-->Y
+W-->16
+Y-->Q
 Y-->12
-10-->12
-10-->U
-18-->D
-18-->1A
-1A-->D
-1A-->K
-1A-->12
-1A-->I
-1A-->Q
-1A-->Y
-1A-->10
-1A-->S
-1C-->9
-1C-->D
+Y-->16
+10-->M
+10-->Y
+10-->16
+12-->16
+14-->16
+14-->Y
+1C-->H
+1C-->1E
+1E-->H
+1E-->O
+1E-->16
+1E-->M
+1E-->U
 1E-->12
-1H-->1L
-1H-->1N
-1H-->1P
-1H-->O
-1H-->12
-1H-->B
-1H-->I
-1H-->1J
-1H-->K
-1H-->Y
-1H-->A
-1H-->W
-1H-->F
-1H-->U
-1H-->S
-1H-->10
-1H-->M
-1H-->1A
-1J-->B
-1J-->I
-1J-->12
-1J-->1H
+1E-->14
+1E-->W
+1G-->D
+1G-->H
+1I-->16
+1L-->1E
+1L-->1P
+1L-->16
+1L-->1R
+1L-->1T
+1L-->S
+1L-->F
+1L-->M
+1L-->1N
+1L-->O
 1L-->12
-1L-->15
-1L-->K
-1N-->12
-1P-->B
-1P-->F
+1L-->E
+1L-->10
+1L-->J
+1L-->Y
+1L-->W
+1L-->14
+1L-->Q
+1N-->F
+1N-->M
+1N-->16
+1N-->1L
+1P-->16
+1P-->19
 1P-->O
-1P-->12
-1P-->1L
-1P-->18
-1P-->1A
-1P-->1C
-1P-->1E
-1P-->K
-1P-->Y
-1P-->I
-1P-->M
-1P-->S
-1P-->10
+1R-->16
+1T-->F
+1T-->J
+1T-->S
+1T-->16
+1T-->1P
+1T-->1C
+1T-->1E
+1T-->1G
+1T-->1I
+1T-->O
+1T-->12
+1T-->M
+1T-->Q
+1T-->W
+1T-->14
 ```
 
 ## 3. ドメインのサブドメイン間の依存
