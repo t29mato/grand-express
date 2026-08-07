@@ -156,6 +156,14 @@ export const WORLD_CITIES = {
     [prop("Chandni Chowk Shopfront|Local en Chandni Chowk|Boutique de Chandni Chowk|チャンドニー・チョウクの店", 300, 62),
      prop("Stepwell Courtyard|Patio del pozo escalonado|Cour du puits à degrés|階段井戸の庭", 280, 58)],
   ),
+  kolkata: city(
+    "Kolkata|Calcuta|Calcutta|コルカタ",
+    88.36, 22.57, "asi", "bridge_w", "megacity_asia", "r",
+    "A bridge put together without bolts|Un puente armado sin pernos|Un pont assemblé sans boulons|ボルトを使わずに組んだ橋",
+    "The Howrah bridge was riveted together in 1943 without a single nut or bolt, and it still carries more people on foot than any bridge in the world. Because the river below it is tidal, the whole span rises and falls a few centimetres twice a day.|El puente de Howrah se remachó en 1943 sin una sola tuerca ni perno, y aún cruza a pie más gente que ningún otro puente del mundo. Como el río es de marea, todo el tramo sube y baja unos centímetros dos veces al día.|Le pont de Howrah fut riveté en 1943 sans un seul écrou ni boulon, et il porte encore plus de piétons que tout autre pont au monde. Le fleuve étant soumis aux marées, l'ouvrage entier monte et descend de quelques centimètres deux fois par jour.|ハウラー橋は1943年、ナットもボルトも一本使わずリベットだけで組み上げられた。いまも徒歩で渡る人の数が世界のどの橋より多い。下を流れる川は潮の差す川なので、橋全体が日に二度、数センチ上下する。",
+    [prop("Riveted Bridge Toll|Peaje del puente|Péage du pont|橋のたもとの店", 320, 66),
+     prop("Tram Depot|Cochera de tranvías|Dépôt de tramways|路面電車の車庫", 280, 58)],
+  ),
   mumbai: city(
     "Mumbai|Bombay|Bombay|ムンバイ",
     72.88, 19.08, "asi", "skyline", "megacity_asia", "l",
@@ -588,9 +596,11 @@ export const WORLD_EDGES = [
   ["isfahan", "samarkand"],
   ["samarkand", "delhi"],
   ["delhi", "mumbai"],
-  // デリー—バンコクはインドとミャンマーのあいだで線路が繋がっておらず、
-  // 陸路として引くとベンガル湾を横切る。航路にする。
-  ["delhi", "bangkok", "sea"],
+  // デリー—バンコクは直接つながない。**陸路でも航路でも誤りになる**ためで、
+  // 陸路だとベンガル湾を130px横切り、航路にするとデリーが99px内陸なので
+  // 今度は陸を77px通る。実在の鉄道どおりコルカタで区切り、
+  // そこから先(ベンガル湾)を航路にする。航路は末尾に足してある。
+  ["delhi", "kolkata"],
   ["dubai", "mumbai", "sea"],
   ["mumbai", "singapore", "sea"],
   ["bangkok", "singapore"],
@@ -649,4 +659,9 @@ export const WORLD_EDGES = [
   ["cusco", "buenosaires"],
   ["buenosaires", "ushuaia", "sea"],
   ["ushuaia", "lima", "sea"],
+
+  // ここから下は**末尾に足すこと。** 途中に挿すと、それより後ろの路線の
+  // 添字がずれて偶奇が変わり、無関係な路線の折れ方まで変わる
+  // (`use-board-layout.ts` の `diagonalFirst` が `edgeIndex % 2` で決まるため)。
+  ["kolkata", "bangkok", "sea"], // デリー—バンコクの後半。ベンガル湾を渡る
 ];

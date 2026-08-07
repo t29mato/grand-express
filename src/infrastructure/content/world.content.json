@@ -888,6 +888,54 @@
         }
       ]
     },
+    "kolkata": {
+      "n": {
+        "en": "Kolkata",
+        "es": "Calcuta",
+        "fr": "Calcutta",
+        "ja": "コルカタ"
+      },
+      "lo": 88.36,
+      "la": 22.57,
+      "reg": "asi",
+      "mark": "bridge_w",
+      "bg": "megacity_asia",
+      "lp": "r",
+      "tag": {
+        "en": "A bridge put together without bolts",
+        "es": "Un puente armado sin pernos",
+        "fr": "Un pont assemblé sans boulons",
+        "ja": "ボルトを使わずに組んだ橋"
+      },
+      "fact": {
+        "en": "The Howrah bridge was riveted together in 1943 without a single nut or bolt, and it still carries more people on foot than any bridge in the world. Because the river below it is tidal, the whole span rises and falls a few centimetres twice a day.",
+        "es": "El puente de Howrah se remachó en 1943 sin una sola tuerca ni perno, y aún cruza a pie más gente que ningún otro puente del mundo. Como el río es de marea, todo el tramo sube y baja unos centímetros dos veces al día.",
+        "fr": "Le pont de Howrah fut riveté en 1943 sans un seul écrou ni boulon, et il porte encore plus de piétons que tout autre pont au monde. Le fleuve étant soumis aux marées, l'ouvrage entier monte et descend de quelques centimètres deux fois par jour.",
+        "ja": "ハウラー橋は1943年、ナットもボルトも一本使わずリベットだけで組み上げられた。いまも徒歩で渡る人の数が世界のどの橋より多い。下を流れる川は潮の差す川なので、橋全体が日に二度、数センチ上下する。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Riveted Bridge Toll",
+            "es": "Peaje del puente",
+            "fr": "Péage du pont",
+            "ja": "橋のたもとの店"
+          },
+          "cost": 320,
+          "inc": 66
+        },
+        {
+          "n": {
+            "en": "Tram Depot",
+            "es": "Cochera de tranvías",
+            "fr": "Dépôt de tramways",
+            "ja": "路面電車の車庫"
+          },
+          "cost": 280,
+          "inc": 58
+        }
+      ]
+    },
     "mumbai": {
       "n": {
         "en": "Mumbai",
@@ -3145,8 +3193,7 @@
     ],
     [
       "delhi",
-      "bangkok",
-      "sea"
+      "kolkata"
     ],
     [
       "dubai",
@@ -3354,6 +3401,11 @@
     [
       "ushuaia",
       "lima",
+      "sea"
+    ],
+    [
+      "kolkata",
+      "bangkok",
       "sea"
     ]
   ],

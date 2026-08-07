@@ -44,11 +44,11 @@ export const WORLD_REGIONS = {
 export const WORLD_ITEMS = {
   zeppelin: {
     e: "🛩️",
-    price: 560,
+    price: 240,
     kind: "move",
     n: t("The Graf Zeppelin|El Graf Zeppelin|Le Graf Zeppelin|ツェッペリン伯号"),
     d: t(
-      "Fly straight to the destination.|Vuela directo al destino.|Vole droit au but.|目的地へ一気に飛ぶ。",
+      "Carried 8–12 squares. The wind decides the course.|Te lleva de 8 a 12 casillas. El rumbo lo decide el viento.|Emporté de 8 à 12 cases. Le vent décide du cap.|8〜12マス運ばれる。針路を決めるのは風。",
     ),
     f: t(
       "In August 1929 the Graf Zeppelin went round the world in twenty-one days with only three stops: Friedrichshafen, Tokyo and Los Angeles. A newspaper owner paid half the cost, on condition that the flight began and ended at Lakehurst in New Jersey so that it would be an American story.|En agosto de 1929 el Graf Zeppelin dio la vuelta al mundo en veintiún días con solo tres escalas: Friedrichshafen, Tokio y Los Ángeles. Un dueño de periódicos pagó la mitad del viaje a condición de que saliera y llegara a Lakehurst, en Nueva Jersey, para que la historia fuese norteamericana.|En août 1929, le Graf Zeppelin fit le tour du monde en vingt et un jours avec trois escales seulement : Friedrichshafen, Tokyo et Los Angeles. Un patron de presse en paya la moitié, à condition que le vol parte et revienne à Lakehurst, dans le New Jersey, pour que l'exploit soit américain.|1929年8月、ツェッペリン伯号はフリードリヒスハーフェン・東京・ロサンゼルスの三か所に降りただけで、21日で世界を一周しました。費用の半分は新聞社主が出しており、その条件は「アメリカの話」にするため、ニュージャージー州レイクハーストを発着地にすることでした。",
