@@ -7,7 +7,10 @@ import { BoardView } from "./board/board-view";
 import { DiceButton } from "./hud/dice-button";
 import { DiceStage } from "./hud/dice-stage";
 import { DestinationCard, ItemBar, PlayersPanel, TravelLog } from "./hud/side-panel";
+import { LogToast } from "./hud/log-toast";
+import { BoardStatus } from "./hud/board-status";
 import { LocaleSwitch } from "./hud/locale-switch";
+import { MusicToggle } from "./hud/music-toggle";
 import { IntroModal } from "./modals/intro-modal";
 import { SavedModal } from "./modals/saved-modal";
 import { CpuCityModal } from "./modals/cpu-city-modal";
@@ -48,6 +51,7 @@ export function GameScreen() {
   const dismissQuizResult = useGameStore((s) => s.dismissQuizResult);
   const diceRoll = useGameStore((s) => s.diceRoll);
   const clearDiceRoll = useGameStore((s) => s.clearDiceRoll);
+  const revealDiceRoll = useGameStore((s) => s.revealDiceRoll);
   const { t } = useLocale();
 
   if (!context || !session) return null;
@@ -61,6 +65,7 @@ export function GameScreen() {
         <h1>Altiplano Express</h1>
         <div className="hdr-right">
           <LocaleSwitch />
+          <MusicToggle />
           <button className="btn ghost" onClick={save}>
             {t("save")}
           </button>
@@ -75,9 +80,12 @@ export function GameScreen() {
             context={context}
             session={session}
             reachable={reachableSet}
+            steps={ui.kind === "choosing-square" ? ui.steps : undefined}
             onChooseNode={(id) => chooseSquare(id)}
           />
-          {diceRoll && <DiceStage key={diceRoll.nonce} values={diceRoll.rolls} onDone={clearDiceRoll} />}
+          {diceRoll && (
+            <DiceStage key={diceRoll.nonce} values={diceRoll.rolls} onReveal={revealDiceRoll} onDone={clearDiceRoll} />
+          )}
         </div>
         {/* 1画面に収めるためこの列だけスクロールさせている。スクロールできる領域は
             キーボードからも操作できる必要があるため tabIndex を与える
@@ -90,14 +98,22 @@ export function GameScreen() {
             cpuTurnPlayerName={
               ui.kind === "cpu-turn" || ui.kind === "cpu-city" || ui.kind === "cpu-quiz" ? ui.playerName : undefined
             }
+            rolling={ui.kind === "rolling"}
             steps={ui.kind === "choosing-square" ? ui.steps : undefined}
             onRoll={rollForHumanTurn}
           />
+          {/* いまどこに居て目的地まで何マスか。盤面を目で読まなくても分かるようにする
+              (行き先の候補が出ていないあいだ、盤面には押せるものが1つも無いため)。 */}
+          <BoardStatus context={context} session={session} />
           <ItemBar context={context} session={session} onUseItem={useInventoryItem} />
           <PlayersPanel context={context} session={session} />
           <TravelLog log={log} />
         </aside>
       </main>
+
+      {/* 旅の記録の直近1件を画面の上に一瞬出す(記録はサイドバーの下にあって
+          遊んでいる最中は目に入らない)。出す行は絞ってある。log-toast.tsx 参照。 */}
+      <LogToast log={log} session={session} />
 
       {ui.kind === "saved" && <SavedModal onClose={dismissSavedModal} />}
       {ui.kind === "cpu-city" && (

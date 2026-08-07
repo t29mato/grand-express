@@ -1,7 +1,6 @@
 "use client";
 
-/** 駒の寸法(盤面座標)。マスの正方形(半辺9)より少し大きい程度に収める。 */
-export const TOKEN = { spacing: 17, scale: 1.35 } as const;
+import { TOKEN_BASE_SCALE } from "./token-layout";
 
 /**
  * プレイヤーの駒。ただの丸だと自分がどこにいるのか地図の中で埋もれてしまうため、
@@ -14,14 +13,17 @@ export function TrainToken({
   y,
   color,
   isActive,
+  scale = TOKEN_BASE_SCALE,
 }: {
   x: number;
   y: number;
   color: string;
   /** 手番のプレイヤーの駒。目印のリングを足す。 */
   isActive: boolean;
+  /** 描く倍率。同じマスに何人もいるときは小さくして、駒どうしが重ならないようにする。 */
+  scale?: number;
 }) {
-  const s = TOKEN.scale;
+  const s = scale;
   return (
     <g className={`token${isActive ? " active" : ""}`} transform={`translate(${x}, ${y}) scale(${s})`}>
       {isActive && <circle r={15} fill="none" stroke="#f6efe2" strokeWidth={1.6} opacity={0.85} className="token-ring" />}
