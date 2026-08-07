@@ -1,7 +1,13 @@
-import { describe, expect, it } from "vitest";
-import { render, screen } from "@testing-library/react";
-import { TravelLog } from "./side-panel";
+import { beforeAll, describe, expect, it, vi } from "vitest";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { ItemBar, TravelLog } from "./side-panel";
 import { LocaleProvider } from "../../i18n/locale-context";
+import { CityId, CountryId, GameSessionId, ItemKey, NodeId, PlayerId } from "../../../domain/shared-kernel/ids";
+import { Money } from "../../../domain/shared-kernel/money";
+import { createGameSession } from "../../../domain/game-session/game-session";
+import { addItem, createPlayer } from "../../../domain/player/player";
+import { JsonCountryContentRepository } from "../../../infrastructure/content/json-country-content-repository";
+import { GameEngineContext, createGameEngineContext } from "../../../application/game-engine-context";
 
 describe("TravelLog", () => {
   it("ログエントリを新しい順に表示する", () => {
@@ -27,5 +33,83 @@ describe("TravelLog", () => {
       </LocaleProvider>,
     );
     expect(screen.getByText("Travel log")).toBeInTheDocument();
+  });
+});
+
+describe("ItemBar", () => {
+  const repo = new JsonCountryContentRepository();
+  let context: GameEngineContext;
+
+  beforeAll(async () => {
+    context = createGameEngineContext(await repo.load(CountryId("bolivia")));
+  });
+
+  /** `inventory` を持った人間プレイヤーの手番のセッションを作る。 */
+  function sessionWith(inventory: string[], { isCpu = false } = {}) {
+    let p1 = createPlayer({
+      id: PlayerId("p1"),
+      name: "A",
+      isCpu,
+      startingCash: Money.of(1000),
+      startingNode: NodeId("lapaz"),
+    });
+    for (const key of inventory) p1 = addItem(p1, ItemKey(key));
+    const p2 = createPlayer({
+      id: PlayerId("p2"),
+      name: "B",
+      isCpu: false,
+      startingCash: Money.of(1000),
+      startingNode: NodeId("e0_1"),
+    });
+    return createGameSession({
+      id: GameSessionId("s"),
+      countryId: CountryId("bolivia"),
+      maxMonths: 12,
+      players: [p1, p2],
+      destination: CityId("sucre"),
+    });
+  }
+
+  function renderBar(inventory: string[], options?: { isCpu?: boolean }) {
+    const onUseItem = vi.fn();
+    render(
+      <LocaleProvider>
+        <ItemBar context={context} session={sessionWith(inventory, options)} onUseItem={onUseItem} />
+      </LocaleProvider>,
+    );
+    return onUseItem;
+  }
+
+  // これがこの欄の存在意義。以前は効果を `title` に隠していて、
+  // 触る画面では読めなかった(= 説明が無いのと同じだった)。
+  it("効果の説明がホバーなしで読める", () => {
+    renderBar(["pacha"]);
+    expect(screen.getByText("Your next wrong quiz answer counts as correct.")).toBeVisible();
+  });
+
+  it("使えるアイテムはボタンで、押すと使用が呼ばれる", () => {
+    const onUseItem = renderBar(["zebra"]);
+    const button = screen.getByRole("button", { name: /Zebra Guide/ });
+    fireEvent.click(button);
+    expect(onUseItem).toHaveBeenCalledWith(0);
+  });
+
+  it("passiveなアイテムは押せず、自動で効くことが書かれている", () => {
+    renderBar(["pacha"]);
+    expect(screen.queryByRole("button", { name: /Pachamama/ })).toBeNull();
+    expect(screen.getByText("Automatic")).toBeVisible();
+  });
+
+  // CPUの持ちものを見ているときに「使う」と出ていると、押せるように見えてしまう。
+  it("CPUの持ちものには「使う」を出さない", () => {
+    renderBar(["zebra"], { isCpu: true });
+    expect(screen.getByText("Zebra Guide")).toBeVisible();
+    expect(screen.queryByText("Use")).toBeNull();
+  });
+
+  it("同じアイテムを2つ持っていても、押した側の位置が渡る", () => {
+    const onUseItem = renderBar(["pacha", "zebra"]);
+    fireEvent.click(screen.getByRole("button", { name: /Zebra Guide/ }));
+    expect(onUseItem).toHaveBeenCalledWith(1);
   });
 });

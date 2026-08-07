@@ -8,6 +8,7 @@ import { useLocale } from "../../i18n/locale-context";
 import { CityArt } from "../city/city-art";
 import { renderRichText } from "../../i18n/rich-text";
 import { formatMoney } from "../../i18n/money-format";
+import { MoneyTicker } from "./money-ticker";
 import { LogEntry } from "../../state/game-store";
 
 const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
@@ -51,7 +52,9 @@ export function PlayersPanel({ context, session }: { context: GameEngineContext;
                   {mono > 0 && ` · 👑${mono}`}
                 </div>
               </span>
-              <span className="pcash">{formatMoney(p.cash.amount, currency)}</span>
+              {/* 派手に出すのは自分の駒だけ。CPUの手番でも毎回コインが弾けると、
+                  見ているだけの時間が長くなる。 */}
+              <MoneyTicker amount={p.cash.amount} currency={currency} emphatic={!p.isCpu} />
             </div>
           );
         })}
@@ -63,6 +66,17 @@ export function PlayersPanel({ context, session }: { context: GameEngineContext;
   );
 }
 
+/**
+ * 持ちものの一覧。
+ *
+ * もとは絵文字と名前だけを並べ、効果は `title` 属性に入れていた。
+ * **`title` は触る画面では出ない**(長押ししても出ないブラウザが多い)ため、
+ * スマホで遊ぶ人にとっては説明が無いのと同じだった。マウスでも、
+ * 出るまで1秒近く待たされる。
+ *
+ * 持ちものは最大5個なので、**効果をいつでも読める札**にして全部見せている。
+ * 押せるかどうかも、枠の色ではなく言葉(「使う」/「自動で効く」)で書く。
+ */
 export function ItemBar({
   context,
   session,
@@ -83,16 +97,34 @@ export function ItemBar({
         <div className="items">
           {player.inventory.map((key, i) => {
             const item = context.content.items.find((it) => it.key === key)!;
-            const usable = !player.isCpu && item.kind !== "passive";
-            return (
-              <div
+            const passive = item.kind === "passive";
+            const usable = !player.isCpu && !passive;
+            const body = (
+              <>
+                <span className="e" aria-hidden="true">
+                  {item.emoji}
+                </span>
+                <span className="info">
+                  <span className="nm">{tx(item.name)}</span>
+                  <span className="sub">{tx(item.description)}</span>
+                </span>
+                {/* CPUの持ちものは押せないので「使う」は出さない(押せると誤解させない)。 */}
+                {usable && <span className="item-tap">{t("useItem")}</span>}
+                {passive && <span className="item-auto">{t("itemAuto")}</span>}
+              </>
+            );
+            return usable ? (
+              <button
                 key={`${key}-${i}`}
-                className={`item${usable ? " usable" : ""}${item.kind === "passive" ? " passive" : ""}`}
-                onClick={usable ? () => onUseItem(i) : undefined}
-                title={tx(item.description)}
+                type="button"
+                className="item usable"
+                onClick={() => onUseItem(i)}
               >
-                <span className="e">{item.emoji}</span>
-                <span>{tx(item.name)}</span>
+                {body}
+              </button>
+            ) : (
+              <div key={`${key}-${i}`} className={`item${passive ? " passive" : ""}`}>
+                {body}
               </div>
             );
           })}
