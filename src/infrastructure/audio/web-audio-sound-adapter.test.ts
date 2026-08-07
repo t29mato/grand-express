@@ -28,6 +28,8 @@ describe("WebAudioSoundAdapter (AudioContext非対応環境でのフォールバ
       adapter.playWin();
       adapter.startTitleMusic();
       adapter.stopMusic();
+      adapter.setMusicEnabled(false);
+      adapter.setMusicEnabled(true);
       adapter.setMuted(true);
       adapter.setMuted(false);
     }).not.toThrow();

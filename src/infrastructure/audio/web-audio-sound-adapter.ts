@@ -19,6 +19,12 @@ export class WebAudioSoundAdapter implements SoundPort {
   private noiseBuffer: AudioBuffer | null = null;
 
   private musicOn = true;
+  /**
+   * プレイヤーが画面から切ったかどうか。falseのあいだは拍のスケジューラを回さない。
+   * `musicOn`(ミュート由来)と別に持つのは、音量を絞るのではなく
+   * **音を予約すること自体をやめる**ためで、こちらが優先される。
+   */
+  private musicEnabled = true;
   private running = false;
   private step = 0;
   private nextT = 0;
@@ -317,12 +323,20 @@ export class WebAudioSoundAdapter implements SoundPort {
   }
 
   stopMusic(): void {
+    this.silenceMusic();
+    this.musicSource = "none";
+  }
+
+  /**
+   * 拍のスケジューラを止めて音を絞る。**いまどの曲だったか(`musicSource`)は忘れない。**
+   * 音楽を切ったあと入れ直したときに、同じ曲へ戻れるようにするため。
+   */
+  private silenceMusic(): void {
     if (this.schedulerHandle) {
       clearInterval(this.schedulerHandle);
       this.schedulerHandle = null;
     }
     this.running = false;
-    this.musicSource = "none";
     // ミュート設定(`muted` / `musicOn`)は触らない。止めるのはBGMだけで、
     // 効果音とミュートの状態はそのまま保つ。
     if (this.ctx && this.musicGain) {
@@ -331,11 +345,26 @@ export class WebAudioSoundAdapter implements SoundPort {
     }
   }
 
+  setMusicEnabled(enabled: boolean): void {
+    if (this.musicEnabled === enabled) return;
+    this.musicEnabled = enabled;
+    if (!enabled) {
+      this.silenceMusic();
+      return;
+    }
+    // 切っているあいだに国や地方が変わっていても、曲の指定は受け取ってある。
+    // 一度も曲が指定されていない("none")ときだけ、鳴らすものが無いので何もしない。
+    if (this.musicSource !== "none") this.start();
+  }
+
   /** BGMのスケジューラを開始する(未開始なら)。ユーザー操作後に呼ぶ必要がある(自動再生ポリシー対策)。 */
   start(): void {
     const ctx = this.context;
     if (!ctx) return;
+    // AudioContextを起こすのは音楽を切っていてもやる。効果音はここで起こしておかないと
+    // suspendedのままになり、鳴らしたつもりで無音になる。
     void ctx.resume();
+    if (!this.musicEnabled) return;
     if (!this.running) {
       this.running = true;
       this.step = 0;
@@ -359,7 +388,8 @@ export class WebAudioSoundAdapter implements SoundPort {
       this.stopMusic();
       return;
     }
-    if (this.ctx && this.musicGain) {
+    // ミュートを解いても、プレイヤーが音楽を切っているなら音量は上げない。
+    if (this.musicEnabled && this.ctx && this.musicGain) {
       this.musicGain.gain.setTargetAtTime(0.4, this.ctx.currentTime, 0.25);
     }
   }

@@ -40,5 +40,13 @@ export interface SoundPort {
    * 旅を終えてセットアップ画面へ戻るときに呼ぶ。
    */
   stopMusic(): void;
+  /**
+   * BGMを鳴らすかどうかの設定。プレイヤーが画面から切り替える。
+   *
+   * `setMuted` と違い、**効果音は止めない**。止めたいのは鳴り続けている音楽の方で、
+   * サイコロや購入の音は自分の操作への返事なので残す。
+   * offのあいだは国やトップ画面が曲を指定しても鳴らず、onに戻すとその曲から鳴り出す。
+   */
+  setMusicEnabled(enabled: boolean): void;
   setMuted(muted: boolean): void;
 }
