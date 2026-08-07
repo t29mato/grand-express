@@ -23,6 +23,18 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.13.4",
+    date: "2026-08-07",
+    title: t(
+      "The sea has shallows now|El mar ahora tiene bajíos|La mer a désormais ses hauts-fonds|海に浅瀬ができました",
+    ),
+    highlights: [
+      t(
+        "The sea was one flat colour, so the coast met it with a hard edge and the board looked like cut paper. The water is now lighter close to the shore and deepens as it goes out.|El mar era de un solo color y la costa quedaba como recortada. Ahora el agua es más clara junto a la orilla y se oscurece mar adentro.|La mer était d'un seul ton et la côte semblait découpée. L'eau est désormais plus claire près du rivage et s'assombrit au large.|海が一色でのっぺりしていて、陸との境が切り絵のように見えていました。岸に近いほど水が明るく、沖へ行くほど深くなるようにしました。",
+      ),
+    ],
+  },
+  {
     version: "0.13.3",
     date: "2026-08-07",
     title: t(
