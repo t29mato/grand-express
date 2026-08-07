@@ -45,6 +45,27 @@ describe("DiceButton", () => {
   });
 
   /**
+   * legacy の `turnOf` は「{0} の番」という所有格の型で、英語では "{0}'s turn"。
+   * 既定名 "You" を流し込むと "You's turn" になり、英語として壊れる
+   * (実機のスクリーンショットで見つけた)。名前の部分だけ差し替える作りでは
+   * 所有格の要る言語で必ず崩れるので、既定名のときだけ文ごと分けている。
+   */
+  it("名前を付けずに始めた人には所有格を使わない(英語で You's turn にならない)", () => {
+    const p = createPlayer({ id: PlayerId("p1"), name: "You", isCpu: false, startingCash: Money.of(1200), startingNode: NodeId("lapaz") });
+    render(
+      <LocaleProvider>
+        <DiceButton
+          session={createGameSession({ id: GameSessionId("s"), countryId: CountryId("bolivia"), maxMonths: 12, players: [p], destination: CityId("sucre") })}
+          disabled={false}
+          onRoll={vi.fn()}
+        />
+      </LocaleProvider>,
+    );
+    expect(screen.queryByText(/You's turn/)).not.toBeInTheDocument();
+    expect(screen.getByText("Your turn")).toBeInTheDocument();
+  });
+
+  /**
    * 転がっている最中に出目が読めてしまうと、止まるのを待つ理由が無くなる。
    * サイコロの絵の横に答えが書いてあった不具合の再発防止。
    */

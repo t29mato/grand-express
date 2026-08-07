@@ -31,6 +31,11 @@ export function DiceButton({
 }) {
   const { t } = useLocale();
   const player = currentPlayer(session);
+  /**
+   * 名前を付けずに始めた人の番か。自分で名前を付けたなら "Alex's turn" は正しい英語なので、
+   * 崩れるのは既定名("You" /「あなた」)のときだけ。そこだけ文ごと差し替える。
+   */
+  const unnamed = !cpuTurnPlayerName && !player.isCpu && player.name === t("defaultPlayerName");
 
   const handleClick = () => {
     if (disabled || rolling) return;
@@ -49,7 +54,13 @@ export function DiceButton({
           {steps !== undefined ? steps : "🎲"}
         </button>
         <div>
-          <div className="turn-name">{t("turnOf", cpuTurnPlayerName ?? player.name)}</div>
+          {/* 名前を付けずに始めた人の番だけ、文ごと差し替える。legacy の `turnOf` は
+              「{0} の番」という所有格の型なので、英語で既定名 "You" を入れると
+              "You's turn" になる。名前の部分を差し替える作りでは、所有格の要る言語で
+              必ず崩れる。自分で名前を付けた人には、その名前で呼ぶ。 */}
+          <div className="turn-name">
+            {unnamed ? t("yourTurn") : t("turnOf", cpuTurnPlayerName ?? player.name)}
+          </div>
           <div className="turn-hint">
             {cpuTurnPlayerName
               ? t("cpuTurnBadge", cpuTurnPlayerName)
