@@ -573,7 +573,8 @@ export const JAPAN_RICH_BG = {
    *   七夕の吹き流し**を垂らす。そこは空けておく。
    */
   citygreen:
-    sky(96, "#6aa8dc", "#9ccbe8", "#d4e6ec") +
+    // 空は遠景の稜線がいちばん下がる位置(y=126)まで塗り下ろす
+    sky(126, "#6aa8dc", "#9ccbe8", "#d4e6ec") +
     `<circle cx="330" cy="26" r="14" fill="#f5b31c"/>` +
     `<g fill="#f6efe2" opacity=".55"><ellipse cx="96" cy="88" rx="34" ry="4.4"/><ellipse cx="212" cy="92" rx="26" ry="3.6"/></g>` +
     // 遠い山
@@ -640,6 +641,10 @@ export const JAPAN_RICH_BG = {
     `<g fill="#2f6042">${[30, 92, 156, 220, 284, 348]
       .map((x, i) => `<ellipse cx="${x}" cy="${86 + (i % 3) * 5}" rx="42" ry="20"/>`)
       .join("")}</g>` +
+    // 森の中(樹冠の下)。ここを敷かないと、幹と幹のあいだが素通しになる。
+    // 実測で 49行・最大242px 透けていた。**動きの層はここへ光の帯を落とす**ので、
+    // 暗く敷いておくほうが光も効く。
+    band(92, 60, "#33452f") +
     // 杉の巨木(縦の柱として左右に太く)
     `<g fill="#4f4030">${[[14, 30], [58, 20], [330, 22], [376, 32]]
       .map(([x, w]) => `<path d="M${x},210V70q${r1(w * 0.2)},-4 ${w},0v140z"/>`)
@@ -650,10 +655,18 @@ export const JAPAN_RICH_BG = {
     `<g stroke="#3f3226" stroke-width="1.2" opacity=".5" fill="none">${[14, 58, 330, 376]
       .map((x) => `<path d="M${x + 6},76v130M${x + 12},80v126"/>`)
       .join("")}</g>` +
-    // 中景の杉(細く、奥に)
+    // 中景の杉(細く、奥に)。本数を増やすと森の奥行きが出る
     `<g fill="#3a3226">${[100, 128, 262, 296]
       .map((x) => `<rect x="${x}" y="96" width="11" height="82"/>`)
       .join("")}</g>` +
+    `<g fill="#463b2c">${[86, 114, 144, 250, 280, 312]
+      .map((x) => `<rect x="${x}" y="98" width="7" height="70"/>`)
+      .join("")}</g>` +
+    `<g fill="#2f2a20" opacity=".5">${[94, 122, 152, 244, 274, 306]
+      .map((x) => `<rect x="${x}" y="100" width="5" height="62"/>`)
+      .join("")}</g>` +
+    // 木漏れ日の斑(地面の明るいところ)。動きの層の光の帯と噛み合う
+    `<g fill="#7f9a5c" opacity=".35"><ellipse cx="70" cy="184" rx="34" ry="8"/><ellipse cx="320" cy="196" rx="38" ry="9"/><ellipse cx="200" cy="204" rx="30" ry="7"/></g>` +
     // ── 参道の石段
     ground(150, "#4f6b48") +
     `<path d="M120,210h160l-22,-62h-116z" fill="#9a968c"/>` +
@@ -670,6 +683,16 @@ export const JAPAN_RICH_BG = {
     `<g fill="#5f6b4c"><ellipse cx="72" cy="196" rx="30" ry="12"/><ellipse cx="336" cy="200" rx="28" ry="11"/></g>` +
     `<g fill="#6f8a52"><ellipse cx="66" cy="190" rx="18" ry="6"/><ellipse cx="330" cy="194" rx="16" ry="6"/></g>` +
     `<g stroke="#4f8544" stroke-width="2" fill="none" stroke-linecap="round"><path d="M90,208v-12M97,209v-10M104,207v-13M300,208v-11M307,206v-13M314,209v-9"/></g>` +
+    // ── 手水舎(参道の脇)と吊り提灯
+    `<g stroke="#6b5330" stroke-width="3" fill="none"><path d="M44,196v-22M88,196v-22"/></g>` +
+    `<path d="M36,174h60l-30,-13z" fill="#5f4a34"/>` +
+    `<rect x="36" y="174" width="60" height="3" fill="#4a3a28"/>` +
+    `<rect x="50" y="186" width="32" height="9" fill="#7f8a72"/>` +
+    `<rect x="52" y="184" width="28" height="3" fill="#9aa48c"/>` +
+    shade(66, 197, 24, 4, ".2") +
+    `<g fill="#f0e6d2"><ellipse cx="352" cy="150" rx="7" ry="9"/></g>` +
+    `<g fill="#c2453c"><rect x="345" y="148" width="14" height="3"/><rect x="345" y="154" width="14" height="3"/></g>` +
+    `<path d="M352,141v-6" stroke="#4a3a28" stroke-width="1.6" fill="none"/>` +
     // ── 参拝者(石段を上る)
     shade(170, 194, 11, 3, ".2") +
     person(168, 194, 21, "#f0e6d2") +
@@ -746,7 +769,8 @@ export const JAPAN_RICH_BG = {
    *   **(150,66) に白鷺**を置く。その帯は空のまま残す。
    */
   castletown:
-    sky(84, "#6aa8dc", "#9ccbe8", "#d8e6ea") +
+    // 稜線が x=0 で y=110 まで下がるので、そこより下まで塗る
+    sky(130, "#6aa8dc", "#9ccbe8", "#d8e6ea") +
     `<circle cx="336" cy="24" r="14" fill="#f5b31c"/>` +
     // 城山(遠景)。**y=26〜70 は雲と白鷺の帯なので、稜線は低く保つ**
     `<path d="M0,110L48,84L104,104L156,82L212,106L266,84L320,104L400,86V130H0z" fill="#7f9a86"/>` +
@@ -817,16 +841,35 @@ export const JAPAN_RICH_BG = {
     `<path d="M0,142q70,-12 138,2q66,13 132,-4q54,-13 130,4v66H0z" fill="#7a8f4e"/>` +
     `<g fill="#6b8044"><ellipse cx="80" cy="168" rx="70" ry="9"/><ellipse cx="322" cy="176" rx="74" ry="9"/></g>` +
     // ── 湯けむりの街(別府・登別)。湯気は動きの層が出す
-    `<g fill="#e6dfcd"><rect x="18" y="150" width="34" height="20"/><rect x="58" y="156" width="26" height="14"/><rect x="316" y="152" width="32" height="18"/><rect x="354" y="158" width="26" height="12"/></g>` +
-    `<g fill="#8a5a4a"><path d="M14,150h42l-6,-8h-30z"/><path d="M54,156h34l-5,-7h-24z"/><path d="M312,152h40l-6,-7h-28z"/><path d="M350,158h34l-5,-7h-24z"/></g>` +
-    `<g fill="#6b5330"><rect x="30" y="158" width="10" height="12"/><rect x="326" y="160" width="10" height="10"/></g>` +
+    `<g fill="#e6dfcd"><rect x="18" y="150" width="34" height="20"/><rect x="58" y="156" width="26" height="14"/><rect x="366" y="156" width="26" height="14"/></g>` +
+    `<g fill="#8a5a4a"><path d="M14,150h42l-6,-8h-30z"/><path d="M54,156h34l-5,-7h-24z"/><path d="M362,156h34l-5,-7h-24z"/></g>` +
+    `<g fill="#6b5330"><rect x="30" y="158" width="10" height="12"/><rect x="374" y="160" width="10" height="10"/></g>` +
     // 湯だまりと湯の花(白い縁)
-    `<g fill="#d8cfc0"><ellipse cx="72" cy="190" rx="42" ry="12"/><ellipse cx="316" cy="196" rx="40" ry="11"/></g>` +
-    `<g fill="#a8c4c0"><ellipse cx="72" cy="189" rx="34" ry="8"/><ellipse cx="316" cy="195" rx="32" ry="7"/></g>` +
-    `<g fill="#c9dcd8" opacity=".7"><ellipse cx="62" cy="187" rx="12" ry="3"/><ellipse cx="308" cy="193" rx="11" ry="3"/></g>` +
-    // 湯を引く樋
+    `<g fill="#d8cfc0"><ellipse cx="66" cy="192" rx="42" ry="12"/><ellipse cx="322" cy="200" rx="42" ry="11"/></g>` +
+    `<g fill="#a8c4c0"><ellipse cx="66" cy="191" rx="34" ry="8"/><ellipse cx="322" cy="199" rx="34" ry="7"/></g>` +
+    `<g fill="#c9dcd8" opacity=".7"><ellipse cx="56" cy="189" rx="12" ry="3"/><ellipse cx="312" cy="197" rx="11" ry="3"/></g>` +
+    // 湯を引く樋(湯畑の木樋)
     `<g fill="#8a6a44"><rect x="110" y="182" width="60" height="5"/><rect x="112" y="187" width="4" height="10"/><rect x="162" y="187" width="4" height="10"/></g>` +
     `<path d="M170,184h22" stroke="#8a6a44" stroke-width="4" stroke-linecap="round" fill="none"/>` +
+    `<g fill="#c9a877"><rect x="112" y="180" width="56" height="3"/></g>` +
+    // ── 地獄谷の岩肌(硫黄で黄ばんだ赤茶の露岩)
+    `<path d="M0,150q28,-14 58,-6q26,7 40,18l-12,14H0z" fill="#8a6a56"/>` +
+    `<path d="M0,158q24,-10 48,-4q22,6 32,14l-8,8H0z" fill="#a08070"/>` +
+    `<path d="M400,156q-30,-14 -62,-6q-28,7 -42,18l14,14h90z" fill="#8a6a56"/>` +
+    `<g fill="#d8c46a" opacity=".65"><ellipse cx="36" cy="160" rx="20" ry="5"/><ellipse cx="352" cy="166" rx="22" ry="5"/></g>` +
+    // ── 旅館の並び(木造3階。湯の街の顔)
+    // x=222 に置いたらシンボル(x=151〜249)に食われ、右端しか見えなかった。右へ寄せる
+    `<g fill="#e6dfcd"><rect x="292" y="136" width="56" height="34"/></g>` +
+    `<path d="M286,136h68l-7,-9h-54z" fill="#5f6b78"/>` +
+    `<rect x="286" y="136" width="68" height="3" fill="#4a5568"/>` +
+    `<g fill="#8a6a44"><rect x="292" y="147" width="56" height="2.4"/><rect x="292" y="158" width="56" height="2.4"/></g>` +
+    `<g fill="#f5d38a">${[296, 310, 324, 338].map((x) => `<rect x="${x}" y="${139}" width="9" height="6"/>`).join("")}</g>` +
+    `<g fill="#f5d38a">${[296, 310, 324, 338].map((x) => `<rect x="${x}" y="${150}" width="9" height="6"/>`).join("")}</g>` +
+    `<g fill="#6b5330"><rect x="312" y="160" width="16" height="10"/></g>` +
+    `<g fill="#e8443f"><ellipse cx="300" cy="132" rx="4.4" ry="5.6"/><ellipse cx="340" cy="132" rx="4.4" ry="5.6"/></g>` +
+    shade(320, 171, 36, 4, ".14") +
+    // 湯の川(白く濁った流れ)
+    `<path d="M96,186q40,10 96,4q52,-6 100,6v8q-52,-10 -104,-4q-56,6 -92,-6z" fill="#c9dcd8" opacity=".75"/>` +
     // ── 人。**y>170 の中央は隠れない**
     shade(206, 200, 11, 3, ".18") +
     person(204, 200, 21, "#e8443f") +

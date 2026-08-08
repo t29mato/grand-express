@@ -472,6 +472,42 @@ function adobeTown(x, base, s = 1) {
 }
 
 /**
+ * トナカイ。
+ *
+ * ラマ・縞馬と同じで、**胴と脚をひと筆にしない。**
+ * 正体を決めているのは**枝分かれした角**で、これは胴の輪郭とは無関係の形なので、
+ * 独立した図形として置かないと絶対に読めない。
+ *
+ * **角は背より 26px 高いところに来る。**中央(x=151〜249)に置くと
+ * y=150 あたりで都市シンボルの台座に食われるので、置き場所を先に決めること。
+ */
+function reindeer(x, base, s = 1, coat = "#8a6a4c", pale = "#cfc0a4", dark = "#5a442c") {
+  const rect = (dx, dy, w, h, fill) =>
+    `<rect x="${r1(x + dx * s)}" y="${r1(base + dy * s)}" width="${r1(w * s)}" height="${r1(h * s)}" fill="${fill}"/>`;
+  const p = (dx, dy) => `${r1(x + dx * s)},${r1(base + dy * s)}`;
+  // 角。主枝から前後へ枝を出す。**左右で形を変える**(左右対称だと飾りに見える)
+  const antler = (dir) =>
+    `<path d="M${p(dir * 1.6, -25)}L${p(dir * 3.4, -34)}L${p(dir * 2, -34.4)}L${p(dir * 0.6, -26)}z" fill="${dark}"/>` +
+    `<path d="M${p(dir * 3.2, -31)}L${p(dir * 7.4, -33.4)}L${p(dir * 7, -35)}L${p(dir * 2.8, -32.4)}z" fill="${dark}"/>` +
+    `<path d="M${p(dir * 3.4, -34)}L${p(dir * 5.6, -39)}L${p(dir * 4.4, -39.4)}L${p(dir * 2.6, -34.6)}z" fill="${dark}"/>`;
+  return (
+    rect(-6, -9, 2, 9, dark) +
+    rect(-3, -9, 2, 9, dark) +
+    rect(2.4, -9, 2, 9, dark) +
+    rect(5.2, -9, 2, 9, dark) +
+    `<ellipse cx="${r1(x)}" cy="${r1(base - 13.6 * s)}" rx="${r1(9 * s)}" ry="${r1(5.2 * s)}" fill="${coat}"/>` +
+    `<path d="M${p(-6.6, -15.6)}L${p(-9.6, -23)}L${p(-6, -24.2)}L${p(-3, -16)}z" fill="${coat}"/>` +
+    // 首の白い毛。トナカイの見分けどころのひとつ。
+    `<ellipse cx="${r1(x - 7 * s)}" cy="${r1(base - 18.4 * s)}" rx="${r1(3.6 * s)}" ry="${r1(3 * s)}" fill="${pale}"/>` +
+    `<ellipse cx="${r1(x - 9.8 * s)}" cy="${r1(base - 24.6 * s)}" rx="${r1(3.8 * s)}" ry="${r1(2.4 * s)}" fill="${coat}"/>` +
+    `<ellipse cx="${r1(x - 12.8 * s)}" cy="${r1(base - 24.2 * s)}" rx="${r1(1.5 * s)}" ry="${r1(1.2 * s)}" fill="${dark}"/>` +
+    // 角(頭の位置に合わせて左へずらす)
+    `<g transform="translate(${r1(-9.8 * s)},${r1(0.8 * s)})">${antler(-1)}${antler(1)}</g>` +
+    `<path d="M${p(8.6, -16)}q${r1(3 * s)},${r1(0.6 * s)} ${r1(3.4 * s)},${r1(3.4 * s)}" stroke="${pale}" stroke-width="${r1(2 * s)}" fill="none" stroke-linecap="round"/>`
+  );
+}
+
+/**
  * 縞馬。
  *
  * ラマと同じく、**胴と脚をひと筆にしない。** 正体を決めているのは
@@ -1167,22 +1203,100 @@ export const WORLD_BG = {
     `<g fill="#6f7a6a"><ellipse cx="24" cy="180" rx="12" ry="3.4"/><ellipse cx="376" cy="181" rx="14" ry="3.6"/></g>`,
 
   /** 極夜のオーロラと氷。 */
+  /**
+   * 極夜のツンドラ。
+   *
+   * 使うのはレイキャヴィク・ウランバートル・ウシュアイアで、
+   * 北極圏・モンゴル草原・南極圏にまたがる。**装いや住居で示すと3つとも嘘になる**
+   * (イグルーもゲルも、どれか1つの土地のものになってしまう)ので、
+   * 寒さそのもの — 低い光・凍った海・雪原・防寒具の人影・野生のトナカイ — で組む。
+   * 橇や馴らした群れではなく**野生のトナカイ**にしたのも同じ理由。
+   *
+   * **置き場所を先に決めてある:** トナカイの角は背より 26px 高く、
+   * 中央に置くと y=150 あたりで台座に食われる。3頭とも隠れる帯(x=151〜249)の外。
+   *
+   * **動きの層(`world-tundra.tsx`)と噛み合っている位置:**
+   * 小屋の窓 (280,136) 14×12 にランプがまたたく / オーロラの帳 y=28〜74 /
+   * 星 / 粉雪は y=0 から降る
+   */
   tundra:
-    band(0, 130, "#1f3350") +
+    band(0, 74, "#16233c") +
+    band(70, 60, "#1f3350") +
     stars(26) +
+    // 低い月。極夜の光源をひとつ置くと、雪面の明るさに理由ができる。
+    `<circle cx="330" cy="52" r="13" fill="#e8eef2" opacity=".9"/>` +
+    `<circle cx="330" cy="52" r="20" fill="#cfe0ea" opacity=".18"/>` +
+    `<circle cx="335" cy="48" r="2.6" fill="#c9d8e4" opacity=".5"/>` +
+    `<circle cx="326" cy="57" r="1.8" fill="#c9d8e4" opacity=".4"/>` +
     aurora() +
+    // 遠い雪の峰。氷の海の向こうに置く。
+    `<path d="M0,118L34,92L58,104L92,84L124,110L152,96L186,118z" fill="#2f4462"/>` +
+    `<path d="M232,118L266,94L292,106L322,88L352,108L400,118z" fill="#2f4462"/>` +
+    `<g fill="#8fa4bc" opacity=".8"><path d="M92,84l12,16h-24zM322,88l11,15h-22zM34,92l9,12h-18z"/></g>` +
     `<path d="M0,118c60,-14 110,6 180,-2c70,-8 140,4 220,10v84H0z" fill="#cfe0ea"/>` +
     band(126, 26, "#16293f") +
-    // 流氷
-    `<g fill="#e8eef2"><path d="M40,138h56l-8,10H48z"/><path d="M150,132h40l-6,8h-28z"/><path d="M244,140h64l-9,10h-46z"/></g>` +
+    // 氷の海に落ちるオーロラと月あかり
+    `<g stroke="#5fd8a8" stroke-width="3" opacity=".22" fill="none"><path d="M20,132h90M180,136h120"/></g>` +
+    `<g stroke="#a8d8f4" stroke-width="2" opacity=".25" fill="none"><path d="M300,142h70M60,144h80"/></g>` +
+    `<g fill="#e8eef2" opacity=".35"><ellipse cx="330" cy="140" rx="9" ry="3"/></g>` +
+    // 流氷。稜のある面と平らな面に割ると、板ではなく氷に見える。
+    `<g fill="#e8eef2"><path d="M40,138h56l-8,10H48z"/><path d="M150,132h40l-6,8h-28z"/><path d="M244,140h64l-9,10h-46z"/>` +
+    `<path d="M110,134h28l-4,7h-20z"/><path d="M198,142h34l-5,7h-24z"/></g>` +
+    `<g fill="#b8ccd8"><path d="M88,138h8l-8,10h-6z"/><path d="M184,132h6l-6,8h-4z"/><path d="M300,140h8l-9,10h-6z"/></g>` +
     ground(148, "#e8eef2") +
     `<path d="M0,170c80,-8 140,8 210,2c70,-6 120,2 190,6v32H0z" fill="#dbe6ee"/>` +
-    // 灯りのついた小屋と犬橇の跡
+    // 雪の吹きだまりと、風が刻んだ筋。青い影を入れないと紙のように白い。
+    `<g fill="#c4d6e2"><ellipse cx="60" cy="184" rx="46" ry="8"/><ellipse cx="230" cy="196" rx="60" ry="9"/>` +
+    `<ellipse cx="370" cy="180" rx="34" ry="7"/></g>` +
+    `<g stroke="#b8ccd8" stroke-width="2" opacity=".8" fill="none"><path d="M20,190q90,-14 180,0t180,-6M0,204q100,-10 200,0t200,-4"/></g>` +
+    // 灯りのついた小屋。窓 (280,136) は動きの層のランプと対応するので動かせない。
     `<rect x="256" y="128" width="70" height="24" fill="#6b5330"/>` +
+    `<g stroke="#54401f" stroke-width="1.4" opacity=".8" fill="none"><path d="M256,134h70M256,140h70M256,146h70"/></g>` +
     `<path d="M250,128h82l-41,-18z" fill="#8a5a2c"/>` +
+    `<path d="M250,128h82l-6,-3H256z" fill="#6b4423"/>` +
+    // 屋根に積もった雪
+    `<path d="M252,126h78l-39,-15z" fill="#e8eef2"/>` +
     `<rect x="280" y="136" width="14" height="12" fill="#f5b31c"/>` +
+    `<g stroke="#8a6a2c" stroke-width="1.2" fill="none"><path d="M287,136v12M280,142h14"/></g>` +
+    `<rect x="302" y="138" width="10" height="14" fill="#4a3320"/>` +
+    // 煙突と、まっすぐ立ちのぼる煙(風の無い寒さ)
+    `<rect x="266" y="106" width="8" height="12" fill="#5a4630"/>` +
+    `<g fill="#cfe0ea" opacity=".45"><ellipse cx="270" cy="98" rx="5" ry="4"/><ellipse cx="272" cy="88" rx="6.4" ry="5"/>` +
+    `<ellipse cx="269" cy="76" rx="7.6" ry="5.6"/></g>` +
+    // 薪の山と、柱に下げた提灯
+    `<g fill="#6b5330"><ellipse cx="340" cy="152" rx="12" ry="4"/><ellipse cx="340" cy="148" rx="11" ry="3.6"/>` +
+    `<ellipse cx="340" cy="144.5" rx="9" ry="3.2"/></g>` +
+    `<g fill="#8a6a3c"><circle cx="333" cy="151" r="1.8"/><circle cx="340" cy="147" r="1.8"/><circle cx="345" cy="151" r="1.6"/></g>` +
+    `<rect x="242" y="140" width="3" height="26" fill="#5a4630"/>` +
+    `<path d="M238,140h11l-5.5,-6z" fill="#5a4630"/>` +
+    `<rect x="240.5" y="140" width="6" height="7" fill="#f5b31c"/>` +
+    `<circle cx="243.5" cy="143" r="9" fill="#f5b31c" opacity=".16"/>` +
     firRow(150, [40, 62, 84], 22, "#25452f") +
-    `<g stroke="#b8ccd8" stroke-width="2" opacity=".8" fill="none"><path d="M20,190q90,-14 180,0t180,-6"/></g>`,
+    firRow(154, [14, 108, 132], 18, "#1e3a28") +
+    // 雪をかぶった枝
+    `<g fill="#e8eef2" opacity=".8"><ellipse cx="40" cy="134" rx="7" ry="2"/><ellipse cx="62" cy="136" rx="6" ry="1.8"/>` +
+    `<ellipse cx="84" cy="134" rx="7" ry="2"/><ellipse cx="108" cy="142" rx="5.4" ry="1.6"/></g>` +
+    /*
+     * 野生のトナカイ。**角は背より26px高い**ので、3頭とも隠れる帯の外に置いてある
+     * (x=104 と x=136 は帯の左、x=356 は帯の右)。
+     */
+    reindeer(104, 186, 1) +
+    reindeer(136, 178, 0.82) +
+    reindeer(356, 196, 0.88) +
+    // 厚着の人影。顔を描かず、丸い頭巾と厚い胴で寒さを見せる。
+    `<ellipse cx="206" cy="204" rx="8" ry="2.4" fill="#000" opacity=".12"/>` +
+    `<path d="M199,203q7,-4 14,0l-2,-16q-5,-3 -10,0z" fill="#37536b"/>` +
+    `<circle cx="206" cy="183" r="6" fill="#4a6b86"/>` +
+    `<circle cx="206" cy="184.4" r="4" fill="#2a3a4c"/>` +
+    `<g fill="#37536b"><rect x="201.4" y="203" width="3.6" height="4"/><rect x="207" y="203" width="3.6" height="4"/></g>` +
+    `<path d="M213,190l7,-4" stroke="#37536b" stroke-width="3" fill="none" stroke-linecap="round"/>` +
+    `<ellipse cx="184" cy="200" rx="7" ry="2.2" fill="#000" opacity=".12"/>` +
+    `<path d="M178,199q6,-3.4 12,0l-1.8,-14q-4.4,-2.6 -8.6,0z" fill="#8a4f42"/>` +
+    `<circle cx="184" cy="182" r="5.2" fill="#a8635a"/>` +
+    `<circle cx="184" cy="183.2" r="3.4" fill="#2a3a4c"/>` +
+    `<g fill="#8a4f42"><rect x="180" y="199" width="3.2" height="3.6"/><rect x="185" y="199" width="3.2" height="3.6"/></g>` +
+    // 雪に残る橇の轍
+    `<g stroke="#c4d6e2" stroke-width="1.8" opacity=".9" fill="none"><path d="M0,200q80,-10 160,-2M0,206q80,-10 160,-2"/></g>`,
 
   /** 礁湖の向こうの火山島。 */
   /**
@@ -1292,27 +1406,103 @@ export const WORLD_BG = {
     seabird(56, 176, 0.55, "#5a6472"),
 
   /** 列柱の遺跡。 */
+  /**
+   * 列柱の遺跡。
+   *
+   * 使うのはローマとアテネ。**どの文明とも読める遺跡**にとどめるため、
+   * 柱・基壇・切妻・崩れた石だけで組み、渦巻や葉飾りの柱頭は付けない
+   * (柱頭の形を決めると、そこで場所が決まってしまう)。
+   *
+   * **隠れる帯(x=151〜249)に入るのは柱 158 と 198。**
+   * 柱は繰り返しなので、中央が隠れても失うものが少ない。
+   * 読ませたいもの(折れた柱・崩れた壁・見に来た人・糸杉)は左右3分の1へ。
+   *
+   * **動きの層(`world-ruins.tsx`)と噛み合っている位置:**
+   * 柱 x=78・118・158・198・238(18×68, y=70〜138)に順に日が差す /
+   * 陽炎 y=132・160 / 土ぼこり y=182・196
+   */
   ruins:
     sky("#a8c8e0", "#dce8dc", 132) +
     clouds(72, 28) +
+    cirrus(280, 26, 34, ".4") +
+    // 遠くの丘にも崩れた石が残っている
     hills(124, "#9a9a76", 3) +
+    `<g fill="#8a8a68" opacity=".7"><rect x="24" y="112" width="4" height="12"/><rect x="32" y="108" width="4" height="16"/>` +
+    `<rect x="40" y="114" width="4" height="10"/><rect x="336" y="110" width="4" height="14"/><rect x="344" y="114" width="4" height="10"/>` +
+    `<rect x="24" y="108" width="22" height="3"/></g>` +
+    `<rect x="0" y="124" width="400" height="8" fill="#dce8dc" opacity=".4"/>` +
     ground(132, "#c9b98c") +
     `<path d="M0,158c80,-10 140,6 210,0c70,-6 120,2 190,6v46H0z" fill="#bcaa7c"/>` +
-    // 基壇と列柱
-    `<rect x="70" y="146" width="230" height="12" fill="#cfc7b4"/>` +
-    `<rect x="66" y="138" width="238" height="8" fill="#e0dbcd"/>` +
+    `<g stroke="#ab9968" stroke-width="1.6" opacity=".45" fill="none"><path d="M0,176q100,-7 200,0t200,0M0,196q100,-7 200,0t200,0"/></g>` +
+    // 基壇は3段に切る(1枚の板だと台に見える)
+    `<rect x="62" y="154" width="246" height="8" fill="#c2b9a4"/>` +
+    `<rect x="66" y="146" width="238" height="9" fill="#cfc7b4"/>` +
+    `<rect x="70" y="138" width="230" height="9" fill="#e0dbcd"/>` +
+    `<g stroke="#b5ac96" stroke-width="1.2" opacity=".7" fill="none"><path d="M104,138v24M172,138v24M240,138v24"/></g>` +
+    // 列柱(位置は動きの層と対応)。**溝彫りは繰り返しなので中央が隠れても惜しくない。**
     `<g fill="#e8e2d2">` +
     [78, 118, 158, 198, 238].map((x) => `<rect x="${x}" y="${70}" width="18" height="68" rx="2"/>`).join("") +
+    `</g>` +
+    `<g stroke="#d0c8b2" stroke-width="1.4" opacity=".9" fill="none">` +
+    [78, 118, 158, 198, 238].map((x) => `M${x + 4.5},74v60M${x + 9},74v60M${x + 13.5},74v60`).join("") +
+    `</g>` +
+    `<g fill="#c9c0a8">` +
+    [78, 118, 158, 198, 238].map((x) => `<rect x="${x - 1}" y="134" width="20" height="4"/>`).join("") +
     `</g>` +
     `<g fill="#d4ccb8">` +
     [78, 118, 158, 198, 238].map((x) => `<rect x="${x - 3}" y="64" width="24" height="7"/>`).join("") +
     `</g>` +
+    `<g fill="#e0d8c4">` +
+    [78, 118, 158, 198, 238].map((x) => `<rect x="${x - 1}" y="70" width="20" height="4"/>`).join("") +
+    `</g>` +
     `<rect x="70" y="52" width="180" height="14" fill="#e0dbcd"/>` +
+    `<g stroke="#c2b9a4" stroke-width="1.2" opacity=".8" fill="none"><path d="M70,59h180M100,52v14M160,52v14M220,52v14"/></g>` +
     `<path d="M64,52h192l-96,-26z" fill="#e8e2d2"/>` +
-    // 折れた柱と転がった円盤
-    `<rect x="290" y="104" width="18" height="34" fill="#e8e2d2"/>` +
-    `<g fill="#d4ccb8"><ellipse cx="330" cy="176" rx="22" ry="7"/><ellipse cx="356" cy="188" rx="18" ry="6"/></g>` +
-    `<path d="M20,150c0,-24 4,-38 8,-46c4,8 8,22 8,46z" fill="#2f5f3f"/>`,
+    `<path d="M64,52h192v4H64z" fill="#cfc7b4"/>` +
+    /*
+     * 崩れ。**欠けは見える側(左3分の1)に作ること。**
+     * はじめ右端(x=216〜256)を欠いたが、そこは隠れる帯の中で、崩れが一切見えなかった。
+     * 左の斜面を食い、楣の上端も欠けさせる。右端の欠けはそのまま残す
+     * (折れた柱と倒れた円盤が右にあるので、そちらは形が読める)。
+     */
+    `<path d="M62,66h44V52l-44,-4z" fill="#a8c8e0"/>` +
+    `<path d="M106,66V52l5,-0.6V66z" fill="#cfc7b4"/>` +
+    `<g fill="#a8c8e0"><rect x="118" y="52" width="9" height="4"/><rect x="140" y="52" width="6" height="3"/></g>` +
+    `<path d="M256,52l-40,-11l40,-15z" fill="#a8c8e0"/>` +
+    `<path d="M250,66h58v6h-58z" fill="#e0dbcd"/>` +
+    `<rect x="290" y="72" width="18" height="66" fill="#e8e2d2"/>` +
+    `<g stroke="#d0c8b2" stroke-width="1.4" opacity=".9" fill="none"><path d="M294.5,76v56M299,76v56M303.5,76v56"/></g>` +
+    `<path d="M290,72l18,0l0,-8l-6,-3l-12,5z" fill="#d4ccb8"/>` +
+    // 折れた柱と、倒れて並ぶ円盤(繰り返し)
+    `<rect x="322" y="118" width="17" height="20" fill="#e8e2d2"/>` +
+    `<path d="M322,118h17l-4,-7h-9z" fill="#cfc7b4"/>` +
+    `<g fill="#ddd5c0"><ellipse cx="330" cy="176" rx="22" ry="7"/><ellipse cx="356" cy="188" rx="19" ry="6.4"/>` +
+    `<ellipse cx="376" cy="172" rx="17" ry="5.6"/><ellipse cx="306" cy="192" rx="20" ry="6.6"/></g>` +
+    `<g fill="#c2b9a4"><ellipse cx="330" cy="173" rx="22" ry="6"/><ellipse cx="356" cy="185" rx="19" ry="5.4"/>` +
+    `<ellipse cx="376" cy="169" rx="17" ry="4.8"/><ellipse cx="306" cy="189" rx="20" ry="5.6"/></g>` +
+    `<g stroke="#b5ac96" stroke-width="1.2" opacity=".8" fill="none"><path d="M318,173h24M346,185h20M366,169h20M296,189h20"/></g>` +
+    // 崩れた低い壁(石の抜けで崩れを見せる)
+    `<g fill="#d4ccb8"><rect x="0" y="150" width="46" height="10"/><rect x="0" y="160" width="34" height="10"/>` +
+    `<rect x="40" y="160" width="18" height="10"/><rect x="0" y="170" width="52" height="10"/></g>` +
+    `<g stroke="#b5ac96" stroke-width="1.2" opacity=".8" fill="none"><path d="M16,150v10M34,150v10M18,160v10M26,170v10M40,170v10"/></g>` +
+    // 石の割れ目から生える草と、糸杉
+    `<g stroke="#5f8f4a" stroke-width="1.8" opacity=".85" fill="none" stroke-linecap="round">` +
+    `<path d="M104,162v-8M106,163v-6M172,162v-7M240,163v-8M242,163v-5M312,170l1,-7M348,182l1,-6"/></g>` +
+    `<path d="M20,150c0,-24 4,-38 8,-46c4,8 8,22 8,46z" fill="#2f5f3f"/>` +
+    `<path d="M24,150c0,-20 2,-32 4,-38c2,6 4,18 4,38z" fill="#3f7550" opacity=".8"/>` +
+    `<path d="M382,168c0,-18 3,-28 6,-34c3,6 6,16 6,34z" fill="#2f5f3f"/>` +
+    /*
+     * 見に来た人(y>170)。**遺跡を遺跡にしているのは、そこに人が見に来ていること。**
+     * 柱の高さ(68px)も、人が並んで初めて伝わる。
+     */
+    person(48, 196, 1.35, "#5b8fe8") +
+    person(104, 200, 1.25, "#f5b31c", "crouch") +
+    person(268, 198, 1.3, "#c2603c") +
+    person(288, 200, 1.2, "#4d7a44") +
+    person(214, 204, 1.2, "#e8447a") +
+    // 足もとに転がる石くず
+    `<g fill="#c2b9a4"><ellipse cx="140" cy="200" rx="7" ry="3"/><ellipse cx="152" cy="205" rx="5" ry="2.4"/>` +
+    `<ellipse cx="82" cy="206" rx="6" ry="2.6"/><ellipse cx="252" cy="200" rx="6" ry="2.6"/></g>`,
 
   /** 看板の並ぶアジアの繁華街(夜)。 */
   megacity_asia:
