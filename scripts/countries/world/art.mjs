@@ -320,12 +320,15 @@ function stiltHouse(x, deck, s = 1) {
  */
 function person(x, base, s = 1, cloth = "#e8443f", pose = "stand", skin = "#8a5a34") {
   const p = (dx, dy) => `${r1(x + dx * s)},${r1(base + dy * s)}`;
+  // 足もとの影。地面と同系色の中に人を置くと沈むので、必ず敷く。
+  const shadow = `<ellipse cx="${r1(x)}" cy="${r1(base + 1)}" rx="${r1(5.6 * s)}" ry="${r1(1.8 * s)}" fill="#000" opacity=".14"/>`;
   const rect = (dx, dy, w, h, fill) =>
     `<rect x="${r1(x + dx * s)}" y="${r1(base + dy * s)}" width="${r1(w * s)}" height="${r1(h * s)}" fill="${fill}"/>`;
   const head = (dy) => `<circle cx="${r1(x)}" cy="${r1(base + dy * s)}" r="${r1(2.8 * s)}" fill="${skin}"/>`;
 
   if (pose === "crouch") {
     return (
+      shadow +
       head(-11.4) +
       `<path d="M${p(-3.4, -8.6)}q3.4,-1.6 6.8,0l1.6,7.4h-10z" fill="${cloth}"/>` +
       rect(-3.6, -1.2, 3, 1.2, skin) +
@@ -335,11 +338,14 @@ function person(x, base, s = 1, cloth = "#e8443f", pose = "stand", skin = "#8a5a
   }
   const load =
     pose === "carry"
-      ? `<path d="M${p(-5.2, -17.6)}h10.4l-1.4,-4.4h-7.6z" fill="#c9a877"/>` +
-        `<g stroke="#8a6a3c" stroke-width="1" opacity=".8" fill="none"><path d="M${p(-4.4, -19.6)}h8.8"/></g>` +
-        `<path d="M${p(-2.8, -13.4)}l-1.4,-3.2M${p(2.8, -13.4)}l1.4,-3.2" stroke="${skin}" stroke-width="${r1(1.7 * s)}" stroke-linecap="round" fill="none"/>`
+      ? // 頭に載せた籠。**頭に食い込ませること。**わずかでも隙間を空けると、
+        // 宙に浮いた帽子に見えた(拡大して気づいた)。腕も籠の縁まで届かせる。
+        `<path d="M${p(-6.2, -16.2)}h12.4l-1.8,-5.4h-8.8z" fill="#c9a877"/>` +
+        `<g stroke="#8a6a3c" stroke-width="${r1(1.1 * s)}" opacity=".85" fill="none"><path d="M${p(-5.6, -18.6)}h11.2"/></g>` +
+        `<path d="M${p(-2.9, -11.2)}L${p(-4.8, -15.4)}M${p(2.9, -11.2)}L${p(4.8, -15.4)}" stroke="${skin}" stroke-width="${r1(1.7 * s)}" stroke-linecap="round" fill="none"/>`
       : `<path d="M${p(-2.8, -12.6)}l-2.6,5M${p(2.8, -12.6)}l2.6,5" stroke="${skin}" stroke-width="${r1(1.7 * s)}" stroke-linecap="round" fill="none"/>`;
   return (
+    shadow +
     head(-14.6) +
     `<path d="M${p(-2.9, -11.8)}q2.9,-1.4 5.8,0l1.1,6.6h-8z" fill="${cloth}"/>` +
     rect(-2.6, -5.2, 2.2, 5.2, skin) +
@@ -381,6 +387,23 @@ function palmFront(x, top) {
     palmFrondCrown(x, top - 2, 0.72, "#4f9f5c") +
     `<g fill="#6b4a28"><circle cx="${r1(x - 3.4)}" cy="${r1(top + 3.6)}" r="2.4"/><circle cx="${r1(x + 3.2)}" cy="${r1(top + 4.8)}" r="2.2"/></g>` +
     `<g stroke="#54401f" stroke-width="1.1" opacity=".55" fill="none"><path d="M${r1(x - 2)},${r1(top + 13)}h4M${r1(x - 2)},${r1(top + 22)}h4M${r1(x - 2)},${r1(top + 31)}h4M${r1(x - 2)},${r1(top + 40)}h4"/></g>`
+  );
+}
+
+/**
+ * 水に浮かぶものの足もと。
+ *
+ * **輪郭だけでは「水の上の物」と「水に空いた穴」が見分けられない。**
+ * 効くのは、真下へ短く伸びる映り込みと、接するところで左右へ逃げるさざ波。
+ * 前後関係が決まると、浮いているかどうかも決まる。
+ */
+function afloat(cx, waterY, w, fill, op = ".3") {
+  return (
+    `<ellipse cx="${cx}" cy="${r1(waterY + 2)}" rx="${r1(w * 0.48)}" ry="2.6" fill="${fill}" opacity="${op}"/>` +
+    `<g stroke="${fill}" stroke-width="1.6" opacity="${op}" fill="none">` +
+    `<path d="M${r1(cx - w * 0.32)},${r1(waterY + 6)}h${r1(w * 0.32)}M${r1(cx + w * 0.04)},${r1(waterY + 9)}h${r1(w * 0.28)}"/></g>` +
+    `<g stroke="#eafbfd" stroke-width="1.6" opacity=".6" fill="none">` +
+    `<path d="M${r1(cx - w * 0.92)},${r1(waterY + 1)}h${r1(w * 0.36)}M${r1(cx + w * 0.56)},${r1(waterY + 1)}h${r1(w * 0.36)}"/></g>`
   );
 }
 
@@ -448,6 +471,156 @@ function adobeTown(x, base, s = 1) {
   return parts.join("");
 }
 
+/**
+ * 縞馬。
+ *
+ * ラマと同じく、**胴と脚をひと筆にしない。** 正体を決めているのは
+ * **立ったたてがみ**と**縞**で、どちらも胴の輪郭とは別の図形として置く必要がある
+ * (輪郭の中に塗り込むと、ただの四つ足になる)。
+ */
+function zebra(x, base, s = 1, coat = "#f2ede0", stripe = "#3a3a38") {
+  const rect = (dx, dy, w, h, fill) =>
+    `<rect x="${r1(x + dx * s)}" y="${r1(base + dy * s)}" width="${r1(w * s)}" height="${r1(h * s)}" fill="${fill}"/>`;
+  const p = (dx, dy) => `${r1(x + dx * s)},${r1(base + dy * s)}`;
+  return (
+    rect(-7, -9, 2.2, 9, stripe) +
+    rect(-3.6, -9, 2.2, 9, coat) +
+    rect(2.6, -9, 2.2, 9, coat) +
+    rect(6, -9, 2.2, 9, stripe) +
+    `<ellipse cx="${r1(x)}" cy="${r1(base - 13.4 * s)}" rx="${r1(9.6 * s)}" ry="${r1(5.2 * s)}" fill="${coat}"/>` +
+    `<path d="M${p(-7.4, -15.6)}L${p(-12.4, -24)}L${p(-8.6, -25.4)}L${p(-3.6, -16)}z" fill="${coat}"/>` +
+    `<ellipse cx="${r1(x - 13.4 * s)}" cy="${r1(base - 25.6 * s)}" rx="${r1(4 * s)}" ry="${r1(2.3 * s)}" fill="${coat}"/>` +
+    `<ellipse cx="${r1(x - 16.6 * s)}" cy="${r1(base - 25 * s)}" rx="${r1(1.5 * s)}" ry="${r1(1.2 * s)}" fill="${stripe}"/>` +
+    // 立ったたてがみ。**首の輪郭の外へ出す。**
+    `<path d="M${p(-11.8, -25.8)}L${p(-5.6, -16.4)}L${p(-3.8, -17.8)}L${p(-10.2, -26.8)}z" fill="${stripe}"/>` +
+    // 縞は独立した図形で置く
+    `<g fill="${stripe}"><rect x="${r1(x - 5.4 * s)}" y="${r1(base - 18 * s)}" width="${r1(1.8 * s)}" height="${r1(9 * s)}"/>` +
+    `<rect x="${r1(x - 1 * s)}" y="${r1(base - 18.4 * s)}" width="${r1(1.8 * s)}" height="${r1(9.6 * s)}"/>` +
+    `<rect x="${r1(x + 3.4 * s)}" y="${r1(base - 18 * s)}" width="${r1(1.8 * s)}" height="${r1(9 * s)}"/></g>` +
+    `<path d="M${p(9.2, -16)}q${r1(4 * s)},${r1(1 * s)} ${r1(4.4 * s)},${r1(5 * s)}" stroke="${coat}" stroke-width="${r1(1.8 * s)}" fill="none" stroke-linecap="round"/>` +
+    `<ellipse cx="${r1(x + 13.8 * s)}" cy="${r1(base - 10 * s)}" rx="${r1(1.6 * s)}" ry="${r1(2.4 * s)}" fill="${stripe}"/>`
+  );
+}
+
+/**
+ * 高地の駄獣(ラマ・アルパカの類)。
+ *
+ * **胴と脚をひと筆の `path` でまとめないこと。** まとめると、何の獣か分からない
+ * 四つ足の塊になる(らくだが犬に、ヤクが黒い塊になったのと同じ原因)。
+ * ここでは12個の独立した図形で組み、そのうち3つ —
+ * **背の線よりはっきり上へ伸びる首・小さな頭・バナナ形の耳** — が正体を決めている。
+ * この3つが背の輪郭の中に収まってしまうと、途端に読めなくなる。
+ */
+function llama(x, base, s = 1, fleece = "#e0d4bc", dark = "#7a6242") {
+  const rect = (dx, dy, w, h, fill) =>
+    `<rect x="${r1(x + dx * s)}" y="${r1(base + dy * s)}" width="${r1(w * s)}" height="${r1(h * s)}" fill="${fill}"/>`;
+  const p = (dx, dy) => `${r1(x + dx * s)},${r1(base + dy * s)}`;
+  return (
+    // 脚は4本とも別の図形にする
+    rect(-5.6, -9, 1.9, 9, dark) +
+    rect(-2.8, -9, 1.9, 9, dark) +
+    rect(2.2, -9, 1.9, 9, dark) +
+    rect(5, -9, 1.9, 9, dark) +
+    // 胴
+    `<ellipse cx="${r1(x)}" cy="${r1(base - 13 * s)}" rx="${r1(8.4 * s)}" ry="${r1(5 * s)}" fill="${fleece}"/>` +
+    // 首。**背(base-18)よりずっと上、base-26 まで伸ばす。**
+    `<path d="M${p(-5.4, -15)}L${p(-8.2, -26)}L${p(-4.6, -26.6)}L${p(-2.2, -15.4)}z" fill="${fleece}"/>` +
+    // 小さな頭を水平に載せる
+    `<ellipse cx="${r1(x - 8.6 * s)}" cy="${r1(base - 27.4 * s)}" rx="${r1(3.3 * s)}" ry="${r1(2.1 * s)}" fill="${fleece}"/>` +
+    `<ellipse cx="${r1(x - 11.2 * s)}" cy="${r1(base - 26.8 * s)}" rx="${r1(1.5 * s)}" ry="${r1(1.2 * s)}" fill="${dark}"/>` +
+    // バナナ形の耳2枚。これがラマの目印。
+    `<path d="M${p(-10.2, -29)}q${r1(-0.8 * s)},${r1(-4 * s)} ${r1(1.4 * s)},${r1(-4.4 * s)}q${r1(0.5 * s)},${r1(2.8 * s)} ${r1(-0.2 * s)},${r1(4.4 * s)}z" fill="${fleece}"/>` +
+    `<path d="M${p(-7.4, -29)}q${r1(0.8 * s)},${r1(-3.8 * s)} ${r1(2.4 * s)},${r1(-3.6 * s)}q${r1(-0.8 * s)},${r1(2.4 * s)} ${r1(-1 * s)},${r1(3.8 * s)}z" fill="${fleece}"/>` +
+    // 短く跳ね上がる尾
+    `<path d="M${p(8, -15)}q${r1(3.2 * s)},${r1(-1 * s)} ${r1(3.6 * s)},${r1(-3.6 * s)}" stroke="${fleece}" stroke-width="${r1(2.2 * s)}" fill="none" stroke-linecap="round"/>`
+  );
+}
+
+/**
+ * 水に浮かぶ小舟。
+ *
+ * **さざ波を描いたあとに呼ぶこと。**この部品は順序に意味があるので、
+ * 3つを1つにまとめて順序を埋め込んである:
+ *
+ *  1. 波より**後**に描く … 波が舟に遮られていれば、舟は水面より手前にある
+ *  2. 舷の内側に暗い三日月 … へこんだ容器だと分かる
+ *  3. 真下に映り込みの筋 … 映り込むものは水の上にある
+ *
+ * **1つめだけでは「容器」までしか言えない。** 3つ揃って初めて浮いて見える。
+ */
+function boat(cx, waterY, w, hull = "#a8763c", shade = "#553a1c", trim = "#e0c088") {
+  const h = r1(w / 2);
+  const d = r1(w * 0.13);
+  return (
+    // 3. 映り込み(舟より先に、真下へ)
+    `<ellipse cx="${cx}" cy="${r1(waterY + d + 3)}" rx="${r1(h * 0.76)}" ry="${r1(d * 0.85)}" fill="#17607a" opacity=".3"/>` +
+    `<g stroke="#17607a" stroke-width="1.5" opacity=".26" fill="none">` +
+    `<path d="M${r1(cx - h * 0.5)},${r1(waterY + d + 7)}h${r1(h * 0.55)}M${r1(cx - h * 0.05)},${r1(waterY + d + 10)}h${r1(h * 0.45)}"/></g>` +
+    // 1. 船体
+    `<path d="M${r1(cx - h)},${waterY}q${h},${r1(d * 2)} ${w},0q${r1(-h)},${r1(-d * 0.7)} ${-w},0z" fill="${hull}"/>` +
+    // 2. 舷の内側の暗い三日月
+    `<path d="M${r1(cx - h * 0.9)},${r1(waterY - 0.4)}q${r1(h * 0.9)},${r1(d * 0.8)} ${r1(h * 1.8)},0q${r1(-h * 0.9)},${r1(-d * 0.5)} ${r1(-h * 1.8)},0z" fill="${shade}" opacity=".75"/>` +
+    `<path d="M${r1(cx - h)},${waterY}q${h},${r1(-d * 0.7)} ${w},0" stroke="${trim}" stroke-width="1.8" fill="none"/>` +
+    // 舟が遮ったぶん、波は左右へ逃げる
+    `<g stroke="#eafbfd" stroke-width="1.6" opacity=".55" fill="none">` +
+    `<path d="M${r1(cx - h * 1.75)},${r1(waterY + 2)}h${r1(h * 0.62)}M${r1(cx + h * 1.12)},${r1(waterY + 2)}h${r1(h * 0.62)}"/></g>`
+  );
+}
+
+/**
+ * 海鳥。
+ *
+ * **輪郭をひと筆で描かないこと。** 胴と翼を1つの `path` にまとめると、
+ * 何の鳥か分からない塊になる(らくだが犬に、ヤクが黒い塊になったのと同じ原因)。
+ * 海鳥だと分かる特徴 — **長く尖った翼・鉤形の嘴・二叉の尾** — を、
+ * それぞれ独立した図形として置く。
+ */
+function seabird(x, y, s = 1, fill = "#3a4453") {
+  const p = (dx, dy) => `${r1(x + dx * s)},${r1(y + dy * s)}`;
+  return (
+    `<ellipse cx="${r1(x)}" cy="${r1(y)}" rx="${r1(5 * s)}" ry="${r1(2.1 * s)}" fill="${fill}"/>` +
+    `<path d="M${p(-1, -1)}q${r1(-9 * s)},${r1(-6 * s)} ${r1(-17 * s)},${r1(-2 * s)}q${r1(8 * s)},${r1(1.4 * s)} ${r1(16 * s)},${r1(4 * s)}z" fill="${fill}"/>` +
+    `<path d="M${p(1, -1)}q${r1(9 * s)},${r1(-6 * s)} ${r1(17 * s)},${r1(-2 * s)}q${r1(-8 * s)},${r1(1.4 * s)} ${r1(-16 * s)},${r1(4 * s)}z" fill="${fill}"/>` +
+    `<circle cx="${r1(x - 4.6 * s)}" cy="${r1(y - 1 * s)}" r="${r1(1.7 * s)}" fill="${fill}"/>` +
+    `<path d="M${p(-6, -1.6)}l${r1(-3.6 * s)},${r1(1.1 * s)}l${r1(2.8 * s)},${r1(1.1 * s)}z" fill="${fill}"/>` +
+    `<path d="M${p(4.6, 0)}l${r1(4.6 * s)},${r1(-2.2 * s)}l${r1(-1.1 * s)},${r1(2.2 * s)}l${r1(3.6 * s)},${r1(2.2 * s)}z" fill="${fill}"/>`
+  );
+}
+
+/**
+ * 建物のあいだに渡した物干し。
+ *
+ * 旧市街を旧市街に見せるのに、いちばん安く効く。パリでもハバナでも
+ * イスタンブールでもデリーでも成り立ち、**どこか1国を指さない。**
+ */
+function laundry(x1, y1, x2, y2, colors) {
+  const mx = r1((x1 + x2) / 2);
+  const my = r1((y1 + y2) / 2 + Math.min(11, (x2 - x1) * 0.13));
+  const parts = [
+    `<path d="M${x1},${y1}Q${mx},${my} ${x2},${y2}" stroke="#8a8272" stroke-width="1.2" fill="none"/>`,
+  ];
+  colors.forEach((color, i) => {
+    const t = (i + 1) / (colors.length + 1);
+    const bx = r1((1 - t) * (1 - t) * x1 + 2 * (1 - t) * t * mx + t * t * x2);
+    const by = r1((1 - t) * (1 - t) * y1 + 2 * (1 - t) * t * my + t * t * y2);
+    const w = 7 + (i % 3) * 2;
+    const h = 9 + (i % 2) * 5;
+    parts.push(`<path d="M${r1(bx - w / 2)},${by}h${w}l-1.6,${h}h${r1(-(w - 3.2))}z" fill="${color}"/>`);
+  });
+  return parts.join("");
+}
+
+/** 広場の鳩。古い町の広場には必ずいて、しかもどの国のものでもない。 */
+function pigeon(x, base, s = 1, fill = "#8a8578") {
+  return (
+    `<ellipse cx="${r1(x)}" cy="${r1(base - 2.6 * s)}" rx="${r1(4.2 * s)}" ry="${r1(2.6 * s)}" fill="${fill}"/>` +
+    `<circle cx="${r1(x - 4 * s)}" cy="${r1(base - 5.2 * s)}" r="${r1(1.9 * s)}" fill="${fill}"/>` +
+    `<path d="M${r1(x + 4 * s)},${r1(base - 3.4 * s)}l${r1(3.2 * s)},${r1(-1.4 * s)}" stroke="${fill}" stroke-width="${r1(1.4 * s)}" fill="none" stroke-linecap="round"/>` +
+    `<g fill="#c2603c"><rect x="${r1(x - 1.6 * s)}" y="${r1(base - 1 * s)}" width="${r1(1 * s)}" height="${r1(1.6 * s)}"/>` +
+    `<rect x="${r1(x + 0.8 * s)}" y="${r1(base - 1 * s)}" width="${r1(1 * s)}" height="${r1(1.6 * s)}"/></g>`
+  );
+}
+
 /** 山羊。隊商の町にはどこにでもいる。人と同じく大きさを伝えるために置く。 */
 function goat(x, base, s = 1, fill = "#e8dfc8") {
   return (
@@ -512,25 +685,118 @@ export const WORLD_BG = {
     `<rect x="70" y="170" width="60" height="18" rx="5" fill="#f5b31c"/>` +
     `<g fill="#2a2f38"><circle cx="84" cy="189" r="5"/><circle cx="118" cy="189" r="5"/></g>`,
 
-  /** 尖塔と瓦屋根の旧市街。 */
+  /**
+   * 古い町の広場。
+   *
+   * **これはヨーロッパの旧市街ではない。** 使うのはパリ・プラハ・モスクワ・
+   * イスタンブール・デリー・北京・エルサレム・ハバナの8都市で、4大陸にまたがる。
+   * 切妻の家並みや紋章を入れると6都市が嘘になるので、どの町にもある
+   * 「古い町」の共通項だけで組む — 詰まって建つ石と漆喰、柱廊、物干し、
+   * 露店の日よけ、広場の水、鳩。**旗も紋章も塔の形も出さない。**
+   * (塔やドームや尖塔は都市シンボルの側がすでに描いている)
+   *
+   * **動きの層(`world-oldworld.tsx`)と噛み合っている位置は動かせない:**
+   * 窓 (24,116) (78,108) (132,122) (240,118) (294,110) (348,120) の 10×12 …灯りがともる
+   * 噴水の噴き口 (200,158) と水面 (200,186) …水柱としずくと波紋が乗る
+   * これらは `roofRow(150, [104,96,110,100,106,98,108])` が生む位置なので、その呼び方を変えない。
+   */
   oldworld:
-    sky("#9ccbe8", "#cfe4f0", 150) +
-    clouds(304, 30) +
-    hills(120, "#7a8f5a", 3) +
-    roofRow(150, [104, 96, 110, 100, 106, 98, 108], "#e8dfc8", "#c2603c") +
-    // 大聖堂の鐘楼
-    `<rect x="180" y="46" width="34" height="104" fill="#dfd8c8"/>` +
-    `<path d="M176,46h42l-21,-30z" fill="#4a5568"/>` +
-    `<circle cx="197" cy="70" r="9" fill="#f2ede0"/><circle cx="197" cy="70" r="7" fill="#e0dbcd"/>` +
-    `<path d="M197,70v-5M197,70l4,3" stroke="#3a4453" stroke-width="1.6" fill="none"/>` +
-    `<rect x="186" y="92" width="10" height="16" rx="5" fill="#5a4630"/><rect x="200" y="92" width="10" height="16" rx="5" fill="#5a4630"/>` +
-    // 石畳の広場と噴水
+    /*
+     * 灯りがともり始める時間。夕方にすると、動きの層の窓の灯りに理由ができる。
+     *
+     * **段を増やしてはいけない。** 夕方の色で3段4段に割ったら、空が縞模様になった。
+     * 明度差の小さい2枚に戻し、地平の靄で下端をぼかす。
+     */
+    sky("#8fb0d0", "#e4dac6", 150) +
+    cirrus(104, 20, 44, ".45") +
+    cirrus(300, 14, 34, ".38") +
+    /*
+     * 屋根の向こうに続く町。
+     *
+     * **離して置くと看板に見える。**隙間なく詰めて高さだけを変えると、
+     * 建て込んだ町の影になる。形は決めない(どの国とも読めるように)。
+     */
+    `<g fill="#93a4b4" opacity=".45">` +
+    `<rect x="0" y="94" width="22" height="10"/><rect x="22" y="88" width="18" height="16"/>` +
+    `<rect x="40" y="96" width="26" height="8"/><rect x="66" y="86" width="14" height="18"/>` +
+    `<rect x="80" y="92" width="24" height="12"/><rect x="104" y="98" width="20" height="6"/>` +
+    `<rect x="282" y="96" width="22" height="8"/><rect x="304" y="88" width="16" height="16"/>` +
+    `<rect x="320" y="94" width="26" height="10"/><rect x="346" y="84" width="13" height="20"/>` +
+    `<rect x="359" y="92" width="41" height="12"/></g>` +
+    `<rect x="0" y="93" width="400" height="11" fill="#ecdcc4" opacity=".45"/>` +
+    // 家並み(窓の位置が動きの層と対応している。この呼び方を変えない)
+    roofRow(150, [104, 96, 110, 100, 106, 98, 108], "#e0d2b8", "#b8543c") +
+    // 漆喰の剥がれと屋根の筋。古さは汚れで出る。
+    `<g fill="#c9b898" opacity=".55"><rect x="8" y="126" width="16" height="20"/><rect x="88" y="118" width="12" height="26"/>` +
+    `<rect x="238" y="132" width="18" height="16"/><rect x="332" y="124" width="14" height="24"/></g>` +
+    `<g stroke="#9a4a34" stroke-width="1" opacity=".5" fill="none"><path d="M6,144h46M62,140h42M114,148h46M222,146h46M278,142h42M330,146h46"/></g>` +
+    // 鎧戸と、窓の下の小さな手すり
+    `<g fill="#7a6a4c">` +
+    [24, 78, 132, 186, 240, 294, 348]
+      .map((wx, i) => {
+        const wy = [116, 108, 122, 112, 118, 110, 120][i];
+        return `<rect x="${wx - 4.4}" y="${wy}" width="3.6" height="12"/><rect x="${wx + 10.8}" y="${wy}" width="3.6" height="12"/>`;
+      })
+      .join("") +
+    `</g>` +
+    `<g stroke="#8a8272" stroke-width="1.4" opacity=".85" fill="none">` +
+    [24, 78, 132, 186, 240, 294, 348]
+      .map((wx, i) => {
+        const wy = [116, 108, 122, 112, 118, 110, 120][i] + 13;
+        return `M${wx - 5},${wy}h20M${wx - 3},${wy}v-4M${wx + 4},${wy}v-4M${wx + 11},${wy}v-4`;
+      })
+      .join("") +
+    `</g>` +
+    // 物干し。左右3分の1に渡す(中央は隠れて見えない)。
+    laundry(30, 128, 96, 122, ["#e8443f", "#f6efe2", "#5b8fe8"]) +
+    laundry(292, 122, 366, 128, ["#f5b31c", "#f6efe2", "#37b3a4"]) +
+    // 石畳の広場。目地は等間隔にせず、擦り減った跡を混ぜる。
     ground(150, "#b0a894") +
-    `<g stroke="#9a9280" stroke-width="2" opacity=".7" fill="none"><path d="M0,164h400M0,180h400M0,196h400"/></g>` +
-    `<ellipse cx="200" cy="188" rx="52" ry="14" fill="#5f9fb8"/>` +
-    `<ellipse cx="200" cy="186" rx="40" ry="9" fill="#8fc8dc"/>` +
-    `<rect x="196" y="160" width="8" height="24" fill="#cfc7b4"/>` +
-    `<path d="M200,158c-6,-6 -2,-12 0,-14c2,2 6,8 0,14z" fill="#bfe8f4"/>`,
+    `<g stroke="#9a9280" stroke-width="1.8" opacity=".6" fill="none"><path d="M0,162h400M0,176h400M0,190h400M0,204h400"/></g>` +
+    `<g stroke="#9a9280" stroke-width="1.4" opacity=".4" fill="none"><path d="M28,162v14M96,162v14M164,162v14M232,162v14M300,162v14M368,162v14M62,176v14M130,176v14M198,176v14M266,176v14M334,176v14M28,190v14M96,190v14M232,190v14M300,190v14M368,190v14"/></g>` +
+    `<g fill="#bab29c" opacity=".6"><ellipse cx="120" cy="196" rx="34" ry="8"/><ellipse cx="316" cy="188" rx="28" ry="6"/></g>` +
+    // 左: 柱廊。日陰の奥行きが出て、町が厚く見える。
+    arches(6, 180, 4, 24, 30, "#cfc2a8", "#584f42") +
+    `<rect x="2" y="146" width="102" height="6" fill="#c2b49a"/>` +
+    `<g stroke="#a89a80" stroke-width="1.2" opacity=".7" fill="none"><path d="M6,156h96"/></g>` +
+    // 右: 露店の日よけと台
+    `<path d="M282,166h96l-10,-12h-76z" fill="#c2603c"/>` +
+    `<g stroke="#a34a30" stroke-width="1.4" opacity=".7" fill="none"><path d="M292,160h76M286,164h88"/></g>` +
+    `<g fill="#6b5330"><rect x="284" y="166" width="3.4" height="22"/><rect x="373" y="166" width="3.4" height="22"/></g>` +
+    `<rect x="292" y="176" width="76" height="4.4" fill="#c9a877"/>` +
+    `<g fill="#e8443f"><circle cx="300" cy="172" r="3.4"/><circle cx="308" cy="173" r="3"/></g>` +
+    `<g fill="#f5b31c"><circle cx="318" cy="172" r="3.2"/><circle cx="326" cy="173" r="2.8"/></g>` +
+    `<g fill="#4d7a44"><circle cx="336" cy="172" r="3.2"/><circle cx="344" cy="173" r="2.8"/></g>` +
+    `<g fill="#7a4a8c"><circle cx="354" cy="172" r="3"/><circle cx="362" cy="173" r="2.6"/></g>` +
+    // 広場の水。**噴き口 (200,158) と水面 (200,186) は動かせない。**
+    `<ellipse cx="200" cy="192" rx="48" ry="13" fill="#a09880"/>` +
+    `<ellipse cx="200" cy="190" rx="44" ry="11" fill="#c2b8a0"/>` +
+    `<ellipse cx="200" cy="186" rx="40" ry="9.4" fill="#4f8fa8"/>` +
+    `<ellipse cx="200" cy="185" rx="30" ry="6" fill="#8fc8dc"/>` +
+    `<rect x="195" y="164" width="10" height="24" fill="#cfc7b4"/>` +
+    `<ellipse cx="200" cy="164" rx="15" ry="4.2" fill="#cfc7b4"/>` +
+    `<ellipse cx="200" cy="163" rx="11" ry="2.6" fill="#8fc8dc"/>` +
+    `<path d="M200,158c-6,-6 -2,-12 0,-14c2,2 6,8 0,14z" fill="#bfe8f4"/>` +
+    /*
+     * 広場の人(y>170 は中央でも隠れない)。
+     *
+     * **人がいて初めて「広場」になる。**水を汲む、露店で売る、柱廊で立ち話をする、
+     * 鳩を追いかける。大きさは 24〜28px。
+     */
+    person(158, 204, 1.35, "#c2603c", "carry") +
+    person(64, 200, 1.3, "#5b8fe8") +
+    person(84, 201, 1.25, "#4d7a44") +
+    person(300, 198, 1.3, "#f5b31c") +
+    person(248, 202, 1.2, "#e8447a", "crouch") +
+    pigeon(140, 206) +
+    pigeon(154, 203, 0.9, "#9a948a") +
+    pigeon(170, 207, 0.85) +
+    pigeon(262, 205, 0.95, "#9a948a") +
+    pigeon(276, 202, 0.85) +
+    // 柱廊の下に置かれた籠と、広場の隅の猫
+    `<g fill="#c9a877"><ellipse cx="112" cy="200" rx="10" ry="5"/><ellipse cx="126" cy="205" rx="8" ry="4.2"/></g>` +
+    `<g stroke="#8a6a3c" stroke-width="1" opacity=".8" fill="none"><path d="M103,199h18M119,204h14"/></g>` +
+    beachDog(374, 202, 0.82, "#6f6a5e"),
 
   /**
    * 砂丘とキャラバン。
@@ -640,16 +906,21 @@ export const WORLD_BG = {
     ripples(126) +
     // 日ざしの照り返し(太陽の真下)
     `<g stroke="#f2fbfd" stroke-width="2" opacity=".38" fill="none"><path d="M46,110h22M36,120h32M50,132h24M30,142h28"/></g>` +
-    // 水上の高床の家。脚は波打ちぎわで砂に隠れる。
-    stiltHouse(300, 140) +
-    stiltHouse(354, 134, 0.88) +
-    // 左の桟橋と、舫った小舟
-    `<g fill="#8a5a2c"><rect x="0" y="136" width="72" height="4"/><rect x="10" y="140" width="3" height="14"/><rect x="34" y="140" width="3" height="14"/><rect x="58" y="140" width="3" height="14"/></g>` +
-    `<g stroke="#6b4a28" stroke-width="1.4" fill="none"><path d="M70,138q8,6 16,4"/></g>` +
-    `<path d="M78,146c10,-5 30,-5 40,0c-6,6 -34,6 -40,0z" fill="#e8443f"/>` +
-    `<path d="M84,145c8,-3 24,-3 30,0c-4,3 -26,3 -30,0z" fill="#f6efe2"/>` +
-    `<rect x="96" y="126" width="2.2" height="18" fill="#6b5330"/>` +
-    `<path d="M98,127l12,10l-12,3z" fill="#f6efe2" opacity=".9"/>` +
+    // 水上の高床の家。脚は波打ちぎわで砂に隠れる。脚もとに接する波を置いて、
+    // 水面より上に立っていることを見せる(輪郭だけでは水に空いた穴と区別できない)。
+    stiltHouse(300, 138) +
+    stiltHouse(354, 132, 0.88) +
+    `<g stroke="#eafbfd" stroke-width="1.4" opacity=".55" fill="none"><path d="M294,150h12M318,150h12M348,148h10M372,148h10"/></g>` +
+    // 桟橋。杭が水に入るところにも波を立てる。
+    `<g fill="#8a5a2c"><rect x="0" y="124" width="72" height="4"/><rect x="10" y="128" width="3" height="20"/><rect x="34" y="128" width="3" height="20"/><rect x="58" y="128" width="3" height="20"/></g>` +
+    `<g stroke="#eafbfd" stroke-width="1.4" opacity=".5" fill="none"><path d="M6,140h12M30,140h12M54,140h12"/></g>` +
+    `<g stroke="#6b4a28" stroke-width="1.4" fill="none"><path d="M70,126q10,7 20,5"/></g>` +
+    // 舫った小舟。**映り込みを先に敷いてから舟を重ねる**(舟が波を遮る側になる)。
+    afloat(100, 136, 40, "#17607a", ".34") +
+    `<path d="M80,134c10,-5 30,-5 40,0c-6,6 -34,6 -40,0z" fill="#e8443f"/>` +
+    `<path d="M86,133c8,-3 24,-3 30,0c-4,3 -26,3 -30,0z" fill="#f6efe2"/>` +
+    `<rect x="98" y="114" width="2.2" height="18" fill="#6b5330"/>` +
+    `<path d="M100,115l12,10l-12,3z" fill="#f6efe2" opacity=".9"/>` +
     // 砂浜。濡れた砂 → 乾いた砂 → 砂丘の3段。
     ground(152, "#f0e0b8") +
     `<path d="M0,152c60,7 120,-3 200,2c80,5 140,-2 200,2v9H0z" fill="#d8c48e" opacity=".75"/>` +
@@ -673,8 +944,8 @@ export const WORLD_BG = {
     `<g fill="#e8443f"><circle cx="314" cy="178" r="3.4"/><circle cx="322" cy="179" r="3"/></g>` +
     `<g fill="#f5b31c"><circle cx="332" cy="178" r="3.2"/><circle cx="340" cy="179" r="2.8"/></g>` +
     `<g fill="#4d7a44"><circle cx="350" cy="178" r="3.2"/><circle cx="357" cy="179" r="2.6"/></g>` +
-    person(288, 196, 1, "#5b8fe8") +
-    beachDog(258, 200) +
+    person(288, 204, 1.4, "#4d7a44") +
+    beachDog(340, 206) +
     // 砂に上げた丸木舟(舷外浮材つき)。櫂は舟に立てかけて、まわりを空ける。
     `<path d="M60,190c18,-8 60,-8 78,0c-10,10 -68,10 -78,0z" fill="#8a5a2c"/>` +
     `<path d="M67,189c15,-5 49,-5 64,0c-8,5 -56,5 -64,0z" fill="#c9a877"/>` +
@@ -683,30 +954,110 @@ export const WORLD_BG = {
     `<path d="M54,202h96v4h-96z" fill="#6b5330"/>` +
     `<path d="M44,204l22,-26l3.4,2.6l-22,26z" fill="#6b5330"/>` +
     `<path d="M67,180c4,-5 9,-5 11,-1.6c-2.6,3.4 -7,6 -12.6,6z" fill="#8a6a3c"/>` +
-    // 浜の手前(y>170 は中央でも隠れない)。魚をより分ける人と、荷かご。
-    person(198, 200, 1.05, "#f5b31c", "crouch") +
-    `<ellipse cx="216" cy="198" rx="15" ry="5" fill="#b89a5c"/>` +
-    `<ellipse cx="216" cy="196" rx="12" ry="3.4" fill="#cfe4f0" opacity=".9"/>` +
-    `<g fill="#8fb8cc"><ellipse cx="211" cy="196" rx="4" ry="1.8"/><ellipse cx="220" cy="197" rx="3.4" ry="1.6"/></g>` +
-    `<g fill="#c9a877"><ellipse cx="166" cy="196" rx="11" ry="6"/><ellipse cx="182" cy="203" rx="9" ry="5"/></g>` +
-    `<g stroke="#8a6a3c" stroke-width="1" opacity=".8" fill="none"><path d="M156,195h20M174,202h16"/></g>` +
-    person(120, 178, 0.9, "#37b3a4", "carry") +
+    /*
+     * 浜の手前(y>170 は中央でも隠れない)。
+     *
+     * **この浜を「港町」にしているのは建物ではなく、人が何をしているか。**
+     * 網を繕う、魚をより分ける、舟から網を引き上げる、荷を市へ運ぶ、浅瀬で遊ぶ。
+     * 大きさは 24〜28px。20pxでは他の細部に埋もれて、いるのかどうか分からなかった。
+     */
+    // 荷を市へ運ぶ人
+    person(38, 206, 1.4, "#37b3a4", "carry") +
+    // 網を繕う人と、砂に広げた網。
+    // **網は面で描く**(細い線だけだと砂の引っかき傷に見えた)が、
+    // **弧を大きく取らないこと**。人や籠の上を跨ぐと、網ではなく吊り橋に見えた。
+    person(156, 207, 1.25, "#5b8fe8", "crouch") +
+    `<path d="M166,208q10,-8 24,-6q14,-1 21,5q-10,5 -23,3q-12,1 -22,-2z" fill="#ded3ba" opacity=".85"/>` +
+    `<g stroke="#a08f76" stroke-width=".9" opacity=".9" fill="none"><path d="M172,206q8,-5 16,-3M178,203q11,0 19,4M177,201v6M191,200v7M203,202v5"/></g>` +
+    // 浮子。**網だと分かるのはこれ。**縁に沿った点が無いと、弧と縦線が吊り橋に見えた。
+    `<g fill="#e8443f"><circle cx="170" cy="204" r="1.8"/><circle cx="183" cy="200.6" r="1.8"/><circle cx="197" cy="201" r="1.8"/><circle cx="209" cy="205" r="1.8"/></g>` +
+    // 魚をより分ける人と、その盤
+    person(224, 205, 1.4, "#f5b31c", "crouch") +
+    `<ellipse cx="244" cy="202" rx="15" ry="5.2" fill="#b89a5c"/>` +
+    `<ellipse cx="244" cy="200" rx="12" ry="3.4" fill="#cfe4f0" opacity=".9"/>` +
+    `<g fill="#8fb8cc"><ellipse cx="238" cy="200" rx="4" ry="1.8"/><ellipse cx="248" cy="201" rx="3.4" ry="1.6"/></g>` +
+    // 浅瀬で遊ぶ子。小さく描いて奥にいることを見せる。
+    // 砂と同系色にすると沈むので、この絵に無い色を着せる。
+    person(252, 173, 0.8, "#e8447a") +
+    `<g stroke="#eafbfd" stroke-width="1.4" opacity=".6" fill="none"><path d="M240,172h9M257,173h9"/></g>` +
     // 波打ちぎわの足あと
-    `<g fill="#d4bd85" opacity=".7"><ellipse cx="236" cy="176" rx="2.6" ry="1.6"/><ellipse cx="244" cy="181" rx="2.6" ry="1.6"/><ellipse cx="252" cy="186" rx="2.6" ry="1.6"/><ellipse cx="260" cy="191" rx="2.6" ry="1.6"/></g>`,
+    `<g fill="#d4bd85" opacity=".7"><ellipse cx="290" cy="176" rx="2.6" ry="1.6"/><ellipse cx="298" cy="181" rx="2.6" ry="1.6"/><ellipse cx="306" cy="186" rx="2.6" ry="1.6"/><ellipse cx="314" cy="191" rx="2.6" ry="1.6"/></g>`,
 
-  /** アカシアと草原。 */
+  /**
+   * アカシアと乾いた草原。
+   *
+   * 使うのはダカールとナイロビ。どちらもアフリカだが、片方は大西洋岸のサヘル、
+   * もう片方は東アフリカの高地なので、**どちらとも読める乾いた草原**にとどめる。
+   * 平らな地平・傘のような樹・遠くの群れ・蟻塚・土ぼこりで組む。
+   *
+   * **置き場所を先に数えてある(隠れる帯 x=151〜249 / y=54〜152):**
+   * 象は x が帯にかかるが上端 y=160 で帯より下なので無事。
+   * **麒麟は頭が y=136** と帯の中に入るため、x を右へ寄せて帯から離した
+   * (元の x=268 では左端が 252.5 で、余裕が 3.5px しかなかった)。
+   *
+   * **動きの層(`world-savanna.tsx`)と噛み合っている位置:**
+   * 太陽 (84,40) / 陽炎 y=126・152 / 土ぼこり y=176・192・202 /
+   * 象 (176,196) s=0.92 の耳 / 枯れ草 (20,200) (32,204) (44,198) (356,202) (368,206) (380,200)
+   */
   savanna:
     sky("#e8c88a", "#f2dcae", 126) +
+    `<g fill="#e0b878" opacity=".4"><ellipse cx="150" cy="22" rx="90" ry="5"/><ellipse cx="320" cy="14" rx="60" ry="4"/></g>` +
+    `<circle cx="84" cy="40" r="32" fill="#f5d69a" opacity=".5"/>` +
     sun(84, 40, 22, "#f0a83c") +
+    // 右の岩山(コピエ)。面を割って、砂丘や丘と見分けが付くようにする。
     `<path d="M232,124h132l-24,-30h-84z" fill="#8a7f66"/>` +
+    `<path d="M256,94h84l24,30h-46z" fill="#6f6a5e" opacity=".65"/>` +
+    `<path d="M232,124l24,-30h18l-14,30z" fill="#a09680" opacity=".7"/>` +
+    `<g stroke="#5f5a50" stroke-width="1.2" opacity=".45" fill="none"><path d="M262,102l30,10M280,98l24,14M300,104l22,10"/></g>` +
     hills(126, "#a89873", 3) +
+    // 地平の靄と、その手前を歩く遠い群れ。**繰り返しなので中央が隠れても惜しくない。**
+    `<rect x="0" y="120" width="400" height="10" fill="#f2dcae" opacity=".45"/>` +
+    `<g fill="#8a7f66" opacity=".55">` +
+    [30, 46, 60, 78, 96, 158, 172, 188, 206, 224, 300, 316, 332]
+      .map((hx, i) => {
+        const hy = 128 + (i % 3);
+        return `<ellipse cx="${hx}" cy="${hy}" rx="4.6" ry="2.4"/><rect x="${hx - 3.4}" y="${hy}" width="1.4" height="3.4"/><rect x="${hx + 2}" y="${hy}" width="1.4" height="3.4"/><circle cx="${hx - 5.4}" cy="${hy - 2.6}" r="1.8"/>`;
+      })
+      .join("") +
+    `</g>` +
     ground(126, "#d8bc72") +
     `<path d="M0,152c70,-8 130,6 200,0c70,-6 130,2 200,8v50H0z" fill="#c9a85c"/>` +
-    acacia(72, 152, 1) +
+    `<path d="M0,180c60,-6 120,8 200,2c80,-6 140,4 200,8v20H0z" fill="#bd9a4c"/>` +
+    `<g stroke="#b08e42" stroke-width="1.6" opacity=".45" fill="none"><path d="M0,166q100,-7 200,0t200,0M0,192q100,-7 200,0t200,0"/></g>` +
+    // 蟻塚。乾いた草原にしかない形なので、これだけで場所が伝わる。
+    `<path d="M116,178c2,-16 6,-22 8,-22c2,0 6,6 8,22z" fill="#a8763c"/>` +
+    `<path d="M124,156c1,4 2,10 2,22h-4c0,-12 1,-18 2,-22z" fill="#8a5a2c" opacity=".6"/>` +
+    `<path d="M300,186c2,-13 5,-18 6,-18c1,0 4,5 6,18z" fill="#a8763c"/>` +
+    // アカシア。傘の形は層を重ねてから、幹の分かれを足す。
+    acacia(64, 152, 1) +
+    `<path d="M34,128c6,-9 50,-9 56,0c-13,3 -43,3 -56,0z" fill="#3f6b3a"/>` +
+    `<path d="M40,124c6,-6 42,-6 48,0c-11,2 -37,2 -48,0z" fill="#5f8f4a"/>` +
+    `<g stroke="#6b5330" stroke-width="1.4" fill="none"><path d="M63,140l-10,-10M63,140l9,-8"/></g>` +
     acacia(330, 160, 1.25) +
-    // 象と麒麟
+    `<path d="M292,130c7,-11 62,-11 69,0c-16,4 -53,4 -69,0z" fill="#3f6b3a"/>` +
+    `<path d="M300,125c7,-7 52,-7 59,0c-14,2 -45,2 -59,0z" fill="#5f8f4a"/>` +
+    `<g stroke="#6b5330" stroke-width="1.6" fill="none"><path d="M329,146l-12,-12M329,146l11,-10"/></g>` +
+    // 木陰(乾いた地面に落ちる濃い影)
+    `<g fill="#a8863c" opacity=".45"><ellipse cx="64" cy="153" rx="30" ry="6"/><ellipse cx="330" cy="161" rx="36" ry="7"/></g>` +
+    // 群れ。象は動きの層が耳をあおぐので (176,196) s=0.92 のまま。
     elephant(176, 196, 0.92) +
-    giraffe(268, 190, 0.86) +
+    elephant(212, 200, 0.52, "#7a7160", "#6a6152") +
+    zebra(104, 186, 0.95) +
+    zebra(78, 196, 0.8, "#e8e2d2") +
+    giraffe(292, 190, 0.86) +
+    // 群れを見に来た人。**背より高い部位が無いので、ここは中央でも y>170 なら安全。**
+    person(238, 204, 1.3, "#e8443f") +
+    `<path d="M238,192v-16" stroke="#6b5330" stroke-width="1.6" fill="none"/>` +
+    // 白鷺。象のそばに降りているのが、この草原らしさ。
+    `<g fill="#f6efe2"><ellipse cx="150" cy="200" rx="4" ry="2.2"/><circle cx="146.6" cy="197.4" r="1.7"/>` +
+    `<rect x="149" y="202" width="1.2" height="3"/><rect x="152" y="202" width="1.2" height="3"/></g>` +
+    `<path d="M144.6,197l-3.4,1.2l2.6,1" fill="#f5b31c"/>` +
+    `<g fill="#f6efe2"><ellipse cx="264" cy="204" rx="3.4" ry="1.9"/><circle cx="261.2" cy="201.8" r="1.5"/>` +
+    `<rect x="263.2" y="205.6" width="1" height="2.8"/><rect x="265.6" y="205.6" width="1" height="2.8"/></g>` +
+    // 手前の低木と、白く晒された骨
+    `<g fill="#8a7a3c"><ellipse cx="20" cy="176" rx="12" ry="6"/><ellipse cx="34" cy="180" rx="8" ry="4.4"/>` +
+    `<ellipse cx="372" cy="178" rx="11" ry="5.6"/></g>` +
+    `<g stroke="#e8e2d2" stroke-width="2.2" opacity=".8" fill="none" stroke-linecap="round"><path d="M56,206h14M62,202l2,8"/></g>` +
     `<g stroke="#a8913c" stroke-width="2" opacity=".7" fill="none"><path d="M20,200v-10M32,204v-12M44,198v-9M356,202v-11M368,206v-13M380,200v-10"/></g>`,
 
   /** 岸壁とクレーンの港。 */
@@ -731,20 +1082,83 @@ export const WORLD_BG = {
     containers(30, 210, [4, 2]),
 
   /** 雪嶺と石橋の山あい。 */
+  /**
+   * 山あいの町と山湖。
+   *
+   * 使うのはアディスアベバ・ケープタウン・バンクーバー・クスコで、4大陸にまたがる。
+   * どこか1つの峰(テーブルマウンテンなど)の形にすると他が嘘になるので、
+   * 「高いところの町」の共通項 — 稜線・雪・段々畑・石積みの家・駄獣・山湖 — で組む。
+   *
+   * **隠れる帯(x=151〜249)には高架橋の連続アーチを置いている。**
+   * 繰り返しの形なので、中央がシンボルに隠れても失うものが少ない。
+   * 読ませたいもの(村・段々畑・獣・人)は左右3分の1へ寄せる。
+   *
+   * **動きの層(`world-mountains.tsx`)と噛み合っている位置:**
+   * 高架橋の桁の上端 y=120(汽車が渡る)/ 峰 (58,58) (142,42) (306,80)(雪煙が流れる)/
+   * 山湖 y=180〜210(きらめきが y=186・188・198 に乗る)
+   */
   mountains:
     sky("#7fb0d8", "#cfe0ea", 128) +
-    `<path d="M0,128l58,-70l38,42l46,-58l54,68l48,-40l60,58l96,0v90H0z" fill="#8fa4b8"/>` +
+    cirrus(96, 20, 40, ".4") +
+    cirrus(310, 30, 32, ".32") +
+    // 奥の稜線(淡くして遠さを出す)
+    `<path d="M0,128L40,90L78,106L122,78L170,112L216,88L268,118L322,98L400,128z" fill="#aebdcb"/>` +
+    /*
+     * 主稜線。
+     *
+     * **3つ目の峰を (306,80) に作り直した。** 元の稜線は (244,70) が3つ目の峰で、
+     * (306,80) には稜線が無かったのに、そこへ雪冠が描かれていた
+     * ——**雪の三角が空に浮いていた。**動きの層も (318,78) から雪煙を流すので、
+     * 雪冠と雪煙のほうに合わせて稜線を通す。峰1 (58,58) と峰2 (142,42) は変えない。
+     */
+    `<path d="M0,128l58,-70l38,42l46,-58l54,68l48,-40l22,26l40,-16l94,48v82H0z" fill="#8fa4b8"/>` +
+    // 岩の面。稜線を一様な板にしない(ただし稜線の内側だけに置くこと)。
+    `<g fill="#7a8ea4" opacity=".8"><path d="M58,58l38,42l-24,4z"/><path d="M142,42l54,68l-30,2z"/><path d="M306,80l-40,16l30,10z"/></g>` +
+    `<g stroke="#6f8299" stroke-width="1.2" opacity=".5" fill="none"><path d="M58,70l14,16M142,56l18,22M244,80l10,12M306,92l12,14"/></g>` +
+    // 雪冠(位置は動きの層の雪煙と対応)
     `<path d="M58,58l21,24h-42zM142,42l27,34h-54zM306,80l24,22h-48z" fill="#f8fbfd"/>` +
+    `<g fill="#dce8f0"><path d="M58,58l21,24h-12z"/><path d="M142,42l27,34h-14z"/><path d="M306,80l24,22h-12z"/></g>` +
+    // 雪渓(谷筋に残る雪)
+    `<g fill="#eef4f8" opacity=".8"><path d="M96,100l8,26l-14,-2z"/><path d="M196,110l10,18l-16,-1z"/></g>` +
     ground(128, "#5f7f5a") +
     `<path d="M0,146c70,-14 130,10 200,2c70,-8 130,4 200,10v52H0z" fill="#4d7a44"/>` +
+    // 右: 斜面の段々畑。**針葉樹より先に描く**(後にすると木の根元を塗りつぶす)。
+    // 緑の帯だけだと草地と見分けが付かないので、土留めの石垣を挟む。
+    `<g fill="#84a85a"><path d="M312,136h88v7h-88zM304,146h96v7h-96zM296,156h104v7H296z"/></g>` +
+    `<g fill="#cbba95"><path d="M310,143h90v4h-90zM302,153h98v4h-98zM294,163h106v4H294z"/></g>` +
+    `<g fill="#a8c47a"><rect x="330" y="137" width="24" height="5"/><rect x="356" y="147" width="28" height="5"/><rect x="312" y="157" width="26" height="5"/></g>` +
     firRow(146, [22, 46, 70, 330, 356, 380], 26) +
-    // 石造りの高架橋
+    // 潅木。針葉樹だけにすると北の森になるので、丸い低木を混ぜる。
+    `<g fill="#41703c"><ellipse cx="94" cy="158" rx="7" ry="5"/><ellipse cx="106" cy="162" rx="5.4" ry="4"/>` +
+    `<ellipse cx="300" cy="160" rx="6.4" ry="4.6"/><ellipse cx="312" cy="164" rx="5" ry="3.6"/></g>` +
+    // 左: 石積みの家が数軒。屋根の形は決めすぎない。
+    `<g fill="#c9bfa8"><rect x="10" y="140" width="24" height="18"/><rect x="38" y="146" width="20" height="14"/><rect x="62" y="136" width="18" height="22"/></g>` +
+    `<g fill="#8a5a42"><path d="M6,140h32l-16,-9z"/><path d="M34,146h28l-14,-8z"/><path d="M58,136h26l-13,-8z"/></g>` +
+    `<g fill="#6b5330"><rect x="18" y="149" width="6" height="9"/><rect x="45" y="153" width="5" height="7"/><rect x="68" y="146" width="5" height="12"/></g>` +
+    `<g stroke="#a89a80" stroke-width="1" opacity=".7" fill="none"><path d="M10,147h24M10,153h24M38,152h20M62,143h18M62,150h18"/></g>` +
+    // 石造りの高架橋(桁の上端 y=120 を汽車が渡る)
     arches(96, 168, 5, 42, 40, "#c9bfa8", "#7f93a8") +
+    `<g stroke="#a89a80" stroke-width="1.2" opacity=".6" fill="none"><path d="M96,140h210M96,152h210"/></g>` +
     `<rect x="88" y="124" width="226" height="10" fill="#dfd8c8"/>` +
     `<rect x="88" y="120" width="226" height="4" fill="#a89873"/>` +
-    // 湖
+    `<rect x="88" y="134" width="226" height="3" fill="#a89873" opacity=".6"/>` +
+    // 駄獣と、追う人。左右の草地に置く(中央は高架橋)。
+    llama(52, 178, 1) +
+    llama(76, 174, 0.86, "#cfc0a4") +
+    person(96, 178, 1.25, "#c2603c") +
+    llama(336, 176, 0.95, "#d8cbae") +
+    person(358, 176, 1.15, "#5b8fe8", "carry") +
+    // 山湖。まず映り込みとさざ波、そのあとに舟(`boat` が順序を持っている)。
     band(180, 30, "#3f7f9f") +
-    `<g stroke="#bfe0f0" stroke-width="2" opacity=".7" fill="none"><path d="M40,190h80M200,198h90"/></g>`,
+    `<g fill="#8fa4b8" opacity=".3"><path d="M40,180l18,22h-36zM124,180l22,26h-44zM288,180l20,24h-40z"/></g>` +
+    `<g fill="#f8fbfd" opacity=".25"><path d="M40,180l10,12h-20zM124,180l12,14h-24zM288,180l10,12h-20z"/></g>` +
+    `<g stroke="#bfe0f0" stroke-width="2" opacity=".7" fill="none"><path d="M40,190h80M200,198h90M250,186h60"/></g>` +
+    boat(160, 196, 42, "#8a5a2c", "#4a3320", "#c9a877") +
+    `<circle cx="160" cy="188" r="3" fill="#8a5a34"/>` +
+    `<path d="M157,191q3,-1.4 6,0l1,4.4h-8z" fill="#f5b31c"/>` +
+    `<path d="M153,194l14,-7" stroke="#6b5330" stroke-width="1.8" fill="none"/>` +
+    // 岸辺の石。水際をはっきりさせる。
+    `<g fill="#6f7a6a"><ellipse cx="24" cy="180" rx="12" ry="3.4"/><ellipse cx="376" cy="181" rx="14" ry="3.6"/></g>`,
 
   /** 極夜のオーロラと氷。 */
   tundra:
@@ -765,23 +1179,111 @@ export const WORLD_BG = {
     `<g stroke="#b8ccd8" stroke-width="2" opacity=".8" fill="none"><path d="M20,190q90,-14 180,0t180,-6"/></g>`,
 
   /** 礁湖の向こうの火山島。 */
+  /**
+   * 環礁と島。
+   *
+   * 使うのはザンジバル・ホノルル・オークランド・パペーテで、インド洋と太平洋にまたがる。
+   * **どの海とも読める島**にするため、その島だと分かる山の形(ダイヤモンドヘッドなど)や
+   * 建物は置かず、緑の尾根・礁・浜・カヌー・海鳥だけで組む。
+   *
+   * **隠れる帯(x=151〜249 / y=54〜152)の使い方:**
+   * 火口は動きの層が (178,56) から噴気を上げるので動かせず、真ん中=隠れる位置にある。
+   * そこで**島が島に見える手掛かりを左右へ振り分けた** — 左肩に見える峰と滝、
+   * 右へ長く下る尾根と岩肌。中央の頂が隠れても、island だと読める。
+   *
+   * **動きの層(`world-island.tsx`)と噛み合っている位置:**
+   * 火口 (178,56) / 海 y=116〜164(波は 122・126・140・144・156)/
+   * 浜の泡 cy=163・164 / 椰子の葉 (30,156) (200,156) (370,156) = `palmRow(206,3,50)`
+   */
   island:
     sky("#8fc4e8", "#e0eef0") +
     sun(322, 34, 16) +
     clouds(90, 30) +
-    // 火山島
-    `<path d="M120,116l58,-58l30,22l52,36z" fill="#4d7a44"/>` +
+    cirrus(200, 18, 46, ".4") +
+    // 空をわたる海鳥。輪郭ではなく特徴(長い翼・鉤形の嘴・二叉の尾)で鳥にする。
+    seabird(78, 46, 0.9) +
+    seabird(316, 62, 0.7, "#4a5568") +
+    // 左の岬と、右の離れ島。島がひとつだけだと海の広さが出ない。
+    `<path d="M0,120L18,104L34,112L52,102L70,120z" fill="#3f6b3a"/>` +
+    `<path d="M344,120L358,98L370,108L382,96L400,120z" fill="#44724a"/>` +
+    `<path d="M382,96L400,120L386,120z" fill="#31563a"/>` +
+    /*
+     * 主島。頂(火口)は隠れるので、**読ませる細部は左右の肩に置く。**
+     */
+    `<path d="M56,120L112,74L146,92L178,56L214,84L262,104L330,120z" fill="#4d7a44"/>` +
+    // 谷筋(明度を変えて尾根を立てる)
+    `<path d="M112,74L146,92L128,120L96,120z" fill="#3f6b3a"/>` +
+    `<path d="M178,56L214,84L196,120L166,120z" fill="#448040"/>` +
+    `<path d="M262,104L330,120L268,120z" fill="#3a6437"/>` +
+    // 火口(動きの層がここから噴気を上げる)
     `<path d="M178,58l-14,14c10,4 20,4 30,-2z" fill="#6b6350"/>` +
-    `<path d="M120,116l58,-58l6,5l-40,53z" fill="#3f6b3a"/>` +
-    band(116, 40, "#3fa8b8") +
-    band(148, 16, "#7fd8dc") +
-    `<g stroke="#bfeef4" stroke-width="3" opacity=".7" fill="none"><path d="M40,128h70M200,124h80M120,142h100M280,144h80"/></g>` +
+    /*
+     * 左肩の滝。**左3分の1なので、これは見える。**
+     * 白い線を1本引いただけでは引っかき傷にしかならない。
+     * 暗い谷を彫って、そこへ落として、落ち口に泡を溜める。
+     */
+    `<path d="M98,82L112,82L110,122L96,122z" fill="#31563a"/>` +
+    `<path d="M102,85q-2,17 -1,35h5q-1,-18 1,-35z" fill="#eaf8fb" opacity=".92"/>` +
+    `<path d="M101,85h7l-1,4h-5z" fill="#cfeef6" opacity=".9"/>` +
+    `<ellipse cx="104" cy="120" rx="9" ry="3.2" fill="#eaf8fb" opacity=".7"/>` +
+    `<ellipse cx="104" cy="119" rx="4.4" ry="1.7" fill="#f8ffff" opacity=".85"/>` +
+    /*
+     * 右肩の岩肌。**一様な灰色の面にしないこと。**
+     * 一枚で塗ったら、緑に貼った絆創膏に見えた。明度の違う面に割って、
+     * 割れ目を数本だけ不規則に入れる。
+     */
+    `<path d="M242,96L284,112L262,118L236,106z" fill="#8a8272" opacity=".8"/>` +
+    `<path d="M258,104L284,112L266,117z" fill="#6b665a" opacity=".7"/>` +
+    `<path d="M242,96L256,102L240,106z" fill="#a09884" opacity=".7"/>` +
+    `<g stroke="#5f5a50" stroke-width="1.1" opacity=".5" fill="none"><path d="M250,102l19,7M244,107l13,5"/></g>` +
+    // 波打ち際の崖(島と海の境をはっきりさせる)
+    `<path d="M56,120h274v6H56z" fill="#3a5c36"/>` +
+    // 海。沖・礁湖・浅瀬の3段。
+    band(116, 14, "#2f8fa8") +
+    band(130, 20, "#3fa8b8") +
+    band(150, 14, "#7fd8dc") +
+    // 外洋との境で砕ける礁
+    `<g stroke="#eafbfd" stroke-width="2.6" opacity=".6" fill="none"><path d="M0,130q24,-5 48,0t48,0M116,130q24,-5 48,0t48,0M232,130q24,-5 48,0t48,0"/></g>` +
+    `<g stroke="#bfeef4" stroke-width="3" opacity=".65" fill="none"><path d="M40,138h70M200,136h80M120,148h100M280,152h60"/></g>` +
+    // 礁湖のカヌー。**波のあとに置く**(`boat` が順序を持っている)。
+    boat(300, 150, 58) +
+    // 漕ぎ手。胴と腕と櫂を別々に置く。
+    `<circle cx="300" cy="139" r="3.4" fill="#8a5a34"/>` +
+    `<path d="M296.6,142.6q3.4,-1.6 6.8,0l1.2,6h-9z" fill="#e8443f"/>` +
+    `<path d="M292,146l16,-8" stroke="#6b5330" stroke-width="2" fill="none"/>` +
+    `<path d="M290,147c-3,-2 -5,-1 -5.6,1c2,1 4.6,1 6.6,0z" fill="#8a6a3c"/>` +
+    // 浜
     ground(164, "#f0e0b8") +
+    `<path d="M0,164c60,7 120,-3 200,2c80,5 140,-2 200,2v9H0z" fill="#d8c48e" opacity=".7"/>` +
+    `<path d="M0,180c60,8 120,-6 200,2c80,8 140,-4 200,3v25H0z" fill="#e8d4a4"/>` +
+    `<g stroke="#d4bd85" stroke-width="1.6" opacity=".55" fill="none"><path d="M0,194q100,-7 200,0t200,0"/></g>` +
+    // 椰子(位置は動きの層と揃えたまま、奥と手前の葉を足す)
+    palmBack(30, 156) +
+    palmBack(200, 156) +
+    palmBack(370, 156) +
     palmRow(206, 3, 50) +
-    // アウトリガーのカヌー
-    `<path d="M120,178c22,-7 76,-7 98,0c-12,9 -86,9 -98,0z" fill="#8a5a2c"/>` +
-    `<path d="M132,192c20,-5 62,-5 78,0c-10,5 -68,5 -78,0z" fill="#6b5330"/>` +
-    `<g stroke="#6b5330" stroke-width="3" fill="none"><path d="M146,182l-6,10M198,182l6,10"/></g>`,
+    palmFront(30, 156) +
+    palmFront(200, 156) +
+    palmFront(370, 156) +
+    /*
+     * 浜の手前(y>170 は中央でも隠れない)。
+     * 島を島にしているのは、そこで人が海と行き来していること。
+     */
+    // 砂に上げた舷外浮材つきのカヌー
+    `<path d="M126,184c22,-7 76,-7 98,0c-12,9 -86,9 -98,0z" fill="#8a5a2c"/>` +
+    `<path d="M134,183c18,-4 60,-4 78,0c-9,4 -69,4 -78,0z" fill="#c9a877"/>` +
+    `<rect x="122" y="180" width="106" height="3.4" fill="#5a4630"/>` +
+    `<g stroke="#6b4a28" stroke-width="2" fill="none"><path d="M150,187l-18,11M204,187l18,11"/></g>` +
+    `<path d="M120,198h114v4H120z" fill="#6b5330"/>` +
+    `<path d="M108,200l22,-24l3.4,2.6l-22,24z" fill="#6b5330"/>` +
+    // 網を担いで戻る人・砂に座って貝を選る人・海を見る子
+    person(78, 200, 1.35, "#37b3a4", "carry") +
+    person(250, 202, 1.25, "#f5b31c", "crouch") +
+    `<g fill="#f6efe2"><ellipse cx="268" cy="203" rx="3" ry="2"/><ellipse cx="275" cy="205" rx="2.6" ry="1.8"/><ellipse cx="262" cy="206" rx="2.4" ry="1.7"/></g>` +
+    person(340, 190, 1.15, "#e8447a") +
+    // 浜の岩は、砂より2段暗くしないとただの染みになる
+    `<g fill="#8a7550"><path d="M36,206c5,-11 16,-13 22,-6c6,-2 11,2 11,6z"/><path d="M300,204c4,-8 12,-10 16,-4c4,-1 8,1 8,4z"/></g>` +
+    seabird(56, 176, 0.55, "#5a6472"),
 
   /** 列柱の遺跡。 */
   ruins:
@@ -842,29 +1344,134 @@ export const WORLD_BG = {
     `<g opacity=".45"><rect x="164" y="186" width="13" height="24" fill="#e8443f"/><rect x="316" y="190" width="13" height="20" fill="#e8447a"/><rect x="88" y="188" width="10" height="22" fill="#f5b31c"/></g>`,
 
   /** 回廊と鐘楼のある広場。 */
+  /**
+   * 回廊のある広場。
+   *
+   * 使うのはウィーン・バルセロナ・メキシコシティ・ブエノスアイレスで、
+   * ヨーロッパとラテンアメリカにまたがる。旗も紋章も出さず、
+   * **どの広場にもあるもの** — 回廊・敷石・噴水・並木・日よけの露店・鳩 — で組む。
+   *
+   * **隠れる帯(x=151〜249)には回廊の連続アーチを通してある。**
+   * 繰り返しの形なので、中央がシンボルに隠れても失うものが少ない。
+   * 読ませたいもの(鐘楼・露店・人)は左右3分の1へ寄せる。
+   *
+   * **背より高い部位を持つものを中央に置かない。**
+   * 人の頭は base−26 に来るので、中央の人は base≥196(頭が y>170)に置く。
+   *
+   * **動きの層(`world-plaza.tsx`)と噛み合っている位置:**
+   * 噴水の鉢 (204,158) と水面 (204,182) / 回廊 x=112〜376・base y=150 /
+   * 太陽 (58,34) / 椰子の葉 (344,112) / 鳩の飛び立ち (120,168) (300,176)
+   */
   plaza:
     sky("#9ccbe8", "#dce8ea", 150) +
     clouds(320, 28) +
+    cirrus(150, 16, 40, ".4") +
     sun(58, 34, 15, "#f5d06a") +
+    // 回廊の屋根の向こうに続く町。隙間なく詰めて、高さだけ変える。
+    `<g fill="#a8b0a8" opacity=".5"><rect x="100" y="70" width="30" height="12"/><rect x="130" y="64" width="20" height="18"/>` +
+    `<rect x="150" y="72" width="34" height="10"/><rect x="184" y="66" width="16" height="16"/>` +
+    `<rect x="200" y="74" width="40" height="8"/><rect x="240" y="68" width="18" height="14"/>` +
+    `<rect x="258" y="72" width="36" height="10"/><rect x="294" y="62" width="16" height="20"/>` +
+    `<rect x="310" y="70" width="44" height="12"/><rect x="354" y="74" width="38" height="8"/></g>` +
     hills(122, "#8a9a6a", 3) +
-    // 教会の鐘楼
+    /*
+     * 鐘楼。**左3分の1に置いてある**ので、ここは細部が効く。
+     * 頂は旗でも紋章でもなく風見にする(4都市のどれとも読めるように)。
+     */
     `<rect x="40" y="58" width="52" height="92" fill="#f2ede0"/>` +
+    `<rect x="40" y="58" width="14" height="92" fill="#e2dccb"/>` +
     `<path d="M34,58h64l-32,-22z" fill="#c2603c"/>` +
+    `<path d="M34,58h64v5H34z" fill="#a34a30"/>` +
+    `<g fill="#d8d0bc"><rect x="38" y="86" width="56" height="4"/><rect x="38" y="118" width="56" height="4"/></g>` +
     `<path d="M56,104V94a10,10 0 0 1 20,0v10z" fill="#5a4630"/>` +
     `<path d="M60,98a6,6 0 0 1 12,0v4a6,6 0 0 0 -12,0z" fill="#a89873"/>` +
-    `<rect x="64" y="24" width="4" height="14" fill="#a89873"/><rect x="59" y="28" width="14" height="4" fill="#a89873"/>` +
-    // 回廊
+    `<circle cx="66" cy="72" r="9" fill="#f8f4e8"/><circle cx="66" cy="72" r="7" fill="#e6e0cf"/>` +
+    `<path d="M66,72v-5M66,72l4,3" stroke="#5a4630" stroke-width="1.5" fill="none"/>` +
+    `<g fill="#6b5330"><rect x="46" y="126" width="9" height="18" rx="4.5"/><rect x="78" y="126" width="9" height="18" rx="4.5"/></g>` +
+    `<rect x="65" y="20" width="2.6" height="16" fill="#a89873"/>` +
+    `<path d="M67.6,22l11,4l-11,4z" fill="#a89873"/>` +
+    `<circle cx="66.3" cy="18" r="2.6" fill="#a89873"/>` +
+    // 回廊(中央を通す繰り返し)
     arches(112, 150, 6, 44, 52, "#e0b46a", "#8a5a2c") +
+    // アーチの奥の暗がりと、柱の礎盤・柱頭
+    `<g fill="#6b451f" opacity=".8">` +
+    [119.9, 163.9, 207.9, 251.9, 295.9, 339.9]
+      .map((ax) => `<path d="M${ax},150v-24a14.1,14.1 0 0 1 28.2,0v6a14.1,14.1 0 0 0 -28.2,0z"/>`)
+      .join("") +
+    `</g>` +
+    `<g fill="#c99a52">` +
+    [112, 156, 200, 244, 288, 332, 376]
+      .map((px) => `<rect x="${px - 5}" y="126" width="10" height="24"/><rect x="${px - 7}" y="122" width="14" height="5"/>`)
+      .join("") +
+    `</g>` +
     `<rect x="108" y="94" width="272" height="8" fill="#f2ede0"/>` +
     `<path d="M104,94h280l-8,-14H112z" fill="#c2603c"/>` +
+    `<path d="M104,94h280v4H104z" fill="#a34a30"/>` +
+    /*
+     * 屋根の上の手すり。**屋根より先に描いたら屋根の下に隠れて、丸ごと無駄になった。**
+     * 空を背にする高さへ移す。繰り返しなので、中央が隠れても惜しくない。
+     */
+    `<g fill="#e6dcc4"><rect x="112" y="72" width="264" height="4"/><rect x="112" y="78" width="264" height="3"/>` +
+    [118, 136, 154, 172, 190, 208, 226, 244, 262, 280, 298, 316, 334, 352, 368]
+      .map((bx) => `<rect x="${bx}" y="76" width="4" height="4"/>`)
+      .join("") +
+    `</g>` +
     ground(150, "#c9b98c") +
-    `<g stroke="#b0a077" stroke-width="2" opacity=".7" fill="none"><path d="M0,166h400M0,184h400M0,202h400"/></g>` +
-    // 噴水と椰子
-    `<ellipse cx="204" cy="184" rx="54" ry="15" fill="#5f9fb8"/>` +
+    // 敷石。目地を等間隔にせず、噴水のまわりだけ円く敷く。
+    `<g stroke="#b0a077" stroke-width="2" opacity=".65" fill="none"><path d="M0,166h400M0,184h400M0,202h400"/></g>` +
+    `<g stroke="#b0a077" stroke-width="1.4" opacity=".45" fill="none"><path d="M34,166v18M92,166v18M150,166v18M262,166v18M320,166v18M378,166v18M62,184v18M120,184v18M290,184v18M348,184v18"/></g>` +
+    `<g fill="#bdac80" opacity=".55"><ellipse cx="204" cy="192" rx="96" ry="20"/><ellipse cx="70" cy="196" rx="34" ry="8"/></g>` +
+    // 並木(繰り返し)。左右に置いて、中央の回廊を邪魔しない。
+    `<g fill="#6b5330"><rect x="106" y="128" width="5" height="28"/><rect x="298" y="130" width="5" height="26"/></g>` +
+    `<g fill="#41703c"><ellipse cx="108.5" cy="124" rx="17" ry="12"/><ellipse cx="300.5" cy="126" rx="15" ry="11"/></g>` +
+    `<g fill="#4d8046"><ellipse cx="103" cy="120" rx="10" ry="7"/><ellipse cx="296" cy="122" rx="9" ry="6.4"/></g>` +
+    // 椰子(葉の位置は動きの層と対応)
+    `<g><rect x="342" y="112" width="5" height="42" fill="#6b5330"/><path d="M344,112c-15,-4 -20,3 -22,10c8,-7 15,-7 22,-2c7,-5 14,-5 22,2c-2,-7 -7,-14 -22,-10z" fill="#2f7d3f"/></g>` +
+    palmFront(344.5, 112) +
+    /*
+     * 露店。**噴水より先に描く。** 後に描いたら、支柱が噴水の鉢を突き抜けて
+     * 手前に立ってしまい、どちらが奥か分からなくなった。
+     * 先に描けば鉢が支柱の足もとを隠すので、露店が奥にあると読める。
+     */
+    `<path d="M120,158h64l-8,-11h-48z" fill="#e8443f"/>` +
+    `<g stroke="#b8342c" stroke-width="1.4" opacity=".7" fill="none"><path d="M128,152h48M124,156h56"/></g>` +
+    `<g fill="#6b5330"><rect x="120" y="158" width="3.4" height="24"/><rect x="180" y="158" width="3.4" height="24"/></g>` +
+    `<rect x="126" y="168" width="52" height="4.4" fill="#c9a877"/>` +
+    `<g fill="#f5b31c"><circle cx="134" cy="164" r="3.2"/><circle cx="142" cy="165" r="2.8"/></g>` +
+    `<g fill="#4d7a44"><circle cx="152" cy="164" r="3"/><circle cx="160" cy="165" r="2.6"/></g>` +
+    `<g fill="#7a4a8c"><circle cx="169" cy="164" r="3"/></g>` +
+    // 噴水。鉢 (204,158) と水面 (204,182) は動かせない。
+    `<ellipse cx="204" cy="188" rx="58" ry="16" fill="#a89e84"/>` +
+    `<ellipse cx="204" cy="186" rx="54" ry="14" fill="#c9bfa2"/>` +
+    `<ellipse cx="204" cy="184" rx="50" ry="12" fill="#5f9fb8"/>` +
     `<ellipse cx="204" cy="182" rx="42" ry="10" fill="#8fc8dc"/>` +
-    `<rect x="200" y="158" width="8" height="20" fill="#e0dbcd"/>` +
+    `<rect x="200" y="158" width="8" height="22" fill="#e0dbcd"/>` +
     `<ellipse cx="204" cy="158" rx="16" ry="5" fill="#e0dbcd"/>` +
-    `<g><rect x="342" y="112" width="5" height="42" fill="#6b5330"/><path d="M344,112c-15,-4 -20,3 -22,10c8,-7 15,-7 22,-2c7,-5 14,-5 22,2c-2,-7 -7,-14 -22,-10z" fill="#2f7d3f"/></g>`,
+    `<ellipse cx="204" cy="157" rx="11" ry="3" fill="#8fc8dc"/>` +
+    /*
+     * 広場の人。**中央に置くものは base≥196**(頭が y>170 に収まる)。
+     * 広場を広場にしているのは、そこで人が何をしているか — 売る、休む、話す、鳩を追う。
+     */
+    person(112, 196, 1.35, "#5b8fe8") +
+    // 中央: 噴水の縁に腰かけて休む人(頭は y=174 で隠れない)
+    person(160, 200, 1.3, "#f5b31c", "crouch") +
+    person(254, 200, 1.3, "#c2603c", "crouch") +
+    // 右: 立ち話と、鳩を追う子
+    person(300, 202, 1.35, "#4d7a44") +
+    person(320, 203, 1.3, "#e8447a") +
+    person(122, 178, 1.05, "#37b3a4") +
+    pigeon(136, 182, 0.9) +
+    pigeon(150, 186, 0.85, "#9a948a") +
+    pigeon(290, 190) +
+    pigeon(306, 186, 0.9, "#9a948a") +
+    pigeon(272, 194, 0.85) +
+    // 街灯。三角を載せただけでは矢印に見えたので、笠と火屋のある灯にする。
+    `<g fill="#4a4436"><rect x="88" y="158" width="3.4" height="36"/><rect x="358" y="156" width="3.4" height="38"/></g>` +
+    `<g fill="#f5d06a"><path d="M85,157h10l-2,-9h-6z"/><path d="M355,155h10l-2,-9h-6z"/></g>` +
+    `<g fill="#4a4436"><path d="M83,148h14l-7,-6z"/><path d="M353,146h14l-7,-6z"/>` +
+    `<rect x="88.4" y="140" width="2.6" height="3"/><rect x="358.4" y="138" width="2.6" height="3"/>` +
+    `<rect x="83" y="156" width="14" height="2.4"/><rect x="353" y="154" width="14" height="2.4"/></g>` +
+    `<g fill="#4a4436"><ellipse cx="89.7" cy="194" rx="7" ry="2.4"/><ellipse cx="359.7" cy="194" rx="7" ry="2.4"/></g>`,
 };
 
 // ---------------------------------------------------------------------------

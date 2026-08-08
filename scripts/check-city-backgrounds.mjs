@@ -2,8 +2,17 @@
 /**
  * 都市の背景SVGに**塗り残し**が無いか実測する。
  *
- *   node scripts/check-city-backgrounds.mjs          全部見る
- *   node scripts/check-city-backgrounds.mjs japan    1国だけ
+ *   node scripts/check-city-backgrounds.mjs                全部見る(生成物を見る)
+ *   node scripts/check-city-backgrounds.mjs japan          1国だけ
+ *   node scripts/check-city-backgrounds.mjs --src world    **焼き直さずに元を見る**
+ *
+ * `--src` は `scripts/countries/<国>/art.mjs` を直接読む。
+ * `extract-legacy-content.mjs` を回さずに済むので、**描きながら何度でも回せる**。
+ * 凍結中や、他の担当が `scripts/` を編集している最中に生成器を回したくないときにも使う。
+ *
+ * 塗り残しは実測しないと見つからない。少なくとも3回、描いた本人が気づけずに作っている
+ * (日本 valley2 / インド cavetemple / インド megacity)。**間違えないようにするのではなく、
+ * 間違えてもすぐ分かるようにする**ための道具。
  *
  * 背景は「空の帯」と「地面の矩形」を別々に置くので、両者のyが噛み合っていないと
  * **横一文字の塗り残し**ができ、都市カードの地色がそのまま透ける。
@@ -26,14 +35,49 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const contentDir = join(__dirname, "..", "src", "infrastructure", "content");
 const ALL = ["bolivia", "japan", "india", "france", "world", "ibaraki"];
+/** `--src` のとき、その国の背景がどのモジュールのどの名前で出ているか。 */
+const SOURCES = {
+  india: ["countries/india/art.mjs", "INDIA_BG"],
+  france: ["countries/france/art.mjs", "FRANCE_BG"],
+  world: ["countries/world/art.mjs", "WORLD_BG"],
+  ibaraki: ["countries/ibaraki/art.mjs", "IBARAKI_BG"],
+  japan: ["content-overrides/japan-city-bg.mjs", "JAPAN_RICH_BG"],
+};
 
-const only = process.argv[2];
+const args = process.argv.slice(2);
+const fromSource = args.includes("--src");
+const only = args.find((a) => !a.startsWith("--"));
 const countries = only ? [only] : ALL;
+
 for (const c of countries) {
-  if (!existsSync(join(contentDir, `${c}.content.json`))) {
+  if (!ALL.includes(c)) {
     console.error(`知らない国です: ${c}(${ALL.join(" / ")})`);
     process.exit(2);
   }
+  if (fromSource && !SOURCES[c]) {
+    console.error(
+      `--src は ${c} に使えません(${Object.keys(SOURCES).join(" / ")} のみ)。\n` +
+        "legacy由来の背景を上書きの関数で直している国は、元の絵が無いと評価できません。",
+    );
+    process.exit(2);
+  }
+  if (!fromSource && !existsSync(join(contentDir, `${c}.content.json`))) {
+    console.error(`${c}.content.json がありません。先に node scripts/extract-legacy-content.mjs を実行してください。`);
+    process.exit(2);
+  }
+}
+
+/** その国の「背景キー → SVG文字列」を取り出す。 */
+async function loadScenes(country) {
+  if (!fromSource) {
+    return JSON.parse(readFileSync(join(contentDir, `${country}.content.json`), "utf8")).bg;
+  }
+  const [path, name] = SOURCES[country];
+  const mod = await import(`./${path}?v=${Date.now()}`);
+  const bg = mod[name];
+  if (!bg) throw new Error(`${path} が ${name} を export していません`);
+  // 上書きが `(prev) => next` の関数で書かれているものは、元の絵が無いと評価できない
+  return Object.fromEntries(Object.entries(bg).filter(([, v]) => typeof v === "string"));
 }
 
 const browser = await chromium.launch();
@@ -75,8 +119,8 @@ let bad = 0;
 let totalPx = 0;
 let checked = 0;
 for (const country of countries) {
-  const content = JSON.parse(readFileSync(join(contentDir, `${country}.content.json`), "utf8"));
-  for (const [key, svg] of Object.entries(content.bg)) {
+  const scenes = await loadScenes(country);
+  for (const [key, svg] of Object.entries(scenes)) {
     checked++;
     const { total, rows } = await measure(svg);
     if (total === 0) continue;
@@ -92,8 +136,9 @@ for (const country of countries) {
 }
 await browser.close();
 
+const where = fromSource ? "元(art.mjs)" : "生成物(content.json)";
 if (bad === 0) {
-  console.log(`背景 ${checked}種、塗り残しはありません。`);
+  console.log(`${where}の背景 ${checked}種、塗り残しはありません。`);
   process.exit(0);
 }
 console.log(`\n背景 ${checked}種のうち ${bad}種 / 合計 ${totalPx}px が透けています。`);
