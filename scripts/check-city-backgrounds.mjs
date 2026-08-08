@@ -6,6 +6,7 @@
  *   node scripts/check-city-backgrounds.mjs japan          1国だけ
  *   node scripts/check-city-backgrounds.mjs --src world    **焼き直さずに元を見る**
  *   node scripts/check-city-backgrounds.mjs --hidden japan  シンボルに隠れる帯の図形を挙げる
+ *   node scripts/check-city-backgrounds.mjs --src ibaraki-coast  取り込み前の水辺6種を見る
  *
  * `--src` は `scripts/countries/<国>/art.mjs` を直接読む。
  * `extract-legacy-content.mjs` を回さずに済むので、**描きながら何度でも回せる**。
@@ -43,6 +44,9 @@ const SOURCES = {
   world: ["countries/world/art.mjs", "WORLD_BG"],
   ibaraki: ["countries/ibaraki/art.mjs", "IBARAKI_BG"],
   japan: ["content-overrides/japan-city-bg.mjs", "JAPAN_RICH_BG"],
+  // 茨城は田園・町(art.mjs)と水辺(bg-coast.mjs)を別の担当が書くのでファイルが分かれている。
+  // 取り込み前でも実測できるよう、水辺だけを見る名前を用意してある。
+  "ibaraki-coast": ["countries/ibaraki/bg-coast.mjs", "IBARAKI_COAST_BG"],
 };
 
 const args = process.argv.slice(2);
@@ -52,7 +56,7 @@ const only = args.find((a) => !a.startsWith("--"));
 const countries = only ? [only] : ALL;
 
 for (const c of countries) {
-  if (!ALL.includes(c)) {
+  if (!ALL.includes(c) && !SOURCES[c]) {
     console.error(`知らない国です: ${c}(${ALL.join(" / ")})`);
     process.exit(2);
   }
@@ -61,6 +65,10 @@ for (const c of countries) {
       `--src は ${c} に使えません(${Object.keys(SOURCES).join(" / ")} のみ)。\n` +
         "legacy由来の背景を上書きの関数で直している国は、元の絵が無いと評価できません。",
     );
+    process.exit(2);
+  }
+  if (!fromSource && !ALL.includes(c)) {
+    console.error(`${c} は --src 専用です(生成物にはこの名前がありません)。`);
     process.exit(2);
   }
   if (!fromSource && !existsSync(join(contentDir, `${c}.content.json`))) {

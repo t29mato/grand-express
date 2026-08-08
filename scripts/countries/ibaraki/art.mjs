@@ -1,3 +1,5 @@
+import { IBARAKI_COAST_BG } from "./bg-coast.mjs";
+
 /**
  * 茨城県の都市イラスト。
  *
@@ -171,7 +173,7 @@ function dryingRack(x, base, w) {
 // 背景シーン(13種)。鍵は cities.mjs の `bg` と対応。
 // ---------------------------------------------------------------------------
 
-export const IBARAKI_BG = {
+const IBARAKI_BASE_BG = {
   /** 城下町。堀と土塁の上に低い櫓、手前に梅。 */
   /**
    * 城下町。水戸ほか4都市。
@@ -406,8 +408,10 @@ export const IBARAKI_BG = {
       .map((x) => `<rect x="${x + 2}" y="189" width="2.6" height="8"/><rect x="${x + 25}" y="189" width="2.6" height="8"/>`)
       .join("") +
     `</g>` +
-    `<g fill="#4a4436"><rect x="188" y="160" width="3.4" height="34"/><rect x="184" y="156" width="12" height="5" rx="2"/></g>` +
-    `<circle cx="190" cy="158" r="8" fill="#f5d06a" opacity=".2"/>` +
+    // 街灯。**灯りの丸を x=190 に置いたら 100% 隠れていた**(`--hidden` が指摘)。
+    // 灯っているのが見えないと置いた意味が無いので、見える側へ寄せる。
+    `<g fill="#4a4436"><rect x="118" y="160" width="3.4" height="34"/><rect x="114" y="156" width="12" height="5" rx="2"/></g>` +
+    `<circle cx="120" cy="158" r="8" fill="#f5d06a" opacity=".22"/>` +
     // 公園の人。犬を連れた人と、走る子。
     `<ellipse cx="140" cy="200" rx="8" ry="2.4" fill="#000" opacity=".14"/>` +
     `<path d="M133,199q7,-3.4 14,0l-2,-14q-5,-2.6 -10,0z" fill="#37536b"/>` +
@@ -982,6 +986,15 @@ export const IBARAKI_BG = {
     `<g fill="#c9a877"><rect x="86" y="203" width="1.4" height="3"/><rect x="90" y="203" width="1.4" height="3"/></g>` +
     dryingRack(38, 178, 56),
 };
+
+/**
+ * 水辺6種(`bg-coast.mjs`)を重ねたものが最終形。
+ *
+ * 茨城は13種のうち6種が水辺で、そのまま描くとどれも「空・水・岸」になる。
+ * 描き分けは1人がまとめて持つ必要があったため、そこだけ別ファイルにして
+ * 並行に作った(インドの `bg-rich.mjs` と同じ形)。
+ */
+export const IBARAKI_BG = { ...IBARAKI_BASE_BG, ...IBARAKI_COAST_BG };
 
 // ---------------------------------------------------------------------------
 // シンボル(13種)。24×24。鍵は cities.mjs の `mark` と対応。
