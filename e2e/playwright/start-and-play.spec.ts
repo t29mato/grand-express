@@ -11,7 +11,10 @@ test("セットアップからゲーム開始、サイコロを振って移動�
   // ゲーム画面に遷移し、出発ストーリーのモーダルが表示される。閉じると盤面とダイスボタンで遊べる。
   await expect(page.locator("#die")).toBeVisible();
   await page.getByRole("button", { name: "Depart!" }).click();
-  await expect(page.getByText(/'s turn/)).toBeVisible();
+  // 名前を付けずに始めたので "Your turn"。ここは以前 /'s turn/ を待っていたが、
+  // それは既定名 "You" を所有格に入れて "You's turn" になっていた頃の文言だった
+  // (テストが壊れた英語のほうを固定していた)。
+  await expect(page.getByText("Your turn")).toBeVisible();
 
   await page.locator("#die").click();
 
