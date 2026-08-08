@@ -4807,9 +4807,9 @@
         "ja": "市の立つ日"
       },
       "t": {
-        "en": "You help a stallholder set up at six and pack away at one, and are paid in coins and leftovers. Nearly every French commune has its own fixed market day, some of them granted by charter in the Middle Ages and never moved since.",
-        "es": "Ayudas a un puestero a montar a las seis y a recoger a la una, y te pagan en monedas y sobras. Casi cada municipio francés tiene su día de mercado fijo, algunos concedidos por fuero en la Edad Media y nunca cambiados.",
-        "fr": "Tu aides un marchand à monter à six heures et à remballer à treize, payé en pièces et en invendus. Presque chaque commune a son jour de marché, parfois octroyé par charte au Moyen Âge et jamais déplacé depuis.",
+        "en": "A stallholder needs a hand setting up at six and packing away at one, and pays in coins and leftovers. Nearly every French commune has its own fixed market day, some of them granted by charter in the Middle Ages and never moved since.",
+        "es": "Un puestero necesita una mano para montar a las seis y recoger a la una, y paga en monedas y sobras. Casi cada municipio francés tiene su día de mercado fijo, algunos concedidos por fuero en la Edad Media y nunca cambiados.",
+        "fr": "Un marchand cherche un coup de main pour monter à six heures et remballer à treize, payé en pièces et en invendus. Presque chaque commune a son jour de marché, parfois octroyé par charte au Moyen Âge et jamais déplacé depuis.",
         "ja": "六時の設営と一時の撤収を手伝い、小銭と売れ残りをもらった。フランスではほとんどの市町村に決まった市の日があり、中世に特許状で与えられたまま一度も動いていないものもある。"
       },
       "months": []
@@ -4827,9 +4827,9 @@
         "ja": "食事券の綴り"
       },
       "t": {
-        "en": "Someone hands you their unused vouchers rather than let them expire. French employers pay at least half the value of each one, and millions are spent every working lunchtime.",
-        "es": "Alguien te da sus vales sin usar antes de que caduquen. Los empleadores franceses pagan al menos la mitad de cada uno, y se gastan millones cada mediodía laborable.",
-        "fr": "Quelqu'un te donne ses titres non utilisés plutôt que de les laisser périmer. L'employeur en paie au moins la moitié, et des millions sont dépensés chaque midi ouvré.",
+        "en": "Someone hands over a stack of unused vouchers rather than let them expire. French employers pay at least half the value of each one, and millions are spent every working lunchtime.",
+        "es": "Alguien reparte sus vales sin usar antes de que caduquen. Los empleadores franceses pagan al menos la mitad de cada uno, y se gastan millones cada mediodía laborable.",
+        "fr": "Quelqu'un cède ses titres non utilisés plutôt que de les laisser périmer. L'employeur en paie au moins la moitié, et des millions sont dépensés chaque midi ouvré.",
         "ja": "期限切れにするくらいならと、使い残しの食事券を譲ってもらった。フランスでは雇い主が券の半額以上を負担し、平日の昼ごとに何百万枚も使われている。"
       },
       "months": []
@@ -4847,9 +4847,9 @@
         "ja": "部屋代より多い請求"
       },
       "t": {
-        "en": "A line you did not expect is added per person per night at checkout. Every commune may levy its own visitor tax, and it goes straight to the tourist office that put up the signposts you followed.",
-        "es": "Al pagar aparece una línea inesperada, por persona y noche. Cada municipio puede cobrar su tasa turística, y va directa a la oficina que puso los carteles que seguiste.",
-        "fr": "Au moment de payer, une ligne inattendue s'ajoute, par personne et par nuit. Chaque commune peut lever sa taxe de séjour, versée à l'office de tourisme qui a posé les panneaux que tu as suivis.",
+        "en": "An unexpected line is added per person per night at checkout. Every commune may levy its own visitor tax, and it goes straight to the tourist office that put up the signposts along the way.",
+        "es": "Al pagar aparece una línea inesperada, por persona y noche. Cada municipio puede cobrar su tasa turística, y va directa a la oficina que puso los carteles del recorrido.",
+        "fr": "Au moment de payer, une ligne inattendue s'ajoute, par personne et par nuit. Chaque commune peut lever sa taxe de séjour, versée à l'office de tourisme qui a posé les panneaux du parcours.",
         "ja": "精算のとき、一人一泊あたりの見覚えのない項目が足されていた。宿泊税は各市町村が独自に課すもので、あなたが辿ってきた案内板を立てた観光局に入る。"
       },
       "months": []
@@ -4911,9 +4911,9 @@
         "ja": "セーヌが増水する"
       },
       "t": {
-        "en": "The riverside roads shut, the boats stop, and you pay for a long way round. Parisians judge the flood by the stone soldier on the Pont de l'Alma: water at his feet closes the quays, water at his waist stops the traffic on the river.",
-        "es": "Se cierran las vías de la ribera, paran los barcos y pagas un gran rodeo. Los parisinos miden la crecida por el soldado de piedra del Pont de l'Alma: el agua a sus pies cierra los muelles; a la cintura, detiene la navegación.",
-        "fr": "Les voies sur berge ferment, les bateaux s'arrêtent et tu paies un long détour. Les Parisiens jugent la crue au soldat de pierre du pont de l'Alma : l'eau à ses pieds ferme les quais, à la taille elle arrête la navigation.",
+        "en": "The riverside roads shut, the boats stop, and the only route left is a long way round. Parisians judge the flood by the stone soldier on the Pont de l'Alma: water at his feet closes the quays, water at his waist stops the traffic on the river.",
+        "es": "Se cierran las vías de la ribera, paran los barcos y solo queda un gran rodeo. Los parisinos miden la crecida por el soldado de piedra del Pont de l'Alma: el agua a sus pies cierra los muelles; a la cintura, detiene la navegación.",
+        "fr": "Les voies sur berge ferment, les bateaux s'arrêtent et il ne reste qu'un long détour. Les Parisiens jugent la crue au soldat de pierre du pont de l'Alma : l'eau à ses pieds ferme les quais, à la taille elle arrête la navigation.",
         "ja": "河岸の道は封鎖され、船は止まり、大きく迂回する費用がかかった。パリの人はアルマ橋の石の兵士で水位を測る。足に水が来れば河岸は閉鎖、腰まで来れば川の航行が止まる。"
       },
       "months": [
@@ -4938,9 +4938,9 @@
         "ja": "搾り場で一日働く"
       },
       "t": {
-        "en": "You shake the trees, rake up the windfalls and load the press, and leave with cash and two bottles. Norman cider apples are grown among grazing cattle and are far too bitter to eat raw.",
-        "es": "Sacudes los árboles, recoges la fruta caída y cargas el lagar; te vas con dinero y dos botellas. Las manzanas de sidra normandas crecen entre vacas y son demasiado amargas para comerlas crudas.",
-        "fr": "Tu secoues les arbres, ramasses les pommes tombées et charges le pressoir, puis repars avec de l'argent et deux bouteilles. Les pommes à cidre normandes poussent au milieu des vaches et sont bien trop âpres pour être croquées.",
+        "en": "Shaking the trees, raking up the windfalls, loading the press — a day's work that ends in cash and two bottles. Norman cider apples are grown among grazing cattle and are far too bitter to eat raw.",
+        "es": "Sacudir los árboles, recoger la fruta caída, cargar el lagar: una jornada que acaba en dinero y dos botellas. Las manzanas de sidra normandas crecen entre vacas y son demasiado amargas para comerlas crudas.",
+        "fr": "Secouer les arbres, ramasser les pommes tombées, charger le pressoir : une journée qui finit en argent et deux bouteilles. Les pommes à cidre normandes poussent au milieu des vaches et sont bien trop âpres pour être croquées.",
         "ja": "木を揺すり、落ちた実を掻き集め、搾り機に積み込んで、現金と瓶を二本もらって帰る。ノルマンディのシードル用林檎は牛の放牧地に植えられ、そのまま齧るには渋すぎる。"
       },
       "months": [
@@ -5016,9 +5016,9 @@
         "ja": "やまない霧雨"
       },
       "t": {
-        "en": "It is not really raining, and after two hours you are soaked through and buy an oilskin. Brest counts rain on about a hundred and sixty days a year, and since the wind comes with it, nobody there owns an umbrella.",
-        "es": "No llueve de verdad, y a las dos horas estás calado y compras un chubasquero. En Brest hay lluvia unos ciento sesenta días al año y, como viene con viento, allí nadie tiene paraguas.",
-        "fr": "Il ne pleut pas vraiment, et au bout de deux heures tu es trempé et t'achètes un ciré. Brest compte environ cent soixante jours de pluie par an et, le vent venant avec, personne n'y possède de parapluie.",
+        "en": "It is not really raining, and yet two hours of it soak a coat through and force the purchase of an oilskin. Brest counts rain on about a hundred and sixty days a year, and since the wind comes with it, nobody there owns an umbrella.",
+        "es": "No llueve de verdad, y aun así dos horas bastan para calar un abrigo y obligar a comprar un chubasquero. En Brest hay lluvia unos ciento sesenta días al año y, como viene con viento, allí nadie tiene paraguas.",
+        "fr": "Il ne pleut pas vraiment, et pourtant deux heures suffisent à tremper un manteau et à faire acheter un ciré. Brest compte environ cent soixante jours de pluie par an et, le vent venant avec, personne n'y possède de parapluie.",
         "ja": "降っているとも言えないのに、二時間で全身濡れて、油引きの合羽を買う羽目になった。ブレストの雨の日は年に百六十日ほど。風も一緒に来るので、この街に傘を持つ人はいない。"
       },
       "months": [
@@ -5096,9 +5096,9 @@
         "ja": "トリュフ市が開く"
       },
       "t": {
-        "en": "You go with a farmer whose dog is better than his neighbour's, and take a share of what it finds. At Lalbenque the sellers stand behind their baskets and nobody may touch anything until a whistle at half past two; twenty minutes later it is over and everyone has been paid in cash.",
-        "es": "Vas con un labrador cuyo perro es mejor que el del vecino y te llevas parte de lo que encuentra. En Lalbenque los vendedores esperan tras sus cestas y nadie toca nada hasta un silbato a las dos y media; veinte minutos después se acabó y todo se ha pagado en efectivo.",
-        "fr": "Tu accompagnes un paysan dont le chien vaut mieux que celui du voisin et prends ta part de la trouvaille. À Lalbenque, les vendeurs se tiennent derrière leurs paniers et nul ne touche à rien avant le coup de sifflet de quatorze heures trente ; vingt minutes plus tard, tout est vendu et payé comptant.",
+        "en": "A farmer whose dog is better than his neighbour's shares out what it finds. At Lalbenque the sellers stand behind their baskets and nobody may touch anything until a whistle at half past two; twenty minutes later it is over and everyone has been paid in cash.",
+        "es": "Un labrador cuyo perro es mejor que el del vecino reparte lo que encuentra. En Lalbenque los vendedores esperan tras sus cestas y nadie toca nada hasta un silbato a las dos y media; veinte minutos después se acabó y todo se ha pagado en efectivo.",
+        "fr": "Un paysan dont le chien vaut mieux que celui du voisin partage la trouvaille. À Lalbenque, les vendeurs se tiennent derrière leurs paniers et nul ne touche à rien avant le coup de sifflet de quatorze heures trente ; vingt minutes plus tard, tout est vendu et payé comptant.",
         "ja": "隣より鼻の利く犬を連れた農家について行き、見つかったぶんの分け前をもらった。ラルベンクの市では売り手が籠の後ろに立ち、十四時三十分の笛が鳴るまで誰も手を触れられない。二十分後には終わり、支払いはすべて現金である。"
       },
       "months": [
@@ -5122,7 +5122,7 @@
         "ja": "十分間の雹"
       },
       "t": {
-        "en": "A summer storm strips the vines to the wood and takes the crop you had already been paid for. Wine country answers with lines of ground generators that burn silver iodide into the rising cloud, and in some villages the church bells were once rung for the same purpose.",
+        "en": "A summer storm strips the vines to the wood and takes a crop that had already been paid for in advance. Wine country answers with lines of ground generators that burn silver iodide into the rising cloud, and in some villages the church bells were once rung for the same purpose.",
         "es": "Una tormenta de verano deja las cepas en madera y se lleva la cosecha ya cobrada. La zona responde con generadores que queman yoduro de plata bajo la nube, y en algunos pueblos antes se tocaban las campanas con el mismo fin.",
         "fr": "Un orage d'été met les vignes à nu et emporte une récolte déjà payée d'avance. Le vignoble répond par des générateurs au sol qui brûlent de l'iodure d'argent sous le nuage ; dans certains villages, on sonnait autrefois les cloches pour la même raison.",
         "ja": "夏の雷雨がぶどうの葉を落とし、前金をもらってあった収穫を持っていった。産地は地上の発生器からヨウ化銀を雲へ焚き上げて対抗する。かつては同じ目的で教会の鐘を鳴らした村もある。"
@@ -5148,9 +5148,9 @@
         "ja": "蒸留のためにラヴェンダーを刈る"
       },
       "t": {
-        "en": "You cut, load and ride to the distillery with the trailer steaming behind you. It takes well over a hundred kilos of true lavender flowers to draw off a single litre of oil, which is why most of the plateau is planted with a hardier hybrid instead.",
-        "es": "Cortas, cargas y bajas a la destilería con el remolque humeando detrás. Hacen falta bastante más de cien kilos de flor de lavanda para sacar un litro de aceite: por eso casi toda la meseta está plantada con un híbrido más resistente.",
-        "fr": "Tu coupes, tu charges et tu descends à la distillerie, la remorque fumante derrière toi. Il faut bien plus de cent kilos de fleurs de lavande vraie pour tirer un litre d'huile : c'est pourquoi le plateau est surtout planté d'un hybride plus rustique.",
+        "en": "Cutting, loading, then down to the distillery with the trailer steaming behind. It takes well over a hundred kilos of true lavender flowers to draw off a single litre of oil, which is why most of the plateau is planted with a hardier hybrid instead.",
+        "es": "Cortar, cargar y bajar a la destilería con el remolque humeando detrás. Hacen falta bastante más de cien kilos de flor de lavanda para sacar un litro de aceite: por eso casi toda la meseta está plantada con un híbrido más resistente.",
+        "fr": "Couper, charger, puis descendre à la distillerie, la remorque fumante derrière. Il faut bien plus de cent kilos de fleurs de lavande vraie pour tirer un litre d'huile : c'est pourquoi le plateau est surtout planté d'un hybride plus rustique.",
         "ja": "刈って、積んで、湯気の立つ荷車を引いて蒸留所へ下る。真正ラヴェンダーは油を一リットル採るのに百キロをはるかに超える花が要る。高原の大半がより丈夫な交配種で埋まっているのはそのためだ。"
       },
       "months": [
@@ -5173,9 +5173,9 @@
         "ja": "大移動に巻き込まれる"
       },
       "t": {
-        "en": "The motorway to the coast stops moving at ten in the morning and you spend the night at a service area. The traffic service has been colouring its calendar since 1976, and the blackest day of the year is the Saturday when those going home and those setting out meet on the same road.",
-        "es": "La autopista hacia la costa se detiene a las diez de la mañana y pasas la noche en un área de servicio. El servicio de tráfico colorea su calendario desde 1976, y el día más negro del año es el sábado en que se cruzan los que vuelven y los que salen.",
-        "fr": "L'autoroute du Sud se fige à dix heures du matin et tu passes la nuit sur une aire. Le service d'information routière colorie son calendrier depuis 1976, et le jour le plus noir de l'année est le samedi où ceux qui rentrent croisent ceux qui partent.",
+        "en": "The motorway to the coast stops moving at ten in the morning, and the night goes by at a service area. The traffic service has been colouring its calendar since 1976, and the blackest day of the year is the Saturday when those going home and those setting out meet on the same road.",
+        "es": "La autopista hacia la costa se detiene a las diez de la mañana y la noche pasa en un área de servicio. El servicio de tráfico colorea su calendario desde 1976, y el día más negro del año es el sábado en que se cruzan los que vuelven y los que salen.",
+        "fr": "L'autoroute du Sud se fige à dix heures du matin et la nuit se passe sur une aire. Le service d'information routière colorie son calendrier depuis 1976, et le jour le plus noir de l'année est le samedi où ceux qui rentrent croisent ceux qui partent.",
         "ja": "海へ向かう高速道路は朝十時に動かなくなり、サービスエリアで一夜を明かすことになった。道路情報の当局は1976年からカレンダーを色分けしており、一年でいちばん黒い日は、帰る人と発つ人が同じ道ですれ違う土曜日である。"
       },
       "months": [

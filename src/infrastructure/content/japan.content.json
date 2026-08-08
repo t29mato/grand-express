@@ -8503,15 +8503,15 @@
       "e": "👛",
       "amount": 320,
       "n": {
-        "en": "Your wallet came back",
-        "es": "Tu cartera ha vuelto",
-        "fr": "Ton portefeuille est revenu",
+        "en": "The wallet came back",
+        "es": "La cartera ha vuelto",
+        "fr": "Le portefeuille est revenu",
         "ja": "財布が戻ってきた"
       },
       "t": {
-        "en": "You left it on the train, and it was waiting at the lost-property office with the cash untouched. Around 80% of wallets handed in to Tokyo police are returned to their owners.",
-        "es": "Lo dejaste en el tren y te esperaba en objetos perdidos, con el dinero intacto. Cerca del 80% de las carteras entregadas a la policía de Tokio vuelven a su dueño.",
-        "fr": "Tu l'avais laissé dans le train ; il t'attendait aux objets trouvés, l'argent intact. Environ 80 % des portefeuilles remis à la police de Tokyo retrouvent leur propriétaire.",
+        "en": "Left on the train, it was waiting at the lost-property office with the cash untouched. Around 80% of wallets handed in to Tokyo police are returned to their owners.",
+        "es": "Olvidada en el tren, esperaba en objetos perdidos con el dinero intacto. Cerca del 80% de las carteras entregadas a la policía de Tokio vuelven a su dueño.",
+        "fr": "Oublié dans le train, il attendait aux objets trouvés, l'argent intact. Environ 80 % des portefeuilles remis à la police de Tokyo retrouvent leur propriétaire.",
         "ja": "列車に置き忘れた財布が、現金もそのまま遺失物窓口で待っていた。東京で警察に届けられた財布のおよそ8割は持ち主の手に戻る。"
       },
       "months": []
@@ -8529,8 +8529,8 @@
         "ja": "自販機が多く返した"
       },
       "t": {
-        "en": "A drinks machine returns your coin along with the bottle. Japan has roughly one vending machine for every 30 people, more per head than anywhere else.",
-        "es": "Una máquina de bebidas te devuelve la moneda con la botella. Japón tiene una máquina por cada 30 personas, la mayor proporción del mundo.",
+        "en": "A drinks machine returns the coin along with the bottle. Japan has roughly one vending machine for every 30 people, more per head than anywhere else.",
+        "es": "Una máquina de bebidas devuelve la moneda junto con la botella. Japón tiene una máquina por cada 30 personas, la mayor proporción del mundo.",
         "fr": "Un distributeur rend la pièce en plus de la bouteille. Le Japon compte un distributeur pour 30 habitants, le record mondial.",
         "ja": "飲み物の自販機が、ボトルと一緒に硬貨も返してきた。日本の自販機は約30人に1台と、人口あたりで世界一多い。"
       },
@@ -8549,9 +8549,9 @@
         "ja": "凶を引いた"
       },
       "t": {
-        "en": "You drew \"great curse\" at the shrine, so you buy a charm and tie the paper to a branch. Tying it there is said to leave the bad luck behind rather than carry it home.",
-        "es": "Sacaste «gran maldición», así que compras un amuleto y atas el papel a una rama. Se dice que atarlo deja allí la mala suerte.",
-        "fr": "Tu as tiré « grande malédiction » : tu achètes une amulette et noues le papier à une branche, pour y laisser le mauvais sort.",
+        "en": "The slip drawn at the shrine reads \"great curse\", so it costs a charm and gets tied to a branch. Tying it there is said to leave the bad luck behind rather than carry it home.",
+        "es": "El papel sacado dice «gran maldición»: cuesta un amuleto y queda atado a una rama. Se dice que atarlo deja allí la mala suerte.",
+        "fr": "Le billet tiré dit « grande malédiction » : il coûte une amulette et finit noué à une branche, pour y laisser le mauvais sort.",
         "ja": "神社で大凶を引いたので、お守りを買い、おみくじを枝に結んで帰る。結んでおけば凶を持ち帰らずに済むとされる。"
       },
       "months": []
@@ -8563,15 +8563,15 @@
       "e": "🚕",
       "amount": 260,
       "n": {
-        "en": "The line stops, you take a taxi",
-        "es": "Se para la línea, tomas un taxi",
-        "fr": "La ligne s'arrête, tu prends un taxi",
+        "en": "The line stops, the taxi meter starts",
+        "es": "Se para la línea, arranca el taxímetro",
+        "fr": "La ligne s'arrête, le taximètre démarre",
         "ja": "運転見合わせでタクシー"
       },
       "t": {
-        "en": "A signal check halts the line and the platform fills up, so you give in and take a taxi. Japanese railways publish delay certificates you can show at work.",
-        "es": "Una revisión de señales detiene la línea y el andén se llena, así que tomas un taxi. Los ferrocarriles emiten certificados de retraso para el trabajo.",
-        "fr": "Une vérification de signalisation bloque la ligne et le quai se remplit : tu prends un taxi. Les chemins de fer délivrent des attestations de retard.",
+        "en": "A signal check halts the line and the platform fills up, until a taxi is the only way on. Japanese railways publish delay certificates to show at work.",
+        "es": "Una revisión de señales detiene la línea y el andén se llena: solo queda el taxi. Los ferrocarriles emiten certificados de retraso para el trabajo.",
+        "fr": "Une vérification de signalisation bloque la ligne et le quai se remplit : il ne reste que le taxi. Les chemins de fer délivrent des attestations de retard.",
         "ja": "信号確認で運転見合わせ、ホームは人であふれ、諦めてタクシーに乗る。鉄道各社は職場に出せる遅延証明書を配っている。"
       },
       "months": []
@@ -8584,14 +8584,14 @@
       "amount": 280,
       "n": {
         "en": "Asked to carry the shrine",
-        "es": "Te piden llevar el mikoshi",
+        "es": "El barrio pide manos para el mikoshi",
         "fr": "On te demande de porter le mikoshi",
         "ja": "神輿の担ぎ手に呼ばれた"
       },
       "t": {
-        "en": "The neighbourhood is short of hands for the portable shrine, and they pay you in cash and beer. Many towns now welcome outsiders because there are not enough young residents.",
-        "es": "Al barrio le faltan manos para el mikoshi y te pagan en efectivo y cerveza. Muchos pueblos aceptan forasteros por falta de jóvenes.",
-        "fr": "Le quartier manque de bras pour le mikoshi et te paie en espèces et en bière. Bien des villes accueillent des étrangers faute de jeunes.",
+        "en": "The neighbourhood is short of hands for the portable shrine, and pays in cash and beer. Many towns now welcome outsiders because there are not enough young residents.",
+        "es": "Al barrio le faltan manos para el mikoshi y paga en efectivo y cerveza. Muchos pueblos aceptan forasteros por falta de jóvenes.",
+        "fr": "Le quartier manque de bras pour le mikoshi et paie en espèces et en bière. Bien des villes accueillent des étrangers faute de jeunes.",
         "ja": "町内会が神輿の担ぎ手を欠いており、日当とビールが出た。若い住民が足りず、よそ者を歓迎する町は多い。"
       },
       "months": [
@@ -8614,9 +8614,9 @@
         "ja": "流氷が早く来た"
       },
       "t": {
-        "en": "The pack ice arrives ahead of schedule and the ferry is cancelled, so you pay for a night's lodging. The ice drifts down from the Amur river, 1,000 km away.",
-        "es": "El hielo llega antes de lo previsto y cancelan el ferry; pagas una noche de hotel. Viene del río Amur, a 1.000 km.",
-        "fr": "La banquise arrive en avance, le ferry est annulé : tu paies une nuit d'hôtel. Elle descend du fleuve Amour, à 1 000 km.",
+        "en": "The pack ice arrives ahead of schedule and the ferry is cancelled, so a night's lodging has to be found. The ice drifts down from the Amur river, 1,000 km away.",
+        "es": "El hielo llega antes de lo previsto y cancelan el ferry: hay que pagar una noche de hotel. Viene del río Amur, a 1.000 km.",
+        "fr": "La banquise arrive en avance, le ferry est annulé : il faut payer une nuit d'hôtel. Elle descend du fleuve Amour, à 1 000 km.",
         "ja": "流氷が予定より早く接岸し、船が欠航して一泊ぶんの宿代がかかった。氷は1000km離れたアムール川から流れてくる。"
       },
       "months": [
@@ -8634,9 +8634,9 @@
       "e": "👹",
       "amount": 200,
       "n": {
-        "en": "The demons come for you",
-        "es": "Los demonios vienen a por ti",
-        "fr": "Les démons viennent te chercher",
+        "en": "The demons come calling",
+        "es": "Los demonios vienen de visita",
+        "fr": "Les démons viennent frapper",
         "ja": "なまはげが来た"
       },
       "t": {
@@ -8664,9 +8664,9 @@
         "ja": "山道でヒグマに出くわす"
       },
       "t": {
-        "en": "You back away and abandon the pack with the day's food in it. Shiretoko has one of the densest brown bear populations in the world, and rangers close trails without warning.",
-        "es": "Retrocedes y abandonas la mochila con la comida del día. Shiretoko tiene una de las mayores densidades de osos pardos del mundo.",
-        "fr": "Tu recules en abandonnant le sac contenant les vivres du jour. Le Shiretoko a l'une des plus fortes densités d'ours bruns au monde.",
+        "en": "Backing away means leaving the pack behind with the day's food in it. Shiretoko has one of the densest brown bear populations in the world, and rangers close trails without warning.",
+        "es": "Retroceder significa dejar atrás la mochila con la comida del día. Shiretoko tiene una de las mayores densidades de osos pardos del mundo.",
+        "fr": "Reculer, c'est laisser le sac avec les vivres du jour. Le Shiretoko a l'une des plus fortes densités d'ours bruns au monde.",
         "ja": "後ずさりし、その日の食料が入った荷物を置いて逃げた。知床はヒグマの生息密度が世界有数で、登山道は予告なく閉鎖される。"
       },
       "months": [
@@ -8691,9 +8691,9 @@
         "ja": "鮭の水揚げを分けてもらう"
       },
       "t": {
-        "en": "You lend a hand hauling nets at dawn and leave with fish and cash. Hokkaidō lands the great majority of Japan's salmon.",
-        "es": "Echas una mano con las redes al alba y te vas con pescado y dinero. Hokkaidō pesca la gran mayoría del salmón de Japón.",
-        "fr": "Tu aides à haler les filets à l'aube et repars avec du poisson et de l'argent. Hokkaidō pêche l'essentiel du saumon japonais.",
+        "en": "The dawn haul is short of hands, and pays in fish and cash. Hokkaidō lands the great majority of Japan's salmon.",
+        "es": "Faltan manos para las redes del alba, y se paga en pescado y dinero. Hokkaidō pesca la gran mayoría del salmón de Japón.",
+        "fr": "Le halage de l'aube manque de bras, et se paie en poisson et en argent. Hokkaidō pêche l'essentiel du saumon japonais.",
         "ja": "夜明けの網揚げを手伝い、魚と現金を持たされた。日本の鮭の大半は北海道で獲れる。"
       },
       "months": [
@@ -8713,7 +8713,7 @@
       "n": {
         "en": "Helping with the apple harvest",
         "es": "Ayudas en la cosecha de manzanas",
-        "fr": "Tu aides à la récolte des pommes",
+        "fr": "Un coup de main à la récolte des pommes",
         "ja": "林檎の収穫を手伝う"
       },
       "t": {
@@ -8742,7 +8742,7 @@
         "ja": "雪で線路が埋まった"
       },
       "t": {
-        "en": "A single night of heavy snow buries the track and the whole line stops; you pay for a night and a taxi. The Sea of Japan side gets metres of snow because cold Siberian wind picks up moisture crossing the sea.",
+        "en": "A single night of heavy snow buries the track and the whole line stops; a night's lodging and a taxi come out of pocket. The Sea of Japan side gets metres of snow because cold Siberian wind picks up moisture crossing the sea.",
         "es": "Una noche de nieve sepulta la vía y toda la línea se detiene. El lado del mar del Japón recibe metros de nieve.",
         "fr": "Une seule nuit de neige ensevelit la voie et toute la ligne s'arrête. Le versant de la mer du Japon reçoit des mètres de neige.",
         "ja": "一晩の大雪で線路が埋まり、路線が全面運休。宿代とタクシー代がかかった。日本海側は、シベリアからの寒気が海で湿気を含むため数メートルの雪が積もる。"
@@ -8814,15 +8814,15 @@
       "e": "🚇",
       "amount": 220,
       "n": {
-        "en": "Your glasses go in the crush",
-        "es": "Tus gafas en el apretón",
-        "fr": "Tes lunettes dans la cohue",
+        "en": "Glasses broken in the crush",
+        "es": "Gafas rotas en el apretón",
+        "fr": "Lunettes brisées dans la cohue",
         "ja": "満員電車で眼鏡が折れた"
       },
       "t": {
-        "en": "The morning train runs at almost double its capacity and something in your bag does not survive. Station staff in white gloves still push passengers aboard.",
-        "es": "El tren matinal va al doble de su capacidad y algo de tu bolsa no sobrevive. Empleados con guantes blancos aún empujan a los pasajeros.",
-        "fr": "Le train du matin roule au double de sa capacité et quelque chose dans ton sac n'y survit pas. Des employés gantés de blanc poussent encore les voyageurs.",
+        "en": "The morning train runs at almost double its capacity, and not everything in a bag survives the ride. Station staff in white gloves still push passengers aboard.",
+        "es": "El tren matinal va al doble de su capacidad y no todo lo que va en un bolso sobrevive al viaje. Empleados con guantes blancos aún empujan a los pasajeros.",
+        "fr": "Le train du matin roule au double de sa capacité, et tout ce qui est dans un sac n'y survit pas. Des employés gantés de blanc poussent encore les voyageurs.",
         "ja": "朝の電車は定員のほぼ倍で、鞄の中身が無事では済まなかった。白手袋の駅員が今も乗客を押し込む。"
       },
       "months": []
@@ -8837,14 +8837,14 @@
       "amount": 200,
       "n": {
         "en": "Paid to hold the picnic spot",
-        "es": "Te pagan por guardar el sitio",
+        "es": "Pagan por guardar el sitio",
         "fr": "Payé pour garder la place",
         "ja": "花見の場所取りを頼まれた"
       },
       "t": {
-        "en": "A company sends its newest recruit to sit under a tree all day; this time they pay you instead. The blossom front is tracked and forecast nationally.",
-        "es": "Una empresa manda a su novato a sentarse todo el día bajo un árbol; esta vez te pagan a ti. El frente de floración se pronostica en todo el país.",
-        "fr": "Une entreprise envoie son nouveau s'asseoir sous un arbre toute la journée ; cette fois, c'est toi qu'on paie. Le front des cerisiers est prévu à l'échelle nationale.",
+        "en": "A company sends its newest recruit to sit under a tree all day; this time the job goes to an outsider, for a fee. The blossom front is tracked and forecast nationally.",
+        "es": "Una empresa manda a su novato a sentarse todo el día bajo un árbol; esta vez el puesto se paga a un forastero. El frente de floración se pronostica en todo el país.",
+        "fr": "Une entreprise envoie son nouveau s'asseoir sous un arbre toute la journée ; cette fois, la place est payée à quelqu'un du dehors. Le front des cerisiers est prévu à l'échelle nationale.",
         "ja": "会社は新人に一日中木の下で場所取りをさせるが、今回はあなたが日当をもらった。桜前線は全国規模で予想・追跡されている。"
       },
       "months": [
@@ -8860,9 +8860,9 @@
       "e": "♨️",
       "amount": 300,
       "n": {
-        "en": "You stay the extra night",
-        "es": "Te quedas una noche más",
-        "fr": "Tu restes une nuit de plus",
+        "en": "The bath wins an extra night",
+        "es": "El baño gana una noche más",
+        "fr": "Le bain gagne une nuit de plus",
         "ja": "もう一泊してしまった"
       },
       "t": {
@@ -8914,9 +8914,9 @@
         "ja": "鹿に煎餅を全部取られた"
       },
       "t": {
-        "en": "You buy one packet of crackers and are surrounded before you can open it. Nara's deer are protected as messengers of the gods and bow for food.",
-        "es": "Compras un paquete de galletas y te rodean antes de abrirlo. Los ciervos de Nara están protegidos como mensajeros de los dioses.",
-        "fr": "Tu achètes un paquet de gâteaux et te fais encercler avant de l'ouvrir. Les cerfs de Nara sont protégés comme messagers des dieux.",
+        "en": "One packet of crackers is enough to draw a crowd of deer before it can be opened. Nara's deer are protected as messengers of the gods and bow for food.",
+        "es": "Basta un paquete de galletas para quedar rodeado de ciervos antes de abrirlo. Los ciervos de Nara están protegidos como mensajeros de los dioses.",
+        "fr": "Un seul paquet de gâteaux suffit à se faire encercler avant de l'ouvrir. Les cerfs de Nara sont protégés comme messagers des dieux.",
         "ja": "鹿煎餅を一袋買った途端に囲まれた。奈良の鹿は神の使いとして保護されており、餌をねだって頭を下げる。"
       },
       "months": []
@@ -8931,8 +8931,8 @@
       "amount": 320,
       "n": {
         "en": "A workshop pays for a hand",
-        "es": "Un taller paga tu ayuda",
-        "fr": "Un atelier paie ton aide",
+        "es": "Un taller paga una mano",
+        "fr": "Un atelier paie un coup de main",
         "ja": "工房の手伝いに謝礼"
       },
       "t": {
@@ -8952,15 +8952,15 @@
       "e": "🍜",
       "amount": 180,
       "n": {
-        "en": "The stall owner won't take your money",
-        "es": "El dueño no te cobra",
-        "fr": "Le patron refuse ton argent",
+        "en": "The stall owner won't take the money",
+        "es": "El dueño no cobra nada",
+        "fr": "Le patron refuse l'argent",
         "ja": "屋台の主人が取ってくれない"
       },
       "t": {
-        "en": "You end up talking half the night at a Fukuoka food stall and the owner waves your payment away. The city has more street stalls than the rest of Japan combined.",
-        "es": "Acabas charlando media noche en un puesto de Fukuoka y el dueño rechaza el pago. La ciudad tiene más puestos que el resto de Japón junto.",
-        "fr": "Tu passes la moitié de la nuit à discuter dans une échoppe de Fukuoka et le patron refuse d'être payé. La ville compte plus d'échoppes que tout le reste du Japon.",
+        "en": "Half the night goes by talking at a Fukuoka food stall, and the owner waves the bill away. The city has more street stalls than the rest of Japan combined.",
+        "es": "Media noche se va charlando en un puesto de Fukuoka y el dueño rechaza el cobro. La ciudad tiene más puestos que el resto de Japón junto.",
+        "fr": "La moitié de la nuit passe à discuter dans une échoppe de Fukuoka, et le patron refuse d'être payé. La ville compte plus d'échoppes que tout le reste du Japon.",
         "ja": "福岡の屋台で夜半まで話し込み、主人が代金を受け取らなかった。福岡の屋台は日本の他地域を合わせたより多い。"
       },
       "months": []
@@ -8980,9 +8980,9 @@
         "ja": "灰が降った"
       },
       "t": {
-        "en": "Sakurajima sends up another plume and you pay to have the car washed twice. Kagoshima hands out ash bags and sweeps the streets as routine.",
-        "es": "Sakurajima lanza otra columna y pagas dos lavados de coche. Kagoshima reparte bolsas para la ceniza como rutina.",
-        "fr": "Sakurajima crache un nouveau panache et tu paies deux lavages de voiture. Kagoshima distribue des sacs à cendre par habitude.",
+        "en": "Sakurajima sends up another plume, and the car needs washing twice at full price. Kagoshima hands out ash bags and sweeps the streets as routine.",
+        "es": "Sakurajima lanza otra columna y el coche necesita dos lavados de pago. Kagoshima reparte bolsas para la ceniza como rutina.",
+        "fr": "Sakurajima crache un nouveau panache, et la voiture réclame deux lavages payants. Kagoshima distribue des sacs à cendre par habitude.",
         "ja": "桜島がまた噴煙を上げ、洗車を二度することになった。鹿児島では降灰袋が配られ、灰の清掃は日常である。"
       },
       "months": []
@@ -8996,15 +8996,15 @@
       "e": "🥃",
       "amount": 220,
       "n": {
-        "en": "You buy the round",
-        "es": "Pagas la ronda",
-        "fr": "Tu offres la tournée",
+        "en": "The bottle goes round",
+        "es": "La botella da la vuelta",
+        "fr": "La bouteille fait le tour",
         "ja": "泡盛を振る舞った"
       },
       "t": {
-        "en": "Someone opens a bottle of aged awamori and the table insists you join in. Okinawan families traditionally keep a cask to be drunk at a child's coming of age.",
-        "es": "Alguien abre una botella de awamori añejo y la mesa insiste. Las familias de Okinawa guardan una barrica para la mayoría de edad de un hijo.",
-        "fr": "Quelqu'un ouvre une bouteille d'awamori vieilli et la tablée insiste. Les familles d'Okinawa gardent un fût pour la majorité d'un enfant.",
+        "en": "Someone opens a bottle of aged awamori and the table will not let a glass stay empty. Okinawan families traditionally keep a cask to be drunk at a child's coming of age.",
+        "es": "Alguien abre una botella de awamori añejo y la mesa no deja ningún vaso vacío. Las familias de Okinawa guardan una barrica para la mayoría de edad de un hijo.",
+        "fr": "Quelqu'un ouvre une bouteille d'awamori vieilli et la tablée ne laisse aucun verre vide. Les familles d'Okinawa gardent un fût pour la majorité d'un enfant.",
         "ja": "古酒の泡盛が開けられ、座に加わることになった。沖縄では子の成人に開けるための甕を寝かせる家がある。"
       },
       "months": []

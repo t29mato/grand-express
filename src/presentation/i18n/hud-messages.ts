@@ -14,6 +14,9 @@ import { Locale } from "../../domain/shared-kernel/localized-text";
  * 既定名を流し込むと、英語で "You's turn" になってしまうため
  * (所有格が二人称と噛み合わない)。名前を差し替える作りでは直せないので、
  * 自分の番だけ文ごと分ける。フランス語の「Vous êtes Paris」と同じ種類の失敗。
+ *
+ * **フランス語は tu で書く。** legacy 由来の `fr.json` が tu 中心(tu 13件・vous 1件)で、
+ * 既定名も「Toi」。あとから足した文言を vous にすると同じ画面で混ざる。
  */
 export const HUD_MESSAGES: Record<Locale, Record<string, string>> = {
   en: {
@@ -30,7 +33,7 @@ export const HUD_MESSAGES: Record<Locale, Record<string, string>> = {
     overviewBack: "Volver a la vista normal",
   },
   fr: {
-    yourTurn: "À vous de jouer",
+    yourTurn: "À toi de jouer",
     rollingHint: "Le dé roule…",
     overviewLabel: "Carte entière",
     overviewBack: "Revenir à la vue normale",

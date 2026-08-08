@@ -9,6 +9,11 @@ import { Locale } from "../../domain/shared-kernel/localized-text";
  *
  * 読み上げは目で追い直せない。**一度で分かる短さ**を優先し、
  * 候補1つにつき「向き・何のマスか・目的地までの残り」の3つだけを言う。
+ *
+ * **フランス語は tu で書く。** legacy から来た `fr.json` が tu 13件・vous 1件で、
+ * プレイヤーの既定名も「Toi」。この作品の声は tu なので、あとから足した文言が
+ * vous だと同じ画面に両方が並ぶ(実際に「À vous de jouer」と
+ * 「Appuie sur le dé」が並んでいた)。
  */
 export const BOARD_MESSAGES: Record<Locale, Record<string, string>> = {
   en: {
@@ -73,10 +78,10 @@ export const BOARD_MESSAGES: Record<Locale, Record<string, string>> = {
     remainingTo: "{0} est à {1} cases",
     candidateSquare: "{0}, case {1}. {2}",
     candidateCity: "{0}, {1}. {2}",
-    candidateDest: "{0}, {1}. C'est votre destination.",
-    candidatesGroup: "Vous avancez de {0} cases. {1} endroits accessibles.",
-    whereYouAreCity: "Vous êtes à {0}. {1}.",
-    whereYouAreBetween: "Vous êtes entre {0} et {1}. {2}.",
+    candidateDest: "{0}, {1}. C'est ta destination.",
+    candidatesGroup: "Tu avances de {0} cases. {1} endroits accessibles.",
+    whereYouAreCity: "Tu es à {0}. {1}.",
+    whereYouAreBetween: "Tu es entre {0} et {1}. {2}.",
     arrivedAtCity: "Déplacement vers {0}.",
     arrivedBetween: "Déplacement vers une case entre {0} et {1}.",
   },

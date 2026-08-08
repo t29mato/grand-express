@@ -5398,9 +5398,9 @@
         "ja": "チャイ屋が代金を受け取らない"
       },
       "t": {
-        "en": "You are the first customer of the day, and by custom the first sale must go well — so it is free. The clay cup is thrown down and smashed afterwards.",
-        "es": "Eres el primer cliente del día y, por costumbre, la primera venta debe ir bien: es gratis. La taza de barro se rompe después.",
-        "fr": "Tu es le premier client du jour : par coutume, la première vente doit bien se passer, donc c'est offert. La tasse d'argile est ensuite brisée.",
+        "en": "The first customer of the day drinks free: by custom the first sale must go well. The clay cup is thrown down and smashed afterwards.",
+        "es": "El primer cliente del día bebe gratis: por costumbre, la primera venta debe ir bien. La taza de barro se rompe después.",
+        "fr": "Le premier client du jour boit gratis : par coutume, la première vente doit bien se passer. La tasse d'argile est ensuite brisée.",
         "ja": "その日の最初の客で、初商いは縁起よくと決まっているため代金を取らない。素焼きの器は飲んだあと地面に叩きつけて割る。"
       }
     },
@@ -5417,9 +5417,9 @@
         "ja": "直前の切符を買う"
       },
       "t": {
-        "en": "Every seat is taken, so you pay the premium for the same-day quota. Indian Railways handles around 8 billion passenger journeys a year.",
-        "es": "No queda plaza, así que pagas el recargo del cupo del mismo día. Los ferrocarriles indios mueven unos 8.000 millones de viajes al año.",
-        "fr": "Plus une place : tu paies le supplément du quota du jour. Les chemins de fer indiens assurent quelque 8 milliards de voyages par an.",
+        "en": "Every seat is taken, so the only way on is the premium same-day quota. Indian Railways handles around 8 billion passenger journeys a year.",
+        "es": "No queda plaza: el único modo de subir es el cupo del mismo día, con recargo. Los ferrocarriles indios mueven unos 8.000 millones de viajes al año.",
+        "fr": "Plus une place : il ne reste que le quota du jour, avec supplément. Les chemins de fer indiens assurent quelque 8 milliards de voyages par an.",
         "ja": "席が埋まっており、当日枠の割増料金を払った。インド国鉄は年におよそ80億人を運ぶ。"
       }
     },
@@ -5431,14 +5431,14 @@
       "amount": 300,
       "n": {
         "en": "Pulled into a wedding",
-        "es": "Te meten en una boda",
+        "es": "Una boda que no deja pasar de largo",
         "fr": "Entraîné dans un mariage",
         "ja": "婚礼に引き込まれた"
       },
       "t": {
-        "en": "A family spots a stranger near the procession and insists you join, eat, and leave with sweets and a gift. Turning down the invitation would be the rude thing.",
-        "es": "Una familia te ve junto a la procesión e insiste en que comas y te lleves dulces y un regalo. Rechazar sería lo grosero.",
-        "fr": "Une famille te repère près du cortège et insiste : tu manges et repars avec sucreries et cadeau. Refuser serait impoli.",
+        "en": "A family spots a stranger near the procession and will not hear of anything but joining, eating, and leaving with sweets and a gift. Turning down the invitation would be the rude thing.",
+        "es": "Una familia ve a un desconocido junto a la procesión e insiste: hay que comer y llevarse dulces y un regalo. Rechazar sería lo grosero.",
+        "fr": "Une famille repère un inconnu près du cortège et insiste : on mange et on repart avec sucreries et cadeau. Refuser serait impoli.",
         "ja": "行列のそばにいた見知らぬ旅人を一家が見つけ、食べていけと譲らず、菓子と土産まで持たされた。断るほうが失礼にあたる。"
       }
     },
@@ -5455,9 +5455,9 @@
         "ja": "荷物に手が伸びた"
       },
       "t": {
-        "en": "A packed general carriage, a shoulder against yours, and the side pocket is lighter at the next stop. Chain-and-padlock for luggage is sold on every platform.",
-        "es": "Un vagón general lleno, un hombro contra el tuyo, y en la siguiente parada el bolsillo pesa menos. En cada andén venden cadenas con candado.",
-        "fr": "Un wagon général bondé, une épaule contre la tienne, et à l'arrêt suivant la poche est plus légère. On vend chaînes et cadenas sur chaque quai.",
+        "en": "A packed general carriage, shoulder against shoulder, and the side pocket is lighter at the next stop. Chain-and-padlock for luggage is sold on every platform.",
+        "es": "Un vagón general lleno, hombro contra hombro, y en la siguiente parada el bolsillo pesa menos. En cada andén venden cadenas con candado.",
+        "fr": "Un wagon général bondé, épaule contre épaule, et à l'arrêt suivant la poche est plus légère. On vend chaînes et cadenas sur chaque quai.",
         "ja": "混み合った一般車両で肩が触れ、次の駅では脇のポケットが軽くなっていた。どのホームでも荷物用の鎖と南京錠が売られている。"
       }
     },
@@ -5476,8 +5476,8 @@
         "ja": "土砂崩れで峠が閉じた"
       },
       "t": {
-        "en": "Monsoon rain brings the hillside onto the road and you wait two days in a tea house. Some Himalayan roads are open only four months a year.",
-        "es": "La lluvia monzónica tira la ladera sobre la carretera y esperas dos días en una casa de té. Algunas rutas del Himalaya abren solo cuatro meses.",
+        "en": "Monsoon rain brings the hillside onto the road, and the wait runs to two days in a tea house. Some Himalayan roads are open only four months a year.",
+        "es": "La lluvia monzónica tira la ladera sobre la carretera y la espera se alarga dos días en una casa de té. Algunas rutas del Himalaya abren solo cuatro meses.",
         "fr": "La pluie de mousson jette le versant sur la route : deux jours d'attente dans une maison de thé. Certaines routes himalayennes n'ouvrent que quatre mois par an.",
         "ja": "モンスーンの雨で斜面が道を塞ぎ、茶屋で二日足止めになった。ヒマラヤの道には年に四か月しか通れないものもある。"
       }
@@ -5497,9 +5497,9 @@
         "ja": "僧院に泊めてもらう"
       },
       "t": {
-        "en": "The monks give you a bed, butter tea and breakfast and refuse anything for it. Ladakh's monasteries have kept travellers for centuries on the trade route.",
-        "es": "Los monjes te dan cama, té con mantequilla y desayuno, y no aceptan nada. Los monasterios de Ladakh albergan viajeros desde hace siglos.",
-        "fr": "Les moines t'offrent lit, thé au beurre et petit-déjeuner sans rien accepter. Les monastères du Ladakh accueillent les voyageurs depuis des siècles.",
+        "en": "The monks hand out a bed, butter tea and breakfast and refuse anything for it. Ladakh's monasteries have kept travellers for centuries on the trade route.",
+        "es": "Los monjes ofrecen cama, té con mantequilla y desayuno, y no aceptan nada. Los monasterios de Ladakh albergan viajeros desde hace siglos.",
+        "fr": "Les moines offrent lit, thé au beurre et petit-déjeuner sans rien accepter. Les monastères du Ladakh accueillent les voyageurs depuis des siècles.",
         "ja": "僧たちは寝床とバター茶と朝食を出し、何も受け取らなかった。ラダックの僧院は交易路の旅人を何世紀も泊めてきた。"
       }
     },
@@ -5518,9 +5518,9 @@
         "ja": "渡し守が分け前をくれた"
       },
       "t": {
-        "en": "You help row the crowd out for the evening lamp ceremony and take a share. Thousands of leaf boats with oil lamps are floated every night.",
-        "es": "Ayudas a remar para la ceremonia de las lámparas y te llevas una parte. Cada noche se echan al agua miles de barquitas con velas.",
-        "fr": "Tu aides à ramer pour la cérémonie des lampes et prends ta part. Des milliers de barquettes à lampe sont lâchées chaque soir.",
+        "en": "The boats going out for the evening lamp ceremony are short of rowers, and the fare is shared out. Thousands of leaf boats with oil lamps are floated every night.",
+        "es": "Faltan remeros para la ceremonia de las lámparas y el pasaje se reparte. Cada noche se echan al agua miles de barquitas con velas.",
+        "fr": "Les barques de la cérémonie des lampes manquent de rameurs, et la recette se partage. Des milliers de barquettes à lampe sont lâchées chaque soir.",
         "ja": "夕べの灯明の儀式へ人を渡す舟を漕ぐのを手伝い、分け前をもらった。毎晩、油の灯明をのせた葉の小舟が何千と流される。"
       }
     },
@@ -5533,9 +5533,9 @@
       "e": "🐒",
       "amount": 180,
       "n": {
-        "en": "A monkey takes your glasses",
-        "es": "Un mono te quita las gafas",
-        "fr": "Un singe emporte tes lunettes",
+        "en": "A monkey takes the glasses",
+        "es": "Un mono se lleva las gafas",
+        "fr": "Un singe emporte les lunettes",
         "ja": "猿に眼鏡を取られた"
       },
       "t": {
@@ -5554,15 +5554,15 @@
       "e": "🐪",
       "amount": 260,
       "n": {
-        "en": "A camel herder feeds you",
-        "es": "Un camellero te da de comer",
-        "fr": "Un chamelier te nourrit",
+        "en": "A camel herder feeds a stranger",
+        "es": "Un camellero da de comer a un forastero",
+        "fr": "Un chamelier nourrit un inconnu",
         "ja": "らくだ飼いにもてなされた"
       },
       "t": {
-        "en": "You are put up for the night with millet bread and buttermilk and sent off with a bundle. In the Thar, refusing a traveller water is close to unthinkable.",
-        "es": "Te alojan con pan de mijo y suero, y te despiden con un hatillo. En el Thar, negar agua a un viajero es casi impensable.",
-        "fr": "On t'héberge avec du pain de millet et du babeurre, puis on te renvoie avec un paquet. Dans le Thar, refuser de l'eau à un voyageur est impensable.",
+        "en": "A night's lodging comes with millet bread and buttermilk, and the send-off comes with a bundle. In the Thar, refusing a traveller water is close to unthinkable.",
+        "es": "El alojamiento viene con pan de mijo y suero, y la despedida con un hatillo. En el Thar, negar agua a un viajero es casi impensable.",
+        "fr": "L'hébergement vient avec du pain de millet et du babeurre, et le départ avec un paquet. Dans le Thar, refuser de l'eau à un voyageur est impensable.",
         "ja": "雑穀のパンとバターミルクで一晩泊めてもらい、包みまで持たされた。タール砂漠では、旅人に水を断ることはまず考えられない。"
       }
     },
@@ -5581,9 +5581,9 @@
         "ja": "砂が入り込んだ"
       },
       "t": {
-        "en": "A pre-monsoon dust storm turns the afternoon orange and your camera never recovers. These storms can carry sand for hundreds of kilometres.",
-        "es": "Una tormenta de polvo previa al monzón vuelve naranja la tarde y tu cámara no se recupera. Arrastran arena cientos de kilómetros.",
-        "fr": "Une tempête de poussière d'avant-mousson orange l'après-midi ; ton appareil n'y survit pas. Ces tempêtes portent le sable sur des centaines de kilomètres.",
+        "en": "A pre-monsoon dust storm turns the afternoon orange, and no camera comes through it clean. These storms can carry sand for hundreds of kilometres.",
+        "es": "Una tormenta de polvo previa al monzón vuelve naranja la tarde y ninguna cámara sale limpia de ella. Arrastran arena cientos de kilómetros.",
+        "fr": "Une tempête de poussière d'avant-mousson orange l'après-midi ; aucun appareil n'en sort indemne. Ces tempêtes portent le sable sur des centaines de kilomètres.",
         "ja": "モンスーン前の砂嵐で午後がオレンジ色に染まり、カメラは二度と直らなかった。この嵐は砂を数百km運ぶ。"
       }
     },
@@ -5596,15 +5596,15 @@
       "e": "🍱",
       "amount": 180,
       "n": {
-        "en": "You save a lunchbox",
-        "es": "Salvas una fiambrera",
-        "fr": "Tu sauves une gamelle",
+        "en": "A quick hand saves the lunchbox",
+        "es": "Una mano rápida salva la fiambrera",
+        "fr": "Une main preste sauve la gamelle",
         "ja": "弁当箱を救った"
       },
       "t": {
-        "en": "A tin slips from the rack and you catch it; the carriers pay you for the save. The network delivers 200,000 lunches a day with almost no errors.",
-        "es": "Una lata se cae del portaequipajes y la atrapas; los repartidores te recompensan. La red entrega 200.000 comidas al día casi sin fallos.",
-        "fr": "Une gamelle glisse du porte-bagages, tu la rattrapes ; les porteurs te récompensent. Le réseau livre 200 000 repas par jour, presque sans erreur.",
+        "en": "A tin slips from the rack and a quick hand catches it; the carriers pay for the save. The network delivers 200,000 lunches a day with almost no errors.",
+        "es": "Una lata se cae del portaequipajes y una mano rápida la atrapa; los repartidores recompensan la salvada. La red entrega 200.000 comidas al día casi sin fallos.",
+        "fr": "Une gamelle glisse du porte-bagages, une main la rattrape ; les porteurs récompensent le sauvetage. Le réseau livre 200 000 repas par jour, presque sans erreur.",
         "ja": "棚から落ちかけた弁当箱を受け止め、運び手たちから礼をもらった。この網は1日20万食を、ほとんど間違いなく届ける。"
       }
     },
@@ -5686,9 +5686,9 @@
         "ja": "屋形船が座礁した"
       },
       "t": {
-        "en": "Water hyacinth chokes the channel and a smaller boat has to tow you out. The weed spreads fast enough to close whole stretches of the backwaters.",
-        "es": "El jacinto de agua obstruye el canal y otra barca ha de remolcarte. La planta crece tan rápido que cierra tramos enteros.",
-        "fr": "La jacinthe d'eau bouche le canal et une barque doit te remorquer. La plante prolifère au point de fermer des sections entières.",
+        "en": "Water hyacinth chokes the channel and a smaller boat has to be hired to tow the way out. The weed spreads fast enough to close whole stretches of the backwaters.",
+        "es": "El jacinto de agua obstruye el canal y hay que pagar otra barca para el remolque. La planta crece tan rápido que cierra tramos enteros.",
+        "fr": "La jacinthe d'eau bouche le canal et il faut payer une barque pour le remorquage. La plante prolifère au point de fermer des sections entières.",
         "ja": "ホテイアオイが水路を塞ぎ、小舟に曳き出してもらうことになった。この水草は繁茂が速く、水路一帯を通行不能にする。"
       }
     },
@@ -5728,8 +5728,8 @@
         "ja": "ブラマプトラが増水した"
       },
       "t": {
-        "en": "The river swells until the ferry cannot dock and you pay for a long way round. In flood it can be more than 10 km wide.",
-        "es": "El río crece hasta que el ferry no puede atracar y pagas un gran rodeo. En crecida supera los 10 km de ancho.",
+        "en": "The river swells until the ferry cannot dock, and the only route left is a long way round. In flood it can be more than 10 km wide.",
+        "es": "El río crece hasta que el ferry no puede atracar y solo queda un gran rodeo. En crecida supera los 10 km de ancho.",
         "fr": "Le fleuve monte au point que le bac ne peut accoster : long détour payant. En crue, il dépasse 10 km de large.",
         "ja": "川が増水して渡し船が着けられず、大きく回る費用がかかった。氾濫時の川幅は10kmを超えることがある。"
       }

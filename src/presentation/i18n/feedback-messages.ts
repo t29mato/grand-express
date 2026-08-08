@@ -6,7 +6,14 @@ import { Locale } from "../../domain/shared-kernel/localized-text";
  * `src/i18n/messages/*.json` は抽出の生成物なので直接足すと次の抽出で消える。
  * legacy 由来でない文言はここに置き、`messages.ts` で重ねる
  * (`setup-messages.ts` と同じ扱い)。
+ *
+ * **フランス語はここだけ vous のままにしてある。** 盤面の文言は tu で揃えた
+ * (legacy の `fr.json` が tu 20件・vous 1件、既定名も「Toi」なので、
+ * この作品の遊びの声は tu)。ただしこの画面は**遊びの中の声ではなく、
+ * 作り手から使う人への問い合わせ窓口**なので、敬体のほうが自然になる。
+ * 混ざっているのではなく、宛先が違うので分けている。
  */
+
 export const FEEDBACK_MESSAGES: Record<Locale, Record<string, string>> = {
   en: {
     feedbackLink: "Send feedback",

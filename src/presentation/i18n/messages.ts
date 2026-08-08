@@ -11,6 +11,7 @@ import { SOUND_MESSAGES } from "./sound-messages";
 import { ITEM_MESSAGES } from "./item-messages";
 import { LEGEND_MESSAGES } from "./legend-messages";
 import { BOARD_MESSAGES } from "./board-messages";
+import { EVENT_MESSAGES } from "./event-messages";
 
 export type UiMessages = typeof en;
 
@@ -29,6 +30,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...ITEM_MESSAGES.en,
     ...LEGEND_MESSAGES.en,
     ...BOARD_MESSAGES.en,
+    ...EVENT_MESSAGES.en,
   },
   es: {
     ...es,
@@ -40,6 +42,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...ITEM_MESSAGES.es,
     ...LEGEND_MESSAGES.es,
     ...BOARD_MESSAGES.es,
+    ...EVENT_MESSAGES.es,
   },
   fr: {
     ...fr,
@@ -51,6 +54,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...ITEM_MESSAGES.fr,
     ...LEGEND_MESSAGES.fr,
     ...BOARD_MESSAGES.fr,
+    ...EVENT_MESSAGES.fr,
   },
   ja: {
     ...(ja as UiMessages),
@@ -62,6 +66,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...ITEM_MESSAGES.ja,
     ...LEGEND_MESSAGES.ja,
     ...BOARD_MESSAGES.ja,
+    ...EVENT_MESSAGES.ja,
   },
 };
 
