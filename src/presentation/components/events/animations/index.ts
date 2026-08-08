@@ -2,12 +2,15 @@ import { ComponentType } from "react";
 import { AppleOrchard } from "./apple-orchard";
 import { AwamoriRound } from "./awamori-round";
 import { BackwaterDetour } from "./backwater-detour";
+import { BeniBranding } from "./beni-branding";
 import { BerthSupplement } from "./berth-supplement";
 import { BloqueoDetour } from "./bloqueo-detour";
 import { BrazilNutFind } from "./brazil-nut-find";
 import { CarnivalWater } from "./carnival-water";
 import { ChacoHeat } from "./chaco-heat";
 import { ChaiRefusedPayment } from "./chai-refused-payment";
+import { ChaqueoSmoke } from "./chaqueo-smoke";
+import { CharangoStrings } from "./charango-strings";
 import { ChasseCroise } from "./chasse-croise";
 import { CherryBlossomSpot } from "./cherry-blossom-spot";
 import { CholitaMarket } from "./cholita-market";
@@ -39,8 +42,10 @@ import { Kuidaore } from "./kuidaore";
 import { LandslidePass } from "./landslide-pass";
 import { LavandeDistillation } from "./lavande-distillation";
 import { LicensedPitch } from "./licensed-pitch";
+import { LlamaShearing } from "./llama-shearing";
 import { LostWalletReturned } from "./lost-wallet-returned";
 import { MatsuriHelp } from "./matsuri-help";
+import { MineGifts } from "./mine-gifts";
 import { MissionConcert } from "./mission-concert";
 import { MonasteryHospitality } from "./monastery-hospitality";
 import { MonkeySnatch } from "./monkey-snatch";
@@ -55,6 +60,7 @@ import { ParcelHome } from "./parcel-home";
 import { PeageAutoroute } from "./peage-autoroute";
 import { PecheAPied } from "./peche-a-pied";
 import { PickingByTheBin } from "./picking-by-the-bin";
+import { RailTerminus } from "./rail-terminus";
 import { RiverBoatWait } from "./river-boat-wait";
 import { RoadWashedOut } from "./road-washed-out";
 import { RoofSnowClearing } from "./roof-snow-clearing";
@@ -82,6 +88,7 @@ import { VisaAtTheWindow } from "./visa-at-the-window";
 import { VolcanicAsh } from "./volcanic-ash";
 import { WeddingInvitation } from "./wedding-invitation";
 import { YataiTreat } from "./yatai-treat";
+import { YungasLandslide } from "./yungas-landslide";
 import { ZebraCrossing } from "./zebra-crossing";
 
 /**
@@ -97,12 +104,15 @@ export const EVENT_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "apple-orchard": AppleOrchard,
   "awamori-round": AwamoriRound,
   "backwater-detour": BackwaterDetour,
+  "beni-branding": BeniBranding,
   "berth-supplement": BerthSupplement,
   "bloqueo-detour": BloqueoDetour,
   "brazil-nut-find": BrazilNutFind,
   "carnival-water": CarnivalWater,
   "chaco-heat": ChacoHeat,
   "chai-refused-payment": ChaiRefusedPayment,
+  "chaqueo-smoke": ChaqueoSmoke,
+  "charango-strings": CharangoStrings,
   "chasse-croise": ChasseCroise,
   "cherry-blossom-spot": CherryBlossomSpot,
   "cholita-market": CholitaMarket,
@@ -134,8 +144,10 @@ export const EVENT_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "landslide-pass": LandslidePass,
   "lavande-distillation": LavandeDistillation,
   "licensed-pitch": LicensedPitch,
+  "llama-shearing": LlamaShearing,
   "lost-wallet-returned": LostWalletReturned,
   "matsuri-help": MatsuriHelp,
+  "mine-gifts": MineGifts,
   "mission-concert": MissionConcert,
   "monastery-hospitality": MonasteryHospitality,
   "monkey-snatch": MonkeySnatch,
@@ -150,6 +162,7 @@ export const EVENT_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "peage-autoroute": PeageAutoroute,
   "peche-a-pied": PecheAPied,
   "picking-by-the-bin": PickingByTheBin,
+  "rail-terminus": RailTerminus,
   "river-boat-wait": RiverBoatWait,
   "road-washed-out": RoadWashedOut,
   "roof-snow-clearing": RoofSnowClearing,
@@ -177,5 +190,6 @@ export const EVENT_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "volcanic-ash": VolcanicAsh,
   "wedding-invitation": WeddingInvitation,
   "yatai-treat": YataiTreat,
+  "yungas-landslide": YungasLandslide,
   "zebra-crossing": ZebraCrossing,
 };

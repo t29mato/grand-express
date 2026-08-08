@@ -14,6 +14,7 @@ import { JAPAN_HOKKAIDO_CITIES, JAPAN_HOKKAIDO_EDGES } from "./japan-hokkaido.mj
 import { JAPAN_MONEY_EVENTS } from "./money-events-japan.mjs";
 import { JAPAN_REMOVED_EDGES } from "./japan-line-pruning.mjs";
 import { BOLIVIA_MONEY_EVENTS } from "./money-events-bolivia.mjs";
+import { BOLIVIA_MONEY_EVENTS_EXTRA } from "./money-events-bolivia-extra.mjs";
 import { BOLIVIA_EXTRA_CITIES, BOLIVIA_EXTRA_EDGES } from "./bolivia-cities.mjs";
 import { ITEM_TEXT } from "./item-text.mjs";
 import { CITY_BG } from "./city-backgrounds.mjs";
@@ -90,7 +91,7 @@ const OVERRIDES = {
     cityCoords: CITY_COORDS.bolivia,
     itemPrices: ITEM_PRICES.bolivia,
     itemText: ITEM_TEXT.bolivia,
-    moneyEvents: BOLIVIA_MONEY_EVENTS,
+    moneyEvents: [...BOLIVIA_MONEY_EVENTS, ...BOLIVIA_MONEY_EVENTS_EXTRA],
     boardScale: BOARD_SCALE.bolivia,
     quizDifficulty: QUIZ_DIFFICULTY.bolivia,
     extraCities: BOLIVIA_EXTRA_CITIES,
