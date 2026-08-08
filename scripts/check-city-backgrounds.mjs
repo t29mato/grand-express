@@ -5,6 +5,7 @@
  *   node scripts/check-city-backgrounds.mjs                全部見る(生成物を見る)
  *   node scripts/check-city-backgrounds.mjs japan          1国だけ
  *   node scripts/check-city-backgrounds.mjs --src world    **焼き直さずに元を見る**
+ *   node scripts/check-city-backgrounds.mjs --hidden japan  シンボルに隠れる帯の図形を挙げる
  *
  * `--src` は `scripts/countries/<国>/art.mjs` を直接読む。
  * `extract-legacy-content.mjs` を回さずに済むので、**描きながら何度でも回せる**。
@@ -46,6 +47,7 @@ const SOURCES = {
 
 const args = process.argv.slice(2);
 const fromSource = args.includes("--src");
+const hiddenMode = args.includes("--hidden");
 const only = args.find((a) => !a.startsWith("--"));
 const countries = only ? [only] : ALL;
 
@@ -115,13 +117,97 @@ async function measure(svg) {
   }, svg);
 }
 
+/**
+ * **見えにくい帯に置かれた図形**を洗い出す(`--hidden`)。
+ *
+ * 中央はシンボルが必ず覆う。ここに主役級のものを置くと見えなくなるのだが、
+ * **知っていても繰り返し置いてしまう**
+ * (沖の貨物船・軽トラ・クレーン・旅館・一角犀・松・赤レンガ倉庫で7回)。
+ * 注意力ではなく道具の問題にする。
+ *
+ * 帯は**シンボル(x=151〜249 / y=54〜152)と影の楕円((200,155) rx53 ry14)の合併**。
+ * 影に沈むものも見えにくいので、まとめて外接矩形で見る。
+ * `getBBox()` で図形ごとの外接矩形を測り、**帯との重なりが一定以上のもの**を挙げる。
+ *
+ * しきい値は実測で決めた。**過去に実際に消した8件で試したところ、**
+ * 「完全に帯の中」だけを見る作りでは 3件しか拾えず、
+ * 重なり65%以上にすると **6件** 拾えた。
+ *
+ * 取りこぼす2件は性質が違う。旅館(56%)は「隠れた」のではなく**左半分を切られた**もの、
+ * 松は樹冠が帯からはみ出していたもの。**半分見えている状態の良し悪しは機械では決まらない。**
+ *
+ * 見るのは**根の直下の要素だけ**。列柱や町並みのような繰り返しは `<g>` でまとまって
+ * いて、群としては帯からはみ出すので拾わない。単独で置かれた建物や乗り物は拾える。
+ *
+ * **これは判定ではなく手がかり。**全80背景で149件出る。その多くは
+ * 「隠れても惜しくない繰り返し」か「動きの層がそこを指している」もの(湯気の出口など)で、
+ * そのままでよい。**終了コードは変えない。**描いた本人が自分の絵を見るのに使う。
+ */
+const HIDDEN = { x0: 147, x1: 253, y0: 54, y1: 169 };
+const HIDDEN_RATIO = 0.65;
+async function findHidden(svg) {
+  return page.evaluate(
+    async ([inner, H, ratio]) => {
+      const NS = "http://www.w3.org/2000/svg";
+      const svgEl = document.createElementNS(NS, "svg");
+      svgEl.setAttribute("viewBox", "0 0 400 210");
+      svgEl.setAttribute("width", "400");
+      svgEl.setAttribute("height", "210");
+      svgEl.innerHTML = inner;
+      document.body.appendChild(svgEl);
+      const out = [];
+      for (const el of Array.from(svgEl.children)) {
+        let b;
+        try {
+          b = el.getBBox();
+        } catch {
+          continue;
+        }
+        if (b.width < 9 || b.height < 9) continue;
+        if (b.width * b.height < 180) continue;
+        const ox = Math.max(0, Math.min(b.x + b.width, H.x1) - Math.max(b.x, H.x0));
+        const oy = Math.max(0, Math.min(b.y + b.height, H.y1) - Math.max(b.y, H.y0));
+        const covered = (ox * oy) / (b.width * b.height);
+        if (covered < ratio) continue;
+        out.push({
+          tag: el.tagName,
+          x: Math.round(b.x),
+          y: Math.round(b.y),
+          w: Math.round(b.width),
+          h: Math.round(b.height),
+          pct: Math.round(covered * 100),
+          fill: el.getAttribute("fill") ?? "",
+        });
+      }
+      svgEl.remove();
+      return out;
+    },
+    [svg, HIDDEN, HIDDEN_RATIO],
+  );
+}
+
 let bad = 0;
 let totalPx = 0;
 let checked = 0;
+let hiddenCount = 0;
 for (const country of countries) {
   const scenes = await loadScenes(country);
   for (const [key, svg] of Object.entries(scenes)) {
     checked++;
+    if (hiddenMode) {
+      const found = await findHidden(svg);
+      if (found.length) {
+        hiddenCount += found.length;
+        console.log(`?  ${country}/${key}: 見えにくい帯に ${found.length}個`);
+        for (const f of found) {
+          console.log(
+            `     ${f.pct}%隠れる  ${f.tag} x=${f.x}〜${f.x + f.w} y=${f.y}〜${f.y + f.h}` +
+              `${f.fill ? ` fill=${f.fill}` : ""}`,
+          );
+        }
+      }
+      continue;
+    }
     const { total, rows } = await measure(svg);
     if (total === 0) continue;
     bad++;
@@ -137,6 +223,17 @@ for (const country of countries) {
 await browser.close();
 
 const where = fromSource ? "元(art.mjs)" : "生成物(content.json)";
+if (hiddenMode) {
+  console.log(
+    hiddenCount === 0
+      ? `\n${where}の背景 ${checked}種。隠れる帯の中だけに置かれた図形はありません。`
+      : `\n背景 ${checked}種で、${hiddenCount}個が見えにくい帯(シンボル + 影)に${Math.round(HIDDEN_RATIO * 100)}%以上かかっています。` +
+          "\n**これは判定ではなく手がかり。**隠れても惜しくないもの(列柱・町並みなどの繰り返し)や、" +
+          "\n動きの層がそこを指している場合(湯気の出口など)はそのままでよい。" +
+          "\n主役なら、左右3分の1か y>170 の手前へ寄せること。",
+  );
+  process.exit(0); // 手がかりを出すだけ。良し悪しは人が決める
+}
 if (bad === 0) {
   console.log(`${where}の背景 ${checked}種、塗り残しはありません。`);
   process.exit(0);

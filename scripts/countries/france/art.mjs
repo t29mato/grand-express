@@ -25,8 +25,35 @@ function band(y, h, fill) {
 }
 
 /** 空(グラデーション代わりに2枚重ねる)。 */
-function sky(top, bottom) {
-  return band(0, 84, top) + band(78, 40, bottom);
+/**
+ * 空。`to` は**塗り下ろす深さ**(= 次に来る塗りの開始y)。
+ * 既定の118はすぐ下に地面が来る場合の値で、地面がもっと下から始まるシーンで
+ * そのままにすると、あいだが横一文字に透ける。
+ * 確認は `node scripts/check-city-backgrounds.mjs --src france`。
+ */
+function sky(top, bottom, to = 118) {
+  return band(0, 84, top) + band(78, to - 78, bottom);
+}
+
+/** 接地の影。敷かないと物が浮く。 */
+function shade(cx, cy, rx, ry, o = ".2") {
+  return `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="#000" opacity="${o}"/>`;
+}
+
+/** 人。20px前後。腕は `arm()` で別に足して、何をしているかを出す。 */
+function person(x, base, h, shirt, skin = "#e0b48a") {
+  const hd = r1(h * 0.19);
+  const top = r1(base - h + hd * 1.7);
+  return (
+    `<g><rect x="${r1(x - h * 0.09)}" y="${r1(base - h * 0.4)}" width="${r1(h * 0.08)}" height="${r1(h * 0.4)}" fill="#3f3428"/>` +
+    `<rect x="${r1(x + h * 0.02)}" y="${r1(base - h * 0.4)}" width="${r1(h * 0.08)}" height="${r1(h * 0.4)}" fill="#3f3428"/>` +
+    `<path d="M${r1(x - h * 0.16)},${top}h${r1(h * 0.32)}l${r1(h * 0.03)},${r1(h * 0.42)}h${r1(-h * 0.38)}z" fill="${shirt}"/>` +
+    `<circle cx="${x}" cy="${r1(top - hd * 0.75)}" r="${hd}" fill="${skin}"/></g>`
+  );
+}
+
+function arm(x, y, dx, dy, color = "#e0b48a", w = 3) {
+  return `<path d="M${x},${y}l${dx},${dy}" stroke="${color}" stroke-width="${w}" stroke-linecap="round" fill="none"/>`;
 }
 
 function sun(cx, cy, r, fill = "#f5b31c") {
@@ -434,36 +461,104 @@ export const FRANCE_BG = {
     `<path d="M282,46c9,-5 16,-6 20,-1c4,-5 11,-4 20,1c-9,-1 -16,2 -20,4c-4,-2 -11,-5 -20,-4z" fill="#4a4436" opacity=".85"/>`,
 
   /** 大西洋岸の砂丘と灯台。 */
+  /**
+   * 大西洋岸。**9都市が共用する、フランスで唯一残っていた薄い背景。**
+   * (ル・アーヴル・エトルタ・モンサンミッシェル・サンマロ・ブレスト・カンペール・
+   * ナント・ラ・ロシェル・ビアリッツ)
+   *
+   * 地中海側(`riviera`)や他国の港と描き分けるため、**大西洋岸ならでは**のものを置く。
+   * 潮の干満が大きいので**干潟と潮だまり**、**牡蠣の養殖棚**、白亜の断崖(エトルタ)、
+   * 城壁の街(サンマロ)、砂丘と海岸松(ランド)。
+   *
+   * ⚠ 動きの層(`france-atlantic.tsx`)が固定の位置を持っている。**動かさないこと。**
+   *   ・灯台の灯 (72,39) と光条 (65,34)(79,34)
+   *   ・海は y=100〜144(波の筋がこの範囲)
+   *   ・波打ちぎわの泡は y=143〜145
+   *   ・沖のヨットは船体 228〜272 / 帆 (252,102)
+   *   ・砂丘の草は (212,150)(268,142)(330,138)
+   */
   atlantic:
-    sky("#8fc4e8", "#dce8f0") +
-    sun(330, 34, 15) +
-    clouds(150, 28, 1.1) +
-    // 海
-    band(100, 44, "#3f7fa8") +
-    `<g stroke="#bfe0f0" stroke-width="2.4" opacity=".8" fill="none"><path d="M20,112h50M120,122h60M250,110h70M56,132h56M300,128h60M180,136h64"/></g>` +
+    sky("#7fb8dc", "#dce8f0", 102) +
+    sun(348, 26, 14) +
+    `<circle cx="348" cy="26" r="21" fill="#fdf0c8" opacity=".2"/>` +
+    clouds(150, 24, 1.1) +
+    `<g fill="#f6efe2" opacity=".5"><ellipse cx="246" cy="40" rx="30" ry="4.4"/><ellipse cx="222" cy="46" rx="19" ry="3.2"/></g>` +
+    // ── 白亜の断崖(エトルタ)。海に鼻を差し入れる形
+    `<path d="M96,100V64q22,-8 44,-4q10,2 18,6l14,34z" fill="#eae4d4"/>` +
+    `<path d="M96,100V64q22,-8 44,-4q10,2 18,6l6,14q-32,10 -68,16z" fill="#f6f2e6"/>` +
+    `<path d="M126,100q6,-16 18,-16q12,0 18,16z" fill="#7fa8c4"/>` +
+    `<g stroke="#cfc6b0" stroke-width="1.2" opacity=".7" fill="none"><path d="M104,74h34M108,84h26M148,78h14"/></g>` +
+    `<g fill="#6f8a5c"><ellipse cx="112" cy="62" rx="16" ry="5"/><ellipse cx="140" cy="60" rx="14" ry="4.4"/></g>` +
+    // ── 城壁の街(サンマロ)。水平線の向こうに小さく
+    `<g fill="#b0a894"><rect x="196" y="86" width="88" height="14"/></g>` +
+    `<g fill="#c9c0ac">${[200, 212, 224, 236, 248, 260, 272].map((x) => `<rect x="${x}" y="82" width="8" height="5"/>`).join("")}</g>` +
+    `<g fill="#9a9280">${[204, 226, 254].map((x, i) => `<rect x="${x}" y="${72 + (i % 2) * 4}" width="12" height="${14 - (i % 2) * 4}"/>`).join("")}</g>` +
+    `<g fill="#7a4438">${[204, 226, 254].map((x, i) => `<path d="M${x - 2},${72 + (i % 2) * 4}h16l-6,-5h-8z"/>`).join("")}</g>` +
+    `<rect x="234" y="62" width="7" height="24" fill="#b0a894"/>` +
+    `<path d="M232,62h11l-5.5,-7z" fill="#7a4438"/>` +
+    // ── 海。**y=100〜144。波の筋はこの上を流れる**
+    band(100, 16, "#2a6b95") +
+    band(114, 16, "#3585ab") +
+    band(128, 16, "#4590b4") +
+    `<g stroke="#bfe0f0" stroke-width="2.4" opacity=".55" fill="none"><path d="M20,106h46M292,104h58M14,122h40M330,120h56M76,136h44M300,138h64"/></g>` +
+    // ── 牡蠣の養殖棚(大西洋岸の顔)。干潟に並べた低い木の台
+    `<g stroke="#5f4a34" stroke-width="1.8" fill="none" stroke-linecap="round">${[110, 134, 158, 182, 206, 230, 254, 278]
+      .map((x) => `<path d="M${x},140v-8M${x + 12},140v-8"/>`)
+      .join("")}</g>` +
+    `<g fill="#6b5330">${[110, 134, 158, 182, 206, 230, 254, 278].map((x) => `<rect x="${x - 2}" y="130" width="18" height="3"/>`).join("")}</g>` +
+    `<g fill="#8a8578" opacity=".8">${[110, 134, 158, 182, 206, 230, 254, 278]
+      .map((x) => `<path d="M${x},130q7,-4 14,0z"/>`)
+      .join("")}</g>` +
+    // 波打ちぎわの泡(層がここに重なる)
     `<path d="M0,140c40,6 80,-2 130,4s90,6 150,0s90,-6 120,-2v8H0z" fill="#e8f2f6"/>` +
-    // 砂浜
+    // ── 干潟(潮が引いたあとの濡れた砂)
     ground(144, "#e2cf9e") +
-    // 砂丘のうしろの海岸松
+    `<path d="M0,146q46,-4 92,2q48,6 96,-2q50,-7 100,2q44,7 112,-4v10H0z" fill="#efe2c0" opacity=".9"/>` +
+    `<path d="M0,160q56,-6 110,2q56,8 112,-2q54,-8 116,3q34,5 62,-2v14H0z" fill="#d4bd8a"/>` +
+    // 潮だまり(干満の大きい海岸の記号)
+    `<g fill="#8fbcd0" opacity=".85"><ellipse cx="56" cy="176" rx="34" ry="7"/><ellipse cx="150" cy="192" rx="42" ry="8"/><ellipse cx="300" cy="184" rx="30" ry="6"/></g>` +
+    `<g fill="#bfe0f0" opacity=".6"><ellipse cx="48" cy="174" rx="14" ry="3"/><ellipse cx="138" cy="190" rx="18" ry="3.4"/></g>` +
+    // 打ち上げられた海藻と貝
+    `<g stroke="#7a6a3c" stroke-width="1.8" opacity=".7" fill="none" stroke-linecap="round"><path d="M96,166q10,4 22,-1M330,170q10,4 22,-2"/></g>` +
+    `<g fill="#f0e6d2"><ellipse cx="112" cy="176" rx="4" ry="2.4"/><ellipse cx="122" cy="180" rx="3.4" ry="2"/><ellipse cx="344" cy="178" rx="3.6" ry="2.2"/></g>` +
+    // ── 砂丘と海岸松(ランド地方)。**草の位置は層に合わせて動かさない**
     parasolPine(316, 150, 40) +
     parasolPine(366, 152, 34) +
-    // 砂丘
+    parasolPine(284, 154, 28) +
     `<path d="M170,152c40,-30 110,-38 230,-16v74H170z" fill="#d8bf86"/>` +
     `<path d="M170,152c40,-30 110,-38 230,-16" stroke="#e8d8a8" stroke-width="3" fill="none"/>` +
+    `<g fill="#cbae76" opacity=".7"><ellipse cx="300" cy="176" rx="70" ry="10"/></g>` +
     `<g stroke="#8a9a52" stroke-width="1.8" fill="none"><path d="M212,150c-4,-8 -6,-12 -5,-16M212,150c0,-9 1,-13 4,-17M212,150c3,-7 6,-10 10,-12M268,142c-4,-8 -6,-12 -5,-16M268,142c0,-9 1,-13 4,-17M268,142c3,-7 6,-10 10,-12M330,138c-4,-8 -6,-12 -5,-16M330,138c0,-9 1,-13 4,-17"/></g>` +
-    // 灯台
+    `<g stroke="#8a9a52" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M240,158v-10M248,160v-8M304,152v-9M356,150v-10M364,152v-8"/></g>` +
+    // ── 灯台。**位置は層の光条に合わせて動かさない**
     `<path d="M48,154c8,-9 38,-9 48,0l5,12H43z" fill="#8a8578"/>` +
+    `<g stroke="#6f6b62" stroke-width="1" opacity=".6" fill="none"><path d="M44,160h58M46,166h54"/></g>` +
     `<path d="M60,154L64,52h16l4,102z" fill="#f2ede0"/>` +
     `<g fill="#e8443f"><rect x="63.4" y="74" width="17.2" height="10"/><rect x="62.4" y="104" width="19.2" height="10"/><rect x="61.2" y="134" width="21.6" height="10"/></g>` +
+    `<g fill="#d8d0c0"><rect x="65" y="88" width="6" height="8" rx="3"/><rect x="65" y="120" width="6" height="8" rx="3"/></g>` +
     `<rect x="58" y="46" width="28" height="6" rx="1.5" fill="#3a4453"/>` +
     `<rect x="65" y="32" width="14" height="14" fill="#f5d06a"/>` +
     `<path d="M63,32h18l-9,-9z" fill="#3a4453"/>` +
     `<rect x="71" y="19" width="2" height="5" fill="#3a4453"/>` +
     `<g fill="#f5d06a" opacity=".4"><path d="M65,34L14,26v18z"/><path d="M79,34l50,-8v18z"/></g>` +
-    // 小舟と海鳥
+    // 灯台の番小屋
+    `<rect x="14" y="146" width="26" height="18" fill="#efe8d8"/>` +
+    `<path d="M10,146h34l-4,-8h-26z" fill="#4a5568"/>` +
+    `<rect x="24" y="154" width="8" height="10" fill="#5f6b78"/>` +
+    // ── 沖のヨット。**層が同じ位置で揺らすので動かさない**
     `<path d="M228,126c10,-4 34,-4 44,0c-6,6 -38,6 -44,0z" fill="#3f5f6a"/>` +
     `<path d="M252,124V102l16,22z" fill="#f6efe2"/>` +
-    `<g stroke="#4a4436" stroke-width="1.8" fill="none"><path d="M132,62q5,-5 10,0q5,-5 10,0M186,44q4,-4 8,0q4,-4 8,0"/></g>`,
+    // ── 牡蠣を採る人と、浜を歩く人。**y>170 の中央は隠れない**
+    shade(192, 196, 11, 3, ".16") +
+    person(191, 196, 21, "#e8443f") +
+    arm(191, 183, 12, 5) +
+    `<g fill="#a8813c"><path d="M206,192q10,-6 20,0l-2,8h-16z"/></g>` +
+    `<g stroke="#8a6a44" stroke-width="1.4" fill="none"><path d="M208,190h16"/></g>` +
+    shade(258, 200, 11, 3, ".16") +
+    person(257, 200, 20, "#5b8fe8") +
+    arm(257, 188, -10, 5) +
+    // 海鳥
+    `<g stroke="#4a4436" stroke-width="1.8" fill="none"><path d="M132,62q5,-5 10,0q5,-5 10,0M186,44q4,-4 8,0q4,-4 8,0M104,50q4,-4 8,0q4,-4 8,0"/></g>`,
 
   /** 地中海の入江。パラソルと笠松。 */
   riviera:

@@ -130,10 +130,16 @@ gopuram: sky("#8fc4e8", "#d4ead8", 150) + ground(150, "#9ab45c") + ...
 **確認は目視ではなく実測でやること:**
 
 ```
-node scripts/check-city-backgrounds.mjs                # 全部(生成物を見る)
-node scripts/check-city-backgrounds.mjs japan          # 1国だけ
-node scripts/check-city-backgrounds.mjs --src world    # 焼き直さずに元を見る
+node scripts/check-city-backgrounds.mjs                  # 全部(生成物を見る)
+node scripts/check-city-backgrounds.mjs japan            # 1国だけ
+node scripts/check-city-backgrounds.mjs --src world      # 焼き直さずに元を見る
+node scripts/check-city-backgrounds.mjs --hidden japan   # 隠れる帯に置いた図形を挙げる
 ```
+
+> **`--hidden` は §2.1 の「中央25%」用。**描いたあと自分の絵に対して回す。
+> 過去に実際に消した8件で試して6件を拾えた。ただし**判定ではなく手がかり**で、
+> 全80背景では149件出る。多くは「隠れても惜しくない繰り返し」か
+> 「動きの層がそこを指している」もの。終了コードは変えない。
 
 `--src` は `scripts/countries/<国>/art.mjs` を直接読む。
 `extract-legacy-content.mjs` を回さずに済むので**描きながら何度でも回せる**し、
