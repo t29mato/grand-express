@@ -23,6 +23,27 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.21.0",
+    date: "2026-08-08",
+    title: t(
+      "Bolivia has more places to go, and the towns you visit look like somewhere|Bolivia tiene más sitios adonde ir, y sus pueblos parecen lugares de verdad|La Bolivie a plus d'endroits où aller, et ses villes ressemblent enfin à quelque part|ボリビアに行ける場所が増え、着いた町がどこかの町に見えるようになりました",
+    ),
+    highlights: [
+      t(
+        "Five towns join the Bolivian board — Challapata on a lake that dried up, Chulumani on terraces older than the Inca, Totora, Punata, and Yacuiba where the railway stops at the border — with nine new lines between them. The board had fewer junctions than any other, so there was rarely a choice of route; now there is.|Cinco pueblos se suman al tablero boliviano —Challapata junto a un lago que se secó, Chulumani en terrazas anteriores a los incas, Totora, Punata y Yacuiba, donde el ferrocarril se detiene en la frontera— con nueve líneas nuevas. Era el tablero con menos cruces: casi nunca había ruta que elegir. Ahora sí.|Cinq villes rejoignent le plateau bolivien — Challapata au bord d'un lac disparu, Chulumani sur des terrasses antérieures aux Incas, Totora, Punata et Yacuiba où le rail s'arrête à la frontière — avec neuf lignes nouvelles. C'était le plateau le moins ramifié : on n'avait presque jamais le choix de l'itinéraire. Désormais, si.|ボリビアの盤面に5つの町が加わりました。干上がった湖のほとりのチャジャパタ、インカより古い段々畑のチュルマニ、トタラ、プナタ、そして線路が国境で終わるヤクイバ。あいだを結ぶ路線も9本増えています。この盤面はどこよりも分かれ道が少なく、道順を選ぶ場面がほとんどありませんでした。",
+      ),
+      t(
+        "Seven new things can happen on the blue and red squares, so the same story stops coming round. You might help restring a charango — an instrument whose body was once an armadillo shell — or find the airstrip closed by the smoke of the season's field burning.|Siete sucesos nuevos en las casillas azules y rojas, para que no se repita siempre lo mismo. Puedes ayudar a encordar un charango —cuya caja fue en su día un caparazón de armadillo— o encontrar la pista cerrada por el humo de las quemas.|Sept événements inédits sur les cases bleues et rouges : la même histoire ne revient plus sans cesse. Vous aiderez à recorder un charango — dont la caisse fut jadis une carapace de tatou — ou trouverez la piste fermée par la fumée des brûlis.|青マス・赤マスで起きることが7つ増え、同じ話が何度も出ることが減りました。チャランゴの弦を張る手伝いをしたり(この楽器の胴は、かつてアルマジロの甲羅で作られていました)、焼き畑の煙で滑走路が閉じて足止めされたりします。",
+      ),
+      t(
+        "The pictures behind each town are much fuller. India's are finished — every one of its sixty towns now looks like a particular place, with people in it — and Bolivia and the round-the-world board are most of the way there. Where a town used to sit against a flat band of colour, there is now a street, a shore, or a market with someone working in it.|Los fondos de las ciudades son mucho más ricos. La India está terminada —sus sesenta ciudades tienen ahora un lugar propio, con gente— y Bolivia y la vuelta al mundo van muy avanzadas. Donde antes había una franja de color plana, ahora hay una calle, una orilla o un mercado con alguien trabajando.|Les décors des villes sont bien plus fournis. L'Inde est terminée — ses soixante villes ont chacune un lieu, avec des gens — et la Bolivie et le tour du monde sont bien avancés. Là où une ville se détachait sur une bande de couleur unie, il y a maintenant une rue, un rivage, un marché où quelqu'un travaille.|都市の背景がずっと厚くなりました。インドは完成し、60都市すべてが「どこかの場所」に見えます。ボリビアと世界一周も大半が済みました。のっぺりした色の帯を背にしていた町が、通りや岸辺や、誰かが働いている市場になっています。",
+      ),
+      t(
+        "In English the turn indicator used to read “You’s turn” when you had not typed a name. It now says “Your turn”.|En inglés el indicador de turno decía “You’s turn” si no habías escrito un nombre. Ahora dice “Your turn”.|En anglais, l’indicateur de tour affichait “You’s turn” faute de nom saisi. Il affiche désormais “Your turn”.|英語で遊んでいて名前を付けずに始めると、手番の表示が “You’s turn” という壊れた英語になっていました。“Your turn” に直しました。",
+      ),
+    ],
+  },
+  {
     version: "0.20.0",
     date: "2026-08-08",
     title: t(
