@@ -36,12 +36,25 @@ export interface RegionStyle {
 
 export type CountryStyles = Readonly<Record<string, RegionStyle>>;
 
+/**
+ * 盤面ごとの音楽データの読み込み口。
+ *
+ * **盤面を足したら、ここにも足すこと。** 動的importのパスは束ね器(bundler)が
+ * 静的に解決する必要があるため、この表だけは手で書く。
+ *
+ * ただし**書き忘れても何も起こらない** — 例外も警告も出ず、その盤面だけ
+ * 音楽が鳴らないまま出荷される(フランス・インド・茨城で3回起きた)。
+ * そこで `country-music-styles.test.ts` が
+ * **`country-index.json` に載っている盤面すべてがここにあるか**を突き合わせている。
+ * 足し忘れるとテストが赤くなる。
+ */
 const STYLE_LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   bolivia: () => import("../content/bolivia.content.json").then((m) => (m.default as { styles: unknown }).styles),
   japan: () => import("../content/japan.content.json").then((m) => (m.default as { styles: unknown }).styles),
   india: () => import("../content/india.content.json").then((m) => (m.default as { styles: unknown }).styles),
   france: () => import("../content/france.content.json").then((m) => (m.default as { styles: unknown }).styles),
   world: () => import("../content/world.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  ibaraki: () => import("../content/ibaraki.content.json").then((m) => (m.default as { styles: unknown }).styles),
 };
 
 /**
