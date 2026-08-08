@@ -47,15 +47,23 @@ export function BoardLegend({ currency }: { currency: CurrencyFormat }) {
   return (
     <div className="board-legend-wrap">
       {/* 狭い画面だけに出るたたみボタン。広い画面ではCSSで隠す。 */}
+      {/*
+        読み上げ名は `aria-label` で固定する。狭い画面では文字を隠して
+        「?」だけの丸ボタンにするので、見えている文字に名前を頼れない
+        (文字が消えると、読み上げでは名前の無いボタンになってしまう)。
+      */}
       <button
         type="button"
         className="board-legend-toggle"
+        aria-label={t("legendTitle")}
         aria-expanded={open}
         aria-controls="board-legend"
         onClick={() => setOpen((v) => !v)}
       >
         <span aria-hidden="true">{open ? "×" : "?"}</span>
-        <span>{t("legendTitle")}</span>
+        <span className="board-legend-toggle-text" aria-hidden="true">
+          {t("legendTitle")}
+        </span>
       </button>
       <div id="board-legend" className={`board-legend${open ? " open" : ""}`}>
         <div className="board-legend-title">{t("legendTitle")}</div>

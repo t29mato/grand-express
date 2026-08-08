@@ -818,8 +818,40 @@ main {
     height: 60dvh;
   }
 
-  aside {
-    overflow: visible;
+  /*
+   * 縦積みのときは、**押すものを先に**出す。
+   *
+   * 中間幅で右パネルが盤面を覆っていたのを「携帯と同じく地図の下へ並べる」で
+   * 直したところ、操作の層がまるごと画面の外へ落ちた。768〜900では、開いた瞬間に
+   * サイコロも手番表示もヒントも1つも画面に無く、**326px スクロールしないと
+   * 押すものが現れない**状態だった(375でも235px)。
+   * 覆う問題を、届かない問題に置き換えていたことになる。
+   *
+   * `display: contents` で aside の箱だけを外し、中身を main の行として扱う。
+   * こうするとカード1枚ずつに順番を付けられるので、**サイコロの一群だけ**を
+   * 盤面の上へ出せる。行き先カードや旅人一覧は盤面の下のままでよい。
+   * (aside を丸ごと上へ動かすと、今度は盤面が画面外へ落ちる)
+   *
+   * 旅人一覧の見出し(`aria-label`)は箱を外しても読み上げに残る。
+   * 幅1024以上ではこの規則は効かず、2列のままで何も変わらない。
+   */
+  /* `main >` を付けて特異度を上げる。素の `aside { display: flex }` は
+     この規則よりファイルの後ろにあるので、同じ強さでは負ける。 */
+  main > aside {
+    display: contents;
+  }
+
+  main > *,
+  main > aside > * {
+    order: 3;
+  }
+
+  .turn-card {
+    order: 1;
+  }
+
+  .board-wrap {
+    order: 2;
   }
 }
 
@@ -2321,10 +2353,24 @@ aside {
   pointer-events: none;
 }
 
+/*
+ * 中身は**どの幅でもたたんだ状態が既定**。
+ *
+ * 常時出しておくと、地図の上に貼っているぶん都市名を覆う。
+ * 実測(6盤面 × 追従/全体 × 幅1280〜768 の48通り)で、
+ * **開いたままだと最大13件、たたむと0件**だった。
+ * 置き場所を変えても直らない(右上40 / 右下38 / 左下58 / 上端に横1行23。
+ * 地名は盤面のどこにでもあるので、重ねるかぎりゼロにはならない)。
+ *
+ * **隠すのではない。**文字の入ったボタン(「? マスの見かた」)を常に出しておき、
+ * 1回押せば読める形にする。以前まるごと `display: none` にして、
+ * 携帯の人=いちばん説明を要る人に一度も届かなかった失敗はここでは繰り返さない。
+ */
 .board-legend {
-  display: grid;
+  display: none;
   gap: 5px;
   padding: 10px 12px;
+  margin-top: 6px;
   border-radius: 12px;
   background: rgb(20 29 49 / 0.86);
   border: 1px solid var(--line);
@@ -2332,13 +2378,21 @@ aside {
   color: var(--salt-dim, #cfc4b0);
   /* 地図をなぞる操作を邪魔しない(凡例は読むだけのもの)。 */
   pointer-events: none;
+  /* 地図の幅を越えて溢れないようにする。 */
+  max-width: calc(100vw - 48px);
 }
 
+.board-legend.open {
+  display: grid;
+}
+
+/*
+ * 見出しは**出さない**。同じ文字がボタンにそのまま出ているので、
+ * 開くと「マスの見かた」が2行続いてしまう。
+ * (要素そのものは読み上げのために残す)
+ */
 .board-legend-title {
-  font-weight: 800;
-  color: var(--salt);
-  letter-spacing: 0.04em;
-  margin-bottom: 1px;
+  display: none;
 }
 
 .board-legend-row {
@@ -2360,47 +2414,51 @@ aside {
   border-radius: 50%;
 }
 
-/* たたみボタンは狭い画面専用。広い画面では凡例を常に出しておくので要らない。
-   器の当たり判定を切っているので、押せる必要があるここだけ戻す。 */
+/*
+ * たたみボタンは**どの幅でも出す**。
+ * 器の当たり判定を切っているので、押せる必要があるここだけ戻す。
+ */
 .board-legend-toggle {
-  display: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px 7px 9px;
+  border-radius: 999px;
+  background: rgb(20 29 49 / 0.92);
+  border: 1px solid var(--line);
+  color: var(--salt);
+  font-size: 0.75rem;
+  font-weight: 800;
+  /* 指で押せる大きさを確保する。 */
+  min-height: 34px;
   pointer-events: auto;
 }
 
-/* 狭い画面では常時出すと地図を覆ってしまうので、たたんでボタンにする。
-   以前はまるごと非表示にしていたが、それだと**スマホで遊ぶ人には凡例が
-   一度も出ない**。説明をいちばん必要とする人に届かないのでは意味がない。 */
+/*
+ * 狭い画面では**「?」だけの丸ボタン**にする。
+ *
+ * 盤面が小さいぶん地名が密なので、文字入りのボタン(152×34)でも
+ * 都市名を覆ってしまう(実測で640/375pxの24通り合計5件)。
+ * 34×34まで縮めると**0件**になる。
+ *
+ * 文字を消しても読み上げ名は `aria-label` が持っているので、
+ * 「名前の無いボタン」にはならない。
+ */
 @media (max-width: 640px) {
+  .board-legend-toggle-text {
+    display: none;
+  }
+
   .board-legend-toggle {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 12px 7px 9px;
-    border-radius: 999px;
-    background: rgb(20 29 49 / 0.92);
-    border: 1px solid var(--line);
-    color: var(--salt);
-    font-size: 0.75rem;
-    font-weight: 800;
-    /* 指で押せる大きさを確保する。 */
-    min-height: 34px;
+    justify-content: center;
+    padding: 0;
+    width: 34px;
+    min-width: 34px;
+    font-size: 0.95rem;
   }
 
   .board-legend {
-    display: none;
-    margin-top: 6px;
     font-size: 0.75rem;
-    /* 地図の幅を越えて溢れないようにする。 */
-    max-width: calc(100vw - 48px);
-  }
-
-  .board-legend.open {
-    display: grid;
-  }
-
-  /* 見出しはボタンに出ているので中では省く(狭い画面で1行ぶん惜しい)。 */
-  .board-legend-title {
-    display: none;
   }
 
   .board-legend-row {

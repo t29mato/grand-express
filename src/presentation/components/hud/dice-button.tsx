@@ -43,7 +43,9 @@ export function DiceButton({
   };
 
   return (
-    <div className="card">
+    /* `turn-card` は、縦積みのときにこの一群だけを盤面の上へ出すための目印。
+       他の `.card` と区別が付かないと、順番を入れ替えられない(globals.css 参照)。 */
+    <div className="card turn-card">
       <div className="turn-row">
         <button
           id="die"
