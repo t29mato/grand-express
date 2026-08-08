@@ -23,6 +23,27 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.22.0",
+    date: "2026-08-08",
+    title: t(
+      "Every town on every board now looks like somewhere|Cada ciudad de cada tablero parece ahora un lugar de verdad|Chaque ville de chaque plateau ressemble enfin à quelque part|どの盤面のどの町も、どこかの場所に見えるようになりました",
+    ),
+    highlights: [
+      t(
+        "All six boards are done. Where a town used to sit against a flat band of colour, there is now a place with people working in it — a bathing step at dusk, an oyster bed at low tide, a lake boat pulled by nothing but the wind. Three hundred and twenty-one towns, none of them bare.|Los seis tableros están listos. Donde una ciudad se recortaba sobre una franja de color plana, hay ahora un lugar con gente trabajando: una escalinata al anochecer, un criadero de ostras en bajamar, una barca de lago movida solo por el viento. Trescientas veintiuna ciudades, ninguna desnuda.|Les six plateaux sont terminés. Là où une ville se détachait sur une bande de couleur unie, il y a désormais un lieu habité : un escalier de bain au crépuscule, un parc à huîtres à marée basse, une barque de lac tirée par le seul vent. Trois cent vingt et une villes, aucune nue.|6つの盤面すべてが仕上がりました。のっぺりした色の帯を背にしていた町が、人の働く場所になっています。夕暮れの沐浴場、引き潮の牡蠣棚、風だけで進む湖の帆引き船。321の町に、空っぽのものはもうありません。",
+      ),
+      t(
+        "On a tablet or a phone, opening a game used to put the die below the map — you had to scroll before you could do anything at all. The die, whose turn it is, and the hint now sit above the map, so the first thing you see is the thing you press.|En tableta o móvil, al empezar una partida el dado quedaba bajo el mapa: había que desplazarse para poder hacer algo. Ahora el dado, el turno y la pista están sobre el mapa: lo primero que ves es lo que hay que pulsar.|Sur tablette ou téléphone, le dé se trouvait sous la carte au lancement : il fallait faire défiler avant de pouvoir agir. Le dé, le tour et l'indice sont désormais au-dessus de la carte : la première chose visible est celle sur laquelle on appuie.|タブレットや携帯でゲームを始めると、サイコロが地図の下にあり、画面を送るまで何も押せませんでした。サイコロと手番と手引きを地図の上に置いたので、最初に目に入るものが、そのまま押すものになります。",
+      ),
+      t(
+        "When something happened on a rival's turn, the result still read as if it had happened to you — “You come out ahead, +Bs 200” under a heading that said CPU 1. Every one of the hundred and seven events has been rewritten so that only the heading says whose turn it is.|Cuando algo ocurría en el turno de un rival, el resultado se leía como si te hubiera pasado a ti: «Sales ganando, +Bs 200» bajo un título que decía CPU 1. Los ciento siete sucesos se han reescrito para que solo el título diga de quién se trata.|Quand un événement survenait chez un adversaire, le résultat se lisait comme s'il vous concernait : « Tu t'en sors gagnant, +Bs 200 » sous un titre indiquant CPU 1. Les cent sept événements ont été réécrits : seul le titre dit à qui cela arrive.|相手の番に何かが起きたとき、結果の行が自分に起きたことのように読めていました。見出しには「CPU 1」と出ているのに「得をした +Bs 200」と書いてあったためです。107件の出来事すべてを書き直し、誰の話かは見出しだけが言うようにしました。",
+      ),
+      t(
+        "The square guide no longer sits open on top of the map, where it covered up to thirteen place names. It is a labelled button now — one press to read it, and nothing hidden behind it. In French the game had been addressing you two different ways in the same screen; it now speaks as it always did elsewhere.|La guía de casillas ya no se queda abierta sobre el mapa, donde tapaba hasta trece nombres. Ahora es un botón con texto: una pulsación para leerla y nada oculto detrás. En francés el juego te trataba de dos formas en la misma pantalla; ahora habla como siempre lo hizo.|Le guide des cases ne reste plus ouvert sur la carte, où il masquait jusqu'à treize noms de lieux. C'est désormais un bouton libellé : une pression pour le lire, et plus rien de caché. En français, le jeu vous tutoyait et vous vouvoyait dans le même écran ; il parle maintenant d'une seule voix.|マスの見かたが、地図の上に開いたままにならなくなりました。最大13件の地名を覆っていたためです。文字の入ったボタンにしたので、1回押せば読め、後ろに隠れるものはありません。フランス語では1つの画面で二通りの呼びかけが混ざっていたのも、元からの言い方に揃えました。",
+      ),
+    ],
+  },
+  {
     version: "0.21.0",
     date: "2026-08-08",
     title: t(
