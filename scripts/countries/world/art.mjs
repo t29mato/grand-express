@@ -1033,12 +1033,14 @@ export const WORLD_BG = {
     `<path d="M34,128c6,-9 50,-9 56,0c-13,3 -43,3 -56,0z" fill="#3f6b3a"/>` +
     `<path d="M40,124c6,-6 42,-6 48,0c-11,2 -37,2 -48,0z" fill="#5f8f4a"/>` +
     `<g stroke="#6b5330" stroke-width="1.4" fill="none"><path d="M63,140l-10,-10M63,140l9,-8"/></g>` +
-    acacia(330, 160, 1.25) +
-    `<path d="M292,130c7,-11 62,-11 69,0c-16,4 -53,4 -69,0z" fill="#3f6b3a"/>` +
-    `<path d="M300,125c7,-7 52,-7 59,0c-14,2 -45,2 -59,0z" fill="#5f8f4a"/>` +
-    `<g stroke="#6b5330" stroke-width="1.6" fill="none"><path d="M329,146l-12,-12M329,146l11,-10"/></g>` +
+    // 右のアカシアは x=352 へ寄せてある。330 のままだと**樹冠が麒麟の首と重なり**、
+    // 角と頭が枝葉に紛れて読めなくなった(撮って気づいた)。
+    acacia(352, 160, 1.1) +
+    `<path d="M318,158c6,-10 55,-10 61,0c-14,4 -47,4 -61,0z" fill="#3f6b3a" transform="translate(0,-24)"/>` +
+    `<path d="M325,152c6,-6 47,-6 53,0c-13,2 -40,2 -53,0z" fill="#5f8f4a" transform="translate(0,-24)"/>` +
+    `<g stroke="#6b5330" stroke-width="1.6" fill="none"><path d="M351,146l-11,-11M351,146l10,-9"/></g>` +
     // 木陰(乾いた地面に落ちる濃い影)
-    `<g fill="#a8863c" opacity=".45"><ellipse cx="64" cy="153" rx="30" ry="6"/><ellipse cx="330" cy="161" rx="36" ry="7"/></g>` +
+    `<g fill="#a8863c" opacity=".45"><ellipse cx="64" cy="153" rx="30" ry="6"/><ellipse cx="352" cy="161" rx="32" ry="6.4"/></g>` +
     // 群れ。象は動きの層が耳をあおぐので (176,196) s=0.92 のまま。
     elephant(176, 196, 0.92) +
     elephant(212, 200, 0.52, "#7a7160", "#6a6152") +
@@ -1057,7 +1059,11 @@ export const WORLD_BG = {
     // 手前の低木と、白く晒された骨
     `<g fill="#8a7a3c"><ellipse cx="20" cy="176" rx="12" ry="6"/><ellipse cx="34" cy="180" rx="8" ry="4.4"/>` +
     `<ellipse cx="372" cy="178" rx="11" ry="5.6"/></g>` +
-    `<g stroke="#e8e2d2" stroke-width="2.2" opacity=".8" fill="none" stroke-linecap="round"><path d="M56,206h14M62,202l2,8"/></g>` +
+    // 晒された骨。**十字に組むと骨に見えない**(プラス記号になった)。
+    // 端の膨らんだ長骨を1本、寝かせて置く。
+    `<path d="M52,204q10,-3 20,0" stroke="#e8e2d2" stroke-width="2.4" fill="none" stroke-linecap="round"/>` +
+    `<g fill="#e8e2d2"><circle cx="51" cy="204.6" r="2.2"/><circle cx="53.4" cy="202.6" r="1.8"/>` +
+    `<circle cx="73" cy="204.6" r="2.2"/><circle cx="70.6" cy="202.4" r="1.8"/></g>` +
     `<g stroke="#a8913c" stroke-width="2" opacity=".7" fill="none"><path d="M20,200v-10M32,204v-12M44,198v-9M356,202v-11M368,206v-13M380,200v-10"/></g>`,
 
   /** 岸壁とクレーンの港。 */
