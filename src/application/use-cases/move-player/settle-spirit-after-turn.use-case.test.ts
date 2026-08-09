@@ -33,4 +33,35 @@ describe("settleSpiritAfterTurn", () => {
     const result = settleSpiritAfterTurn(context, session);
     expect(result.misfortune.holderId).toBe("p2");
   });
+
+  /**
+   * ユーザーからの報告:「misfortuneが起きると、**永遠に発生してしまい**、ゲームが進みません」。
+   *
+   * 原因は2つあった。1つは災難のモーダルを閉じると手番の頭に戻り、押すたび再発したこと。
+   * もう1つが**厄災が誰からも離れなかった**ことで、`settleAfterTurn` はドメインに
+   * 書かれていたのに、どこからも呼ばれていなかった。
+   *
+   * 移り先は**目的地からいちばん遠い人**——最下位に付く。なので
+   * **自分が最下位を脱した時点で離れる**。逆に最下位のままなら持ち続けるが、
+   * それは仕様であって不具合ではない。ここでは前者を固定する。
+   */
+  it("人間が最下位を脱すると、厄災は人間から離れる", () => {
+    const human = createPlayer({ id: PlayerId("p1"), name: "あなた", isCpu: false, startingCash: Money.of(0), startingNode: NodeId("lapaz") });
+    const cpu = createPlayer({ id: PlayerId("p2"), name: "CPU 1", isCpu: true, startingCash: Money.of(0), startingNode: NodeId("lapaz") });
+    let session = createGameSession({ id: GameSessionId("s"), countryId: CountryId("bolivia"), maxMonths: 12, players: [human, cpu], destination: dest });
+    // 人間が最下位のあいだに憑いた状態を作る。
+    session = { ...session, misfortune: attachToFarthestPlayer(INITIAL_MISFORTUNE_STATE, PlayerId("p1")) };
+    expect(settleSpiritAfterTurn(context, session).misfortune.holderId).toBe("p1");
+
+    // 人間だけが目的地まで進む(=最下位でなくなる)。
+    session = {
+      ...session,
+      players: session.players.map((p) => (p.id === human.id ? { ...p, location: cityIdToNodeId(dest) } : p)),
+    };
+
+    expect(
+      settleSpiritAfterTurn(context, session).misfortune.holderId,
+      "最下位を脱しても厄災が離れない(永遠に発生し続ける)",
+    ).toBe("p2");
+  });
 });
