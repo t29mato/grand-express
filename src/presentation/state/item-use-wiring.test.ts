@@ -116,6 +116,30 @@ describe("アイテムを使うと、ちゃんと何かが起きる", () => {
     expect(after.holderId, "厄災が自分に残ったまま").not.toBe(me);
   });
 
+  /**
+   * **誰に押し付けたかを言うこと。**局面は変わっていたのに、それをどこにも
+   * 出していなかった(旅人一覧の👹が動いたことに気づくしかなかった)。
+   * `toPlayerId` は返ってきているのに受け皿が捨てていた。
+   *
+   * すれ違いで移るときは `passLog` が出てトーストにも載る。**同じ出来事**なので、
+   * 同じ行を出す。片方の経路にだけ有って、もう片方に無いのが元の状態だった。
+   */
+  it("厄災を押し付けたら、誰に移ったかを旅の記録に出す", () => {
+    const me = giveItem("challa");
+    const session = useGameStore.getState().session!;
+    const target = session.players.find((p) => p.id !== me)!;
+    useGameStore.setState({
+      session: { ...session, misfortune: { ...session.misfortune, holderId: me, level: 1 } },
+      log: [],
+    });
+    useGameStore.getState().useInventoryItem(0);
+
+    const passed = useGameStore.getState().log.filter((e) => e.key === "passLog");
+    expect(passed.length, "誰に移ったかの行が出ていない").toBe(1);
+    // 引数は [絵文字, 誰から, 誰へ]。すれ違いのときと同じ並び。
+    expect(passed[0].args).toContain(target.name);
+  });
+
   it.each([["coca"], ["pacha"]])("%s は使うものではなく、自動で効く持ちもの", (key) => {
     // 受け身のアイテムは押せない作りなので、押して何も起きなくても不具合ではない。
     // 取り違えないよう、種別として受け身であることをここで押さえておく。

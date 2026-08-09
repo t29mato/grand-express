@@ -31,6 +31,13 @@
  *
  * 1 は**短い答えだと誤検知する**(「湖」「城」など一般名詞)。
  * 出たものは人が見て判断すること。**これは判定ではなく手がかり。**
+ *
+ * ## 判断済みのものは `ACCEPTED` に理由を書いて外す
+ *
+ * 「TGVとは?」「denim(デニム)という語の由来は?」のように、
+ * **原語を出さないと問いが成立しない**ものがある。これを毎回13件挙げていると、
+ * 本物の混入が埋もれる。外したものは `例外` として印字はするので、
+ * 消えるわけではない。**文面を変えれば例外は外れて、また出る。**
  */
 import { readFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -62,7 +69,32 @@ const GENERIC = new Set([
   "以来", "現在", "以上", "以下", "場所", "名前", "呼ば", "知ら", "使わ", "作ら", "建て",
 ]);
 
+/**
+ * 見たうえで「これは問題ではない」と判断したもの。
+ *
+ * `has` はその文に含まれる目印。**問い側の文面を書き換えると目印が消え、
+ * また挙がってくる**——別の文で同じ言い訳が使い回されるのを防ぐため、
+ * わざと文面に結び付けている。
+ */
+const ACCEPTED = [
+  { c: "japan", has: "弾丸列車(bullet train)", why: "英語の通称そのものを訊く問題。原語が無いと問いが成立しない" },
+  { c: "japan", has: "1871", why: "「円」という字の意味を説明している。字そのものが話題" },
+  { c: "india", has: "UTC+5:30", why: "時刻帯の正式な書きかた。カタカナに直すと通じない" },
+  { c: "france", has: "TGVとは", why: "略号そのものを訊く問題" },
+  { c: "france", has: "AOCとは", why: "略号そのものを訊く問題" },
+  { c: "france", has: "denim(デニム)", why: "語の由来を訊く問題。綴りが問いの中身" },
+  { c: "france", has: "serge de Nîmes", why: "語源になった原語。訳すと答えにならない" },
+];
+/** 答えの漏れのうち、見たうえで漏れではないと判断したもの。 */
+const ACCEPTED_LEAKS = [
+  { c: "world", ans: "アフリカ", city: "ダカール", why: "大陸名は世界一周盤面のどのカードにも出る。カードを読んでも答えは分からない" },
+  { c: "world", ans: "エチオピア", city: "アディスアベバ", why: "首都と国名の対応は常識の範囲。カードは首都の話しかしていない" },
+];
+const accepted = (country, text) =>
+  ACCEPTED.find((a) => a.c === country && String(text).includes(a.has));
+
 let problems = 0;
+let excused = 0;
 for (const country of countries) {
   const content = JSON.parse(readFileSync(join(contentDir, `${country}.content.json`), "utf8"));
   const quiz = content.quiz ?? [];
@@ -96,6 +128,14 @@ for (const country of countries) {
       .filter(([, text]) => text.includes(ans) && qWords.some((w) => text.includes(w)))
       .map(([name]) => name);
     if (hit.length) {
+      const ok = ACCEPTED_LEAKS.find(
+        (a) => a.c === country && a.ans === ans && hit.includes(a.city),
+      );
+      if (ok) {
+        excused++;
+        console.log(`  例外 Q${i + 1} 「${ans}」/ ${ok.city}: ${ok.why}`);
+        continue;
+      }
       leaks++;
       problems++;
       const shared = qWords.filter((w) => cards.some(([n, t]) => hit.includes(n) && t.includes(w)));
@@ -109,18 +149,29 @@ for (const country of countries) {
   for (const [i, x] of quiz.entries()) {
     const fields = [["q", x.q], ["f", x.f], ...x.o.map((o, j) => [`o${j}`, o])];
     for (const [tag, tr] of fields) {
+      const okJa = accepted(country, tr.ja);
       for (const m of String(tr.ja ?? "").match(LATIN) ?? []) {
         if (ALLOWED.has(m.toLowerCase())) continue;
+        if (okJa) {
+          excused++;
+          console.log(`  例外 Q${i + 1} ${tag} 英字「${m}」: ${okJa.why}`);
+          continue;
+        }
         lang++;
         problems++;
         console.log(`  混入 Q${i + 1} ${tag} 日本語に英字「${m}」: ${tr.ja}`);
       }
       for (const l of ["en", "es", "fr"]) {
-        if (CJK.test(String(tr[l] ?? ""))) {
-          lang++;
-          problems++;
-          console.log(`  混入 Q${i + 1} ${tag} ${l} に日本語: ${tr[l]}`);
+        if (!CJK.test(String(tr[l] ?? ""))) continue;
+        const ok = accepted(country, tr[l]);
+        if (ok) {
+          excused++;
+          console.log(`  例外 Q${i + 1} ${tag} ${l}: ${ok.why}`);
+          continue;
         }
+        lang++;
+        problems++;
+        console.log(`  混入 Q${i + 1} ${tag} ${l} に日本語: ${tr[l]}`);
       }
       for (const l of LANGS) {
         if (!String(tr[l] ?? "").trim()) {
@@ -153,18 +204,45 @@ for (const country of countries) {
   for (const x of quiz) pos[x.a]++;
   console.log(`  正解の位置(参考。出題時に混ぜられる): 0=${pos[0]} 1=${pos[1]} 2=${pos[2]}`);
 
-  // 5. 題材の偏り。問いと選択肢に出る語を数える
+  // 5. 題材の偏り。問いと選択肢に出る語を数える。
+  //
+  // 初版は漢字しか見ていなかったので、**茨城以外の5盤面で何も出なかった。**
+  // 「インド」「ボリビア」「アルプス」はカタカナで、数えられていなかっただけである
+  // (「偏りが無い」ではなく「測れていない」だった)。カタカナも数える。
+  //
+  // その盤面の名前(インド×22 など)は題材の偏りではなく**枠**なので落とす。
+  // 除外表を書くと盤面ごとに足すことになるので、**問いの4分の1を超える語**を枠と見なす。
+  //
+  // **ひらがなだけの語は数えていない。**「さつまいも」は拾えない。
+  // 「でいちばん」「とされる」のような言い回しが上位を埋めて使いものにならなかった。
+  // ひらがなの題材は目で見るしかない。
+  //
+  // 見るのは**問いと正解だけ**で、外れの選択肢は数えない。
+  // 選択肢まで数えると、フランスで「アルプス×3」「チーズ×3」が挙がった。
+  // 中身を見たら3件とも**別の問いのダミー**(ピレネーを訊く問いの外れがアルプス)で、
+  // チーズを訊いている問いは1問しかなかった。**囮を偏りとして数えていた。**
   const counts = new Map();
   for (const x of quiz) {
-    const text = x.q.ja + x.o.map((o) => o.ja).join("");
-    for (const w of new Set(text.match(/[一-鿿]{2,}/g) ?? [])) {
-      if (w.length < 2 || ["茨城", "日本", "全国", "県内", "地方"].includes(w)) continue;
+    const text = x.q.ja + (x.o[x.a]?.ja ?? "");
+    for (const w of new Set(text.match(/[一-鿿]{2,}|[ァ-ヴ][ァ-ヴー]{2,}/g) ?? [])) {
+      if (GENERIC.has(w)) continue;
       counts.set(w, (counts.get(w) ?? 0) + 1);
     }
   }
-  const top = [...counts].filter(([, n]) => n >= 3).sort((a, b) => b[1] - a[1]);
-  if (top.length) console.log(`  3問以上に出る語: ${top.map(([w, n]) => `${w}×${n}`).join(" ")}`);
+  const frame = Math.max(3, Math.ceil(quiz.length / 4));
+  const top = [...counts]
+    .filter(([, n]) => n >= 3 && n < frame)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 12);
+  const frames = [...counts].filter(([, n]) => n >= frame).map(([w, n]) => `${w}×${n}`);
+  console.log(`  3問以上に出る語: ${top.length ? top.map(([w, n]) => `${w}×${n}`).join(" ") : "なし"}`);
+  if (frames.length) console.log(`  (枠として除外: ${frames.join(" ")})`);
 }
 
-console.log(problems === 0 ? "\n見つかった問題はありません。" : `\n${problems}件、見てください(短い答えは誤検知します)。`);
+const tail = excused ? `(ほかに判断済みの例外が${excused}件)` : "";
+console.log(
+  problems === 0
+    ? `\n見つかった問題はありません。${tail}`
+    : `\n${problems}件、見てください(短い答えは誤検知します)。${tail}`,
+);
 process.exit(problems === 0 ? 0 : 1);

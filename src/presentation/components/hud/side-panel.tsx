@@ -3,6 +3,7 @@
 import { GameSession, currentPlayer } from "../../../domain/game-session/game-session";
 import { totalIncome, monopolyCount, propertyCount } from "../../../domain/property/property-income-service";
 import { GameEngineContext } from "../../../application/game-engine-context";
+import { itemUseBlocker } from "../../../domain/item/item-usability";
 import { economyContextFor } from "../../../application/economy-context";
 import { useLocale } from "../../i18n/locale-context";
 import { CityArt } from "../city/city-art";
@@ -98,7 +99,11 @@ export function ItemBar({
           {player.inventory.map((key, i) => {
             const item = context.content.items.find((it) => it.key === key)!;
             const passive = item.kind === "passive";
-            const usable = !player.isCpu && !passive;
+            // 局面の前提を満たしていなければ押せなくする。**押して何も起きず
+            // アイテムだけ消えるのは行き止まり**なので(出目の選択画面で
+            // 閉じるボタンを置かなかったのと同じ理由)。
+            const blocker = passive ? null : itemUseBlocker(session, player, item.effect);
+            const usable = !player.isCpu && !passive && !blocker;
             const body = (
               <>
                 <span className="e" aria-hidden="true">
@@ -111,6 +116,8 @@ export function ItemBar({
                 {/* CPUの持ちものは押せないので「使う」は出さない(押せると誤解させない)。 */}
                 {usable && <span className="item-tap">{t("useItem")}</span>}
                 {passive && <span className="item-auto">{t("itemAuto")}</span>}
+                {/* **理由を出す。**灰色になっているだけだと「壊れている」に見える。 */}
+                {blocker && <span className="item-auto">{t(blocker)}</span>}
               </>
             );
             return usable ? (

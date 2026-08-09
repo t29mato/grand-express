@@ -84,7 +84,10 @@ describe("ItemBar", () => {
   // 触る画面では読めなかった(= 説明が無いのと同じだった)。
   it("効果の説明がホバーなしで読める", () => {
     renderBar(["pacha"]);
-    expect(screen.getByText("Your next wrong quiz answer counts as correct.")).toBeVisible();
+    // 文言は legacy の「正解にする」から差し替えてある。本作は学習が目的なので
+    // **正誤は変えず損失だけを肩代わりする**(`answer-quiz.use-case.ts` の意図的な変更)。
+    // 以前はここが legacy のままの説明を守っていて、嘘の説明が固定されていた。
+    expect(screen.getByText("Your next wrong answer costs you nothing — but it is still wrong.")).toBeVisible();
   });
 
   it("使えるアイテムはボタンで、押すと使用が呼ばれる", () => {

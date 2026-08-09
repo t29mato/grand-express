@@ -387,9 +387,20 @@ export const useGameStore = create<GameStoreState>((set, get) => {
         case "extra-turn":
           // `hasExtraTurn` が立つ。手番の終わりに `finishHumanLandingAndAdvance` が拾う。
           break;
-        case "repelled-spirit":
-          // 厄災の持ち主が変わるのも `result.session` に入っている。
+        case "repelled-spirit": {
+          // **押し付けた相手を伝える。**局面は `result.session` で変わっていたが、
+          // 誰に移ったかをどこにも出しておらず、旅人一覧の👹が動いたことに
+          // 気づくしかなかった(`toPlayerId` は返ってきているのに捨てていた)。
+          //
+          // すれ違いで移るときは `passLog` が出てトーストにも載る。**同じ出来事**なので、
+          // 文言も見せかたも揃える(押し付けたときだけ黙っている理由が無い)。
+          const { toPlayerId } = outcome;
+          if (toPlayerId) {
+            const to = result.session.players.find((p) => p.id === toPlayerId)?.name ?? String(toPlayerId);
+            set((s) => ({ log: pushLog(s, "passLog", [context.content.spirit.emoji, player.name, to], "bad") }));
+          }
           break;
+        }
         case "no-effect":
           // 使う条件を満たしていなかった場合(厄災を持っていないのに追い払う等)。
           break;

@@ -22,6 +22,9 @@ export const HUD_MESSAGES: Record<Locale, Record<string, string>> = {
   en: {
     yourTurn: "Your turn",
     exactDiceTitle: "Name your number",
+    itemNeedsMisfortune: "Only when the spirit is on you",
+    itemAlreadyExtraTurn: "You already have an extra turn",
+    itemNoOneToPassTo: "No one to pass it to",
     exactDiceHint: "Choose how far to go, then tap where to stop.",
     rollingHint: "The die is rolling…",
     // `overview` は説明文で <b> タグを含むため、ボタンの脇に出す短い名前を別に持つ。
@@ -31,6 +34,9 @@ export const HUD_MESSAGES: Record<Locale, Record<string, string>> = {
   es: {
     yourTurn: "Tu turno",
     exactDiceTitle: "Di tu número",
+    itemNeedsMisfortune: "Solo si llevas el espíritu",
+    itemAlreadyExtraTurn: "Ya tienes un turno extra",
+    itemNoOneToPassTo: "No hay a quién pasárselo",
     exactDiceHint: "Elige cuánto avanzar y luego toca dónde parar.",
     rollingHint: "El dado está rodando…",
     overviewLabel: "Mapa completo",
@@ -39,6 +45,9 @@ export const HUD_MESSAGES: Record<Locale, Record<string, string>> = {
   fr: {
     yourTurn: "À toi de jouer",
     exactDiceTitle: "Annonce ton chiffre",
+    itemNeedsMisfortune: "Seulement si tu portes l'esprit",
+    itemAlreadyExtraTurn: "Tu as déjà un tour en plus",
+    itemNoOneToPassTo: "Personne à qui le refiler",
     exactDiceHint: "Choisis la distance, puis touche la case où t'arrêter.",
     rollingHint: "Le dé roule…",
     overviewLabel: "Carte entière",
@@ -47,6 +56,9 @@ export const HUD_MESSAGES: Record<Locale, Record<string, string>> = {
   ja: {
     yourTurn: "あなたの番",
     exactDiceTitle: "出目を決める",
+    itemNeedsMisfortune: "厄災を背負っているときだけ",
+    itemAlreadyExtraTurn: "すでにもう1回ぶんある",
+    itemNoOneToPassTo: "押し付ける相手がいない",
     exactDiceHint: "何マス進むかを選んでから、止まる場所を選びます。",
     rollingHint: "サイコロが転がっています…",
     overviewLabel: "全体表示",

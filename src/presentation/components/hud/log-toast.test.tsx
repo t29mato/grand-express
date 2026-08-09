@@ -79,7 +79,12 @@ describe("LogToast", () => {
 
   it("直近1件を出し、しばらくすると消える", () => {
     renderToast([entry("carriedToLog", ["You", 9, "Sucre"])]);
-    expect(screen.getByRole("status")).toHaveTextContent("You is carried 9 squares and comes down at Sucre.");
+    // 旅の記録は「名前 — 出来事」の形で、動詞を活用させない。
+    // 以前は "{0} is carried …" のように名前を主語にしていたが、既定名が
+    // 代名詞(You / Tú / Toi)なので三人称の活用と噛み合わず、
+    // "You is carried" のような壊れた英語が毎ターン出ていた。
+    // **このテストは、その壊れた文のほうを固定していた**(直すまで緑だった)。
+    expect(screen.getByRole("status")).toHaveTextContent("You — 9 squares, landing at Sucre.");
 
     act(() => void vi.advanceTimersByTime(TOAST_MS + 10));
     expect(screen.queryByRole("status")).toBeNull();

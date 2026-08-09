@@ -38,6 +38,7 @@ export const BOARD_MESSAGES: Record<Locale, Record<string, string>> = {
     whereYouAreBetween: "You are between {0} and {1}. {2}.",
     arrivedAtCity: "Moved to {0}.",
     arrivedBetween: "Moved to a square between {0} and {1}.",
+    candidateOnLine: ". On the {0}–{1} line.",
   },
   es: {
     boardLabel: "Tablero de juego",
@@ -61,6 +62,7 @@ export const BOARD_MESSAGES: Record<Locale, Record<string, string>> = {
     whereYouAreBetween: "Estás entre {0} y {1}. {2}.",
     arrivedAtCity: "Te mueves a {0}.",
     arrivedBetween: "Te mueves a una casilla entre {0} y {1}.",
+    candidateOnLine: ". En la línea {0}–{1}.",
   },
   fr: {
     boardLabel: "Plateau de jeu",
@@ -84,6 +86,7 @@ export const BOARD_MESSAGES: Record<Locale, Record<string, string>> = {
     whereYouAreBetween: "Tu es entre {0} et {1}. {2}.",
     arrivedAtCity: "Déplacement vers {0}.",
     arrivedBetween: "Déplacement vers une case entre {0} et {1}.",
+    candidateOnLine: ". Sur la ligne {0}–{1}.",
   },
   ja: {
     boardLabel: "ゲーム盤",
@@ -107,5 +110,6 @@ export const BOARD_MESSAGES: Record<Locale, Record<string, string>> = {
     whereYouAreBetween: "いまいるのは{0}と{1}のあいだ。{2}。",
     arrivedAtCity: "{0}に移動しました。",
     arrivedBetween: "{0}と{1}のあいだのマスに移動しました。",
+    candidateOnLine: "。{0}〜{1}の線。",
   },
 };

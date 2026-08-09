@@ -4321,10 +4321,10 @@
         "ja": "パチャママの祝福"
       },
       "d": {
-        "en": "Your next wrong quiz answer counts as correct.",
-        "es": "Tu próximo fallo cuenta como acierto.",
-        "fr": "Ta prochaine erreur compte comme juste.",
-        "ja": "次の不正解を正解にする。"
+        "en": "Your next wrong answer costs you nothing — but it is still wrong.",
+        "es": "Tu próximo fallo no te cuesta nada, pero sigue siendo un fallo.",
+        "fr": "Ta prochaine erreur ne te coûte rien — mais elle reste une erreur.",
+        "ja": "次の不正解の損失を肩代わりする。不正解であることは変わらない。"
       },
       "f": {
         "en": "Pachamama, Mother Earth, is honoured with offerings throughout August.",
