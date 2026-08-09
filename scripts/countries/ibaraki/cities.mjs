@@ -241,7 +241,7 @@ export const IBARAKI_CITIES = {
   ),
   ushiku: city(
     "Ushiku|Ushiku|Ushiku|牛久",
-    140.15, 35.98, "nan", "faith", "citygreen", "l",
+    140.15, 35.98, "nan", "daibutsu", "citygreen", "l",
     "A bronze figure with a lift inside|Una figura de bronce con ascensor dentro|Une statue de bronze avec un ascenseur|中に昇降機のある青銅の像",
     "The standing bronze buddha here is 120 m tall, three times the height of the Statue of Liberty's figure, and a lift carries visitors up to windows in its chest. A short walk away is the winery that made Japan's first domestic wine from its own grapes in 1903.|El buda de bronce mide 120 m, tres veces la figura de la Estatua de la Libertad, y un ascensor sube hasta ventanas en su pecho. Cerca está la bodega que hizo el primer vino japonés de uva propia en 1903.|Le bouddha de bronze mesure 120 m, trois fois la statue de la Liberté, et un ascenseur mène à des fenêtres dans sa poitrine. Tout près, le chai qui fit en 1903 le premier vin japonais de raisin local.|立像の青銅仏は高さ120mで、自由の女神の像の三倍にあたる。昇降機で胸の窓まで上がれる。歩いてすぐの所には、1903年に自国産の葡萄で日本初の国産ワインを造った醸造所がある。",
     [prop("Chest Observation Deck|Mirador del pecho|Belvédère de la poitrine|胸の展望台", 320, 66),

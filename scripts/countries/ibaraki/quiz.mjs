@@ -8,12 +8,41 @@
  *   7〜8 … 理由が土地に結びついていて、踏み込んだ知識が要る
  *   9〜10 … 現地の人か、強い関心のある人でないと難しい
  *
- * **都市カードと題材が重ならないようにしてある。**同じ話を二度読ませないため、
- * 偕楽園・笠間焼・神磯の鳥居・日立製作所・五浦の六角堂・花貫渓谷・西山荘・
- * 西塩子の回り舞台・袋田の滝・鹿島の要石・潮来の嫁入り舟・神栖のピーマン・
- * 行方のさつまいも・鉾田のメロン・つくばの研究学園都市・土浦の花火・石岡の国府・
- * かすみがうらの帆引き船・牛久大仏・龍ケ崎の撞舞・取手宿・阿見の予科練・
- * 稲敷の大杉神社・つくばみらいの板橋不動尊は、いずれも都市カードが扱うので避けている。
+ * ## 都市カードとの重なりについて(**確かめかたを必ず読むこと**)
+ *
+ * 同じ話を二度読ませないため、都市カードが扱う題材は避ける。
+ * 偕楽園・笠間焼・神磯の鳥居・日立製作所・五浦の六角堂・袋田の滝・鹿島の要石・
+ * 潮来の嫁入り舟・神栖のピーマン・鉾田のメロン・つくばの研究学園都市・土浦の花火・
+ * 石岡の国府・かすみがうらの帆引き船・牛久大仏・龍ケ崎の撞舞・阿見の予科練などは、
+ * いずれもカードが扱うので出さない。
+ *
+ * **ただし、ここにそう書いてあることと、守られていることは別である。**
+ * 2026-08-09 に全40問 × 全36カードを総当たりしたところ、**4問で破られていた。**
+ *
+ *   Q6  全国一の産出量は? → れんこん      … 土浦カード「れんこんの産出が日本一である」
+ *   Q18 空港が滑走路を共用する相手は? → 自衛隊 … 小美玉カード「航空自衛隊の基地の端に開いた」
+ *   Q19 大洗のフェリーが渡る島は? → 北海道   … 大洗カード「北海道へ夜行のフェリーが出て」
+ *   Q21 牛久の醸造場が開かれたのは? → 1900年代 … 牛久カード「1903年に……日本初の国産ワイン」
+ *
+ * **どれも問いの語がそのまま答えごとカードに載っていた。**
+ * 1問ずつ読んでも出ない(気づけたのは1件だけ)。**必ず機械で確かめること。**
+ *
+ * ```
+ * node scripts/check-quiz.mjs ibaraki
+ * ```
+ *
+ * 答えの漏れ・4言語の混入と欠け・正解の位置の偏り・題材の偏りをまとめて見る。
+ * **短い答え(「湖」「城」など)は誤検知する**ので、出たものは人が判断する。
+ *
+ * ## 問いの作り
+ *
+ * - **「なぜ」を問わない。**理由は複数あって答えが1つに定まらない。
+ *   「何が」「どこが」「いくつ」にする
+ * - **前提を問いの中に置かない。**「九割を占めるが、その理由は?」ではなく
+ *   「九割を占める県は?」
+ * - **誤答は他県の実在するものにする。**明らかに嘘の選択肢を並べると消去法で解けてしまう
+ * - **同じ題材を重ねない。**さつまいもが3問、筑波山が5問あった。
+ *   いまは さつまいも1・筑波山3(ほかに1問は誤答としてのみ登場)・水戸5
  *
  * 選択肢は3つ。正解の位置(`a`)は 0/1/2 がほぼ同数になるよう散らしてある。
  */
@@ -87,14 +116,14 @@ export const IBARAKI_QUIZ = [
   ),
   q(
     3,
-    "Which of these does Ibaraki grow more of than any other prefecture?|¿De cuál de estos produce Ibaraki más que ninguna otra prefectura?|De quoi Ibaraki produit-elle plus que toute autre préfecture ?|茨城県が全国一の産出量をもつのは?",
+    "Roughly how many people live in Ibaraki?|¿Cuánta gente vive aproximadamente en Ibaraki?|Combien de personnes vivent à peu près à Ibaraki ?|茨城県の人口は、およそどれくらいか?",
     [
-      "Coffee|Café|Le café|コーヒー",
-      "Lotus root|Raíz de loto|La racine de lotus|れんこん",
-      "Olives|Aceitunas|Les olives|オリーブ",
+      "About 280,000|Unas 280.000|Environ 280 000|およそ28万人",
+      "About 2.8 million|Unos 2,8 millones|Environ 2,8 millions|およそ280万人",
+      "About 28 million|Unos 28 millones|Environ 28 millions|およそ2800万人",
     ],
     1,
-    "Almost half of Japan's lotus root comes out of the wet flats around Kasumigaura, where the soil is too soft and waterlogged for rice to do well. It is dug by hand in winter, the grower standing in the mud and washing each root free with a jet of water.|Casi la mitad del loto japonés sale de los llanos húmedos de Kasumigaura, donde el suelo es demasiado blando para el arroz. Se arranca a mano en invierno, con chorro de agua.|Près de la moitié du lotus japonais vient des bas-fonds humides de Kasumigaura, trop mous et gorgés d'eau pour le riz. On l'arrache à la main en hiver, au jet d'eau.|日本のれんこんのおよそ半分が、霞ヶ浦周辺の低湿地から穫れる。土が柔らかく水を含みすぎて稲には向かない土地である。冬、泥の中に立って水を噴きつけながら一本ずつ手で掘り上げる。",
+    "That puts it around eleventh among the forty-seven prefectures — more people than Kyoto, fewer than Hiroshima. Most of them live in the southern third, within commuting distance of Tokyo, while the northern hills have been losing people for decades. Twenty-eight million would be more than Tokyo and Osaka together.|Es el undécimo de las cuarenta y siete prefecturas: más que Kioto, menos que Hiroshima. La mayoría vive en el tercio sur, a distancia de viaje diario de Tokio.|Cela le place onzième des quarante-sept préfectures : plus que Kyoto, moins que Hiroshima. La plupart vivent dans le tiers sud, à distance pendulaire de Tokyo.|四十七の都道府県のうち十一番目あたりで、京都より多く、広島より少ない。その大半は東京へ通える南の三分の一に住み、北の丘陵地帯は何十年も人が減り続けている。2800万人なら、東京と大阪を合わせたより多いことになる。",
   ),
   q(
     3,
@@ -221,25 +250,25 @@ export const IBARAKI_QUIZ = [
   ),
   q(
     6,
-    "Ibaraki Airport shares its runway with what?|El aeropuerto de Ibaraki comparte pista con ¿qué?|L'aéroport d'Ibaraki partage sa piste avec quoi ?|茨城空港が滑走路を共用している相手は?",
+    "Kasumigaura ranks where among the lakes of Japan by area?|¿Qué puesto ocupa Kasumigaura entre los lagos de Japón por superficie?|Quel rang Kasumigaura occupe-t-il parmi les lacs du Japon par la surface ?|霞ヶ浦は日本の湖のなかで、広さが何番目か?",
     [
-      "A motor-racing circuit|Un circuito de carreras|Un circuit automobile|自動車のレース場",
-      "A university|Una universidad|Une université|大学",
-      "An air force base|Una base aérea|Une base aérienne|航空自衛隊の基地",
+      "First|El primero|Le premier|1番目",
+      "Second|El segundo|Le deuxième|2番目",
+      "Tenth|El décimo|Le dixième|10番目",
     ],
-    2,
-    "The passenger terminal was added to Hyakuri air base in 2010 and has just a handful of gates, reached on foot across the apron. Because the military already owned the runway, the prefecture built one of the cheapest airports in the country.|La terminal se añadió a la base aérea de Hyakuri en 2010 y tiene apenas unas puertas, a las que se llega a pie por la pista. Al ser militar el asfalto, salió de los aeropuertos más baratos del país.|Le terminal fut greffé sur la base aérienne de Hyakuri en 2010 : quelques portes seulement, rejointes à pied sur le tarmac. La piste étant militaire, ce fut l'un des aéroports les moins chers du pays.|旅客ターミナルは2010年に百里飛行場へ後から足されたもので、搭乗口はごくわずか、駐機場を歩いて渡る。滑走路が既に自衛隊のものだったため、全国でも建設費のきわめて安い空港になった。",
+    1,
+    "It covers about 220 square kilometres, behind Lake Biwa and ahead of every other lake in the country. It is also very shallow — four metres at the average — so the whole of it warms and cools quickly, and a strong wind can stir the bottom across the entire lake.|Ocupa unos 220 km², por detrás del lago Biwa y por delante de cualquier otro del país. Es además muy somero, cuatro metros de media, así que se calienta y enfría deprisa.|Il couvre environ 220 km², derrière le lac Biwa et devant tous les autres du pays. Il est aussi très peu profond, quatre mètres en moyenne, et se réchauffe donc vite.|面積はおよそ220平方キロメートルで、琵琶湖に次ぎ、ほかのどの湖よりも広い。同時にきわめて浅く、平均で4mほどしかないため、全体が早く温まり早く冷める。強い風が吹けば、湖じゅうの底がかき混ぜられる。",
   ),
   q(
     6,
-    "Ōarai's ferries sail overnight to which island?|Los ferris de Ōarai navegan de noche hacia ¿qué isla?|Les ferries d'Ōarai gagnent de nuit quelle île ?|大洗から夜行のフェリーが渡る島は?",
+    "Which railway line runs the length of Ibaraki's Pacific side?|¿Qué línea de tren recorre todo el lado pacífico de Ibaraki?|Quelle ligne de chemin de fer parcourt la façade pacifique d'Ibaraki ?|茨城県の太平洋側を南北に貫く鉄道の路線は?",
     [
-      "Hokkaidō|Hokkaidō|Hokkaidō|北海道",
-      "Shikoku|Shikoku|Shikoku|四国",
-      "Okinawa|Okinawa|Okinawa|沖縄",
+      "The Tōhoku Main Line|La línea principal Tōhoku|La ligne principale Tōhoku|東北本線",
+      "The Takasaki Line|La línea Takasaki|La ligne Takasaki|高崎線",
+      "The Jōban Line|La línea Jōban|La ligne Jōban|常磐線",
     ],
-    0,
-    "The crossing to Tomakomai takes about nineteen hours and carries as many lorries as passengers, because it saves a long haul up the length of Honshū. Much of the milk and produce that leaves Hokkaidō for the Tokyo region comes ashore here.|La travesía a Tomakomai dura unas diecinueve horas y lleva tantos camiones como pasajeros, pues ahorra recorrer todo Honshū.|La traversée vers Tomakomai dure environ dix-neuf heures et transporte autant de camions que de passagers : elle épargne toute la longueur de Honshū.|苫小牧までは19時間ほどで、乗客と同じくらい貨物車を運ぶ。本州を縦断する長い陸送を省けるからである。北海道から首都圏へ向かう牛乳や農産物の多くが、この港に揚がる。",
+    2,
+    "Its name joins the old provinces it links, Hitachi and Iwaki, and it carries most of the traffic between Tokyo and the coastal towns of the north-east. The two other lines named here leave Tokyo as well, but strike inland through Tochigi and Gunma instead.|Su nombre une las antiguas provincias que enlaza, Hitachi e Iwaki, y lleva casi todo el tráfico entre Tokio y las costas del noreste. Las otras dos líneas salen también de Tokio, pero tierra adentro.|Son nom réunit les anciennes provinces qu'elle relie, Hitachi et Iwaki, et elle porte l'essentiel du trafic entre Tokyo et les côtes du nord-est. Les deux autres lignes partent aussi de Tokyo, mais vers l'intérieur.|路線名は、結んでいる旧国名の常陸と磐城から一字ずつ取ったものである。東京と東北の海沿いの町を行き来する人と荷の多くがここを通る。ほかの二つも東京から北へ向かう幹線だが、栃木や群馬を抜けて内陸を走る。",
   ),
 
   // ---------------- 7〜8: 理由が土地に結びついている ----------------
@@ -254,16 +283,19 @@ export const IBARAKI_QUIZ = [
     1,
     "The coast here is a straight sandy beach with no bay at all, so from 1963 the harbour was cut inland instead — a Y-shaped trench with two arms, one for steel and one for chemicals. Fishing villages on poor sand were turned into one of Japan's largest industrial zones in about a decade.|La costa es una playa recta sin bahía, así que desde 1963 se excavó el puerto tierra adentro: una zanja en Y con dos brazos, uno para el acero y otro para la química.|La côte est une plage rectiligne sans baie : dès 1963 on creusa le port dans les terres, une tranchée en Y à deux bras, l'un pour l'acier, l'autre pour la chimie.|この海岸は湾のないまっすぐな砂浜なので、1963年から港のほうを内陸へ掘り込んだ。二本の腕をもつY字形の掘割で、一方が鉄、もう一方が化学のためである。痩せた砂地の漁村が十年ほどで国内有数の工業地帯に変わった。",
   ),
+  // 元は「牛久のワイン醸造場が開かれた年代」だったが、**牛久の都市カードに
+  // 「1903年に……日本初の国産ワインを造った醸造所」と答えがそのまま書いてあった。**
+  // 冒頭の「都市カードと題材が重ならないようにしてある」に反していたので差し替えた。
   q(
     7,
-    "Ushiku holds what is called Japan's first proper winery, opened in which decade?|Ushiku alberga la que se llama primera bodega moderna de Japón, abierta ¿en qué década?|Ushiku abrite ce qu'on dit la première vraie cave du Japon, ouverte en quelle décennie ?|日本初の本格的なワイン醸造場とされる牛久のそれが開かれたのは?",
+    "Which chicken is raised in the northern hills of Ibaraki and prized for its firm meat?|¿Qué pollo se cría en las colinas del norte de Ibaraki y se aprecia por su carne firme?|Quel poulet élève-t-on sur les collines du nord d'Ibaraki, prisé pour sa chair ferme ?|県北の山あいで育てられ、身の締まった肉で知られる地鶏は?",
     [
-      "The 1900s|Los años 1900|Les années 1900|1900年代",
-      "The 1950s|Los años 1950|Les années 1950|1950年代",
-      "The 1980s|Los años 1980|Les années 1980|1980年代",
+      "Hinai jidori|El jidori de Hinai|Le jidori de Hinai|比内地鶏",
+      "Nagoya cochin|El cochin de Nagoya|La cochin de Nagoya|名古屋コーチン",
+      "Okukuji shamo|El shamo de Okukuji|Le shamo d'Okukuji|奥久慈しゃも",
     ],
-    0,
-    "Kamiya Denbei planted vines on the sandy plateau and finished his château in 1903, doing everything from growing to bottling on one site — the first in Japan to do so. He had already made his money selling a cheap sweetened brandy in Asakusa, and put it all into the vineyard.|Kamiya Denbei plantó viñas en la meseta arenosa y terminó su château en 1903, cultivando y embotellando en un mismo sitio, el primero de Japón.|Kamiya Denbei planta des vignes sur le plateau sableux et acheva son château en 1903, cultivant et embouteillant sur un même site, une première au Japon.|神谷伝兵衛は砂質の台地に葡萄を植え、1903年に醸造場を完成させた。栽培から瓶詰めまでを一か所で行う日本最初の施設である。浅草で安価な甘味葡萄酒を売って得た財を、すべてこの葡萄畑に注ぎ込んだ。",
+    2,
+    "Shamo were bred as fighting birds, so they grow slowly and put on hard, lean muscle. Around Daigo they are kept for about five months — roughly twice as long as an ordinary table bird — and the meat is firm enough that it is usually simmered rather than fried. Hinai jidori comes from Akita and the Nagoya cochin from Aichi.|El shamo se crió como ave de pelea: crece despacio y forma músculo magro y duro. Cerca de Daigo se cría unos cinco meses, el doble que un pollo común. El hinai jidori es de Akita y el cochin de Nagoya, de Aichi.|Le shamo fut élevé pour le combat : il grandit lentement et prend un muscle maigre et ferme. Vers Daigo on l'élève cinq mois environ, deux fois plus qu'un poulet ordinaire. Le hinai jidori vient d'Akita, la cochin de Nagoya d'Aichi.|しゃもはもともと闘鶏として育てられた鶏で、ゆっくり育ち、締まった赤身がつく。大子のあたりでは五か月ほどかけて飼う。ふつうの肉用鶏のおよそ倍で、肉が硬いため揚げるより煮て食べることが多い。比内地鶏は秋田、名古屋コーチンは愛知のものである。",
   ),
   q(
     7,
@@ -278,14 +310,14 @@ export const IBARAKI_QUIZ = [
   ),
   q(
     7,
-    "Why is the shore at Ōarai and Hitachi a well-known place to watch the first sunrise of the year?|¿Por qué la costa de Ōarai e Hitachi es famosa para ver el primer amanecer del año?|Pourquoi la côte d'Ōarai et d'Hitachi est-elle réputée pour le premier lever de soleil de l'année ?|大洗や日立の海岸が初日の出の名所とされる理由は?",
+    "Which explorer, born in Ibaraki, proved Sakhalin was an island and left his name on the strait?|¿Qué explorador nacido en Ibaraki probó que Sajalín era una isla y dio su nombre al estrecho?|Quel explorateur né à Ibaraki prouva que Sakhaline était une île et laissa son nom au détroit ?|樺太が島であることを確かめ、海峡に名を残した茨城生まれの探検家は?",
     [
-      "It is the highest cliff in Japan|Es el acantilado más alto de Japón|C'est la plus haute falaise du Japon|日本一高い崖だから",
-      "The sun rises there before anywhere else in Japan|Allí sale antes que en ningún otro sitio de Japón|Le soleil s'y lève avant partout ailleurs au Japon|日本で最も早く日が昇るから",
-      "It faces due east over open ocean with nothing in the way|Mira al este sobre mar abierto, sin nada delante|Elle regarde plein est sur la pleine mer, sans rien devant|遮るもののない東向きの外洋に面しているから",
+      "Inō Tadataka|Inō Tadataka|Inō Tadataka|伊能忠敬",
+      "Mogami Tokunai|Mogami Tokunai|Mogami Tokunai|最上徳内",
+      "Mamiya Rinzō|Mamiya Rinzō|Mamiya Rinzō|間宮林蔵",
     ],
     2,
-    "The coast runs almost north–south and faces open Pacific, so the sun comes straight up out of the water rather than over a headland or an island. Hitachi's station was rebuilt in glass over the platforms so that passengers see the same sunrise from inside it.|La costa corre casi de norte a sur frente al Pacífico abierto: el sol sale del agua y no tras un cabo. La estación de Hitachi se rehízo en vidrio para verlo desde dentro.|La côte court presque nord-sud face au Pacifique ouvert : le soleil sort de l'eau, non derrière un cap. La gare d'Hitachi fut refaite en verre pour qu'on le voie de l'intérieur.|海岸線がほぼ南北に走り、外洋の太平洋に正面から向いているので、岬や島の陰からではなく水平線から日が直接昇る。日立の駅はホームの上まで硝子で建て直され、乗客が構内から同じ日の出を見られるようになっている。",
+    "He was a farmer's son from the flat country near the Tone, went north as a surveyor, and in 1809 crossed to the mainland coast and followed the water round — settling a question European maps had got wrong. The strait is still called Mamiya on Japanese charts. Inō Tadataka, who taught him, was from Chiba; Mogami Tokunai from Yamagata.|Hijo de campesinos de la llanura del Tone, fue al norte como agrimensor y en 1809 rodeó el agua, resolviendo lo que los mapas europeos erraban. Inō Tadataka, su maestro, era de Chiba; Mogami Tokunai, de Yamagata.|Fils de paysans de la plaine de la Tone, il partit au nord comme arpenteur et, en 1809, contourna le détroit, tranchant ce que les cartes européennes ignoraient. Inō Tadataka, son maître, venait de Chiba ; Mogami Tokunai, de Yamagata.|利根川べりの平地に生まれた農民の子で、測量方として北へ渡り、1809年に対岸まで越えて水路を回り込み、ヨーロッパの地図が誤っていた問いに決着をつけた。日本の海図では今もその名で呼ばれる。師の伊能忠敬は千葉、最上徳内は山形の生まれである。",
   ),
   q(
     8,
@@ -320,16 +352,20 @@ export const IBARAKI_QUIZ = [
     2,
     "Usen lived by the pond for forty years and painted kappa so often that he signed himself \"the kappa's friend\"; his studio there is called the Kappa Hall. He drew them not as monsters but as idle, slightly embarrassed neighbours sitting about in the reeds.|Usen vivió cuarenta años junto al estanque y pintó tantos kappa que firmaba \"el amigo de los kappa\"; su taller se llama la Sala del Kappa.|Usen vécut quarante ans au bord de l'étang et peignit tant de kappa qu'il signait « l'ami des kappa » ; son atelier s'appelle la salle du Kappa.|小川芋銭は四十年をこの沼のほとりで過ごし、河童をあまりに多く描いたので「河童の友」と署名した。画室は「河童の碑」と呼ばれる。妖怪としてではなく、葦の間に所在なげに座る、少し気恥ずかしそうな隣人として描いた。",
   ),
+  // 元は「干し芋が茨城に集中している理由は?」だったが、問題が2つあった。
+  //   ・「なぜ」を問うので答えが1つに定まらない
+  //   ・**問題文が Q13(全国の九割を作っているものは? → 干し芋)の答えを漏らしていた**
+  // さつまいもの問題が3問あったのも多すぎるので、題材ごと差し替えた。
   q(
     8,
-    "Why does Ibaraki dry so much of Japan's sweet potato rather than another prefecture?|¿Por qué seca Ibaraki tanto boniato y no otra prefectura?|Pourquoi Ibaraki sèche-t-elle tant de patates douces plutôt qu'une autre préfecture ?|干し芋を作るのが他県ではなく茨城に集中している理由は?",
+    "Which brand of black-haired wagyu beef is raised in Ibaraki?|¿Qué marca de wagyū negro se cría en Ibaraki?|Quelle marque de wagyū noir élève-t-on à Ibaraki ?|茨城県で育てられている黒毛和牛の銘柄は?",
     [
-      "Its winters are cold, dry and windy with little snow|Sus inviernos son fríos, secos y ventosos, con poca nieve|Ses hivers sont froids, secs, venteux et peu neigeux|冬が寒く乾いて風があり、雪が少ないから",
-      "It has the warmest winters in Japan|Tiene los inviernos más cálidos de Japón|Elle a les hivers les plus doux du Japon|冬が日本でいちばん暖かいから",
-      "It is the only place the crop will grow|Es el único sitio donde crece|C'est le seul endroit où la culture pousse|そこでしか作物が育たないから",
+      "Tajima beef|Ternera de Tajima|Le bœuf de Tajima|但馬牛",
+      "Yonezawa beef|Ternera de Yonezawa|Le bœuf de Yonezawa|米沢牛",
+      "Hitachi beef|Ternera de Hitachi|Le bœuf de Hitachi|常陸牛",
     ],
-    0,
-    "The slices are laid on open racks and must dry before they spoil, so the weather does the work: cold enough to keep them, dry enough to draw the water out, windy enough to move it along, and clear enough not to soak them. Sweet potatoes grow in many places, but few have all four at once.|Las lonchas se tienden al aire libre y deben secarse antes de estropearse: el clima hace el trabajo. El boniato crece en muchos sitios; pocos reúnen las cuatro condiciones.|Les tranches sèchent à l'air libre avant de s'abîmer : c'est le climat qui travaille. La patate douce pousse partout, mais peu de lieux réunissent les quatre conditions.|薄く切った芋は野天の棚に並べられ、傷む前に乾かねばならない。仕事をするのは天候である。保つだけの寒さ、水を抜く乾き、それを運ぶ風、濡らさない晴天。さつまいも自体は各地で穫れるが、この四つが揃う土地は少ない。",
+    2,
+    "The name is the old province, and only cattle fattened for the last stretch inside the prefecture and graded highly may carry it. The herds are small — a few dozen head to a farm — and much of the feed is rice straw from the surrounding paddies. Tajima cattle come from Hyōgo and Yonezawa beef from Yamagata.|El nombre es el de la antigua provincia, y solo lo llevan reses cebadas en la prefectura y bien calificadas. Los rebaños son pequeños y comen paja de los arrozales vecinos. El tajima es de Hyōgo; el yonezawa, de Yamagata.|Le nom est celui de l'ancienne province, et seules les bêtes engraissées dans la préfecture et bien notées peuvent le porter. Les troupeaux sont petits et mangent la paille des rizières voisines. Le tajima vient de Hyōgo, le yonezawa de Yamagata.|名は旧国名からとられており、仕上げの期間を県内で肥育し、格付けの高いものだけがこれを名乗れる。一戸あたり数十頭という小さな群れが多く、飼料には周りの田から出る稲藁がよく使われる。但馬牛は兵庫、米沢牛は山形のものである。",
   ),
 
   // ---------------- 9〜10: 現地の人か、関心の強い人でないと ----------------
@@ -348,7 +384,7 @@ export const IBARAKI_QUIZ = [
     9,
     "Mito's name is usually explained as referring to what?|El nombre de Mito suele explicarse como referido a ¿qué?|Le nom de Mito s'explique d'ordinaire par quoi ?|「水戸」という地名の由来として、ふつう説かれるのは?",
     [
-      "A gate on the water|Una puerta sobre el agua|Une porte sur l'eau|水の門(river gateway)",
+      "A gate on the water|Una puerta sobre el agua|Une porte sur l'eau|水の門",
       "Three doorways|Tres puertas|Trois portes|三つの門",
       "A well that never dries|Un pozo que nunca se seca|Un puits qui ne tarit pas|涸れない井戸",
     ],
@@ -357,14 +393,14 @@ export const IBARAKI_QUIZ = [
   ),
   q(
     9,
-    "Mount Tsukuba is made largely of gabbro and granite, which gives it what?|El monte Tsukuba es sobre todo gabro y granito, lo que le da ¿qué?|Le mont Tsukuba est surtout fait de gabbro et de granite, ce qui lui donne quoi ?|筑波山は主に斑れい岩と花崗岩からなる。そこから生じている特徴は?",
+    "Which writer from western Ibaraki wrote the farming novel \"Soil\"?|¿Qué escritor del oeste de Ibaraki escribió la novela campesina \"Tierra\"?|Quel écrivain de l'ouest d'Ibaraki écrivit le roman paysan \"La Terre\" ?|農村の暮らしを描いた小説『土』を書いた、県西生まれの作家は?",
     [
-      "Hot springs at the summit|Aguas termales en la cima|Des sources chaudes au sommet|山頂の温泉",
-      "A permanent snow cap|Nieves perpetuas|Des neiges éternelles|万年雪",
-      "Rounded boulders that split into slabs|Bloques redondeados que se parten en losas|Des blocs arrondis qui se fendent en dalles|板状に割れる丸い巨岩",
+      "Shimazaki Tōson|Shimazaki Tōson|Shimazaki Tōson|島崎藤村",
+      "Ishikawa Takuboku|Ishikawa Takuboku|Ishikawa Takuboku|石川啄木",
+      "Nagatsuka Takashi|Nagatsuka Takashi|Nagatsuka Takashi|長塚節",
     ],
     2,
-    "Unlike almost every other famous Japanese mountain, Tsukuba is not a volcano: it is a body of deep-cooled rock that the surrounding land wore away from around, leaving it standing. The stone splits along flat joints, and the boulders it sheds have been quarried for grave markers and bridge piers for centuries.|A diferencia de casi todo monte célebre de Japón, el Tsukuba no es un volcán: es roca enfriada en profundidad que quedó en pie al erosionarse lo demás.|Contrairement à presque tous les monts célèbres du Japon, le Tsukuba n'est pas un volcan : c'est une roche refroidie en profondeur, restée debout quand le reste s'est usé.|日本の名だたる山のほとんどと違い、筑波山は火山ではない。地下深くで冷え固まった岩体が、周りの土地が削られたあとに残ったものである。石は平らな節理に沿って割れ、崩れ落ちた巨岩は何世紀も墓石や橋脚に切り出されてきた。",
+    "He farmed the land he wrote about, near what is now Jōsō, and set the book among tenant families over a single year of work. It ran in a newspaper in 1910 and readers complained that nothing happened in it. He was first a poet, a pupil of Masaoka Shiki, and died at thirty-six. Tōson was from Nagano and Takuboku from Iwate.|Cultivó la tierra que describió, cerca de la actual Jōsō, y situó el libro entre familias arrendatarias a lo largo de un año. Se publicó por entregas en 1910. Tōson era de Nagano; Takuboku, de Iwate.|Il cultivait la terre qu'il décrivait, près de l'actuelle Jōsō, et situa le livre chez des métayers sur une année. Paru en feuilleton en 1910. Tōson venait de Nagano, Takuboku d'Iwate.|彼は書いた土地を自ら耕していた。いまの常総のあたりで、小作の家族の一年を追う形で書かれている。1910年に新聞へ連載され、読者からは「何も起こらない」と苦情が来た。もとは正岡子規に学んだ歌人で、三十六で没した。島崎藤村は長野、石川啄木は岩手の生まれである。",
   ),
   q(
     9,
@@ -379,25 +415,27 @@ export const IBARAKI_QUIZ = [
   ),
   q(
     10,
-    "A poem in the classic Hundred Poets anthology compares deepening love to what on Mount Tsukuba?|Un poema de la antología de los Cien Poetas compara el amor que crece con ¿qué del monte Tsukuba?|Un poème des Cent Poètes compare l'amour qui s'accroît à quoi, au mont Tsukuba ?|百人一首の歌が、募る恋にたとえた筑波山のものは?",
+    "On cold mornings the Kuji River carries thin plates of ice downstream. What are they called?|En mañanas frías el río Kuji arrastra láminas finas de hielo. ¿Cómo se llaman?|Par les matins froids, la Kuji charrie de minces plaques de glace. Comment les nomme-t-on ?|冷えた朝、県北の久慈川を薄い氷の板が流れてゆく。これを何と呼ぶか?",
     [
-      "The wind through the pines|El viento entre los pinos|Le vent dans les pins|松を渡る風",
-      "The shadow of the twin peaks|La sombra de las dos cumbres|L'ombre des deux cimes|二つの峰の影",
-      "A stream that gathers into a deep pool|Un arroyo que se remansa en una poza|Un ruisseau qui se creuse en gouffre|流れ落ちて淵となる川",
+      "Diamond dust|Polvo de diamante|Poudre de diamant|ダイヤモンドダスト",
+      "Omiwatari|Omiwatari|Omiwatari|御神渡り",
+      "Shiga|Shiga|Shiga|シガ",
     ],
     2,
-    "The retired emperor Yōzei wrote that the Minano River falls from the peak and piles up until it becomes a deep pool, as his longing had. The stream is small enough to step across near the top, which is the point of the image — it is the piling up, not the size, that makes the depth.|El emperador retirado Yōzei escribió que el río Minano cae de la cumbre y se acumula hasta hacerse un remanso, como su anhelo. Arriba se cruza de un paso.|L'empereur retiré Yōzei écrivit que la Minano tombe du sommet et s'amasse jusqu'à devenir un gouffre, comme son désir. En haut, on l'enjambe d'un pas.|陽成院は「筑波嶺の峰より落つるみなの川 恋ぞ積もりて淵となりぬる」と詠んだ。男女川は山頂近くでは一跨ぎで越えられるほど細い。そこがこの歌の眼目で、深さを作るのは水量ではなく積み重なりだという。",
+    "Ice forms on the shallows overnight, breaks up as the day warms, and drifts down in sheets that grind against each other with a dry sound. It needs a cold night, clear sky and low water all at once, so it appears only a handful of mornings a year and people drive out before dawn to see it. Diamond dust is airborne ice crystals; omiwatari is a ridge that heaves up on frozen Lake Suwa.|El hielo se forma de noche en los bajíos, se rompe al calentar el día y baja en láminas que chirrían al rozarse. Hacen falta noche fría, cielo raso y poca agua a la vez. El polvo de diamante son cristales en el aire; el omiwatari, una cresta en el lago Suwa helado.|La glace se forme la nuit sur les hauts-fonds, se brise au réchauffement et descend en plaques qui crissent. Il faut à la fois nuit froide, ciel clair et basses eaux. La poudre de diamant est faite de cristaux en suspension ; l'omiwatari, une crête sur le lac Suwa gelé.|夜のうちに浅瀬で張った氷が、日が高くなるにつれ割れ、板になって流れ下る。擦れ合って乾いた音を立てる。冷えた夜と晴れた空と水の少なさが揃わないと現れないため、見られるのは年に数えるほどの朝しかなく、人は夜明け前から見に出る。ダイヤモンドダストは空中の氷の結晶、御神渡りは凍った諏訪湖に盛り上がる氷の筋で、どちらも別のものである。",
   ),
+  // 元は「芋畑とれんこん田が隣り合う理由は?」だったが、Q27 と同じ「なぜ」型で、
+  // しかも前提が2つ(行方に芋畑、霞ヶ浦にれんこん田)。さつまいもは3問目でもあった。
   q(
     10,
-    "Why do the sweet-potato fields of Namegata and the lotus beds of Kasumigaura sit so close together?|¿Por qué están tan cerca los boniatales de Namegata y los lotales de Kasumigaura?|Pourquoi les champs de patates de Namegata et les lotus de Kasumigaura se touchent-ils ?|行方のさつまいも畑と霞ヶ浦のれんこん田が、すぐ隣り合っている理由は?",
+    "Kashima and Katori shrines make two of the \"three shrines of the east\". Which is the third?|Los santuarios de Kashima y Katori son dos de los \"tres del este\". ¿Cuál es el tercero?|Kashima et Katori forment deux des \"trois sanctuaires de l'est\". Quel est le troisième ?|鹿島神宮・香取神宮とともに「東国三社」に数えられる社は?",
     [
-      "The same crop is rotated between them|Se rota el mismo cultivo entre ambos|On y fait tourner la même culture|同じ作物を交互に作っているから",
-      "Both need the same amount of water|Ambos necesitan la misma agua|Tous deux exigent autant d'eau|必要な水の量が同じだから",
-      "One sits on the dry plateau, the other in the wet hollow below it|Uno está en la meseta seca; el otro, en la hondonada húmeda|L'un est sur le plateau sec, l'autre dans le creux humide|一方は乾いた台地、もう一方はその下の湿った窪地にあるから",
+      "Ōarai Isosaki|Ōarai Isosaki|Ōarai Isosaki|大洗磯前神社",
+      "Kasama Inari|El Inari de Kasama|L'Inari de Kasama|笠間稲荷神社",
+      "Ikisu|Ikisu|Ikisu|息栖神社",
     ],
     2,
-    "The land here is a staircase of sandy tables cut by shallow flooded valleys, and the two crops want exactly opposite ground: sweet potatoes rot in wet soil, lotus will not grow without standing water. A farmer can walk from one to the other in ten minutes and be in a different agriculture.|La tierra es una escalera de mesetas arenosas cortada por valles anegados, y los dos cultivos quieren suelos opuestos.|Le sol est un escalier de plateaux sableux entaillés de vallées noyées, et les deux cultures veulent des terres opposées.|この一帯は、浅く水を湛えた谷に刻まれた砂質の台地が階段状に連なる地形で、二つの作物は正反対の土を求める。さつまいもは湿った土では腐り、れんこんは水を張らねば育たない。農家は十分歩けば、まったく別の農業の中に立っている。",
+    "Ikisu stands at Kamisu, where the Tone River meets the sea, and the three shrines sit at the corners of a triangle across the river mouth. Edo pilgrims who had been to Ise would come on to all three by boat, and the round was common enough to have its own name. Ikisu is the smallest and the least visited of the three.|Ikisu está en Kamisu, donde el Tone llega al mar, y los tres santuarios forman un triángulo en la desembocadura. Los peregrinos de Edo que habían ido a Ise recorrían los tres en barca. Ikisu es el menor y el menos visitado.|Ikisu se dresse à Kamisu, là où la Tone rejoint la mer, et les trois sanctuaires forment un triangle sur l'estuaire. Les pèlerins d'Edo revenus d'Ise les visitaient tous trois en barque. Ikisu est le plus petit et le moins fréquenté.|息栖神社は利根川が海に出るあたりの神栖にあり、三社は河口をまたぐ三角形の頂点に並ぶ。伊勢に参った江戸の人々は、その足で舟を使って三社を回った。ひとまとまりの巡礼として名を持つほど一般的だったという。三社のうち息栖はもっとも小さく、訪れる人も少ない。",
   ),
   q(
     10,
@@ -456,14 +494,14 @@ export const IBARAKI_QUIZ = [
   ),
   q(
     5,
-    "Hitachi-aki-soba, a buckwheat prized by soba makers, owes its flavour to what?|El hitachi-aki-soba, trigo sarraceno muy apreciado, debe su sabor a ¿qué?|Le hitachi-aki-soba, sarrasin prisé, doit sa saveur à quoi ?|そば職人に好まれる「常陸秋そば」の味を生んでいるのは?",
+    "Which variety of buckwheat was bred in Ibaraki and is sought out by soba makers?|¿Qué variedad de trigo sarraceno se crió en Ibaraki y buscan los maestros de soba?|Quelle variété de sarrasin, créée à Ibaraki, les maîtres de soba recherchent-ils ?|そば職人が指名して買う、茨城で育てられたそばの品種は?",
     [
-      "Being grown in seawater|Cultivarse en agua de mar|Une culture en eau de mer|海水で育てること",
-      "Being harvested before it flowers|Cosecharse antes de florecer|Une récolte avant la floraison|花が咲く前に穫ること",
-      "Cold nights and morning fog on the northern hills|Noches frías y niebla matinal en los cerros del norte|Nuits froides et brouillard matinal sur les collines du nord|県北の丘の冷えた夜と朝霧",
+      "Kitawase|Kitawase|Kitawase|キタワセソバ",
+      "Hitachi-aki-soba|Hitachi-aki-soba|Hitachi-aki-soba|常陸秋そば",
+      "Shinano-ichigō|Shinano-ichigō|Shinano-ichigō|信濃一号",
     ],
-    2,
-    "The strain was selected in the valleys of Kuji in the 1970s, where the day-to-night temperature swing is wide and river fog sits in the hollows each autumn morning. That gap is what thickens the grain, and buyers pay by the district rather than by the sack.|La variedad se seleccionó en los valles de Kuji en los años setenta, donde el salto térmico es amplio y la niebla del río llena las hondonadas en otoño.|La variété fut sélectionnée dans les vallées de Kuji vers 1970, où l'amplitude thermique est forte et où le brouillard de rivière emplit les creux à l'automne.|この品種は1970年代、久慈の谷で選び抜かれた。昼と夜の寒暖の差が大きく、秋の朝には川霧が窪地に溜まる土地である。その差が実を太らせる。買い手は袋ではなく産地の字(あざ)を指定して買う。",
+    1,
+    "The strain was selected in the valleys of Kuji in the 1970s, where the day-to-night temperature swing is wide and river fog sits in the hollows each autumn morning. That gap is what thickens the grain, and buyers order by the district rather than by the sack. Kitawase is a Hokkaidō variety bred to ripen early, and Shinano-ichigō comes from Nagano.|La variedad se seleccionó en los valles de Kuji en los años setenta, donde el salto térmico es amplio y la niebla del río llena las hondonadas en otoño. Kitawase es de Hokkaidō y Shinano-ichigō, de Nagano.|La variété fut sélectionnée dans les vallées de Kuji vers 1970, où l'amplitude thermique est forte et où le brouillard de rivière emplit les creux à l'automne. Kitawase vient de Hokkaidō, Shinano-ichigō de Nagano.|この品種は1970年代、久慈の谷で選び抜かれた。昼と夜の寒暖の差が大きく、秋の朝には川霧が窪地に溜まる土地である。その差が実を太らせる。買い手は袋ではなく産地の字(あざ)を指定して注文する。キタワセソバは早く実るよう育てられた北海道の品種、信濃一号は長野のものである。",
   ),
   q(
     6,

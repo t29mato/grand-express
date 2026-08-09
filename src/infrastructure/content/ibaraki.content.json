@@ -1132,7 +1132,7 @@
       "lo": 140.15,
       "la": 35.98,
       "reg": "nan",
-      "mark": "faith",
+      "mark": "daibutsu",
       "bg": "citygreen",
       "lp": "l",
       "tag": {
@@ -2173,37 +2173,37 @@
     {
       "difficulty": 3,
       "q": {
-        "en": "Which of these does Ibaraki grow more of than any other prefecture?",
-        "es": "¿De cuál de estos produce Ibaraki más que ninguna otra prefectura?",
-        "fr": "De quoi Ibaraki produit-elle plus que toute autre préfecture ?",
-        "ja": "茨城県が全国一の産出量をもつのは?"
+        "en": "Roughly how many people live in Ibaraki?",
+        "es": "¿Cuánta gente vive aproximadamente en Ibaraki?",
+        "fr": "Combien de personnes vivent à peu près à Ibaraki ?",
+        "ja": "茨城県の人口は、およそどれくらいか?"
       },
       "o": [
         {
-          "en": "Coffee",
-          "es": "Café",
-          "fr": "Le café",
-          "ja": "コーヒー"
+          "en": "About 280,000",
+          "es": "Unas 280.000",
+          "fr": "Environ 280 000",
+          "ja": "およそ28万人"
         },
         {
-          "en": "Lotus root",
-          "es": "Raíz de loto",
-          "fr": "La racine de lotus",
-          "ja": "れんこん"
+          "en": "About 2.8 million",
+          "es": "Unos 2,8 millones",
+          "fr": "Environ 2,8 millions",
+          "ja": "およそ280万人"
         },
         {
-          "en": "Olives",
-          "es": "Aceitunas",
-          "fr": "Les olives",
-          "ja": "オリーブ"
+          "en": "About 28 million",
+          "es": "Unos 28 millones",
+          "fr": "Environ 28 millions",
+          "ja": "およそ2800万人"
         }
       ],
       "a": 1,
       "f": {
-        "en": "Almost half of Japan's lotus root comes out of the wet flats around Kasumigaura, where the soil is too soft and waterlogged for rice to do well. It is dug by hand in winter, the grower standing in the mud and washing each root free with a jet of water.",
-        "es": "Casi la mitad del loto japonés sale de los llanos húmedos de Kasumigaura, donde el suelo es demasiado blando para el arroz. Se arranca a mano en invierno, con chorro de agua.",
-        "fr": "Près de la moitié du lotus japonais vient des bas-fonds humides de Kasumigaura, trop mous et gorgés d'eau pour le riz. On l'arrache à la main en hiver, au jet d'eau.",
-        "ja": "日本のれんこんのおよそ半分が、霞ヶ浦周辺の低湿地から穫れる。土が柔らかく水を含みすぎて稲には向かない土地である。冬、泥の中に立って水を噴きつけながら一本ずつ手で掘り上げる。"
+        "en": "That puts it around eleventh among the forty-seven prefectures — more people than Kyoto, fewer than Hiroshima. Most of them live in the southern third, within commuting distance of Tokyo, while the northern hills have been losing people for decades. Twenty-eight million would be more than Tokyo and Osaka together.",
+        "es": "Es el undécimo de las cuarenta y siete prefecturas: más que Kioto, menos que Hiroshima. La mayoría vive en el tercio sur, a distancia de viaje diario de Tokio.",
+        "fr": "Cela le place onzième des quarante-sept préfectures : plus que Kyoto, moins que Hiroshima. La plupart vivent dans le tiers sud, à distance pendulaire de Tokyo.",
+        "ja": "四十七の都道府県のうち十一番目あたりで、京都より多く、広島より少ない。その大半は東京へ通える南の三分の一に住み、北の丘陵地帯は何十年も人が減り続けている。2800万人なら、東京と大阪を合わせたより多いことになる。"
       }
     },
     {
@@ -2605,73 +2605,73 @@
     {
       "difficulty": 6,
       "q": {
-        "en": "Ibaraki Airport shares its runway with what?",
-        "es": "El aeropuerto de Ibaraki comparte pista con ¿qué?",
-        "fr": "L'aéroport d'Ibaraki partage sa piste avec quoi ?",
-        "ja": "茨城空港が滑走路を共用している相手は?"
+        "en": "Kasumigaura ranks where among the lakes of Japan by area?",
+        "es": "¿Qué puesto ocupa Kasumigaura entre los lagos de Japón por superficie?",
+        "fr": "Quel rang Kasumigaura occupe-t-il parmi les lacs du Japon par la surface ?",
+        "ja": "霞ヶ浦は日本の湖のなかで、広さが何番目か?"
       },
       "o": [
         {
-          "en": "A motor-racing circuit",
-          "es": "Un circuito de carreras",
-          "fr": "Un circuit automobile",
-          "ja": "自動車のレース場"
+          "en": "First",
+          "es": "El primero",
+          "fr": "Le premier",
+          "ja": "1番目"
         },
         {
-          "en": "A university",
-          "es": "Una universidad",
-          "fr": "Une université",
-          "ja": "大学"
+          "en": "Second",
+          "es": "El segundo",
+          "fr": "Le deuxième",
+          "ja": "2番目"
         },
         {
-          "en": "An air force base",
-          "es": "Una base aérea",
-          "fr": "Une base aérienne",
-          "ja": "航空自衛隊の基地"
+          "en": "Tenth",
+          "es": "El décimo",
+          "fr": "Le dixième",
+          "ja": "10番目"
         }
       ],
-      "a": 2,
+      "a": 1,
       "f": {
-        "en": "The passenger terminal was added to Hyakuri air base in 2010 and has just a handful of gates, reached on foot across the apron. Because the military already owned the runway, the prefecture built one of the cheapest airports in the country.",
-        "es": "La terminal se añadió a la base aérea de Hyakuri en 2010 y tiene apenas unas puertas, a las que se llega a pie por la pista. Al ser militar el asfalto, salió de los aeropuertos más baratos del país.",
-        "fr": "Le terminal fut greffé sur la base aérienne de Hyakuri en 2010 : quelques portes seulement, rejointes à pied sur le tarmac. La piste étant militaire, ce fut l'un des aéroports les moins chers du pays.",
-        "ja": "旅客ターミナルは2010年に百里飛行場へ後から足されたもので、搭乗口はごくわずか、駐機場を歩いて渡る。滑走路が既に自衛隊のものだったため、全国でも建設費のきわめて安い空港になった。"
+        "en": "It covers about 220 square kilometres, behind Lake Biwa and ahead of every other lake in the country. It is also very shallow — four metres at the average — so the whole of it warms and cools quickly, and a strong wind can stir the bottom across the entire lake.",
+        "es": "Ocupa unos 220 km², por detrás del lago Biwa y por delante de cualquier otro del país. Es además muy somero, cuatro metros de media, así que se calienta y enfría deprisa.",
+        "fr": "Il couvre environ 220 km², derrière le lac Biwa et devant tous les autres du pays. Il est aussi très peu profond, quatre mètres en moyenne, et se réchauffe donc vite.",
+        "ja": "面積はおよそ220平方キロメートルで、琵琶湖に次ぎ、ほかのどの湖よりも広い。同時にきわめて浅く、平均で4mほどしかないため、全体が早く温まり早く冷める。強い風が吹けば、湖じゅうの底がかき混ぜられる。"
       }
     },
     {
       "difficulty": 6,
       "q": {
-        "en": "Ōarai's ferries sail overnight to which island?",
-        "es": "Los ferris de Ōarai navegan de noche hacia ¿qué isla?",
-        "fr": "Les ferries d'Ōarai gagnent de nuit quelle île ?",
-        "ja": "大洗から夜行のフェリーが渡る島は?"
+        "en": "Which railway line runs the length of Ibaraki's Pacific side?",
+        "es": "¿Qué línea de tren recorre todo el lado pacífico de Ibaraki?",
+        "fr": "Quelle ligne de chemin de fer parcourt la façade pacifique d'Ibaraki ?",
+        "ja": "茨城県の太平洋側を南北に貫く鉄道の路線は?"
       },
       "o": [
         {
-          "en": "Hokkaidō",
-          "es": "Hokkaidō",
-          "fr": "Hokkaidō",
-          "ja": "北海道"
+          "en": "The Tōhoku Main Line",
+          "es": "La línea principal Tōhoku",
+          "fr": "La ligne principale Tōhoku",
+          "ja": "東北本線"
         },
         {
-          "en": "Shikoku",
-          "es": "Shikoku",
-          "fr": "Shikoku",
-          "ja": "四国"
+          "en": "The Takasaki Line",
+          "es": "La línea Takasaki",
+          "fr": "La ligne Takasaki",
+          "ja": "高崎線"
         },
         {
-          "en": "Okinawa",
-          "es": "Okinawa",
-          "fr": "Okinawa",
-          "ja": "沖縄"
+          "en": "The Jōban Line",
+          "es": "La línea Jōban",
+          "fr": "La ligne Jōban",
+          "ja": "常磐線"
         }
       ],
-      "a": 0,
+      "a": 2,
       "f": {
-        "en": "The crossing to Tomakomai takes about nineteen hours and carries as many lorries as passengers, because it saves a long haul up the length of Honshū. Much of the milk and produce that leaves Hokkaidō for the Tokyo region comes ashore here.",
-        "es": "La travesía a Tomakomai dura unas diecinueve horas y lleva tantos camiones como pasajeros, pues ahorra recorrer todo Honshū.",
-        "fr": "La traversée vers Tomakomai dure environ dix-neuf heures et transporte autant de camions que de passagers : elle épargne toute la longueur de Honshū.",
-        "ja": "苫小牧までは19時間ほどで、乗客と同じくらい貨物車を運ぶ。本州を縦断する長い陸送を省けるからである。北海道から首都圏へ向かう牛乳や農産物の多くが、この港に揚がる。"
+        "en": "Its name joins the old provinces it links, Hitachi and Iwaki, and it carries most of the traffic between Tokyo and the coastal towns of the north-east. The two other lines named here leave Tokyo as well, but strike inland through Tochigi and Gunma instead.",
+        "es": "Su nombre une las antiguas provincias que enlaza, Hitachi e Iwaki, y lleva casi todo el tráfico entre Tokio y las costas del noreste. Las otras dos líneas salen también de Tokio, pero tierra adentro.",
+        "fr": "Son nom réunit les anciennes provinces qu'elle relie, Hitachi et Iwaki, et elle porte l'essentiel du trafic entre Tokyo et les côtes du nord-est. Les deux autres lignes partent aussi de Tokyo, mais vers l'intérieur.",
+        "ja": "路線名は、結んでいる旧国名の常陸と磐城から一字ずつ取ったものである。東京と東北の海沿いの町を行き来する人と荷の多くがここを通る。ほかの二つも東京から北へ向かう幹線だが、栃木や群馬を抜けて内陸を走る。"
       }
     },
     {
@@ -2713,37 +2713,37 @@
     {
       "difficulty": 7,
       "q": {
-        "en": "Ushiku holds what is called Japan's first proper winery, opened in which decade?",
-        "es": "Ushiku alberga la que se llama primera bodega moderna de Japón, abierta ¿en qué década?",
-        "fr": "Ushiku abrite ce qu'on dit la première vraie cave du Japon, ouverte en quelle décennie ?",
-        "ja": "日本初の本格的なワイン醸造場とされる牛久のそれが開かれたのは?"
+        "en": "Which chicken is raised in the northern hills of Ibaraki and prized for its firm meat?",
+        "es": "¿Qué pollo se cría en las colinas del norte de Ibaraki y se aprecia por su carne firme?",
+        "fr": "Quel poulet élève-t-on sur les collines du nord d'Ibaraki, prisé pour sa chair ferme ?",
+        "ja": "県北の山あいで育てられ、身の締まった肉で知られる地鶏は?"
       },
       "o": [
         {
-          "en": "The 1900s",
-          "es": "Los años 1900",
-          "fr": "Les années 1900",
-          "ja": "1900年代"
+          "en": "Hinai jidori",
+          "es": "El jidori de Hinai",
+          "fr": "Le jidori de Hinai",
+          "ja": "比内地鶏"
         },
         {
-          "en": "The 1950s",
-          "es": "Los años 1950",
-          "fr": "Les années 1950",
-          "ja": "1950年代"
+          "en": "Nagoya cochin",
+          "es": "El cochin de Nagoya",
+          "fr": "La cochin de Nagoya",
+          "ja": "名古屋コーチン"
         },
         {
-          "en": "The 1980s",
-          "es": "Los años 1980",
-          "fr": "Les années 1980",
-          "ja": "1980年代"
+          "en": "Okukuji shamo",
+          "es": "El shamo de Okukuji",
+          "fr": "Le shamo d'Okukuji",
+          "ja": "奥久慈しゃも"
         }
       ],
-      "a": 0,
+      "a": 2,
       "f": {
-        "en": "Kamiya Denbei planted vines on the sandy plateau and finished his château in 1903, doing everything from growing to bottling on one site — the first in Japan to do so. He had already made his money selling a cheap sweetened brandy in Asakusa, and put it all into the vineyard.",
-        "es": "Kamiya Denbei plantó viñas en la meseta arenosa y terminó su château en 1903, cultivando y embotellando en un mismo sitio, el primero de Japón.",
-        "fr": "Kamiya Denbei planta des vignes sur le plateau sableux et acheva son château en 1903, cultivant et embouteillant sur un même site, une première au Japon.",
-        "ja": "神谷伝兵衛は砂質の台地に葡萄を植え、1903年に醸造場を完成させた。栽培から瓶詰めまでを一か所で行う日本最初の施設である。浅草で安価な甘味葡萄酒を売って得た財を、すべてこの葡萄畑に注ぎ込んだ。"
+        "en": "Shamo were bred as fighting birds, so they grow slowly and put on hard, lean muscle. Around Daigo they are kept for about five months — roughly twice as long as an ordinary table bird — and the meat is firm enough that it is usually simmered rather than fried. Hinai jidori comes from Akita and the Nagoya cochin from Aichi.",
+        "es": "El shamo se crió como ave de pelea: crece despacio y forma músculo magro y duro. Cerca de Daigo se cría unos cinco meses, el doble que un pollo común. El hinai jidori es de Akita y el cochin de Nagoya, de Aichi.",
+        "fr": "Le shamo fut élevé pour le combat : il grandit lentement et prend un muscle maigre et ferme. Vers Daigo on l'élève cinq mois environ, deux fois plus qu'un poulet ordinaire. Le hinai jidori vient d'Akita, la cochin de Nagoya d'Aichi.",
+        "ja": "しゃもはもともと闘鶏として育てられた鶏で、ゆっくり育ち、締まった赤身がつく。大子のあたりでは五か月ほどかけて飼う。ふつうの肉用鶏のおよそ倍で、肉が硬いため揚げるより煮て食べることが多い。比内地鶏は秋田、名古屋コーチンは愛知のものである。"
       }
     },
     {
@@ -2785,37 +2785,37 @@
     {
       "difficulty": 7,
       "q": {
-        "en": "Why is the shore at Ōarai and Hitachi a well-known place to watch the first sunrise of the year?",
-        "es": "¿Por qué la costa de Ōarai e Hitachi es famosa para ver el primer amanecer del año?",
-        "fr": "Pourquoi la côte d'Ōarai et d'Hitachi est-elle réputée pour le premier lever de soleil de l'année ?",
-        "ja": "大洗や日立の海岸が初日の出の名所とされる理由は?"
+        "en": "Which explorer, born in Ibaraki, proved Sakhalin was an island and left his name on the strait?",
+        "es": "¿Qué explorador nacido en Ibaraki probó que Sajalín era una isla y dio su nombre al estrecho?",
+        "fr": "Quel explorateur né à Ibaraki prouva que Sakhaline était une île et laissa son nom au détroit ?",
+        "ja": "樺太が島であることを確かめ、海峡に名を残した茨城生まれの探検家は?"
       },
       "o": [
         {
-          "en": "It is the highest cliff in Japan",
-          "es": "Es el acantilado más alto de Japón",
-          "fr": "C'est la plus haute falaise du Japon",
-          "ja": "日本一高い崖だから"
+          "en": "Inō Tadataka",
+          "es": "Inō Tadataka",
+          "fr": "Inō Tadataka",
+          "ja": "伊能忠敬"
         },
         {
-          "en": "The sun rises there before anywhere else in Japan",
-          "es": "Allí sale antes que en ningún otro sitio de Japón",
-          "fr": "Le soleil s'y lève avant partout ailleurs au Japon",
-          "ja": "日本で最も早く日が昇るから"
+          "en": "Mogami Tokunai",
+          "es": "Mogami Tokunai",
+          "fr": "Mogami Tokunai",
+          "ja": "最上徳内"
         },
         {
-          "en": "It faces due east over open ocean with nothing in the way",
-          "es": "Mira al este sobre mar abierto, sin nada delante",
-          "fr": "Elle regarde plein est sur la pleine mer, sans rien devant",
-          "ja": "遮るもののない東向きの外洋に面しているから"
+          "en": "Mamiya Rinzō",
+          "es": "Mamiya Rinzō",
+          "fr": "Mamiya Rinzō",
+          "ja": "間宮林蔵"
         }
       ],
       "a": 2,
       "f": {
-        "en": "The coast runs almost north–south and faces open Pacific, so the sun comes straight up out of the water rather than over a headland or an island. Hitachi's station was rebuilt in glass over the platforms so that passengers see the same sunrise from inside it.",
-        "es": "La costa corre casi de norte a sur frente al Pacífico abierto: el sol sale del agua y no tras un cabo. La estación de Hitachi se rehízo en vidrio para verlo desde dentro.",
-        "fr": "La côte court presque nord-sud face au Pacifique ouvert : le soleil sort de l'eau, non derrière un cap. La gare d'Hitachi fut refaite en verre pour qu'on le voie de l'intérieur.",
-        "ja": "海岸線がほぼ南北に走り、外洋の太平洋に正面から向いているので、岬や島の陰からではなく水平線から日が直接昇る。日立の駅はホームの上まで硝子で建て直され、乗客が構内から同じ日の出を見られるようになっている。"
+        "en": "He was a farmer's son from the flat country near the Tone, went north as a surveyor, and in 1809 crossed to the mainland coast and followed the water round — settling a question European maps had got wrong. The strait is still called Mamiya on Japanese charts. Inō Tadataka, who taught him, was from Chiba; Mogami Tokunai from Yamagata.",
+        "es": "Hijo de campesinos de la llanura del Tone, fue al norte como agrimensor y en 1809 rodeó el agua, resolviendo lo que los mapas europeos erraban. Inō Tadataka, su maestro, era de Chiba; Mogami Tokunai, de Yamagata.",
+        "fr": "Fils de paysans de la plaine de la Tone, il partit au nord comme arpenteur et, en 1809, contourna le détroit, tranchant ce que les cartes européennes ignoraient. Inō Tadataka, son maître, venait de Chiba ; Mogami Tokunai, de Yamagata.",
+        "ja": "利根川べりの平地に生まれた農民の子で、測量方として北へ渡り、1809年に対岸まで越えて水路を回り込み、ヨーロッパの地図が誤っていた問いに決着をつけた。日本の海図では今もその名で呼ばれる。師の伊能忠敬は千葉、最上徳内は山形の生まれである。"
       }
     },
     {
@@ -2929,37 +2929,37 @@
     {
       "difficulty": 8,
       "q": {
-        "en": "Why does Ibaraki dry so much of Japan's sweet potato rather than another prefecture?",
-        "es": "¿Por qué seca Ibaraki tanto boniato y no otra prefectura?",
-        "fr": "Pourquoi Ibaraki sèche-t-elle tant de patates douces plutôt qu'une autre préfecture ?",
-        "ja": "干し芋を作るのが他県ではなく茨城に集中している理由は?"
+        "en": "Which brand of black-haired wagyu beef is raised in Ibaraki?",
+        "es": "¿Qué marca de wagyū negro se cría en Ibaraki?",
+        "fr": "Quelle marque de wagyū noir élève-t-on à Ibaraki ?",
+        "ja": "茨城県で育てられている黒毛和牛の銘柄は?"
       },
       "o": [
         {
-          "en": "Its winters are cold, dry and windy with little snow",
-          "es": "Sus inviernos son fríos, secos y ventosos, con poca nieve",
-          "fr": "Ses hivers sont froids, secs, venteux et peu neigeux",
-          "ja": "冬が寒く乾いて風があり、雪が少ないから"
+          "en": "Tajima beef",
+          "es": "Ternera de Tajima",
+          "fr": "Le bœuf de Tajima",
+          "ja": "但馬牛"
         },
         {
-          "en": "It has the warmest winters in Japan",
-          "es": "Tiene los inviernos más cálidos de Japón",
-          "fr": "Elle a les hivers les plus doux du Japon",
-          "ja": "冬が日本でいちばん暖かいから"
+          "en": "Yonezawa beef",
+          "es": "Ternera de Yonezawa",
+          "fr": "Le bœuf de Yonezawa",
+          "ja": "米沢牛"
         },
         {
-          "en": "It is the only place the crop will grow",
-          "es": "Es el único sitio donde crece",
-          "fr": "C'est le seul endroit où la culture pousse",
-          "ja": "そこでしか作物が育たないから"
+          "en": "Hitachi beef",
+          "es": "Ternera de Hitachi",
+          "fr": "Le bœuf de Hitachi",
+          "ja": "常陸牛"
         }
       ],
-      "a": 0,
+      "a": 2,
       "f": {
-        "en": "The slices are laid on open racks and must dry before they spoil, so the weather does the work: cold enough to keep them, dry enough to draw the water out, windy enough to move it along, and clear enough not to soak them. Sweet potatoes grow in many places, but few have all four at once.",
-        "es": "Las lonchas se tienden al aire libre y deben secarse antes de estropearse: el clima hace el trabajo. El boniato crece en muchos sitios; pocos reúnen las cuatro condiciones.",
-        "fr": "Les tranches sèchent à l'air libre avant de s'abîmer : c'est le climat qui travaille. La patate douce pousse partout, mais peu de lieux réunissent les quatre conditions.",
-        "ja": "薄く切った芋は野天の棚に並べられ、傷む前に乾かねばならない。仕事をするのは天候である。保つだけの寒さ、水を抜く乾き、それを運ぶ風、濡らさない晴天。さつまいも自体は各地で穫れるが、この四つが揃う土地は少ない。"
+        "en": "The name is the old province, and only cattle fattened for the last stretch inside the prefecture and graded highly may carry it. The herds are small — a few dozen head to a farm — and much of the feed is rice straw from the surrounding paddies. Tajima cattle come from Hyōgo and Yonezawa beef from Yamagata.",
+        "es": "El nombre es el de la antigua provincia, y solo lo llevan reses cebadas en la prefectura y bien calificadas. Los rebaños son pequeños y comen paja de los arrozales vecinos. El tajima es de Hyōgo; el yonezawa, de Yamagata.",
+        "fr": "Le nom est celui de l'ancienne province, et seules les bêtes engraissées dans la préfecture et bien notées peuvent le porter. Les troupeaux sont petits et mangent la paille des rizières voisines. Le tajima vient de Hyōgo, le yonezawa de Yamagata.",
+        "ja": "名は旧国名からとられており、仕上げの期間を県内で肥育し、格付けの高いものだけがこれを名乗れる。一戸あたり数十頭という小さな群れが多く、飼料には周りの田から出る稲藁がよく使われる。但馬牛は兵庫、米沢牛は山形のものである。"
       }
     },
     {
@@ -3011,7 +3011,7 @@
           "en": "A gate on the water",
           "es": "Una puerta sobre el agua",
           "fr": "Une porte sur l'eau",
-          "ja": "水の門(river gateway)"
+          "ja": "水の門"
         },
         {
           "en": "Three doorways",
@@ -3037,37 +3037,37 @@
     {
       "difficulty": 9,
       "q": {
-        "en": "Mount Tsukuba is made largely of gabbro and granite, which gives it what?",
-        "es": "El monte Tsukuba es sobre todo gabro y granito, lo que le da ¿qué?",
-        "fr": "Le mont Tsukuba est surtout fait de gabbro et de granite, ce qui lui donne quoi ?",
-        "ja": "筑波山は主に斑れい岩と花崗岩からなる。そこから生じている特徴は?"
+        "en": "Which writer from western Ibaraki wrote the farming novel \"Soil\"?",
+        "es": "¿Qué escritor del oeste de Ibaraki escribió la novela campesina \"Tierra\"?",
+        "fr": "Quel écrivain de l'ouest d'Ibaraki écrivit le roman paysan \"La Terre\" ?",
+        "ja": "農村の暮らしを描いた小説『土』を書いた、県西生まれの作家は?"
       },
       "o": [
         {
-          "en": "Hot springs at the summit",
-          "es": "Aguas termales en la cima",
-          "fr": "Des sources chaudes au sommet",
-          "ja": "山頂の温泉"
+          "en": "Shimazaki Tōson",
+          "es": "Shimazaki Tōson",
+          "fr": "Shimazaki Tōson",
+          "ja": "島崎藤村"
         },
         {
-          "en": "A permanent snow cap",
-          "es": "Nieves perpetuas",
-          "fr": "Des neiges éternelles",
-          "ja": "万年雪"
+          "en": "Ishikawa Takuboku",
+          "es": "Ishikawa Takuboku",
+          "fr": "Ishikawa Takuboku",
+          "ja": "石川啄木"
         },
         {
-          "en": "Rounded boulders that split into slabs",
-          "es": "Bloques redondeados que se parten en losas",
-          "fr": "Des blocs arrondis qui se fendent en dalles",
-          "ja": "板状に割れる丸い巨岩"
+          "en": "Nagatsuka Takashi",
+          "es": "Nagatsuka Takashi",
+          "fr": "Nagatsuka Takashi",
+          "ja": "長塚節"
         }
       ],
       "a": 2,
       "f": {
-        "en": "Unlike almost every other famous Japanese mountain, Tsukuba is not a volcano: it is a body of deep-cooled rock that the surrounding land wore away from around, leaving it standing. The stone splits along flat joints, and the boulders it sheds have been quarried for grave markers and bridge piers for centuries.",
-        "es": "A diferencia de casi todo monte célebre de Japón, el Tsukuba no es un volcán: es roca enfriada en profundidad que quedó en pie al erosionarse lo demás.",
-        "fr": "Contrairement à presque tous les monts célèbres du Japon, le Tsukuba n'est pas un volcan : c'est une roche refroidie en profondeur, restée debout quand le reste s'est usé.",
-        "ja": "日本の名だたる山のほとんどと違い、筑波山は火山ではない。地下深くで冷え固まった岩体が、周りの土地が削られたあとに残ったものである。石は平らな節理に沿って割れ、崩れ落ちた巨岩は何世紀も墓石や橋脚に切り出されてきた。"
+        "en": "He farmed the land he wrote about, near what is now Jōsō, and set the book among tenant families over a single year of work. It ran in a newspaper in 1910 and readers complained that nothing happened in it. He was first a poet, a pupil of Masaoka Shiki, and died at thirty-six. Tōson was from Nagano and Takuboku from Iwate.",
+        "es": "Cultivó la tierra que describió, cerca de la actual Jōsō, y situó el libro entre familias arrendatarias a lo largo de un año. Se publicó por entregas en 1910. Tōson era de Nagano; Takuboku, de Iwate.",
+        "fr": "Il cultivait la terre qu'il décrivait, près de l'actuelle Jōsō, et situa le livre chez des métayers sur une année. Paru en feuilleton en 1910. Tōson venait de Nagano, Takuboku d'Iwate.",
+        "ja": "彼は書いた土地を自ら耕していた。いまの常総のあたりで、小作の家族の一年を追う形で書かれている。1910年に新聞へ連載され、読者からは「何も起こらない」と苦情が来た。もとは正岡子規に学んだ歌人で、三十六で没した。島崎藤村は長野、石川啄木は岩手の生まれである。"
       }
     },
     {
@@ -3109,73 +3109,73 @@
     {
       "difficulty": 10,
       "q": {
-        "en": "A poem in the classic Hundred Poets anthology compares deepening love to what on Mount Tsukuba?",
-        "es": "Un poema de la antología de los Cien Poetas compara el amor que crece con ¿qué del monte Tsukuba?",
-        "fr": "Un poème des Cent Poètes compare l'amour qui s'accroît à quoi, au mont Tsukuba ?",
-        "ja": "百人一首の歌が、募る恋にたとえた筑波山のものは?"
+        "en": "On cold mornings the Kuji River carries thin plates of ice downstream. What are they called?",
+        "es": "En mañanas frías el río Kuji arrastra láminas finas de hielo. ¿Cómo se llaman?",
+        "fr": "Par les matins froids, la Kuji charrie de minces plaques de glace. Comment les nomme-t-on ?",
+        "ja": "冷えた朝、県北の久慈川を薄い氷の板が流れてゆく。これを何と呼ぶか?"
       },
       "o": [
         {
-          "en": "The wind through the pines",
-          "es": "El viento entre los pinos",
-          "fr": "Le vent dans les pins",
-          "ja": "松を渡る風"
+          "en": "Diamond dust",
+          "es": "Polvo de diamante",
+          "fr": "Poudre de diamant",
+          "ja": "ダイヤモンドダスト"
         },
         {
-          "en": "The shadow of the twin peaks",
-          "es": "La sombra de las dos cumbres",
-          "fr": "L'ombre des deux cimes",
-          "ja": "二つの峰の影"
+          "en": "Omiwatari",
+          "es": "Omiwatari",
+          "fr": "Omiwatari",
+          "ja": "御神渡り"
         },
         {
-          "en": "A stream that gathers into a deep pool",
-          "es": "Un arroyo que se remansa en una poza",
-          "fr": "Un ruisseau qui se creuse en gouffre",
-          "ja": "流れ落ちて淵となる川"
+          "en": "Shiga",
+          "es": "Shiga",
+          "fr": "Shiga",
+          "ja": "シガ"
         }
       ],
       "a": 2,
       "f": {
-        "en": "The retired emperor Yōzei wrote that the Minano River falls from the peak and piles up until it becomes a deep pool, as his longing had. The stream is small enough to step across near the top, which is the point of the image — it is the piling up, not the size, that makes the depth.",
-        "es": "El emperador retirado Yōzei escribió que el río Minano cae de la cumbre y se acumula hasta hacerse un remanso, como su anhelo. Arriba se cruza de un paso.",
-        "fr": "L'empereur retiré Yōzei écrivit que la Minano tombe du sommet et s'amasse jusqu'à devenir un gouffre, comme son désir. En haut, on l'enjambe d'un pas.",
-        "ja": "陽成院は「筑波嶺の峰より落つるみなの川 恋ぞ積もりて淵となりぬる」と詠んだ。男女川は山頂近くでは一跨ぎで越えられるほど細い。そこがこの歌の眼目で、深さを作るのは水量ではなく積み重なりだという。"
+        "en": "Ice forms on the shallows overnight, breaks up as the day warms, and drifts down in sheets that grind against each other with a dry sound. It needs a cold night, clear sky and low water all at once, so it appears only a handful of mornings a year and people drive out before dawn to see it. Diamond dust is airborne ice crystals; omiwatari is a ridge that heaves up on frozen Lake Suwa.",
+        "es": "El hielo se forma de noche en los bajíos, se rompe al calentar el día y baja en láminas que chirrían al rozarse. Hacen falta noche fría, cielo raso y poca agua a la vez. El polvo de diamante son cristales en el aire; el omiwatari, una cresta en el lago Suwa helado.",
+        "fr": "La glace se forme la nuit sur les hauts-fonds, se brise au réchauffement et descend en plaques qui crissent. Il faut à la fois nuit froide, ciel clair et basses eaux. La poudre de diamant est faite de cristaux en suspension ; l'omiwatari, une crête sur le lac Suwa gelé.",
+        "ja": "夜のうちに浅瀬で張った氷が、日が高くなるにつれ割れ、板になって流れ下る。擦れ合って乾いた音を立てる。冷えた夜と晴れた空と水の少なさが揃わないと現れないため、見られるのは年に数えるほどの朝しかなく、人は夜明け前から見に出る。ダイヤモンドダストは空中の氷の結晶、御神渡りは凍った諏訪湖に盛り上がる氷の筋で、どちらも別のものである。"
       }
     },
     {
       "difficulty": 10,
       "q": {
-        "en": "Why do the sweet-potato fields of Namegata and the lotus beds of Kasumigaura sit so close together?",
-        "es": "¿Por qué están tan cerca los boniatales de Namegata y los lotales de Kasumigaura?",
-        "fr": "Pourquoi les champs de patates de Namegata et les lotus de Kasumigaura se touchent-ils ?",
-        "ja": "行方のさつまいも畑と霞ヶ浦のれんこん田が、すぐ隣り合っている理由は?"
+        "en": "Kashima and Katori shrines make two of the \"three shrines of the east\". Which is the third?",
+        "es": "Los santuarios de Kashima y Katori son dos de los \"tres del este\". ¿Cuál es el tercero?",
+        "fr": "Kashima et Katori forment deux des \"trois sanctuaires de l'est\". Quel est le troisième ?",
+        "ja": "鹿島神宮・香取神宮とともに「東国三社」に数えられる社は?"
       },
       "o": [
         {
-          "en": "The same crop is rotated between them",
-          "es": "Se rota el mismo cultivo entre ambos",
-          "fr": "On y fait tourner la même culture",
-          "ja": "同じ作物を交互に作っているから"
+          "en": "Ōarai Isosaki",
+          "es": "Ōarai Isosaki",
+          "fr": "Ōarai Isosaki",
+          "ja": "大洗磯前神社"
         },
         {
-          "en": "Both need the same amount of water",
-          "es": "Ambos necesitan la misma agua",
-          "fr": "Tous deux exigent autant d'eau",
-          "ja": "必要な水の量が同じだから"
+          "en": "Kasama Inari",
+          "es": "El Inari de Kasama",
+          "fr": "L'Inari de Kasama",
+          "ja": "笠間稲荷神社"
         },
         {
-          "en": "One sits on the dry plateau, the other in the wet hollow below it",
-          "es": "Uno está en la meseta seca; el otro, en la hondonada húmeda",
-          "fr": "L'un est sur le plateau sec, l'autre dans le creux humide",
-          "ja": "一方は乾いた台地、もう一方はその下の湿った窪地にあるから"
+          "en": "Ikisu",
+          "es": "Ikisu",
+          "fr": "Ikisu",
+          "ja": "息栖神社"
         }
       ],
       "a": 2,
       "f": {
-        "en": "The land here is a staircase of sandy tables cut by shallow flooded valleys, and the two crops want exactly opposite ground: sweet potatoes rot in wet soil, lotus will not grow without standing water. A farmer can walk from one to the other in ten minutes and be in a different agriculture.",
-        "es": "La tierra es una escalera de mesetas arenosas cortada por valles anegados, y los dos cultivos quieren suelos opuestos.",
-        "fr": "Le sol est un escalier de plateaux sableux entaillés de vallées noyées, et les deux cultures veulent des terres opposées.",
-        "ja": "この一帯は、浅く水を湛えた谷に刻まれた砂質の台地が階段状に連なる地形で、二つの作物は正反対の土を求める。さつまいもは湿った土では腐り、れんこんは水を張らねば育たない。農家は十分歩けば、まったく別の農業の中に立っている。"
+        "en": "Ikisu stands at Kamisu, where the Tone River meets the sea, and the three shrines sit at the corners of a triangle across the river mouth. Edo pilgrims who had been to Ise would come on to all three by boat, and the round was common enough to have its own name. Ikisu is the smallest and the least visited of the three.",
+        "es": "Ikisu está en Kamisu, donde el Tone llega al mar, y los tres santuarios forman un triángulo en la desembocadura. Los peregrinos de Edo que habían ido a Ise recorrían los tres en barca. Ikisu es el menor y el menos visitado.",
+        "fr": "Ikisu se dresse à Kamisu, là où la Tone rejoint la mer, et les trois sanctuaires forment un triangle sur l'estuaire. Les pèlerins d'Edo revenus d'Ise les visitaient tous trois en barque. Ikisu est le plus petit et le moins fréquenté.",
+        "ja": "息栖神社は利根川が海に出るあたりの神栖にあり、三社は河口をまたぐ三角形の頂点に並ぶ。伊勢に参った江戸の人々は、その足で舟を使って三社を回った。ひとまとまりの巡礼として名を持つほど一般的だったという。三社のうち息栖はもっとも小さく、訪れる人も少ない。"
       }
     },
     {
@@ -3361,37 +3361,37 @@
     {
       "difficulty": 5,
       "q": {
-        "en": "Hitachi-aki-soba, a buckwheat prized by soba makers, owes its flavour to what?",
-        "es": "El hitachi-aki-soba, trigo sarraceno muy apreciado, debe su sabor a ¿qué?",
-        "fr": "Le hitachi-aki-soba, sarrasin prisé, doit sa saveur à quoi ?",
-        "ja": "そば職人に好まれる「常陸秋そば」の味を生んでいるのは?"
+        "en": "Which variety of buckwheat was bred in Ibaraki and is sought out by soba makers?",
+        "es": "¿Qué variedad de trigo sarraceno se crió en Ibaraki y buscan los maestros de soba?",
+        "fr": "Quelle variété de sarrasin, créée à Ibaraki, les maîtres de soba recherchent-ils ?",
+        "ja": "そば職人が指名して買う、茨城で育てられたそばの品種は?"
       },
       "o": [
         {
-          "en": "Being grown in seawater",
-          "es": "Cultivarse en agua de mar",
-          "fr": "Une culture en eau de mer",
-          "ja": "海水で育てること"
+          "en": "Kitawase",
+          "es": "Kitawase",
+          "fr": "Kitawase",
+          "ja": "キタワセソバ"
         },
         {
-          "en": "Being harvested before it flowers",
-          "es": "Cosecharse antes de florecer",
-          "fr": "Une récolte avant la floraison",
-          "ja": "花が咲く前に穫ること"
+          "en": "Hitachi-aki-soba",
+          "es": "Hitachi-aki-soba",
+          "fr": "Hitachi-aki-soba",
+          "ja": "常陸秋そば"
         },
         {
-          "en": "Cold nights and morning fog on the northern hills",
-          "es": "Noches frías y niebla matinal en los cerros del norte",
-          "fr": "Nuits froides et brouillard matinal sur les collines du nord",
-          "ja": "県北の丘の冷えた夜と朝霧"
+          "en": "Shinano-ichigō",
+          "es": "Shinano-ichigō",
+          "fr": "Shinano-ichigō",
+          "ja": "信濃一号"
         }
       ],
-      "a": 2,
+      "a": 1,
       "f": {
-        "en": "The strain was selected in the valleys of Kuji in the 1970s, where the day-to-night temperature swing is wide and river fog sits in the hollows each autumn morning. That gap is what thickens the grain, and buyers pay by the district rather than by the sack.",
-        "es": "La variedad se seleccionó en los valles de Kuji en los años setenta, donde el salto térmico es amplio y la niebla del río llena las hondonadas en otoño.",
-        "fr": "La variété fut sélectionnée dans les vallées de Kuji vers 1970, où l'amplitude thermique est forte et où le brouillard de rivière emplit les creux à l'automne.",
-        "ja": "この品種は1970年代、久慈の谷で選び抜かれた。昼と夜の寒暖の差が大きく、秋の朝には川霧が窪地に溜まる土地である。その差が実を太らせる。買い手は袋ではなく産地の字(あざ)を指定して買う。"
+        "en": "The strain was selected in the valleys of Kuji in the 1970s, where the day-to-night temperature swing is wide and river fog sits in the hollows each autumn morning. That gap is what thickens the grain, and buyers order by the district rather than by the sack. Kitawase is a Hokkaidō variety bred to ripen early, and Shinano-ichigō comes from Nagano.",
+        "es": "La variedad se seleccionó en los valles de Kuji en los años setenta, donde el salto térmico es amplio y la niebla del río llena las hondonadas en otoño. Kitawase es de Hokkaidō y Shinano-ichigō, de Nagano.",
+        "fr": "La variété fut sélectionnée dans les vallées de Kuji vers 1970, où l'amplitude thermique est forte et où le brouillard de rivière emplit les creux à l'automne. Kitawase vient de Hokkaidō, Shinano-ichigō de Nagano.",
+        "ja": "この品種は1970年代、久慈の谷で選び抜かれた。昼と夜の寒暖の差が大きく、秋の朝には川霧が窪地に溜まる土地である。その差が実を太らせる。買い手は袋ではなく産地の字(あざ)を指定して注文する。キタワセソバは早く実るよう育てられた北海道の品種、信濃一号は長野のものである。"
       }
     },
     {
@@ -4440,6 +4440,7 @@
     "plum": "<g fill=\"#c4384f\"><circle cx=\"12\" cy=\"6.4\" r=\"4.2\"/><circle cx=\"17.3\" cy=\"10.3\" r=\"4.2\"/><circle cx=\"15.3\" cy=\"16.5\" r=\"4.2\"/><circle cx=\"8.7\" cy=\"16.5\" r=\"4.2\"/><circle cx=\"6.7\" cy=\"10.3\" r=\"4.2\"/></g><circle cx=\"12\" cy=\"12\" r=\"3\" fill=\"#f6efe2\"/><g fill=\"#f5b31c\"><circle cx=\"12\" cy=\"9.4\" r=\"1\"/><circle cx=\"14.4\" cy=\"12.8\" r=\"1\"/><circle cx=\"9.6\" cy=\"12.8\" r=\"1\"/></g>",
     "craft": "<path d=\"M2,20L16,7h4v13z\" fill=\"#8a7250\"/><g fill=\"#5a4630\"><rect x=\"4.4\" y=\"15.6\" width=\"4.4\" height=\"4.4\"/><rect x=\"10.4\" y=\"12.4\" width=\"4.4\" height=\"4.4\"/></g><g fill=\"#e8443f\"><rect x=\"5.6\" y=\"17\" width=\"2\" height=\"3\"/><rect x=\"11.6\" y=\"13.8\" width=\"2\" height=\"3\"/></g><path d=\"M20.6,7c1.6,-3 -1,-4.2 0.4,-6.6\" stroke=\"#8a8272\" stroke-width=\"1.4\" fill=\"none\" stroke-linecap=\"round\"/><rect x=\"1\" y=\"20\" width=\"22\" height=\"2.6\" fill=\"#4a4436\"/>",
     "faith": "<path d=\"M2.6,6.6q9.4,-2 18.8,0v3.4q-9.4,-1.6 -18.8,0z\" fill=\"#c4384f\"/><rect x=\"4.4\" y=\"11\" width=\"15.2\" height=\"2.6\" fill=\"#c4384f\"/><rect x=\"5.4\" y=\"6.6\" width=\"3\" height=\"15.4\" fill=\"#c4384f\"/><rect x=\"15.6\" y=\"6.6\" width=\"3\" height=\"15.4\" fill=\"#c4384f\"/><rect x=\"1.6\" y=\"22\" width=\"20.8\" height=\"1.6\" fill=\"#3b2a1c\"/>",
+    "daibutsu": "<path d=\"M2.8,23.4q9.2,-3 18.4,0z\" fill=\"#8a7250\"/><path d=\"M4.2,21.8q7.8,-2.6 15.6,0q-3.2,1.4 -7.8,1.4q-4.6,0 -7.8,-1.4z\" fill=\"#a08663\"/><g fill=\"#8a7250\"><path d=\"M6.6,21.4q1.8,-2.2 3.6,0zM11,20.9q1.8,-2.2 3.6,0zM15.4,21.4q1.8,-2.2 3.6,0z\"/></g><path d=\"M10.2,7.4h3.6l2.4,14.2H7.8z\" fill=\"#7a6a54\"/><path d=\"M10.2,7.4h1.8l0.2,14.2H7.8z\" fill=\"#8f7d63\"/><g stroke=\"#5f523f\" stroke-width=\"0.55\" fill=\"none\"><path d=\"M10.6,9.6L9.4,21.4M13.4,9.6L14.6,21.4M12,9.6V21.4\"/></g><path d=\"M14.2,9.4q2.2,1 2,3.6l-1.5,0q0.1,-1.8 -1.3,-2.4z\" fill=\"#8f7d63\"/><path d=\"M14.6,12.6q1.5,-0.3 1.6,1.1q0.1,1.2 -1.2,1.2q-1,0 -1,-1.1z\" fill=\"#a08663\"/><path d=\"M9.8,9.4q-2,1 -1.9,4.2l1.5,0q-0.1,-2.4 1.1,-3z\" fill=\"#7a6a54\"/><path d=\"M8,14q1.3,-0.3 1.4,1.1q0.1,1.2 -1.1,1.2q-1,0 -1,-1.1z\" fill=\"#8f7d63\"/><circle cx=\"12\" cy=\"5.2\" r=\"2.3\" fill=\"#8f7d63\"/><path d=\"M9.7,4.8a2.3,2.3 0 0 1 4.6,0z\" fill=\"#7a6a54\"/><circle cx=\"12\" cy=\"2.6\" r=\"1.15\" fill=\"#7a6a54\"/><g stroke=\"#5f523f\" stroke-width=\"0.5\" fill=\"none\" stroke-linecap=\"round\"><path d=\"M10.5,5.7q0.6,0.45 1.2,0M12.3,5.7q0.6,0.45 1.2,0\"/></g><path d=\"M11.3,6.9q0.7,0.4 1.4,0\" stroke=\"#5f523f\" stroke-width=\"0.5\" fill=\"none\" stroke-linecap=\"round\"/><rect x=\"11\" y=\"11.6\" width=\"2\" height=\"1.4\" fill=\"#f5d38a\"/>",
     "steam": "<g fill=\"#6b6b74\"><rect x=\"10.6\" y=\"0.8\" width=\"2.8\" height=\"5\" transform=\"rotate(0 12 12)\"/><rect x=\"10.6\" y=\"0.8\" width=\"2.8\" height=\"5\" transform=\"rotate(45 12 12)\"/><rect x=\"10.6\" y=\"0.8\" width=\"2.8\" height=\"5\" transform=\"rotate(90 12 12)\"/><rect x=\"10.6\" y=\"0.8\" width=\"2.8\" height=\"5\" transform=\"rotate(135 12 12)\"/><rect x=\"10.6\" y=\"0.8\" width=\"2.8\" height=\"5\" transform=\"rotate(180 12 12)\"/><rect x=\"10.6\" y=\"0.8\" width=\"2.8\" height=\"5\" transform=\"rotate(225 12 12)\"/><rect x=\"10.6\" y=\"0.8\" width=\"2.8\" height=\"5\" transform=\"rotate(270 12 12)\"/><rect x=\"10.6\" y=\"0.8\" width=\"2.8\" height=\"5\" transform=\"rotate(315 12 12)\"/></g><circle cx=\"12\" cy=\"12\" r=\"7.4\" fill=\"#8a8272\"/><circle cx=\"12\" cy=\"12\" r=\"3.2\" fill=\"#f6efe2\"/>",
     "science": "<path d=\"M12,1c3.4,3.6 4.8,8.2 4.8,12.6H7.2C7.2,9.2 8.6,4.6 12,1z\" fill=\"#f6efe2\"/><path d=\"M7.2,13.6L3.4,18.6h4.4zM16.8,13.6L20.6,18.6h-4.4z\" fill=\"#e8443f\"/><circle cx=\"12\" cy=\"8.4\" r=\"2.4\" fill=\"#5b8fe8\"/><path d=\"M9.6,18.6h4.8l-2.4,4.6z\" fill=\"#f5b31c\"/>",
     "boat": "<rect x=\"6.4\" y=\"3\" width=\"1.8\" height=\"13\" fill=\"#3b2a1c\"/><path d=\"M8.2,3.8h11.4v10.6H8.2z\" fill=\"#f6efe2\"/><g stroke=\"#c9a877\" stroke-width=\"0.8\"><path d=\"M11.8,3.8v10.6M15.4,3.8v10.6\"/></g><path d=\"M2.6,16.6h18.8l-3,4.6H5.6z\" fill=\"#5a4630\"/><path d=\"M1,22.4h22\" stroke=\"#4a8fb8\" stroke-width=\"1.6\"/>",
