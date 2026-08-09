@@ -15,6 +15,7 @@ import { gameRepository, random, soundAdapter } from "./game-store-dependencies"
 import { logEntry, pushLog } from "./game-store-log";
 import { QuizSelector, rollDifficulty } from "../../domain/quiz/quiz-selection-service";
 import { MoneyEventSelector } from "../../domain/board/money-event-selection-service";
+import { MoneyEvent } from "../../domain/board/money-event";
 import { applyMoneyEvent } from "../../application/use-cases/land-on-square/money-event.use-case";
 import { QuizDifficulty, QuizQuestion } from "../../domain/quiz/quiz-question";
 import { describeCpuTurn, visibleOptionOrder } from "./game-store-formatters";
@@ -64,8 +65,21 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
    */
   let quizSelector: QuizSelector | null = null;
 
-  function resetQuizDeck(questions: readonly QuizQuestion[]) {
-    quizSelector = new QuizSelector(questions, random);
+  /**
+   * ゲーム開始・ロード時に、**その国の山札を作り直す。**
+   *
+   * クイズだけ作り直して出来事を放っていたため、インドで遊んだあと
+   * ボリビアを始めると、**出来事だけインドのものが出続けていた**
+   * (「The chai wallah won't take payment」がボリビアで出た、という報告)。
+   * `context` は差し替わるのに、`moneyEventSelector` は
+   * `if (!moneyEventSelector)` で一度きりしか作られない作りだった。
+   *
+   * **国ごとに持つものは、ここでまとめて捨てること。**片方だけ捨てると、
+   * 捨て忘れたほうが前の国のまま残る。
+   */
+  function resetDecks(content: { quiz: readonly QuizQuestion[]; moneyEvents: readonly MoneyEvent[] }) {
+    quizSelector = new QuizSelector(content.quiz, random);
+    moneyEventSelector = new MoneyEventSelector(content.moneyEvents, random);
   }
 
   /**
@@ -77,9 +91,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
   /** その地方で起こりうる出来事を1つ引く。 */
   function drawMoneyEvent(kind: "gain" | "loss", regionId: RegionId) {
     const { context, session } = get();
-    if (!moneyEventSelector && context) {
-      moneyEventSelector = new MoneyEventSelector(context.content.moneyEvents, random);
-    }
+    if (!moneyEventSelector && context) resetDecks(context.content);
     // 季節に合わない話(夏の流氷など)を候補から外す。
     return moneyEventSelector!.draw(kind, regionId, session?.month);
   }
@@ -87,7 +99,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
   /** 指定された難易度にいちばん近い問題を、山札から1問引く。 */
   function drawQuestion(difficulty: QuizDifficulty): QuizQuestion {
     const { context } = get();
-    if (!quizSelector && context) resetQuizDeck(context.content.quiz);
+    if (!quizSelector && context) resetDecks(context.content);
     return quizSelector!.draw(difficulty);
   }
 
@@ -470,7 +482,8 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
 
   return {
     runCpuLoopIfNeeded,
-    resetQuizDeck,
+    resetDecks,
+    drawMoneyEvent,
     cancelCpuLoop,
     dismissCpuModal,
     dismissMoneyEvent,

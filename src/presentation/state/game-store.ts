@@ -46,7 +46,7 @@ function readSavedGameSummary(): SavedGameSummary | null {
 export const useGameStore = create<GameStoreState>((set, get) => {
   const {
     runCpuLoopIfNeeded,
-    resetQuizDeck,
+    resetDecks,
     cancelCpuLoop,
     dismissCpuModal,
     dismissMoneyEvent,
@@ -151,7 +151,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
         cpuLevel: config.cpuLevel,
         sessionId: GameSessionId(`session-${Date.now()}`),
       });
-      resetQuizDeck(content.quiz);
+      resetDecks(content);
       // legacyのstartGame()と同様、出発ストーリーのモーダル(intro)をまず表示し、
       // それを閉じてから(dismissIntro経由で)CPUの自動進行を開始する。
       set({ context, session, ui: { kind: "intro" }, log: [logEntry("newJourneyLog", [], "gold")] });
@@ -170,7 +170,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       if (!saved) return;
       const content = await contentRepository.load(saved.countryId);
       const context = createGameEngineContext(content);
-      resetQuizDeck(content.quiz);
+      resetDecks(content);
       set({ context, session: saved, ui: { kind: "idle" }, log: [logEntry("resumed", [], "gold")] });
       await soundAdapter.setCountry(saved.countryId);
       soundAdapter.setRegion(context.getNode(currentPlayer(saved).location).regionId);
