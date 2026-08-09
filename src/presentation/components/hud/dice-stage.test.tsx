@@ -78,6 +78,47 @@ describe("DiceStage", () => {
     expect(container.querySelector(".die-result")?.textContent).toBe("");
   });
 
+  /**
+   * 止まったときの姿勢が、出目によって変わらないこと。
+   *
+   * 傾きを**面の角度に足し込んで**いたせいで、面2(rotateX 90度)と
+   * 面5(-90度)だけが 74〜81度・-99〜-106度になり、**サイコロが横倒しで
+   * 止まっていた。**正しい面が斜めを向き、隣の面のほうが大きく見えるため、
+   * 出目そのものを読み違える。
+   *
+   * 傾きは視点側(面の角度より外側)に置くので、**変換の最後の
+   * rotateX/rotateY は FACE_ROT そのもの**でなければならない。
+   */
+  it.each([
+    [1, 0, 0],
+    [2, 90, 0],
+    [3, 0, -90],
+    [4, 0, 90],
+    [5, -90, 0],
+    [6, 0, 180],
+  ])("出目%iは、傾きに関係なく面の角度がそのまま出る", (value, faceX, faceY) => {
+    const { container } = render(<DiceStage values={[value]} onDone={() => {}} />);
+    const transform = (container.querySelector(".die3d") as HTMLElement).style.transform;
+    // 末尾の rotateX/rotateY の組が、その面を正面に向ける角度ちょうどであること。
+    const pairs = [...transform.matchAll(/rotateX\((-?[\d.]+)deg\) rotateY\((-?[\d.]+)deg\)/g)];
+    const last = pairs[pairs.length - 1];
+    expect(last, `rotateX/rotateY が見つからない: ${transform}`).toBeTruthy();
+    expect(Number(last[1]), `出目${value}のrotateX`).toBe(faceX);
+    expect(Number(last[2]), `出目${value}のrotateY`).toBe(faceY);
+  });
+
+  it("止まりぎわの傾きは、どの出目でも同じ小ささに収まる", () => {
+    // 面の角度に足し込むと、面2と面5だけ極端な角度になる。視点側から当てていれば
+    // 傾きの大きさは出目によらない。
+    for (let v = 1; v <= 6; v++) {
+      const { container } = render(<DiceStage values={[v]} onDone={() => {}} />);
+      const transform = (container.querySelector(".die3d") as HTMLElement).style.transform;
+      const first = /rotateX\((-?[\d.]+)deg\) rotateY\((-?[\d.]+)deg\)/.exec(transform)!;
+      expect(Math.abs(Number(first[1])), `出目${v}の傾きX`).toBeLessThanOrEqual(20);
+      expect(Math.abs(Number(first[2])), `出目${v}の傾きY`).toBeLessThanOrEqual(20);
+    }
+  });
+
   it("演出は盤面のクリックを妨げない", () => {
     const { container } = render(<DiceStage values={[2]} onDone={() => {}} />);
     // aria-hidden かつ pointer-events:none(CSS)で、下のマスを選べる状態を保つ。

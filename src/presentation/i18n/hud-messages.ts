@@ -21,6 +21,8 @@ import { Locale } from "../../domain/shared-kernel/localized-text";
 export const HUD_MESSAGES: Record<Locale, Record<string, string>> = {
   en: {
     yourTurn: "Your turn",
+    exactDiceTitle: "Name your number",
+    exactDiceHint: "Choose how far to go, then tap where to stop.",
     rollingHint: "The die is rolling…",
     // `overview` は説明文で <b> タグを含むため、ボタンの脇に出す短い名前を別に持つ。
     overviewLabel: "Whole map",
@@ -28,18 +30,24 @@ export const HUD_MESSAGES: Record<Locale, Record<string, string>> = {
   },
   es: {
     yourTurn: "Tu turno",
+    exactDiceTitle: "Di tu número",
+    exactDiceHint: "Elige cuánto avanzar y luego toca dónde parar.",
     rollingHint: "El dado está rodando…",
     overviewLabel: "Mapa completo",
     overviewBack: "Volver a la vista normal",
   },
   fr: {
     yourTurn: "À toi de jouer",
+    exactDiceTitle: "Annonce ton chiffre",
+    exactDiceHint: "Choisis la distance, puis touche la case où t'arrêter.",
     rollingHint: "Le dé roule…",
     overviewLabel: "Carte entière",
     overviewBack: "Revenir à la vue normale",
   },
   ja: {
     yourTurn: "あなたの番",
+    exactDiceTitle: "出目を決める",
+    exactDiceHint: "何マス進むかを選んでから、止まる場所を選びます。",
     rollingHint: "サイコロが転がっています…",
     overviewLabel: "全体表示",
     overviewBack: "元の表示に戻す",

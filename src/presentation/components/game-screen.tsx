@@ -13,6 +13,7 @@ import { LocaleSwitch } from "./hud/locale-switch";
 import { MusicToggle } from "./hud/music-toggle";
 import { IntroModal } from "./modals/intro-modal";
 import { SavedModal } from "./modals/saved-modal";
+import { ExactDiceModal } from "./modals/exact-dice-modal";
 import { CpuCityModal } from "./modals/cpu-city-modal";
 import { CpuQuizModal } from "./modals/cpu-quiz-modal";
 import { MoneyEventModal } from "./modals/money-event-modal";
@@ -45,6 +46,7 @@ export function GameScreen() {
   const dismissSeasonModal = useGameStore((s) => s.dismissSeasonModal);
   const dismissNextLeg = useGameStore((s) => s.dismissNextLeg);
   const dismissSavedModal = useGameStore((s) => s.dismissSavedModal);
+  const chooseExactDiceValue = useGameStore((s) => s.chooseExactDiceValue);
   const dismissCpuModal = useGameStore((s) => s.dismissCpuModal);
   const dismissMoneyEvent = useGameStore((s) => s.dismissMoneyEvent);
   const dismissDoom = useGameStore((s) => s.dismissDoom);
@@ -115,6 +117,8 @@ export function GameScreen() {
           遊んでいる最中は目に入らない)。出す行は絞ってある。log-toast.tsx 参照。 */}
       <LogToast log={log} session={session} />
 
+      {/* 「出目を選べる」アイテムは、選ぶ画面を出さないと持ち物が消えるだけになる。 */}
+      {ui.kind === "exact-dice" && <ExactDiceModal onChoose={chooseExactDiceValue} />}
       {ui.kind === "saved" && <SavedModal onClose={dismissSavedModal} />}
       {ui.kind === "cpu-city" && (
         <CpuCityModal

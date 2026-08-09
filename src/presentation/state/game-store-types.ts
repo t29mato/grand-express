@@ -86,6 +86,11 @@ export type UiState =
       readonly flavor: DoomFlavor;
       readonly wasKing: boolean;
     }
+  /**
+   * 「出目を自分で選べる」アイテム(時刻表・タクシー・周遊券など)を使った直後。
+   * 選ぶまでは何も起きないので、必ずこの状態を経由させる。
+   */
+  | { readonly kind: "exact-dice" }
   | { readonly kind: "saved" }
   | { readonly kind: "season"; readonly season: SeasonDefinition }
   | { readonly kind: "game-over"; readonly outcome: EndGameOutcome };

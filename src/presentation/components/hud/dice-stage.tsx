@@ -169,11 +169,16 @@ export function DiceStage({
 
     // 1個ごとの初期姿勢・着地位置(見た目だけの乱数。ゲーム結果には影響しない)。
     const plans = faces.map((v, i) => {
-      const [faceX, faceY] = FACE_ROT[v];
-      // 真正面を向いて止まると、立方体ではなく平たい札に見える。少しだけ傾けて止め、
-      // 隣の面がわずかに見えるようにする(この程度の傾きなら目は変わらず読める)。
-      const tx0 = faceX - (9 + Math.random() * 7);
-      const ty0 = faceY + (Math.random() < 0.5 ? -1 : 1) * (10 + Math.random() * 8);
+      // **目的の角度そのもの。**傾きをここに足してはいけない。
+      //
+      // 以前はここで faceX に -9〜-16度を足していた。面1・3・4・6は faceX が0なので
+      // 3/4の眺めになって良かったが、**面2は faceX=90、面5は -90** なので、
+      // 足すと 74〜81度・-99〜-106度になり、**サイコロが横倒しで止まった。**
+      // 出目2と5のときだけ倒れかけた姿勢になり、正しい面が斜めを向いて
+      // 隣の面のほうが大きく見えていた(出目の読み違いの原因)。
+      //
+      // 傾きは `place()` で**視点側から**当てる。そうすればどの面でも同じ小ささになる。
+      const [tx0, ty0] = FACE_ROT[v];
       const rx0 = Math.random() * 360;
       const ry0 = Math.random() * 360;
       const spin = 3;
@@ -188,6 +193,10 @@ export function DiceStage({
         // 行き過ぎて戻る角度。向きと大きさを1個ずつ変えて、揃って揺れないようにする。
         overX: OVERSHOOT_DEG * (0.7 + Math.random() * 0.6) * (Math.random() < 0.5 ? -1 : 1),
         overY: OVERSHOOT_DEG * 0.7 * (0.7 + Math.random() * 0.6) * (Math.random() < 0.5 ? -1 : 1),
+        // 視点側からの傾き。**面の角度とは別に持つ。**これを面の角度に足し込むと、
+        // 面2(90度)・面5(-90度)で角度が重なってサイコロが横倒しになる。
+        tiltX: -(8 + Math.random() * 5),
+        tiltY: (Math.random() < 0.5 ? -1 : 1) * (9 + Math.random() * 6),
         face: [tx0, ty0] as const,
       };
     });
@@ -200,8 +209,14 @@ export function DiceStage({
 
     const place = (i: number, x: number, y: number, rx: number, ry: number) => {
       const squash = squashAt(y);
+      const { tiltX, tiltY } = plans[i];
+      // **傾きは面の角度より外側に置く。**CSSの変換は右から順に効くので、
+      // まず面を正面へ向け(rotateX(rx) rotateY(ry))、そのうえで視点側から
+      // 少しだけ傾ける。こうするとどの出目でも傾きの見え方が同じになる。
+      // 面の角度に足し込むと、面2(90度)・面5(-90度)だけ横倒しになる。
       dice[i].style.transform =
-        `translate3d(${x - 48 * s}px, ${y - 48 * s}px, 0) rotateX(${rx}deg) rotateY(${ry}deg) ` +
+        `translate3d(${x - 48 * s}px, ${y - 48 * s}px, 0) ` +
+        `rotateX(${tiltX.toFixed(1)}deg) rotateY(${tiltY.toFixed(1)}deg) rotateX(${rx}deg) rotateY(${ry}deg) ` +
         `scale3d(${s / squash}, ${s * squash}, ${s})`;
       const air = Math.min(1, (ground - y) / (H * 0.26));
       const sc = (1 - air * 0.45) * s;
