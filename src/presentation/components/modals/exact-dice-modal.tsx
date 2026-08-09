@@ -19,7 +19,16 @@ export function ExactDiceModal({ onChoose }: { onChoose: (value: number) => void
     <Modal testId="exact-dice-modal">
       <div className="eyebrow">🎲 {t("exactDiceTitle")}</div>
       <p style={{ color: "var(--salt-dim)", marginTop: 8 }}>{t("exactDiceHint")}</p>
-      <div className="btnrow" style={{ marginTop: 16, flexWrap: "wrap" }}>
+      {/*
+       * 狭い幅では折り返す。**素直に並べると 5+1 になって、「6」だけが
+       * 下に1つ取り残される**(375pxで確認)。数を選ばせる場面なので、
+       * 均等に割れて見えるほうがよい。`auto-fit` にすると、
+       * 広い幅では6つ横一列、狭い幅では3+3 に落ち着く。
+       */}
+      <div
+        className="btnrow"
+        style={{ marginTop: 16, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(72px, 1fr))", gap: 8 }}
+      >
         {[1, 2, 3, 4, 5, 6].map((value) => (
           <button key={value} className="btn opt" data-value={value} onClick={() => onChoose(value)}>
             {value}

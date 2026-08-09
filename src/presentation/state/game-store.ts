@@ -72,6 +72,28 @@ export const useGameStore = create<GameStoreState>((set, get) => {
    */
   let pendingRoll: { steps: number; reachable: ReadonlyMap<NodeId, readonly NodeId[]> } | null = null;
 
+  /**
+   * いまの手番の人のサイコロを実際に振る。
+   *
+   * **災難のモーダルを閉じたあとも、ここから直に振る。**
+   * 以前は `ui` を `idle` に戻すだけで、プレイヤーがもう一度サイコロを
+   * 押す作りだった。ところが手番の頭では毎回厄災の判定が走るので、
+   * **押し直すとまた災難が起きる。**閉じて押して、また災難——と繰り返し、
+   * いつまでもサイコロが振れなくなっていた(本番で発生。
+   * 旅の記録に「👹 …is struck by misfortune.」が延々と伸びた)。
+   *
+   * ここから振れば `ui` は `rolling` に移り、サイコロのボタンは無効になる。
+   * 手番の頭に戻る道が無くなるので、災難は1手番に1回しか起きない。
+   */
+  function rollNow() {
+    const { context, session } = get();
+    if (!context || !session) return;
+    const player = currentPlayer(session);
+    const steps = rollOneDie(random);
+    const reachable = reachableNodesFor(context, session, player.id, steps);
+    beginRoll(steps, reachable, [steps]);
+  }
+
   /** サイコロ演出を始める。出目は伏せたまま、転がる絵だけを出す。 */
   function beginRoll(steps: number, reachable: ReadonlyMap<NodeId, readonly NodeId[]>, rolls: readonly number[]) {
     pendingRoll = { steps, reachable };
@@ -227,10 +249,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
         }
       }
 
-      const latestSession = get().session!;
-      const steps = rollOneDie(random);
-      const reachable = reachableNodesFor(context, latestSession, player.id, steps);
-      beginRoll(steps, reachable, [steps]);
+      rollNow();
     },
 
     chooseSquare(nodeId) {
@@ -327,21 +346,57 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const result = applyItemUse(context, session, player.id, index, random);
       set((s) => ({ session: result.session, log: pushLog(s, "usedItemLog", [player.name, usedItem?.emoji ?? "", usedItem?.name ?? ""], "gold") }));
 
-      if (result.result.type === "carried-far") {
-        // 行き先は抽選済み。選ばせずにそのまま運ぶ(向きが選べないのが、このアイテムの肝)。
-        const { steps, path, toNode } = result.result;
-        const landing = context.getNode(toNode);
-        set((s) => ({
-          log: isCityNode(landing)
-            ? pushLog(s, "carriedToLog", [player.name, steps, context.getCity(landing.cityId).name], "gold")
-            : pushLog(s, "carriedLog", [player.name, steps], "gold"),
-        }));
-        walkAlongPath(path);
-      } else if (result.result.type === "rolled") {
-        const { steps, rolls } = result.result;
-        const reachable = reachableNodesFor(context, result.session, player.id, steps);
-        // 振ったサイコロを個数ぶんそのまま見せる(合計だけだと目と進む数が食い違って見える)。
-        beginRoll(steps, reachable, rolls);
+      /*
+       * **すべての結果を明示的に受ける。**`else if` の並びだったころ、
+       * `await-exact-dice-choice`(出目を選べるアイテム)の枝が無く、
+       * 時刻表・タクシー・周遊券などは**持ち物から消えるだけで何も起きなかった。**
+       * ドメイン側は正しく返していて単体テストもあったので、緑のまま死んでいた。
+       *
+       * switch を網羅にして、最後に `never` を置いてある。**結果の種類を足すと
+       * ここが型エラーになる**ので、受け皿を書き忘れたまま通ることはない。
+       * 何もしなくてよい結果も、理由を書いて明示的に置く。
+       */
+      const outcome = result.result;
+      switch (outcome.type) {
+        case "carried-far": {
+          // 行き先は抽選済み。選ばせずにそのまま運ぶ(向きが選べないのが、このアイテムの肝)。
+          const { steps, path, toNode } = outcome;
+          const landing = context.getNode(toNode);
+          set((s) => ({
+            log: isCityNode(landing)
+              ? pushLog(s, "carriedToLog", [player.name, steps, context.getCity(landing.cityId).name], "gold")
+              : pushLog(s, "carriedLog", [player.name, steps], "gold"),
+          }));
+          walkAlongPath(path);
+          break;
+        }
+        case "rolled": {
+          const { steps, rolls } = outcome;
+          const reachable = reachableNodesFor(context, result.session, player.id, steps);
+          // 振ったサイコロを個数ぶんそのまま見せる(合計だけだと目と進む数が食い違って見える)。
+          beginRoll(steps, reachable, rolls);
+          break;
+        }
+        case "await-exact-dice-choice":
+          // 1〜6を選ぶ画面を出すところまでが、このアイテムの効果。
+          set({ ui: { kind: "exact-dice" } });
+          break;
+        case "gained-cash":
+          // 所持金は `result.session` に反映済みで、旅人一覧がそのまま新しい額を出す。
+          break;
+        case "extra-turn":
+          // `hasExtraTurn` が立つ。手番の終わりに `finishHumanLandingAndAdvance` が拾う。
+          break;
+        case "repelled-spirit":
+          // 厄災の持ち主が変わるのも `result.session` に入っている。
+          break;
+        case "no-effect":
+          // 使う条件を満たしていなかった場合(厄災を持っていないのに追い払う等)。
+          break;
+        default: {
+          const unhandled: never = outcome;
+          throw new Error(`受け皿の無いアイテム結果: ${JSON.stringify(unhandled)}`);
+        }
       }
     },
 
@@ -377,7 +432,9 @@ export const useGameStore = create<GameStoreState>((set, get) => {
         finishHumanLandingAndAdvance();
         return;
       }
-      set({ ui: { kind: "idle" } });
+      // **手番の頭には戻さない。**戻すと厄災の判定がもう一度走り、
+      // 災難が繰り返して永久にサイコロが振れなくなる(`rollNow` の説明を参照)。
+      rollNow();
     },
 
     save() {
