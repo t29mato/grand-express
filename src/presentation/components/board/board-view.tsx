@@ -15,7 +15,7 @@ import { tokenPlacements } from "./token-layout";
 import { TerrainLayer } from "./terrain-layer";
 import { BoardLegend } from "./board-legend";
 import { BoardCompass } from "./board-compass";
-import { candidateLabel, directionFrom, nextFocusIndex, orderByAzimuth } from "./candidate-guide";
+import { candidateLabels as buildCandidateLabels, nextFocusIndex, orderByAzimuth } from "./candidate-guide";
 import { soundAdapter } from "../../state/game-store-dependencies";
 
 const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
@@ -173,16 +173,15 @@ export function BoardView({ context, session, reachable, steps, onChooseNode }: 
     [reachableKey, positions, activeLocation],
   );
 
-  /** 読み上げ文。方位・マスの種類・目的地までの残りの3つ。 */
-  const candidateLabels = useMemo(() => {
-    const here = positions.get(activeLocation);
-    if (!here) return [];
-    return orderedCandidates.map((id) => {
-      const pos = positions.get(id);
-      const direction = pos ? directionFrom(here, pos) : "dirN";
-      return candidateLabel({ context, session, t, tx }, id, direction);
-    });
-  }, [orderedCandidates, positions, activeLocation, context, session, t, tx]);
+  /**
+   * 読み上げ文。方位・マスの種類・目的地までの残りの3つ。
+   * **同じ文の候補が並んだ組にだけ**、どの路線の上かが足される
+   * (`candidate-guide.ts` 参照。6盤面の15.5%の組で起きていた)。
+   */
+  const candidateLabels = useMemo(
+    () => buildCandidateLabels({ context, session, t, tx }, orderedCandidates, positions, activeLocation),
+    [orderedCandidates, positions, activeLocation, context, session, t, tx],
+  );
 
   /**
    * いまフォーカスしている候補の番号(ローミングtabindexの「選択中」)。

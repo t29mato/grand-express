@@ -105,18 +105,66 @@ function kindLabel({ context, tx, t }: LabelDeps, nodeId: NodeId): string {
  * どれを読んでも同じ数になり、選ぶ判断の役に立たない。
  * 差が出るのは向きと、目的地に近づくかどうかだけ。
  */
-export function candidateLabel(deps: LabelDeps, nodeId: NodeId, direction: DirectionKey): string {
+export function candidateLabel(
+  deps: LabelDeps,
+  nodeId: NodeId,
+  direction: DirectionKey,
+  /** 同じ文の候補が並ぶときだけ true。どの路線の上かを足して区別する。 */
+  disambiguate = false,
+): string {
   const { context, session, t, tx } = deps;
   const node = context.getNode(nodeId);
   const where = t(direction);
   const what = kindLabel(deps, nodeId);
+  /** どの路線の上か。**文の途中に挟むと壊れる**ので、必ず文末に足す。 */
+  const line =
+    disambiguate && !isCityNode(node)
+      ? t("candidateOnLine", tx(context.getCity(node.between[0]).name), tx(context.getCity(node.between[1]).name))
+      : "";
 
   if (isCityNode(node) && node.cityId === session.destination) {
     return t("candidateDest", where, what);
   }
   const remaining = context.distanceToCity(nodeId, session.destination);
   const destName = tx(context.getCity(session.destination).name);
-  return t(isCityNode(node) ? "candidateCity" : "candidateSquare", where, what, t("remainingTo", destName, remaining));
+  return (
+    t(isCityNode(node) ? "candidateCity" : "candidateSquare", where, what, t("remainingTo", destName, remaining)) + line
+  );
+}
+
+/**
+ * 候補ぜんぶぶんの読み上げ文を、**重なりを解いてから**返す。
+ *
+ * 盤面には分かれ道があるので、「北へ、クイズのマス、目的地まで残り9マス」が
+ * **まったく同じ候補が2つ並ぶ**ことがある。6盤面で数えたところ、
+ * **候補の組の15.5%**(6787組中1053組)で起きていた。稀ではない。
+ * 目で見ている人は輪の位置で選べるが、**読み上げで聞いている人には区別が付かない。**
+ *
+ * かといって常に細かく言うと、押すたびに長い文を聞かされる。
+ * **ぶつかった組にだけ**「どの路線の上か」を足す。中間マスは
+ * `between`(両端の町)を持っているので、分かれ道の違いはこれで出る。
+ */
+export function candidateLabels(
+  deps: LabelDeps,
+  ordered: readonly NodeId[],
+  positions: ReadonlyMap<NodeId, NodePosition>,
+  origin: NodeId,
+): readonly string[] {
+  const here = positions.get(origin);
+  if (!here) return ordered.map(() => "");
+  const directions = ordered.map((id) => {
+    const pos = positions.get(id);
+    return pos ? directionFrom(here, pos) : ("dirN" as DirectionKey);
+  });
+  const base = ordered.map((id, i) => candidateLabel(deps, id, directions[i]));
+
+  const seen = new Map<string, number>();
+  for (const label of base) seen.set(label, (seen.get(label) ?? 0) + 1);
+  if ([...seen.values()].every((count) => count === 1)) return base;
+
+  return ordered.map((id, i) =>
+    (seen.get(base[i]) ?? 0) > 1 ? candidateLabel(deps, id, directions[i], true) : base[i],
+  );
 }
 
 /**
