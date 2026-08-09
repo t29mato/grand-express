@@ -23,6 +23,18 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.26.1",
+    date: "2026-08-09",
+    title: t(
+      "Events now come from the board you are actually on|Los sucesos vienen ya del tablero en el que juegas|Les événements viennent enfin du plateau où vous jouez|出来事が、いま遊んでいる盤面のものになりました",
+    ),
+    highlights: [
+      t(
+        "If you played India and then started a game in Bolivia, the blue and red squares kept handing you Indian events — a chai wallah refusing payment, on the altiplano. The board, the towns and the quiz all changed; only the events were left behind.|Si jugabas a la India y luego empezabas en Bolivia, las casillas azules y rojas seguían dando sucesos indios: un chai wallah que no cobra, en pleno altiplano. El tablero, las ciudades y las preguntas cambiaban; solo los sucesos se quedaban atrás.|Après une partie en Inde, une partie en Bolivie continuait de servir des événements indiens : un chai wallah qui refuse d\'être payé, sur l\'altiplano. Le plateau, les villes et le quiz changeaient ; seuls les événements restaient.|インドで遊んだあとボリビアを始めると、青マス・赤マスがインドの出来事を出し続けていました。アルティプラーノでチャイ売りが代金を受け取らない、という具合です。盤面も町もクイズも切り替わるのに、出来事だけが前の国のまま残っていました。",
+      ),
+    ],
+  },
+  {
     version: "0.26.0",
     date: "2026-08-09",
     title: t(
