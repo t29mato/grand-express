@@ -23,6 +23,30 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.24.0",
+    date: "2026-08-09",
+    title: t(
+      "The travel log now speaks proper English, Spanish and French|El diario de viaje ya escribe en condiciones|Le journal de voyage écrit enfin correctement|旅の記録の文章が、英語・スペイン語・フランス語で直りました",
+    ),
+    highlights: [
+      t(
+        "Every line of the log put your name in front of a verb — and since the default name is a pronoun, the result was “You answers wrong” and “You is carried nine squares”, every single turn. The log now sets the name apart from what happened, the way the Japanese always did.|Cada línea ponía tu nombre delante de un verbo, y como el nombre por defecto es un pronombre, salía «Tú falla» en cada turno. Ahora el nombre va separado de lo ocurrido, como siempre hizo el japonés.|Chaque ligne plaçait votre nom devant un verbe ; le nom par défaut étant un pronom, cela donnait « Toi se trompe » à chaque tour. Le nom est désormais séparé de ce qui s'est passé, comme le faisait déjà le japonais.|旅の記録は、名前のすぐあとに動詞を活用させて置いていました。既定の名前が代名詞なので、毎ターン「You answers wrong」「Toi se trompe」といった壊れた文が出ていました。日本語が最初からそうしていたように、名前と出来事を切り離しました。",
+      ),
+      t(
+        "The same change fixes something quieter: in Spanish and French a few lines assumed the player was male. If you named yourself María, the game had been getting your grammar wrong all along.|El mismo cambio corrige algo más callado: en español y francés varias líneas daban por hecho que jugabas en masculino. Si te llamabas María, el juego llevaba todo el tiempo equivocándose.|Le même changement en corrige un plus discret : en espagnol et en français, certaines lignes supposaient un joueur masculin. Si vous vous appeliez María, le jeu se trompait depuis le début.|同じ直しで、もう一つ静かな誤りが消えました。スペイン語とフランス語の一部の行は、遊ぶ人が男性である前提で書かれていました。「マリア」と名乗って遊んでいた人には、ずっと誤った文が出ていたことになります。",
+      ),
+      t(
+        "Items that cannot do anything right now no longer let themselves be spent. Pressing the ch'alla offering without a spirit on you used to consume it for nothing; it now says why it is waiting.|Los objetos que ahora no pueden hacer nada ya no se gastan. Usar la ofrenda de ch'alla sin un espíritu encima la consumía para nada; ahora explica por qué espera.|Les objets qui ne peuvent rien faire ne se laissent plus dépenser. L'offrande de ch'alla, utilisée sans esprit sur soi, se consommait pour rien ; elle dit maintenant pourquoi elle attend.|いま効果が成立しないアイテムは、押しても消えなくなりました。厄災を背負っていないのにチャラの供物を使うと、何も起きずに無くなっていました。いまは「厄災を背負っているときだけ」と理由が出ます。",
+      ),
+      t(
+        "Passing the misfortune to someone else now says who received it — it used to happen in silence. And a charm's description no longer promises to turn a wrong answer right: it absorbs the loss, but wrong stays wrong, which is the point.|Pasar la desgracia a otro ahora dice a quién le tocó; antes ocurría en silencio. Y el amuleto ya no promete convertir un fallo en acierto: absorbe la pérdida, pero el fallo sigue siendo un fallo.|Refiler le malheur à quelqu'un indique désormais à qui ; cela se faisait en silence. Et l'amulette ne promet plus de transformer une erreur en bonne réponse : elle absorbe la perte, mais l'erreur reste une erreur.|厄災を誰かに押し付けたとき、相手の名前が出るようになりました。これまでは黙って移っていました。お守りの説明も直しました。「次の不正解を正解にする」と書いてありましたが、実際は損失を肩代わりするだけで、不正解であることは変わりません。そこが大事な点です。",
+      ),
+      t(
+        "Sixteen more quiz questions across the other five boards gave their answer away in a town card. Bolivia had nine of them. All six boards are clean now.|Otras dieciséis preguntas de los cinco tableros restantes revelaban su respuesta en una ficha de ciudad; nueve eran de Bolivia. Los seis tableros están limpios.|Seize autres questions, sur les cinq plateaux restants, livraient leur réponse dans une fiche de ville ; neuf en Bolivie. Les six plateaux sont désormais nets.|残る5盤面でも、都市の紹介文に答えが書いてある問題が16問見つかりました。うち9問がボリビアです。6盤面すべて解消しました。",
+      ),
+    ],
+  },
+  {
     version: "0.23.0",
     date: "2026-08-09",
     title: t(
