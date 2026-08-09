@@ -23,6 +23,30 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.23.0",
+    date: "2026-08-09",
+    title: t(
+      "The misfortune spirit lets go, and the die shows what it rolled|El espíritu de la desgracia por fin se marcha, y el dado muestra lo que sacó|L'esprit de malheur finit par lâcher prise, et le dé montre ce qu'il a fait|厄災の神が離れるようになり、サイコロが出た目を見せるようになりました",
+    ),
+    highlights: [
+      t(
+        "Once the spirit took hold it never let go: it struck again every time you reached for the die, and the log filled with the same line forever. It now moves on at the end of a turn, to whoever is furthest behind — the way it was always meant to.|Una vez que el espíritu se agarraba, no soltaba: golpeaba cada vez que ibas a por el dado y el diario se llenaba con la misma línea. Ahora se marcha al final del turno hacia quien va más rezagado, como debía ser.|Une fois accroché, l'esprit ne lâchait plus : il frappait chaque fois que vous tendiez la main vers le dé, et le journal se remplissait de la même ligne. Il passe désormais, en fin de tour, à celui qui est le plus en retard — comme prévu depuis le début.|厄災の神は、一度取り憑くと二度と離れませんでした。サイコロに手を伸ばすたびに災難が起き、旅の記録が同じ一行で埋まります。手番の終わりに、いちばん遅れている人へ移るようになりました。本来そうあるべきものでした。",
+      ),
+      t(
+        "The die was landing on its side when it rolled a two or a five, so the face you saw was not the face it had rolled. That is why the number sometimes looked wrong, and why squares you thought were out of reach turned out not to be. It now settles upright whatever it rolls.|El dado caía de lado al sacar un dos o un cinco, así que la cara que veías no era la que había salido. Por eso el número parecía equivocado a veces. Ahora se posa derecho saque lo que saque.|Le dé retombait sur le flanc pour un deux ou un cinq : la face visible n'était pas celle qu'il avait faite. D'où les nombres qui semblaient faux. Il se pose maintenant droit, quel que soit le résultat.|サイコロは出目が2と5のとき横倒しで止まっていて、見えている面が出た目ではありませんでした。「出目がときどき違う」「行けないはずのマスに行けた」のはこれが原因です。どの目でも正しく立って止まります。",
+      ),
+      t(
+        "Items that let you name your own number — the Jōban Line timetable and its like on every board — did nothing at all. They vanished from your bag and that was that. They now open a panel where you pick one to six.|Los objetos que te dejan elegir el número —el horario de la línea Jōban y sus equivalentes en cada tablero— no hacían nada: desaparecían de la bolsa y ya. Ahora abren un panel para elegir del uno al seis.|Les objets permettant d'annoncer son chiffre — l'indicateur de la ligne Jōban et ses équivalents sur chaque plateau — ne faisaient rien : ils disparaissaient du sac, un point c'est tout. Ils ouvrent désormais un panneau où l'on choisit de un à six.|出目を自分で選べるアイテム——常磐線の時刻表と、各盤面の同じ働きのもの——は、何も起きずに持ち物から消えるだけでした。1から6を選ぶ画面が出るようになりました。",
+      ),
+      t(
+        "In a town you can now see what you have before you buy, what each purchase leaves you with, and how many businesses are still needed to double the income. Ushiku has its Great Buddha. And on the Ibaraki board, misfortune finally has pictures — a giant's footprint filling with water, a drying yard caught in the rain.|En un pueblo ahora ves cuánto tienes antes de comprar, con cuánto te quedas y cuántos negocios faltan para doblar la renta. Ushiku tiene su Gran Buda. Y en el tablero de Ibaraki, la desgracia por fin tiene imágenes.|En ville, vous voyez maintenant ce que vous avez avant d'acheter, ce qu'il vous restera, et combien d'affaires manquent pour doubler le revenu. Ushiku a son Grand Bouddha. Et sur le plateau d'Ibaraki, le malheur a enfin des images.|町では、買う前に所持金と、買ったあとの残りと、あと何件で収入が倍になるかが見えるようになりました。牛久に大仏が立ちました。茨城の盤面では、災難にようやく絵が付きました。巨人の足跡に水が溜まり、干し場が雨に濡れます。",
+      ),
+      t(
+        "Ten of Ibaraki's questions have been rewritten. Some asked why something is so, which has no single answer; four gave their answer away in the town card you may already have read.|Diez preguntas de Ibaraki se han reescrito. Algunas preguntaban por qué algo es así, lo que no tiene una sola respuesta; cuatro revelaban su respuesta en la ficha del pueblo.|Dix questions d'Ibaraki ont été réécrites. Certaines demandaient pourquoi une chose est ainsi, ce qui n'a pas de réponse unique ; quatre livraient leur réponse dans la fiche de la ville.|茨城の問題を10問書き直しました。「なぜそうなのか」を問うものは答えが一つに定まりません。4問は、すでに読んだかもしれない町の紹介文に答えが書いてありました。",
+      ),
+    ],
+  },
+  {
     version: "0.22.0",
     date: "2026-08-08",
     title: t(
