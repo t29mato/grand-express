@@ -2749,37 +2749,37 @@
     {
       "difficulty": 7,
       "q": {
-        "en": "A lord of Mito is credited with being among the first in Japan to eat which dish?",
-        "es": "A un señor de Mito se le atribuye ser de los primeros de Japón en comer ¿qué plato?",
-        "fr": "Un seigneur de Mito passe pour l'un des premiers Japonais à avoir mangé quel plat ?",
-        "ja": "水戸の藩主が日本で最初期に口にしたとされる料理は?"
+        "en": "Which two ocean currents meet off the coast of Ibaraki?",
+        "es": "¿Qué dos corrientes marinas se encuentran frente a la costa de Ibaraki?",
+        "fr": "Quels deux courants marins se rencontrent au large d'Ibaraki ?",
+        "ja": "茨城県の沖でぶつかり合う、二つの海の流れは?"
       },
       "o": [
         {
-          "en": "Curry",
-          "es": "Curry",
-          "fr": "Le curry",
-          "ja": "カレー"
+          "en": "The Kuroshio and the Oyashio",
+          "es": "La Kuroshio y la Oyashio",
+          "fr": "Le Kuroshio et l'Oyashio",
+          "ja": "黒潮と親潮"
         },
         {
-          "en": "Chinese noodles in soup",
-          "es": "Fideos chinos en caldo",
-          "fr": "Des nouilles chinoises en bouillon",
-          "ja": "中国風の汁そば(ラーメン)"
+          "en": "The Tsushima and the Liman",
+          "es": "La de Tsushima y la de Liman",
+          "fr": "Celui de Tsushima et celui du Liman",
+          "ja": "対馬海流とリマン海流"
         },
         {
-          "en": "Bread",
-          "es": "Pan",
-          "fr": "Le pain",
-          "ja": "パン"
+          "en": "The Kuroshio and the Tsushima",
+          "es": "La Kuroshio y la de Tsushima",
+          "fr": "Le Kuroshio et celui de Tsushima",
+          "ja": "黒潮と対馬海流"
         }
       ],
-      "a": 1,
+      "a": 0,
       "f": {
-        "en": "A Ming scholar living in exile at Mito showed the lord how to make wheat noodles served in a broth, and a record of 1697 describes him eating them. The same scholar brought the lotus root and the pickled ginger that went with them.",
-        "es": "Un erudito Ming exiliado en Mito le enseñó a hacer fideos de trigo en caldo, y un registro de 1697 lo describe comiéndolos.",
-        "fr": "Un lettré Ming exilé à Mito lui montra comment faire des nouilles de blé en bouillon ; un document de 1697 le décrit en train d'en manger.",
-        "ja": "水戸に亡命していた明の儒学者が、小麦の麺を汁に入れて食べる作り方を藩主に教えた。1697年の記録に、それを食した様子が残る。同じ学者は、添える蓮根や生姜の漬物も伝えている。"
+        "en": "The warm Kuroshio running up from the south meets the cold Oyashio coming down from the north at about this latitude. Nutrients well up along the seam, small fish gather, and larger fish follow them, which is why the catch landed here is sold under a name of its own.",
+        "es": "La cálida Kuroshio que sube del sur se encuentra con la fría Oyashio que baja del norte a esta altura. En la juntura afloran nutrientes, se juntan los peces pequeños y tras ellos llegan los grandes, y por eso la pesca de aquí se vende con nombre propio.",
+        "fr": "Le Kuroshio chaud, qui monte du sud, rencontre l'Oyashio froid, qui descend du nord, à peu près à cette latitude. Des nutriments remontent le long de la couture, les petits poissons s'y rassemblent et les grands les suivent : c'est pourquoi les prises d'ici se vendent sous un nom à part.",
+        "ja": "南から上がる暖かい黒潮と、北から下りる冷たい親潮が、この県の沖あたりで出会う。ぶつかる帯には栄養が湧いて小魚が群れ、それを追う魚が寄る。ここで揚がる魚が高く買われるのはそのためで、市場では別の名で呼び分けられる。"
       }
     },
     {
@@ -3001,37 +3001,37 @@
     {
       "difficulty": 9,
       "q": {
-        "en": "Mito's name is usually explained as referring to what?",
-        "es": "El nombre de Mito suele explicarse como referido a ¿qué?",
-        "fr": "Le nom de Mito s'explique d'ordinaire par quoi ?",
-        "ja": "「水戸」という地名の由来として、ふつう説かれるのは?"
+        "en": "What is performed on top of the fifteen-metre floats at Hitachi's festival?",
+        "es": "¿Qué se representa sobre las carrozas de quince metros en la fiesta de Hitachi?",
+        "fr": "Que joue-t-on au sommet des chars de quinze mètres lors de la fête de Hitachi ?",
+        "ja": "日立の祭りで、高さ15mほどの山車の上で演じられるものは?"
       },
       "o": [
         {
-          "en": "A gate on the water",
-          "es": "Una puerta sobre el agua",
-          "fr": "Une porte sur l'eau",
-          "ja": "水の門"
+          "en": "Sumo bouts",
+          "es": "Combates de sumo",
+          "fr": "Des combats de sumo",
+          "ja": "相撲の取組"
         },
         {
-          "en": "Three doorways",
-          "es": "Tres puertas",
-          "fr": "Trois portes",
-          "ja": "三つの門"
+          "en": "A play acted by marionettes",
+          "es": "Una obra de marionetas",
+          "fr": "Une pièce jouée par des marionnettes",
+          "ja": "操り人形の芝居"
         },
         {
-          "en": "A well that never dries",
-          "es": "Un pozo que nunca se seca",
-          "fr": "Un puits qui ne tarit pas",
-          "ja": "涸れない井戸"
+          "en": "An archery contest",
+          "es": "Un concurso de tiro con arco",
+          "fr": "Un concours de tir à l'arc",
+          "ja": "弓の競射"
         }
       ],
-      "a": 0,
+      "a": 1,
       "f": {
-        "en": "The characters read \"water gate\", and the town grew where the Naka River could be crossed and boats could be turned round — the gateway between the coast and the inland valleys. Goods came up by river to here and went on by road, which is why the castle was placed above the bend.",
-        "es": "Los caracteres significan \"puerta del agua\": la ciudad creció donde el río Naka podía cruzarse y las barcas virar, entre la costa y los valles interiores.",
-        "fr": "Les caractères disent « porte de l'eau » : la ville naquit là où le fleuve Naka se franchissait et où les barques viraient, entre la côte et les vallées.",
-        "ja": "字は「水の門」と読む。那珂川を渡れ、舟を回せるところ、つまり海と内陸の谷とを結ぶ門口に町が育った。荷は川をここまで遡り、陸路へ移された。城が川の曲がりの上に置かれたのはそのためである。"
+        "en": "The float opens out into a stage of five tiers and handlers hidden behind it work the puppets on strings; when the scene ends the whole float is turned round to play a second one on its reverse. It was made an important intangible folk cultural property in 1977 and joined the UNESCO list of float festivals in 2016.",
+        "es": "La carroza se abre en un escenario de cinco pisos y unos titiriteros ocultos mueven los muñecos con hilos; al acabar la escena se gira la carroza entera para representar otra por detrás. Fue declarada bien cultural folclórico inmaterial importante en 1977 y entró en la lista de la UNESCO en 2016.",
+        "fr": "Le char s'ouvre en une scène à cinq étages et des manipulateurs cachés derrière animent les marionnettes ; la scène finie, on retourne le char entier pour en jouer une seconde au revers. Classé bien culturel folklorique immatériel important en 1977, il est entré sur la liste de l'UNESCO en 2016.",
+        "ja": "山車は五段の舞台に開き、陰に隠れた者が糸で人形を操って芝居を演じる。一場が終わると山車ごと向きを変え、裏側でもう一場を出す。1977年に国の重要無形民俗文化財に指定され、2016年には各地の山・鉾・屋台の行事とともにユネスコの一覧に加わった。"
       }
     },
     {

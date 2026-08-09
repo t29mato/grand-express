@@ -80,7 +80,9 @@ const browser = await chromium.launch();
 const page = await browser.newPage();
 const errors = [];
 page.on("pageerror", (e) => errors.push(String(e)));
-await page.goto(`http://localhost:${server.config.server.port}/${htmlPath.split("/").pop()}`);
+// 設定した番号ではなく**実際に開いた URL** を使う(埋まっていると Vite は次を取る)。
+const base = server.resolvedUrls?.local?.[0] ?? `http://localhost:${server.config.server.port}/`;
+await page.goto(`${base.replace(/\/$/, "")}/${htmlPath.split("/").pop()}`);
 await page.waitForSelector("#root [data-id] svg", { timeout: 30_000 }).catch(() => {});
 await page.waitForTimeout(1000);
 

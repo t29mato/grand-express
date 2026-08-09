@@ -41,8 +41,11 @@
  * - **前提を問いの中に置かない。**「九割を占めるが、その理由は?」ではなく
  *   「九割を占める県は?」
  * - **誤答は他県の実在するものにする。**明らかに嘘の選択肢を並べると消去法で解けてしまう
- * - **同じ題材を重ねない。**さつまいもが3問、筑波山が5問あった。
- *   いまは さつまいも1・筑波山3(ほかに1問は誤答としてのみ登場)・水戸5
+ * - **同じ題材を重ねない。**さつまいもが3問、筑波山が5問、水戸が5問あった。
+ *   いまは さつまいも1・筑波山3(ほかに1問は誤答としてのみ登場)・**水戸3**。
+ *   水戸から移した2問は、常磐沖の海流と日立風流物にしてある。
+ *   数え直すときは `node scripts/check-quiz.mjs ibaraki` の「3問以上に出る語」を見る
+ *   (**問いと正解だけを数える。**外れの選択肢まで数えると、囮が偏りに見える)
  *
  * 選択肢は3つ。正解の位置(`a`)は 0/1/2 がほぼ同数になるよう散らしてある。
  */
@@ -297,16 +300,18 @@ export const IBARAKI_QUIZ = [
     2,
     "Shamo were bred as fighting birds, so they grow slowly and put on hard, lean muscle. Around Daigo they are kept for about five months — roughly twice as long as an ordinary table bird — and the meat is firm enough that it is usually simmered rather than fried. Hinai jidori comes from Akita and the Nagoya cochin from Aichi.|El shamo se crió como ave de pelea: crece despacio y forma músculo magro y duro. Cerca de Daigo se cría unos cinco meses, el doble que un pollo común. El hinai jidori es de Akita y el cochin de Nagoya, de Aichi.|Le shamo fut élevé pour le combat : il grandit lentement et prend un muscle maigre et ferme. Vers Daigo on l'élève cinq mois environ, deux fois plus qu'un poulet ordinaire. Le hinai jidori vient d'Akita, la cochin de Nagoya d'Aichi.|しゃもはもともと闘鶏として育てられた鶏で、ゆっくり育ち、締まった赤身がつく。大子のあたりでは五か月ほどかけて飼う。ふつうの肉用鶏のおよそ倍で、肉が硬いため揚げるより煮て食べることが多い。比内地鶏は秋田、名古屋コーチンは愛知のものである。",
   ),
+  // もとは「水戸の藩主が最初期に口にした料理は? → ラーメン」だった。
+  // 水戸を扱う問いが40問中5問あったので、海の話へ移した(→ 3問)。
   q(
     7,
-    "A lord of Mito is credited with being among the first in Japan to eat which dish?|A un señor de Mito se le atribuye ser de los primeros de Japón en comer ¿qué plato?|Un seigneur de Mito passe pour l'un des premiers Japonais à avoir mangé quel plat ?|水戸の藩主が日本で最初期に口にしたとされる料理は?",
+    "Which two ocean currents meet off the coast of Ibaraki?|¿Qué dos corrientes marinas se encuentran frente a la costa de Ibaraki?|Quels deux courants marins se rencontrent au large d'Ibaraki ?|茨城県の沖でぶつかり合う、二つの海の流れは?",
     [
-      "Curry|Curry|Le curry|カレー",
-      "Chinese noodles in soup|Fideos chinos en caldo|Des nouilles chinoises en bouillon|中国風の汁そば(ラーメン)",
-      "Bread|Pan|Le pain|パン",
+      "The Kuroshio and the Oyashio|La Kuroshio y la Oyashio|Le Kuroshio et l'Oyashio|黒潮と親潮",
+      "The Tsushima and the Liman|La de Tsushima y la de Liman|Celui de Tsushima et celui du Liman|対馬海流とリマン海流",
+      "The Kuroshio and the Tsushima|La Kuroshio y la de Tsushima|Le Kuroshio et celui de Tsushima|黒潮と対馬海流",
     ],
-    1,
-    "A Ming scholar living in exile at Mito showed the lord how to make wheat noodles served in a broth, and a record of 1697 describes him eating them. The same scholar brought the lotus root and the pickled ginger that went with them.|Un erudito Ming exiliado en Mito le enseñó a hacer fideos de trigo en caldo, y un registro de 1697 lo describe comiéndolos.|Un lettré Ming exilé à Mito lui montra comment faire des nouilles de blé en bouillon ; un document de 1697 le décrit en train d'en manger.|水戸に亡命していた明の儒学者が、小麦の麺を汁に入れて食べる作り方を藩主に教えた。1697年の記録に、それを食した様子が残る。同じ学者は、添える蓮根や生姜の漬物も伝えている。",
+    0,
+    "The warm Kuroshio running up from the south meets the cold Oyashio coming down from the north at about this latitude. Nutrients well up along the seam, small fish gather, and larger fish follow them, which is why the catch landed here is sold under a name of its own.|La cálida Kuroshio que sube del sur se encuentra con la fría Oyashio que baja del norte a esta altura. En la juntura afloran nutrientes, se juntan los peces pequeños y tras ellos llegan los grandes, y por eso la pesca de aquí se vende con nombre propio.|Le Kuroshio chaud, qui monte du sud, rencontre l'Oyashio froid, qui descend du nord, à peu près à cette latitude. Des nutriments remontent le long de la couture, les petits poissons s'y rassemblent et les grands les suivent : c'est pourquoi les prises d'ici se vendent sous un nom à part.|南から上がる暖かい黒潮と、北から下りる冷たい親潮が、この県の沖あたりで出会う。ぶつかる帯には栄養が湧いて小魚が群れ、それを追う魚が寄る。ここで揚がる魚が高く買われるのはそのためで、市場では別の名で呼び分けられる。",
   ),
   q(
     7,
@@ -380,16 +385,17 @@ export const IBARAKI_QUIZ = [
     1,
     "The kagai was a gathering where verses were sung back and forth and couples paired off, and the chronicle notes it plainly as the custom of the mountain. It records that people came from the neighbouring provinces for it, which makes it one of the earliest descriptions of an organised social occasion in Japan.|El kagai era un encuentro de versos cantados en el que se formaban parejas, y la crónica lo anota sin rodeos como costumbre del monte.|Le kagai était une assemblée de vers chantés où l'on se choisissait, et la chronique la note sans détour comme la coutume de la montagne.|嬥歌(かがい)は歌を掛け合いながら男女が結ばれる集まりで、風土記はそれをこの山の習わしとして淡々と記す。近隣の国からも人が集まったとあり、日本で最も早い時期の「催しごと」の記録の一つになっている。",
   ),
+  // もとは「『水戸』という地名の由来は? → 水の門」だった。上と同じ理由で移した。
   q(
     9,
-    "Mito's name is usually explained as referring to what?|El nombre de Mito suele explicarse como referido a ¿qué?|Le nom de Mito s'explique d'ordinaire par quoi ?|「水戸」という地名の由来として、ふつう説かれるのは?",
+    "What is performed on top of the fifteen-metre floats at Hitachi's festival?|¿Qué se representa sobre las carrozas de quince metros en la fiesta de Hitachi?|Que joue-t-on au sommet des chars de quinze mètres lors de la fête de Hitachi ?|日立の祭りで、高さ15mほどの山車の上で演じられるものは?",
     [
-      "A gate on the water|Una puerta sobre el agua|Une porte sur l'eau|水の門",
-      "Three doorways|Tres puertas|Trois portes|三つの門",
-      "A well that never dries|Un pozo que nunca se seca|Un puits qui ne tarit pas|涸れない井戸",
+      "Sumo bouts|Combates de sumo|Des combats de sumo|相撲の取組",
+      "A play acted by marionettes|Una obra de marionetas|Une pièce jouée par des marionnettes|操り人形の芝居",
+      "An archery contest|Un concurso de tiro con arco|Un concours de tir à l'arc|弓の競射",
     ],
-    0,
-    "The characters read \"water gate\", and the town grew where the Naka River could be crossed and boats could be turned round — the gateway between the coast and the inland valleys. Goods came up by river to here and went on by road, which is why the castle was placed above the bend.|Los caracteres significan \"puerta del agua\": la ciudad creció donde el río Naka podía cruzarse y las barcas virar, entre la costa y los valles interiores.|Les caractères disent « porte de l'eau » : la ville naquit là où le fleuve Naka se franchissait et où les barques viraient, entre la côte et les vallées.|字は「水の門」と読む。那珂川を渡れ、舟を回せるところ、つまり海と内陸の谷とを結ぶ門口に町が育った。荷は川をここまで遡り、陸路へ移された。城が川の曲がりの上に置かれたのはそのためである。",
+    1,
+    "The float opens out into a stage of five tiers and handlers hidden behind it work the puppets on strings; when the scene ends the whole float is turned round to play a second one on its reverse. It was made an important intangible folk cultural property in 1977 and joined the UNESCO list of float festivals in 2016.|La carroza se abre en un escenario de cinco pisos y unos titiriteros ocultos mueven los muñecos con hilos; al acabar la escena se gira la carroza entera para representar otra por detrás. Fue declarada bien cultural folclórico inmaterial importante en 1977 y entró en la lista de la UNESCO en 2016.|Le char s'ouvre en une scène à cinq étages et des manipulateurs cachés derrière animent les marionnettes ; la scène finie, on retourne le char entier pour en jouer une seconde au revers. Classé bien culturel folklorique immatériel important en 1977, il est entré sur la liste de l'UNESCO en 2016.|山車は五段の舞台に開き、陰に隠れた者が糸で人形を操って芝居を演じる。一場が終わると山車ごと向きを変え、裏側でもう一場を出す。1977年に国の重要無形民俗文化財に指定され、2016年には各地の山・鉾・屋台の行事とともにユネスコの一覧に加わった。",
   ),
   q(
     9,

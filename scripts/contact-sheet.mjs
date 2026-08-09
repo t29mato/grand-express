@@ -69,7 +69,11 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: cols * 410 + 20, height: 900 } });
 const errors = [];
 page.on("pageerror", (e) => errors.push(String(e)));
-await page.goto(`http://localhost:${server.config.server.port}/${htmlPath.split("/").pop()}`);
+// **`server.config.server.port` は設定値で、実際に開いた番号ではない。**
+// 誰かが先にその番号を使っていると Vite は次を取るので、設定値を見に行くと
+// **他人のサーバを撮ってしまう。**開いた URL を使う。
+const base = server.resolvedUrls?.local?.[0] ?? `http://localhost:${server.config.server.port}/`;
+await page.goto(`${base.replace(/\/$/, "")}/${htmlPath.split("/").pop()}`);
 await page.waitForSelector("#root svg", { timeout: 30_000 }).catch(() => {});
 // 動きの途中を撮る。0秒だと、動く部分が消えている絵になることがある。
 await page.waitForTimeout(1500);
