@@ -430,11 +430,12 @@ export const JAPAN_RICH_BG = {
     snowHouse(344, 148, 44, 22, "#b0a88f", "#5f6b78") +
     `<g fill="#6b6558"><rect x="58" y="112" width="7" height="10"/><rect x="316" y="116" width="7" height="9"/></g>` +
     `<g fill="#eef2f6" opacity=".75"><ellipse cx="62" cy="104" rx="7" ry="4"/><ellipse cx="68" cy="96" rx="5.4" ry="3"/><ellipse cx="320" cy="108" rx="6" ry="3.4"/></g>` +
-    // 赤レンガの倉庫(札幌・小樽)
-    `<rect x="140" y="118" width="52" height="30" fill="#a8523c"/>` +
-    `<path d="M136,118h60l-6,-9h-48z" fill="#5f6b78"/>` +
-    `<path d="M134,119h64l-4,-6h-56z" fill="#f8fbfd"/>` +
-    `<g fill="#d8cfb8"><rect x="146" y="126" width="8" height="10" rx="4"/><rect x="160" y="126" width="8" height="10" rx="4"/><rect x="174" y="126" width="8" height="10" rx="4"/></g>` +
+    // 赤レンガの倉庫(札幌・小樽)。
+    // x=140 に建てたら **87%がシンボルに隠れていた**(`--hidden` が拾った)。左へ寄せる
+    `<rect x="128" y="118" width="52" height="30" fill="#a8523c"/>` +
+    `<path d="M124,118h60l-6,-9h-48z" fill="#5f6b78"/>` +
+    `<path d="M122,119h64l-4,-6h-56z" fill="#f8fbfd"/>` +
+    `<g fill="#d8cfb8"><rect x="134" y="126" width="8" height="10" rx="4"/><rect x="148" y="126" width="8" height="10" rx="4"/><rect x="162" y="126" width="8" height="10" rx="4"/></g>` +
     // ── 電柱と電線(北国の空はこれで区切られる)
     powerPole(112, 148, 46) +
     powerPole(268, 148, 42) +

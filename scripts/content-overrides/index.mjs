@@ -16,6 +16,7 @@ import { JAPAN_REMOVED_EDGES } from "./japan-line-pruning.mjs";
 import { BOLIVIA_MONEY_EVENTS } from "./money-events-bolivia.mjs";
 import { BOLIVIA_MONEY_EVENTS_EXTRA } from "./money-events-bolivia-extra.mjs";
 import { BOLIVIA_EXTRA_CITIES, BOLIVIA_EXTRA_EDGES } from "./bolivia-cities.mjs";
+import { BOLIVIA_QUIZ_REPLACEMENTS } from "./bolivia-quiz.mjs";
 import { ITEM_TEXT } from "./item-text.mjs";
 import { CITY_BG } from "./city-backgrounds.mjs";
 import {
@@ -94,6 +95,7 @@ const OVERRIDES = {
     moneyEvents: [...BOLIVIA_MONEY_EVENTS, ...BOLIVIA_MONEY_EVENTS_EXTRA],
     boardScale: BOARD_SCALE.bolivia,
     quizDifficulty: QUIZ_DIFFICULTY.bolivia,
+    quiz: BOLIVIA_QUIZ_REPLACEMENTS,
     extraCities: BOLIVIA_EXTRA_CITIES,
     extraEdges: BOLIVIA_EXTRA_EDGES,
   },
@@ -201,6 +203,29 @@ export function applyContentOverrides(countryId, content) {
     }
 
     content.proj = proj;
+  }
+
+  /**
+   * クイズの差し替え。**難易度より先に適用する**(差し替えた問題にも難易度が乗るように)。
+   *
+   * legacy 由来の盤面(ボリビア・日本)はクイズが `legacy/grand-express.html` に
+   * 埋め込まれていて、凍結しているので直接は直せない。ここで添字を指定して差し替える。
+   *
+   * **元の問題に重ねる形にしてある**(`{ ...元, ...差し替え }`)。
+   * 問いだけ、選択肢だけ、を直したいことがあるため。
+   *
+   * 添字を間違えると**別の問題を黙って壊す**ので、範囲外はエラーにする。
+   */
+  if (override.quiz && content.quiz) {
+    for (const [key, replacement] of Object.entries(override.quiz)) {
+      const i = Number(key);
+      if (!Number.isInteger(i) || i < 0 || i >= content.quiz.length) {
+        throw new Error(
+          `${countryId}: 差し替えようとしたクイズの添字 ${key} が範囲外です(0〜${content.quiz.length - 1})`,
+        );
+      }
+      content.quiz[i] = { ...content.quiz[i], ...replacement };
+    }
   }
 
   // サムネイル生成時は quiz を持たない部分オブジェクトで呼ばれるため読み飛ばす。

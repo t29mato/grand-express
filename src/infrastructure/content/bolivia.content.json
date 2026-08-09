@@ -2899,37 +2899,37 @@
     },
     {
       "q": {
-        "en": "The Chaco War (1932-35) was fought against which country?",
-        "es": "¿Contra qué país se libró la Guerra del Chaco (1932-35)?",
-        "fr": "Contre quel pays fut menée la guerre du Chaco (1932-35) ?",
-        "ja": "チャコ戦争(1932〜35)の相手国は?"
+        "en": "How much height is there between Bolivia's lowest and highest ground?",
+        "es": "¿Cuánto desnivel hay entre el punto más bajo y el más alto de Bolivia?",
+        "fr": "Quelle dénivellation sépare le point le plus bas du plus haut en Bolivie ?",
+        "ja": "ボリビアの最も低い土地と最も高い土地の標高差は、およそどれくらい?"
       },
       "o": [
         {
-          "en": "Paraguay",
-          "es": "Paraguay",
-          "fr": "Le Paraguay",
-          "ja": "パラグアイ"
+          "en": "About 800 m",
+          "es": "Unos 800 m",
+          "fr": "Environ 800 m",
+          "ja": "およそ800m"
         },
         {
-          "en": "Peru",
-          "es": "Perú",
-          "fr": "Le Pérou",
-          "ja": "ペルー"
+          "en": "About 6,400 m",
+          "es": "Unos 6.400 m",
+          "fr": "Environ 6 400 m",
+          "ja": "およそ6,400m"
         },
         {
-          "en": "Brazil",
-          "es": "Brasil",
-          "fr": "Le Brésil",
-          "ja": "ブラジル"
+          "en": "About 12,000 m",
+          "es": "Unos 12.000 m",
+          "fr": "Environ 12 000 m",
+          "ja": "およそ12,000m"
         }
       ],
-      "a": 0,
+      "a": 1,
       "f": {
-        "en": "Both nations believed the Chaco held oil. Around 100,000 died, many from thirst rather than combat.",
-        "es": "Ambos países creían que el Chaco tenía petróleo. Murieron unas 100.000 personas, muchas de sed más que en combate.",
-        "fr": "Les deux pays croyaient le Chaco riche en pétrole. Environ 100 000 personnes moururent, souvent de soif plutôt qu'au combat.",
-        "ja": "両国はチャコに石油があると信じました。約10万人が死亡し、その多くは戦闘ではなく渇きによるものでした。"
+        "en": "The low ground is hot river plain near the Brazilian border, under a hundred metres; the high ground is a snow peak over six and a half thousand. A bus can leave one and reach the other in a day, passing from palms to glaciers, and the country grows both bananas and barley because of it.",
+        "es": "Lo bajo es llanura fluvial junto a Brasil, a menos de cien metros; lo alto, un pico nevado de más de seis mil quinientos. Un autobús cubre la distancia en un día, de las palmeras a los glaciares.",
+        "fr": "Le bas est une plaine fluviale près du Brésil, sous cent mètres ; le haut, un sommet neigeux de plus de six mille cinq cents. Un car fait le trajet en un jour, des palmiers aux glaciers.",
+        "ja": "低いほうはブラジル国境近くの暑い川沿いの平地で、標高は百メートルに満たない。高いほうは六千五百を超える雪の峰である。バスなら一日でその間を移り、椰子から氷河へ抜ける。この国が バナナも大麦も穫れるのはそのためである。"
       },
       "difficulty": 6
     },
@@ -3115,37 +3115,37 @@
     },
     {
       "q": {
-        "en": "Lake Titicaca holds which world record?",
-        "es": "¿Qué récord mundial tiene el lago Titicaca?",
-        "fr": "Quel record mondial détient le lac Titicaca ?",
-        "ja": "チチカカ湖が持つ世界記録は?"
+        "en": "Which animal is kept in the Andes mainly for its wool?",
+        "es": "¿Qué animal se cría en los Andes sobre todo por su lana?",
+        "fr": "Quel animal élève-t-on dans les Andes surtout pour sa laine ?",
+        "ja": "アンデスで、おもに毛のために飼われている家畜は?"
       },
       "o": [
         {
-          "en": "Highest large navigable lake",
-          "es": "El lago navegable más alto",
-          "fr": "Plus haut grand lac navigable",
-          "ja": "世界一高所の大型可航湖"
+          "en": "The alpaca",
+          "es": "La alpaca",
+          "fr": "L'alpaga",
+          "ja": "アルパカ"
         },
         {
-          "en": "Deepest lake",
-          "es": "El lago más profundo",
-          "fr": "Lac le plus profond",
-          "ja": "世界一深い湖"
+          "en": "The donkey",
+          "es": "El burro",
+          "fr": "L'âne",
+          "ja": "ロバ"
         },
         {
-          "en": "Saltiest lake",
-          "es": "El lago más salado",
-          "fr": "Lac le plus salé",
-          "ja": "世界一塩分の濃い湖"
+          "en": "The goat",
+          "es": "La cabra",
+          "fr": "La chèvre",
+          "ja": "ヤギ"
         }
       ],
       "a": 0,
       "f": {
-        "en": "At 3,812 m above sea level. Inca myth says the sun god was born on its Isla del Sol.",
-        "es": "A 3.812 m sobre el nivel del mar. El mito inca dice que el sol nació en su Isla del Sol.",
-        "fr": "À 3 812 m d'altitude. Le mythe inca dit que le dieu soleil naquit sur son Isla del Sol.",
-        "ja": "標高3,812m。インカ神話では太陽神が湖の太陽の島で生まれたとされます。"
+        "en": "It is smaller than the llama and useless as a pack animal, which is the whole point: the llama carries, the alpaca is shorn. A fleece takes a year to grow and comes in more than twenty natural colours, so much of it is never dyed.",
+        "es": "Es menor que la llama e inútil como bestia de carga, y ahí está la cuestión: la llama carga, la alpaca se esquila. El vellón tarda un año y viene en más de veinte colores naturales.",
+        "fr": "Plus petit que le lama et inutile comme bête de somme, c'est justement le principe : le lama porte, l'alpaga se tond. La toison met un an et se décline en plus de vingt teintes naturelles.",
+        "ja": "リャマより小さく、荷を運ぶ役には立たない。それでよいのであって、運ぶのはリャマ、刈られるのがアルパカである。毛は生えそろうのに一年かかり、自然の色が二十種以上あるため、染めずに使われることが多い。"
       },
       "difficulty": 3
     },
@@ -3259,37 +3259,37 @@
     },
     {
       "q": {
-        "en": "Which revolutionary was captured and killed in Bolivia in 1967?",
-        "es": "¿Qué revolucionario fue capturado y ejecutado en Bolivia en 1967?",
-        "fr": "Quel révolutionnaire fut capturé et tué en Bolivie en 1967 ?",
-        "ja": "1967年にボリビアで処刑された革命家は?"
+        "en": "What are the three colours of the Bolivian flag?",
+        "es": "¿Cuáles son los tres colores de la bandera boliviana?",
+        "fr": "Quelles sont les trois couleurs du drapeau bolivien ?",
+        "ja": "ボリビアの国旗の三色は?"
       },
       "o": [
         {
-          "en": "Che Guevara",
-          "es": "Che Guevara",
-          "fr": "Che Guevara",
-          "ja": "チェ・ゲバラ"
+          "en": "Blue, white and blue",
+          "es": "Azul, blanco y azul",
+          "fr": "Bleu, blanc et bleu",
+          "ja": "青・白・青"
         },
         {
-          "en": "Emiliano Zapata",
-          "es": "Emiliano Zapata",
-          "fr": "Emiliano Zapata",
-          "ja": "エミリアーノ・サパタ"
+          "en": "Red, yellow and green",
+          "es": "Rojo, amarillo y verde",
+          "fr": "Rouge, jaune et vert",
+          "ja": "赤・黄・緑"
         },
         {
-          "en": "Túpac Katari",
-          "es": "Túpac Katari",
-          "fr": "Túpac Katari",
-          "ja": "トゥパク・カタリ"
+          "en": "Black, red and gold",
+          "es": "Negro, rojo y oro",
+          "fr": "Noir, rouge et or",
+          "ja": "黒・赤・金"
         }
       ],
-      "a": 0,
+      "a": 1,
       "f": {
-        "en": "Ernesto Che Guevara's guerrilla campaign ended in the village of La Higuera, near Vallegrande.",
-        "es": "La campaña guerrillera del Che terminó en La Higuera, cerca de Vallegrande.",
-        "fr": "La campagne de guérilla du Che s'acheva au village de La Higuera, près de Vallegrande.",
-        "ja": "チェ・ゲバラのゲリラ戦は、バジェグランデ近郊のラ・イゲラ村で終わりました。"
+        "en": "Red is read as the blood of those who fought, yellow as the ore under the ground, green as the forest and field. Since 2009 a second flag flies beside it on public buildings — the square rainbow wiphala of the Andean peoples — and both count as national.",
+        "es": "El rojo se lee como la sangre de quienes lucharon; el amarillo, como el mineral del subsuelo; el verde, como el bosque. Desde 2009 ondea junto a ella la wiphala andina, y ambas son nacionales.",
+        "fr": "Le rouge se lit comme le sang de ceux qui combattirent, le jaune comme le minerai du sous-sol, le vert comme la forêt. Depuis 2009, la wiphala andine flotte à côté, toutes deux nationales.",
+        "ja": "赤は戦った者の血、黄は地下の鉱石、緑は森と野と読まれる。2009年からは公の建物でその隣にもう一枚が掲げられる。アンデス諸民族の四角い虹色の旗ウィパラで、どちらも国旗である。"
       },
       "difficulty": 3
     },
@@ -3403,37 +3403,37 @@
     },
     {
       "q": {
-        "en": "Singani, Bolivia's national spirit, is distilled from…",
-        "es": "El singani, licor nacional de Bolivia, se destila de…",
-        "fr": "Le singani, eau-de-vie nationale bolivienne, est distillé à partir de…",
-        "ja": "国民的蒸留酒シンガニの原料は?"
+        "en": "Which underground resource has long carried most of Bolivia's export earnings?",
+        "es": "¿Qué recurso del subsuelo ha sostenido durante años las exportaciones bolivianas?",
+        "fr": "Quelle ressource du sous-sol a longtemps porté les exportations boliviennes ?",
+        "ja": "ボリビアの輸出をながく支えてきた、地下から採る資源は?"
       },
       "o": [
         {
-          "en": "Muscat of Alexandria grapes",
-          "es": "Uva Moscatel de Alejandría",
-          "fr": "Raisin muscat d'Alexandrie",
-          "ja": "マスカット・オブ・アレキサンドリア"
+          "en": "Coal",
+          "es": "El carbón",
+          "fr": "Le charbon",
+          "ja": "石炭"
         },
         {
-          "en": "Sugar cane",
-          "es": "Caña de azúcar",
-          "fr": "Canne à sucre",
-          "ja": "サトウキビ"
+          "en": "Uranium",
+          "es": "El uranio",
+          "fr": "L'uranium",
+          "ja": "ウラン"
         },
         {
-          "en": "Quinoa",
-          "es": "Quinua",
-          "fr": "Quinoa",
-          "ja": "キヌア"
+          "en": "Natural gas",
+          "es": "El gas natural",
+          "fr": "Le gaz naturel",
+          "ja": "天然ガス"
         }
       ],
-      "a": 0,
+      "a": 2,
       "f": {
-        "en": "Grown above 1,600 m in the Tarija valleys — among the highest vineyards on Earth.",
-        "es": "Cultivada sobre los 1.600 m en los valles de Tarija, entre los viñedos más altos del mundo.",
-        "fr": "Cultivé au-dessus de 1 600 m dans les vallées de Tarija — parmi les vignobles les plus hauts du monde.",
-        "ja": "タリハの標高1,600m超の渓谷で育てられる、世界屈指の高地ぶどうです。"
+        "en": "The fields lie in the south-east, and the pipelines run to Brazil and Argentina rather than to any port, because there is no port. For a country whose wealth was silver and then tin, gas was the third turn of the same wheel: dug up, sent abroad, argued over at home.",
+        "es": "Los yacimientos están en el sureste y los gasoductos van a Brasil y Argentina, no a un puerto, porque no hay puerto. Tras la plata y el estaño, el gas fue la tercera vuelta de la misma rueda.",
+        "fr": "Les gisements sont au sud-est et les gazoducs mènent au Brésil et à l'Argentine, non à un port : il n'y en a pas. Après l'argent puis l'étain, le gaz fut le troisième tour de la même roue.",
+        "ja": "鉱床は南東部にあり、管は港ではなくブラジルとアルゼンチンへ延びている。港が無いからである。銀、そして錫で富んだ国にとって、ガスは同じ車輪の三度目の回転だった。掘り出し、外へ送り、国内で争いになる。"
       },
       "difficulty": 8
     },
@@ -3511,73 +3511,73 @@
     },
     {
       "q": {
-        "en": "Mi Teleférico, linking La Paz and El Alto, is the world's longest…",
-        "es": "Mi Teleférico, entre La Paz y El Alto, es el más largo del mundo en…",
-        "fr": "Mi Teleférico, entre La Paz et El Alto, est le plus long du monde en tant que…",
-        "ja": "ラパスとエル・アルトを結ぶミ・テレフェリコは世界最長の何?"
+        "en": "Roughly how many varieties of potato are grown in the Andes?",
+        "es": "¿Cuántas variedades de papa se cultivan aproximadamente en los Andes?",
+        "fr": "Combien de variétés de pomme de terre cultive-t-on à peu près dans les Andes ?",
+        "ja": "アンデスで栽培されているじゃがいもの品種は、およそいくつ?"
       },
       "o": [
         {
-          "en": "Urban cable-car network",
-          "es": "Red urbana de teleféricos",
-          "fr": "Réseau urbain de téléphériques",
-          "ja": "都市型ロープウェイ網"
+          "en": "About three",
+          "es": "Unas tres",
+          "fr": "Environ trois",
+          "ja": "3種ほど"
         },
         {
-          "en": "Suspension bridge",
-          "es": "Puente colgante",
-          "fr": "Pont suspendu",
-          "ja": "吊り橋"
+          "en": "About thirty",
+          "es": "Unas treinta",
+          "fr": "Environ trente",
+          "ja": "30種ほど"
         },
         {
-          "en": "Mountain funicular",
-          "es": "Funicular de montaña",
-          "fr": "Funiculaire de montagne",
-          "ja": "山岳ケーブルカー"
+          "en": "Several thousand",
+          "es": "Varios miles",
+          "fr": "Plusieurs milliers",
+          "ja": "数千種"
         }
       ],
-      "a": 0,
+      "a": 2,
       "f": {
-        "en": "Colour-coded lines glide over the canyon city with a view of snowy Illimani.",
-        "es": "Líneas de colores sobrevuelan la ciudad del cañón con vista al nevado Illimani.",
-        "fr": "Des lignes colorées survolent la ville-canyon avec vue sur l'Illimani enneigé.",
-        "ja": "色分けされた路線が峡谷の街の上を滑り、雪のイリマニを望みます。"
+        "en": "The potato was domesticated on the shores of Lake Titicaca some eight thousand years ago, and highland families still plant a dozen kinds in one field so that whatever the weather does, something survives. They are sorted by cooking, not by looks: some for boiling, some for freezing into chuño, some only for feast days. Europe took four varieties home in the sixteenth century, which is why a potato blight could ruin a whole continent's crop.",
+        "es": "La papa se domesticó junto al lago Titicaca hace unos ocho mil años, y las familias del altiplano siembran aún una docena de clases en un mismo campo para que algo sobreviva a cualquier clima. Europa se llevó cuatro variedades en el siglo XVI.",
+        "fr": "La pomme de terre fut domestiquée au bord du lac Titicaca il y a quelque huit mille ans, et les familles des hauts plateaux en plantent encore une douzaine de sortes dans un même champ pour que quelque chose survive. L'Europe n'en rapporta que quatre au XVIe siècle.",
+        "ja": "じゃがいもは八千年ほど前、チチカカ湖のほとりで栽培化された。高地の家では今も一枚の畑に十数種を混ぜて植える。天候がどう転んでも、どれかは穫れるようにするためである。見た目ではなく用途で分けられ、茹でるもの、凍らせてチュニョにするもの、祭りの日にしか使わないものがある。十六世紀のヨーロッパが持ち帰ったのは四種ほどで、疫病が大陸じゅうの作物を枯らしたのはそのためである。"
       },
       "difficulty": 6
     },
     {
       "q": {
-        "en": "El Alto's flamboyant cholet mansions were popularised by which architect?",
-        "es": "¿Qué arquitecto popularizó los cholets de El Alto?",
-        "fr": "Quel architecte a popularisé les cholets d'El Alto ?",
-        "ja": "エル・アルトの派手な「チョレット」を広めた建築家は?"
+        "en": "Which wild Andean animal gives the finest natural fibre in the world?",
+        "es": "¿Qué animal silvestre andino da la fibra natural más fina del mundo?",
+        "fr": "Quel animal sauvage des Andes donne la fibre naturelle la plus fine du monde ?",
+        "ja": "世界でいちばん細い獣毛をとる、アンデスの野生の動物は?"
       },
       "o": [
         {
-          "en": "Freddy Mamani",
-          "es": "Freddy Mamani",
-          "fr": "Freddy Mamani",
-          "ja": "フレディ・ママニ"
+          "en": "The guanaco",
+          "es": "El guanaco",
+          "fr": "Le guanaco",
+          "ja": "グアナコ"
         },
         {
-          "en": "Oscar Niemeyer",
-          "es": "Oscar Niemeyer",
-          "fr": "Oscar Niemeyer",
-          "ja": "オスカー・ニーマイヤー"
+          "en": "The vicuña",
+          "es": "La vicuña",
+          "fr": "La vigogne",
+          "ja": "ビクーニャ"
         },
         {
-          "en": "Antoni Gaudí",
-          "es": "Antoni Gaudí",
-          "fr": "Antoni Gaudí",
-          "ja": "アントニ・ガウディ"
+          "en": "The chinchilla",
+          "es": "La chinchilla",
+          "fr": "Le chinchilla",
+          "ja": "チンチラ"
         }
       ],
-      "a": 0,
+      "a": 1,
       "f": {
-        "en": "His New Andean architecture turns Aymara textile patterns into neon-bright ballroom façades.",
-        "es": "Su arquitectura Neoandina convierte los motivos textiles aymaras en fachadas de salón de fiestas.",
-        "fr": "Son architecture néo-andine transforme les motifs textiles aymaras en façades de salles de bal fluo.",
-        "ja": "彼の「新アンデス建築」はアイマラの織物文様をネオン色の大広間のファサードに変えました。"
+        "en": "The hair is about half the thickness of the finest sheep's wool, and one animal yields a few hundred grams every other year. It was reserved for Inca royalty and nearly wiped out by hunting; now herders round up wild ones, shear them and let them go, which is the only legal way to take it.",
+        "es": "El pelo mide la mitad que la mejor lana de oveja y un animal da unos cientos de gramos cada dos años. Reservado a la realeza inca y casi exterminado, hoy se arrea, se esquila y se suelta: la única vía legal.",
+        "fr": "Le poil fait la moitié de la meilleure laine de mouton, et une bête en donne quelques centaines de grammes tous les deux ans. Réservé aux Incas et presque exterminé, il se récolte aujourd'hui en rabattant, tondant et relâchant.",
+        "ja": "毛の太さは最上の羊毛の半分ほどで、一頭から二年に一度、数百グラムしか取れない。インカでは王族だけのもので、狩りによって絶滅寸前まで減った。いまは野生のものを追い込んで刈り、また放す。合法に取る道はそれだけである。"
       },
       "difficulty": 9
     },
@@ -3871,37 +3871,37 @@
     },
     {
       "q": {
-        "en": "Which famous outlaws met their end in southern Bolivia in 1908?",
-        "es": "¿Qué forajidos famosos murieron en el sur de Bolivia en 1908?",
-        "fr": "Quels célèbres hors-la-loi périrent dans le sud de la Bolivie en 1908 ?",
-        "ja": "1908年に南ボリビアで最期を迎えた無法者は?"
+        "en": "Where does Bolivia rank among South American countries by area?",
+        "es": "¿Qué puesto ocupa Bolivia por superficie entre los países sudamericanos?",
+        "fr": "Quel rang la Bolivie occupe-t-elle par la superficie en Amérique du Sud ?",
+        "ja": "ボリビアの広さは、南アメリカの国のなかで何番目か?"
       },
       "o": [
         {
-          "en": "Butch Cassidy and the Sundance Kid",
-          "es": "Butch Cassidy y Sundance Kid",
-          "fr": "Butch Cassidy et le Kid",
-          "ja": "ブッチ・キャシディとサンダンス・キッド"
+          "en": "Second",
+          "es": "El segundo",
+          "fr": "Le deuxième",
+          "ja": "2番目"
         },
         {
-          "en": "Jesse James and his brother",
-          "es": "Jesse James y su hermano",
-          "fr": "Jesse James et son frère",
-          "ja": "ジェシー・ジェームズ兄弟"
+          "en": "Fifth",
+          "es": "El quinto",
+          "fr": "Le cinquième",
+          "ja": "5番目"
         },
         {
-          "en": "Billy the Kid",
-          "es": "Billy the Kid",
-          "fr": "Billy the Kid",
-          "ja": "ビリー・ザ・キッド"
+          "en": "Eleventh",
+          "es": "El undécimo",
+          "fr": "Le onzième",
+          "ja": "11番目"
         }
       ],
-      "a": 0,
+      "a": 1,
       "f": {
-        "en": "After robbing a mine payroll near Tupiza, they were cornered by soldiers in the village of San Vicente.",
-        "es": "Tras robar una remesa minera cerca de Tupiza, fueron acorralados por soldados en San Vicente.",
-        "fr": "Après avoir volé la paie d'une mine près de Tupiza, ils furent encerclés par des soldats à San Vicente.",
-        "ja": "トゥピサ近郊で鉱山の給料を奪った後、サンビセンテ村で兵士に追い詰められました。"
+        "en": "It covers about 1.1 million square kilometres — larger than France and Spain together — behind Brazil, Argentina, Peru and Colombia. It was once far bigger: over a century it lost the coast to Chile, rubber country to Brazil and the Chaco to Paraguay, giving away roughly half of what it began with.",
+        "es": "Abarca unos 1,1 millones de km², más que Francia y España juntas, tras Brasil, Argentina, Perú y Colombia. Fue mucho mayor: perdió la costa, el caucho y el Chaco, cerca de la mitad de lo inicial.",
+        "fr": "Elle couvre environ 1,1 million de km², plus que la France et l'Espagne réunies, derrière le Brésil, l'Argentine, le Pérou et la Colombie. Elle fut bien plus vaste : elle a cédé près de la moitié de son territoire initial.",
+        "ja": "面積はおよそ110万平方キロメートルで、フランスとスペインを合わせたより広く、ブラジル・アルゼンチン・ペルー・コロンビアに次ぐ。かつてはもっと大きかった。百年あまりのあいだに海岸を、ゴムの土地を、そしてチャコを手放し、始まりの半分ほどを失っている。"
       },
       "difficulty": 6
     },
@@ -4015,37 +4015,37 @@
     },
     {
       "q": {
-        "en": "Nevado Sajama, Bolivia's highest peak, is ringed by…",
-        "es": "El Nevado Sajama, cumbre más alta, está rodeado de…",
-        "fr": "Le Nevado Sajama, plus haut sommet du pays, est entouré de…",
-        "ja": "最高峰サハマ山を取り巻くものは?"
+        "en": "Which flower is one of Bolivia's national flowers?",
+        "es": "¿Cuál es una de las flores nacionales de Bolivia?",
+        "fr": "Quelle fleur est l'une des fleurs nationales de la Bolivie ?",
+        "ja": "ボリビアの国花のひとつは?"
       },
       "o": [
         {
-          "en": "The world's highest woodland",
-          "es": "El bosque más alto del mundo",
-          "fr": "La plus haute forêt du monde",
-          "ja": "世界一高所の森"
+          "en": "The cantuta",
+          "es": "La cantuta",
+          "fr": "La cantuta",
+          "ja": "カントゥータ"
         },
         {
-          "en": "A coral reef",
-          "es": "Un arrecife de coral",
-          "fr": "Un récif de corail",
-          "ja": "サンゴ礁"
+          "en": "The tulip",
+          "es": "El tulipán",
+          "fr": "La tulipe",
+          "ja": "チューリップ"
         },
         {
-          "en": "An active lava lake",
-          "es": "Un lago de lava activo",
-          "fr": "Un lac de lave actif",
-          "ja": "溶岩湖"
+          "en": "The lotus",
+          "es": "El loto",
+          "fr": "Le lotus",
+          "ja": "ハス"
         }
       ],
       "a": 0,
       "f": {
-        "en": "Queñua trees grow above 5,000 m on its slopes, alongside geysers and hot springs.",
-        "es": "Los queñuales crecen por encima de los 5.000 m, junto a géiseres y aguas termales.",
-        "fr": "Les queñuas poussent au-dessus de 5 000 m sur ses pentes, près de geysers et de sources chaudes.",
-        "ja": "斜面には標高5,000mを超えて育つケニュアの林があり、間欠泉や温泉も湧きます。"
+        "en": "It is a hanging bell-shaped flower of the high valleys, and the form that carries red, yellow and green together is the one taken as the emblem — the colours of the flag, growing on one stem. Hummingbirds are its pollinators, and Peru claims it as well.",
+        "es": "Es una flor colgante y acampanada de los valles altos; la variedad que junta rojo, amarillo y verde es la tomada como emblema: los colores de la bandera en un solo tallo. La poliniza el colibrí, y Perú también la reclama.",
+        "fr": "C'est une fleur pendante en clochette des hautes vallées ; la forme qui réunit rouge, jaune et vert est celle prise pour emblème : les couleurs du drapeau sur une seule tige. Le colibri la pollinise, et le Pérou la revendique aussi.",
+        "ja": "高い谷に咲く、釣鐘の形をした垂れ下がる花である。赤・黄・緑を一つの株に併せ持つ形のものが象徴とされる。国旗の三色が一本の茎に咲いているわけである。花粉を運ぶのはハチドリで、ペルーもこれを国花としている。"
       },
       "difficulty": 8
     },
@@ -4159,37 +4159,37 @@
     },
     {
       "q": {
-        "en": "Which wetland, shared with Brazil and Paraguay, touches Bolivia's east?",
-        "es": "¿Qué humedal compartido con Brasil y Paraguay toca el este boliviano?",
-        "fr": "Quelle zone humide, partagée avec le Brésil et le Paraguay, borde l'est bolivien ?",
-        "ja": "ブラジル・パラグアイと共有するボリビア東部の湿地は?"
+        "en": "How many countries in South America have no sea coast?",
+        "es": "¿Cuántos países de Sudamérica no tienen costa?",
+        "fr": "Combien de pays d'Amérique du Sud n'ont aucune côte ?",
+        "ja": "南アメリカで、海に面していない国はいくつあるか?"
       },
       "o": [
         {
-          "en": "The Pantanal",
-          "es": "El Pantanal",
-          "fr": "Le Pantanal",
-          "ja": "パンタナール"
+          "en": "None",
+          "es": "Ninguno",
+          "fr": "Aucun",
+          "ja": "1つもない"
         },
         {
-          "en": "The Everglades",
-          "es": "Los Everglades",
-          "fr": "Les Everglades",
-          "ja": "エバーグレーズ"
+          "en": "Two",
+          "es": "Dos",
+          "fr": "Deux",
+          "ja": "2つ"
         },
         {
-          "en": "The Okavango",
-          "es": "El Okavango",
-          "fr": "L'Okavango",
-          "ja": "オカバンゴ"
+          "en": "Six",
+          "es": "Seis",
+          "fr": "Six",
+          "ja": "6つ"
         }
       ],
-      "a": 0,
+      "a": 1,
       "f": {
-        "en": "The world's largest tropical wetland, home to jaguars, caimans and the towering jabiru stork.",
-        "es": "El mayor humedal tropical del mundo, hogar de jaguares, caimanes y del enorme jabirú.",
-        "fr": "La plus vaste zone humide tropicale du monde, refuge des jaguars, caïmans et de l'immense jabiru.",
-        "ja": "世界最大の熱帯湿地。ジャガー、カイマン、巨大なズグロハゲコウが暮らします。"
+        "en": "Bolivia and Paraguay. Both reach the sea by river instead, and both keep a navy for it — Bolivia's patrols Lake Titicaca and the Amazon tributaries, and still holds a parade each March for the coast it lost.",
+        "es": "Bolivia y Paraguay. Ambos llegan al mar por río y ambos mantienen armada; la boliviana patrulla el Titicaca y los afluentes del Amazonas, y desfila cada marzo por la costa perdida.",
+        "fr": "La Bolivie et le Paraguay. Tous deux gagnent la mer par le fleuve et gardent une marine ; celle de la Bolivie patrouille le Titicaca et les affluents de l'Amazone, et défile chaque mars pour la côte perdue.",
+        "ja": "ボリビアとパラグアイである。どちらも川づたいに海へ出るしかなく、そのための海軍を持っている。ボリビアの海軍はチチカカ湖とアマゾンの支流を巡り、失った海岸のために毎年三月に行進する。"
       },
       "difficulty": 5
     }

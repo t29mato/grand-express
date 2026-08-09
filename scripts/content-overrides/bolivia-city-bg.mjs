@@ -653,6 +653,74 @@ function quenua(x, base, h) {
   );
 }
 
+/** トトラ(葦)の株。チチカカの岸とパンタナルの水際に生える。 */
+function reeds(x, base, h, n = 5, fill = "#8a9a4a") {
+  let d = "";
+  for (let i = 0; i < n; i++) {
+    const off = (i - (n - 1) / 2) * (h * 0.09);
+    const len = r1(h * (0.7 + ((i * 3) % 4) * 0.11));
+    d += `M${r1(x + off)},${base}q${r1(off * 0.5)},${r1(-len * 0.6)} ${r1(off * 1.4)},${-len}`;
+  }
+  return (
+    `<path d="${d}" stroke="${fill}" stroke-width="2" stroke-linecap="round" fill="none"/>` +
+    // 穂。先に小さな塊を付けると葦になる
+    `<g fill="#b8a35e"><ellipse cx="${r1(x - h * 0.08)}" cy="${r1(base - h * 0.78)}" rx="1.8" ry="3.4"/>` +
+    `<ellipse cx="${r1(x + h * 0.1)}" cy="${r1(base - h * 0.72)}" rx="1.6" ry="3"/></g>`
+  );
+}
+
+/**
+ * 塩原のひび割れ。**格子にしない。**
+ * 元の絵は同じ菱形を 60px ちょうどの間隔で並べていて、塩の結晶ではなく
+ * タイル張りの床に見えていた。行ごとにずらし、大きさも変える。
+ */
+function saltCrust(y, count, w, color, opacity) {
+  let d = "";
+  for (let i = 0; i < count; i++) {
+    // 幅を1つずつ変える。同じにすると床のタイルになる
+    const cw = r1(w * (0.72 + ((i * 7) % 5) * 0.14));
+    const x = r1(i * w - (((i * 11) % 7) * w) / 16);
+    const h = r1(cw * 0.3);
+    d += `M${x},${y}l${r1(cw * 0.5)},${-h}l${r1(cw * 0.5)},${h}l${r1(-cw * 0.5)},${h}z`;
+  }
+  return `<path d="${d}" stroke="${color}" stroke-width="1.4" opacity="${opacity}" fill="none"/>`;
+}
+
+/**
+ * 白い漆喰の家(スクレ)。
+ * ⚠ **白い町は壁がいちばん明るい。**屋根・軒の影・開口部を思い切って暗くしないと、
+ * 家が背景に溶けて形が出ない。中間の明度で描くと全部消える。
+ */
+function colonial(x, base, w, h, roof = "#a8462f") {
+  return (
+    `<g>` +
+    `<rect x="${x}" y="${r1(base - h)}" width="${w}" height="${h}" fill="#f4efe4"/>` +
+    // 軒の影。壁の上端をはっきり切る
+    `<rect x="${x}" y="${r1(base - h)}" width="${w}" height="3" fill="#b8ac98"/>` +
+    `<path d="M${r1(x - w * 0.1)},${r1(base - h)}h${r1(w * 1.2)}l${r1(-w * 0.1)},${r1(-h * 0.26)}h${r1(-w)}z" fill="${roof}"/>` +
+    `<path d="M${r1(x - w * 0.1)},${r1(base - h)}h${r1(w * 1.2)}v2h${r1(-w * 1.2)}z" fill="#7a3222"/>` +
+    // 開口部。**濃く。**白壁に薄い窓を開けても穴に見えない
+    `<g fill="#4a3f36"><rect x="${r1(x + w * 0.16)}" y="${r1(base - h * 0.62)}" width="${r1(w * 0.18)}" height="${r1(h * 0.3)}"/>` +
+    `<rect x="${r1(x + w * 0.62)}" y="${r1(base - h * 0.62)}" width="${r1(w * 0.18)}" height="${r1(h * 0.3)}"/>` +
+    `<rect x="${r1(x + w * 0.38)}" y="${r1(base - h * 0.34)}" width="${r1(w * 0.22)}" height="${r1(h * 0.34)}"/></g>` +
+    `</g>`
+  );
+}
+
+/** 赤い岩の尖塔(トゥピサのケブラダ)。上を細く、根元を広く。 */
+function spire(x, base, w, h, fill = "#a85436", dark = "#7f3a26") {
+  return (
+    `<g>` +
+    `<path d="M${r1(x - w * 0.5)},${base}q${r1(w * 0.12)},${r1(-h * 0.5)} ${r1(w * 0.34)},${-h}` +
+    `q${r1(w * 0.2)},${r1(h * 0.08)} ${r1(w * 0.32)},${h}z" fill="${fill}"/>` +
+    `<path d="M${r1(x + w * 0.06)},${r1(base - h)}q${r1(w * 0.2)},${r1(h * 0.08)} ${r1(w * 0.32)},${h}h${r1(-w * 0.18)}q${r1(-w * 0.1)},${r1(-h * 0.5)} ${r1(-w * 0.14)},${-h}z" fill="${dark}"/>` +
+    // 地層。横に数本、長さを変えて
+    `<g stroke="${dark}" stroke-width="1.2" opacity=".6" fill="none">` +
+    `<path d="M${r1(x - w * 0.36)},${r1(base - h * 0.3)}h${r1(w * 0.6)}M${r1(x - w * 0.28)},${r1(base - h * 0.55)}h${r1(w * 0.44)}M${r1(x - w * 0.2)},${r1(base - h * 0.75)}h${r1(w * 0.3)}"/></g>` +
+    `</g>`
+  );
+}
+
 export const BOLIVIA_RICH_BG = {
   /**
    * アンデスの谷(バジェス)。**6都市が共用する。**
@@ -1277,4 +1345,437 @@ export const BOLIVIA_RICH_BG = {
     tuft(316, 208, 13, 1, "#8a7a56") +
     tuft(384, 200, 10, 0, "#8a7a56") +
     `<path d="M0,210v-6q56,-5 112,2q58,7 116,-3q56,-9 114,3q32,4 58,-1v5z" fill="#4a3f5c"/>`,
+
+  /**
+   * チチカカ湖(コパカバーナ)。
+   *
+   * ⚠ **画面の下 2/3 はぜんぶ水。**`bolivia-lake.tsx` は
+   *   波を y=124/134/148/172/186/200(x は 40〜338 に散る)、
+   *   きらめきを x=312〜334 の y=118〜168、**トトラの葦舟を (112,156)** に描く。
+   *   → **岸を手前に作らない。**下端まで水にして、葦は左右の端だけに置く。
+   *   (日本の `port` で、岸壁を手前にしたら小舟が陸に乗った件と同じ形)
+   *
+   * 層: 高地の空 / 対岸のコルディリェラ・レアルと雪 / 太陽の道 / 湖(3段)/
+   * 太陽の島の影 / 岸の集落(水際より上)/ 端のトトラ / 葦舟と漁師。
+   */
+  lake:
+    // ── 空。**水際(y=108)まで塗り下ろす**
+    sky(112, "#4a86c4", "#a8cfe0") +
+    `<circle cx="322" cy="38" r="18" fill="#f7e3a0" opacity=".92"/>` +
+    `<circle cx="322" cy="38" r="30" fill="#f7e3a0" opacity=".15"/>` +
+    `<g fill="#f6efe2"><ellipse cx="104" cy="28" rx="30" ry="4.4" opacity=".6"/><ellipse cx="78" cy="34" rx="18" ry="3" opacity=".45"/><ellipse cx="228" cy="22" rx="24" ry="3.6" opacity=".5"/></g>` +
+    // ── 対岸のコルディリェラ・レアル。チチカカの向こうは雪の壁
+    `<path d="M0,108L34,80L68,98L110,66L152,96L196,74L240,100L284,70L330,96L370,78L400,94V210H0z" fill="#7d8ba6"/>` +
+    `<g fill="#eef2f6" opacity=".92"><path d="M110,66l14,18h-28z"/><path d="M284,70l13,17h-26z"/></g>` +
+    `<path d="M110,66l42,30l-18,0z" fill="#6b7890" opacity=".55"/>` +
+    // 太陽の島(イスラ・デル・ソル)。湖に浮かぶ低い島影
+    `<path d="M28,110q26,-11 58,-4q22,5 40,4z" fill="#5f6f88"/>` +
+    `<path d="M250,110q24,-9 52,-3q20,4 36,3z" fill="#54637a"/>` +
+    // ── 湖。**下端まで水。**沖は明るく、手前を濃く
+    ground(108, "#3f9fbc") +
+    `<path d="M0,142q100,-5 200,1q100,6 200,-4v71H0z" fill="#2f8fae"/>` +
+    `<path d="M0,180q104,-4 204,2q96,5 196,-4v32H0z" fill="#257e9c"/>` +
+    // 太陽の道。きらめき(x=312〜334)の下に敷いて、光る筋の理由を作る
+    `<path d="M300,112q28,44 18,96h30q10,-52 -14,-96z" fill="#f7e3a0" opacity=".2"/>` +
+    // 対岸の映り込み。水際のこの帯がいちばん強い「水だ」の手がかり
+    `<path d="M0,108q100,-4 200,1q100,5 200,-3v8q-100,8 -200,3q-100,-5 -200,1z" fill="#5f6f88" opacity=".45"/>` +
+    // さざ波。**動きの層の波が走る帯を避けずに、その下地として敷く**
+    ripples(130, [[24, 40], [130, 46], [212, 40], [300, 36]], "#8fd8ea", ".45") +
+    ripples(158, [[16, 44], [176, 42], [246, 38], [330, 40]], "#7fcde0", ".4") +
+    ripples(192, [[36, 48], [140, 40], [284, 44], [352, 36]], "#6fc2d8", ".34") +
+    // ── 岸の集落。**水際より上**(y<108)に置く
+    shade(60, 106, 44, 4, ".12") +
+    adobe(24, 106, 22, 12, "#a85838") +
+    adobe(52, 105, 18, 10, "#8a9098") +
+    adobe(78, 107, 20, 11, "#a85838") +
+    `<rect x="46" y="94" width="12" height="12" fill="#f2ece0"/>` +
+    `<path d="M44,94h16l-2,-5h-12z" fill="#a85838"/>` +
+    // 舫った葦舟(岸側の小さいもの)
+    `<path d="M96,110q12,6 24,0q-12,4 -24,0z" fill="#c9a877"/>` +
+    // 太陽の島の段々畑。チチカカの島は斜面まで耕されている
+    `<g>` +
+    `<path d="M34,106q26,-4 54,-1" stroke="#7a8a6a" stroke-width="2.4" fill="none"/>` +
+    `<path d="M40,102q22,-4 44,-1" stroke="#7a8a6a" stroke-width="2.2" fill="none"/>` +
+    `<path d="M46,98q18,-3 34,-1" stroke="#7a8a6a" stroke-width="2" fill="none"/>` +
+    `<path d="M256,106q22,-3 46,-1" stroke="#6f7f60" stroke-width="2.2" fill="none"/>` +
+    `<path d="M262,102q18,-3 36,-1" stroke="#6f7f60" stroke-width="2" fill="none"/>` +
+    `</g>` +
+    // ── トトラ。**左右の端だけ。**波と葦舟の通る中央には置かない
+    reeds(10, 200, 34, 5) +
+    reeds(26, 208, 28, 4) +
+    reeds(384, 202, 32, 5) +
+    reeds(396, 210, 26, 4) +
+    reeds(4, 186, 26, 4) +
+    reeds(392, 188, 24, 4) +
+    // 水鳥。チチカカにはカイツブリとバンが浮かぶ
+    `<g fill="#3f4a52">` +
+    `<ellipse cx="66" cy="150" rx="6" ry="2.6"/><path d="M71,148q4,-4 6,-1l-5,2z"/>` +
+    `<ellipse cx="86" cy="158" rx="5" ry="2.2"/><path d="M90,156q3,-3 5,-1l-4,2z"/>` +
+    `<ellipse cx="236" cy="186" rx="6.4" ry="2.8"/><path d="M241,184q4,-4 6,-1l-5,2z"/>` +
+    `<ellipse cx="330" cy="196" rx="5.4" ry="2.4"/><path d="M334,194q3,-3 5,-1l-4,2z"/>` +
+    `</g>` +
+    `<g fill="#f6efe2" opacity=".7"><ellipse cx="66" cy="154" rx="7" ry="1.6"/><ellipse cx="236" cy="190" rx="7" ry="1.6"/></g>` +
+    // 岸に干した網
+    `<g stroke="#8a7a4a" stroke-width="1.6" fill="none"><path d="M120,106v-10M136,106v-10M152,106v-10"/>` +
+    `<path d="M118,98h36M118,102h36"/></g>` +
+    // 沖の葦舟(動きの層の舟とは別の、小さな2艘目)。漁師が網を上げている
+    `<g><path d="M280,150q16,7 32,0q-16,5 -32,0z" fill="#c9a877"/>` +
+    `<rect x="294" y="140" width="4" height="10" fill="#2f6b7f"/><circle cx="296" cy="137" r="3" fill="#c98d5f"/>` +
+    `<path d="M299,141l9,-6" stroke="#8a7a4a" stroke-width="1.6" stroke-linecap="round" fill="none"/></g>`,
+
+  /**
+   * パンタナル(プエルト・スアレス)。世界最大の湿地。
+   *
+   * ⚠ `bolivia-pantanal.tsx` は水の照りを y=132/152/172(x=184〜364 の中央〜右)、
+   *   **葦を x=104/120/136 に、下端 y=206 から生やす。**
+   *   → 水は中央〜右に通し、**左下は葦が生える湿った岸**にしておく。
+   *   コウノトリの群れは y=38〜60 を渡るので、空を空ける。
+   *
+   * 層: 夕方の空 / 遠い森 / 水路と浮き草 / 湿った岸 / 睡蓮 / カピバラとワニ /
+   * ヤシ / 最前景の葦と流木。時間は**夕方**(パンタナルは夕焼けの土地)。
+   */
+  pantanal:
+    // ── 夕方の空。**水際(y=118)まで塗り下ろす**
+    sky(122, "#e8834a", "#f7d8a0", "#f0a85e") +
+    `<circle cx="300" cy="88" r="24" fill="#f9e0a8" opacity=".9"/>` +
+    `<circle cx="300" cy="88" r="38" fill="#f9e0a8" opacity=".18"/>` +
+    `<g fill="#f9dcb0"><ellipse cx="96" cy="30" rx="34" ry="4.6" opacity=".55"/><ellipse cx="66" cy="37" rx="20" ry="3.2" opacity=".4"/><ellipse cx="252" cy="24" rx="26" ry="3.8" opacity=".45"/></g>` +
+    // ── 遠い森。低く、夕日に沈めて紫がかった影に
+    `<path d="M0,120q24,-10 48,-4q22,6 44,-5q24,-11 48,-3q22,8 46,-6q24,-12 48,-3q22,7 46,-5q22,-10 46,-3q20,6 40,-2V210H0z" fill="#7a5a52"/>` +
+    `<g fill="#f7d8a0"><ellipse cx="130" cy="122" rx="170" ry="6" opacity=".35"/><ellipse cx="320" cy="124" rx="120" ry="5" opacity=".3"/></g>` +
+    // ── 湿った岸。**左下は葦の生える岸**(動きの層が x=104〜136 に葦を生やす)
+    ground(120, "#8a7a46") +
+    `<path d="M0,140q60,-6 120,2q56,8 110,-2v70H0z" fill="#7a6c3e"/>` +
+    // ── 水。**中央から右に通す**(照りが y=132/152/172 の x=184〜364 に走る)
+    `<path d="M96,128q80,-6 158,2q76,8 146,-6v86H120q-14,-40 -24,-82z" fill="#8f7a52"/>` +
+    `<path d="M110,146q76,-5 150,2q72,7 140,-5v67H128q-10,-32 -18,-64z" fill="#7d6a46"/>` +
+    `<path d="M124,168q72,-4 144,2q68,6 132,-4v44H136q-6,-21 -12,-42z" fill="#6b5a3c"/>` +
+    // 夕日を映す面。パンタナルの水は空の色を返す
+    `<g fill="#f7d8a0" opacity=".28"><ellipse cx="262" cy="140" rx="90" ry="7"/><ellipse cx="318" cy="176" rx="72" ry="6"/></g>` +
+    ripples(136, [[190, 40], [268, 44], [340, 40]], "#f0d8a8", ".5") +
+    ripples(158, [[168, 42], [252, 46], [332, 38]], "#e8cc98", ".44") +
+    ripples(180, [[204, 44], [288, 42], [352, 34]], "#dcc088", ".38") +
+    // 睡蓮。水面に平たく浮かべる
+    `<g fill="#4f7a3a"><ellipse cx="186" cy="150" rx="9" ry="3.4"/><ellipse cx="206" cy="158" rx="7" ry="2.8"/><ellipse cx="298" cy="166" rx="8" ry="3.2"/><ellipse cx="330" cy="184" rx="10" ry="3.6"/><ellipse cx="252" cy="176" rx="7" ry="2.8"/></g>` +
+    `<g fill="#e8a0c0"><circle cx="208" cy="156" r="2.4"/><circle cx="332" cy="182" r="2.2"/></g>` +
+    // ── ワニ(ヤカレ)。水際に半分沈めて、背だけ出す
+    `<g fill="#4a4436"><path d="M150,196q26,-5 52,0q-26,4 -52,0z"/><path d="M196,194l10,-3l-2,5z"/>` +
+    `<g><ellipse cx="160" cy="194" rx="2" ry="1.4"/><ellipse cx="172" cy="193.6" rx="1.8" ry="1.2"/></g></g>` +
+    `<circle cx="203" cy="194" r="1" fill="#f7d8a0"/>` +
+    // カピバラ。岸で寝そべっている
+    `<g fill="#8a6a48">` +
+    shade(60, 178, 16, 3, ".2") +
+    `<ellipse cx="60" cy="172" rx="15" ry="7"/><ellipse cx="74" cy="167" rx="7" ry="5.4"/>` +
+    `<path d="M78,164l3,-3l2,4z"/><rect x="50" y="176" width="4" height="4"/><rect x="66" y="176" width="4" height="4"/></g>` +
+    `<circle cx="78" cy="166" r="1" fill="#2f2823"/>` +
+    // ── ヤシ。岸の縁に
+    palm(24, 150, 34, 3) +
+    palm(376, 146, 30, -4) +
+    // ── 最前景。**左下の葦は動きの層が描くので、こちらは根元の湿地だけ**
+    reeds(44, 208, 30, 5, "#5f6b34") +
+    reeds(168, 210, 26, 4, "#5f6b34") +
+    `<path d="M0,210v-14q54,-6 108,2q56,8 112,-3q54,-9 112,3q30,3 68,-2v14z" fill="#5a4c30"/>` +
+    // 流木
+    `<path d="M232,204q30,-5 60,1q-30,6 -60,-1z" fill="#8a7a5c"/>`,
+
+  /**
+   * ウユニ塩湖。
+   *
+   * ⚠ `bolivia-salar.tsx` は**雲の映り込みを y=98〜106 に置く**
+   *   ((150,104)(130,101)(172,101)(300,100)(284,98)(80,106)(250,102) など)。
+   *   空の雲(y=46〜65)を鏡像にしたもの。**水鏡はこの高さに置く。**
+   *   太陽の道は (320,112) と (320,126)。
+   *
+   * ⚠ **白い地面がこの絵でいちばん明るい。**普通の明度のものは全部溶ける。
+   *   置くものは思い切って暗く落としてある(車・人・塩の山・遠い火山)。
+   *
+   * 層: 濃い空 / トゥヌパ火山 / 水鏡(雲を映す)/ 乾いた塩の甲羅(不揃いな多角形)/
+   * 塩の採取の山 / 四駆と人 / 最前景の塩の畝。
+   */
+  salar:
+    // ── 空。高地なので濃い。**水鏡(y=94)まで塗り下ろす**
+    sky(98, "#3f74c0", "#8fb8dc") +
+    `<circle cx="320" cy="28" r="15" fill="#fff2cc" opacity=".95"/>` +
+    `<circle cx="320" cy="28" r="27" fill="#fff2cc" opacity=".16"/>` +
+    `<g fill="#f6efe2" opacity=".85"><ellipse cx="150" cy="46" rx="34" ry="6"/><ellipse cx="130" cy="50" rx="20" ry="4"/><ellipse cx="172" cy="50" rx="22" ry="4"/>` +
+    `<ellipse cx="300" cy="62" rx="26" ry="4.4"/><ellipse cx="284" cy="65" rx="16" ry="3"/>` +
+    `<ellipse cx="80" cy="58" rx="24" ry="4"/><ellipse cx="250" cy="52" rx="20" ry="3.4"/></g>` +
+    // ── トゥヌパ火山。**遠くても暗く。**塩原が明るいので、淡くすると消える
+    `<path d="M0,94L38,78L74,88L118,62L166,86L214,72L262,90L310,76L356,88L400,80V210H0z" fill="#5f5a70"/>` +
+    `<g fill="#e8ecf2" opacity=".9"><path d="M118,62l11,14h-22z"/><path d="M310,76l9,11h-18z"/></g>` +
+    // ── 水鏡。**雲の映り込み(y=98〜106)が載る面**
+    `<rect x="0" y="94" width="400" height="44" fill="#cfd8de"/>` +
+    // 空の色を返す。鏡は地の白より少し青い
+    `<rect x="0" y="94" width="400" height="24" fill="#a8bfd0" opacity=".7"/>` +
+    // 山の映り込み。**上下を反転させた形**を薄く敷く
+    `<path d="M0,94L38,110L74,100L118,126L166,102L214,116L262,98L310,112L356,100L400,108V94z" fill="#5f5a70" opacity=".3"/>` +
+    // 太陽の道(きらめきが x=320 の y=112/126 に走る)
+    `<path d="M306,96q18,26 12,46h26q6,-24 -12,-46z" fill="#f5d68a" opacity=".22"/>` +
+    // ── 乾いた塩の甲羅。**格子にしない**(元の絵は 60px 等間隔の菱形だった)
+    `<rect x="0" y="134" width="400" height="76" fill="#f6efe2"/>` +
+    `<path d="M0,134q100,-4 200,2q100,6 200,-4v10q-100,10 -200,4q-100,-6 -200,2z" fill="#e8e0d0"/>` +
+    saltCrust(146, 9, 46, "#cfc6b0", ".9") +
+    saltCrust(164, 8, 52, "#c9bfa8", ".85") +
+    saltCrust(184, 7, 60, "#c2b8a0", ".8") +
+    saltCrust(204, 6, 68, "#b8ae96", ".75") +
+    // ── インカワシ島(サボテンの島)。塩原にぽつんと浮かぶ岩の島
+    `<g>` +
+    `<path d="M186,134q18,-13 40,-8q18,4 30,8z" fill="#7a6a5c"/>` +
+    `<path d="M198,132q12,-8 26,-5q12,3 20,5z" fill="#8f7f6e"/>` +
+    cardon(200, 128, 14, [-1], "#4a6336") +
+    cardon(212, 126, 17, [1, -1], "#4a6336") +
+    cardon(226, 129, 12, [-1], "#4a6336") +
+    cardon(238, 127, 15, [1], "#4a6336") +
+    `</g>` +
+    // ── フラミンゴ。塩湖の浅瀬に来る。**白の上なので濃く。**脚と首は細いので
+    // 淡い桃色にすると消える
+    `<g>` +
+    `<g stroke="#b8506a" stroke-width="1.6" fill="none"><path d="M96,124v10M100,124v10M148,127v9M152,127v9M290,122v10M294,122v10"/></g>` +
+    `<ellipse cx="98" cy="120" rx="8" ry="4.4" fill="#e0708c"/>` +
+    `<path d="M104,118q6,-8 2,-13" stroke="#e0708c" stroke-width="2.4" fill="none"/>` +
+    `<path d="M106,105l5,2l-5,2z" fill="#3f3630"/>` +
+    `<ellipse cx="150" cy="123" rx="7" ry="4" fill="#d8657f"/>` +
+    `<path d="M155,121q5,-7 2,-11" stroke="#d8657f" stroke-width="2.2" fill="none"/>` +
+    `<path d="M157,110l4,2l-4,2z" fill="#3f3630"/>` +
+    `<ellipse cx="292" cy="118" rx="7.4" ry="4.2" fill="#e0708c"/>` +
+    `<path d="M298,116q5,-7 2,-12" stroke="#e0708c" stroke-width="2.2" fill="none"/>` +
+    `<path d="M300,104l5,2l-5,2z" fill="#3f3630"/>` +
+    `</g>` +
+    // 塩の煉瓦の小屋。塩原の建物は塩で建てる
+    `<g>` +
+    shade(348, 158, 20, 3, ".16") +
+    `<rect x="330" y="140" width="36" height="18" fill="#e2d8c4"/>` +
+    `<path d="M328,140h40l-5,-8h-30z" fill="#b8ac94"/>` +
+    `<g stroke="#c9bfa8" stroke-width="1" fill="none"><path d="M330,146h36M330,152h36M342,140v18M354,140v18"/></g>` +
+    `<rect x="342" y="148" width="9" height="10" fill="#6b6252"/>` +
+    `</g>` +
+    // 轍。四駆が同じ道を通るので、塩原には轍が残る
+    `<g stroke="#d8cfba" stroke-width="2" opacity=".8" fill="none">` +
+    `<path d="M120,210q40,-32 96,-52q52,-19 118,-24M136,210q42,-32 98,-52q52,-19 118,-24"/></g>` +
+    // ── 塩の採取の山(モンティクロ)。**白の上なので影で形を出す**
+    `<g><path d="M62,164l14,-22l14,22z" fill="#e2d8c4"/><path d="M76,142l14,22h-8l-9,-16z" fill="#b8ac94"/>` +
+    shade(76, 165, 17, 3, ".18") + `</g>` +
+    `<g><path d="M108,160l11,-17l11,17z" fill="#e2d8c4"/><path d="M119,143l11,17h-6l-7,-13z" fill="#b8ac94"/>` +
+    shade(119, 161, 13, 2.4, ".16") + `</g>` +
+    `<g><path d="M320,170l13,-20l13,20z" fill="#e2d8c4"/><path d="M333,150l13,20h-7l-8,-15z" fill="#b8ac94"/>` +
+    shade(333, 171, 15, 2.8, ".18") + `</g>` +
+    // ── 四駆と人。**思い切って暗く。**中間の明度は塩原に溶ける
+    shade(246, 186, 26, 4, ".22") +
+    `<path d="M218,186v-15q0,-3 4,-3h34q4,0 6,4l6,8v6z" fill="#3f4a52"/>` +
+    `<rect x="218" y="178" width="50" height="4" fill="#2b333a"/>` +
+    `<g fill="#8fb0c4"><rect x="223" y="171" width="13" height="7"/><rect x="239" y="171" width="12" height="7"/></g>` +
+    `<g fill="#1f262b"><circle cx="229" cy="186" r="4.4"/><circle cx="259" cy="186" r="4.4"/></g>` +
+    // 写真を撮る人。塩原ではみんなこれをやっている
+    `<g><rect x="176" y="184" width="4" height="12" fill="#2b333a"/><rect x="183" y="184" width="4" height="12" fill="#2b333a"/>` +
+    `<path d="M174,172h15l2,12h-19z" fill="#8a3a2c"/><circle cx="181" cy="167" r="4.4" fill="#8a6a4a"/>` +
+    `<path d="M190,176l10,-5" stroke="#8a6a4a" stroke-width="2" stroke-linecap="round" fill="none"/>` +
+    `<rect x="198" y="167" width="8" height="6" rx="1" fill="#2b333a"/></g>` +
+    shade(181, 197, 11, 2.4, ".2") +
+    // ── 最前景。塩の畝。地の白より2段落とす
+    `<path d="M0,210v-9q56,-6 112,2q58,8 116,-3q56,-10 114,3q32,4 58,-2v9z" fill="#cdc2a8"/>` +
+    `<g stroke="#b8ac94" stroke-width="1.4" opacity=".7" fill="none"><path d="M14,206l10,-5M96,208l11,-5M186,204l10,-5M282,206l11,-5M356,203l10,-4"/></g>`,
+
+  /**
+   * 白い町スクレ。
+   *
+   * ⚠ `bolivia-whitecity.tsx` は**旗を (98,72) に立てる**(旗は y=43〜56 に翻る)。
+   *   → x=98 に、屋上 y=72 の建物と旗竿を置く。無いと旗が空中に浮く。
+   *   鳩は町の上を舞い、雲は y=16〜52。
+   *
+   * ⚠ **白い漆喰の町は、壁がいちばん明るい。**屋根・軒の影・開口部を思っているより
+   *   ずっと暗くしないと、家が背景に溶けて形が出ない(雪国と同じ話)。
+   *
+   * 層: 空 / スクレの谷を囲む乾いた丘 / 白い町並み(3列)/ 旗竿のある建物 /
+   * 鐘楼 / ハカランダ / 広場の人 / 最前景の瓦屋根。
+   */
+  whitecity:
+    // ── 空。**丘の裾(y=116)まで塗り下ろす**
+    sky(120, "#6aa8dc", "#c8dfea") +
+    `<circle cx="326" cy="34" r="15" fill="#f7e3a0" opacity=".9"/>` +
+    `<circle cx="326" cy="34" r="26" fill="#f7e3a0" opacity=".14"/>` +
+    // ── スクレを囲む乾いた丘
+    `<path d="M0,116L46,92L92,108L140,86L192,110L242,90L292,112L340,94L400,110V210H0z" fill="#9a8f6a"/>` +
+    `<path d="M0,124L54,106L108,120L164,102L218,122L272,106L326,124L400,112V210H0z" fill="#8a8256"/>` +
+    `<g stroke="#77703f" stroke-width="1.3" opacity=".5" fill="none"><path d="M28,126l9,-13M86,132l8,-12M304,130l9,-12M356,126l8,-11"/></g>` +
+    // ── 町。**白壁の列。**屋根と影で形を出す
+    ground(130, "#b8a882") +
+    colonial(10, 152, 30, 20) +
+    colonial(46, 150, 26, 18) +
+    colonial(78, 153, 28, 19) +
+    colonial(112, 151, 24, 17) +
+    colonial(288, 152, 28, 19) +
+    colonial(322, 150, 26, 18) +
+    colonial(354, 153, 30, 20) +
+    // 奥の列。少し小さく、屋根だけ見せる
+    `<g><path d="M22,132h30l-3,-7h-24z" fill="#8f3b28"/><path d="M60,130h26l-3,-6h-20z" fill="#a8462f"/>` +
+    `<path d="M96,133h28l-3,-7h-22z" fill="#8f3b28"/><path d="M300,131h28l-3,-6h-22z" fill="#a8462f"/>` +
+    `<path d="M340,133h30l-3,-7h-24z" fill="#8f3b28"/></g>` +
+    // ── 旗竿のある建物。**屋上を y=72 に合わせる**(動きの層の旗がここに翻る)
+    `<g>` +
+    `<rect x="84" y="72" width="30" height="80" fill="#f4efe4"/>` +
+    `<rect x="84" y="72" width="30" height="3" fill="#b8ac98"/>` +
+    `<path d="M80,72h38l-4,-9h-30z" fill="#8f3b28"/>` +
+    `<g fill="#4a3f36"><rect x="90" y="88" width="7" height="12"/><rect x="102" y="88" width="7" height="12"/><rect x="90" y="110" width="7" height="12"/><rect x="102" y="110" width="7" height="12"/><rect x="94" y="132" width="10" height="20"/></g>` +
+    // 旗竿。ここから旗が出る
+    `<path d="M98,72v-34" stroke="#6b6258" stroke-width="2" fill="none"/>` +
+    `</g>` +
+    // ── 鐘楼。白い町の輪郭をつくる(スクレの空はこれが並ぶ)
+    `<g>` +
+    `<rect x="336" y="96" width="22" height="56" fill="#f4efe4"/>` +
+    `<rect x="336" y="96" width="22" height="3" fill="#b8ac98"/>` +
+    `<path d="M332,96h30l-4,-8h-22z" fill="#8f3b28"/>` +
+    `<path d="M340,88h14l-7,-12z" fill="#8f3b28"/>` +
+    `<g fill="#4a3f36"><path d="M341,104h12v14a6,6 0 0 0 -12,0z"/><rect x="343" y="130" width="8" height="22"/></g>` +
+    `</g>` +
+    // ── ハカランダ。スクレの広場は紫の花が咲く
+    `<g><path d="M204,178v-16" stroke="#5a4632" stroke-width="4" fill="none"/>` +
+    `<ellipse cx="204" cy="156" rx="19" ry="11" fill="#8a7ab8"/><ellipse cx="192" cy="163" rx="12" ry="7" fill="#7a6aa8"/>` +
+    `<ellipse cx="216" cy="162" rx="11" ry="6.4" fill="#7a6aa8"/></g>` +
+    `<g><path d="M262,182v-14" stroke="#5a4632" stroke-width="3.4" fill="none"/>` +
+    `<ellipse cx="262" cy="162" rx="16" ry="9" fill="#8a7ab8"/><ellipse cx="252" cy="168" rx="10" ry="6" fill="#7a6aa8"/></g>` +
+    // ── 石畳の広場と人。**y>170 の中央は空いている**
+    `<path d="M0,168q100,-6 200,1q100,6 200,-4v45H0z" fill="#c2b494"/>` +
+    `<g stroke="#a89a7c" stroke-width="1.2" opacity=".7" fill="none"><path d="M30,182h44M120,190h50M228,186h46M320,194h50M70,200h56M256,202h48"/></g>` +
+    cholita(148, 200, 24, "#2f6b7f", "#c4452f") +
+    `<g><rect x="176" y="188" width="4" height="12" fill="#3f3a30"/><rect x="183" y="188" width="4" height="12" fill="#3f3a30"/>` +
+    `<path d="M174,176h15l2,12h-19z" fill="#f4efe4"/><circle cx="181" cy="171" r="4.4" fill="#c98d5f"/>` +
+    `<path d="M190,180l9,5" stroke="#c98d5f" stroke-width="2" stroke-linecap="round" fill="none"/></g>` +
+    // ── 最前景の瓦屋根。手前に置くと町の奥行きが出る
+    `<path d="M0,210v-22h96l8,22z" fill="#8f3b28"/>` +
+    `<g stroke="#6f2c1e" stroke-width="1.4" fill="none"><path d="M12,188v22M28,188v22M44,188v22M60,188v22M76,188v22M92,188v22"/></g>` +
+    `<path d="M0,188h100v4H0z" fill="#6f2c1e"/>`,
+
+  /**
+   * 熱帯の大都市(サンタクルス)。
+   *
+   * ⚠ `bolivia-tropicalcity.tsx` は**雲の影を (140,158) と (300,186) に落とす**
+   *   → その高さは開けた地面にしておく。インコの群れは y=86〜102 を渡る。
+   *
+   * 層: 熱帯の空 / 遠いビル群 / 街路樹と椰子 / 低い町並み / 広場と噴水 /
+   * バイクと露店 / 最前景の並木。
+   */
+  tropicalcity:
+    sky(118, "#6ab8e0", "#cfe6ee") +
+    `<circle cx="60" cy="34" r="16" fill="#fff2cc" opacity=".85"/>` +
+    `<circle cx="60" cy="34" r="28" fill="#fff2cc" opacity=".16"/>` +
+    // ── 遠いビル群。サンタクルスは平地に伸びた町。**低く、まばらに**
+    `<g fill="#8f9aa8">` +
+    `<rect x="16" y="88" width="18" height="34"/><rect x="42" y="76" width="14" height="46"/><rect x="64" y="94" width="20" height="28"/>` +
+    `<rect x="252" y="82" width="16" height="40"/><rect x="276" y="92" width="22" height="30"/><rect x="306" y="72" width="14" height="50"/><rect x="328" y="90" width="18" height="32"/></g>` +
+    `<g fill="#b8c2cc" opacity=".8">` +
+    `<rect x="20" y="94" width="4" height="4"/><rect x="28" y="94" width="4" height="4"/><rect x="46" y="82" width="4" height="4"/><rect x="46" y="92" width="4" height="4"/>` +
+    `<rect x="256" y="88" width="4" height="4"/><rect x="310" y="78" width="4" height="4"/><rect x="310" y="90" width="4" height="4"/><rect x="332" y="96" width="4" height="4"/></g>` +
+    `<g fill="#dfe8ee"><ellipse cx="140" cy="120" rx="170" ry="7" opacity=".4"/><ellipse cx="330" cy="122" rx="120" ry="6" opacity=".34"/></g>` +
+    // ── 町。低い建物を並べる(中央は隠れるので、繰り返しでよい)
+    ground(122, "#8fa87a") +
+    `<g>` +
+    `<rect x="0" y="126" width="34" height="26" fill="#e8dcc0"/><path d="M-2,126h38v-5h-38z" fill="#a8562f"/>` +
+    `<rect x="40" y="130" width="30" height="22" fill="#dccfae"/><path d="M38,130h34v-4h-34z" fill="#8f4a28"/>` +
+    `<rect x="78" y="127" width="32" height="25" fill="#e8dcc0"/><path d="M76,127h36v-5h-36z" fill="#a8562f"/>` +
+    `<rect x="118" y="131" width="28" height="21" fill="#d8cba8"/><path d="M116,131h32v-4h-32z" fill="#8f4a28"/>` +
+    `<rect x="252" y="129" width="30" height="23" fill="#e8dcc0"/><path d="M250,129h34v-4h-34z" fill="#a8562f"/>` +
+    `<rect x="290" y="126" width="34" height="26" fill="#dccfae"/><path d="M288,126h38v-5h-38z" fill="#8f4a28"/>` +
+    `<rect x="332" y="130" width="30" height="22" fill="#e8dcc0"/><path d="M330,130h34v-4h-34z" fill="#a8562f"/>` +
+    `<rect x="370" y="127" width="30" height="25" fill="#d8cba8"/><path d="M368,127h34v-4h-34z" fill="#8f4a28"/>` +
+    `</g>` +
+    `<g fill="#5f5548"><rect x="10" y="138" width="8" height="14"/><rect x="88" y="139" width="8" height="13"/><rect x="262" y="141" width="8" height="11"/><rect x="300" y="138" width="9" height="14"/><rect x="342" y="141" width="8" height="11"/><rect x="380" y="139" width="8" height="13"/></g>` +
+    // ── 広場。**雲の影が落ちる (140,158) と (300,186) は開けておく**
+    `<path d="M0,152q100,-5 200,2q100,6 200,-5v61H0z" fill="#b8ae90"/>` +
+    `<path d="M0,190q104,-4 204,2q96,6 196,-4v22H0z" fill="#a89e80"/>` +
+    // 噴水。広場の要
+    `<g><ellipse cx="196" cy="180" rx="26" ry="8" fill="#8fc4d8"/><ellipse cx="196" cy="180" rx="26" ry="8" fill="none" stroke="#9a9078" stroke-width="3"/>` +
+    `<rect x="192" y="164" width="8" height="14" fill="#c9bfa0"/><ellipse cx="196" cy="163" rx="10" ry="3" fill="#c9bfa0"/>` +
+    `<g stroke="#bfe0ee" stroke-width="1.6" fill="none" opacity=".8"><path d="M196,160q-8,6 -10,14M196,160q8,6 10,14"/></g></g>` +
+    // ── 街路樹と椰子
+    palm(30, 172, 40, 4) +
+    palm(368, 176, 36, -5) +
+    crown(72, 158, 18, 10, "#4f8a46", "#3a6b36") +
+    crown(258, 160, 16, 9, "#4f8a46", "#3a6b36") +
+    crown(330, 164, 17, 9, "#569150", "#3f7340") +
+    // ── バイクと露店。熱帯の町はこれで動いている
+    shade(112, 196, 16, 3, ".2") +
+    `<g><circle cx="102" cy="192" r="6" fill="#33302b"/><circle cx="124" cy="192" r="6" fill="#33302b"/>` +
+    `<path d="M100,192l8,-12h12l6,12z" fill="#2f7fb8"/>` +
+    `<path d="M108,180l-4,-7" stroke="#5c4632" stroke-width="2" stroke-linecap="round" fill="none"/>` +
+    `<rect x="110" y="168" width="5" height="12" fill="#c4452f"/><circle cx="112" cy="164" r="4.2" fill="#c98d5f"/></g>` +
+    `<g><path d="M282,190h48v-4h-48z" fill="#c9b48a"/><path d="M278,186h56l-6,-10h-44z" fill="#e8443f"/>` +
+    `<g stroke="#8a6a48" stroke-width="2" fill="none"><path d="M284,190v12M328,190v12"/></g>` +
+    `<g fill="#f5b31c"><circle cx="292" cy="183" r="2.6"/><circle cx="302" cy="183" r="2.6"/><circle cx="312" cy="183" r="2.6"/><circle cx="322" cy="183" r="2.6"/></g></g>` +
+    // ── 最前景
+    `<path d="M0,210v-8q56,-5 112,2q58,7 116,-3q56,-9 114,3q32,4 58,-1v7z" fill="#7f7660"/>` +
+    crown(16, 202, 22, 12, "#3f7340", "#2f5a30") +
+    crown(390, 206, 20, 11, "#3f7340", "#2f5a30"),
+
+  /**
+   * 赤い峡谷(トゥピサ)。
+   *
+   * ⚠ `bolivia-redcanyon.tsx` は**陽炎を y=112〜118 に引く**ので、地平をその高さに。
+   *   砂ぼこりは y=140/168/196、砂の筋は (60,164)(244,190)(300,150)、
+   *   コンドルは (300,44) と (96,72) を旋回する。
+   *
+   * 層: 灼けた空 / 遠い赤壁 / 尖塔の列 / 乾いた河床(3段)/ サボテン /
+   * 馬に乗った人 / 最前景の岩と灌木。
+   */
+  redcanyon:
+    // ── 空。**赤壁の裾(y=126)まで塗り下ろす**
+    sky(130, "#7fa8c8", "#f0d8b4", "#c8c4b8") +
+    `<circle cx="70" cy="38" r="16" fill="#fff2cc" opacity=".8"/>` +
+    `<circle cx="70" cy="38" r="28" fill="#fff2cc" opacity=".18"/>` +
+    // ── 遠い赤壁。トゥピサは赤い岩に囲まれた町
+    `<path d="M0,126L34,84L66,104L104,72L142,100L184,80L224,106L266,76L306,102L344,82L400,104V210H0z" fill="#b8654a"/>` +
+    `<path d="M104,72l38,28l-16,2z" fill="#964a34" opacity=".7"/>` +
+    `<path d="M266,76l40,26l-16,2z" fill="#964a34" opacity=".65"/>` +
+    // 逃げ水。地平の際だけ白ませる
+    `<g fill="#f7e8cc"><ellipse cx="120" cy="122" rx="170" ry="7" opacity=".4"/><ellipse cx="320" cy="125" rx="120" ry="6" opacity=".34"/></g>` +
+    // ── 尖塔の列。**高さも太さもばらす**
+    spire(28, 156, 26, 52) +
+    spire(58, 158, 18, 34) +
+    spire(92, 154, 30, 60) +
+    spire(128, 158, 20, 38) +
+    spire(276, 156, 24, 50) +
+    spire(310, 159, 17, 32) +
+    spire(344, 154, 28, 56) +
+    spire(378, 158, 19, 36) +
+    // ── 乾いた河床。3段
+    ground(150, "#c98a5e") +
+    `<path d="M0,170q100,-6 200,1q100,6 200,-4v45H0z" fill="#b87a50"/>` +
+    `<path d="M0,192q104,-5 204,2q96,6 196,-4v22H0z" fill="#a56a44"/>` +
+    // 水の涸れた筋。**等間隔にしない**
+    `<g stroke="#96593a" stroke-width="1.4" opacity=".55" fill="none">` +
+    `<path d="M22,180l16,6l-6,8M84,196l20,-5M148,186l11,7l14,-2M232,200l18,4M296,184l13,7M348,198l16,-6"/></g>` +
+    // ── サボテン
+    cardon(160, 194, 30, [-1, 1]) +
+    cardon(184, 200, 22, [1]) +
+    cardon(246, 196, 26, [-1, 1]) +
+    // ── 馬に乗った人。トゥピサは馬で峡谷を行く土地。
+    // **中央に置かない。**最初 x=206 に置いたら、乗り手の頭(y=148)が
+    // シンボルの影の楕円(200,155 rx53 ry14)に食われ、胴だけの赤い塊になった。
+    // 馬より高い位置に頭が来るものは、隠れる帯の外へ出す。
+    `<g>` +
+    shade(300, 202, 22, 3.4, ".22") +
+    `<g stroke="#6b4a32" stroke-width="3" stroke-linecap="round"><path d="M288,202v-12M296,202v-12M306,202v-12M314,202v-12"/></g>` +
+    `<ellipse cx="301" cy="186" rx="18" ry="7.4" fill="#7a5238"/>` +
+    `<path d="M316,184l8,-8" stroke="#7a5238" stroke-width="5" stroke-linecap="round" fill="none"/>` +
+    `<ellipse cx="326" cy="174" rx="6" ry="4" fill="#7a5238"/>` +
+    `<path d="M323,171l2,-6l3,5z" fill="#7a5238"/>` +
+    `<path d="M283,184q-6,6 -4,14" stroke="#5a3826" stroke-width="2.4" fill="none"/>` +
+    // 鞍と鞍敷き。人は乗せない
+    `<path d="M294,181h16l-2,-6h-12z" fill="#c4452f"/>` +
+    `</g>` +
+    // 馬を曳く人。**またがらせない。**乗せてみたら、馬の上の小さな人は
+    // 部品が潰れて赤い塊にしかならなかった。横に立たせると、他の絵と同じ大きさで描ける
+    `<g>` +
+    shade(266, 203, 9, 2.4, ".2") +
+    `<rect x="262" y="190" width="4" height="13" fill="#3f5f2f"/><rect x="269" y="190" width="4" height="13" fill="#3f5f2f"/>` +
+    `<path d="M260,176h15l2,14h-19z" fill="#c4452f"/>` +
+    `<circle cx="267" cy="171" r="4.6" fill="#c98d5f"/>` +
+    `<ellipse cx="267" cy="166" rx="11" ry="3.4" fill="#8a6a48"/>` +
+    // 手綱。馬の口までつなぐ
+    `<path d="M276,180q14,-4 24,-2" stroke="#5a3826" stroke-width="1.6" fill="none"/>` +
+    `</g>` +
+    // ── 最前景の岩と灌木。地面より2段暗く
+    `<g fill="#8a4a34"><ellipse cx="42" cy="204" rx="14" ry="6"/><ellipse cx="64" cy="208" rx="10" ry="4.4"/><ellipse cx="330" cy="206" rx="13" ry="5.4"/></g>` +
+    tola(96, 208, 15, 9, "#7a6a3a") +
+    tola(366, 207, 13, 8, "#7a6a3a") +
+    `<path d="M0,210v-6q56,-5 112,2q58,7 116,-3q56,-9 114,3q32,4 58,-1v5z" fill="#8a5636"/>`,
 };

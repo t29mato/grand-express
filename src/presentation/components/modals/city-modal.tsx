@@ -9,6 +9,7 @@ import { stallPriceOf, stallStockFor } from "../../../application/use-cases/visi
 import { useLocale } from "../../i18n/locale-context";
 import { CityArt } from "../city/city-art";
 import { ArrivalCelebration } from "../events/arrival-celebration";
+import { MoneyTicker } from "../hud/money-ticker";
 import { formatMoney } from "../../i18n/money-format";
 import { Modal } from "./modal";
 
@@ -39,6 +40,16 @@ export function CityModal({
   const stock = stallStockFor(context, cityId, session.month);
   const currency = context.content.currency;
 
+  /*
+   * この町で自分が持っている数。**独占(全部そろえると収入が倍)は、
+   * 数を出さないと伝わらない。** 文言(`monopolyPart` / `monopolyHave`)は
+   * 4言語そろっていたのに、どこからも呼ばれていなかった。
+   */
+  const ownedHere = city.properties.filter((_, i) =>
+    player.portfolio.has(PropertyRef.of(cityId, PropertyIndex(i))),
+  ).length;
+  const ownsAllHere = city.properties.length > 0 && ownedHere === city.properties.length;
+
   return (
     <Modal testId="city-modal">
       {/* 目的地に着いたときは、町の絵の代わりに到着のお祝いを見せる。
@@ -57,6 +68,29 @@ export function CityModal({
         <p className="fact">
           🎯 {t("destReached")} — +{formatMoney(arrivalPrize, currency)}
         </p>
+      )}
+      {/*
+        手持ち。**買う画面に出ていなかった。**
+        「30万の物件」と言われても、手元が20万なのか100万なのかが分からないと決められない。
+        右のパネルには出ているが、幅834pxではモーダルを開くと画面の外へ出てしまう(実測)。
+        `MoneyTicker` を使うので、買った瞬間に数字が転がって減る。
+      */}
+      <div
+        className="fact"
+        style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}
+      >
+        <span style={{ color: "var(--salt-dim)" }}>{t("yourCash")}</span>
+        <MoneyTicker amount={player.cash.amount} currency={currency} emphatic />
+      </div>
+      {/*
+        独占まであと何件か。全部そろうと収入が倍になるが、それがどこにも書かれていなかった。
+      */}
+      {city.properties.length > 1 && (
+        <div className="monopoly">
+          {ownsAllHere
+            ? t("monopolyHave", tx(city.name))
+            : t("monopolyPart", String(ownedHere), String(city.properties.length))}
+        </div>
       )}
       <div className="plist">
         {city.properties.map((property, i) => {
@@ -87,12 +121,24 @@ export function CityModal({
             );
           }
           const canBuy = !owner && player.cash.amount >= property.cost;
+          const shortfall = property.cost - player.cash.amount;
           return (
             <div className={`prop${owner ? " owned" : ""}`} key={i}>
               <div className="info">
                 <div className="nm">{tx(property.name)}</div>
                 <div className="sub">
                   {formatMoney(property.cost, currency)} · +{formatMoney(property.income, currency)}/qtr {owner && `· ${owner.name}`}
+                  {/* 買えるなら買ったあとの残り、買えないなら足りない額。
+                      「買えません」だけでは、いくら足りないのか分からない。 */}
+                  {!owner &&
+                    (canBuy ? (
+                      <span style={{ color: "var(--green)" }}>
+                        {" "}
+                        · {t("afterBuying", formatMoney(player.cash.amount - property.cost, currency))}
+                      </span>
+                    ) : (
+                      <span style={{ color: "var(--red)" }}> · {t("shortBy", formatMoney(shortfall, currency))}</span>
+                    ))}
                 </div>
               </div>
               {!owner && (

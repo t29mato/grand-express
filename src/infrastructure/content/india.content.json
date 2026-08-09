@@ -4008,37 +4008,37 @@
     {
       "difficulty": 6,
       "q": {
-        "en": "Which country did Goa belong to until 1961?",
-        "es": "¿A qué país perteneció Goa hasta 1961?",
-        "fr": "À quel pays Goa appartint-elle jusqu'en 1961 ?",
-        "ja": "ゴアが1961年まで属していた国は?"
+        "en": "Which animal is India's national animal?",
+        "es": "¿Cuál es el animal nacional de la India?",
+        "fr": "Quel est l'animal national de l'Inde ?",
+        "ja": "インドの国獣は?"
       },
       "o": [
         {
-          "en": "Portugal",
-          "es": "Portugal",
-          "fr": "Le Portugal",
-          "ja": "ポルトガル"
+          "en": "The Asian elephant",
+          "es": "El elefante asiático",
+          "fr": "L'éléphant d'Asie",
+          "ja": "アジアゾウ"
         },
         {
-          "en": "The Netherlands",
-          "es": "Los Países Bajos",
-          "fr": "Les Pays-Bas",
-          "ja": "オランダ"
+          "en": "The Bengal tiger",
+          "es": "El tigre de Bengala",
+          "fr": "Le tigre du Bengale",
+          "ja": "ベンガルトラ"
         },
         {
-          "en": "France",
-          "es": "Francia",
-          "fr": "La France",
-          "ja": "フランス"
+          "en": "The Indian leopard",
+          "es": "El leopardo indio",
+          "fr": "Le léopard de l'Inde",
+          "ja": "インドヒョウ"
         }
       ],
-      "a": 0,
+      "a": 1,
       "f": {
-        "en": "Portugal held Goa for 451 years, longer than any other European power held any part of India.",
-        "es": "Portugal tuvo Goa 451 años, más de lo que ninguna otra potencia europea retuvo parte alguna de la India.",
-        "fr": "Le Portugal garda Goa 451 ans, plus longtemps qu'aucune autre puissance européenne ne tint une partie de l'Inde.",
-        "ja": "ポルトガルは451年間ゴアを領有し、これはヨーロッパのどの国がインドのどの地を保った期間よりも長いものです。"
+        "en": "It replaced the lion in 1973, when a programme of tiger reserves began; India now holds roughly three quarters of the world's wild tigers. The elephant is the national heritage animal, a separate title given in 2010.",
+        "es": "Sustituyó al león en 1973, al crearse las reservas de tigres; la India alberga hoy unas tres cuartas partes de los tigres salvajes del mundo. El elefante es el animal del patrimonio nacional, título aparte dado en 2010.",
+        "fr": "Il remplaça le lion en 1973, à la création des réserves de tigres ; l'Inde abrite aujourd'hui environ les trois quarts des tigres sauvages du monde. L'éléphant est l'animal du patrimoine national, titre distinct accordé en 2010.",
+        "ja": "1973年、トラの保護区を設ける計画が始まったときにライオンから代わった。いま世界の野生のトラのおよそ四分の三がインドにいる。ゾウには2010年、これとは別に「国の遺産の動物」という称号が与えられている。"
       }
     },
     {
@@ -4512,73 +4512,73 @@
     {
       "difficulty": 9,
       "q": {
-        "en": "What was Vijayanagara, whose ruins stand at Hampi?",
-        "es": "¿Qué fue Vijayanagara, cuyas ruinas están en Hampi?",
-        "fr": "Que fut Vijayanagara, dont les ruines sont à Hampi ?",
-        "ja": "ハンピに廃墟が残るヴィジャヤナガルとは?"
+        "en": "India spans over 2,900 km from east to west. How many time zones does it keep?",
+        "es": "La India abarca más de 2.900 km de este a oeste. ¿Cuántos husos horarios mantiene?",
+        "fr": "L'Inde s'étend sur plus de 2 900 km d'est en ouest. Combien de fuseaux horaires garde-t-elle ?",
+        "ja": "東西に2,900km以上あるインドが、国内に置いている標準時はいくつ?"
       },
       "o": [
         {
-          "en": "A Portuguese trading fort",
-          "es": "Un fuerte comercial portugués",
-          "fr": "Un comptoir fortifié portugais",
-          "ja": "ポルトガルの商館砦"
+          "en": "One",
+          "es": "Uno",
+          "fr": "Un",
+          "ja": "1つ"
         },
         {
-          "en": "One of the largest cities in the world around 1500",
-          "es": "Una de las mayores ciudades del mundo hacia 1500",
-          "fr": "L'une des plus grandes villes du monde vers 1500",
-          "ja": "1500年頃、世界有数の大都市"
+          "en": "Two",
+          "es": "Dos",
+          "fr": "Deux",
+          "ja": "2つ"
         },
         {
-          "en": "A Buddhist monastery complex",
-          "es": "Un complejo monástico budista",
-          "fr": "Un complexe monastique bouddhique",
-          "ja": "仏教僧院群"
+          "en": "Four",
+          "es": "Cuatro",
+          "fr": "Quatre",
+          "ja": "4つ"
         }
       ],
-      "a": 1,
+      "a": 0,
       "f": {
-        "en": "Visitors described markets where diamonds were sold by the measure; the city was sacked in 1565 and never reoccupied.",
-        "es": "Los visitantes describían mercados donde los diamantes se vendían a medida; saqueada en 1565, nunca se repobló.",
-        "fr": "Des visiteurs décrivaient des marchés où les diamants se vendaient à la mesure ; pillée en 1565, la ville ne fut jamais réoccupée.",
-        "ja": "訪れた者は、ダイヤが升で売られる市場を書き残しました。1565年に略奪され、再び人が住むことはありませんでした。"
+        "en": "The single clock is set half an hour off the hour, at UTC+5:30, so that one line down the middle of the country serves both ends. In the far north-east the sun can be up before five in summer and down by four in winter, and tea gardens there long kept their own working time, an hour ahead, to match the daylight.",
+        "es": "El reloj único va a media hora del huso, UTC+5:30, para servir a ambos extremos con una sola línea. En el nordeste el sol sale antes de las cinco en verano, y los jardines de té llevaban su propia hora, una más.",
+        "fr": "L'horloge unique est calée sur une demi-heure, UTC+5:30, afin qu'une seule ligne médiane serve les deux extrémités. Au nord-est, le soleil se lève avant cinq heures l'été, et les jardins de thé gardaient leur propre heure, une de plus.",
+        "ja": "唯一の時計は正時から30分ずれた UTC+5:30 に置かれている。国の真ん中を通る一本の線で両端をまかなうためである。北東の端では夏に五時前に日が昇り、冬は四時には暮れる。そこの茶園は長いあいだ、一時間進めた独自の作業時間を使ってきた。"
       }
     },
     {
       "difficulty": 9,
       "q": {
-        "en": "Which Indian state was an independent kingdom until 1975?",
-        "es": "¿Qué estado indio fue un reino independiente hasta 1975?",
-        "fr": "Quel État indien fut un royaume indépendant jusqu'en 1975 ?",
-        "ja": "1975年まで独立王国だったインドの州は?"
+        "en": "Who wrote India's national anthem and was the first Asian to win the Nobel Prize in Literature?",
+        "es": "¿Quién escribió el himno nacional de la India y fue el primer asiático con el Nobel de Literatura?",
+        "fr": "Qui écrivit l'hymne national indien et fut le premier Asiatique Nobel de littérature ?",
+        "ja": "インドの国歌を書き、アジアで初めてノーベル文学賞を受けたのは?"
       },
       "o": [
         {
-          "en": "Sikkim",
-          "es": "Sikkim",
-          "fr": "Le Sikkim",
-          "ja": "シッキム"
+          "en": "Sarojini Naidu",
+          "es": "Sarojini Naidu",
+          "fr": "Sarojini Naidu",
+          "ja": "サロージニー・ナーイドゥ"
         },
         {
-          "en": "Kerala",
-          "es": "Kerala",
-          "fr": "Le Kerala",
-          "ja": "ケーララ"
+          "en": "Rabindranath Tagore",
+          "es": "Rabindranath Tagore",
+          "fr": "Rabindranath Tagore",
+          "ja": "ラビンドラナート・タゴール"
         },
         {
-          "en": "Odisha",
-          "es": "Odisha",
-          "fr": "L'Odisha",
-          "ja": "オディシャ"
+          "en": "Premchand",
+          "es": "Premchand",
+          "fr": "Premchand",
+          "ja": "プレームチャンド"
         }
       ],
-      "a": 0,
+      "a": 1,
       "f": {
-        "en": "A referendum ended the Buddhist monarchy and made Sikkim India's 22nd state; it is now fully organic by law.",
-        "es": "Un referéndum acabó con la monarquía budista y convirtió a Sikkim en el estado 22; hoy es totalmente ecológico por ley.",
-        "fr": "Un référendum mit fin à la monarchie bouddhiste et fit du Sikkim le 22e État ; il est aujourd'hui entièrement bio par la loi.",
-        "ja": "住民投票で仏教王制が終わり、シッキムはインド22番目の州となりました。今では法律により完全有機農業です。"
+        "en": "He won in 1913 for poems he had translated into English himself, and he also wrote the song Bangladesh later took as its anthem — the only person to have written two national anthems. He gave up the knighthood the British had granted him after the killings at Amritsar in 1919.",
+        "es": "Ganó en 1913 por poemas que él mismo tradujo al inglés, y escribió además la canción que Bangladés tomó como himno: el único autor de dos himnos nacionales. Renunció al título británico tras la matanza de Amritsar en 1919.",
+        "fr": "Il obtint le prix en 1913 pour des poèmes qu'il avait lui-même traduits en anglais, et écrivit aussi le chant que le Bangladesh prit pour hymne : seul auteur de deux hymnes nationaux. Il renonça au titre britannique après le massacre d'Amritsar en 1919.",
+        "ja": "1913年、自ら英語に訳した詩によって受賞した。のちにバングラデシュが国歌とした歌も彼の作で、二つの国歌を書いた唯一の人物である。1919年のアムリトサルの虐殺のあと、英国から与えられていた爵位を返上した。"
       }
     },
     {
