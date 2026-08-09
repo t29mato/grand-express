@@ -155,6 +155,10 @@ export function PecheAPied() {
           .ppd-boat, .ppd-digger-a, .ppd-digger-b, .ppd-digger-c,
           .ppd-rake-a, .ppd-rake-b, .ppd-shell, .ppd-coin,
           .ppd-pool-a, .ppd-pool-b, .ppd-pool-c { animation: none; }
+          /* **規則そのものに opacity: 0 を書いている要素は、animation: none だけでは
+             消えたままになる。**動きを減らす設定にしている人にだけ、
+             出来事そのものが見えなくなる。掻き出された貝。**採れたものが消えると、何をしている絵か分からなくなる**。 */
+          .ppd-shell { opacity: 1; }
         }
       `}</style>
     </svg>

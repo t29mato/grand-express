@@ -4,6 +4,16 @@
  * 唯一の雲は雨を落とさずに通り過ぎ、井戸の釣瓶は空のまま上がってくる。
  * ひび割れた畑で作物がうなだれ、ここの品物の値が一斉に下がる。
  *
+ * ## 赤い下向きの矢を外した
+ *
+ * 同じ矢が3つの盤面に出ていた(ここ・`france-vendange-ratee`・`world-devaluation`)。
+ * 形も色も同じで、3枚とも**それが動く要素**だった。場面の中のものではなく**記号**である。
+ *
+ * ここでは**硬貨がひとりでに縮んでいく**のが既に「値が下がる」を言っていたので、
+ * 矢は言い直しでしかなかった。外して、代わりに**半分しか入っていない麻袋**を
+ * 硬貨の下に置いた。**その袋がいまいくらになるか**という並びになる。
+ * 硬貨は記号ではなく場面の中の物なので残してある。
+ *
  * 位置決めは外側の <g transform> に、動きは内側のクラスに分ける。
  * CSSのtransformは属性のtransformを上書きするので、両方を同じ要素に付けない。
  */
@@ -126,17 +136,19 @@ export function IndiaDrought() {
       </g>
 
       {/* 品物の値が一斉に下がる */}
-      <g transform="translate(360,158)">
+      <g transform="translate(362,134)">
         <g className="idr-coin">
           <circle r="15" fill="#f5b31c" />
           <circle r="8" fill="#c98a12" />
         </g>
       </g>
-      <g transform="translate(360,126)">
-        <g className="idr-arrow">
-          <rect x="-5" y="-26" width="10" height="22" fill="#e05252" />
-          <path d="M-14,-6 L14,-6 L0,12z" fill="#e05252" />
-        </g>
+      {/* 半分しか入っていない麻袋。硬貨の下に置いて、値がつく先を見せる。静物。
+          **地面と同じ色にしない。**最初 `#b08a55` で描いたら大地に沈んで見えなかった。 */}
+      <g transform="translate(350,192)">
+        <path d="M-26,16 q-4,-24 6,-32 q-6,-6 2,-8 l14,0 q8,2 2,8 q10,8 6,32z" fill="#cbb083" />
+        <path d="M-24,8 q24,-6 48,0 l0,9 q-24,-6 -48,0z" fill="#9c7c4a" />
+        <path d="M-18,-24 q18,-5 36,0" stroke="#9c7c4a" strokeWidth="2.5" fill="none" />
+        <path d="M-14,-30 l6,-6 M0,-32 l0,-6 M14,-30 l-6,-6" stroke="#9c7c4a" strokeWidth="2.5" fill="none" />
       </g>
 
       {/* 陽炎 */}
@@ -232,11 +244,6 @@ export function IndiaDrought() {
           animation: idr-wilt 4.4s ease-in-out infinite;
           animation-delay: -2.4s;
         }
-        .idr-arrow {
-          transform-box: fill-box;
-          transform-origin: center;
-          animation: idr-drop 2.2s ease-in-out infinite;
-        }
         .idr-coin {
           transform-box: fill-box;
           transform-origin: center;
@@ -278,8 +285,6 @@ export function IndiaDrought() {
           0%, 100% { transform: rotate(8deg); }
           50% { transform: rotate(21deg); }
         }
-        @keyframes idr-drop {
-          0%, 100% { transform: translate(0, -8px); opacity: 0.5; }
           50% { transform: translate(0, 6px); opacity: 1; }
         }
         @keyframes idr-shrink {
@@ -295,7 +300,7 @@ export function IndiaDrought() {
           .idr-sun, .idr-cloud, .idr-crack, .idr-rope, .idr-bucket,
           .idr-dust-a, .idr-dust-b, .idr-dust-c,
           .idr-crop-a, .idr-crop-b, .idr-crop-c, .idr-crop-d, .idr-crop-e,
-          .idr-arrow, .idr-coin, .idr-heat-a, .idr-heat-b, .idr-heat-c { animation: none; }
+          .idr-coin, .idr-heat-a, .idr-heat-b, .idr-heat-c { animation: none; }
         }
       `}</style>
     </svg>

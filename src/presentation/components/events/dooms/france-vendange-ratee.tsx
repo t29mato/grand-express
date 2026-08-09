@@ -2,7 +2,20 @@
  * ぶどうが穫れない年。六月に雹、九月に腐敗。摘む前に棒に振られる。
  *
  * 畝の上に雹が降り、葉が打たれて落ちる。房のひとつは灰色に変わり、
- * 粒がひとつずつ地に落ちていく。摘み籠は空のまま横倒しになっている。
+ * 粒がひとつずつ地に落ちていく。摘み籠は空のまま足もとに置かれている。
+ *
+ * ## 赤い下向きの矢を外した
+ *
+ * 「値下がり」を赤い下向きの矢で言っていた。**同じ矢が3つの盤面に出ていた**
+ * (ここ・`world-devaluation`・`india-drought`)。形も色も同じで、3枚とも
+ * **それが動く要素**だった。場面の中のものではなく**記号**なので、他の絵と手ざわりが違う。
+ *
+ * 日本の `japan-bottakuri` は長い伝票、`ibaraki-kaminari` は暗い保冷庫と抱えた箱で、
+ * 同じことを**場面で**言っている。そちらのほうが強い。
+ *
+ * ここでは矢を消し、代わりに**空の籠を持った摘み手**を立たせた。
+ * 収穫の日に籠が空で、手に取った房が灰色になっている——それが「穫れない年」である。
+ * ついでにフランスは7枚中4枚が無人だったので、1枚減る。
  *
  * 位置決めは外側の <g transform>、動きは内側のクラス。
  * CSSのtransformは属性のtransformを上書きするので、両方を同じ要素に付けない。
@@ -46,8 +59,8 @@ export function FranceVendangeRatee() {
         <path d="M312,90 q20,-16 37,-2 q-12,20 -37,2z" />
       </g>
 
-      {/* 打たれて落ちる葉 */}
-      <g transform="translate(142,106)">
+      {/* 打たれて落ちる葉。**人から離す。**頭の脇に落ちると、頭巾のように見えた。 */}
+      <g transform="translate(262,106)">
         <g className="fvr-leaf">
           <path d="M-19,2 q20,-17 38,-2 q-13,21 -38,2z" fill="#6b7a34" />
         </g>
@@ -93,8 +106,10 @@ export function FranceVendangeRatee() {
         </g>
       </g>
 
-      {/* 空のままの摘み籠 */}
-      <g transform="translate(336,196) rotate(-11)">
+      {/* 空のままの摘み籠。**摘み手の足もとに置く。**
+          収穫の日に籠が空、というのが「穫れない年」そのものなので、
+          人と同じ場所に置いて一続きに読ませる。 */}
+      <g transform="translate(226,202) rotate(-11)">
         <g className="fvr-basket">
           <path d="M-27,-40 L27,-40 L19,0 L-19,0z" fill="#a8814a" />
           <g stroke="#8a6635" strokeWidth="3" fill="none">
@@ -106,6 +121,23 @@ export function FranceVendangeRatee() {
         </g>
       </g>
 
+      {/* 灰色になった房を手に取って見ている摘み手。 */}
+      <g strokeLinejoin="round" strokeLinecap="round">
+        <ellipse cx="148" cy="196" rx="30" ry="6" fill="#5a5137" />
+        <path d="M142,168 L138,196" stroke="#3f3a30" strokeWidth="10" fill="none" />
+        <path d="M154,168 L158,194" stroke="#4d473a" strokeWidth="10" fill="none" />
+        <path d="M148,142 L148,172" stroke="#4f6640" strokeWidth="25" fill="none" />
+        <path d="M136,152 L162,152 L160,172 L136,172z" fill="#3e5232" />
+        <circle cx="148" cy="128" r="11" fill="#f0e2cf" stroke="#3a3228" strokeWidth="2" />
+        <path d="M137,127 a11,11 0 0 1 22,0z" fill="#463225" />
+        {/* 房のほうへ伸ばした腕。 */}
+        <path d="M158,146 L174,132" stroke="#4f6640" strokeWidth="9" fill="none" />
+        <circle cx="177" cy="129" r="5.5" fill="#f0e2cf" />
+        {/* 反対の手は籠を提げている。 */}
+        <path d="M138,148 L134,168" stroke="#4f6640" strokeWidth="9" fill="none" />
+        <circle cx="133" cy="170" r="5.5" fill="#f0e2cf" />
+      </g>
+
       {/* 雹 */}
       <g fill="#dfeaf2">
         <circle className="fvr-hail-a" cx="60" cy="0" r="5" />
@@ -114,14 +146,6 @@ export function FranceVendangeRatee() {
         <circle className="fvr-hail-d" cx="288" cy="0" r="4.5" />
         <circle className="fvr-hail-e" cx="356" cy="0" r="5" />
         <circle className="fvr-hail-f" cx="24" cy="0" r="4" />
-      </g>
-
-      {/* 値下がりの矢 */}
-      <g transform="translate(96,46)">
-        <g className="fvr-arrow">
-          <rect x="-5" y="-24" width="11" height="32" rx="3" fill="#e05252" />
-          <path d="M-15,4 L0,24 L15,4z" fill="#e05252" />
-        </g>
       </g>
 
       <style>{`
@@ -136,7 +160,6 @@ export function FranceVendangeRatee() {
         .fvr-berry-a { transform-box: fill-box; transform-origin: center; animation: fvr-shed 3.6s ease-in infinite; }
         .fvr-berry-b { transform-box: fill-box; transform-origin: center; animation: fvr-shed 3.6s ease-in infinite; animation-delay: -1.8s; }
         .fvr-basket { transform-box: fill-box; transform-origin: 50% 100%; animation: fvr-rock 3.6s ease-in-out infinite; }
-        .fvr-arrow { transform-box: fill-box; transform-origin: center; animation: fvr-sink 3.6s ease-in-out infinite; }
         @keyframes fvr-fall {
           0% { transform: translate(0, -18px); opacity: 0; }
           14% { opacity: 1; }
@@ -161,14 +184,10 @@ export function FranceVendangeRatee() {
           0%, 100% { transform: rotate(0deg); }
           50% { transform: rotate(-3deg); }
         }
-        @keyframes fvr-sink {
-          0%, 100% { transform: translate(0, -6px); opacity: 0.75; }
-          50% { transform: translate(0, 8px); opacity: 1; }
-        }
         @media (prefers-reduced-motion: reduce) {
           .fvr-hail-a, .fvr-hail-b, .fvr-hail-c, .fvr-hail-d, .fvr-hail-e, .fvr-hail-f,
           .fvr-leaf, .fvr-rot, .fvr-berry-a, .fvr-berry-b,
-          .fvr-basket, .fvr-arrow { animation: none; }
+          .fvr-basket { animation: none; }
         }
       `}</style>
     </svg>

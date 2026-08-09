@@ -154,6 +154,10 @@ export function TaxeDeSejour() {
         @media (prefers-reduced-motion: reduce) {
           .tds-bill, .tds-extra, .tds-point, .tds-coin-a, .tds-coin-b,
           .tds-bell, .tds-sign { animation: none; }
+          /* **規則そのものに opacity: 0 を書いている要素は、animation: none だけでは
+             消えたままになる。**動きを減らす設定にしている人にだけ、
+             出来事そのものが見えなくなる。伝票に足された一行。**これが出来事そのもの**である。 */
+          .tds-extra { opacity: 1; }
         }
       `}</style>
     </svg>

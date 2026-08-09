@@ -24,9 +24,18 @@ import { mkdirSync, writeFileSync, rmSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { sceneSources } from "./scene-entry.mjs";
 
-const [output, ...files] = process.argv.slice(2);
+const args = process.argv.slice(2);
+/**
+ * `--reduced` は**動きを止めた状態**で撮る。
+ *
+ * 止めた絵は、目で見ないと確かめようがない。2026-08-09、`france-tire-laine` の
+ * 抜かれた札入れが、規則の `opacity: 0` のせいで**止めると消えていた。**
+ * スリの絵から、盗まれた物だけが消える。動く絵しか撮っていなければ気づけない。
+ */
+const reduced = args.includes("--reduced");
+const [output, ...files] = args.filter((a) => a !== "--reduced");
 if (!output || !files.length) {
-  console.error("使い方: node scripts/contact-sheet.mjs <出力png> <tsxのパス...>");
+  console.error("使い方: node scripts/contact-sheet.mjs [--reduced] <出力png> <tsxのパス...>");
   process.exit(1);
 }
 
@@ -68,7 +77,10 @@ const server = await createServer({
 await server.listen();
 
 const browser = await chromium.launch();
-const page = await browser.newPage({ viewport: { width: cols * 410 + 20, height: 900 } });
+const page = await browser.newPage({
+  viewport: { width: cols * 410 + 20, height: 900 },
+  reducedMotion: reduced ? "reduce" : "no-preference",
+});
 const errors = [];
 page.on("pageerror", (e) => errors.push(String(e)));
 // **`server.config.server.port` は設定値で、実際に開いた番号ではない。**

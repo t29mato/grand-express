@@ -223,6 +223,10 @@ export function WorldCrossingTheLine() {
         @media (prefers-reduced-motion: reduce) {
           .wcl-neptune, .wcl-bucket, .wcl-splash, .wcl-pollywog,
           .wcl-coin-a, .wcl-coin-b, .wcl-cert, .wcl-sea-a, .wcl-sea-b { animation: none; }
+          /* **規則そのものに opacity: 0 を書いている要素は、animation: none だけでは
+             消えたままになる。**動きを減らす設定にしている人にだけ、
+             出来事そのものが見えなくなる。差し出した硬貨。払ったことが止めた絵にも残るように。 */
+          .wcl-coin-a, .wcl-coin-b { opacity: 1; }
         }
       `}</style>
     </svg>

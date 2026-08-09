@@ -217,6 +217,10 @@ export function WorldShellGame() {
         @media (prefers-reduced-motion: reduce) {
           .wsg-cup-a, .wsg-cup-b, .wsg-cup-c, .wsg-ball, .wsg-dealer,
           .wsg-shill, .wsg-prize, .wsg-lookout, .wsg-mark, .wsg-hand, .wsg-wallet { animation: none; }
+          /* **規則そのものに opacity: 0 を書いている要素は、animation: none だけでは
+             消えたままになる。**動きを減らす設定にしている人にだけ、
+             出来事そのものが見えなくなる。抜かれる札入れ。**これが出来事そのもの**なので、止めた絵から消えてはいけない。 */
+          .wsg-wallet { opacity: 1; }
         }
       `}</style>
     </svg>

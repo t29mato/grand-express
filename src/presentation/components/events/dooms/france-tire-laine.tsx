@@ -16,6 +16,19 @@ export function FranceTireLaine() {
       <rect width="400" height="24" fill="#232830" />
       <rect y="188" width="400" height="22" fill="#1e232a" />
 
+      {/* 明るい仕切りと窓。**手が伸びる帯の背後を明るくするために置いている。**
+          暗い袖を暗い車内に置いていたので、**盤面の大きさではスリが見えず、
+          新聞を読んでいる人にしか読めなかった。**
+          `japan-suri` は明るい背広に暗い手、`india-chori` は明るいリュックに手を掛ける。
+          **盗る手は、明るい面の上を通らないと見えない。** */}
+      <g>
+        <rect x="126" y="24" width="112" height="164" fill="#3f4a58" />
+        <rect x="126" y="24" width="112" height="7" fill="#4e5b6b" />
+        <rect x="134" y="44" width="96" height="76" rx="4" fill="#55677a" />
+        <rect x="140" y="50" width="84" height="64" fill="#6b7f92" />
+        <rect x="126" y="122" width="112" height="5" fill="#4e5b6b" />
+      </g>
+
       {/* 開いた扉と、その外のホーム */}
       <g>
         <rect x="292" y="24" width="108" height="164" fill="#1a2028" />
@@ -75,12 +88,13 @@ export function FranceTireLaine() {
 
       {/* 外を見ている旅人(右向き) */}
       <g className="ftl-victim">
-        <path d="M198,116 q36,-20 72,0 l8,86 -88,0z" fill="#46586b" />
-        <path d="M236,116 l0,86" stroke="#3a4a5b" strokeWidth="3" fill="none" />
-        <rect x="272" y="130" width="18" height="10" rx="4" fill="#3a4a5b" />
-        {/* 相手の側を向いた隠し */}
-        <rect x="200" y="142" width="36" height="12" rx="4" fill="#33414f" />
-        <rect x="200" y="142" width="36" height="4" rx="2" fill="#2b3846" />
+        {/* 外套を明るくした。**暗い手を暗い外套に伸ばしていたので見えなかった。** */}
+        <path d="M198,116 q36,-20 72,0 l8,86 -88,0z" fill="#8298ad" />
+        <path d="M236,116 l0,86" stroke="#6d8299" strokeWidth="3" fill="none" />
+        <rect x="272" y="130" width="18" height="10" rx="4" fill="#6d8299" />
+        {/* 相手の側を向いた隠し。**口だけを暗くして、狙いどころを見せる。** */}
+        <rect x="198" y="140" width="40" height="16" rx="4" fill="#9db1c4" />
+        <rect x="198" y="140" width="40" height="6" rx="3" fill="#3a4a5b" />
         {/* 頭(右を向いている) */}
         <circle cx="238" cy="84" r="25" fill="#f0e2cf" />
         <path
@@ -187,6 +201,10 @@ export function FranceTireLaine() {
         @media (prefers-reduced-motion: reduce) {
           .ftl-victim, .ftl-crowd-a, .ftl-crowd-b, .ftl-strap-a, .ftl-strap-b,
           .ftl-paper, .ftl-hand, .ftl-wallet, .ftl-coin { animation: none; }
+          /* **札入れは規則そのものに opacity:0 が書いてある。**
+             動きを止めるだけだと消えたままで、**止めた絵からスリが消える。**
+             止めたときこそ、抜かれた札入れが見えていないといけない。 */
+          .ftl-wallet { opacity: 1; }
         }
       `}</style>
     </svg>

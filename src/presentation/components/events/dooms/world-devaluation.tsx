@@ -5,6 +5,15 @@
  * 掲示板の数字の桁が一段ずつ落ちていき、両替所の前には列が伸びる。
  * 手に持った札はそのままなのに、買えるものが減っていく。
  *
+ * ## 赤い下向きの矢を外した
+ *
+ * 同じ矢が3つの盤面に出ていた(ここ・`france-vendange-ratee`・`india-drought`)。
+ * 形も色も同じで、3枚とも**それが動く要素**だった。場面の中のものではなく**記号**である。
+ *
+ * ここでは、**掲示板の桁がひとりでに縮んでいく**のが既に「下がる」を言っていたので、
+ * 矢は言い直しでしかなかった。外して、代わりに**書き換えられた古い相場札**を
+ * 台と足もとに散らした。**一日に何度も貼り替えている**ことが静物で出る。
+ *
  * 位置決めは外側の <g transform>、動きは内側のクラス。
  * CSSのtransformは属性のtransformを上書きするので、両方を同じ要素に付けない。
  */
@@ -74,11 +83,22 @@ export function WorldDevaluation() {
         </g>
       </g>
 
-      {/* 下向きの矢 */}
-      <g transform="translate(360,74)">
-        <g className="wdv-arrow">
-          <rect x="-6" y="-22" width="12" height="30" rx="3" fill="#e05252" />
-          <path d="M-16,4 L0,24 L16,4z" fill="#e05252" />
+      {/* 書き換えられた古い相場札。今日だけで何度も貼り替えている。静物。 */}
+      <g>
+        <g transform="translate(356,86) rotate(-9)">
+          <rect x="-16" y="-11" width="32" height="22" rx="2" fill="#d8cfba" />
+          <rect x="-11" y="-6" width="18" height="3" rx="1.5" fill="#8f887a" />
+          <rect x="-11" y="0" width="14" height="3" rx="1.5" fill="#8f887a" />
+        </g>
+        <g transform="translate(360,112) rotate(6)">
+          <rect x="-15" y="-10" width="30" height="20" rx="2" fill="#c4bba7" />
+          <rect x="-10" y="-5" width="16" height="3" rx="1.5" fill="#8f887a" />
+        </g>
+        <g fill="#b8af9c">
+          <rect x="238" y="138" width="26" height="9" rx="2" transform="rotate(-7 251 142)" />
+          <rect x="278" y="140" width="22" height="8" rx="2" transform="rotate(5 289 144)" />
+          <rect x="310" y="172" width="24" height="8" rx="2" transform="rotate(-12 322 176)" />
+          <rect x="356" y="182" width="20" height="7" rx="2" transform="rotate(9 366 185)" />
         </g>
       </g>
 
@@ -123,7 +143,6 @@ export function WorldDevaluation() {
         .wdv-row-a { transform-box: fill-box; transform-origin: left center; animation: wdv-slip 3.2s steps(1, end) infinite; }
         .wdv-row-b { transform-box: fill-box; transform-origin: left center; animation: wdv-slip 3.2s steps(1, end) infinite; animation-delay: -1.1s; }
         .wdv-row-c { transform-box: fill-box; transform-origin: left center; animation: wdv-slip 3.2s steps(1, end) infinite; animation-delay: -2.2s; }
-        .wdv-arrow { transform-box: fill-box; transform-origin: center; animation: wdv-sink 3.2s ease-in-out infinite; }
         .wdv-queue-a { transform-box: fill-box; transform-origin: 50% 100%; animation: wdv-shift 2.8s ease-in-out infinite; }
         .wdv-queue-b { transform-box: fill-box; transform-origin: 50% 100%; animation: wdv-shift 2.8s ease-in-out infinite; animation-delay: -0.4s; }
         .wdv-queue-c { transform-box: fill-box; transform-origin: 50% 100%; animation: wdv-shift 2.8s ease-in-out infinite; animation-delay: -0.8s; }
@@ -135,10 +154,6 @@ export function WorldDevaluation() {
           33%, 65% { transform: scaleX(0.62); }
           66%, 100% { transform: scaleX(0.34); }
         }
-        @keyframes wdv-sink {
-          0%, 100% { transform: translate(0, -8px); opacity: 0.7; }
-          50% { transform: translate(0, 10px); opacity: 1; }
-        }
         @keyframes wdv-shift {
           0%, 100% { transform: translate(0, 0); }
           50% { transform: translate(4px, -3px); }
@@ -148,7 +163,7 @@ export function WorldDevaluation() {
           50% { transform: rotate(2deg); }
         }
         @media (prefers-reduced-motion: reduce) {
-          .wdv-row-a, .wdv-row-b, .wdv-row-c, .wdv-arrow,
+          .wdv-row-a, .wdv-row-b, .wdv-row-c,
           .wdv-queue-a, .wdv-queue-b, .wdv-queue-c, .wdv-queue-d, .wdv-queue-e,
           .wdv-note { animation: none; }
         }

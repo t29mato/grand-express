@@ -168,6 +168,10 @@ export function TournageAParis() {
         @media (prefers-reduced-motion: reduce) {
           .tap-lamp, .tap-beam, .tap-camera, .tap-clap-arm, .tap-crew,
           .tap-give, .tap-envelope { animation: none; }
+          /* **規則そのものに opacity: 0 を書いている要素は、animation: none だけでは
+             消えたままになる。**動きを減らす設定にしている人にだけ、
+             出来事そのものが見えなくなる。受け取った封筒。渡されたことが止めた絵にも残るように。 */
+          .tap-envelope { opacity: 1; }
         }
       `}</style>
     </svg>

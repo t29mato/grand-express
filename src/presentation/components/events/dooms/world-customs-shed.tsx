@@ -187,6 +187,10 @@ export function WorldCustomsShed() {
         }
         @media (prefers-reduced-motion: reduce) {
           .wcs-bulb, .wcs-lid, .wcs-stamp, .wcs-mark-a, .wcs-mark-b, .wcs-hands { animation: none; }
+          /* **規則そのものに opacity: 0 を書いている要素は、animation: none だけでは
+             消えたままになる。**動きを減らす設定にしている人にだけ、
+             出来事そのものが見えなくなる。押された印。押したという結果が止めた絵にも残るように。 */
+          .wcs-mark-a, .wcs-mark-b { opacity: 1; }
         }
       `}</style>
     </svg>
