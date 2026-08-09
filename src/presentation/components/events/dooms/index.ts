@@ -13,6 +13,13 @@ import { FranceRameCoupee } from "./france-rame-coupee";
 import { FranceTireLaine } from "./france-tire-laine";
 import { FranceTourneeGenerale } from "./france-tournee-generale";
 import { FranceVendangeRatee } from "./france-vendange-ratee";
+import { IbarakiAshiatoNuma } from "./ibaraki-ashiato-numa";
+import { IbarakiHakobiGaTsukanai } from "./ibaraki-hakobi-ga-tsukanai";
+import { IbarakiHoshibaGaNureru } from "./ibaraki-hoshiba-ga-nureru";
+import { IbarakiKaminari } from "./ibaraki-kaminari";
+import { IbarakiKarakkazeDoom } from "./ibaraki-karakkaze-doom";
+import { IbarakiMizuGaHikanai } from "./ibaraki-mizu-ga-hikanai";
+import { IbarakiShioGaNoboru } from "./ibaraki-shio-ga-noboru";
 import { IndiaBandh } from "./india-bandh";
 import { IndiaChori } from "./india-chori";
 import { IndiaCyclone } from "./india-cyclone";
@@ -59,6 +66,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "france-tire-laine": FranceTireLaine,
   "france-tournee-generale": FranceTourneeGenerale,
   "france-vendange-ratee": FranceVendangeRatee,
+  "ibaraki-ashiato-numa": IbarakiAshiatoNuma,
+  "ibaraki-hakobi-ga-tsukanai": IbarakiHakobiGaTsukanai,
+  "ibaraki-hoshiba-ga-nureru": IbarakiHoshibaGaNureru,
+  "ibaraki-kaminari": IbarakiKaminari,
+  "ibaraki-karakkaze-doom": IbarakiKarakkazeDoom,
+  "ibaraki-mizu-ga-hikanai": IbarakiMizuGaHikanai,
+  "ibaraki-shio-ga-noboru": IbarakiShioGaNoboru,
   "india-bandh": IndiaBandh,
   "india-chori": IndiaChori,
   "india-cyclone": IndiaCyclone,

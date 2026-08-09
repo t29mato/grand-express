@@ -1,11 +1,14 @@
 import { Random } from "../../domain/shared-kernel/random";
+import { LocalizedText } from "../../domain/shared-kernel/localized-text";
 import { QuizQuestion } from "../../domain/quiz/quiz-question";
 import { KNOWLEDGE_TUNING, KnowledgeLevel } from "../../domain/quiz/knowledge-level";
 import { CurrencyFormat } from "../../domain/country/country-content-pack";
+import { DoomOutcome } from "../../domain/misfortune/doom-effect";
 import { resolveMisfortuneStrike } from "../../application/use-cases/resolve-misfortune-strike/resolve-misfortune-strike.use-case";
 import { CityVisitSummary, cpuTakeTurn } from "../../application/use-cases/cpu-take-turn/cpu-take-turn.use-case";
 import { GameEngineContext } from "../../application/game-engine-context";
 import { formatMoney } from "../i18n/money-format";
+import { doomPhrase } from "../i18n/event-messages";
 import { LogEntry } from "./game-store-types";
 import { logEntry } from "./game-store-log";
 
@@ -52,7 +55,15 @@ export function describeStrike(
     case "pleased":
       return logEntry("gained", [playerName, formatMoney(result.amount, currency)], "good");
     case "struck":
-      return logEntry("spiritStruckLog", [playerName], "bad");
+      // 記録に**何をされたか**まで残す。モーダルには災難の名前・物語・絵が出るが、
+      // 閉じたあと辿れるのは記録だけで、そこに「厄災に見舞われた」としか
+      // 書かれていなかった(いくら失ったのかも分からなかった)。
+      // 物語は繰り返さず、名前と結果だけを1行にする。
+      return logEntry(
+        result.wasKing ? "spiritStruckKingLog" : "spiritStruckLog",
+        [playerName, result.flavor.name, describeDoomOutcome(result.outcome, currency)],
+        "bad",
+      );
     default:
       return logEntry("", [], "neutral");
   }
@@ -163,3 +174,40 @@ function describeVisit(
   }
   return entries;
 }
+
+/**
+ * 災難で何を失ったかの一言。金額があるものは金額を出す。
+ *
+ * 効果の種類を**網羅**する。新しい災難を足したときに、
+ * ここを書き足し忘れると型で止まる(`never` に代入できない)。
+ */
+function describeDoomOutcome(outcome: DoomOutcome, currency: CurrencyFormat): LocalizedText {
+  const money = (amount: number) => formatMoney(amount, currency);
+  switch (outcome.effectId) {
+    case "fine":
+      return doomPhrase("doomCost", money(outcome.amountPaid));
+    case "percentLoss":
+      return doomPhrase("doomCost", money(outcome.amountLost));
+    case "payOthers":
+      return doomPhrase("doomCost", money(outcome.totalPaid));
+    case "skipTurn":
+      return outcome.alsoPaid === null
+        ? doomPhrase("doomSkipNext")
+        : doomPhrase("doomSkipNextPaid", money(outcome.alsoPaid));
+    case "loseProperties":
+      if (outcome.lostRefs.length > 0) return doomPhrase("doomPropertyLost", outcome.lostRefs.length);
+      return outcome.fallbackPaid === null ? doomPhrase("doomNothing") : doomPhrase("doomCost", money(outcome.fallbackPaid));
+    case "teleport":
+      return doomPhrase("doomMovedAway");
+    case "steal": {
+      if (outcome.lostItem) return doomPhrase("doomItemTaken");
+      return outcome.lostCash > 0 ? doomPhrase("doomCost", money(outcome.lostCash)) : doomPhrase("doomNothing");
+    }
+    default: {
+      // 分岐を足し忘れるとここで型が合わなくなる(行番号つきでビルドが落ちる)。
+      const unreachable: never = outcome;
+      return unreachable;
+    }
+  }
+}
+
