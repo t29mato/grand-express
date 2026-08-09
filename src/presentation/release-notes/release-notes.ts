@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.26.0",
+    date: "2026-08-09",
+    title: t(
+      "If you play with animation turned down, you can still see what happened|Si juegas con las animaciones reducidas, ahora ves lo que ocurrió|Avec les animations réduites, vous voyez enfin ce qui s'est passé|動きを減らして遊んでいる人にも、何が起きたか見えるようになりました",
+    ),
+    highlights: [
+      t(
+        "Some scenes hid the thing that mattered until the animation moved it into view — so with motion turned down, the pickpocket's take vanished from the pickpocket scene, and the surcharge vanished from the bill. Eleven of those are now visible whether anything moves or not.|Algunas escenas escondían lo importante hasta que la animación lo traía a la vista: con el movimiento reducido, el botín desaparecía de la escena del carterista y el recargo desaparecía de la cuenta. Once de esos casos ya se ven, haya movimiento o no.|Certaines scènes cachaient l'essentiel jusqu'à ce que l'animation l'amène : animations réduites, le butin disparaissait de la scène du pickpocket et le supplément disparaissait de la note. Onze de ces cas sont désormais visibles, que ça bouge ou non.|一部の絵は、肝心のものを動きが運んでくるまで隠していました。そのため動きを減らす設定では、スリの絵から盗られたものが消え、伝票から足された料金が消えていました。11か所を、動いても動かなくても見えるようにしました。",
+      ),
+      t(
+        "France's cut-train scene read as a derailment — a carriage tipped nose-down with a shock star above it. The carriage was fine; the branch line under it had been drawn dropping away at an impossible gradient. The track is redrawn as coming toward you instead, and the train sits level again.|La escena del tren acortado en Francia parecía un descarrilamiento. El vagón estaba bien: la vía de desvío estaba dibujada con una pendiente imposible. Ahora la vía viene hacia el espectador y el tren está nivelado.|La scène du train raccourci, en France, évoquait un déraillement. La voiture n'y était pour rien : la voie de desserte descendait selon une pente impossible. La voie vient maintenant vers vous, et le train est de niveau.|フランスの「編成が短い」場面が、脱線事故に見えていました。悪かったのは車両ではなく線路で、分岐線がありえない勾配で下っていました。手前に向かってくる線として描き直し、車両は水平に戻りました。",
+      ),
+      t(
+        "When two squares you could move to sounded exactly alike to a screen reader — same direction, same kind, same distance — there was no way to tell which one you were about to pick. They are told apart now.|Cuando dos casillas sonaban igual al lector de pantalla —misma dirección, mismo tipo, misma distancia— no había forma de saber cuál ibas a elegir. Ahora se distinguen.|Quand deux cases se lisaient à l'identique au lecteur d'écran — même direction, même type, même distance — impossible de savoir laquelle on allait choisir. Elles se distinguent désormais.|読み上げで、行き先の候補がまったく同じ文になることがありました。向きも種類も残りマス数も同じだと、どちらを選ぼうとしているのか分かりません。区別が付くようにしました。",
+      ),
+    ],
+  },
+  {
     version: "0.25.0",
     date: "2026-08-09",
     title: t(
