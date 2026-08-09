@@ -57,7 +57,7 @@ describe("国を変えたときの出来事の山札", () => {
     }
     expect(drawn.size, "ボリビアの山札から1件も引けていない(テストが空振り)").toBeGreaterThan(0);
 
-    const leaked = [...drawn].filter((id) => !boliviaIds.has(id));
+    const leaked = [...drawn].filter((id) => !boliviaIds.has(id as never));
     expect(leaked, "ボリビアに無い出来事が引かれた(前の国の山札が残っている)").toEqual([]);
   });
 });
