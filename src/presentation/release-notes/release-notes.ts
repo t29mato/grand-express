@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.25.0",
+    date: "2026-08-09",
+    title: t(
+      "Ibaraki's misfortunes are seven different people now|Las desgracias de Ibaraki son ahora siete personas distintas|Les malheurs d'Ibaraki sont désormais sept personnes différentes|茨城の災難に、七人ちがう人が出るようになりました",
+    ),
+    highlights: [
+      t(
+        "All seven of Ibaraki's misfortune scenes had the same figure in them — same red shirt, same raised arm, only the hat changed. Now there is a carrier with a shoulder pole, a driver sitting on his crates, someone pulling matting over the drying racks in the rain, a farmer crouched at the paddy edge tasting the water for salt.|Las siete desgracias de Ibaraki tenían la misma figura: misma camisa roja, mismo brazo alzado. Ahora hay un porteador, un transportista sentado sobre sus cajas, alguien tapando los secaderos bajo la lluvia, un labrador agachado probando si el agua sabe a sal.|Les sept malheurs d'Ibaraki montraient la même silhouette : même chemise rouge, même bras levé. On y trouve maintenant un porteur, un transporteur assis sur ses caisses, quelqu'un qui bâche les séchoirs sous la pluie, un paysan accroupi qui goûte le sel dans l'eau.|茨城の災難7枚は、7枚とも同じ人が出ていました。同じ赤いシャツ、同じ上げた腕、違うのは帽子だけです。いまは、天秤棒で荷を担ぐ人、荷物の上に座って待つ運転手、雨の中で干し場に筵を掛ける人、畦にしゃがんで水の塩気を確かめる農夫が出ます。",
+      ),
+      t(
+        "The giant's footprint keeps its scene, with one addition: a heron already standing in the pond that appeared overnight. Some things do not drain away.|La huella del gigante conserva su escena, con un añadido: una garza ya posada en la charca surgida de la noche a la mañana. Hay cosas que no se secan.|L'empreinte du géant garde sa scène, avec un ajout : un héron déjà posté dans la mare apparue en une nuit. Certaines choses ne se retirent pas.|巨人の足跡の絵はそのままに、一つだけ足しました。ひと晩でできた池に、もう鷺が立っています。引かない水もあります。",
+      ),
+    ],
+  },
+  {
     version: "0.24.0",
     date: "2026-08-09",
     title: t(
