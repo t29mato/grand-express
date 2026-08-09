@@ -34,6 +34,7 @@ import react from "@vitejs/plugin-react";
 import { chromium } from "playwright";
 import { writeFileSync, rmSync } from "node:fs";
 import { resolve } from "node:path";
+import { sceneSources } from "./scene-entry.mjs";
 
 const files = process.argv.slice(2).filter((a) => a.endsWith(".tsx"));
 if (!files.length) {
@@ -47,19 +48,21 @@ const entryPath = resolve(`.measure-entry-${tag}.tsx`);
 const htmlPath = resolve(`.measure-${tag}.html`);
 const paths = files.map((f) => resolve(f));
 
+// 絵の中身をこの入口ファイルへ写す(`scene-entry.mjs` に理由)。
+// **テンプレート文字列で組み立てないこと。**絵はバッククォートを含む。
+const { prelude, names } = sceneSources(paths);
+const ids = JSON.stringify(files.map((f) => f.split("/").pop().replace(".tsx", "")));
 writeFileSync(
   entryPath,
-  `import { createRoot } from "react-dom/client";
-${paths.map((p, i) => `import * as m${i} from ${JSON.stringify(p)};`).join("\n")}
-const mods = [${paths.map((_, i) => `m${i}`).join(", ")}];
-const names = ${JSON.stringify(files.map((f) => f.split("/").pop().replace(".tsx", "")))};
-createRoot(document.getElementById("root")).render(
-  <>{mods.map((m, i) => {
-    const C = Object.values(m).find((v) => typeof v === "function");
-    return <div key={i} data-id={names[i]} style={{ width: 400 }}>{C ? <C /> : null}</div>;
-  })}</>
-);
-`,
+  'import { createRoot } from "react-dom/client";\n' +
+    prelude +
+    `\nconst scenes = [${names.join(", ")}];\n` +
+    `const ids = ${ids};\n` +
+    "createRoot(document.getElementById('root')).render(\n" +
+    "  <>{scenes.map((C, i) => (\n" +
+    "    <div key={i} data-id={ids[i]} style={{ width: 400 }}>{C ? <C /> : null}</div>\n" +
+    "  ))}</>\n" +
+    ");\n",
 );
 writeFileSync(
   htmlPath,

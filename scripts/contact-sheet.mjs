@@ -22,6 +22,7 @@ import react from "@vitejs/plugin-react";
 import { chromium } from "playwright";
 import { mkdirSync, writeFileSync, rmSync } from "node:fs";
 import { dirname, resolve } from "node:path";
+import { sceneSources } from "./scene-entry.mjs";
 
 const [output, ...files] = process.argv.slice(2);
 if (!output || !files.length) {
@@ -35,20 +36,21 @@ const entryPath = resolve(`.sheet-entry-${tag}.tsx`);
 const htmlPath = resolve(`.sheet-${tag}.html`);
 const paths = files.map((f) => resolve(f));
 
+// 絵の中身をこの入口ファイルへ写す(`scene-entry.mjs` に理由)。
+// **テンプレート文字列で組み立てないこと。**絵はバッククォートを含む。
+const { prelude, names } = sceneSources(paths);
 writeFileSync(
   entryPath,
-  `import { createRoot } from "react-dom/client";
-${paths.map((p, i) => `import * as m${i} from ${JSON.stringify(p)};`).join("\n")}
-const mods = [${paths.map((_, i) => `m${i}`).join(", ")}];
-createRoot(document.getElementById("root")).render(
-  <div style={{ display: "grid", gridTemplateColumns: "repeat(${cols}, 400px)", gap: 8 }}>
-    {mods.map((m, i) => {
-      const C = Object.values(m).find((v) => typeof v === "function");
-      return <div key={i} style={{ width: 400, outline: "1px solid #fff" }}>{C ? <C /> : null}</div>;
-    })}
-  </div>
-);
-`,
+  'import { createRoot } from "react-dom/client";\n' +
+    prelude +
+    `\nconst scenes = [${names.join(", ")}];\n` +
+    "createRoot(document.getElementById('root')).render(\n" +
+    `  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(${cols}, 400px)', gap: 8 }}>\n` +
+    "    {scenes.map((C, i) => (\n" +
+    "      <div key={i} style={{ width: 400, outline: '1px solid #fff' }}>{C ? <C /> : null}</div>\n" +
+    "    ))}\n" +
+    "  </div>\n" +
+    ");\n",
 );
 writeFileSync(
   htmlPath,
