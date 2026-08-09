@@ -6,6 +6,7 @@ import { CpuLevel } from "../../../domain/cpu/cpu-level";
 import { DEFAULT_KNOWLEDGE_LEVEL, KNOWLEDGE_LEVELS, KnowledgeLevel } from "../../../domain/quiz/knowledge-level";
 import { PlayerSetup } from "../../../application/use-cases/start-game/start-game.use-case";
 import { COUNTRY_INDEX } from "../../../infrastructure/content/country-index";
+import { loadPlayerSetup, savePlayerSetup } from "../../../infrastructure/persistence/local-storage-player-setup";
 import { useGameStore } from "../../state/game-store";
 import { useLocale } from "../../i18n/locale-context";
 import { useTitleMusic } from "../../hooks/use-title-music";
@@ -66,6 +67,32 @@ export function SetupScreen() {
     { name: null, mode: "off", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
   ]);
 
+  /**
+   * 前の旅の顔ぶれを引き継ぐ。同じ人たちで続けて遊ぶのに、
+   * 毎回名前を入れ直させていた。
+   *
+   * **マウント後に読む。** `useState` の初期値にすると、サーバー描画では
+   * localStorage が読めないので初期描画と食い違う(ハイドレーションがずれる)。
+   * `refreshSavedGame` と同じ扱い。
+   *
+   * 覚えているのは**名前と、その枠を誰が使うか**だけ。知識レベルは国ごとの話で、
+   * 国は毎回選び直すので持ち越さない(`local-storage-player-setup.ts` 参照)。
+   */
+  useEffect(() => {
+    const remembered = loadPlayerSetup();
+    if (!remembered) return;
+    // マウント後にしか localStorage を読めないので、ここでの setState は避けられない
+    // (描画中に読むと、サーバー描画の結果と食い違ってハイドレーションがずれる)。
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setSlots((prev) =>
+      prev.map((slot, i) => {
+        const saved = remembered[i];
+        if (!saved) return slot;
+        return { ...slot, name: saved.name, mode: saved.mode };
+      }),
+    );
+  }, []);
+
   /** 1人目は「あなた」、2人目以降は「CPU 1」「CPU 2」…。表示中の言語で返す。 */
   const defaultSlotName = (index: number) =>
     index === 0 ? t("defaultPlayerName") : t("defaultCpuName", index);
@@ -93,6 +120,9 @@ export function SetupScreen() {
         knowledgeLevel: slot.knowledgeLevel,
       }));
     if (players.length < 2 || starting) return;
+    // 次に「新しい旅」を始めるとき、同じ顔ぶれをそのまま出せるように覚えておく。
+    // 既定名のままの枠は `null` で覚える(言語に追随させ続けるため)。
+    savePlayerSetup(slots.map((slot) => ({ name: slot.name, mode: slot.mode })));
     setStarting(true);
     void startNewGame({ countryId: country, players, maxMonths: months, cpuLevel }).finally(() => setStarting(false));
   };
