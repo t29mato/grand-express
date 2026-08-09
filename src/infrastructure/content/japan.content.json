@@ -6245,37 +6245,37 @@
     },
     {
       "q": {
-        "en": "The Great Buddha of Nara is housed in Tōdai-ji, which is…",
-        "es": "El Gran Buda de Nara está en Tōdai-ji, que es…",
-        "fr": "Le Grand Bouddha de Nara est au Tōdai-ji, qui est…",
-        "ja": "奈良の大仏を収める東大寺大仏殿は?"
+        "en": "Roughly what share of Japan's land is forest?",
+        "es": "¿Qué parte del suelo japonés es bosque, aproximadamente?",
+        "fr": "Quelle part du sol japonais est couverte de forêt, à peu près ?",
+        "ja": "日本の国土のうち、森林はおよそどれくらいを占めるか?"
       },
       "o": [
         {
-          "en": "One of the largest wooden buildings on Earth",
-          "es": "Uno de los mayores edificios de madera del mundo",
-          "fr": "L'un des plus grands bâtiments en bois du monde",
-          "ja": "世界最大級の木造建築"
+          "en": "About a tenth",
+          "es": "Alrededor de una décima parte",
+          "fr": "Environ un dixième",
+          "ja": "およそ10分の1"
         },
         {
-          "en": "A modern concrete dome",
-          "es": "Una cúpula moderna de hormigón",
-          "fr": "Un dôme moderne en béton",
-          "ja": "近代のコンクリート建築"
+          "en": "About a third",
+          "es": "Alrededor de un tercio",
+          "fr": "Environ un tiers",
+          "ja": "およそ3分の1"
         },
         {
-          "en": "An underground cave",
-          "es": "Una cueva subterránea",
-          "fr": "Une grotte souterraine",
-          "ja": "地下の洞窟"
+          "en": "About two thirds",
+          "es": "Alrededor de dos tercios",
+          "fr": "Environ deux tiers",
+          "ja": "およそ3分の2"
         }
       ],
-      "a": 0,
+      "a": 2,
       "f": {
-        "en": "The bronze Buddha is about 15 m tall and consumed much of Japan's copper supply in the 8th century.",
-        "es": "El Buda de bronce mide unos 15 m y consumió gran parte del cobre de Japón en el siglo VIII.",
-        "fr": "Le Bouddha de bronze mesure environ 15 m et absorba une grande part du cuivre du Japon au VIIIe siècle.",
-        "ja": "青銅の大仏は高さ約15m。8世紀の日本の銅を大量に費やして鋳造されました。"
+        "en": "It is one of the highest shares among wealthy countries, and it is not left-over wilderness: about four tenths of it was planted, much of it cedar and cypress put in after the war. The mountains are too steep to farm or build on, so the people are packed into the plains — which is why a country that is mostly trees also has some of the most crowded cities on earth.",
+        "es": "Es de las proporciones más altas entre los países ricos, y no es bosque sobrante: cuatro décimas partes fueron plantadas, sobre todo cedro y ciprés de posguerra. Las montañas son demasiado empinadas para cultivar, así que la gente se apiña en las llanuras.",
+        "fr": "C'est l'une des plus fortes proportions parmi les pays riches, et ce n'est pas une friche : quatre dixièmes ont été plantés, surtout du cèdre et du cyprès d'après-guerre. Les montagnes étant trop raides, les gens s'entassent dans les plaines.",
+        "ja": "豊かな国のなかでも高いほうで、しかも手つかずの原野が残っているのではない。四割ほどは植えられたもので、その多くは戦後に入れた杉と檜である。山は急すぎて耕すことも建てることもできないため、人は平野に詰め込まれる。国土のほとんどが木なのに、世界でも指折りに混み合った都市を持つのはそのためである。"
       },
       "difficulty": 6
     },
@@ -6317,37 +6317,37 @@
     },
     {
       "q": {
-        "en": "Okinawa was formerly which independent state?",
-        "es": "Okinawa fue antes ¿qué estado independiente?",
-        "fr": "Okinawa fut autrefois quel État indépendant ?",
-        "ja": "沖縄はかつて何という独立国だった?"
+        "en": "About how many islands make up Japan?",
+        "es": "¿De cuántas islas se compone Japón, más o menos?",
+        "fr": "De combien d'îles le Japon est-il fait, à peu près ?",
+        "ja": "日本はおよそいくつの島からできているか?"
       },
       "o": [
         {
-          "en": "The Ryūkyū Kingdom",
-          "es": "El Reino de Ryūkyū",
-          "fr": "Le royaume de Ryūkyū",
-          "ja": "琉球王国"
+          "en": "About 40",
+          "es": "Unas 40",
+          "fr": "Environ 40",
+          "ja": "およそ40"
         },
         {
-          "en": "The Ainu Republic",
-          "es": "La República Ainu",
-          "fr": "La république aïnoue",
-          "ja": "アイヌ共和国"
+          "en": "About 400",
+          "es": "Unas 400",
+          "fr": "Environ 400",
+          "ja": "およそ400"
         },
         {
-          "en": "The Yamato Empire",
-          "es": "El Imperio Yamato",
-          "fr": "L'empire de Yamato",
-          "ja": "大和帝国"
+          "en": "About 14,000",
+          "es": "Unas 14.000",
+          "fr": "Environ 14 000",
+          "ja": "およそ14,000"
         }
       ],
-      "a": 0,
+      "a": 2,
       "f": {
-        "en": "It traded across East and Southeast Asia for 450 years and kept its own language, music and cuisine.",
-        "es": "Comerció por Asia oriental y sudoriental durante 450 años y conservó lengua, música y cocina propias.",
-        "fr": "Il commerça en Asie orientale et du Sud-Est pendant 450 ans, gardant sa langue, sa musique et sa cuisine.",
-        "ja": "450年にわたり東・東南アジアと交易し、独自の言語・音楽・料理を守りました。"
+        "en": "The count was 6,852 for decades, then a survey with better maps in 2023 more than doubled it — the coastline had not changed, only how finely it could be traced. Fewer than one in twenty of the islands has anyone living on it, and four of them hold almost everybody.",
+        "es": "Durante décadas se contaban 6.852; un nuevo levantamiento en 2023 más que duplicó la cifra: no cambió la costa, sino la finura del trazado. Menos de una de cada veinte islas está habitada, y cuatro reúnen a casi todos.",
+        "fr": "On en comptait 6 852 pendant des décennies ; un relevé plus fin en 2023 a plus que doublé le chiffre : ce n'est pas la côte qui a changé, mais la précision du tracé. Moins d'une île sur vingt est habitée, et quatre rassemblent presque tout le monde.",
+        "ja": "長らく6,852とされていたが、2023年に精度の高い地図で数え直したところ倍以上になった。海岸線が変わったのではなく、どれだけ細かく辿れるかが変わったのである。人が住んでいる島は二十に一つもなく、そのうち四つにほとんどの人が住んでいる。"
       },
       "difficulty": 6
     },

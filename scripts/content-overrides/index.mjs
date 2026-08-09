@@ -17,6 +17,7 @@ import { BOLIVIA_MONEY_EVENTS } from "./money-events-bolivia.mjs";
 import { BOLIVIA_MONEY_EVENTS_EXTRA } from "./money-events-bolivia-extra.mjs";
 import { BOLIVIA_EXTRA_CITIES, BOLIVIA_EXTRA_EDGES } from "./bolivia-cities.mjs";
 import { BOLIVIA_QUIZ_REPLACEMENTS } from "./bolivia-quiz.mjs";
+import { JAPAN_QUIZ_REPLACEMENTS } from "./japan-quiz.mjs";
 import { ITEM_TEXT } from "./item-text.mjs";
 import { CITY_BG } from "./city-backgrounds.mjs";
 import {
@@ -127,6 +128,7 @@ const OVERRIDES = {
     extraCities: { ...JAPAN_EXTRA_CITIES, ...JAPAN_PREFECTURE_CITIES, ...JAPAN_ISLAND_CITIES, ...JAPAN_HOKKAIDO_CITIES },
     extraEdges: [...JAPAN_EXTRA_EDGES, ...JAPAN_PREFECTURE_EDGES, ...JAPAN_ISLAND_EDGES, ...JAPAN_HOKKAIDO_EDGES],
     quizDifficulty: QUIZ_DIFFICULTY.japan,
+    quiz: JAPAN_QUIZ_REPLACEMENTS,
   },
 };
 

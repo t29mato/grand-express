@@ -398,14 +398,14 @@ export const FRANCE_QUIZ = [
   ),
   q(
     9,
-    "Which city has held the same festival every 8 May since 1430?|¿Qué ciudad celebra la misma fiesta cada 8 de mayo desde 1430?|Quelle ville fête la même chose chaque 8 mai depuis 1430 ?|1430年から毎年5月8日に同じ祭りを続けている街は?",
+    "Which French department lies on the South American mainland?|¿Qué departamento francés está en el continente sudamericano?|Quel département français se trouve sur le continent sud-américain ?|フランスの県のうち、南アメリカ大陸にあるのは?",
     [
-      "Dijon|Dijon|Dijon|ディジョン",
-      "Orléans|Orleans|Orléans|オルレアン",
-      "Toulon|Tolón|Toulon|トゥーロン",
+      "Martinique|Martinica|La Martinique|マルティニーク",
+      "Réunion|Reunión|La Réunion|レユニオン",
+      "French Guiana|La Guayana Francesa|La Guyane|ギアナ",
     ],
-    1,
-    "It marks Joan of Arc breaking the English siege in nine days in 1429, and is among the longest-running festivals in Europe.|Recuerda que Juana de Arco rompió el asedio inglés en nueve días en 1429, y es de las fiestas más antiguas de Europa que siguen vivas.|Elle rappelle que Jeanne d'Arc leva le siège anglais en neuf jours en 1429, et compte parmi les plus anciennes fêtes d'Europe.|1429年、ジャンヌ・ダルクが九日でイングランド軍の包囲を破ったことを記念するもので、ヨーロッパで最も長く続く祭りのひとつです。",
+    2,
+    "It is the largest French department by far — bigger than Portugal — and about nine tenths of it is rainforest. Because it sits close to the equator, rockets launched from there get a free push from the earth's spin, which is why Europe's spaceport is in South America. Martinique is in the Caribbean and Réunion in the Indian Ocean.|Es con mucho el mayor departamento francés, más grande que Portugal, y nueve décimas partes son selva. Al estar cerca del ecuador, los cohetes ganan impulso del giro terrestre: por eso el puerto espacial europeo está en Sudamérica.|C'est de loin le plus vaste département français, plus grand que le Portugal, et neuf dixièmes en sont forêt. Proche de l'équateur, il offre aux fusées l'élan de la rotation terrestre : voilà pourquoi le port spatial européen est en Amérique du Sud.|フランスの県のなかで群を抜いて広く、ポルトガルより大きい。その九割ほどが熱帯雨林である。赤道に近いため、ここから打ち上げる ロケットは地球の自転の勢いをただで受けられる。ヨーロッパの宇宙基地が南アメリカにあるのはそのためである。マルティニークはカリブ海、レユニオンはインド洋にある。",
   ),
   q(
     9,

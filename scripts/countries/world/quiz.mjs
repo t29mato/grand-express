@@ -443,14 +443,14 @@ export const WORLD_QUIZ = [
   ),
   q(
     10,
-    "Who guided the canoe Hōkūleʻa from Hawaii to Tahiti in 1976 without instruments?|¿Quién guio la canoa Hōkūleʻa de Hawái a Tahití en 1976 sin instrumentos?|Qui guida la pirogue Hōkūleʻa de Hawaï à Tahiti en 1976, sans instruments ?|1976年、器具を使わずカヌー「ホクレア」をハワイからタヒチへ導いたのは?",
+    "When did more than half the world's people first live in towns and cities?|¿Cuándo pasó por primera vez de la mitad la población mundial que vive en ciudades?|Quand plus de la moitié des humains ont-ils vécu pour la première fois en ville ?|世界の人口の半分より多くが町や都市に住むようになったのは、いつ頃か?",
     [
-      "A crew of naval officers working by dead reckoning|Una tripulación de oficiales de marina por estima|Un équipage d'officiers de marine à l'estime|推測航法を使った海軍士官たち",
-      "Mau Piailug, a navigator from a small island in Micronesia|Mau Piailug, navegante de una islita de Micronesia|Mau Piailug, navigateur d'une petite île de Micronésie|ミクロネシアの小島の航海者マウ・ピアイルグ",
-      "A Hawaiian elder who had made the crossing as a boy|Un anciano hawaiano que había hecho la travesía de niño|Un ancien hawaïen qui avait fait la traversée enfant|少年の頃にこの航海を経験したハワイの古老",
+      "Around 1900|Hacia 1900|Vers 1900|1900年頃",
+      "Around 2007|Hacia 2007|Vers 2007|2007年頃",
+      "It has not happened yet|Todavía no ha ocurrido|Cela n'est pas encore arrivé|まだそうなっていない",
     ],
     1,
-    "By then almost nobody in Polynesia still held the whole system of stars, swells and birds; that voyage began its revival, and it is taught again today.|Para entonces casi nadie en la Polinesia conservaba el sistema entero de estrellas, olas y aves; aquel viaje inició su recuperación, y hoy vuelve a enseñarse.|Presque plus personne en Polynésie ne détenait alors le système complet des étoiles, de la houle et des oiseaux ; ce voyage en amorça la renaissance, et on l'enseigne de nouveau.|当時、星とうねりと鳥を読むこの体系をまるごと保つ者は、ポリネシアにほとんど残っていませんでした。この航海が復活の始まりとなり、今では再び教えられています。",
+    "In 1800 perhaps one person in twenty lived in a town. The line was crossed in the first decade of this century, and almost all of the growth since has been in Asia and Africa — not in the largest cities but in ones of a few hundred thousand, which is where most new city dwellers actually arrive.|En 1800 quizá una de cada veinte personas vivía en una ciudad. El umbral se cruzó en la primera década de este siglo, y casi todo el crecimiento posterior ha sido en Asia y África, en ciudades de unos cientos de miles.|En 1800, une personne sur vingt peut-être vivait en ville. Le seuil fut franchi dans la première décennie de ce siècle, et presque toute la croissance depuis s'est faite en Asie et en Afrique, dans des villes de quelques centaines de milliers.|1800年には、町に住む人は二十人に一人ほどだったとみられる。境目を越えたのは今世紀の最初の十年で、それ以降の伸びはほとんどがアジアとアフリカである。しかも最大の都市ではなく、数十万人規模の町に、新しく都市に来る人の多くが実際には住み着いている。",
   ),
   q(
     10,
