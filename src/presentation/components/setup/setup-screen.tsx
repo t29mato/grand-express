@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CountryId } from "../../../domain/shared-kernel/ids";
 import { CpuLevel } from "../../../domain/cpu/cpu-level";
 import { DEFAULT_KNOWLEDGE_LEVEL, KNOWLEDGE_LEVELS, KnowledgeLevel } from "../../../domain/quiz/knowledge-level";
 import { PlayerSetup } from "../../../application/use-cases/start-game/start-game.use-case";
 import { COUNTRY_INDEX } from "../../../infrastructure/content/country-index";
+import { ALL_REGIONS, SCALE_LABEL, boardScale, groupCountries } from "./country-groups";
 import { loadPlayerSetup, savePlayerSetup } from "../../../infrastructure/persistence/local-storage-player-setup";
 import { useGameStore } from "../../state/game-store";
 import { useLocale } from "../../i18n/locale-context";
@@ -62,6 +63,24 @@ export function SetupScreen() {
   }, [refreshSavedGame]);
 
   const [country, setCountry] = useState<CountryId>(CountryId("bolivia"));
+  const chosenCountry = COUNTRY_INDEX.find((entry) => entry.id === country);
+  /**
+   * 見せている地域。**既定は「ぜんぶ」。**最初から絞ってしまうと、
+   * どんな盤面があるのか分からないまま選ぶことになる。
+   */
+  const [region, setRegion] = useState<string>(ALL_REGIONS.key);
+  const groupsWithBoards = useMemo(
+    () => groupCountries(COUNTRY_INDEX).map(({ group }) => group),
+    [],
+  );
+  const shownCountries = useMemo(() => {
+    const grouped = groupCountries(COUNTRY_INDEX);
+    // 「ぜんぶ」でも並び順は束の順。登録順のままだと、盤面が増えるたびに
+    // いつもの場所からいつものものが消える。
+    return grouped
+      .filter(({ group }) => region === ALL_REGIONS.key || group.key === region)
+      .flatMap(({ entries }) => entries);
+  }, [region]);
   const [months, setMonths] = useState(12);
   /**
    * ゲーム全体のCPUの強さ。**画面からは選べない**(強さはCPUごとに選ぶ)。
@@ -164,8 +183,27 @@ export function SetupScreen() {
         <div className="card">
           <fieldset className="setup-group">
             <legend className="eyebrow">{t("chooseCountry")}</legend>
+            {/* **束は行を占有させず、絞り込みの帯にする。**見出しを立てて並べる形は
+                19枚で実測したら選ぶところが815pxになり、「旅を始める」が
+                画面の下(y=1533)へ消えた。札からは説明文も外してある
+                (説明の長さで背が変わり、茨城だけ4行になっていた)。 */}
+            {/* tab/tabpanel の作法を半端に真似ると、読み上げが「タブなのに
+                中身が無い」状態になる。押しボタンの入切として素直に伝える。 */}
+            <div className="region-tabs">
+              {[ALL_REGIONS, ...groupsWithBoards].map((group) => (
+                <button
+                  key={group.key}
+                  type="button"
+                  aria-pressed={region === group.key}
+                  className={`region-tab${region === group.key ? " on" : ""}`}
+                  onClick={() => setRegion(group.key)}
+                >
+                  {tx(group.label)}
+                </button>
+              ))}
+            </div>
             <div className="country-grid">
-              {COUNTRY_INDEX.map((entry) => (
+              {shownCountries.map((entry) => (
                 <button
                   key={entry.id}
                   type="button"
@@ -181,14 +219,20 @@ export function SetupScreen() {
                       preserveAspectRatio="xMidYMid meet"
                       dangerouslySetInnerHTML={{ __html: entry.thumbSvg }}
                     />
+                    <span className={`scale-tag ${boardScale(entry.id)}`}>
+                      {tx(SCALE_LABEL[boardScale(entry.id)])}
+                    </span>
                   </span>
-                  <span className="cap">
-                    <span className="nm">{tx(entry.name)}</span>
-                    <span className="sub">{tx(entry.blurb)}</span>
-                  </span>
+                  <span className="nm">{tx(entry.name)}</span>
                 </button>
               ))}
             </div>
+            {chosenCountry && (
+              <p className="country-chosen">
+                <span className="nm">{tx(chosenCountry.name)}</span>
+                <span className="sub">{tx(chosenCountry.blurb)}</span>
+              </p>
+            )}
           </fieldset>
 
           <div className="setup-cols">

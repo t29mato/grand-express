@@ -300,21 +300,61 @@ h3 {
  * 折り返すグリッドにして縦に伸びすぎないようにする。
  * 375px幅で2列、狭いカードで3列、広ければ4列。
  */
+/*
+ * 盤面を選ぶところ。**19枚を、遊ぶ設定を押し出さずに並べる。**
+ *
+ * 6枚のときは幅160pxの札で足りていたが、19枚だと4行になり、その下の
+ * 「誰が遊ぶか」が画面の外へ出る。札から説明文を外し(選んだ1枚だけ下に出す)、
+ * 幅を118pxまで詰めて、地域ごとの見出しで束ねている。
+ */
+/* 地域で絞る帯。**束ごとに見出しを立てて並べる形は捨てた。**
+   見出しが行を占有するため、19枚をブラウザに並べて実測すると
+   選ぶところが815pxになり、「旅を始める」が画面の下へ消えた。 */
+.region-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 0;
+}
+
+.region-tab {
+  padding: 4px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel2);
+  color: var(--salt-dim);
+  font-size: 0.78rem;
+  font-weight: 700;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.region-tab:hover {
+  color: var(--salt);
+  border-color: var(--salt-dim);
+}
+
+.region-tab.on {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #26183f;
+}
+
 .country-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 10px;
-  margin: 10px 0 2px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 6px 0 2px;
 }
 
 .ccard {
   position: relative;
+  width: 104px;
   display: flex;
   flex-direction: column;
   background: var(--panel2);
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 8px 8px 10px;
+  padding: 6px 6px 8px;
   color: var(--salt);
   text-align: left;
   transition: border-color 0.15s ease, transform 0.15s ease;
@@ -334,13 +374,13 @@ h3 {
 .ccard.on::after {
   content: "";
   position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 18px;
-  height: 18px;
+  top: 10px;
+  right: 10px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background: var(--gold);
-  box-shadow: inset 0 0 0 3px var(--panel2);
+  box-shadow: inset 0 0 0 2px var(--panel2);
 }
 
 /*
@@ -348,35 +388,89 @@ h3 {
  * 高さを固定して meet で収めることで、どの国でもカードの背が揃う。
  */
 .country-thumb-wrap {
+  position: relative;
   display: block;
   background: #1a1230;
   border-radius: 9px;
   padding: 4px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .country-thumb {
   display: block;
   width: 100%;
-  height: 126px;
+  height: 58px;
 }
 
-.ccard .cap {
-  display: block;
+/* 走る広さの印。**地球全体と県が同じ大きさの札で並ぶ**ので、
+   これが無いと何の広さを走るのか分からない。 */
+.scale-tag {
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+  padding: 1px 5px;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: rgba(14, 22, 38, 0.78);
+  color: var(--salt-dim);
+}
+
+.scale-tag.world {
+  color: #0e1626;
+  background: var(--gold);
+}
+
+.scale-tag.region {
+  color: #0e1626;
+  background: #8fd0a6;
 }
 
 .ccard .nm {
   display: block;
+  font-size: 0.84rem;
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.2;
+  /* 2行ぶん確保して、名前の長さで札の背が変わらないようにする
+     (「Around the World」だけ2行になって、束ごとに段差が出ていた)。 */
+  min-height: 2.4em;
 }
 
-.ccard .sub {
-  display: block;
+/* 携帯では札をもう一段小さくして、1行に4枚入るようにする。
+   104pxのままだと390pxの画面で3枚しか入らず、19枚で7行になる。 */
+@media (max-width: 480px) {
+  .ccard {
+    width: 82px;
+  }
+
+  .country-thumb {
+    height: 46px;
+  }
+
+  .ccard .nm {
+    font-size: 0.74rem;
+  }
+}
+
+/* 選んだ盤面の説明。札の中に入れると背が揃わないので、ここに1つだけ出す。 */
+.country-chosen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  align-items: baseline;
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.country-chosen .nm {
+  font-weight: 800;
+}
+
+.country-chosen .sub {
   color: var(--salt-dim);
-  font-size: 0.78rem;
-  line-height: 1.35;
-  margin-top: 2px;
+  font-size: 0.84rem;
 }
 
 .slot {
