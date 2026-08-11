@@ -23,6 +23,30 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.29.0",
+    date: "2026-08-11",
+    title: t(
+      "You are buying property now, not souvenirs|Ahora compras propiedades, no recuerdos|Vous achetez désormais des biens, pas des souvenirs|買うものが、お土産から不動産になりました",
+    ),
+    highlights: [
+      t(
+        "A journey used to start with about the price of a good camera. It now starts with twelve million yen in Japan — the sort of money that buys a building, which is what the town shops were always selling. Every board is scaled to match; the play itself is unchanged.|Un viaje empezaba con lo que cuesta una buena cámara. Ahora empieza con doce millones de yenes en Japón: dinero para comprar un edificio, que es lo que las tiendas vendían desde el principio. Todos los tableros están a escala; el juego no cambia.|Un voyage commençait avec le prix d\'un bon appareil photo. Il commence désormais avec douze millions de yens au Japon — de quoi acheter un immeuble, ce que les boutiques vendaient depuis le début. Tous les plateaux suivent ; le jeu lui-même ne change pas.|旅の始まりが、カメラ1台ぶんの金額でした。日本では1200万円から始まります。町で売っているのは建物なので、それに見合う桁にしました。6つの盤面すべてを同じ考えで揃えています。遊びの計算そのものは変わりません。",
+      ),
+      t(
+        "Some boards had nothing worth saving up for: on Ibaraki the dearest business cost barely more than the cheapest. Each board now has something that takes a year to afford — the space centre at Tsukuba, the lithium works on the Uyuni salt flat — and every business returns the same rate, so a big one costs more without paying better.|Algunos tableros no tenían nada por lo que ahorrar: en Ibaraki el negocio más caro apenas superaba al más barato. Ahora cada tablero tiene algo que cuesta un año de ahorro, y todos rinden lo mismo: lo grande cuesta más sin rendir más.|Certains plateaux n\'offraient rien qui vaille d\'économiser : en Ibaraki, l\'affaire la plus chère dépassait à peine la moins chère. Chaque plateau a maintenant un bien qui demande une année d\'économies, et tous rapportent au même taux.|貯める甲斐のあるものが無い盤面がありました。茨城は、いちばん高い物件がいちばん安いものとほとんど変わりません。どの盤面にも、1年ぶん貯めないと買えないものを置きました。筑波の宇宙センター、ウユニ塩湖のリチウム工場。利回りはどれも同じなので、高いものは「効率が良い」のではなく、まとまった金が要るという重みになります。",
+      ),
+      t(
+        "A roll of one could light up squares that looked two apart. The board was right — but a square on a short line was drawn a tenth of the length of a square on a long one, so the eye was being told something the rules did not mean. Spacing is now even.|Un uno podía iluminar casillas que parecían estar a dos. El tablero acertaba, pero una casilla en un tramo corto se dibujaba diez veces más pequeña que en uno largo. Ahora el espaciado es parejo.|Un « un » pouvait éclairer des cases qui semblaient à deux pas. Le plateau avait raison, mais une case sur un tronçon court était dessinée dix fois plus petite que sur un long. L\'espacement est désormais régulier.|出目が1なのに、2マス先に見えるマスが光ることがありました。盤面の判定は正しく、短い路線の1マスが長い路線の1マスの10分の1の長さで描かれていたためです。目に見えるものと規則が食い違っていました。間隔を揃えました。",
+      ),
+      t(
+        "Saving mid-game could leave the other travellers frozen: the \u201Csaved\u201D notice closed over whatever was open, and some of those windows were what set the next turn going. Saving no longer interrupts anything.|Guardar a media partida podía dejar congelados a los demás viajeros: el aviso de guardado tapaba lo que hubiera abierto, y algunas de esas ventanas eran las que ponían en marcha el turno siguiente. Guardar ya no interrumpe nada.|Sauvegarder en cours de partie pouvait figer les autres voyageurs : l\'avis de sauvegarde recouvrait ce qui était ouvert, or certaines de ces fenêtres lançaient le tour suivant. La sauvegarde n\'interrompt plus rien.|途中で保存すると、他の旅人が動かなくなることがありました。「保存しました」の知らせが、開いていた画面を上書きしてしまい、その画面を閉じることが次の手番を始める合図だったためです。保存しても何も止まらなくなりました。",
+      ),
+      t(
+        "Each computer traveller has its own strength now, so you can face a gentle one and a merciless one in the same game. And the round-the-world map has weather in it — taiga, desert, tropics — with the oceans and regions named.|Cada viajero de la máquina tiene ahora su propia fuerza, así que puedes enfrentarte a uno suave y a otro implacable en la misma partida. Y el mapa mundial tiene clima: taiga, desierto, trópicos, con océanos y regiones nombrados.|Chaque voyageur de la machine a désormais sa propre force : on peut affronter un adversaire clément et un impitoyable dans la même partie. Et la carte du monde a un climat — taïga, désert, tropiques — océans et régions nommés.|CPUの強さを、CPUごとに選べるようになりました。手加減する相手と本気の相手を、同じ旅に混ぜられます。世界一周の地図には気候が入りました。タイガ、砂漠、熱帯。海と地域にも名前が付いています。",
+      ),
+    ],
+  },
+  {
     version: "0.28.0",
     date: "2026-08-11",
     title: t(
