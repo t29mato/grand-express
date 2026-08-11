@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.33.0",
+    date: "2026-08-12",
+    title: t(
+      "Four ships now sail where ships can sail|Cuatro barcos navegan ahora por donde se puede navegar|Quatre navires empruntent enfin des routes navigables|4本の船が、船の通れるところを通るようになりました",
+    ),
+    highlights: [
+      t(
+        "The last of the crossings that ran overland have been re-routed to ports that face the right sea. Marrakesh now sails to Lisbon rather than Barcelona, which had meant crossing Spain; Cairo meets Athens rather than Rome; Singapore meets Kolkata across the Bay of Bengal; and the run up to Dwarka starts from Goa, since no route from Mumbai could get round the Kathiawar peninsula.|Las últimas travesías que iban por tierra se han redirigido a puertos que dan al mar correcto. Marrakech navega ahora a Lisboa y no a Barcelona, lo que suponía cruzar España; El Cairo enlaza con Atenas en vez de Roma; Singapur con Calcuta por el golfo de Bengala; y la subida a Dwarka parte de Goa, porque desde Bombay no había forma de rodear la península de Kathiawar.|Les dernières traversées qui passaient par voie de terre ont été redirigées vers des ports donnant sur la bonne mer. Marrakech rejoint désormais Lisbonne et non Barcelone, ce qui imposait de traverser l'Espagne ; Le Caire rejoint Athènes plutôt que Rome ; Singapour rejoint Calcutta par le golfe du Bengale ; et la remontée vers Dwarka part de Goa, faute de pouvoir contourner la péninsule de Kathiawar depuis Bombay.|陸を走っていた航路の残りを、正しい海に面した港へつなぎ替えました。マラケシュはバルセロナではなくリスボンへ渡ります(バルセロナ発だとスペインを縦断していました)。カイロはローマではなくアテネへ。シンガポールはベンガル湾を越えてカルカッタへ。ドワルカへの船はゴアから出ます。ムンバイからでは、どう引いてもカティアワール半島を横切ってしまうためです。",
+      ),
+      t(
+        "Seven crossings are kept as they are, each with its reason written down: the train under the Tsugaru Strait, the railway down the Malay peninsula, and five long ocean routes that merely graze a cape — real ships pass the same way. They are listed separately from the faults now, so the next person to look does not undo a decision that was already made.|Siete travesías se conservan tal cual, cada una con su motivo anotado: el tren bajo el estrecho de Tsugaru, el ferrocarril de la península malaya y cinco rutas oceánicas largas que apenas rozan un cabo, por donde pasan los barcos de verdad. Ahora figuran aparte de los fallos, para que quien mire después no deshaga una decisión ya tomada.|Sept traversées sont conservées telles quelles, chacune avec sa raison consignée : le train sous le détroit de Tsugaru, la voie ferrée de la péninsule malaise et cinq longues routes océaniques qui ne font qu'effleurer un cap — les vrais navires passent de même. Elles sont désormais listées à part des défauts, pour que le prochain regard ne défasse pas une décision déjà prise.|7本はそのまま残しました。理由も一本ずつ書いてあります。津軽海峡の下を通る列車、マレー半島を下る鉄道、そして岬をかすめるだけの長い航路が5本。実際の船も同じところを通ります。不具合とは別枠で並べてあるので、次に見た人が決着済みの判断をやり直さずに済みます。",
+      ),
+    ],
+  },
+  {
     version: "0.32.0",
     date: "2026-08-12",
     title: t(
