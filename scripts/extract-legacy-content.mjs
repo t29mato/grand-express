@@ -501,6 +501,10 @@ const AUTHORED_COUNTRIES = [
   buildIbarakiContent(),
 ];
 for (const content of AUTHORED_COUNTRIES) {
+  // 上書き層はもともと legacy 由来の国だけのものだったが、**お金の尺度は
+  // 6盤面を並べて決めないと釣り合わない**ため、この4国も通す。
+  // 上書きが書かれていない国は `applyContentOverrides` が素通りする。
+  applyContentOverrides(content.id, content);
   content.decorBoxes = evaluateDecorBoxes(content.decor);
   writeFileSync(
     join(contentDir, `${content.id}.content.json`),
@@ -595,17 +599,24 @@ function renderCountryThumb(country) {
 // フルコンテンツ(各約215KB)を読み込まずに一覧表示できるようにする(Phase8のバンドルサイズ対策)。
 const countryIndex = [BOLIVIA, JAPAN].map((country) => {
   // サムネイルもオーバーライド後の海岸線・都市で描く。
+  // **`cur` も渡すこと。** 渡さないと表示倍率の上書きがここだけ効かず、
+  // セットアップ画面のセーブ一覧だけが古い桁(日本なら¥120,000)のまま残る。
   const overridden = applyContentOverrides(country.id, {
     land: country.land,
     cities: { ...country.cities },
     edges: [...country.edges],
+    cur: { ...country.cur },
   });
   return {
     id: country.id,
     name: toLocaleObject(country.name),
     blurb: toLocaleObject(country.blurb),
     // セーブデータの所持金を通貨表記で出すために必要(フルコンテンツを読まずに済ませる)。
-    currency: { prefix: country.cur.pre, suffix: country.cur.post, multiplier: country.cur.mul },
+    currency: {
+      prefix: overridden.cur.pre,
+      suffix: overridden.cur.post,
+      multiplier: overridden.cur.mul,
+    },
     thumbViewBox: `0 0 ${country.proj.BW} ${country.proj.BH}`,
     thumbSvg: renderCountryThumb({ ...country, land: overridden.land, cities: overridden.cities }),
   };

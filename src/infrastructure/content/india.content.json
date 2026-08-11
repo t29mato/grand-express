@@ -15,7 +15,7 @@
   "cur": {
     "pre": "₹",
     "post": "",
-    "mul": 100
+    "mul": 10000
   },
   "start": "delhi",
   "cpuNames": [
@@ -1449,8 +1449,8 @@
             "fr": "Arche du port",
             "ja": "海の門"
           },
-          "cost": 340,
-          "inc": 70
+          "cost": 800,
+          "inc": 166
         },
         {
           "n": {
@@ -1459,8 +1459,8 @@
             "fr": "Studio de cinéma",
             "ja": "映画撮影所"
           },
-          "cost": 360,
-          "inc": 74
+          "cost": 3000,
+          "inc": 622
         }
       ]
     },

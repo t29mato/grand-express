@@ -20,6 +20,7 @@ import { BOLIVIA_QUIZ_REPLACEMENTS } from "./bolivia-quiz.mjs";
 import { JAPAN_QUIZ_REPLACEMENTS } from "./japan-quiz.mjs";
 import { ITEM_TEXT } from "./item-text.mjs";
 import { CITY_BG } from "./city-backgrounds.mjs";
+import { CURRENCY_MULTIPLIERS, CITY_PROPS, applyCityProps } from "./property-economy.mjs";
 import {
   JAPAN_EXTRA_CITIES,
   JAPAN_EXTRA_EDGES,
@@ -131,6 +132,21 @@ const OVERRIDES = {
     quiz: JAPAN_QUIZ_REPLACEMENTS,
   },
 };
+
+/**
+ * お金の尺度は6盤面ぶんまとめて `property-economy.mjs` が持っている。
+ * legacy 由来かどうかで書く場所が変わると、盤面をまたいだ釣り合いが
+ * 2ファイルに割れて比べられなくなるため、ここで全部の国に配る。
+ *
+ * インド・フランス・世界一周・茨城は `scripts/countries/<国>/cities.mjs` を
+ * 直接書けるが、あえてこちらに置いている。**あのファイルは文章を書く人の持ち物**で、
+ * 同時に触ると壊れる(CLAUDE.md「並行作業」)。
+ */
+for (const countryId of Object.keys(CURRENCY_MULTIPLIERS)) {
+  const override = (OVERRIDES[countryId] ??= {});
+  override.currencyMultiplier = CURRENCY_MULTIPLIERS[countryId];
+  if (CITY_PROPS[countryId]) override.cityProps = CITY_PROPS[countryId];
+}
 
 /**
  * 抽出済みの国コンテンツにオーバーライドを適用する(引数を破壊的に変更する)。
@@ -259,6 +275,15 @@ export function applyContentOverrides(countryId, content) {
     }
   }
 
+  /**
+   * 表示倍率。**表示専用**で、`formatMoney` が `内部の値 × mul` を出すだけ。
+   * 釣り合いには一切効かないので、桁が気に入らなければここだけ戻せばよい。
+   * サムネイル生成時は `cur` を持たない部分オブジェクトで呼ばれるため読み飛ばす。
+   */
+  if (override.currencyMultiplier && content.cur) {
+    content.cur = { ...content.cur, mul: override.currencyMultiplier };
+  }
+
   if (override.itemPrices && content.items) {
     for (const [key, price] of Object.entries(override.itemPrices)) {
       if (!content.items[key]) {
@@ -284,6 +309,12 @@ export function applyContentOverrides(countryId, content) {
       }
       content.cities[id] = city;
     }
+  }
+
+  // 物件の値段。こちらは**釣り合いが動く**(表示倍率と違って戻すだけでは済まない)。
+  // 追加都市も対象にできるよう `extraCities` の**後**で適用する。
+  if (override.cityProps && content.cities) {
+    applyCityProps(countryId, content, override.cityProps);
   }
 
   if (override.extraEdges) {

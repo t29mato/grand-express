@@ -31,7 +31,7 @@
   "cur": {
     "pre": "¥",
     "post": "",
-    "mul": 100
+    "mul": 10000
   },
   "start": "tokyo",
   "cpuNames": [
@@ -2003,13 +2003,13 @@
       "props": [
         {
           "n": {
-            "en": "Shinjuku Station Mall",
-            "es": "Centro de Shinjuku",
-            "fr": "Galerie de Shinjuku",
-            "ja": "新宿駅ビル"
+            "en": "Tokyo Tower",
+            "es": "Torre de Tokio",
+            "fr": "Tour de Tokyo",
+            "ja": "東京タワー"
           },
-          "cost": 640,
-          "inc": 134
+          "cost": 3000,
+          "inc": 622
         },
         {
           "n": {
@@ -2018,8 +2018,8 @@
             "fr": "Grossiste en poisson",
             "ja": "築地の仲卸"
           },
-          "cost": 520,
-          "inc": 110
+          "cost": 1200,
+          "inc": 248
         },
         {
           "n": {
@@ -2028,8 +2028,8 @@
             "fr": "Arcade d'Akihabara",
             "ja": "秋葉原のゲームセンター"
           },
-          "cost": 420,
-          "inc": 88
+          "cost": 800,
+          "inc": 166
         },
         {
           "n": {
@@ -2038,8 +2038,8 @@
             "fr": "Échoppes d'Asakusa",
             "ja": "浅草仲見世"
           },
-          "cost": 380,
-          "inc": 80
+          "cost": 550,
+          "inc": 114
         }
       ]
     },
@@ -3224,8 +3224,8 @@
             "fr": "Marché aux poissons",
             "ja": "和商市場"
           },
-          "cost": 220,
-          "inc": 46
+          "cost": 170,
+          "inc": 36
         },
         {
           "n": {
@@ -3234,8 +3234,8 @@
             "fr": "Passerelle du marais",
             "ja": "湿原の木道"
           },
-          "cost": 180,
-          "inc": 38
+          "cost": 150,
+          "inc": 32
         }
       ]
     },

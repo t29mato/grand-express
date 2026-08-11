@@ -105,8 +105,8 @@
             "fr": "Café de boulevard",
             "ja": "大通りのカフェ"
           },
-          "cost": 340,
-          "inc": 70
+          "cost": 700,
+          "inc": 144
         },
         {
           "n": {
@@ -115,8 +115,8 @@
             "fr": "Ascenseur de la tour",
             "ja": "鉄塔の昇降機"
           },
-          "cost": 360,
-          "inc": 74
+          "cost": 2800,
+          "inc": 580
         }
       ]
     },
