@@ -5,9 +5,9 @@ import { isCityNode } from "../../domain/board/node";
 import { eventsFor } from "../../domain/board/money-event";
 import { JsonCountryContentRepository } from "../../infrastructure/content/json-country-content-repository";
 import { projectPoint } from "../../domain/board/board-projection";
-import { createGameEngineContext } from "../../application/game-engine-context";
+import { GameEngineContext, createGameEngineContext } from "../../application/game-engine-context";
 import { renderHook } from "@testing-library/react";
-import { railPolylines, useBoardLayout } from "./use-board-layout";
+import { NodePosition, railPolylines, useBoardLayout } from "./use-board-layout";
 
 /**
  * 盤面の見た目に直結する2つの性質を、実データで押さえる。
@@ -31,6 +31,29 @@ import { railPolylines, useBoardLayout } from "./use-board-layout";
 describe("盤面配置の前提", () => {
   const repo = new JsonCountryContentRepository();
   const countries = ["bolivia", "japan", "india", "france", "world", "ibaraki"] as const;
+
+  /**
+   * 配置は国ごとに一度だけ計算して使い回す。
+   *
+   * 2026-08-11、このファイルが**全体実行のときだけ落ちるようになっていた。**
+   * 落ちる国は毎回違い、内容は「5秒でタイムアウト」。中身が壊れたのではなく、
+   * 計算が間に合っていなかった。実測で `computeBoardLayout` は
+   * 世界一周が530ms、日本199ms、ボリビア140ms。テストごとに計算し直していたので、
+   * 他のテストと並んでCPUを取り合うと5秒を越えることがあった。
+   *
+   * たまに落ちる検査は、**落ちても「また例のやつか」で流されるようになる**ので、
+   * 遅さのほうを直す。
+   */
+  const layoutCache = new Map<string, { context: GameEngineContext; positions: ReadonlyMap<NodeId, NodePosition> }>();
+  async function layoutOf(countryId: string) {
+    const cached = layoutCache.get(countryId);
+    if (cached) return cached;
+    const context = createGameEngineContext(await repo.load(CountryId(countryId)));
+    const { result } = renderHook(() => useBoardLayout(context));
+    const entry = { context, positions: result.current };
+    layoutCache.set(countryId, entry);
+    return entry;
+  }
 
   function pointInPolygon(x: number, y: number, poly: readonly (readonly [number, number])[]) {
     let hit = false;
@@ -70,9 +93,7 @@ describe("盤面配置の前提", () => {
     );
 
     // 実際に描かれる位置(押し離しを通したあと)で判定する。
-    const context = createGameEngineContext(pack);
-    const { result } = renderHook(() => useBoardLayout(context));
-    const positions = result.current;
+    const { positions } = await layoutOf(countryId);
 
     const onLand = (x: number, y: number) =>
       landPx.some(
@@ -196,15 +217,14 @@ describe("盤面配置の前提", () => {
   });
 
   it.each(countries)("%s: すべての路線に線が引かれている", async (countryId) => {
-    // **近すぎる町は中間マスを挟まずに直結する**(`segmentCount` が0を返す)。
-    // 線を中間マスから割り出す作りだと、そういう路線には拾えるマスが1つも無いので
-    // **線が丸ごと消える**。日本で20本、世界一周で36本がこれに当たる。
+    // 線を中間マスから割り出す作りにすると、**マスが1つも無い路線の線が丸ごと消える。**
+    // いまは `segmentCount` が必ず1以上を返すので直結の路線は無いが、
+    // かつて短い路線を直結にしたときは日本で20本、世界一周で36本が該当した。
     // 消えても他のテストは通ってしまう(グラフは繋がったままなので移動もできる)。
     // 盤面を見て初めて分かる壊れかたなので、ここで数を突き合わせる。
     const pack = await repo.load(CountryId(countryId));
-    const context = createGameEngineContext(pack);
-    const { result } = renderHook(() => useBoardLayout(context));
-    const lines = railPolylines(context, result.current);
+    const { context, positions } = await layoutOf(countryId);
+    const lines = railPolylines(context, positions);
 
     expect(lines.length, `${countryId}: 描かれた線の数が路線の数と合わない`).toBe(pack.edges.length);
     // 航路(島へ渡る線)は見た目が違うので、種類も取り違えていないことを見る。
