@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.34.0",
+    date: "2026-08-12",
+    title: t(
+      "A new board: Korea|Un tablero nuevo: Corea|Un nouveau plateau : la Corée|新しい盤面「韓国」",
+    ),
+    highlights: [
+      t(
+        "Forty towns from Seoul down to Seogwipo, joined by fifty-five lines along the KTX routes, with ships out to Jeju and to Ulleungdo in the East Sea. Thirty-seven questions, nineteen things that can happen when you stop, and music that follows the regional modes rather than the Japanese scales — the slowest tempo of the six regions belongs to Chungcheong, which has a long-standing reputation for taking its time.|Cuarenta pueblos, de Seúl a Seogwipo, unidos por cincuenta y cinco líneas siguiendo el KTX, con barcos a Jeju y a Ulleungdo. Treinta y siete preguntas, diecinueve sucesos y música basada en los modos coreanos; el tempo más lento de las seis regiones es el de Chungcheong, célebre por tomarse su tiempo.|Quarante villes, de Séoul à Seogwipo, reliées par cinquante-cinq lignes suivant le KTX, avec des navires vers Jeju et Ulleungdo. Trente-sept questions, dix-neuf événements et une musique fondée sur les modes coréens ; le tempo le plus lent des six régions est celui du Chungcheong, réputé prendre son temps.|ソウルから西帰浦まで40の町を、KTXの筋に沿った55本の路線でつなぎました。済州島と、東海の欝陵島へは船で渡ります。クイズ37問、止まったときに起こることが19種類。音楽は日本の音階ではなく韓国のトリ(調)を使っています。6つの地方でいちばん遅いのは忠清道です(のんびりしていることで知られる土地柄から)。",
+      ),
+      t(
+        "With more boards to choose from, the picker now filters by region and the cards are smaller, so the travellers and house rules no longer get pushed off the screen. Each card carries a tag for how much ground it covers — a whole world, a country, or somewhere closer in.|Con más tableros donde elegir, el selector filtra por región y las tarjetas son más pequeñas, de modo que los viajeros y las reglas ya no quedan fuera de la pantalla. Cada tarjeta indica cuánto terreno abarca: el mundo entero, un país o algo más cercano.|Avec davantage de plateaux, le sélecteur filtre par région et les vignettes sont plus petites : les voyageurs et les règles ne sont plus repoussés hors de l'écran. Chaque vignette indique l'étendue parcourue — le monde, un pays, ou quelque chose de plus proche.|盤面が増えたので、選ぶところを地域で絞れるようにし、札を小さくしました。旅人と決まりごとが画面の外へ押し出されなくなります。札の肩には、走る広さ(世界・国・地方)を出しています。",
+      ),
+    ],
+  },
+  {
     version: "0.33.0",
     date: "2026-08-12",
     title: t(
