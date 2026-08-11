@@ -8,6 +8,7 @@ import { renderRichText } from "../../i18n/rich-text";
 import { DifficultyBadge } from "./difficulty-badge";
 import { Modal } from "./modal";
 import { QuizVerdict } from "../events/quiz-verdict";
+import { VerdictMark } from "./verdict-mark";
 
 /**
  * 回答後に必ず挟む結果モーダル。
@@ -59,8 +60,18 @@ export function QuizResultModal({
 
       </div>
 
-      <p className={correct ? "quiz-verdict correct" : "quiz-verdict wrong"}>
-        {correct ? `⭕ ${t("correctPlus", amount)}` : `❌ ${t("wrongMinus", amount)}`}
+      {/*
+        正解は金色。絵の側(`QuizVerdict`)と揃える。
+        **暫定でここに書いている。** 本来は `.quiz-verdict.correct` の色を
+        緑から金へ変えるのが筋だが、`globals.css` は他の担当と共有しているので、
+        順番の指示をもらってから移す。
+      */}
+      <p
+        className={correct ? "quiz-verdict correct" : "quiz-verdict wrong"}
+        style={correct ? { color: "var(--gold)" } : undefined}
+      >
+        <VerdictMark correct={correct} />
+        {correct ? t("correctPlus", amount) : t("wrongMinus", amount)}
       </p>
 
       {/* 不正解のときこそ「何が正解だったか」が要るので、必ず両方見せる。 */}

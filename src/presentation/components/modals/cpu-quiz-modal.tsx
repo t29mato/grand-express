@@ -5,6 +5,7 @@ import { useLocale } from "../../i18n/locale-context";
 import { renderRichText } from "../../i18n/rich-text";
 import { DifficultyBadge } from "./difficulty-badge";
 import { Modal } from "./modal";
+import { VerdictMark } from "./verdict-mark";
 
 /**
  * CPUが答えたクイズの結果。
@@ -39,8 +40,16 @@ export function CpuQuizModal({
       <h3 className="cpu-quiz-verdict">
         {renderRichText(t(correct ? "cpuQuizCorrect" : "cpuQuizWrong", playerName))}
       </h3>
+      {/*
+        自分のときと同じ約束にする(金=正解 / 赤=不正解、印は ○ / ✕)。
+        CPUの結果だけ緑だと、同じ出来事が場所によって違う色になる。
+      */}
       <p>
-        <span className={correct ? "money" : "money neg"}>
+        <span
+          className={correct ? "money" : "money neg"}
+          style={correct ? { color: "var(--gold)" } : undefined}
+        >
+          <VerdictMark correct={correct} size={17} />
           {correct ? t("correctPlus", amount) : t("wrongMinus", amount)}
         </span>
       </p>

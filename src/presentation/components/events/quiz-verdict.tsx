@@ -9,12 +9,19 @@
 export function QuizVerdict({ correct }: { correct: boolean }) {
   return (
     <svg viewBox="0 0 400 210" role="img" aria-hidden="true">
-      <rect width="400" height="210" fill={correct ? "#1d3b2a" : "#33232c"} />
+      {/*
+        正解は**金色**。緑ではない。
+        緑と赤は、2型色覚(赤緑がいちばん見分けにくい型)を通すと
+        **ほぼ同じ色に潰れる**(ぼかして測ったところ、色の距離13・明るさの比1.00)。
+        金と赤なら明るさそのものが違うので、色が見分けられなくても分かる。
+        盤面の他の場所とも約束が揃う(お金の演出も「増は金色、減は赤」)。
+      */}
+      <rect width="400" height="210" fill={correct ? "#3d3116" : "#33232c"} />
 
       {correct ? (
         <>
           {/* 広がる輪 */}
-          <circle className="qv-ring" cx="200" cy="105" r="52" fill="none" stroke="#7bc86c" strokeWidth="6" />
+          <circle className="qv-ring" cx="200" cy="105" r="52" fill="none" stroke="#f5b31c" strokeWidth="6" />
           {/* 描かれる丸 */}
           <circle
             className="qv-circle"
@@ -22,13 +29,13 @@ export function QuizVerdict({ correct }: { correct: boolean }) {
             cy="105"
             r="52"
             fill="none"
-            stroke="#9ee68c"
+            stroke="#fbd06a"
             strokeWidth="12"
             strokeLinecap="round"
             transform="rotate(-90 200 105)"
           />
           {/* はじける光 */}
-          <g className="qv-sparks" fill="#f5d06a">
+          <g className="qv-sparks" fill="#fff0c0">
             {[0, 60, 120, 180, 240, 300].map((deg) => (
               <rect key={deg} x="197" y="18" width="6" height="16" rx="3" transform={`rotate(${deg} 200 105)`} />
             ))}
