@@ -1243,9 +1243,30 @@ main {
   animation: pulse 1.8s ease-in-out infinite;
 }
 
+/**
+ * 駒の後ろに付いてくる厄災の神。**ゆっくり上下に揺れる。**
+ * 止まっていると駒の飾りに見えてしまい、「追いかけてきている」感じが出ない。
+ * ただし派手に動かすと、手番の駒のリングと目立ち方で競う。控えめにする。
+ */
+.token-spirit {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: spiritBob 1.6s ease-in-out infinite alternate;
+}
+
+@keyframes spiritBob {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-1.6px); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .token {
     transition: none;
+  }
+  /* 揺れは止めるが、**神そのものは消さない。**誰に憑いているかは
+     動きではなく在ることで伝えている。 */
+  .token-spirit {
+    animation: none;
   }
 }
 

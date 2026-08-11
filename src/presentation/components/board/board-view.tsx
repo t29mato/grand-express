@@ -10,6 +10,7 @@ import { useCamera } from "../../hooks/use-camera";
 import { useLocale } from "../../i18n/locale-context";
 import { useCityLabels } from "../../hooks/use-city-labels";
 import { SIZES } from "./board-metrics";
+import { hauntedPlayerId } from "./spirit-rider";
 import { TrainToken } from "./train-token";
 import { tokenPlacements } from "./token-layout";
 import { TerrainLayer } from "./terrain-layer";
@@ -518,7 +519,7 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
   const tokensByNode = useMemo(() => {
     const map = new Map<
       string,
-      { name: string; color: string; isActive: boolean; isWalking: boolean; carriedEmoji: string | null }[]
+      { name: string; color: string; isActive: boolean; isWalking: boolean; carriedEmoji: string | null; spiritEmoji: string | null }[]
     >();
     session.players.forEach((p, i) => {
       // 歩いている駒だけ、盤の状態ではなく見た目の居場所に描く。
@@ -531,11 +532,14 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
         isActive: p.id === activePlayerId,
         isWalking: walking,
         carriedEmoji: walking ? walk.emoji : null,
+        // 憑かれている駒にだけ、厄災の神を後ろに付ける。
+        // 旅人一覧の 👹 だけでは、盤面を見ているあいだ誰が背負っているか分からない。
+        spiritEmoji: hauntedPlayerId(session.misfortune) === p.id ? context.content.spirit.emoji : null,
       });
       map.set(at, list);
     });
     return map;
-  }, [session.players, activePlayerId, walk]);
+  }, [session.players, activePlayerId, walk, session.misfortune, context]);
 
   return (
     // 盤面SVGとその上に重ねるボタン類の基準になる箱。
@@ -741,6 +745,7 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
                 isActive={token.isActive}
                 scale={placement.scale}
                 carriedEmoji={token.carriedEmoji}
+                spiritEmoji={token.spiritEmoji}
                 /* 1マスごとに位置が変わるので、既定の0.35秒では次のマスまでに滑り切らず、
                    駒が道のりから何マスも遅れてしまう。歩いている駒だけ間隔に合わせる。 */
                 stepMs={token.isWalking ? WALK_STEP_MS : undefined}

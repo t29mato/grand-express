@@ -15,6 +15,7 @@ export function TrainToken({
   isActive,
   scale = TOKEN_BASE_SCALE,
   carriedEmoji = null,
+  spiritEmoji = null,
   stepMs,
 }: {
   x: number;
@@ -29,6 +30,11 @@ export function TrainToken({
    * 6盤面で効果は同じだがアイテムは別物なので、**何に運ばれているか**をここで見せる。
    */
   carriedEmoji?: string | null;
+  /**
+   * 憑いている厄災の神の絵文字(ボリビアはエル・ティオ、茨城はダイダラボウの足跡)。
+   * **憑かれている駒にだけ渡す。**盤面のどこに居ても、誰が背負っているかが見える。
+   */
+  spiritEmoji?: string | null;
   /**
    * 1マスぶん滑るのにかける時間。道のりを歩いているあいだだけ渡す。
    * 渡さなければ globals.css の既定(0.35秒)のまま。
@@ -74,9 +80,42 @@ export function TrainToken({
           文字なので盤面の縮尺に関わらず読める大きさに固定はせず、駒と一緒に拡縮させる
           (駒が小さくなる場面では、これも一緒に小さくないと駒を覆ってしまう)。 */}
       {carriedEmoji && (
-        <text x={0} y={-11} fontSize={11} textAnchor="middle" aria-hidden="true">
+        <text
+          x={spiritEmoji ? 12 : 0}
+          y={spiritEmoji ? -7 : -11}
+          fontSize={11}
+          textAnchor="middle"
+          aria-hidden="true"
+        >
           {carriedEmoji}
         </text>
+      )}
+      {/* 憑いている厄災の神。**駒の真上に乗せて、一緒に走らせる。**
+          旅人一覧に 👹 が出るだけで、盤面を見ているあいだは誰に憑いているのか
+          分からなかった。桃太郎電鉄のボンビーと同じく、駒にくっついて
+          追いかけてくるのが見えていないと、逃げる気持ちが起きない。
+
+          **後ろ(左)ではなく真上に置いている。**同じマスに複数の駒がいるときは
+          間隔22で横に並ぶので、後ろに出すと左隣の車体にかかる(実測)。
+          撮って見ると、神が**どちらの駒に憑いているのか分からない絵**になった ——
+          誰が背負っているかを見せるための絵が、逆を伝えていた。
+          真上なら左右の隣と重ならないので、取り違えようがない。
+          (3人以上が同じマスに乗ると上下2段になるため、上の段の駒には
+           かかることがある。持ち主の色の輪はそのために残している。)
+
+          運ばれている最中のアイテムとは場所を譲り合う。両方が同時に出る。 */}
+      {spiritEmoji && (
+        <g transform="translate(0, -12)">
+          {/* 位置は外側の g、揺れは内側の g。**CSS の transform は SVG の
+              transform 属性を上書きする**ので、同じ要素に両方は置けない。 */}
+          <g className="token-spirit">
+            <circle r={6.2} fill="#1b1330" opacity={0.72} />
+            <circle r={6.2} fill="none" stroke={color} strokeWidth={1.2} opacity={0.9} />
+            <text y={3.4} fontSize={9} textAnchor="middle" aria-hidden="true">
+              {spiritEmoji}
+            </text>
+          </g>
+        </g>
       )}
     </g>
   );
