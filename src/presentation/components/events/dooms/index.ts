@@ -34,6 +34,13 @@ import { JapanMaigo } from "./japan-maigo";
 import { JapanQuake } from "./japan-quake";
 import { JapanSuri } from "./japan-suri";
 import { JapanTyphoon } from "./japan-typhoon";
+import { KoreaDokkaebiGil } from "./korea-dokkaebi-gil";
+import { KoreaHoesikgap } from "./korea-hoesikgap";
+import { KoreaHwangsa } from "./korea-hwangsa";
+import { KoreaPoksol } from "./korea-poksol";
+import { KoreaSanbul } from "./korea-sanbul";
+import { KoreaSomaechigi } from "./korea-somaechigi";
+import { KoreaTaepung } from "./korea-taepung";
 import { WorldCrossingTheLine } from "./world-crossing-the-line";
 import { WorldCustomsShed } from "./world-customs-shed";
 import { WorldDevaluation } from "./world-devaluation";
@@ -87,6 +94,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "japan-quake": JapanQuake,
   "japan-suri": JapanSuri,
   "japan-typhoon": JapanTyphoon,
+  "korea-dokkaebi-gil": KoreaDokkaebiGil,
+  "korea-hoesikgap": KoreaHoesikgap,
+  "korea-hwangsa": KoreaHwangsa,
+  "korea-poksol": KoreaPoksol,
+  "korea-sanbul": KoreaSanbul,
+  "korea-somaechigi": KoreaSomaechigi,
+  "korea-taepung": KoreaTaepung,
   "world-crossing-the-line": WorldCrossingTheLine,
   "world-customs-shed": WorldCustomsShed,
   "world-devaluation": WorldDevaluation,
