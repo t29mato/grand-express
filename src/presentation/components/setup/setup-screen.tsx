@@ -29,8 +29,13 @@ interface SlotConfig {
    */
   name: string | null;
   mode: "human" | "cpu" | "off";
-  /** 対象国への知識レベル(人間のみ)。CPUは cpuLevel が同じ役割を果たすため不要。 */
+  /** 対象国への知識レベル(人間のみ)。CPUには意味が無いので、CPUの枠では出さない。 */
   knowledgeLevel: KnowledgeLevel;
+  /**
+   * このCPUの強さ。**枠ごとに持つ。**
+   * 以前はゲーム全体で1つだったので、手加減する相手と本気の相手を混ぜられなかった。
+   */
+  cpuLevel: CpuLevel;
 }
 
 const KNOWLEDGE_LABEL: Record<KnowledgeLevel, string> = {
@@ -61,10 +66,10 @@ export function SetupScreen() {
   const [cpuLevel, setCpuLevel] = useState<CpuLevel>("normal");
   const [starting, setStarting] = useState(false);
   const [slots, setSlots] = useState<SlotConfig[]>([
-    { name: null, mode: "human", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
-    { name: null, mode: "cpu", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
-    { name: null, mode: "cpu", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
-    { name: null, mode: "off", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL },
+    { name: null, mode: "human", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL, cpuLevel: "normal" },
+    { name: null, mode: "cpu", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL, cpuLevel: "normal" },
+    { name: null, mode: "cpu", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL, cpuLevel: "normal" },
+    { name: null, mode: "off", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL, cpuLevel: "normal" },
   ]);
 
   /**
@@ -118,6 +123,7 @@ export function SetupScreen() {
         name: slot.name?.trim() || defaultSlotName(i),
         isCpu: slot.mode === "cpu",
         knowledgeLevel: slot.knowledgeLevel,
+        cpuLevel: slot.cpuLevel,
       }));
     if (players.length < 2 || starting) return;
     // 次に「新しい旅」を始めるとき、同じ顔ぶれをそのまま出せるように覚えておく。
@@ -208,6 +214,26 @@ export function SetupScreen() {
                   </div>
                   {/* 知識レベルは人間プレイヤーのみ。CPUは強さ設定が同じ役割を果たす。
                       行が横に長くなるため、レベルのセグメントは次の行へ折り返す。 */}
+                  {/* CPUの枠には強さを出す。**CPUごとに変えられる。**
+                      以前はゲーム全体で1つだったので、手加減する相手と
+                      本気の相手を混ぜられなかった。 */}
+                  {slot.mode === "cpu" && (
+                    <div className="slot-knowledge">
+                      <span className="knowledge-label">{t("cpuLevel")}</span>
+                      <div className="seg">
+                        {(["gentle", "normal", "merciless"] as const).map((lv) => (
+                          <button
+                            key={lv}
+                            type="button"
+                            className={slot.cpuLevel === lv ? "on" : ""}
+                            onClick={() => updateSlot(i, { cpuLevel: lv })}
+                          >
+                            {lv === "gentle" ? t("lvEasy") : lv === "normal" ? t("lvNormal") : t("lvOni")}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                   {slot.mode === "human" && (
                     <div className="slot-knowledge">
                       <span className="knowledge-label">{t("knowledgeLevel")}</span>
@@ -253,16 +279,6 @@ export function SetupScreen() {
                 </div>
               </div>
 
-              <div className="rule-row">
-                <span className="rule-label">{t("cpuLevel")}</span>
-                <div className="seg">
-                  {(["gentle", "normal", "merciless"] as const).map((lv) => (
-                    <button key={lv} type="button" className={cpuLevel === lv ? "on" : ""} onClick={() => setCpuLevel(lv)}>
-                      {lv === "gentle" ? t("lvEasy") : lv === "normal" ? t("lvNormal") : t("lvOni")}
-                    </button>
-                  ))}
-                </div>
-              </div>
             </fieldset>
           </div>
 

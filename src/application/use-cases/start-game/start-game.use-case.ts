@@ -11,11 +11,13 @@ import { GameEngineContext } from "../../game-engine-context";
 export interface PlayerSetup {
   readonly name: string;
   readonly isCpu: boolean;
-  /**
-   * 対象国への知識レベル。`cpuLevel` がゲーム全体で1つなのに対し、
-   * これはプレイヤーごとに指定する(人間プレイヤーのみ意味を持つ)。
-   */
+  /** 対象国への知識レベル(人間プレイヤーのみ意味を持つ)。 */
   readonly knowledgeLevel?: KnowledgeLevel;
+  /**
+   * このCPUの強さ。**CPUごとに変えられる**(手加減する相手と、本気の相手を混ぜられる)。
+   * 省略したときは `StartGameInput.cpuLevel` を使う。
+   */
+  readonly cpuLevel?: CpuLevel;
 }
 
 export interface StartGameInput {
@@ -39,12 +41,15 @@ export function startGame(
   const startCityId = context.content.startCityId;
   const startNode = cityIdToNodeId(startCityId);
   const players = input.players.map((setup, index) => {
-    const bonus = setup.isCpu && input.cpuLevel === "merciless" ? MERCILESS_CPU_BONUS : 0;
+    // **強さはCPUごと。**指定が無ければゲーム全体の設定を使う(古いセーブとの互換)。
+    const level = setup.cpuLevel ?? input.cpuLevel;
+    // 開始資金のボーナスも、そのCPU自身の強さで決める。
+    const bonus = setup.isCpu && level === "merciless" ? MERCILESS_CPU_BONUS : 0;
     return createPlayer({
       id: PlayerId(`p${index}`),
       name: setup.name,
       isCpu: setup.isCpu,
-      cpuLevel: setup.isCpu ? input.cpuLevel : undefined,
+      cpuLevel: setup.isCpu ? level : undefined,
       knowledgeLevel: setup.knowledgeLevel,
       startingCash: Money.of(STARTING_CASH + bonus),
       startingNode: startNode,
