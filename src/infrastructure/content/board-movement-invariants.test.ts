@@ -13,7 +13,7 @@ import { JsonCountryContentRepository } from "./json-country-content-repository"
  */
 describe("盤面の移動不変条件", () => {
   const repo = new JsonCountryContentRepository();
-  const countries = ["bolivia", "japan", "india", "france", "world", "ibaraki"] as const;
+  const countries = ["bolivia", "japan", "india", "france", "world", "ibaraki", "korea"] as const;
 
   it.each(countries)("%s: 選べるマスは必ずサイコロの目ちょうどで行ける場所", async (countryId) => {
     const pack = await repo.load(CountryId(countryId));

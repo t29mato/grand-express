@@ -13,7 +13,7 @@ import { quizReward, MAX_QUIZ_DIFFICULTY } from "../../../domain/quiz/quiz-quest
  */
 describe("アイテムの値付け", () => {
   const repo = new JsonCountryContentRepository();
-  const countries = ["bolivia", "japan", "india", "france", "world", "ibaraki"] as const;
+  const countries = ["bolivia", "japan", "india", "france", "world", "ibaraki", "korea"] as const;
 
   it.each(countries)("%s: 向きの選べない移動アイテムは、思い通りに動けるアイテムより安い", async (countryId) => {
     const pack = await repo.load(CountryId(countryId));

@@ -36,13 +36,14 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const contentDir = join(__dirname, "..", "src", "infrastructure", "content");
-const ALL = ["bolivia", "japan", "india", "france", "world", "ibaraki"];
+const ALL = ["bolivia", "japan", "india", "france", "world", "ibaraki", "korea"];
 /** `--src` のとき、その国の背景がどのモジュールのどの名前で出ているか。 */
 const SOURCES = {
   india: ["countries/india/art.mjs", "INDIA_BG"],
   france: ["countries/france/art.mjs", "FRANCE_BG"],
   world: ["countries/world/art.mjs", "WORLD_BG"],
   ibaraki: ["countries/ibaraki/art.mjs", "IBARAKI_BG"],
+  korea: ["countries/korea/art.mjs", "KOREA_BG"],
   japan: ["content-overrides/japan-city-bg.mjs", "JAPAN_RICH_BG"],
   // 茨城は田園・町(art.mjs)と水辺(bg-coast.mjs)を別の担当が書くのでファイルが分かれている。
   // 取り込み前でも実測できるよう、水辺だけを見る名前を用意してある。

@@ -56,7 +56,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const contentDir = join(__dirname, "..", "src", "infrastructure", "content");
-const ALL = ["bolivia", "japan", "india", "france", "world", "ibaraki"];
+const ALL = ["bolivia", "japan", "india", "france", "world", "ibaraki", "korea"];
 
 const only = process.argv[2];
 const countries = only ? [only] : ALL;

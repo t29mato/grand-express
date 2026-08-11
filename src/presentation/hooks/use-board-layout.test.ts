@@ -30,7 +30,7 @@ import { NodePosition, railPolylines, useBoardLayout } from "./use-board-layout"
  */
 describe("盤面配置の前提", () => {
   const repo = new JsonCountryContentRepository();
-  const countries = ["bolivia", "japan", "india", "france", "world", "ibaraki"] as const;
+  const countries = ["bolivia", "japan", "india", "france", "world", "ibaraki", "korea"] as const;
 
   /**
    * 配置は国ごとに一度だけ計算して使い回す。
