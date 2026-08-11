@@ -55,6 +55,7 @@ const STYLE_LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   france: () => import("../content/france.content.json").then((m) => (m.default as { styles: unknown }).styles),
   world: () => import("../content/world.content.json").then((m) => (m.default as { styles: unknown }).styles),
   ibaraki: () => import("../content/ibaraki.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  korea: () => import("../content/korea.content.json").then((m) => (m.default as { styles: unknown }).styles),
 };
 
 /**

@@ -35,6 +35,7 @@ import { buildIndiaContent } from "./countries/india/index.mjs";
 import { buildFranceContent } from "./countries/france/index.mjs";
 import { buildWorldContent } from "./countries/world/index.mjs";
 import { buildIbarakiContent } from "./countries/ibaraki/index.mjs";
+import { buildKoreaContent } from "./countries/korea/index.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const legacyPath = join(__dirname, "..", "legacy", "grand-express.html");
@@ -499,6 +500,7 @@ const AUTHORED_COUNTRIES = [
   buildFranceContent(),
   buildWorldContent(),
   buildIbarakiContent(),
+  buildKoreaContent(),
 ];
 for (const content of AUTHORED_COUNTRIES) {
   // 上書き層はもともと legacy 由来の国だけのものだったが、**お金の尺度は

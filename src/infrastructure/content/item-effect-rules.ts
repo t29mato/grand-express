@@ -75,4 +75,14 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   kodokan: { type: "quiz-save" },
   kasamayaki: { type: "gain-cash", amount: 380 },
   gamanoabura: { type: "extra-turn" },
+  // Korea
+  hak: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  yeot: { type: "choose-exact-dice" },
+  mugunghwa: { type: "roll-fixed-dice", diceCount: 2 },
+  ktx: { type: "roll-fixed-dice", diceCount: 3 },
+  patjuk: { type: "none" }, // 厄災の神(トッケビ)のward item(passive)
+  bujeok: { type: "repel-spirit" },
+  jokbo: { type: "quiz-save" },
+  yeopjeon: { type: "gain-cash", amount: 380 },
+  ppalli: { type: "extra-turn" },
 };

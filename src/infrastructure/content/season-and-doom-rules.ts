@@ -300,6 +300,63 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
       { op: "region-income-multiplier", regionId: region("sei"), multiplier: 1.15 },
     ],
   ],
+
+  /**
+   * 韓国。桜前線(4月) → 梅雨と避暑(6〜7月) → 光復節(8月・休神) →
+   * 秋夕(9月) → 紅葉(10月) → キムジャン(11月) → クリスマスとスキー(12月) →
+   * ソルラル(1月・給アイテム) → 寒波と済州避寒(2月) → 新学期(3月)、という流れ。
+   * 江原(gw)は観光・行楽の地方として一年を通じてよく上がる。
+   */
+  korea: [
+    /* 0 Apr 桜前線 */ [
+      { op: "region-income-multiplier", regionId: region("gs"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("jj"), multiplier: 1.15 },
+    ],
+    /* 1 May こどもの日・釈迦誕生日 */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("gw"), multiplier: 1.2 },
+    ],
+    /* 2 Jun 大麦の収穫と梅雨入り(南から) */ [
+      { op: "region-income-multiplier", regionId: region("jl"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("jj"), multiplier: 0.8 },
+    ],
+    /* 3 Jul 梅雨と避暑 */ [
+      { op: "region-income-multiplier", regionId: region("gw"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("gg"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("cc"), multiplier: 0.8 },
+    ],
+    /* 4 Aug 光復節と休暇の頂点 */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "region-income-multiplier", regionId: region("gs"), multiplier: 1.2 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep 秋夕(ハンガウィ) */ [
+      { op: "all-players-gain-cash", amount: 380 },
+      { op: "region-income-multiplier", regionId: region("cc"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("jl"), multiplier: 1.2 },
+    ],
+    /* 6 Oct 紅葉 */ [
+      { op: "region-income-multiplier", regionId: region("gw"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("gs"), multiplier: 1.2 },
+    ],
+    /* 7 Nov キムジャン */ [
+      { op: "region-income-multiplier", regionId: region("jl"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("cc"), multiplier: 1.15 },
+    ],
+    /* 8 Dec クリスマスとスキーシーズン */ [
+      { op: "region-income-multiplier", regionId: region("gw"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("gg"), multiplier: 1.2 },
+    ],
+    /* 9 Jan ソルラル(旧正月) */ [{ op: "give-item-to-all" }],
+    /* 10 Feb 寒波と済州への避寒旅行 */ [
+      { op: "all-players-pay-cash", amount: 160 },
+      { op: "region-income-multiplier", regionId: region("jj"), multiplier: 1.25 },
+    ],
+    /* 11 Mar 新学期と済州の早春 */ [
+      { op: "all-players-pay-cash", amount: 140 },
+      { op: "region-income-multiplier", regionId: region("jj"), multiplier: 1.15 },
+    ],
+  ],
 };
 
 /**
@@ -355,4 +412,12 @@ export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>>
   "hakobi-ga-tsukanai": "payOthers",
   "ashiato-numa": "teleport",
   "hoshiba-ga-nureru": "steal",
+  // Korea
+  hwangsa: "fine",
+  taepung: "percentLoss",
+  poksol: "skipTurn",
+  sanbul: "loseProperties",
+  hoesikgap: "payOthers",
+  "dokkaebi-gil": "teleport",
+  somaechigi: "steal",
 };
