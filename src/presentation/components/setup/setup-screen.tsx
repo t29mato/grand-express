@@ -63,7 +63,12 @@ export function SetupScreen() {
 
   const [country, setCountry] = useState<CountryId>(CountryId("bolivia"));
   const [months, setMonths] = useState(12);
-  const [cpuLevel, setCpuLevel] = useState<CpuLevel>("normal");
+  /**
+   * ゲーム全体のCPUの強さ。**画面からは選べない**(強さはCPUごとに選ぶ)。
+   * `startGame` は、CPUごとの指定が無いときの既定としてこれを使う
+   * (古いセーブとの互換。`start-game.use-case.ts` 参照)。
+   */
+  const cpuLevel: CpuLevel = "normal";
   const [starting, setStarting] = useState(false);
   const [slots, setSlots] = useState<SlotConfig[]>([
     { name: null, mode: "human", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL, cpuLevel: "normal" },
