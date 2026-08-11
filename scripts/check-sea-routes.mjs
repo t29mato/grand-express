@@ -35,6 +35,34 @@ const CONTENT_DIR = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "
 const REPORT_PX = 60;
 const SAMPLES = 600;
 
+/**
+ * **わざと残している路線。**閾値を超えても ✗ にしない。
+ *
+ * 2種類ある。
+ *
+ * 1. **地図のほうが正しく、この検査が間違っているもの。** 青函トンネルは
+ *    本当に海の下を列車が通る。数字を下げようとすると地図が嘘になる。
+ * 2. **長い航路が岬をかすめているだけのもの。** 実際の船もそう通る。
+ *    割合が2割以下で、他の引き方にすると軒並み増える。
+ *
+ * ここに書いておかないと、次に見た人が同じ判断をやり直すことになる。
+ * 直しかたを4通り測ったうえで「直さない」と決めた、という記録でもある。
+ */
+const KEPT = new Map([
+  ["japan:aomori-hakodate", "青函トンネル。列車が海の下を通るのが正しい"],
+  ["world:bangkok-singapore", "マレー半島を下る実在の鉄道。粗いのは経路ではなく海岸線の描き方のほう"],
+  ["world:reykjavik-toronto", "北大西洋を渡る605pxの航路が、グリーンランド南端をかすめるだけ(18%)"],
+  ["world:sydney-tokyo", "西太平洋を縦断する686pxの航路が、ニューギニア東端をかすめるだけ(15%)"],
+  ["world:lima-ushuaia", "ホーン岬回り。陸路にすると51pxに下がるが、アンデスを4000km走る嘘になる"],
+  ["world:capetown-perth", "盤面最長901pxの航路。オーストラリア南西端をかすめるだけ(8%)"],
+  ["world:dubai-zanzibar", "ザンジバルは島なので陸路にできない。アフリカの角をかすめる(20%)"],
+]);
+
+/** 端の順に関係なく引けるようにする(入れ替えで直すことがあるため)。 */
+function keptReason(board, from, to) {
+  return KEPT.get(`${board}:${[from, to].sort().join("-")}`);
+}
+
 const args = process.argv.slice(2);
 const verbose = args.includes("-v");
 const only = args.find((a) => !a.startsWith("-"));
@@ -173,12 +201,15 @@ for (const file of files) {
   });
 
   const name = file.replace(".content.json", "");
-  const bad = findings.filter((f) => f.wrongPx > REPORT_PX).sort((p, q) => q.wrongPx - p.wrongPx);
+  const over = findings.filter((f) => f.wrongPx > REPORT_PX).sort((p, q) => q.wrongPx - p.wrongPx);
+  const bad = over.filter((f) => !keptReason(name, f.from, f.to));
+  const kept = over.filter((f) => keptReason(name, f.from, f.to));
   const seaCount = findings.filter((f) => f.isSea).length;
   const shown = verbose ? findings.slice().sort((p, q) => q.wrongPx - p.wrongPx) : bad;
   console.log(
     `${name.padEnd(9)} 路線 ${String(findings.length).padStart(3)}本(うち航路 ${String(seaCount).padStart(2)}本) — ` +
-      (bad.length === 0 ? `${REPORT_PX}px超の食い違いなし` : `${bad.length}本が${REPORT_PX}px超`),
+      (bad.length === 0 ? `${REPORT_PX}px超の食い違いなし` : `${bad.length}本が${REPORT_PX}px超`) +
+      (kept.length ? `(ほかに、わざと残している ${kept.length}本)` : ""),
   );
   failures += bad.length;
   for (const f of shown) {
@@ -194,6 +225,13 @@ for (const file of files) {
     if (verbose) {
       console.log(`        ${f.options.map((o) => `${o.label} ${o.px.toFixed(0)}px`).join(" / ")}`);
     }
+  }
+  for (const f of kept) {
+    const what = f.isSea ? "航路が陸" : "線路が海";
+    console.log(
+      `    〜 ${`${f.from}–${f.to}`.padEnd(26)} ${what} ${f.wrongPx.toFixed(0).padStart(4)}px` +
+        `(${(f.ratio * 100).toFixed(0).padStart(3)}%)  ${keptReason(name, f.from, f.to)}`,
+    );
   }
 }
 
