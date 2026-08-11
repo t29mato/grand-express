@@ -205,7 +205,14 @@ for (const file of files) {
   const bad = over.filter((f) => !keptReason(name, f.from, f.to));
   const kept = over.filter((f) => keptReason(name, f.from, f.to));
   const seaCount = findings.filter((f) => f.isSea).length;
-  const shown = verbose ? findings.slice().sort((p, q) => q.wrongPx - p.wrongPx) : bad;
+  // -v でも、わざと残しているものは下の 〜 の欄にだけ出す。
+  // 両方に出すと、上の欄で ✗ が付いて「まだ直っていない」と読まれ、
+  // **せっかく理由を書いて決めたことを、次の人がやり直す。**
+  const shown = verbose
+    ? findings
+        .filter((f) => !keptReason(name, f.from, f.to))
+        .sort((p, q) => q.wrongPx - p.wrongPx)
+    : bad;
   console.log(
     `${name.padEnd(9)} 路線 ${String(findings.length).padStart(3)}本(うち航路 ${String(seaCount).padStart(2)}本) — ` +
       (bad.length === 0 ? `${REPORT_PX}px超の食い違いなし` : `${bad.length}本が${REPORT_PX}px超`) +
