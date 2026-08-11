@@ -3,6 +3,7 @@ import { CountryId } from "../../../domain/shared-kernel/ids";
 import { JsonCountryContentRepository } from "../../../infrastructure/content/json-country-content-repository";
 import { isSoldAtStall, itemPrice } from "../../../domain/item/item-pricing";
 import { quizReward, MAX_QUIZ_DIFFICULTY } from "../../../domain/quiz/quiz-question";
+import { ALL_COUNTRY_IDS } from "../../../infrastructure/content/all-country-ids";
 
 /**
  * 屋台に「買うだけで確実に得をするアイテム」を並べない。選択が選択でなくなるため。
@@ -13,7 +14,7 @@ import { quizReward, MAX_QUIZ_DIFFICULTY } from "../../../domain/quiz/quiz-quest
  */
 describe("アイテムの値付け", () => {
   const repo = new JsonCountryContentRepository();
-  const countries = ["bolivia", "japan", "india", "france", "world", "ibaraki", "korea"] as const;
+  const countries = ALL_COUNTRY_IDS;
 
   it.each(countries)("%s: 向きの選べない移動アイテムは、思い通りに動けるアイテムより安い", async (countryId) => {
     const pack = await repo.load(CountryId(countryId));

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { CountryId } from "../../domain/shared-kernel/ids";
 import { JsonCountryContentRepository } from "./json-country-content-repository";
+import { ALL_COUNTRY_IDS } from "./all-country-ids";
 
 describe("JsonCountryContentRepository", () => {
   const repo = new JsonCountryContentRepository();
@@ -63,7 +64,7 @@ describe("JsonCountryContentRepository", () => {
   });
 
   it("都市が参照する地方・イラストのキーがすべて実在する", async () => {
-    for (const countryId of ["bolivia", "japan", "india", "france", "world", "ibaraki", "korea"] as const) {
+    for (const countryId of ALL_COUNTRY_IDS) {
       const pack = await repo.load(CountryId(countryId));
       for (const city of pack.cities) {
         expect(pack.regions.has(city.regionId), `${countryId}: 地方 ${city.regionId}`).toBe(true);
@@ -75,7 +76,7 @@ describe("JsonCountryContentRepository", () => {
 
   it("すべての都市が路線でつながっている(孤立した都市がない)", async () => {
     // 路線は手書きのため、追加した都市が盤面から孤立していないことを確認する。
-    for (const countryId of ["bolivia", "japan", "india", "france", "world", "ibaraki", "korea"] as const) {
+    for (const countryId of ALL_COUNTRY_IDS) {
       const pack = await repo.load(CountryId(countryId));
       const neighbors = new Map<string, string[]>();
       for (const { from: a, to: b } of pack.edges) {
@@ -98,7 +99,7 @@ describe("JsonCountryContentRepository", () => {
   });
 
   it("edgesが参照する都市IDはすべて実在する(参照整合性)", async () => {
-    for (const countryId of ["bolivia", "japan", "india", "france", "world", "ibaraki", "korea"] as const) {
+    for (const countryId of ALL_COUNTRY_IDS) {
       const pack = await repo.load(CountryId(countryId));
       const cityIds = new Set(pack.cities.map((c) => c.id));
       for (const { from: a, to: b } of pack.edges) {

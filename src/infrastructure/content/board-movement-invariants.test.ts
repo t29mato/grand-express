@@ -3,6 +3,7 @@ import { CountryId, NodeId } from "../../domain/shared-kernel/ids";
 import { buildBoardGraph } from "../../domain/board/board-graph-builder";
 import { PathfindingService } from "../../domain/board/pathfinding-service";
 import { JsonCountryContentRepository } from "./json-country-content-repository";
+import { ALL_COUNTRY_IDS } from "./all-country-ids";
 
 /**
  * 「サイコロの目より多く進めてしまう」ことがないことを、**実際の3か国の盤面**で確かめる。
@@ -13,7 +14,7 @@ import { JsonCountryContentRepository } from "./json-country-content-repository"
  */
 describe("盤面の移動不変条件", () => {
   const repo = new JsonCountryContentRepository();
-  const countries = ["bolivia", "japan", "india", "france", "world", "ibaraki", "korea"] as const;
+  const countries = ALL_COUNTRY_IDS;
 
   it.each(countries)("%s: 選べるマスは必ずサイコロの目ちょうどで行ける場所", async (countryId) => {
     const pack = await repo.load(CountryId(countryId));

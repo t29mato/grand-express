@@ -8,6 +8,7 @@ import { projectPoint } from "../../domain/board/board-projection";
 import { GameEngineContext, createGameEngineContext } from "../../application/game-engine-context";
 import { renderHook } from "@testing-library/react";
 import { NodePosition, railPolylines, useBoardLayout } from "./use-board-layout";
+import { ALL_COUNTRY_IDS } from "../../infrastructure/content/all-country-ids";
 
 /**
  * 盤面の見た目に直結する2つの性質を、実データで押さえる。
@@ -30,7 +31,7 @@ import { NodePosition, railPolylines, useBoardLayout } from "./use-board-layout"
  */
 describe("盤面配置の前提", () => {
   const repo = new JsonCountryContentRepository();
-  const countries = ["bolivia", "japan", "india", "france", "world", "ibaraki", "korea"] as const;
+  const countries = ALL_COUNTRY_IDS;
 
   /**
    * 配置は国ごとに一度だけ計算して使い回す。

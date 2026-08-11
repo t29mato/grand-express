@@ -36,7 +36,14 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const contentDir = join(__dirname, "..", "src", "infrastructure", "content");
-const ALL = ["bolivia", "japan", "india", "france", "world", "ibaraki", "korea"];
+/**
+ * 盤面の一覧は**焼き上がった目録から引く。**同じ配列を検査ごとに書いていたので、
+ * 盤面を1枚足すたびに何箇所も直す必要があり、直し忘れても検査は緑のまま通った
+ * (増えた盤面を見に行かないだけなので)。
+ */
+const ALL = JSON.parse(
+  readFileSync(new URL("../src/infrastructure/content/country-index.json", import.meta.url), "utf8"),
+).map((entry) => entry.id);
 /** `--src` のとき、その国の背景がどのモジュールのどの名前で出ているか。 */
 const SOURCES = {
   india: ["countries/india/art.mjs", "INDIA_BG"],

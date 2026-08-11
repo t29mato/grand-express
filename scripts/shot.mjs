@@ -22,18 +22,19 @@
  *   --motion          サイコロ演出を省略しない(既定は省略して速くする)
  */
 import { chromium } from "playwright";
-import { mkdirSync } from "node:fs";
+import { mkdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 
-const COUNTRIES = {
-  bolivia: /Bolivia/,
-  japan: /Japan/,
-  india: /India/,
-  france: /France/,
-  world: /Around the World/,
-  ibaraki: /Ibaraki/,
-  korea: /Korea/,
-};
+/**
+ * 盤面のIDと、選ぶ画面での英語表示名。**目録から作る。**
+ * 手で書いていたので、盤面を足すたびにここも直す必要があり、
+ * 忘れると「知らない国です」で落ちる(何が足りないかは出ない)。
+ */
+const COUNTRIES = Object.fromEntries(
+  JSON.parse(
+    readFileSync(new URL("../src/infrastructure/content/country-index.json", import.meta.url), "utf8"),
+  ).map((entry) => [entry.id, entry.name.en]),
+);
 const SCENES = ["follow", "overview", "event", "quiz", "city", "setup"];
 
 function parseArgs(argv) {
@@ -109,7 +110,13 @@ async function dismissModal() {
 if (scene === "setup") {
   await page.getByText("Choose your journey").waitFor();
 } else {
-  await page.getByRole("button", { name: COUNTRIES[country] }).first().click();
+  // **札の名前そのもので選ぶ。**押しボタン全体の読み上げ名には肩の印
+  // (「Country」「World」)も入るので、名前を丸ごと突き合わせると外れる。
+  await page
+    .locator(".ccard")
+    .filter({ has: page.getByText(COUNTRIES[country], { exact: true }) })
+    .first()
+    .click();
   // CPUの手番は演出のぶん待たされるので、全員を人間にして手番を速く回す。
   await page.getByRole("button", { name: "Human" }).nth(1).click();
   await page.getByRole("button", { name: "Human" }).nth(2).click();
