@@ -77,7 +77,21 @@ export function segmentCount(
   projection: CountryProjection,
 ): number {
   const segmentLength = projection.segmentLength ?? 64;
-  // 目安距離の3/4より近い町は、マスを挟まずに直接つなぐ。
-  if (distance < segmentLength * 0.75) return 0;
+  /**
+   * **町どうしを直結にしてはいけない。**
+   *
+   * 「1マスの見た目の長さが路線ごとに最大22倍違う」という指摘に対して、
+   * 一度 `distance < segmentLength * 0.75` なら 0 を返す(=直結)ようにした。
+   * 見た目のばらつきは減ったが、**遊びが壊れた。**
+   *
+   * 直結にすると町から町へ1歩で渡れる。世界一周では96本中36本が直結になり、
+   * ヨーロッパの密集地帯を数珠つなぎに移動できてしまう。実測で、
+   * ロンドンから出目5でモスクワにもマラケシュにも届き、
+   * 「amsterdam → paris → london → amsterdam → paris」のように
+   * **同じ町を行き来して歩数を消化する**経路まで現れた。
+   *
+   * **見た目のばらつきより、歩数の意味のほうが大事。**必ず1つは挟む。
+   * 上限だけ上げてある(長い路線がマス1個で済んでいた分を緩和)。
+   */
   return Math.max(1, Math.min(9, Math.round(distance / segmentLength)));
 }
