@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.31.0",
+    date: "2026-08-11",
+    title: t(
+      "You can cross the Pacific at last|Por fin se puede cruzar el Pacífico|On peut enfin traverser le Pacifique|太平洋が渡れるようになりました",
+    ),
+    highlights: [
+      t(
+        "To get from Tokyo to San Francisco you had to sail the other way round the world, through Europe and the Atlantic. A ship now runs from Suva to Papeete, and the crossing takes twenty-four squares instead of the long way about.|Para ir de Tokio a San Francisco había que dar la vuelta al mundo por Europa y el Atlántico. Ahora hay un barco de Suva a Papeete, y la travesía son veinticuatro casillas en lugar del rodeo.|Pour aller de Tokyo à San Francisco, il fallait faire le tour du monde par l'Europe et l'Atlantique. Un navire relie désormais Suva à Papeete : la traversée fait vingt-quatre cases au lieu du long détour.|東京からサンフランシスコへ行くのに、ヨーロッパと大西洋を通って地球を反対に回るしかありませんでした。スバとパペーテのあいだに船を通しました。24マスで着きます。",
+      ),
+      t(
+        "The world map is cut at the date line, so the Pacific sits split between the two edges of the board. The new route is drawn the way a globe would have it: the line leaves the eastern edge and comes back in from the west, with the far port named at each end, and your train crosses in a single step instead of sliding back across Africa.|El mapa está cortado por la línea de cambio de fecha, así que el Pacífico queda partido entre los dos bordes del tablero. La nueva ruta se dibuja como en un globo terráqueo: la línea sale por el este y vuelve por el oeste, con el puerto lejano indicado en cada extremo, y el tren cruza de un paso en vez de deslizarse de vuelta sobre África.|La carte est coupée à la ligne de changement de date : le Pacifique se retrouve partagé entre les deux bords du plateau. La nouvelle ligne est tracée comme sur un globe : elle sort par l'est et revient par l'ouest, le port lointain étant nommé à chaque extrémité, et le train traverse d'un seul pas au lieu de reglisser au-dessus de l'Afrique.|世界地図は日付変更線で切ってあるので、太平洋は盤面の左右に分かれています。新しい航路は地球儀のとおりに描きました。線は右端から出て左端から入り、それぞれの端に向こうの港の名前を添えてあります。列車は一歩で渡ります(アフリカの上を滑って戻ったりしません)。",
+      ),
+    ],
+  },
+  {
     version: "0.30.0",
     date: "2026-08-11",
     title: t(
