@@ -468,16 +468,33 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
   const edges = useMemo(() => {
     const rail: { d: string; isTrunk: boolean }[] = [];
     const sea: { d: string; isTrunk: boolean }[] = [];
+    /**
+     * 盤面の端で切れた路線に添える行き先。
+     *
+     * 地球一周の盤面では太平洋が左右に分かれているので、スバ—パペーテの航路は
+     * 右端から出て左端から入ってくる(`use-board-layout.ts` の `splitAtSeam`)。
+     * **行き先を書かないと、線が途中で切れて壊れているようにしか見えない。**
+     */
+    const seamLabels: { x: number; y: number; text: string; anchor: "start" | "end" }[] = [];
     // マスとマスを直接結ぶと、折れ点がそのあいだに来たときに角を斜めに
     // 突っ切ってしまう。経路そのもの(折れ点を通る折れ線)を描く。
     const trunk = trunkSegments(context.content.id);
-    for (const { points, kind, between } of railPolylines(context, positions)) {
+    for (const { points, kind, between, continues } of railPolylines(context, positions)) {
       const d = roundedPath(points, cornerRadius);
       if (kind === "sea") sea.push({ d, isTrunk: false });
       else rail.push({ d, isTrunk: trunk.has([...between].sort().join("|")) });
+      if (!continues) continue;
+      const east = continues.side === "east";
+      const name = tx(context.getCity(CityId(continues.to)).name);
+      seamLabels.push({
+        x: continues.at.x + (east ? -14 : 14),
+        y: continues.at.y - 10,
+        text: east ? `${name} →` : `← ${name}`,
+        anchor: east ? "end" : "start",
+      });
     }
-    return { rail, sea };
-  }, [context, positions, cornerRadius]);
+    return { rail, sea, seamLabels };
+  }, [context, positions, cornerRadius, tx]);
 
   /**
    * 町ごとの持ち主。
@@ -601,6 +618,24 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
               </g>
             ))}
           </g>
+          {/* 盤面の端で切れた航路の行き先。海の名前と同じ大きさにして、
+              地図の書き込みとして馴染ませる(路線の名札にはしない)。 */}
+          {edges.seamLabels.map((label, i) => (
+            <text
+              key={i}
+              x={label.x}
+              y={label.y}
+              textAnchor={label.anchor}
+              /* 町の名札と同じ描き方(縮尺に合わせて字の大きさを変え、
+                 縁取りで海の上でも読めるようにする)。少しだけ小さくして、
+                 町の名前より前に出ないようにしている。 */
+              className="city-label seam-label"
+              fontSize={labelFontUnits * 0.85}
+              strokeWidth={labelFontUnits * 0.85 * 0.26}
+            >
+              {label.text}
+            </text>
+          ))}
           {RAIL_LAYERS.map((layer, layerIndex) => (
             <g key={layerIndex}>
               {edges.rail.map((line, i) => (

@@ -226,9 +226,18 @@ describe("盤面配置の前提", () => {
     const { context, positions } = await layoutOf(countryId);
     const lines = railPolylines(context, positions);
 
-    expect(lines.length, `${countryId}: 描かれた線の数が路線の数と合わない`).toBe(pack.edges.length);
+    // **1つの路線が2本に割れることがある。**日付変更線をまたぐ航路は、盤面の
+    // 右端で切れて左端から現れる(世界一周のスバ—パペーテ)。数ではなく
+    // 「どの路線が描かれたか」で突き合わせる。
+    const drawn = new Set(lines.map((l) => [...l.between].sort().join("|")));
+    const expected = new Set(pack.edges.map((e) => [e.from, e.to].sort().join("|")));
+    expect([...expected].filter((e) => !drawn.has(e)), `${countryId}: 線が引かれていない路線`).toEqual([]);
     // 航路(島へ渡る線)は見た目が違うので、種類も取り違えていないことを見る。
-    const seaCount = pack.edges.filter((e) => e.kind === "sea").length;
-    expect(lines.filter((l) => l.kind === "sea").length, `${countryId}: 航路の数`).toBe(seaCount);
+    const seaDrawn = new Set(lines.filter((l) => l.kind === "sea").map((l) => [...l.between].sort().join("|")));
+    const seaExpected = new Set(
+      pack.edges.filter((e) => e.kind === "sea").map((e) => [e.from, e.to].sort().join("|")),
+    );
+    expect([...seaExpected].filter((e) => !seaDrawn.has(e)), `${countryId}: 航路として引かれていない`).toEqual([]);
+    expect(seaDrawn.size, `${countryId}: 陸路が航路として引かれている`).toBe(seaExpected.size);
   });
 });

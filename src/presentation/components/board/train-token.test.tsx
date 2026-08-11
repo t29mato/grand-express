@@ -21,6 +21,41 @@ function renderToken(props: Partial<Parameters<typeof TrainToken>[0]> = {}) {
 }
 
 describe("TrainToken", () => {
+  it("日付変更線をまたいだときは、滑らせずに飛ばす", () => {
+    // 太平洋は盤面の左右に分かれているので、渡る1歩で座標が3300ほど動く。
+    // そのまま滑らせると**駒がアフリカの上を横切って盤面を走り抜ける。**
+    const { container, rerender } = render(
+      <svg>
+        <TrainToken x={3400} y={860} color="#e0457b" isActive={false} stepMs={300} />
+      </svg>,
+    );
+    const token = container.querySelector(".token") as SVGGElement;
+    expect(token.style.transition).toBe("transform 300ms linear");
+
+    rerender(
+      <svg>
+        <TrainToken x={240} y={857} color="#e0457b" isActive={false} stepMs={300} />
+      </svg>,
+    );
+    expect(token.style.transition).toBe("none");
+  });
+
+  it("ふつうの1歩は滑らせる", () => {
+    const { container, rerender } = render(
+      <svg>
+        <TrainToken x={1000} y={500} color="#e0457b" isActive={false} stepMs={300} />
+      </svg>,
+    );
+    const token = container.querySelector(".token") as SVGGElement;
+    rerender(
+      <svg>
+        {/* いちばん広い盤面(seg=150)の1歩でも、飛ぶ扱いの距離には届かない */}
+        <TrainToken x={1150} y={500} color="#e0457b" isActive={false} stepMs={300} />
+      </svg>,
+    );
+    expect(token.style.transition).toBe("transform 300ms linear");
+  });
+
   it("憑かれていなければ神は描かない", () => {
     expect(renderToken().querySelector(".token-spirit")).toBeNull();
   });

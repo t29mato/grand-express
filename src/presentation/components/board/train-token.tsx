@@ -1,6 +1,18 @@
 "use client";
 
+import { useLayoutEffect, useRef } from "react";
 import { TOKEN_BASE_SCALE } from "./token-layout";
+
+/**
+ * これ以上いっぺんに動いたら、滑らせずに**瞬間移動**として描く距離(盤面座標)。
+ *
+ * 世界一周の盤面では太平洋が左右の端に分かれていて、日付変更線をまたぐ1歩で
+ * 駒の座標が3300ほど飛ぶ。そのまま滑らせると、**駒がアフリカの上を横切って
+ * 盤面を走り抜ける。**線を端で切ってあるのに駒だけ地図を横断しては意味がない。
+ *
+ * ふつうの1歩はいちばん広い盤面(seg=150)でもこの半分に届かない。
+ */
+const JUMP_DISTANCE = 400;
 
 /**
  * プレイヤーの駒。ただの丸だと自分がどこにいるのか地図の中で埋もれてしまうため、
@@ -45,8 +57,30 @@ export function TrainToken({
   stepMs?: number;
 }) {
   const s = scale;
+
+  // 前に描いた場所を覚えておき、飛んだときだけ滑りを切る。
+  // 描画中に ref を読むことはできないので(React の決まり)、描いたあと・
+  // 画面に出る前に差し込む。`useLayoutEffect` はそのために使う。
+  const group = useRef<SVGGElement>(null);
+  const lastAt = useRef<{ x: number; y: number } | null>(null);
+  useLayoutEffect(() => {
+    const element = group.current;
+    const previous = lastAt.current;
+    lastAt.current = { x, y };
+    if (!element || !previous) return;
+    if (Math.hypot(x - previous.x, y - previous.y) <= JUMP_DISTANCE) return;
+    const saved = element.style.transition;
+    element.style.transition = "none";
+    // 1枚ぶん待って戻す。すぐ戻すと、同じ描画のうちに元通りになって効かない。
+    const timer = requestAnimationFrame(() => {
+      element.style.transition = saved;
+    });
+    return () => cancelAnimationFrame(timer);
+  }, [x, y]);
+
   return (
     <g
+      ref={group}
       className={`token${isActive ? " active" : ""}`}
       transform={`translate(${x}, ${y}) scale(${s})`}
       style={stepMs === undefined ? undefined : { transition: `transform ${stepMs}ms linear` }}

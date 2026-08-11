@@ -50,6 +50,7 @@ export function computeBoardLayout(context: GameEngineContext): ReadonlyMap<Node
   const projectX = (lon: number) => projectPoint(lon, projection.lat0, projection).x;
   const projectY = (lat: number) => projectPoint(projection.lon0, lat, projection).y;
 
+  const wrapWidth = wrapWidthOf(projection);
   const cityPositions = new Map<string, NodePosition>();
   for (const city of context.content.cities) {
     cityPositions.set(city.id, { x: projectX(city.longitude), y: projectY(city.latitude) });
@@ -82,14 +83,22 @@ export function computeBoardLayout(context: GameEngineContext): ReadonlyMap<Node
     const k = Number(match[2]);
     const n = siblingCounts.get(`e${match[1]}_`) ?? 1;
     const diagonalFirst = edgeIndex % 2 === 1;
-    positions.set(id, octilinearRoutePoint(a, b, k / (n + 1), diagonalFirst));
+    const far = nearestAcrossSeam(a, b, wrapWidth);
+    positions.set(id, octilinearRoutePoint(a, far, k / (n + 1), diagonalFirst));
   }
 
   // 押し離しは都市の位置を整えるために回す。中間マスもここで動くが、
   // このあと経路の上へ置き直すので、結果には残らない。
   const relaxed = relaxOverlaps(positions, context, projection);
-  const { placed, routes } = placeSquaresOnRoute(relaxed, context, siblingCounts);
-  return slideSquaresAlongRoute(placed, routes, projection, collectObstacles(context, placed));
+  const { placed, routes } = placeSquaresOnRoute(relaxed, context, siblingCounts, wrapWidth);
+  const slid = slideSquaresAlongRoute(placed, routes, projection, collectObstacles(context, placed));
+
+  // 日付変更線をまたぐ路線は、ここまで**1周ぶんずらした座標**で計算している。
+  // 最後にまとめて盤面の上へ戻す。戻すのは端をはみ出した点だけ。
+  if (wrapWidth === null) return slid;
+  const wrapped = new Map<NodeId, NodePosition>();
+  for (const [id, at] of slid) wrapped.set(id, wrapX(at, projection, wrapWidth));
+  return wrapped;
 }
 
 /** 盤面座標の矩形 `[x, y, 幅, 高さ]`。 */
@@ -123,6 +132,61 @@ function collectObstacles(context: GameEngineContext, placed: ReadonlyMap<NodeId
   return obstacles;
 }
 
+
+/**
+ * 地球一周する盤面で、**日付変更線をまたぐ路線**を扱うための道具。
+ *
+ * 世界一周の盤面は経度 -188〜216 で切ってある。つまり太平洋は左右の端に
+ * 分かれていて、スバ(x=3358)とパペーテ(x=352)は**同じ海の向かい岸なのに
+ * 盤面の反対側にいる。**この2つを素直に線で結ぶと、3006pxの線が盤面を横切って
+ * 南アメリカとアフリカを串刺しにする(実測。`scripts/check-sea-routes.mjs`)。
+ *
+ * そこで、この路線だけは**経度を1周ぶんずらして計算し、日付変更線で切る。**
+ * スバから東へ出た線は右端で消え、左端から現れてパペーテに着く。
+ * 地球儀の上では1本の線で、絵の上では2本になる。
+ *
+ * 盤面が地球一周でなければ(経度の幅が360度未満)何も起きない。
+ */
+function wrapWidthOf(projection: CountryProjection): number | null {
+  const span = projection.lon1 - projection.lon0;
+  if (span < 360) return null;
+  return (360 / span) * projection.boardWidth;
+}
+
+/** `from` から見て近いほうの `to` を返す(必要なら1周ぶんずらす)。 */
+function nearestAcrossSeam(from: NodePosition, to: NodePosition, wrapWidth: number | null): NodePosition {
+  if (wrapWidth === null) return to;
+  const shift = Math.round((from.x - to.x) / wrapWidth) * wrapWidth;
+  return shift === 0 ? to : { x: to.x + shift, y: to.y };
+}
+
+/**
+ * 線と駒を折り返す位置(盤面座標)。
+ *
+ * 日付変更線(経度180)そのものではなく、**そこから盤面の右端までの中間**に置く。
+ * 世界一周の盤面は経度216まで描いてあり、180から先は左端と同じ海を二重に
+ * 見せている。スバは178.4°Eで日付変更線のすぐ手前にいるので、180で折り返すと
+ * **右側の線が32pxしか残らず、海の途中で切れたようにしか見えない。**(実測)
+ * 中間で折れば、右にも左にも同じくらいの長さの線が残る。
+ */
+function seamX(projection: CountryProjection): number {
+  const pxPerDegree = projection.boardWidth / (projection.lon1 - projection.lon0);
+  const dateLine = (180 - projection.lon0) * pxPerDegree;
+  return dateLine + (projection.boardWidth - dateLine) / 2;
+}
+
+/**
+ * 1周ぶんずらして計算した座標を、盤面の上へ戻す。折り返し位置より
+ * 右へはみ出した点だけが動く。
+ */
+function wrapX(at: NodePosition, projection: CountryProjection, wrapWidth: number | null): NodePosition {
+  if (wrapWidth === null) return at;
+  const seam = seamX(projection);
+  if (at.x <= seam && at.x > seam - wrapWidth) return at;
+  const shift = Math.ceil((at.x - seam) / wrapWidth) * wrapWidth;
+  return { x: at.x - shift, y: at.y };
+}
+
 /** 中間マスが経路のどこに居るか。動かすのは `t` だけ。 */
 interface RouteSlot {
   readonly a: NodePosition;
@@ -148,6 +212,7 @@ function placeSquaresOnRoute(
   positions: ReadonlyMap<NodeId, NodePosition>,
   context: GameEngineContext,
   siblingCounts: ReadonlyMap<string, number>,
+  wrapWidth: number | null,
 ): { placed: Map<NodeId, NodePosition>; routes: Map<NodeId, RouteSlot> } {
   const placed = new Map<NodeId, NodePosition>(positions);
   const routes = new Map<NodeId, RouteSlot>();
@@ -167,8 +232,9 @@ function placeSquaresOnRoute(
 
     const diagonalFirst = edgeIndex % 2 === 1;
     const t = k / (n + 1);
-    routes.set(id, { a, b, diagonalFirst, t });
-    placed.set(id, octilinearRoutePoint(a, b, t, diagonalFirst));
+    const far = nearestAcrossSeam(a, b, wrapWidth);
+    routes.set(id, { a, b: far, diagonalFirst, t });
+    placed.set(id, octilinearRoutePoint(a, far, t, diagonalFirst));
   }
   return { placed, routes };
 }
@@ -372,10 +438,26 @@ function routeLengthOf(slot: RouteSlot): number {
  * **線が丸ごと描かれない**。日本では20本、世界一周では36本がそれに当たる。
  * 路線の種類(陸路/航路)も、中間マスから推測せず `edge.kind` をそのまま使う。
  */
+/** 盤面に引く線1本。日付変更線で割れた路線は2本になる。 */
+export interface RailLine {
+  readonly points: readonly NodePosition[];
+  readonly kind: "rail" | "sea";
+  readonly between: readonly [string, string];
+  /**
+   * 盤面の端から先へ続いている場合の、**端に当たっている点と続く先の町。**
+   * 端で切れた線に行き先を添えるために使う(添えないと、線が壊れて見える)。
+   *
+   * 端がどちらかは向きから決めてはいけない。左側の線は「左へ出ていく」のに
+   * 点の並びは左から右(端 → パペーテ)で、向きで決めると**反対の端に
+   * 行き先を書いてしまう。**(撮って気づいた)
+   */
+  readonly continues?: { readonly to: string; readonly at: NodePosition; readonly side: "east" | "west" };
+}
+
 export function railPolylines(
   context: GameEngineContext,
   positions: ReadonlyMap<NodeId, NodePosition>,
-): { points: readonly NodePosition[]; kind: "rail" | "sea"; between: readonly [string, string] }[] {
+): RailLine[] {
   const squaresByEdge = new Map<number, NodeId[]>();
   for (const [id, node] of context.graph.nodes) {
     if (isCityNode(node)) continue;
@@ -387,19 +469,26 @@ export function railPolylines(
     else squaresByEdge.set(edgeIndex, [id]);
   }
 
-  const lines: { points: readonly NodePosition[]; kind: "rail" | "sea"; between: readonly [string, string] }[] = [];
+  const wrapWidth = wrapWidthOf(context.content.projection);
+  const lines: RailLine[] = [];
   context.content.edges.forEach((edge, edgeIndex) => {
     const between = [edge.from, edge.to] as const;
     const kind = edge.kind;
     const ids = squaresByEdge.get(edgeIndex) ?? [];
     const a = positions.get(NodeId(between[0]));
-    const b = positions.get(NodeId(between[1]));
-    if (!a || !b) return;
+    const bOnBoard = positions.get(NodeId(between[1]));
+    if (!a || !bOnBoard) return;
+    // 日付変更線をまたぐ路線は、**1周ぶんずらした座標で線を引いてから切る。**
+    // 盤面の位置のまま結ぶと、太平洋の代わりに盤面を横切る線になる。
+    const b = nearestAcrossSeam(a, bOnBoard, wrapWidth);
     const corner = octilinearCorner(a, b, edgeIndex % 2 === 1);
     const ordered = [...ids].sort(
       (x, y) => Number(/_(\d+)$/.exec(x)![1]) - Number(/_(\d+)$/.exec(y)![1]),
     );
-    const squares = ordered.map((id) => positions.get(id)!).filter(Boolean);
+    const squares = ordered
+      .map((id) => positions.get(id)!)
+      .filter(Boolean)
+      .map((p) => nearestAcrossSeam(a, p, wrapWidth));
 
     // 折れ点は、1本目の脚に乗っているマスの直後に入れる。
     // 「線分 a–corner の上にあるか」は、a までの距離と corner までの距離の和が
@@ -412,9 +501,56 @@ export function railPolylines(
     const second: NodePosition[] = [];
     for (const p of squares) (onFirstLeg(p) ? first : second).push(p);
 
-    lines.push({ points: [a, ...first, corner, ...second, b], kind, between });
+    const points = [a, ...first, corner, ...second, b];
+    const pieces = splitAtSeam(points, context.content.projection, wrapWidth);
+    pieces.forEach((piece, index) => {
+      // 2本に割れたときだけ、**盤面の外へ続く先**を持たせる。
+      // 前半は右端から出ていき(続く先は相手の町)、後半は左端から入ってくる。
+      const continues =
+        pieces.length < 2
+          ? undefined
+          : index === 0
+            ? { to: between[1], at: piece[piece.length - 1], side: "east" as const }
+            : { to: between[0], at: piece[0], side: "west" as const };
+      lines.push({ points: piece, kind, between, continues });
+    });
   });
   return lines;
+}
+
+/**
+ * 盤面をはみ出した線を、日付変更線で切って盤面の上へ戻す。
+ * はみ出していなければ元の1本をそのまま返す(ほとんどの路線がこちら)。
+ *
+ * 切れ目では線が端まで伸びていないと、**海の途中で線が終わって見える。**
+ * 端に当たる点を計算して足してから切る。
+ */
+function splitAtSeam(
+  points: readonly NodePosition[],
+  projection: CountryProjection,
+  wrapWidth: number | null,
+): NodePosition[][] {
+  if (wrapWidth === null) return [[...points]];
+  const east = seamX(projection);
+  if (points.every((p) => p.x <= east)) return [[...points]];
+
+  const near: NodePosition[] = [];
+  const far: NodePosition[] = [];
+  points.forEach((p, i) => {
+    const previous = points[i - 1];
+    if (previous && previous.x <= east !== p.x <= east) {
+      // 端をまたいだので、またいだ点を両方の線の末端に足す。
+      const ratio = (east - previous.x) / (p.x - previous.x);
+      const y = previous.y + (p.y - previous.y) * ratio;
+      // **盤面の端まで伸ばす。**折り返した位置で止めると、線が海の途中で
+      // ぷつりと終わり、続きがあるように見えない(撮って確かめた)。
+      // 端まで引いておけば「地図の外へ出ていった」と読める。
+      near.push({ x: projection.boardWidth, y });
+      far.push({ x: 0, y });
+    }
+    (p.x <= east ? near : far).push(p.x <= east ? p : { x: p.x - wrapWidth, y: p.y });
+  });
+  return [near, far].filter((line) => line.length >= 2);
 }
 
 /**
