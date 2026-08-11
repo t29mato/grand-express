@@ -77,7 +77,10 @@ test("候補が読み上げに出て、向き・種類・目的地までの残�
   // 候補1つずつが**ボタンとして**引ける(引けなければツリーに出ていない)。
   const label = await page.locator(candidates).first().getAttribute("aria-label");
   expect(label).toMatch(/^(north|north-east|east|south-east|south|south-west|west|north-west), /);
-  expect(label).toMatch(/(squares away|This is your destination\.)$/);
+  // 末尾で固定しない。**同じ文の候補が並んで区別が付かなかったのを直したとき**、
+  // 「On the Coroico–La Paz line.」のような路線名を後ろに足したため
+  // (盤面には分かれ道があり、方位も種類も距離も同じ候補が並ぶことがある)。
+  expect(label).toMatch(/(squares away|This is your destination\.)/);
   // **1件だけとは限らない。** 盤面には分かれ道があるので、方位も種類も
   // 目的地までの距離も同じ候補が並ぶことがある(6盤面で数えて組の15.5%)。
   // 読み上げ側はそこに路線名を足して区別するが、**同じ路線の上に並ぶ組**は
@@ -105,7 +108,11 @@ test("行き先を選んでいないときは、盤面にフォーカスでき�
   expect(await page.locator("svg.board-svg [tabindex]").count()).toBe(0);
 
   // 代わりに、いまどこに居るかはHUDに文で出ている。
-  await expect(page.locator(".board-status-line")).toHaveText(/You are .+\. .+ is \d+ squares away\./);
+  // 誰の話かは文の外(名前の札)にある——この枠はCPUの手番でも同じ形で出るため、
+  // 文そのものは二人称で書かない。
+  const status = page.locator(".board-status-line");
+  await expect(status).toHaveText(/^You .*At .+\. .+ is \d+ squares away\.$/);
+  await expect(status.locator(".board-status-who")).toContainText("You");
 });
 
 test("盤面の飾りは読み上げから外れている", async ({ page }) => {

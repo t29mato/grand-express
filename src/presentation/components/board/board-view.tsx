@@ -17,6 +17,7 @@ import { BoardLegend } from "./board-legend";
 import { BoardCompass } from "./board-compass";
 import { candidateLabels as buildCandidateLabels, nextFocusIndex, orderByAzimuth } from "./candidate-guide";
 import { soundAdapter } from "../../state/game-store-dependencies";
+import { WALK_STEP_MS } from "../../state/motion-preference";
 
 const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
 
@@ -115,10 +116,15 @@ export interface BoardViewProps {
   reachable: ReadonlySet<NodeId> | null;
   /** サイコロの目(= 進むマス数)。読み上げの案内に使う。 */
   steps?: number;
+  /**
+   * 道のりを歩いている最中の駒の居場所(見た目だけ)。
+   * `session` の居場所より優先して描く。着いたら null に戻る。
+   */
+  walk?: { readonly playerId: PlayerId; readonly nodeId: NodeId; readonly emoji: string | null } | null;
   onChooseNode?: (id: NodeId) => void;
 }
 
-export function BoardView({ context, session, reachable, steps, onChooseNode }: BoardViewProps) {
+export function BoardView({ context, session, reachable, steps, walk, onChooseNode }: BoardViewProps) {
   const positions = useBoardLayout(context);
   const { tx, t, locale } = useLocale();
   const { boardWidth, boardHeight } = context.content.projection;
@@ -149,7 +155,9 @@ export function BoardView({ context, session, reachable, steps, onChooseNode }: 
   const [dragging, setDragging] = useState(false);
 
   const activePlayerId = currentPlayer(session).id;
-  const activeLocation = currentPlayer(session).location;
+  /** 歩いている最中は、その駒が居るマスをカメラが追う(道のりに沿って画面が付いていく)。 */
+  const activeLocation =
+    walk && walk.playerId === activePlayerId ? walk.nodeId : currentPlayer(session).location;
 
   /**
    * 候補の中身から作る鍵。
@@ -508,18 +516,26 @@ export function BoardView({ context, session, reachable, steps, onChooseNode }: 
   }, [session.players, context]);
 
   const tokensByNode = useMemo(() => {
-    const map = new Map<string, { name: string; color: string; isActive: boolean }[]>();
+    const map = new Map<
+      string,
+      { name: string; color: string; isActive: boolean; isWalking: boolean; carriedEmoji: string | null }[]
+    >();
     session.players.forEach((p, i) => {
-      const list = map.get(p.location) ?? [];
+      // 歩いている駒だけ、盤の状態ではなく見た目の居場所に描く。
+      const walking = walk?.playerId === p.id;
+      const at = walking ? walk.nodeId : p.location;
+      const list = map.get(at) ?? [];
       list.push({
         name: p.name,
         color: PLAYER_COLORS[i % PLAYER_COLORS.length],
         isActive: p.id === activePlayerId,
+        isWalking: walking,
+        carriedEmoji: walking ? walk.emoji : null,
       });
-      map.set(p.location, list);
+      map.set(at, list);
     });
     return map;
-  }, [session.players, activePlayerId]);
+  }, [session.players, activePlayerId, walk]);
 
   return (
     // 盤面SVGとその上に重ねるボタン類の基準になる箱。
@@ -680,6 +696,13 @@ export function BoardView({ context, session, reachable, steps, onChooseNode }: 
                   key={isRejected ? `reject-${rejected.nonce}` : "still"}
                   className={isRejected ? "node-reject" : undefined}
                 >
+                  {/* **押せる範囲を、見た目より広く取る。**
+                      マスは画面上おおよそ半径6pxしかなく、数px外すと何も起きなかった
+                      (範囲外の弾き返しは効くが、押せるマスを微妙に外すと
+                      その経路に入らないので本当に無反応になる)。
+                      塗りが無いと当たらないので `fill="transparent"`。
+                      いちばん先に描くことで、下の図形より手前には来ない。 */}
+                  <circle r={SIZES.hitRadius} fill="transparent" />
                   {isChoosable && <circle r={SIZES.haloRadius} className="halo" />}
                   {isRejected && <circle r={SIZES.haloRadius} className="reject-ring" />}
                   {isCityNode(node) ? (
@@ -717,6 +740,10 @@ export function BoardView({ context, session, reachable, steps, onChooseNode }: 
                 color={token.color}
                 isActive={token.isActive}
                 scale={placement.scale}
+                carriedEmoji={token.carriedEmoji}
+                /* 1マスごとに位置が変わるので、既定の0.35秒では次のマスまでに滑り切らず、
+                   駒が道のりから何マスも遅れてしまう。歩いている駒だけ間隔に合わせる。 */
+                stepMs={token.isWalking ? WALK_STEP_MS : undefined}
               />
             ));
           })}
