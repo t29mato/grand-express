@@ -52,6 +52,7 @@ export function GameScreen() {
   const dismissDoom = useGameStore((s) => s.dismissDoom);
   const dismissQuizResult = useGameStore((s) => s.dismissQuizResult);
   const diceRoll = useGameStore((s) => s.diceRoll);
+  const walk = useGameStore((s) => s.walk);
   const clearDiceRoll = useGameStore((s) => s.clearDiceRoll);
   const revealDiceRoll = useGameStore((s) => s.revealDiceRoll);
   const { t } = useLocale();
@@ -59,7 +60,9 @@ export function GameScreen() {
   if (!context || !session) return null;
 
   const player = currentPlayer(session);
-  const reachableSet: ReadonlySet<NodeId> | null = ui.kind === "choosing-square" ? new Set(ui.reachable.keys()) : null;
+  // 選んだあと駒が歩いているあいだは候補を消す。光ったままだと、まだ選び直せるように見える。
+  const reachableSet: ReadonlySet<NodeId> | null =
+    ui.kind === "choosing-square" && !walk ? new Set(ui.reachable.keys()) : null;
 
   return (
     <div className="game-screen">
@@ -83,6 +86,7 @@ export function GameScreen() {
             session={session}
             reachable={reachableSet}
             steps={ui.kind === "choosing-square" ? ui.steps : undefined}
+            walk={walk}
             onChooseNode={(id) => chooseSquare(id)}
           />
           {diceRoll && (
@@ -96,7 +100,9 @@ export function GameScreen() {
           <DestinationCard context={context} session={session} />
           <DiceButton
             session={session}
-            disabled={player.isCpu || ui.kind !== "idle"}
+            /* 運ばれているあいだは `ui` が idle のままなので、`walk` も見て止める。
+               止めないと、道のりの途中でサイコロを押せてしまう。 */
+            disabled={player.isCpu || ui.kind !== "idle" || walk !== null}
             cpuTurnPlayerName={
               ui.kind === "cpu-turn" || ui.kind === "cpu-city" || ui.kind === "cpu-quiz" ? ui.playerName : undefined
             }

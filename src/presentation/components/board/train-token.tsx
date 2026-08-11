@@ -14,6 +14,8 @@ export function TrainToken({
   color,
   isActive,
   scale = TOKEN_BASE_SCALE,
+  carriedEmoji = null,
+  stepMs,
 }: {
   x: number;
   y: number;
@@ -22,10 +24,27 @@ export function TrainToken({
   isActive: boolean;
   /** 描く倍率。同じマスに何人もいるときは小さくして、駒どうしが重ならないようにする。 */
   scale?: number;
+  /**
+   * 運んでくれているアイテムの絵文字(エケコ人形・帆引き船・飛行機など)。
+   * 6盤面で効果は同じだがアイテムは別物なので、**何に運ばれているか**をここで見せる。
+   */
+  carriedEmoji?: string | null;
+  /**
+   * 1マスぶん滑るのにかける時間。道のりを歩いているあいだだけ渡す。
+   * 渡さなければ globals.css の既定(0.35秒)のまま。
+   *
+   * インラインで上書きしているのは、`globals.css` が他の担当と共有だから。
+   * 動きを減らす設定のときは歩き自体を飛ばすので、ここには来ない。
+   */
+  stepMs?: number;
 }) {
   const s = scale;
   return (
-    <g className={`token${isActive ? " active" : ""}`} transform={`translate(${x}, ${y}) scale(${s})`}>
+    <g
+      className={`token${isActive ? " active" : ""}`}
+      transform={`translate(${x}, ${y}) scale(${s})`}
+      style={stepMs === undefined ? undefined : { transition: `transform ${stepMs}ms linear` }}
+    >
       {isActive && <circle r={15} fill="none" stroke="#f6efe2" strokeWidth={1.6} opacity={0.85} className="token-ring" />}
       {/* 影 */}
       <ellipse cx={0} cy={7.5} rx={10} ry={2.6} fill="#0d0a18" opacity={0.45} />
@@ -51,6 +70,14 @@ export function TrainToken({
         <circle cx={-5.6} cy={5} r={0.8} />
         <circle cx={1.4} cy={5} r={0.8} />
       </g>
+      {/* 運ばれている最中の目印。機関車の上に、運んでいるものを乗せる。
+          文字なので盤面の縮尺に関わらず読める大きさに固定はせず、駒と一緒に拡縮させる
+          (駒が小さくなる場面では、これも一緒に小さくないと駒を覆ってしまう)。 */}
+      {carriedEmoji && (
+        <text x={0} y={-11} fontSize={11} textAnchor="middle" aria-hidden="true">
+          {carriedEmoji}
+        </text>
+      )}
     </g>
   );
 }

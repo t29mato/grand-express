@@ -144,6 +144,17 @@ export interface GameStoreState {
    * 1個のサイコロだけを見せると「目より多く進む」ように見えてしまう。
    */
   diceRoll: { readonly nonce: number; readonly value: number; readonly rolls: readonly number[] } | null;
+  /**
+   * 駒が経路をたどっている最中の、**見た目だけ**の位置。
+   *
+   * 盤の状態(`session`)は道のりが終わってからまとめて反映する。途中の1マスごとに
+   * セッションを書き換えると、すれ違いや通過の判定がドメインと二重になるため
+   * (歩く処理そのものは `movePlayerAlongPath` が既に1マスずつ回している)。
+   *
+   * `emoji` は運んでくれているアイテム(エケコ人形・帆引き船など)。
+   * 自分でマスを選んで進むときは null。
+   */
+  walk: { readonly playerId: PlayerId; readonly nodeId: NodeId; readonly emoji: string | null } | null;
 
   startNewGame(config: { countryId: CountryId; players: readonly PlayerSetup[]; maxMonths: number; cpuLevel: CpuLevel }): Promise<void>;
   loadSavedGame(): Promise<void>;

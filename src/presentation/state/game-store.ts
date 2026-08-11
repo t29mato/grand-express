@@ -1,7 +1,7 @@
 "use client";
 
 import { create } from "zustand";
-import { GameSessionId, ItemKey, NodeId, PropertyRef } from "../../domain/shared-kernel/ids";
+import { GameSessionId, ItemKey, NodeId, PlayerId, PropertyRef } from "../../domain/shared-kernel/ids";
 import { currentPlayer } from "../../domain/game-session/game-session";
 import { isCityNode } from "../../domain/board/node";
 import { createGameEngineContext } from "../../application/game-engine-context";
@@ -17,6 +17,7 @@ import { loadGame, saveGame } from "../../application/use-cases/save-load-game/s
 import { GameStoreState, SavedGameSummary } from "./game-store-types";
 import { contentRepository, gameRepository, random, soundAdapter } from "./game-store-dependencies";
 import { logEntry, pushLog } from "./game-store-log";
+import { prefersReducedMotion, WALK_STEP_MS } from "./motion-preference";
 import { describeStrike } from "./game-store-formatters";
 import { formatMoney } from "../i18n/money-format";
 import { createTurnFlowActions } from "./game-store-turn-flow";
@@ -112,22 +113,60 @@ export const useGameStore = create<GameStoreState>((set, get) => {
   }
 
   /**
+   * 駒を経路に沿って1マスずつ進めて見せる。**見た目だけ**で、盤の状態は変えない。
+   *
+   * 進んでいるあいだ `walk` に居場所を持たせ、盤面はそちらを優先して駒を描く
+   * (`board-view.tsx`)。カメラも `walk` を追うので、道のりに沿って画面が付いていく。
+   */
+  async function showWalk(playerId: PlayerId, path: readonly NodeId[], emoji: string | null) {
+    // 動きを減らす設定のときは、待ち時間だけ残さずに一気に着地させる。
+    if (prefersReducedMotion() || path.length === 0) return;
+    for (const nodeId of path) {
+      set({ walk: { playerId, nodeId, emoji } });
+      await new Promise((resolve) => setTimeout(resolve, WALK_STEP_MS));
+    }
+  }
+
+  /**
    * 決まった経路に沿って駒を動かし、着地の処理へ渡す。
    * 自分でマスを選んだとき(`chooseSquare`)も、風まかせで運ばれたとき
    * (`carried-far` のアイテム)も、移動はここを通る。
+   *
+   * **道のりを見せ終わってから着地の処理を呼ぶ。**以前は移動と着地が同じ瞬間に起き、
+   * 着地のモーダル(クイズ・青赤の出来事・町)が**駒が動くのと同じフレームで開いていた**。
+   * 暗幕の下で駒が滑るので、8〜12マス運ばれるアイテムでも動きが一度も見えなかった。
    */
-  function walkAlongPath(path: readonly NodeId[]) {
+  async function walkAlongPath(
+    path: readonly NodeId[],
+    options: {
+      /** 運んでくれているアイテムの絵文字。道のりのあいだ駒に乗せる。 */
+      readonly carriedEmoji?: string | null;
+      /** 駒が着いた直後・着地の処理より前に呼ぶ。着いてから出したい記録に使う。 */
+      readonly onArrived?: () => void;
+    } = {},
+  ) {
+    const before = get();
+    if (!before.context || !before.session) return;
+    const playerId = currentPlayer(before.session).id;
+
+    await showWalk(playerId, path, options.carriedEmoji ?? null);
+    options.onArrived?.();
+
+    // 道のりのあいだに待っているので、状態を取り直してから盤に反映する。
     const { context, session } = get();
     if (!context || !session) return;
-    const player = currentPlayer(session);
-    const moveResult = movePlayerAlongPath(session, player.id, path);
+    const player = session.players.find((p) => p.id === playerId);
+    if (!player) return;
+    const moveResult = movePlayerAlongPath(session, playerId, path);
     set((s) => {
       let log = s.log;
       for (const evt of moveResult.spiritPassEvents) {
         const to = session.players.find((p) => p.id === evt.toPlayerId)?.name ?? String(evt.toPlayerId);
         log = [logEntry("passLog", [context.content.spirit.emoji, player.name, to], "bad"), ...log];
       }
-      return { session: moveResult.session, log };
+      // 駒はもう着いているので、見た目の位置(`walk`)は盤の状態と同時に外す。
+      // 先に外すと、1フレームだけ出発地点へ戻ってしまう。
+      return { session: moveResult.session, log, walk: null };
     });
     soundAdapter.setRegion(context.getNode(moveResult.finalNode).regionId);
     resolveLandingForHuman(moveResult.finalNode);
@@ -139,6 +178,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     ui: { kind: "setup" },
     log: [],
     diceRoll: null,
+    walk: null,
     savedGame: null,
 
     async startNewGame(config) {
@@ -255,9 +295,12 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     chooseSquare(nodeId) {
       const { context, session, ui } = get();
       if (!context || !session || ui.kind !== "choosing-square") return;
+      // 道のりを見せているあいだは受け付けない。以前は移動が一瞬だったので
+      // 二重に押される隙が無かったが、いまは1秒近く歩いている。
+      if (get().walk) return;
       const path = ui.reachable.get(nodeId);
       if (!path) return;
-      walkAlongPath(path);
+      void walkAlongPath(path);
     },
 
     answerQuizOption(optionIndex) {
@@ -338,8 +381,11 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     },
 
     useInventoryItem(index) {
-      const { context, session } = get();
+      const { context, session, walk } = get();
       if (!context || !session) return;
+      // 駒が道のりを歩いているあいだは使わせない(運ばれている最中に
+      // もう1つ運ぶアイテムを使うと、経路が二重になる)。
+      if (walk) return;
       const player = currentPlayer(session);
       // 使用したアイテムはこの後インベントリから消えるため、先に控えておく。
       const usedItem = context.content.items.find((i) => i.key === player.inventory[index]);
@@ -362,12 +408,17 @@ export const useGameStore = create<GameStoreState>((set, get) => {
           // 行き先は抽選済み。選ばせずにそのまま運ぶ(向きが選べないのが、このアイテムの肝)。
           const { steps, path, toNode } = outcome;
           const landing = context.getNode(toNode);
-          set((s) => ({
-            log: isCityNode(landing)
-              ? pushLog(s, "carriedToLog", [player.name, steps, context.getCity(landing.cityId).name], "gold")
-              : pushLog(s, "carriedLog", [player.name, steps], "gold"),
-          }));
-          walkAlongPath(path);
+          // **何マス進んでどこに着いたかは、着いてから出す。**先に出すと、駒が動き出す前に
+          // 答えが画面に出てしまい、道のりを見る理由が無くなる(サイコロと同じ理屈)。
+          void walkAlongPath(path, {
+            carriedEmoji: usedItem?.emoji ?? null,
+            onArrived: () =>
+              set((s) => ({
+                log: isCityNode(landing)
+                  ? pushLog(s, "carriedToLog", [player.name, steps, context.getCity(landing.cityId).name], "gold")
+                  : pushLog(s, "carriedLog", [player.name, steps], "gold"),
+              })),
+          });
           break;
         }
         case "rolled": {

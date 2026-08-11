@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { soundAdapter } from "../../state/game-store-dependencies";
+import { prefersReducedMotion } from "../../state/motion-preference";
 
 /**
  * legacy(`grand-express.html`)の3Dダイス物理演出の移植。
@@ -111,11 +112,6 @@ function spinProgress(t: number): number {
  */
 function settleWobble(s: number): number {
   return Math.cos(s * Math.PI * 2.2) * Math.pow(1 - s, 2);
-}
-
-/** OS/ブラウザ側で「視差効果を減らす」が有効になっているか。 */
-function prefersReducedMotion(): boolean {
-  return typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches === true;
 }
 
 export function DiceStage({
