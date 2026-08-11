@@ -168,26 +168,41 @@ export function candidateLabels(
 }
 
 /**
- * いま自分がどこに居るか(候補が無いときに、盤面を見ずに分かるようにするための一文)。
+ * いま手番の人がどこに居るか(盤面を見ずに分かるようにするための一文)。
  *
  * 都市にいる場合と中間マスにいる場合で**文ごと分けている。**
  * 場所の言い方だけを差し替える作りにすると、前置詞の要る言語で崩れる
  * (フランス語で「Vous êtes Paris」= 前置詞なしになっていた)。
+ *
+ * **誰の話かはここでは言わない。**この一文はCPUの手番でも同じ枠に出るので、
+ * 「You are at …」と書くとCPUの位置を自分の位置として読んでしまう。
+ * 名前は `whoAtLabel` で外から付ける。
  */
-export function whereYouAreLabel(deps: LabelDeps, location: NodeId): string {
+export function atLabel(deps: LabelDeps, location: NodeId): string {
   const { context, session, t, tx } = deps;
   const node = context.getNode(location);
   const destName = tx(context.getCity(session.destination).name);
   const remaining = t("remainingTo", destName, context.distanceToCity(location, session.destination));
   if (isCityNode(node)) {
-    return t("whereYouAreCity", tx(context.getCity(node.cityId).name), remaining);
+    return t("atCity", tx(context.getCity(node.cityId).name), remaining);
   }
   return t(
-    "whereYouAreBetween",
+    "atBetween",
     tx(context.getCity(node.between[0]).name),
     tx(context.getCity(node.between[1]).name),
     remaining,
   );
+}
+
+/**
+ * 「名前 — 出来事」。読み上げ用に、誰の話かを文の頭に付ける。
+ *
+ * 名前を文の主語に埋め込まない。既定名が代名詞(You / Tú / Toi)なので、
+ * 三人称の活用と噛み合わず「You is at …」のような壊れた文になる
+ * (旅の記録で同じ問題が起きた。`travel-log-messages.ts` 参照)。
+ */
+export function whoAtLabel(deps: LabelDeps, name: string, sentence: string): string {
+  return deps.t("whoAt", name, sentence);
 }
 
 /** 移動した先を読み上げに伝える一文。こちらも都市と中間マスで文を分ける。 */

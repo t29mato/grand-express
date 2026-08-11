@@ -1,5 +1,6 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { CityId, CountryId, GameSessionId, NodeId, PlayerId } from "../../../domain/shared-kernel/ids";
+import { Locale } from "../../../domain/shared-kernel/localized-text";
 import { Money } from "../../../domain/shared-kernel/money";
 import { createGameSession } from "../../../domain/game-session/game-session";
 import { createPlayer } from "../../../domain/player/player";
@@ -13,8 +14,9 @@ import {
   directionFrom,
   nextFocusIndex,
   orderByAzimuth,
+  atLabel,
   movedToLabel,
-  whereYouAreLabel,
+  whoAtLabel,
 } from "./candidate-guide";
 
 const ORIGIN = { x: 100, y: 100 };
@@ -102,7 +104,7 @@ describe("読み上げ文(実データの盤面)", () => {
     positions = computeBoardLayout(context);
   });
 
-  function deps(locale: "en" | "ja") {
+  function deps(locale: Locale) {
     const messages = MESSAGES_BY_LOCALE[locale] as unknown as Record<string, string>;
     const session = createGameSession({
       id: GameSessionId("s"),
@@ -161,21 +163,45 @@ describe("読み上げ文(実データの盤面)", () => {
 
   it("現在地の一文は、中間マスにいるときも「どこの間か」で言える", () => {
     const between = [...context.graph.nodes].find(([, n]) => n.type !== "city")![0];
-    const label = whereYouAreLabel(deps("ja"), between);
+    const label = atLabel(deps("ja"), between);
     expect(label).toContain("のあいだ");
     expect(label).toMatch(/スクレまで残り\d+マス/);
   });
 
   it("現在地が都市なら都市名で言う", () => {
-    expect(whereYouAreLabel(deps("ja"), NodeId("lapaz"))).toContain("ラパス");
+    expect(atLabel(deps("ja"), NodeId("lapaz"))).toContain("ラパス");
   });
 
   // 場所の言い方だけを差し替える作りにすると、前置詞の要る言語で崩れる。
   // フランス語で「Vous êtes Paris」(前置詞なし)になっていたので、文ごと分けた。
   it("英語では都市にも中間マスにも前置詞が付く", () => {
     const between = [...context.graph.nodes].find(([, n]) => n.type !== "city")![0];
-    expect(whereYouAreLabel(deps("en"), NodeId("lapaz"))).toMatch(/^You are at La Paz\./);
-    expect(whereYouAreLabel(deps("en"), between)).toMatch(/^You are between .+ and .+\./);
+    expect(atLabel(deps("en"), NodeId("lapaz"))).toMatch(/^At La Paz\./);
+    expect(atLabel(deps("en"), between)).toMatch(/^Between .+ and .+\./);
+  });
+
+  /**
+   * この一文はCPUの手番でも同じ枠に出る。二人称で書くとCPUの位置を
+   * 自分の位置として読んでしまうので、**文からは人を外す**
+   * (ユーザーからの指摘。誰の話かは色と名前の札が担う)。
+   */
+  it("現在地の一文に二人称を入れない", () => {
+    const between = [...context.graph.nodes].find(([, n]) => n.type !== "city")![0];
+    for (const locale of ["en", "es", "fr"] as const) {
+      for (const node of [NodeId("lapaz"), between]) {
+        const label = atLabel(deps(locale), node);
+        expect(label, `${locale}: ${label}`).not.toMatch(/\b(You|Estás|Tú|Tu es|Toi)\b/);
+      }
+      const moved = movedToLabel(deps(locale), NodeId("lapaz"));
+      expect(moved, `${locale}: ${moved}`).not.toMatch(/\b(You|Te mueves|Tú|Tu|Toi)\b/);
+    }
+  });
+
+  // 名前を主語に埋め込むと、既定名が代名詞(You / Tú / Toi)なので活用と噛み合わない。
+  // 旅の記録と同じ「名前 — 出来事」で外に出す。
+  it("誰の話かは名前を先に置いて示す", () => {
+    expect(whoAtLabel(deps("en"), "You", "At La Paz.")).toBe("You — At La Paz.");
+    expect(whoAtLabel(deps("ja"), "タロウ", "ラパスに移動しました。")).toBe("タロウ — ラパスに移動しました。");
   });
 
   it("移動の通知も都市と中間マスで文を分ける", () => {
