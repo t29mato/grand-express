@@ -14,6 +14,7 @@ import { BOARD_MESSAGES } from "./board-messages";
 import { EVENT_MESSAGES } from "./event-messages";
 import { TRAVEL_LOG_MESSAGES } from "./travel-log-messages";
 import { CITY_MESSAGES } from "./city-messages";
+import { SAVED_GAME_MESSAGES } from "./saved-game-messages";
 
 export type UiMessages = typeof en;
 
@@ -35,6 +36,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...EVENT_MESSAGES.en,
     ...TRAVEL_LOG_MESSAGES.en,
     ...CITY_MESSAGES.en,
+    ...SAVED_GAME_MESSAGES.en,
   },
   es: {
     ...es,
@@ -49,6 +51,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...EVENT_MESSAGES.es,
     ...TRAVEL_LOG_MESSAGES.es,
     ...CITY_MESSAGES.es,
+    ...SAVED_GAME_MESSAGES.es,
   },
   fr: {
     ...fr,
@@ -63,6 +66,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...EVENT_MESSAGES.fr,
     ...TRAVEL_LOG_MESSAGES.fr,
     ...CITY_MESSAGES.fr,
+    ...SAVED_GAME_MESSAGES.fr,
   },
   ja: {
     ...(ja as UiMessages),
@@ -77,6 +81,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...EVENT_MESSAGES.ja,
     ...TRAVEL_LOG_MESSAGES.ja,
     ...CITY_MESSAGES.ja,
+    ...SAVED_GAME_MESSAGES.ja,
   },
 };
 

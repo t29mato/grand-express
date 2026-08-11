@@ -1,9 +1,11 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { COUNTRY_INDEX } from "../../../infrastructure/content/country-index";
 import { SavedGameSummary } from "../../state/game-store-types";
 import { useLocale } from "../../i18n/locale-context";
 import { formatMoney } from "../../i18n/money-format";
+import { DiscardConfirm } from "./discard-confirm";
 
 /**
  * 「続きから」の中身を見せるカード。
@@ -25,6 +27,10 @@ export function SavedGameCard({
   onDiscard: () => void;
 }) {
   const { t, tx, monthName } = useLocale();
+  // 「削除」は押した時点では何もしない。消すかどうかは確認を経てから決める
+  // (`discard-confirm.tsx`)。取り消せない操作をこのボタン1つに持たせない。
+  const [confirming, setConfirming] = useState(false);
+  const discardRef = useRef<HTMLButtonElement>(null);
   const country = COUNTRY_INDEX.find((c) => c.id === saved.countryId);
   const year = Math.floor(saved.month / 12) + 1;
   // 進行度は「12ヶ月中3ヶ月目」のように1始まりで見せる。
@@ -63,10 +69,23 @@ export function SavedGameCard({
         <button className="btn" style={{ flex: 1 }} onClick={onResume}>
           {t("resume")}
         </button>
-        <button className="btn ghost" onClick={onDiscard}>
+        <button className="btn ghost" ref={discardRef} onClick={() => setConfirming(true)}>
           {t("discardSave")}
         </button>
       </div>
+
+      {confirming && (
+        <DiscardConfirm
+          saved={saved}
+          onConfirm={onDiscard}
+          onCancel={() => {
+            setConfirming(false);
+            // 押したところへ戻す。閉じたあとフォーカスが宙に浮くと、
+            // キーボードで辿ってきた人は画面の先頭からやり直しになる。
+            discardRef.current?.focus();
+          }}
+        />
+      )}
     </div>
   );
 }
