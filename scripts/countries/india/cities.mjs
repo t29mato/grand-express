@@ -603,7 +603,7 @@ export const INDIA_EDGES = [
   // チェンナイ〜ヴィシャーカパトナムは、実際の東海岸本線が内陸のヴィジャヤワーダを
   // 大きく迂回する。縦・横・45度で引くと必ずベンガル湾を横切ってしまうので、
   // ここは沿岸航路として扱う(どちらも大きな港町)。
-  ["chennai", "visakhapatnam", "sea"],
+  ["visakhapatnam", "chennai", "sea"], // 入れ替え済み(陸207px → 45px)
   ["visakhapatnam", "puri"],
   ["puri", "bhubaneswar"],
   ["bhubaneswar", "kolkata"],
@@ -616,7 +616,7 @@ export const INDIA_EDGES = [
   ["kaziranga", "tawang"],
   // 航路
   ["mumbai", "goa", "sea"],
-  ["mumbai", "dwarka", "sea"],
+  ["dwarka", "mumbai", "sea"], // 入れ替え済み(陸172px → 144px。カティアワール半島を横切るのは残る)
   ["kochi", "kavaratti", "sea"],
   ["chennai", "portblair", "sea"],
 ];
