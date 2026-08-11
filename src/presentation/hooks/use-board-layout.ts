@@ -365,28 +365,36 @@ function routeLengthOf(slot: RouteSlot): number {
  * 線を「隣り合うマスを直線で結ぶ」だけにすると、折れ点がマスとマスのあいだに
  * 来たときにそこを斜めに突っ切ってしまう。マスの位置とは切り離して、
  * 経路そのものを描くのが正しい。
+ *
+ * **回すのは路線そのもの(`content.edges`)で、マスではない。**
+ * 中間マスから路線を割り出す作りだと、近すぎて直結になった路線
+ * (`segmentCount` が0を返す路線)には拾える中間マスが1つも無いので、
+ * **線が丸ごと描かれない**。日本では20本、世界一周では36本がそれに当たる。
+ * 路線の種類(陸路/航路)も、中間マスから推測せず `edge.kind` をそのまま使う。
  */
 export function railPolylines(
   context: GameEngineContext,
   positions: ReadonlyMap<NodeId, NodePosition>,
 ): { points: readonly NodePosition[]; kind: "rail" | "sea"; between: readonly [string, string] }[] {
-  const byEdge = new Map<number, { ids: NodeId[]; between: readonly [string, string]; kind: "rail" | "sea" }>();
+  const squaresByEdge = new Map<number, NodeId[]>();
   for (const [id, node] of context.graph.nodes) {
     if (isCityNode(node)) continue;
     const match = /^e(\d+)_(\d+)$/.exec(id);
     if (!match) continue;
     const edgeIndex = Number(match[1]);
-    const entry = byEdge.get(edgeIndex);
-    const kind = "edgeKind" in node && node.edgeKind === "sea" ? "sea" : "rail";
-    if (entry) entry.ids.push(id);
-    else byEdge.set(edgeIndex, { ids: [id], between: node.between, kind });
+    const list = squaresByEdge.get(edgeIndex);
+    if (list) list.push(id);
+    else squaresByEdge.set(edgeIndex, [id]);
   }
 
   const lines: { points: readonly NodePosition[]; kind: "rail" | "sea"; between: readonly [string, string] }[] = [];
-  for (const [edgeIndex, { ids, between, kind }] of byEdge) {
+  context.content.edges.forEach((edge, edgeIndex) => {
+    const between = [edge.from, edge.to] as const;
+    const kind = edge.kind;
+    const ids = squaresByEdge.get(edgeIndex) ?? [];
     const a = positions.get(NodeId(between[0]));
     const b = positions.get(NodeId(between[1]));
-    if (!a || !b) continue;
+    if (!a || !b) return;
     const corner = octilinearCorner(a, b, edgeIndex % 2 === 1);
     const ordered = [...ids].sort(
       (x, y) => Number(/_(\d+)$/.exec(x)![1]) - Number(/_(\d+)$/.exec(y)![1]),
@@ -405,7 +413,7 @@ export function railPolylines(
     for (const p of squares) (onFirstLeg(p) ? first : second).push(p);
 
     lines.push({ points: [a, ...first, corner, ...second, b], kind, between });
-  }
+  });
   return lines;
 }
 

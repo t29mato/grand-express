@@ -7,7 +7,7 @@ import { JsonCountryContentRepository } from "../../infrastructure/content/json-
 import { projectPoint } from "../../domain/board/board-projection";
 import { createGameEngineContext } from "../../application/game-engine-context";
 import { renderHook } from "@testing-library/react";
-import { useBoardLayout } from "./use-board-layout";
+import { railPolylines, useBoardLayout } from "./use-board-layout";
 
 /**
  * 盤面の見た目に直結する2つの性質を、実データで押さえる。
@@ -193,5 +193,22 @@ describe("盤面配置の前提", () => {
     const pack = await repo.load(CountryId(countryId));
     const ids = pack.moneyEvents.map((e) => e.id);
     expect(new Set(ids).size, `${countryId}: 出来事IDの重複`).toBe(ids.length);
+  });
+
+  it.each(countries)("%s: すべての路線に線が引かれている", async (countryId) => {
+    // **近すぎる町は中間マスを挟まずに直結する**(`segmentCount` が0を返す)。
+    // 線を中間マスから割り出す作りだと、そういう路線には拾えるマスが1つも無いので
+    // **線が丸ごと消える**。日本で20本、世界一周で36本がこれに当たる。
+    // 消えても他のテストは通ってしまう(グラフは繋がったままなので移動もできる)。
+    // 盤面を見て初めて分かる壊れかたなので、ここで数を突き合わせる。
+    const pack = await repo.load(CountryId(countryId));
+    const context = createGameEngineContext(pack);
+    const { result } = renderHook(() => useBoardLayout(context));
+    const lines = railPolylines(context, result.current);
+
+    expect(lines.length, `${countryId}: 描かれた線の数が路線の数と合わない`).toBe(pack.edges.length);
+    // 航路(島へ渡る線)は見た目が違うので、種類も取り違えていないことを見る。
+    const seaCount = pack.edges.filter((e) => e.kind === "sea").length;
+    expect(lines.filter((l) => l.kind === "sea").length, `${countryId}: 航路の数`).toBe(seaCount);
   });
 });
