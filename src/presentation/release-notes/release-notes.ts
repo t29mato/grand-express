@@ -23,6 +23,42 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.28.0",
+    date: "2026-08-11",
+    title: t(
+      "Nothing is thrown away without asking, and other people\'s turns stop asking you|Nada se borra sin preguntar, y los turnos ajenos dejan de pedirte permiso|Rien n\'est effacé sans vous demander, et les tours des autres cessent de vous solliciter|消す前に訊くようになり、他人の手番で押させるのをやめました",
+    ),
+    highlights: [
+      t(
+        "Discarding a saved journey used to wipe it on the spot. A year of play could go in one misclick. It now shows you what is about to be lost and asks first, with \u201Ckeep\u201D as the default.|Descartar un viaje guardado lo borraba en el acto: un año de partida podía irse en un clic. Ahora te muestra qué se va a perder y pregunta antes, con \u201Cconservar\u201D por defecto.|Écarter un voyage sauvegardé l\'effaçait sur-le-champ : une année de jeu pouvait disparaître d\'un clic. Le jeu montre désormais ce qui va être perdu et demande d\'abord, en proposant de garder par défaut.|保存した旅を「捨てる」と、その場で消えていました。1年ぶんの旅が、押し間違い1回で無くなります。何が消えるのかを見せてから訊くようにし、既定は「残す」にしました。",
+      ),
+      t(
+        "A right answer is gold now, a wrong one stays red. They used to be the same colour, told apart only by the shape of the mark — which meant you had to look, instead of just seeing.|Un acierto ahora es dorado y un fallo sigue en rojo. Antes compartían color y solo los distinguía la forma de la marca: había que mirar en vez de simplemente ver.|Une bonne réponse est désormais dorée, une mauvaise reste rouge. Elles partageaient la même couleur, et seule la forme les distinguait : il fallait regarder au lieu de simplement voir.|正解が金色になり、不正解は赤のままになりました。これまでは同じ色で、印の形でしか見分けられませんでした。見るのではなく、読む必要があったということです。",
+      ),
+      t(
+        "Squares no longer ignore a press that lands slightly off. The clickable area used to be a small centre and a thin ring with a dead gap between them; the gap is filled, so anywhere inside the glow now counts.|Las casillas ya no ignoran una pulsación algo desviada. La zona sensible era un centro pequeño y un anillo fino con un hueco muerto en medio; el hueco está relleno, así que ahora cuenta todo el interior del resplandor.|Les cases n\'ignorent plus un clic légèrement décalé. La zone sensible se limitait à un petit centre et à un mince anneau, avec un vide entre les deux ; ce vide est comblé : tout l\'intérieur du halo répond.|マスを少し外して押しても無反応、ということがなくなりました。押せる範囲が、小さな中心と細い輪に分かれていて、あいだが空洞だったためです。埋めたので、光っている範囲ならどこでも押せます。",
+      ),
+      t(
+        "During other players\' turns, the game no longer waits for you to click through things you had no part in. Their blue and red square events, and the turn of the season, now pass on their own — press to skip ahead if you would rather not wait.|En los turnos ajenos, el juego ya no espera a que confirmes cosas en las que no participas. Sus sucesos y el cambio de estación pasan solos; pulsa si prefieres no esperar.|Pendant les tours des autres, le jeu n\'attend plus que vous validiez des choses qui ne vous concernent pas. Leurs événements et le changement de saison défilent seuls ; appuyez pour aller plus vite.|他の旅人の手番で、自分に関係のないものを押させるのをやめました。相手の青マス・赤マスの出来事と、月替わりが、そのまま流れるようになります。待ちたくなければ押せば飛ばせます。",
+      ),
+      t(
+        "Items that carry you off — the Ekeko figure, the aeroplane, the balloon, the sail-trawler — now show the journey. The token walks the rails one square at a time with the item riding above it, instead of sliding straight across under a modal you could not see past.|Los objetos que te llevan lejos —el Ekeko, el avión, el globo, la barca de vela— ahora muestran el trayecto: la ficha recorre los raíles casilla a casilla con el objeto encima, en vez de deslizarse en línea recta bajo una ventana que lo tapaba.|Les objets qui vous emportent — l\'Ekeko, l\'avion, le ballon, la barque à voile — montrent désormais le trajet : le pion suit les rails case par case, l\'objet au-dessus, au lieu de glisser en ligne droite sous une fenêtre qui masquait tout.|運ばれるアイテム(エケコ人形・飛行機・気球・帆引き船)が、道のりを見せるようになりました。これまでは線路を無視して直線に滑り、しかもその動きがモーダルの下に隠れていました。1マスずつ線路をたどり、駒の上にそのアイテムが乗ります。",
+      ),
+    ],
+  },
+  {
+    version: "0.27.0",
+    date: "2026-08-09",
+    title: t(
+      "The game remembers what you called yourself|El juego recuerda cómo te llamaste|Le jeu retient le nom que vous vous êtes donné|付けた名前を覚えておくようになりました",
+    ),
+    highlights: [
+      t(
+        "Starting a new journey no longer means typing everyone's name again. The names you gave are waiting on the setup screen. Default names are not saved, so switching language still switches them.|Empezar otro viaje ya no obliga a teclear los nombres otra vez: los que pusiste esperan en la pantalla de preparación. Los nombres por defecto no se guardan, así que cambiar de idioma los sigue cambiando.|Commencer un nouveau voyage n\'oblige plus à retaper les noms : ceux que vous avez donnés vous attendent à l\'écran de préparation. Les noms par défaut ne sont pas enregistrés, si bien que changer de langue les change toujours.|新しい旅を始めるたびに名前を入れ直す必要がなくなりました。付けた名前が、はじめの画面に残っています。既定の名前は保存しないので、言語を切り替えれば今までどおり切り替わります。",
+      ),
+    ],
+  },
+  {
     version: "0.26.1",
     date: "2026-08-09",
     title: t(
