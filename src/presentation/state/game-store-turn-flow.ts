@@ -33,6 +33,11 @@ const CPU_TIMING = {
   afterMove: 750,
   /** 町・クイズなどの結果モーダルを出しておく時間(クリックで飛ばせる)。 */
   resultModal: 2900,
+  /**
+   * 月替わりのモーダルを出しておく時間(クリックで飛ばせる)。
+   * 結果モーダルより長い。季節の話は読む量が多く、絵もあるため。
+   */
+  seasonModal: 4200,
 } as const;
 
 function delay(ms: number): Promise<void> {
@@ -243,7 +248,15 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
           appendLogs([logEntry("seasonLog", [adv.season.emoji, adv.season.name], "gold")]);
           set({ ui: { kind: "season", season: adv.season } });
           saveGame(gameRepository, adv.session);
-          return;
+          // **CPUの手番のあいだは、待って自動で進む。**
+          // 月替わりは全員に関わるので消さない。ただしここで止めると、
+          // 決めることが無いのに毎月「続ける」を押させることになる
+          // (CPU2人・12ヶ月で相当な回数、という報告が出た)。
+          // 押せばその場で飛ばせる(`waitForSeason` は kind の変化で抜ける)。
+          await waitForSeason(generation);
+          if (generation !== cpuLoopGeneration) return;
+          if (get().ui.kind === "season") set({ ui: { kind: "idle" } });
+          continue;
         }
       }
 
@@ -344,13 +357,43 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
    * CPUの結果モーダルを一定時間表示する。プレイヤーが閉じた(= uiが別の状態に
    * 変わった)場合は待たずに進み、待たされ続けないようにする。
    */
+  /**
+   * CPUの手番で出るモーダルのうち、**プレイヤーに決めることが無いもの。**
+   *
+   * 町とクイズは前から自動で閉じていたが、**出来事(青・赤マス)**は
+   * `waitForModal` を呼んでいるのに**待つ対象に入っていなかった**ので、
+   * すぐ抜けて押すまで残っていた。CPU2人・12ヶ月だと、決めることが無いのに
+   * 押させる回数がかなりの数になる、という報告が出た。
+   *
+   * 厄災(`doom`)はここに入れない。**CPUの手番ではモーダルを出さず音だけ**で、
+   * `doom` が出るのは人間の手番だけだから。
+   *
+   * **人間の手番では自動で閉じない。**そちらは自分に起きたことなので、
+   * 読み終えてから進めたい。ここに入るのはCPUの手番のあいだだけ。
+   */
+  const CPU_AUTO_CLOSE = ["cpu-city", "cpu-quiz", "money-event"] as const;
+
+  /**
+   * 月替わりのモーダルを、CPUの手番のあいだだけ待つ。
+   * 読む時間が要るので、結果モーダルより長めに置く。
+   */
+  async function waitForSeason(generation: number): Promise<void> {
+    const step = 100;
+    for (let waited = 0; waited < CPU_TIMING.seasonModal; waited += step) {
+      await delay(step);
+      if (generation !== cpuLoopGeneration) return;
+      if (get().ui.kind !== "season") return; // プレイヤーが閉じた
+    }
+  }
+
   async function waitForModal(generation: number): Promise<void> {
     const step = 100;
     for (let waited = 0; waited < CPU_TIMING.resultModal; waited += step) {
       await delay(step);
       if (generation !== cpuLoopGeneration) return;
       const kind = get().ui.kind;
-      if (kind !== "cpu-city" && kind !== "cpu-quiz") return; // プレイヤーが閉じた
+      // プレイヤーが自分で閉じたら、待たずに進む。
+      if (!(CPU_AUTO_CLOSE as readonly string[]).includes(kind)) return;
     }
   }
 
