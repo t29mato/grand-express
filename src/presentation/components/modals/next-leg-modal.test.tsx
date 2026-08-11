@@ -51,8 +51,13 @@ describe("NextLegModal", () => {
     renderModal(false);
     const destinationName = context.getCity(session.destination).name.en;
     expect(screen.getByRole("heading", { name: `🧭 On to ${destinationName}` })).toBeInTheDocument();
-    // 賞金(月0なので700)が、国ごとの通貨表記で money クラスに強調表示される。
-    expect(screen.getByText("Bs 700")).toHaveClass("money");
+    // 賞金(月0なので内部値700)が、国ごとの通貨表記で money クラスに強調表示される。
+    // **表示は内部値 × cur.mul。**ボリビアは ×500 なので Bs 350,000。
+    // お金を「お土産ではなく不動産を買う」桁に上げたときに変わった。
+    // 桁を直接書かず、通貨の設定から組み立てて、次に倍率が変わっても壊れないようにする。
+    const { prefix, multiplier } = context.content.currency;
+    const expected = prefix + (700 * multiplier).toLocaleString("en-US");
+    expect(screen.getByText(expected)).toHaveClass("money");
   });
 
   it("厄災の神が初めて現れるときは arrive の文言を使う", () => {
