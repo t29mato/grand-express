@@ -3243,8 +3243,8 @@
   },
   "edges": [
     [
-      "reykjavik",
       "london",
+      "reykjavik",
       "sea"
     ],
     [
@@ -3295,8 +3295,8 @@
       "istanbul"
     ],
     [
-      "rome",
       "athens",
+      "rome",
       "sea"
     ],
     [
@@ -3339,8 +3339,8 @@
       "sea"
     ],
     [
-      "london",
       "newyork",
+      "london",
       "sea"
     ],
     [
@@ -3354,8 +3354,8 @@
       "sea"
     ],
     [
-      "dakar",
       "salvador",
+      "dakar",
       "sea"
     ],
     [
@@ -3368,8 +3368,8 @@
       "timbuktu"
     ],
     [
-      "marrakesh",
-      "cairo"
+      "cairo",
+      "marrakesh"
     ],
     [
       "dakar",
@@ -3380,8 +3380,8 @@
       "lagos"
     ],
     [
-      "lagos",
       "lobito",
+      "lagos",
       "sea"
     ],
     [
@@ -3434,8 +3434,8 @@
       "kolkata"
     ],
     [
-      "dubai",
       "mumbai",
+      "dubai",
       "sea"
     ],
     [
@@ -3452,12 +3452,12 @@
       "hanoi"
     ],
     [
-      "hanoi",
-      "hongkong"
+      "hongkong",
+      "hanoi"
     ],
     [
-      "hongkong",
       "singapore",
+      "hongkong",
       "sea"
     ],
     [
@@ -3483,8 +3483,8 @@
       "ulaanbaatar"
     ],
     [
-      "seoul",
       "tokyo",
+      "seoul",
       "sea"
     ],
     [
@@ -3493,18 +3493,18 @@
       "sea"
     ],
     [
+      "perth",
       "jakarta",
-      "perth",
       "sea"
     ],
     [
-      "tokyo",
       "sydney",
+      "tokyo",
       "sea"
     ],
     [
-      "capetown",
       "perth",
+      "capetown",
       "sea"
     ],
     [
@@ -3642,8 +3642,7 @@
     ],
     [
       "kolkata",
-      "bangkok",
-      "sea"
+      "bangkok"
     ],
     [
       "mombasa",
@@ -3660,9 +3659,8 @@
       "sea"
     ],
     [
-      "lobito",
       "capetown",
-      "sea"
+      "lobito"
     ],
     [
       "veracruz",

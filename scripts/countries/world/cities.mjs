@@ -578,7 +578,7 @@ export const WORLD_CITIES = {
  */
 export const WORLD_EDGES = [
   // ヨーロッパ
-  ["reykjavik", "london", "sea"],
+  ["london", "reykjavik", "sea"], // 入れ替え済み(陸127px → 51px)
   ["london", "amsterdam", "sea"],
   ["london", "paris", "sea"],
   ["london", "lisbon", "sea"],
@@ -593,7 +593,7 @@ export const WORLD_EDGES = [
   ["stockholm", "moscow"],
   ["vienna", "rome"],
   ["vienna", "istanbul"],
-  ["rome", "athens", "sea"],
+  ["athens", "rome", "sea"], // 入れ替え済み(陸95px → 51px)
   ["athens", "istanbul"],
   ["barcelona", "lisbon"], // 入れ替え済み(31px → 0px)
   ["istanbul", "moscow"],
@@ -609,20 +609,20 @@ export const WORLD_EDGES = [
   ["lisbon", "dakar", "sea"],
 
   // 大西洋を渡る
-  ["london", "newyork", "sea"],
+  ["newyork", "london", "sea"], // 入れ替え済み(陸215px → 43px)
   ["reykjavik", "toronto", "sea"],
   ["lisbon", "havana", "sea"],
-  ["dakar", "salvador", "sea"],
+  ["salvador", "dakar", "sea"], // 入れ替え済み(陸84px → 3px)
   ["capetown", "rio", "sea"],
 
   // アフリカと中東
   ["marrakesh", "timbuktu"],
-  ["marrakesh", "cairo"],
+  ["cairo", "marrakesh"], // 入れ替え済み(海99px → 0px)
   ["dakar", "timbuktu"],
   ["timbuktu", "lagos"],
   // ラゴス—ケープタウンは全長424pxのうち266pxがアフリカ大陸の奥を通っていた。
   // ベンゲラ鉄道の港ロビトで区切る。
-  ["lagos", "lobito", "sea"],
+  ["lobito", "lagos", "sea"], // 入れ替え済み(陸143px → 13px)
   ["cairo", "addisababa"], // 入れ替え済み(27px → 0px)
   ["cairo", "jerusalem"],
   ["addisababa", "nairobi"],
@@ -647,24 +647,24 @@ export const WORLD_EDGES = [
   // 今度は陸を77px通る。実在の鉄道どおりコルカタで区切り、
   // そこから先(ベンガル湾)を航路にする。航路は末尾に足してある。
   ["delhi", "kolkata"],
-  ["dubai", "mumbai", "sea"],
+  ["mumbai", "dubai", "sea"], // 入れ替え済み(陸130px → 49px)
   ["mumbai", "singapore", "sea"],
   ["bangkok", "singapore"],
   ["bangkok", "hanoi"],
-  ["hanoi", "hongkong"],
-  ["hongkong", "singapore", "sea"],
+  ["hongkong", "hanoi"], // 入れ替え済み(海66px → 0px)
+  ["singapore", "hongkong", "sea"], // 入れ替え済み(陸86px → 5px)
   ["hongkong", "shanghai"],
   ["shanghai", "beijing"],
   ["shanghai", "seoul", "sea"],
   ["beijing", "seoul", "sea"],
   ["beijing", "ulaanbaatar"],
-  ["seoul", "tokyo", "sea"],
+  ["tokyo", "seoul", "sea"], // 入れ替え済み(陸64px → 44px)
   ["singapore", "jakarta", "sea"],
 
   // オセアニアへ
-  ["jakarta", "perth", "sea"],
-  ["tokyo", "sydney", "sea"],
-  ["capetown", "perth", "sea"],
+  ["perth", "jakarta", "sea"], // 入れ替え済み(陸125px → 16px)
+  ["sydney", "tokyo", "sea"], // 入れ替え済み(陸257px → 100px)
+  ["perth", "capetown", "sea"], // 入れ替え済み(陸105px → 72px)
 
   // オセアニアと太平洋
   ["perth", "sydney"],
@@ -714,11 +714,11 @@ export const WORLD_EDGES = [
   // ここから下は**末尾に足すこと。** 途中に挿すと、それより後ろの路線の
   // 添字がずれて偶奇が変わり、無関係な路線の折れ方まで変わる
   // (`use-board-layout.ts` の `diagonalFirst` が `edgeIndex % 2` で決まるため)。
-  ["kolkata", "bangkok", "sea"], // デリー—バンコクの後半。ベンガル湾を渡る
+  ["kolkata", "bangkok"], // デリー—バンコクの後半。線が全長ミャンマーの上を通っていたので陸路にした(陸145px → 0px)
   ["mombasa", "zanzibar", "sea"], // ナイロビ—ザンジバルの後半。短い海峡を渡る
   ["belem", "salvador"], // マナウス—サルバドールの後半。沿岸だが盤面では陸なので陸路
   ["bandarabbas", "dubai", "sea"], // イスファハン—ドバイの後半。ホルムズ海峡を渡る
-  ["lobito", "capetown", "sea"], // ラゴス—ケープタウンの後半。アフリカ南西岸を下る
+  ["capetown", "lobito"], // ラゴス—ケープタウンの後半。ベンゲラ鉄道の筋で陸路にし、端も入れ替えた(陸75px → 0px)
   ["veracruz", "mexicocity"], // 港から首都へ。実在の鉄道
 
   // **太平洋を渡る唯一の航路。**これが無いと、日本からアメリカへ行くには
