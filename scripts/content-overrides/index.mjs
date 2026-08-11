@@ -121,6 +121,10 @@ const OVERRIDES = {
     rewiredEdges: [
       { from: ["matsumoto", "nagoya"], to: ["toyama", "niigata"] },
       { from: ["kanazawa", "niigata"], to: ["matsumoto", "nagoya"] },
+      // 端の順を入れ替えると、折れ点が「片方の緯度」から「もう片方の緯度」へ移る。
+      // 添字が動かないので、他の路線の折れ方には影響しない。
+      { from: ["kagoshima", "naha"], to: ["naha", "kagoshima"] }, // 陸158px → 58px
+      { from: ["kagoshima", "tanegashima"], to: ["tanegashima", "kagoshima"] }, // 陸65px → 57px
     ],
     // 鹿児島—那覇は legacy では陸路になっているが、あいだは650kmの東シナ海で
     // 鉄道は無い(実際に通っているのは鹿児島—奄美—那覇のフェリー)。
