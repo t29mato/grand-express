@@ -604,8 +604,8 @@ export const WORLD_EDGES = [
   ["moscow", "ulaanbaatar"],
 
   // ヨーロッパ ↔ アフリカ
-  ["barcelona", "marrakesh", "sea"],
-  ["rome", "cairo", "sea"],
+  ["marrakesh", "lisbon", "sea"], // つなぎ替え済み(バルセロナ発だとスペインを縦断していた。陸80px → 24px)
+  ["cairo", "athens", "sea"], // つなぎ替え済み(ローマ発だとギリシャとトルコを横断していた。陸114px → 20px)
   ["lisbon", "dakar", "sea"],
 
   // 大西洋を渡る
@@ -648,7 +648,7 @@ export const WORLD_EDGES = [
   // そこから先(ベンガル湾)を航路にする。航路は末尾に足してある。
   ["delhi", "kolkata"],
   ["mumbai", "dubai", "sea"], // 入れ替え済み(陸130px → 49px)
-  ["mumbai", "singapore", "sea"],
+  ["singapore", "kolkata", "sea"], // つなぎ替え済み(ムンバイ発だとインド半島とマレー半島を横断していた。陸122px → 41px)
   ["bangkok", "singapore"],
   ["bangkok", "hanoi"],
   ["hongkong", "hanoi"], // 入れ替え済み(海66px → 0px)
