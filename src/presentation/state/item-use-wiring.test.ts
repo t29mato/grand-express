@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { CountryId, ItemKey, PlayerId } from "../../domain/shared-kernel/ids";
 import { useGameStore } from "./game-store";
 
@@ -45,20 +45,49 @@ describe("アイテムを使うと、ちゃんと何かが起きる", () => {
       },
       ui: { kind: "idle" },
       diceRoll: null,
+      walk: null,
     });
     return me.id;
+  }
+
+  /**
+   * 駒が道のりを歩き終わるまで待つ。
+   *
+   * 運ばれるアイテム(`carried-far`)は、**押した瞬間には移動が終わらない。**
+   * 8〜12マスぶんを1マスずつ進み、**着いてから**盤の状態と着地の処理が動く。
+   * そうしないと着地のモーダルが移動と同じ瞬間に開き、暗幕の下で駒が滑るので
+   * 「8〜12マス運ばれる」という**このアイテムの見せ場が一度も見えない**
+   * (直す前に実測: モーダルが開くのは押してから95〜202ms、駒の位置が変わるのと同じフレーム)。
+   *
+   * 歩いている最中は `useInventoryItem` が受け付けないので、**待たずに次へ進むと
+   * 歩き残しが次のテストに漏れて、そちらが道連れで落ちる。**
+   */
+  async function settleWalk() {
+    await vi.waitFor(() => expect(useGameStore.getState().walk).toBeNull(), { timeout: 5000, interval: 20 });
   }
 
   beforeEach(async () => {
     await startGame();
   });
 
-  it("エケコ人形(carried-far)は、その場で運ばれて移動が終わる", () => {
+  /**
+   * **テスト名を「その場で運ばれて移動が終わる」から変えている。**
+   * その場で終わってしまうのが、遊ぶ人から見た不具合のほうだった
+   * (押した瞬間に着地のモーダルが開き、8〜12マスの道のりが一度も見えない)。
+   * 直したので、**押した瞬間はまだ動いていないこと**もここで押さえる。
+   */
+  it("エケコ人形(carried-far)は、道のりを進んでから移動が終わる", async () => {
     const before = useGameStore.getState().session!.players[0].location;
     giveItem("ekeko");
     useGameStore.getState().useInventoryItem(0);
-    const after = useGameStore.getState().session!.players[0].location;
-    expect(after, "運ばれていない").not.toBe(before);
+    expect(
+      useGameStore.getState().session!.players[0].location,
+      "押した瞬間に着いてしまっている(道のりを見せる間が無い)",
+    ).toBe(before);
+    expect(useGameStore.getState().walk, "駒が歩き始めていない").not.toBeNull();
+
+    await settleWalk();
+    expect(useGameStore.getState().session!.players[0].location, "運ばれていない").not.toBe(before);
   });
 
   it("テレフェリコ周遊券(choose-exact-dice)は、出目を選ぶ画面を出す", () => {
@@ -148,12 +177,14 @@ describe("アイテムを使うと、ちゃんと何かが起きる", () => {
     expect(item.kind, `${key} が受け身になっていない`).toBe("passive");
   });
 
-  it("どのアイテムも、使えば必ず持ち物から消える", () => {
+  it("どのアイテムも、使えば必ず持ち物から消える", async () => {
     for (const key of ["ekeko", "pass", "ferro", "challa", "zebra", "singani", "expreso"]) {
       startGameSync();
       giveItem(key);
       useGameStore.getState().useInventoryItem(0);
       expect(useGameStore.getState().session!.players[0].inventory, `${key} が残っている`).toEqual([]);
+      // 歩いている駒を残したまま次のアイテムへ進むと、そちらが受け付けられずに落ちる。
+      await settleWalk();
     }
   });
 
@@ -168,6 +199,7 @@ describe("アイテムを使うと、ちゃんと何かが起きる", () => {
       },
       ui: { kind: "idle" },
       diceRoll: null,
+      walk: null,
     });
   }
 });

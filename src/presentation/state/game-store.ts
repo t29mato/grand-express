@@ -499,15 +499,30 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       rollNow();
     },
 
+    /**
+     * いまの局面を保存する。
+     *
+     * **開いているモーダルを「保存しました」で潰さない。**「保存」はヘッダにあって
+     * いつでも押せるのに、以前は `ui` を無条件に差し替えていた。モーダルの多くは
+     * **閉じたときに手番の続きを走らせる**ので、潰されるとその続きが永久に走らない。
+     * とくに月替わりのモーダルは、閉じたときに `dismissSeasonModal` が
+     * **CPUの自動進行を再開する**唯一の場所だった。保存を挟むとそれが失われ、
+     * **CPUの手番が始まらないまま盤面が固まっていた**(猿試験で再現)。
+     * 保存自体は済ませ、知らせは旅の記録に残す。
+     */
     save() {
-      const { session } = get();
+      const { session, ui } = get();
       if (!session) return;
       saveGame(gameRepository, session);
-      set((s) => ({ log: pushLog(s, "saved", [], "gold"), ui: { kind: "saved" }, savedGame: readSavedGameSummary() }));
+      set((s) => ({ log: pushLog(s, "saved", [], "gold"), savedGame: readSavedGameSummary() }));
+      if (ui.kind === "idle") set({ ui: { kind: "saved" } });
     },
 
     dismissSavedModal() {
       set({ ui: { kind: "idle" } });
+      // 保存を挟んでいるあいだにCPUの手番になっていることがある。
+      // 動いていれば何もしない(`runCpuLoopIfNeeded` が自分で見る)。
+      void runCpuLoopIfNeeded();
     },
   };
 });

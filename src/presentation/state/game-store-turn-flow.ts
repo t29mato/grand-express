@@ -226,6 +226,12 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
         const shown = await showCpuLanding(context, player.name, result, generation);
         if (!shown) return;
 
+        // 見せ終えた結果モーダルは、ここで畳む。**出したまま手番の後始末に進まない。**
+        // `money-event` は人間の手番でも同じ `kind` を使うので、残したままだと
+        // このあと手番を返すときに「CPUが出した画面か、人間自身の画面か」が
+        // 見分けられなくなる(下の `CPU_OWNED_UI` を参照)。
+        if (isCpuAutoClose(get().ui.kind)) set({ ui: { kind: "cpu-turn", playerName: player.name } });
+
         const afterTurn = get().session;
         if (!afterTurn) return;
         if (isOver(afterTurn)) break;
@@ -275,7 +281,12 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
         return;
       }
 
-      set({ ui: { kind: "idle" } });
+      // **人間がもう自分の手番を始めていたら、その画面には触らない。**
+      // 月替わりを閉じてからループが止まるまでには `waitForSeason` の刻み1つぶんの
+      // 間があり、そのあいだに人間はサイコロを振れる。ここで無条件に `idle` へ
+      // 戻していたため、**振ったそばから出目が消え、サイコロがまた押せる状態に戻り、
+      // 同じ手番を二度振れてしまっていた**(手番の頭に戻るので厄災も二度起きる)。
+      if (isCpuOwnedUi(get().ui.kind)) set({ ui: { kind: "idle" } });
       saveGame(gameRepository, session);
     } finally {
       if (generation === cpuLoopGeneration) cpuLoopRunning = false;
@@ -373,6 +384,23 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
    */
   const CPU_AUTO_CLOSE = ["cpu-city", "cpu-quiz", "money-event"] as const;
 
+  function isCpuAutoClose(kind: string): boolean {
+    return (CPU_AUTO_CLOSE as readonly string[]).includes(kind);
+  }
+
+  /**
+   * **CPUループが自分で出した画面。**手番を人間に返すとき、片付けてよいのはこれだけ。
+   *
+   * 結果モーダル(`cpu-city`・`cpu-quiz`・`money-event`)はCPUの手番の終わりに
+   * `cpu-turn` へ畳んであるので、ここには入れない。とくに `money-event` は
+   * **人間の手番でも同じ `kind`** を使うため、入れると人間の画面まで消してしまう。
+   */
+  const CPU_OWNED_UI = ["cpu-turn", "season"] as const;
+
+  function isCpuOwnedUi(kind: string): boolean {
+    return (CPU_OWNED_UI as readonly string[]).includes(kind);
+  }
+
   /**
    * 月替わりのモーダルを、CPUの手番のあいだだけ待つ。
    * 読む時間が要るので、結果モーダルより長めに置く。
@@ -391,9 +419,8 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     for (let waited = 0; waited < CPU_TIMING.resultModal; waited += step) {
       await delay(step);
       if (generation !== cpuLoopGeneration) return;
-      const kind = get().ui.kind;
       // プレイヤーが自分で閉じたら、待たずに進む。
-      if (!(CPU_AUTO_CLOSE as readonly string[]).includes(kind)) return;
+      if (!isCpuAutoClose(get().ui.kind)) return;
     }
   }
 
