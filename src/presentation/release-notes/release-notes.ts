@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.32.0",
+    date: "2026-08-12",
+    title: t(
+      "Ships have stopped sailing over land|Los barcos han dejado de navegar por tierra|Les navires ont cessé de naviguer sur la terre ferme|船が陸を走るのをやめました",
+    ),
+    highlights: [
+      t(
+        "On the world map, twenty-five shipping lines ran across dry land — one sailed the whole width of Angola, another straight over Spain. Sixteen of them are fixed. Most only needed the bend in the line moved to the other end; two were never sea voyages at all and are now railways, including the run from Kolkata to Bangkok, which had been sailing over Myanmar.|En el mapa mundial, veinticinco líneas marítimas cruzaban tierra firme: una navegaba a lo ancho de Angola, otra por encima de España. Dieciséis están corregidas. A la mayoría le bastó mover el codo de la línea al otro extremo; dos nunca fueron travesías marítimas y ahora son ferrocarriles, como el trayecto de Calcuta a Bangkok, que navegaba sobre Birmania.|Sur la carte du monde, vingt-cinq lignes maritimes traversaient la terre ferme — l'une naviguait sur toute la largeur de l'Angola, une autre par-dessus l'Espagne. Seize sont corrigées. La plupart n'avaient besoin que d'un coude déplacé à l'autre bout ; deux n'étaient pas des traversées maritimes et sont devenues des voies ferrées, dont Calcutta–Bangkok, qui naviguait au-dessus de la Birmanie.|世界地図で、25本の航路が陸の上を走っていました。1本はアンゴラを丸ごと横断し、別の1本はスペインを突っ切っていました。16本を直しました。多くは線の折れ方を反対側に移すだけで済み、2本はそもそも航路ではなかったので鉄道にしました。カルカッタ—バンコクはミャンマーの上を航行していたものです。",
+      ),
+      t(
+        "Japan and India had the same trouble in the other direction, with lines drawn out to sea. Those are fixed too. A few crossings are left alone on purpose: the train between Hakodate and Aomori really does run under the strait, and the line down the Malay peninsula really is a railway — there the coastline is what is coarse, not the route.|Japón y la India tenían el problema inverso, con líneas trazadas mar adentro. También están corregidas. Algunos cruces se dejan a propósito: el tren entre Hakodate y Aomori pasa de verdad bajo el estrecho, y la línea de la península malaya es un ferrocarril real; ahí lo impreciso es la costa, no la ruta.|Le Japon et l'Inde avaient le problème inverse, avec des lignes tracées en pleine mer. Elles sont corrigées aussi. Quelques traversées sont laissées telles quelles à dessein : le train entre Hakodate et Aomori passe bel et bien sous le détroit, et la ligne de la péninsule malaise est un vrai chemin de fer — c'est le littoral qui est grossier, pas le tracé.|日本とインドでは逆に、線路が海の上に出ていました。こちらも直しました。わざと残したものもあります。函館—青森の列車は本当に海の下を通りますし、マレー半島を下る線も実在の鉄道です。粗いのは経路ではなく海岸線のほうなので、触っていません。",
+      ),
+    ],
+  },
+  {
     version: "0.31.0",
     date: "2026-08-11",
     title: t(
