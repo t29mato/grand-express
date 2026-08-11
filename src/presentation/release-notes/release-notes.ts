@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.30.0",
+    date: "2026-08-11",
+    title: t(
+      "The spirit rides with you now|El espíritu ahora viaja contigo|L'esprit voyage désormais avec vous|厄災の神が、列車に乗って追いかけてきます",
+    ),
+    highlights: [
+      t(
+        "El Tío, the Binbōgami, the Flying Dutchman — whichever spirit your board keeps, it only ever showed up as a mark beside a name in the traveller list. Now it rides on the roof of the train it has chosen, and you can see across the map who is carrying it. Its ring is in that traveller's colour, so there is no mistaking whose luck is about to turn.|El Tío, el Binbōgami, el Holandés Errante: el espíritu de cada tablero solo aparecía como una marca junto a un nombre en la lista de viajeros. Ahora viaja en el techo del tren que ha elegido y se ve desde cualquier punto del mapa quién lo lleva. Su aro tiene el color de ese viajero, así que no hay confusión posible.|El Tío, le Binbōgami, le Hollandais volant : l'esprit de chaque plateau n'apparaissait que sous forme d'une marque à côté d'un nom dans la liste des voyageurs. Il voyage désormais sur le toit du train qu'il a choisi, et l'on voit d'un coup d'œil qui le porte. Son cercle reprend la couleur de ce voyageur : aucun doute possible.|エル・ティーオ、貧乏神、さまよえるオランダ人。盤面ごとの厄災の神は、旅人一覧に絵文字が付くだけで、地図を見ているあいだは誰に憑いているのか分かりませんでした。憑いた列車の屋根に乗って、一緒に走るようにしました。輪の色はその旅人の色なので、誰が背負っているのか見間違えません。",
+      ),
+      t(
+        "Two towns close together were joined by a bare line with nothing between them, and a single roll could carry you across three of them. Around the world, thirty-six of the ninety-six lines were like that, and you could shuttle between Amsterdam and Paris to burn off a roll. Every line has at least one square again.|Dos ciudades cercanas se unían con una línea sin nada en medio, y una sola tirada podía llevarte por tres de ellas. En la vuelta al mundo, treinta y seis de las noventa y seis líneas eran así, y se podía ir y volver entre Ámsterdam y París para gastar la tirada. Cada línea vuelve a tener al menos una casilla.|Deux villes proches étaient reliées par un trait sans rien entre elles, et un seul jet pouvait vous en faire traverser trois. Sur le tour du monde, trente-six des quatre-vingt-seize lignes étaient ainsi, et l'on pouvait faire l'aller-retour Amsterdam–Paris pour épuiser un jet. Chaque ligne a de nouveau au moins une case.|近い町どうしが、あいだに何も無い線で直につながっていました。1回の出目で3つの町を通り過ぎることができ、世界一周では96本のうち36本がこの状態でした。アムステルダムとパリを往復して歩数を使い切る、といった動きもできてしまいます。どの路線にも必ず1マス以上を置くように戻しました。",
+      ),
+    ],
+  },
+  {
     version: "0.29.0",
     date: "2026-08-11",
     title: t(
