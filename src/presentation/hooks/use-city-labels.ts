@@ -100,6 +100,21 @@ function labelRect(at: NodePosition, placement: CityLabelPlacement, widthUnits: 
   };
 }
 
+/**
+ * 名札が盤面の外へはみ出していないか。
+ *
+ * 端の町の名札は、盤面の外に描かれても**そこは切り取られて見えない。**
+ * 実際、カシュガルは「ashgar」、チェシメは「eşme」としか出ていなかった
+ * (撮って気づいた。数字の検査には出ない)。
+ *
+ * 置き場所の候補は「既定 → 下 → 右 → 左 → 上」と順に試す作りなので、
+ * **はみ出す候補を弾けば、自動的に内側を向いた位置が選ばれる。**
+ * 盤面ごとに名札の向きを手で指定して回る必要はない。
+ */
+function insideBoard(rect: Rect, projection: { boardWidth: number; boardHeight: number }): boolean {
+  return rect.x0 >= 0 && rect.x1 <= projection.boardWidth && rect.y0 >= 0 && rect.y1 <= projection.boardHeight;
+}
+
 export interface UseCityLabelsParams {
   context: GameEngineContext;
   positions: ReadonlyMap<NodeId, NodePosition>;
@@ -164,6 +179,7 @@ export function useCityLabels({
         for (const direction of candidateOrder(city.labelPosition)) {
           const placement = placementFor(direction, ring);
           const rect = labelRect(at, placement, widthUnits, fontUnits);
+          if (!insideBoard(rect, context.content.projection)) continue;
           if (obstacles.some((o) => overlaps(rect, o))) continue;
           if (placedRects.some((o) => overlaps(rect, o))) continue;
           chosen = placement;
