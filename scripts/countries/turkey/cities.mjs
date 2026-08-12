@@ -394,8 +394,13 @@ export const TURKEY_CITIES = {
  * エルズルム〜カルス — を骨にする。それ以外は幹線道路の相当区間で結び、
  * 地方をまたぐ移動の選択肢を増やしている。
  * イスタンブール〜ブルサはマルマラ海を回る陸路の代わりによく使われる
- * 実在の高速船便なので航路("sea")、ボドルム〜フェティエはエーゲ海沿いの
- * 観光船(ブルークルーズ)の実在の航路として航路にしてある。
+ * 実在の高速船便なので航路("sea")にしてある。
+ *
+ * `node scripts/check-sea-routes.mjs turkey -v` で計測し、60px超だった9本は
+ * 端の入れ替え・陸路/航路の変更で直した(値は各行のコメントに実測を残す)。
+ * イスタンブール〜イズミットは海に7px出るが直さない。マルマライが実際に
+ * ボスポラス海峡の海底を通る区間なので、地図のほうが正しい
+ * (青函トンネルと同じ扱いとして check-sea-routes.mjs の KEPT に登録済み)。
  */
 export const TURKEY_EDGES = [
   // --- mar マルマラ ---
@@ -403,29 +408,29 @@ export const TURKEY_EDGES = [
   ["izmit", "iznik"],
   ["iznik", "bursa"],
   ["bursa", "canakkale"],
-  ["istanbul", "tekirdag"],
+  ["tekirdag", "istanbul", "sea"], // 陸路→航路・端を入れ替え。海に出ていた陸102px→陸0px
   ["tekirdag", "edirne"],
-  ["istanbul", "edirne"],
+  ["edirne", "istanbul"], // 端を入れ替え。海に出ていた104px→7px。実在の鉄道(ハルカル〜カプクレ線)なので航路にはしない
   ["istanbul", "bursa", "sea"],
   // --- ege エーゲ ---
   ["izmir", "manisa"],
-  ["izmir", "cesme"],
+  ["cesme", "izmir", "sea"], // 陸路→航路・端を入れ替え。海に出ていた陸75px→陸54px
   ["izmir", "selcuk"],
   ["selcuk", "bodrum"],
   ["selcuk", "pamukkale"],
-  ["manisa", "ayvalik"],
+  ["ayvalik", "manisa"], // 端を入れ替え。海に出ていた51px→0px
   // --- mar-ege をまたぐ ---
-  ["canakkale", "ayvalik"],
+  ["ayvalik", "canakkale"], // 端を入れ替え。海に出ていた26px→17px
   // --- akd 地中海 ---
   ["antalya", "fethiye"],
   ["fethiye", "kas"],
-  ["antalya", "alanya"],
+  ["alanya", "antalya"], // 端を入れ替え。海に出ていた189px→0px
   ["alanya", "mersin"],
   ["mersin", "adana"],
-  ["adana", "antakya"],
+  ["antakya", "adana"], // 端を入れ替え。海に出ていた88px→48px
   // --- ege-akd をまたぐ ---
   ["pamukkale", "fethiye"],
-  ["bodrum", "fethiye", "sea"],
+  ["bodrum", "fethiye"], // 航路→陸路に変更。航路だと陸265px、陸路なら海38px
   // --- ica 中央アナトリア(YHT: アンカラ〜エスキシェヒル・アンカラ〜コンヤ・アンカラ〜シワス) ---
   ["ankara", "eskisehir"],
   ["ankara", "konya"],
@@ -435,14 +440,16 @@ export const TURKEY_EDGES = [
   ["kayseri", "sivas"],
   ["sivas", "ankara"],
   // --- mar-ica をまたぐ(YHT: エスキシェヒル〜イスタンブール) ---
-  ["eskisehir", "istanbul"],
+  // イズミット湾を横切って海96pxに出るため、既存のistanbul-izmit経由にする
+  // (直結には check-sea-routes.mjs 上で60px未満の候補が無かった)
+  ["eskisehir", "izmit"],
   // --- ica-akd をまたぐ ---
   ["konya", "antalya"],
   ["aksaray", "adana"],
   // --- kar 黒海 ---
   ["trabzon", "rize"],
-  ["trabzon", "samsun"],
-  ["samsun", "sinop"],
+  ["samsun", "trabzon", "sea"], // 陸路→航路・端を入れ替え。海に出ていた陸186px→陸47px
+  ["samsun", "sinop", "sea"], // 陸路→航路に変更。海に出ていた陸223px→陸25px
   ["samsun", "amasya"],
   ["sinop", "safranbolu"],
   // --- kar-ica をまたぐ ---

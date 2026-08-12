@@ -277,9 +277,6 @@ function terraceRows(x, y, w, rows, color) {
 // 都市シンボル(24×24)。33種。
 // ---------------------------------------------------------------------------
 
-const M = 24;
-const mr = (v) => Math.round(v * 100) / 100;
-
 /** ドームとミナレット(24×24用の簡略版)。 */
 function markMosque(minaretColor = "#e8dcc0") {
   return (
@@ -624,7 +621,10 @@ const TURKEY_BASE_BG = {
     // 遠くの雪原の陰影
     `<g fill="#f2f6f8" opacity=".7"><path d="M170,60L200,42L215,55L195,64z"/></g>` +
     // 小石(手前)
-    `<g fill="#9a9488"><circle cx="100" cy="207" r="2"/><circle cx="340" cy="206" r="2.4"/></g>`,
+    `<g fill="#9a9488"><circle cx="100" cy="207" r="2"/><circle cx="340" cy="206" r="2.4"/></g>` +
+    // 山あいの松林(裾野)
+    pine(365, 160, 30) +
+    pine(15, 156, 26),
 
   /**
    * 海辺。テキルダー・ボドルム・チェシメ・アイワルック・アンタルヤ・
@@ -644,7 +644,7 @@ const TURKEY_BASE_BG = {
     `<g><path d="M320,172a16,8 0 0 1 32,0z" fill="#f5b31c"/><rect x="334" y="172" width="3" height="26" fill="#6b5330"/></g>` +
     `<g><path d="M170,178a14,7 0 0 1 28,0z" fill="#1a7a8f"/><rect x="182" y="178" width="2.6" height="22" fill="#6b5330"/></g>` +
     cypress(20, 200, 34) +
-    cypress(380, 202, 30) +
+    oliveTree(380, 202, 15) +
     // ビーチチェア
     `<g fill="#f6efe2" stroke="#c9a227" stroke-width="1"><rect x="55" y="188" width="14" height="4"/><rect x="325" y="192" width="14" height="4"/><rect x="180" y="196" width="14" height="4"/></g>` +
     // ギュレット船(沖)
@@ -706,7 +706,9 @@ const TURKEY_BASE_BG = {
     `<g fill="#8a6a3a"><rect x="180" y="196" width="20" height="12" rx="2"/><rect x="205" y="198" width="18" height="10" rx="2"/></g>` +
     person(150, 200, "#d9a273", "#3a3a40") +
     person(240, 202, "#c98a5a", "#8a1f2b") +
-    person(280, 200, "#d9a273", "#3f6f34"),
+    person(280, 200, "#d9a273", "#3f6f34") +
+    // 隊商の名残のらくだ(市場の入口、手前左)
+    camel(45, 204, 1.1),
 
   /**
    * 高原の平野。アンカラ・エスキシェヒル・シワス。中央アナトリアの
@@ -729,7 +731,9 @@ const TURKEY_BASE_BG = {
     `<path d="M180,210L200,120L220,210z" fill="#c9bda0" opacity=".8"/>` +
     `<g stroke="#f6efe2" stroke-width="2" opacity=".7"><path d="M198,200v-10M199,175v-10M200,150v-10"/></g>` +
     minibus(120, 202, "#e8443f") +
-    person(280, 200, "#d9a273", "#5b8fe8"),
+    person(280, 200, "#d9a273", "#5b8fe8") +
+    // りんご・あんずの果樹園(手前右)
+    orchardRow(260, 200, 4, 26, 10, "#9aa85c"),
 
   /**
    * 茶畑の丘。リゼ専用。緑濃い段々畑と手摘みの籠、霧、遠くの黒海。
@@ -761,6 +765,8 @@ const TURKEY_BASE_BG = {
   nemrut:
     sky("#3a3a6a", "#e89858", 140) +
     sun(90, 70, 24, "#f5c060") +
+    // 明けきらない西の空にまだ残る月
+    moon(360, 30, 12, "#e8ecf0") +
     `<g opacity=".6" fill="#5a5a8a"><ellipse cx="300" cy="50" rx="60" ry="10"/></g>` +
     // 山の稜線
     `<path d="M0,140L120,60L200,100L280,50L400,120V210H0z" fill="#b3ab6a"/>` +
