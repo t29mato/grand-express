@@ -23,19 +23,19 @@
  * 実行: node scripts/extract-legacy-content.mjs
  * 出力: src/infrastructure/content/raw/{bolivia,japan,ui,months}.raw.json
  */
-import { readFileSync, writeFileSync, mkdtempSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdtempSync, mkdirSync, readdirSync, existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
 import { applyContentOverrides } from "./content-overrides/index.mjs";
-import { renderJapanDecor } from "./content-overrides/japan-decor.mjs";
-import { renderBoliviaDecor } from "./content-overrides/bolivia-decor.mjs";
 import { buildIndiaContent } from "./countries/india/index.mjs";
 import { buildFranceContent } from "./countries/france/index.mjs";
 import { buildWorldContent } from "./countries/world/index.mjs";
 import { buildIbarakiContent } from "./countries/ibaraki/index.mjs";
 import { buildKoreaContent } from "./countries/korea/index.mjs";
+import { renderJapanDecor } from "./content-overrides/japan-decor.mjs";
+import { renderBoliviaDecor } from "./content-overrides/bolivia-decor.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const legacyPath = join(__dirname, "..", "legacy", "grand-express.html");
@@ -494,6 +494,14 @@ for (const country of [BOLIVIA, JAPAN]) {
  * legacy に無い、このリポジトリで新規に書き起こした国。
  * 抽出後のJSONと同じ形で組み立てているため、`transform` も
  * `evaluateBackgrounds` も通す必要がない(最初から文字列・4言語オブジェクト)。
+ *
+ * **ここは手で並べる。**`scripts/countries/` を走査して自動で拾う形も作ってみたが、
+ * **作りかけの盤面まで焼き込んでしまった。**この環境のデプロイは作業ツリーを
+ * そのまま上げるので、書きかけが本番に出る。盤面を並行して書いているあいだは、
+ * 「出来たと人が判断したものだけを焼く」ほうが安全だった。
+ *
+ * 代わりに、**登録し忘れた盤面は下で警告する。**焼かれない盤面は目録に載らず、
+ * テストも見に行かないので、黙って消える(それがいちばん怖い)。
  */
 const AUTHORED_COUNTRIES = [
   buildIndiaContent(),
@@ -502,6 +510,14 @@ const AUTHORED_COUNTRIES = [
   buildIbarakiContent(),
   buildKoreaContent(),
 ];
+
+/** `scripts/countries/` にあるのに、上の一覧に無い盤面。焼かれずに消える。 */
+const unregistered = readdirSync(join(__dirname, "countries"), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => entry.name)
+  .filter((name) => !AUTHORED_COUNTRIES.some((content) => content.id === name))
+  .sort();
+
 for (const content of AUTHORED_COUNTRIES) {
   // 上書き層はもともと legacy 由来の国だけのものだったが、**お金の尺度は
   // 6盤面を並べて決めないと釣り合わない**ため、この4国も通す。
@@ -641,3 +657,9 @@ console.log("Extracted:");
 console.log(" - src/i18n/messages/{en,es,fr,ja}.json");
 console.log(" - src/infrastructure/content/{bolivia,japan,india,france,world,ibaraki}.content.json");
 console.log(" - src/infrastructure/content/country-index.json");
+if (unregistered.length > 0) {
+  console.log("");
+  console.log(`⚠ 焼かれていない盤面が ${unregistered.length} 件あります: ${unregistered.join(", ")}`);
+  console.log("  出来ているなら AUTHORED_COUNTRIES に足してください。");
+  console.log("  足すまでは目録に載らず、テストも見に行きません(黙って消えます)。");
+}
