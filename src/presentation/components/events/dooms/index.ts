@@ -76,6 +76,13 @@ import { UkLeavesOnLine } from "./uk-leaves-on-line";
 import { UkParkingWarden } from "./uk-parking-warden";
 import { UkQueueJumper } from "./uk-queue-jumper";
 import { UkYourRound } from "./uk-your-round";
+import { ItalyAutovelox } from "./italy-autovelox";
+import { ItalyGrandinata } from "./italy-grandinata";
+import { ItalyIncendio } from "./italy-incendio";
+import { ItalyMorra } from "./italy-morra";
+import { ItalyScippo } from "./italy-scippo";
+import { ItalySciopero } from "./italy-sciopero";
+import { ItalyTrenoSbagliato } from "./italy-treno-sbagliato";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -157,6 +164,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "uk-parking-warden": UkParkingWarden,
   "uk-queue-jumper": UkQueueJumper,
   "uk-your-round": UkYourRound,
+  "italy-autovelox": ItalyAutovelox,
+  "italy-grandinata": ItalyGrandinata,
+  "italy-incendio": ItalyIncendio,
+  "italy-morra": ItalyMorra,
+  "italy-scippo": ItalyScippo,
+  "italy-sciopero": ItalySciopero,
+  "italy-treno-sbagliato": ItalyTrenoSbagliato,
   "world-crossing-the-line": WorldCrossingTheLine,
   "world-customs-shed": WorldCustomsShed,
   "world-devaluation": WorldDevaluation,

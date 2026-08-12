@@ -83,7 +83,7 @@ export const TURKEY_CITIES = {
   // ---------------------------------------------------------------------
   izmir: city(
     "İzmir|Esmirna|Smyrne|イズミル",
-    27.14, 38.42, "ege", "port", "port", "l",
+    27.14, 38.42, "ege", "port", "port", "r", // 左向きだとチェシメのラベルとぶつかるため右向きにする
     "A fire that cleared the ground for a republic's second city|Un incendio que despejó el terreno para la segunda ciudad de una república|Un incendie qui dégagea le terrain pour la seconde ville d'une république|共和国第二の都市を築いた大火",
     "A fire in September 1922, at the close of the war that ended Ottoman rule over the city, burned much of the old harbour quarter to the ground and displaced tens of thousands in a single week. The wide seafront boulevard built afterward, the Kordon, is now where the city takes its evening walk, past the clock tower that survived the blaze.|Un incendio en septiembre de 1922, al final de la guerra que puso fin al dominio otomano de la ciudad, arrasó buena parte del viejo barrio portuario y desplazó a decenas de miles en una sola semana.|Un incendie en septembre 1922, à la fin de la guerre qui mit fin à la domination ottomane sur la ville, ravagea une bonne partie du vieux quartier portuaire et déplaça des dizaines de milliers de personnes en une seule semaine.|1922年9月、この街へのオスマン帝国の支配が終わる戦争の末に起きた大火は、旧港湾地区の大半を焼き尽くし、わずか一週間で数万人を住まいから追いやった。焼け跡に築かれた海沿いの広い並木道コルドンは、大火を生き延びた時計塔のそばを通り、いまも街の人が夕方の散歩に集う場所になっている。",
     [prop("Kordon Seafront Promenade|Paseo marítimo del Kordon|Promenade du Kordon|コルドン海岸通り", 1600, 330),
@@ -115,7 +115,7 @@ export const TURKEY_CITIES = {
   ),
   cesme: city(
     "Çeşme|Çeşme|Çeşme|チェシメ",
-    26.31, 38.32, "ege", "coast", "seaside", "l",
+    26.31, 38.32, "ege", "coast", "seaside", "r", // 盤面の左端に近いため右向き(İzmirも右向きにして衝突を避ける)
     "A naval defeat that pushed an empire to modernise its fleet|Una derrota naval que empujó a un imperio a modernizar su flota|Une défaite navale qui poussa un empire à moderniser sa flotte|艦隊近代化を促した海戦の敗北",
     "In 1770 a Russian fleet trapped and burned the Ottoman navy in Çeşme's bay in a single night, a defeat so total it pushed the empire into decades of naval reform. The peninsula's fierce, reliable summer wind that once complicated that battle now draws windsurfers instead, and its stone windmills, once used for grinding grain, dot the ridgelines above the town.|En 1770 una flota rusa atrapó e incendió la armada otomana en la bahía de Çeşme en una sola noche, una derrota tan total que empujó al imperio a décadas de reforma naval.|En 1770, une flotte russe piégea et incendia la marine ottomane dans la baie de Çeşme en une seule nuit, une défaite si totale qu'elle poussa l'empire vers des décennies de réforme navale.|1770年、ロシア艦隊はチェシメ湾でオスマン海軍をひと晩のうちに閉じ込めて焼き払った。あまりに徹底した敗北で、帝国は以後数十年にわたる海軍改革へと進むことになった。その海戦をかき乱した半島特有の強く安定した夏の風は、いまはウィンドサーファーを呼び寄せ、かつて穀物を挽くのに使われた石造りの風車が町を見下ろす尾根に点在している。",
     [prop("Windmill Ridge Terrace|Terraza de la loma de los molinos|Terrasse de la crête aux moulins|風車の尾根のテラス", 620, 128),
@@ -331,7 +331,7 @@ export const TURKEY_CITIES = {
   ),
   dogubayazit: city(
     "Doğubayazıt|Doğubayazıt|Doğubayazıt|ドゥバヤズット",
-    44.09, 39.55, "dogu", "volcano", "highland", "r",
+    44.09, 39.55, "dogu", "volcano", "highland", "l", // 盤面の右端に近いため左向き(右向きだと末尾が切れる)
     "A palace built in the shadow of the country's tallest peak|Un palacio construido a la sombra del pico más alto del país|Un palais bâti à l'ombre du plus haut sommet du pays|国内最高峰の影に建つ宮殿",
     "Mount Ararat, at 5,137 metres the country's highest peak and traditionally identified as the resting place of Noah's Ark, rises directly behind the town, snow-capped even in summer. The İshak Paşa Palace, an 18th-century fortress-palace blending Ottoman, Persian, Armenian and Georgian styles on a ridge above the town, took three generations of one family roughly a century to finish.|El monte Ararat, con 5.137 metros el pico más alto del país y tradicionalmente identificado como el lugar de descanso del arca de Noé, se alza justo detrás del pueblo, nevado incluso en verano.|Le mont Ararat, avec ses 5 137 mètres le plus haut sommet du pays et traditionnellement identifié comme le lieu de repos de l'arche de Noé, s'élève juste derrière la ville, enneigé même en été.|標高5137m、国内最高峰であり伝統的にノアの箱舟が漂着した地とされるアララト山が、夏でも雪を戴いたまま町のすぐ背後にそびえる。町を見下ろす尾根に立つイシャク・パシャ宮殿は18世紀築の要塞兼宮殿で、オスマン・ペルシャ・アルメニア・グルジアの様式を混ぜ合わせ、一族三代がおよそ百年かけて完成させた。",
     [prop("İshak Paşa Palace Courtyard|Patio del Palacio de İshak Paşa|Cour du palais d'İshak Paşa|イシャク・パシャ宮殿の中庭", 680, 140),

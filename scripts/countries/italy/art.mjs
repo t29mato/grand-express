@@ -153,15 +153,6 @@ function houseRow(positions, roof = "#b5502f", wall = "#e8dcc0") {
     .join("");
 }
 
-/** 段々畑・ぶどう畑の横畝(丸い茂みの列)。 */
-function shrubRow(x, y, count, gap, r, color) {
-  const parts = [];
-  for (let i = 0; i < count; i++) {
-    parts.push(`<circle cx="${r1(x + i * gap)}" cy="${y}" r="${r}" fill="${color}"/>`);
-  }
-  return `<g opacity=".9">${parts.join("")}</g>`;
-}
-
 /** ぶどう畑の畝線(等間隔の横縞)。 */
 function vineRows(x, y, w, rows, color = "#5f7f3a") {
   const parts = [];

@@ -129,4 +129,17 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   pubquiz: { type: "quiz-save" },
   detectorist: { type: "gain-cash", amount: 380 },
   guardswhistle: { type: "extra-turn" },
+
+  // Italy
+  // **`intercity` はドイツと共用。**インターシティはヨーロッパ各国を走る列車の
+  // 名前なので、盤面が違っても同じ鍵になった。効果も同じ(サイコロ2個)なので
+  // 1つにまとめてある。名前と絵は盤面ごとの内容から引くので、画面上は別物に見える。
+  vespa: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  orario: { type: "choose-exact-dice" },
+  frecciarossa: { type: "roll-fixed-dice", diceCount: 3 },
+  cornicello: { type: "none" }, // 厄災の神(モナチェッロ)のward item(passive)
+  malocchio: { type: "repel-spirit" },
+  bigino: { type: "quiz-save" },
+  lotteria: { type: "gain-cash", amount: 380 },
+  raccomandazione: { type: "extra-turn" },
 };

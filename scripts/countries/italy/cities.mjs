@@ -289,6 +289,14 @@ export const ITALY_CITIES = {
     [prop("Wood-Fired Pizzeria|Pizzería de horno de leña|Pizzeria au four à bois|薪窯のピッツェリア", 800, 166),
      prop("Underground Cistern Tour|Visita a las cisternas subterráneas|Visite des citernes souterraines|地下貯水槽めぐり", 400, 82)],
   ),
+  salerno: city(
+    "Salerno|Salerno|Salerne|サレルノ",
+    14.7681, 40.6824, "sud", "port", "port", "r",
+    "The school that taught Europe medicine, and admitted women to teach it|La escuela que enseñó medicina a Europa y admitió mujeres para enseñarla|L'école qui enseigna la médecine à l'Europe et admit des femmes pour l'enseigner|ヨーロッパに医学を教え、女性にも教壇を許した学校",
+    "The Schola Medica Salernitana drew on Greek, Latin, Arabic and Jewish medical writing from the ninth century onward, and is generally counted as the first medical school in western Europe; Constantine the African's translations of Arabic texts there gave Latin readers Galen and Hippocrates back after centuries. Women taught and wrote at Salerno as well, and the treatises attributed to a figure known as Trota covered obstetrics and skin care at a time when few other institutions in Europe recorded a woman's medical authority at all.|La Schola Medica Salernitana bebió desde el siglo IX de la escritura médica griega, latina, árabe y judía, y suele contarse como la primera escuela de medicina de Europa occidental; allí las traducciones de textos árabes de Constantino el Africano devolvieron Galeno e Hipócrates a los lectores latinos tras siglos. En Salerno también enseñaron y escribieron mujeres, y los tratados atribuidos a una figura conocida como Trota trataban obstetricia y cuidado de la piel cuando pocas instituciones europeas registraban autoridad médica femenina.|La Schola Medica Salernitana puisa dès le IXe siècle dans les écrits médicaux grecs, latins, arabes et juifs, et passe pour la première école de médecine d'Europe occidentale ; les traductions de textes arabes par Constantin l'Africain y rendirent Galien et Hippocrate aux lecteurs latins après des siècles. Des femmes y enseignèrent et y écrivirent aussi, et les traités attribués à une figure nommée Trota traitaient d'obstétrique et de soins de la peau à une époque où peu d'institutions européennes reconnaissaient une autorité médicale féminine.|サレルノ医学校は9世紀以降、ギリシャ・ラテン・アラビア・ユダヤの医学書を集めて学び、西ヨーロッパ最初の医学校に数えられる。ここでアフリカ人コンスタンティヌスがアラビア語文献を訳したことで、ラテン語圏は数世紀ぶりにガレノスとヒポクラテスを取り戻した。サレルノでは女性も教え、書いた。トロタと呼ばれる人物に帰される医書は産科と皮膚の手当てを扱っており、ヨーロッパの他の学問所が女性の医学的権威をほとんど記録しなかった時代のことである。",
+    [prop("Waterfront Promenade|Paseo marítimo|Promenade du bord de mer|海沿いの遊歩道", 620, 128),
+     prop("Lemon Terrace Grove|Terrazas de limoneros|Terrasses de citronniers|段々畑のレモン園", 340, 70)],
+  ),
   pompei: city(
     "Pompeii|Pompeya|Pompéi|ポンペイ",
     14.4989, 40.7461, "sud", "ruins", "temple", "l",
@@ -493,7 +501,9 @@ export const ITALY_EDGES = [
   ["milano", "bologna"],
   ["milano", "parma"],
   ["parma", "bologna"],
-  ["venezia", "trieste"],
+  // 実在の鉄道だが、あいだに町が無いとヴェネツィア湾を横切って77%が海の上を走る。
+  // アドリア海の高速船も実在するので航路にした(海187px → 陸57px)。
+  ["venezia", "trieste", "sea"],
   ["venezia", "ravenna"],
   ["bologna", "ravenna"],
   // --- nes-cen・cen 中部(フレッチャロッサの背骨、ボローニャ―フィレンツェ―ローマ) ---
@@ -510,35 +520,39 @@ export const ITALY_EDGES = [
   ["orvieto", "roma"],
   ["roma", "perugia"],
   // --- cen-sud・sud 南部 ---
-  ["roma", "napoli"],
+  ["napoli", "roma"], // 入れ替え済み(海163px → 0px)
   ["roma", "laquila"],
   ["napoli", "pompei"],
   ["pompei", "sorrento"],
   ["sorrento", "positano"],
   ["napoli", "bari"],
   ["bari", "alberobello"],
-  ["bari", "lecce"],
+  ["lecce", "bari"], // 入れ替え済み(海111px → 0px)
   ["alberobello", "lecce"],
   ["bari", "matera"],
   ["matera", "alberobello"],
-  ["napoli", "tropea"],
+  // **ナポリ—トロペアの直結をやめ、サレルノを挟んだ。**ティレニア線は実在の
+  // 鉄道だが、あいだに町が無いと556pxの線がポリカストロ湾を横切り、
+  // 85%が海の上を走る絵になっていた(実測)。中継の町を置くのが本筋。
+  ["napoli", "salerno"],
   ["tropea", "reggiocalabria"],
   // --- sic シチリア ---
   ["palermo", "cefalu"],
   ["cefalu", "taormina"],
   ["taormina", "catania"],
-  ["catania", "siracusa"],
+  ["siracusa", "catania"], // 入れ替え済み(海65px → 0px)
   ["catania", "agrigento"],
   ["agrigento", "palermo"],
   // --- sar サルデーニャ ---
   ["cagliari", "olbia"],
   ["olbia", "nuoro"],
   ["cagliari", "barumini"],
-  ["cagliari", "alghero"],
+  ["alghero", "cagliari"], // 入れ替え済み(海131px → 0px)
   ["alghero", "olbia"],
   // --- 航路(本土⇄シチリア2本、本土⇄サルデーニャ2本) ---
   ["napoli", "palermo", "sea"],
   ["reggiocalabria", "taormina", "sea"],
   ["genova", "olbia", "sea"],
-  ["napoli", "cagliari", "sea"],
+  ["cagliari", "napoli", "sea"], // 入れ替え済み(陸87px → 47px)
+  ["salerno", "tropea"], // ナポリ—トロペアの後半。ティレニア海沿岸を下る
 ];

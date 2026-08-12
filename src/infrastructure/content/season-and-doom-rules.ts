@@ -576,6 +576,64 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
       { op: "region-income-multiplier", regionId: region("ni"), multiplier: 1.25 },
     ],
   ],
+
+  /**
+   * イタリア。復活祭とオリーブの春 → 開いたワイナリーと避暑 →
+   * フェラゴスト(8月・休神) → 収穫とヴェネツィアのレガータ → トリュフの秋 →
+   * 万霊節 → クリスマス市とプレゼーペ → エピファニア(1月・給アイテム) →
+   * カーニバル → アーモンドの花咲くシチリアの春、という流れ。
+   */
+  italy: [
+    /* 0 Apr 復活祭とオリーブの開花 */ [
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("sud"), multiplier: 1.15 },
+    ],
+    /* 1 May カンティーネ・アペルテ(開かれた酒蔵) */ [
+      { op: "region-income-multiplier", regionId: region("nov"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.2 },
+    ],
+    /* 2 Jun 海開きと共和国記念日 */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("sud"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("sar"), multiplier: 1.15 },
+    ],
+    /* 3 Jul パリオと真夏の観光 */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("sic"), multiplier: 1.2 },
+    ],
+    /* 4 Aug フェラゴスト(街が空になる) */ [
+      { op: "region-income-multiplier", regionId: region("nov"), multiplier: 0.7 },
+      { op: "region-income-multiplier", regionId: region("sar"), multiplier: 1.3 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep ヴェンデンミアとレガータ・ストーリカ */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "region-income-multiplier", regionId: region("nes"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.2 },
+    ],
+    /* 6 Oct 白トリュフと新しいオリーブオイル */ [
+      { op: "region-income-multiplier", regionId: region("nov"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.15 },
+    ],
+    /* 7 Nov 万霊節と今年最後のオリーブ */ [
+      { op: "all-players-pay-cash", amount: 160 },
+      { op: "region-income-multiplier", regionId: region("sud"), multiplier: 1.2 },
+    ],
+    /* 8 Dec クリスマス市とプレゼーペ */ [
+      { op: "region-income-multiplier", regionId: region("sud"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("nes"), multiplier: 1.15 },
+    ],
+    /* 9 Jan エピファニアとベファーナ */ [{ op: "give-item-to-all" }],
+    /* 10 Feb カーニバルの仮面 */ [
+      { op: "all-players-pay-cash", amount: 180 },
+      { op: "region-income-multiplier", regionId: region("nes"), multiplier: 1.35 },
+    ],
+    /* 11 Mar アーモンドの花とシチリアの早春 */ [
+      { op: "all-players-gain-cash", amount: 220 },
+      { op: "region-income-multiplier", regionId: region("sic"), multiplier: 1.3 },
+    ],
+  ],
 };
 
 /**
@@ -675,4 +733,13 @@ export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>>
   "your-round": "payOthers",
   "last-bus": "teleport",
   "queue-jumper": "steal",
+
+  // Italy
+  autovelox: "fine",
+  grandinata: "percentLoss",
+  sciopero: "skipTurn",
+  incendio: "loseProperties",
+  morra: "payOthers",
+  "treno-sbagliato": "teleport",
+  scippo: "steal",
 };

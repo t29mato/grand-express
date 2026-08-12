@@ -420,7 +420,7 @@
       "reg": "ege",
       "mark": "port",
       "bg": "port",
-      "lp": "l",
+      "lp": "r",
       "tag": {
         "en": "A fire that cleared the ground for a republic's second city",
         "es": "Un incendio que despejó el terreno para la segunda ciudad de una república",
@@ -612,7 +612,7 @@
       "reg": "ege",
       "mark": "coast",
       "bg": "seaside",
-      "lp": "l",
+      "lp": "r",
       "tag": {
         "en": "A naval defeat that pushed an empire to modernise its fleet",
         "es": "Una derrota naval que empujó a un imperio a modernizar su flota",
@@ -1812,7 +1812,7 @@
       "reg": "dogu",
       "mark": "volcano",
       "bg": "highland",
-      "lp": "r",
+      "lp": "l",
       "tag": {
         "en": "A palace built in the shadow of the country's tallest peak",
         "es": "Un palacio construido a la sombra del pico más alto del país",
@@ -2155,16 +2155,17 @@
       "canakkale"
     ],
     [
+      "tekirdag",
       "istanbul",
-      "tekirdag"
+      "sea"
     ],
     [
       "tekirdag",
       "edirne"
     ],
     [
-      "istanbul",
-      "edirne"
+      "edirne",
+      "istanbul"
     ],
     [
       "istanbul",
@@ -2176,8 +2177,9 @@
       "manisa"
     ],
     [
+      "cesme",
       "izmir",
-      "cesme"
+      "sea"
     ],
     [
       "izmir",
@@ -2192,12 +2194,12 @@
       "pamukkale"
     ],
     [
-      "manisa",
-      "ayvalik"
+      "ayvalik",
+      "manisa"
     ],
     [
-      "canakkale",
-      "ayvalik"
+      "ayvalik",
+      "canakkale"
     ],
     [
       "antalya",
@@ -2208,8 +2210,8 @@
       "kas"
     ],
     [
-      "antalya",
-      "alanya"
+      "alanya",
+      "antalya"
     ],
     [
       "alanya",
@@ -2220,8 +2222,8 @@
       "adana"
     ],
     [
-      "adana",
-      "antakya"
+      "antakya",
+      "adana"
     ],
     [
       "pamukkale",
@@ -2229,8 +2231,7 @@
     ],
     [
       "bodrum",
-      "fethiye",
-      "sea"
+      "fethiye"
     ],
     [
       "ankara",
@@ -2262,7 +2263,7 @@
     ],
     [
       "eskisehir",
-      "istanbul"
+      "izmit"
     ],
     [
       "konya",
@@ -2277,12 +2278,14 @@
       "rize"
     ],
     [
+      "samsun",
       "trabzon",
-      "samsun"
+      "sea"
     ],
     [
       "samsun",
-      "sinop"
+      "sinop",
+      "sea"
     ],
     [
       "samsun",
@@ -4989,13 +4992,13 @@
     "travertine": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#8fc4e8\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"16\" fill=\"#cfe4f0\"/><circle cx=\"50\" cy=\"40\" r=\"18\" fill=\"#f5b31c\"/><g opacity=\".8\" fill=\"#f6efe2\"><ellipse cx=\"300\" cy=\"26\" rx=\"18\" ry=\"7\"/><ellipse cx=\"290\" cy=\"26\" rx=\"11\" ry=\"5.5\"/><ellipse cx=\"311\" cy=\"26\" rx=\"13\" ry=\"5.5\"/></g><g opacity=\".9\"><path d=\"M-34,98c22,-30 52,-30 74,0z\" fill=\"#9aa85c\"/><path d=\"M66,98c22,-30 52,-30 74,0z\" fill=\"#9aa85c\"/><path d=\"M166,98c22,-30 52,-30 74,0z\" fill=\"#9aa85c\"/><path d=\"M266,98c22,-30 52,-30 74,0z\" fill=\"#9aa85c\"/></g><rect x=\"0\" y=\"100\" width=\"400\" height=\"110\" fill=\"#c9bda0\"/><path d=\"M0,120h90v20h60v20h80v20h100v30h-330z\" fill=\"#f2f6f8\" stroke=\"#cfe0dc\" stroke-width=\"1.5\"/><rect x=\"0\" y=\"118\" width=\"90\" height=\"4\" fill=\"#bfe0f0\" opacity=\".7\"/><rect x=\"90\" y=\"138\" width=\"60\" height=\"4\" fill=\"#bfe0f0\" opacity=\".7\"/><rect x=\"150\" y=\"158\" width=\"80\" height=\"4\" fill=\"#bfe0f0\" opacity=\".7\"/><rect x=\"230\" y=\"178\" width=\"100\" height=\"4\" fill=\"#bfe0f0\" opacity=\".7\"/><g fill=\"#e8dcc0\"><rect x=\"20\" y=\"70\" width=\"3\" height=\"16\"/><rect x=\"30\" y=\"66\" width=\"3\" height=\"20\"/><rect x=\"40\" y=\"70\" width=\"3\" height=\"16\"/><rect x=\"50\" y=\"74\" width=\"3\" height=\"12\"/></g><path d=\"M14,86a22,10 0 0 1 44,0z\" fill=\"none\" stroke=\"#d8cba8\" stroke-width=\"1.6\"/><g fill=\"#c9bda0\"><rect x=\"340\" y=\"180\" width=\"30\" height=\"6\"/><rect x=\"350\" y=\"172\" width=\"6\" height=\"8\"/></g><g fill=\"#dfe8e4\" opacity=\".7\"><path d=\"M0,120h90v6h-90z\"/><path d=\"M90,140h60v6h-60z\"/><path d=\"M150,160h80v6h-80z\"/></g><rect x=\"338.6\" y=\"92\" width=\"2.8\" height=\"4\" fill=\"#5a4630\"/><path d=\"M340,76C335.6,82 336.5,92 337.8,96L342.2,96C343.5,92 344.4,82 340,76z\" fill=\"#2f5f4a\"/><rect x=\"358.6\" y=\"94\" width=\"2.8\" height=\"4\" fill=\"#5a4630\"/><path d=\"M360,82C356.5,86.8 357.2,94.8 358.3,98L361.8,98C362.8,94.8 363.5,86.8 360,82z\" fill=\"#2f5f4a\"/><rect x=\"18.6\" y=\"90\" width=\"2.8\" height=\"4\" fill=\"#5a4630\"/><path d=\"M20,76C16,81.4 16.8,90.4 18,94L22,94C23.2,90.4 24,81.4 20,76z\" fill=\"#2f5f4a\"/><g stroke=\"#8a6a3a\" stroke-width=\"1.4\"><path d=\"M250,178v-8M270,178v-8M290,178v-8\"/></g><circle cx=\"180\" cy=\"185\" r=\"4\" fill=\"#d9a273\"/><rect x=\"176\" y=\"189\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#f6efe2\"/><circle cx=\"200\" cy=\"187\" r=\"4\" fill=\"#c98a5a\"/><rect x=\"196\" y=\"191\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#f6efe2\"/><circle cx=\"120\" cy=\"180\" r=\"4\" fill=\"#d9a273\"/><rect x=\"116\" y=\"184\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#e8dcc0\"/><circle cx=\"240\" cy=\"183\" r=\"4\" fill=\"#c98a5a\"/><rect x=\"236\" y=\"187\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#f6efe2\"/>",
     "cappadocia": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#e8a878\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"46\" fill=\"#f5d4a8\"/><circle cx=\"70\" cy=\"50\" r=\"22\" fill=\"#f5b31c\"/><g opacity=\".9\"><path d=\"M-34,128c22,-30 52,-30 74,0z\" fill=\"#c9a877\"/><path d=\"M66,128c22,-30 52,-30 74,0z\" fill=\"#c9a877\"/><path d=\"M166,128c22,-30 52,-30 74,0z\" fill=\"#c9a877\"/><path d=\"M266,128c22,-30 52,-30 74,0z\" fill=\"#c9a877\"/></g><rect x=\"0\" y=\"130\" width=\"400\" height=\"80\" fill=\"#d8b878\"/><path d=\"M35.3,190L39.4,130.5L50,120L60.6,130.5L64.7,190z\" fill=\"#d8b878\"/><ellipse cx=\"50\" cy=\"130.5\" rx=\"14.7\" ry=\"4\" fill=\"#9a9488\"/><path d=\"M79.5,195L82.4,152.5L90,145L97.6,152.5L100.5,195z\" fill=\"#d8b878\"/><ellipse cx=\"90\" cy=\"152.5\" rx=\"10.5\" ry=\"4\" fill=\"#9a9488\"/><path d=\"M327,192L330.6,139.3L340,130L349.4,139.3L353,192z\" fill=\"#d8b878\"/><ellipse cx=\"340\" cy=\"139.3\" rx=\"13\" ry=\"4\" fill=\"#9a9488\"/><path d=\"M361.2,196L363.7,160.3L370,154L376.3,160.3L378.8,196z\" fill=\"#d8b878\"/><ellipse cx=\"370\" cy=\"160.3\" rx=\"8.8\" ry=\"4\" fill=\"#9a9488\"/><path d=\"M12,200L14.2,167.7L20,162L25.8,167.7L28,200z\" fill=\"#d8b878\"/><ellipse cx=\"20\" cy=\"167.7\" rx=\"8\" ry=\"4\" fill=\"#9a9488\"/><g fill=\"#5a4a3a\"><rect x=\"45\" y=\"150\" width=\"4\" height=\"5\"/><rect x=\"52\" y=\"158\" width=\"4\" height=\"6\"/><rect x=\"335\" y=\"150\" width=\"4\" height=\"5\"/></g><ellipse cx=\"120\" cy=\"60\" rx=\"11.200000000000001\" ry=\"14.4\" fill=\"#e8443f\"/><g stroke=\"#c9a227\" stroke-width=\"1.1199999999999999\"><path d=\"M114.4,48.5L114.4,71.5M125.6,48.5L125.6,71.5\"/></g><path d=\"M114.4,73L116.9,79.2L123.1,79.2L125.6,73z\" fill=\"none\" stroke=\"#5a4630\" stroke-width=\"1\"/><rect x=\"117.1\" y=\"79.2\" width=\"5.8\" height=\"4\" fill=\"#8a6a3a\"/><ellipse cx=\"160\" cy=\"40\" rx=\"9.1\" ry=\"11.700000000000001\" fill=\"#1a7a8f\"/><g stroke=\"#c9a227\" stroke-width=\"0.9099999999999999\"><path d=\"M155.5,30.6L155.5,49.4M164.6,30.6L164.6,49.4\"/></g><path d=\"M155.5,50.5L157.5,55.6L162.5,55.6L164.6,50.5z\" fill=\"none\" stroke=\"#5a4630\" stroke-width=\"1\"/><rect x=\"157.6\" y=\"55.6\" width=\"4.7\" height=\"3.3\" fill=\"#8a6a3a\"/><ellipse cx=\"200\" cy=\"70\" rx=\"12.6\" ry=\"16.2\" fill=\"#c9a227\"/><g stroke=\"#c9a227\" stroke-width=\"1.26\"><path d=\"M193.7,57L193.7,83M206.3,57L206.3,83\"/></g><path d=\"M193.7,84.6L196.5,91.6L203.5,91.6L206.3,84.6z\" fill=\"none\" stroke=\"#5a4630\" stroke-width=\"1\"/><rect x=\"196.7\" y=\"91.6\" width=\"6.6\" height=\"4.5\" fill=\"#8a6a3a\"/><ellipse cx=\"240\" cy=\"45\" rx=\"9.799999999999999\" ry=\"12.6\" fill=\"#5b8fe8\"/><g stroke=\"#c9a227\" stroke-width=\"0.9799999999999999\"><path d=\"M235.1,34.9L235.1,55.1M244.9,34.9L244.9,55.1\"/></g><path d=\"M235.1,56.3L237.3,61.8L242.7,61.8L244.9,56.3z\" fill=\"none\" stroke=\"#5a4630\" stroke-width=\"1\"/><rect x=\"237.5\" y=\"61.8\" width=\"5.1\" height=\"3.5\" fill=\"#8a6a3a\"/><ellipse cx=\"280\" cy=\"85\" rx=\"8.4\" ry=\"10.799999999999999\" fill=\"#8a1f2b\"/><g stroke=\"#c9a227\" stroke-width=\"0.84\"><path d=\"M275.8,76.4L275.8,93.6M284.2,76.4L284.2,93.6\"/></g><path d=\"M275.8,94.7L277.6,99.4L282.4,99.4L284.2,94.7z\" fill=\"none\" stroke=\"#5a4630\" stroke-width=\"1\"/><rect x=\"277.8\" y=\"99.4\" width=\"4.4\" height=\"3\" fill=\"#8a6a3a\"/><ellipse cx=\"300\" cy=\"30\" rx=\"7\" ry=\"9\" fill=\"#3f6f34\"/><g stroke=\"#c9a227\" stroke-width=\"0.7\"><path d=\"M296.5,22.8L296.5,37.2M303.5,22.8L303.5,37.2\"/></g><path d=\"M296.5,38.1L298,42L302,42L303.5,38.1z\" fill=\"none\" stroke=\"#5a4630\" stroke-width=\"1\"/><rect x=\"298.2\" y=\"42\" width=\"3.6\" height=\"2.5\" fill=\"#8a6a3a\"/><path d=\"M0,205q100,-10 200,0t200,0\" stroke=\"#c9a877\" stroke-width=\"10\" fill=\"none\" opacity=\".7\"/><circle cx=\"200\" cy=\"187\" r=\"4\" fill=\"#d9a273\"/><rect x=\"196\" y=\"191\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#5b8fe8\"/>",
     "lakeside": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#8fc4e8\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"16\" fill=\"#cfe4f0\"/><g opacity=\".8\" fill=\"#f6efe2\"><ellipse cx=\"70\" cy=\"28\" rx=\"18\" ry=\"7\"/><ellipse cx=\"60\" cy=\"28\" rx=\"11\" ry=\"5.5\"/><ellipse cx=\"81\" cy=\"28\" rx=\"13\" ry=\"5.5\"/></g><g opacity=\".9\"><path d=\"M-34,98c22,-30 52,-30 74,0z\" fill=\"#8fae7a\"/><path d=\"M66,98c22,-30 52,-30 74,0z\" fill=\"#8fae7a\"/><path d=\"M166,98c22,-30 52,-30 74,0z\" fill=\"#8fae7a\"/><path d=\"M266,98c22,-30 52,-30 74,0z\" fill=\"#8fae7a\"/></g><rect x=\"0\" y=\"100\" width=\"400\" height=\"110\" fill=\"#9aa85c\"/><rect x=\"0\" y=\"140\" width=\"400\" height=\"70\" fill=\"#3f8fc4\"/><g stroke=\"#bfe8f4\" stroke-width=\"2\" opacity=\".7\" fill=\"none\"><path d=\"M26,156h74M176,168h92M108,180h62\"/></g><g stroke=\"#9fd0e8\" stroke-width=\"2\" opacity=\".7\" fill=\"none\"><path d=\"M26,176h74M176,188h92M108,200h62\"/></g><g stroke=\"#bfe8f4\" stroke-width=\"2\" opacity=\".7\" fill=\"none\"><path d=\"M26,196h74M176,208h92M108,220h62\"/></g><path d=\"M30.1,100L54,54L67.2,72.4L89.9,100z\" fill=\"#9a9488\"/><path d=\"M314,98L334.8,58L346.2,74L366,98z\" fill=\"#8b8f98\"/><path d=\"M355,84L360,74L365,80L370,68L376,84z\" fill=\"#7a8290\" opacity=\".85\"/><path d=\"M180,178Q200,186.8 220,178L216.8,169.2L183.2,169.2z\" fill=\"#e8dcc0\" stroke=\"#6b5330\" stroke-width=\"1.2\"/><rect x=\"198\" y=\"143.2\" width=\"3\" height=\"26\" fill=\"#6b5330\"/><path d=\"M199,145.2L184,167.2L199,167.2z\" fill=\"#f6efe2\" opacity=\".9\"/><path d=\"M265,190Q280,196.6 295,190L292.6,183.4L267.4,183.4z\" fill=\"#e8dcc0\" stroke=\"#6b5330\" stroke-width=\"1.2\"/><rect x=\"278\" y=\"157.4\" width=\"3\" height=\"26\" fill=\"#6b5330\"/><path d=\"M279,159.4L264,181.4L279,181.4z\" fill=\"#f6efe2\" opacity=\".9\"/><path d=\"M93.6,130q3.2,-6 6.4,0q3.2,-6 6.4,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><path d=\"M314.4,120q2.8,-6 5.6,0q2.8,-6 5.6,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><path d=\"M135.2,118q2.4,-6 4.8,0q2.4,-6 4.8,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><rect x=\"20\" y=\"176\" width=\"26\" height=\"18\" fill=\"#e8dcc0\"/><path d=\"M17,176h32l-4,-7h-24z\" fill=\"#7a5a3a\"/><g stroke=\"#5f8f4a\" stroke-width=\"1.6\"><path d=\"M355,210v-20M362,210v-24M369,210v-18\"/></g><rect x=\"180\" y=\"196\" width=\"60\" height=\"6\" fill=\"#8a6a3a\"/><g stroke=\"#f6efe2\" stroke-width=\"1\" opacity=\".6\" fill=\"none\"><ellipse cx=\"250\" cy=\"185\" rx=\"10\" ry=\"3\"/></g><circle cx=\"150\" cy=\"183\" r=\"4\" fill=\"#d9a273\"/><rect x=\"146\" y=\"187\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#3f6f34\"/><circle cx=\"60\" cy=\"180\" r=\"4\" fill=\"#c98a5a\"/><rect x=\"56\" y=\"184\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#5b8fe8\"/><g fill=\"#7f9f5f\" opacity=\".85\"><ellipse cx=\"10\" cy=\"205\" rx=\"8\" ry=\"4\"/><ellipse cx=\"390\" cy=\"206\" rx=\"8\" ry=\"4\"/></g><path d=\"M330,150L336,132L342,150z\" fill=\"#f6efe2\" opacity=\".9\"/>",
-    "highland": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#a8c8e0\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"46\" fill=\"#e8f0f4\"/><circle cx=\"340\" cy=\"40\" r=\"18\" fill=\"#f6efe2\"/><path d=\"M135,132L187,32L215.6,72L265,132z\" fill=\"#9a9488\"/><path d=\"M187,32L200,52L207.8,46z\" fill=\"#f2f6f8\"/><path d=\"M51,128L82.2,68L99.4,92L129,128z\" fill=\"#8b8f98\"/><path d=\"M294.9,126L323,72L338.4,93.6L365.1,126z\" fill=\"#9a9488\"/><g opacity=\".9\"><path d=\"M-34,130c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/><path d=\"M66,130c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/><path d=\"M166,130c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/><path d=\"M266,130c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/></g><rect x=\"0\" y=\"130\" width=\"400\" height=\"80\" fill=\"#b3ab6a\"/><path d=\"M30,200a26,16 0 0 1 52,0z\" fill=\"#c9a877\" stroke=\"#8a6a3a\" stroke-width=\"1.2\"/><rect x=\"52\" y=\"192\" width=\"6\" height=\"8\" fill=\"#3a3a40\"/><g fill=\"#f6efe2\" stroke=\"#c9bda0\" stroke-width=\"0.6\"><ellipse cx=\"260\" cy=\"198\" rx=\"8\" ry=\"6\"/><ellipse cx=\"276\" cy=\"200\" rx=\"8\" ry=\"6\"/><ellipse cx=\"292\" cy=\"197\" rx=\"8\" ry=\"6\"/><ellipse cx=\"308\" cy=\"200\" rx=\"8\" ry=\"6\"/><ellipse cx=\"322\" cy=\"199\" rx=\"7\" ry=\"5.4\"/></g><g fill=\"#3a3a40\"><circle cx=\"253\" cy=\"196\" r=\"2.2\"/><circle cx=\"269\" cy=\"198\" r=\"2.2\"/><circle cx=\"285\" cy=\"195\" r=\"2.2\"/><circle cx=\"301\" cy=\"198\" r=\"2.2\"/><circle cx=\"316\" cy=\"197\" r=\"2\"/></g><circle cx=\"240\" cy=\"185\" r=\"4\" fill=\"#d9a273\"/><rect x=\"236\" y=\"189\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#8a1f2b\"/><path d=\"M144.4,44q2.8,-6 5.6,0q2.8,-6 5.6,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><path d=\"M165.2,38q2.4,-6 4.8,0q2.4,-6 4.8,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><path d=\"M53.6,60q3.2,-6 6.4,0q3.2,-6 6.4,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><ellipse cx=\"228\" cy=\"202\" rx=\"5\" ry=\"3.4\" fill=\"#c9a877\"/><circle cx=\"223\" cy=\"199\" r=\"2.2\" fill=\"#c9a877\"/><rect x=\"60\" y=\"208\" width=\"20\" height=\"6\" fill=\"#8a1f2b\"/><rect x=\"60\" y=\"202.5\" width=\"20\" height=\"6\" fill=\"#c9a227\"/><path d=\"M0,210L20,190L45,210z\" fill=\"#8a8478\"/><g fill=\"#8a9a5c\" opacity=\".85\"><ellipse cx=\"120\" cy=\"206\" rx=\"6\" ry=\"3\"/><ellipse cx=\"360\" cy=\"204\" rx=\"6\" ry=\"3\"/></g><g fill=\"#f2f6f8\" opacity=\".7\"><path d=\"M170,60L200,42L215,55L195,64z\"/></g><g fill=\"#9a9488\"><circle cx=\"100\" cy=\"207\" r=\"2\"/><circle cx=\"340\" cy=\"206\" r=\"2.4\"/></g>",
-    "seaside": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#8fc4e8\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"26\" fill=\"#cfe4f0\"/><circle cx=\"340\" cy=\"46\" r=\"22\" fill=\"#f5b31c\"/><g opacity=\".8\" fill=\"#f6efe2\"><ellipse cx=\"80\" cy=\"30\" rx=\"18\" ry=\"7\"/><ellipse cx=\"70\" cy=\"30\" rx=\"11\" ry=\"5.5\"/><ellipse cx=\"91\" cy=\"30\" rx=\"13\" ry=\"5.5\"/></g><rect x=\"0\" y=\"110\" width=\"400\" height=\"60\" fill=\"#1e6ea0\"/><g stroke=\"#bfe8f4\" stroke-width=\"2\" opacity=\".7\" fill=\"none\"><path d=\"M26,126h74M176,138h92M108,150h62\"/></g><g stroke=\"#9fd0e8\" stroke-width=\"2\" opacity=\".7\" fill=\"none\"><path d=\"M26,146h74M176,158h92M108,170h62\"/></g><g stroke=\"#bfe8f4\" stroke-width=\"2\" opacity=\".7\" fill=\"none\"><path d=\"M26,162h74M176,174h92M108,186h62\"/></g><path d=\"M0,150c60,-8 120,4 200,-2c80,-6 140,4 200,-2v64H0z\" fill=\"#e8dcc0\"/><g><path d=\"M60,168a20,10 0 0 1 40,0z\" fill=\"#e8443f\"/><rect x=\"78\" y=\"168\" width=\"3\" height=\"30\" fill=\"#6b5330\"/></g><g><path d=\"M320,172a16,8 0 0 1 32,0z\" fill=\"#f5b31c\"/><rect x=\"334\" y=\"172\" width=\"3\" height=\"26\" fill=\"#6b5330\"/></g><g><path d=\"M170,178a14,7 0 0 1 28,0z\" fill=\"#1a7a8f\"/><rect x=\"182\" y=\"178\" width=\"2.6\" height=\"22\" fill=\"#6b5330\"/></g><rect x=\"18.6\" y=\"196\" width=\"2.8\" height=\"4\" fill=\"#5a4630\"/><path d=\"M20,166C12.5,176.2 14,193.2 16.3,200L23.8,200C26,193.2 27.5,176.2 20,166z\" fill=\"#2f5f4a\"/><rect x=\"378.6\" y=\"198\" width=\"2.8\" height=\"4\" fill=\"#5a4630\"/><path d=\"M380,172C373.4,181 374.7,196 376.7,202L383.3,202C385.3,196 386.6,181 380,172z\" fill=\"#2f5f4a\"/><g fill=\"#f6efe2\" stroke=\"#c9a227\" stroke-width=\"1\"><rect x=\"55\" y=\"188\" width=\"14\" height=\"4\"/><rect x=\"325\" y=\"192\" width=\"14\" height=\"4\"/><rect x=\"180\" y=\"196\" width=\"14\" height=\"4\"/></g><path d=\"M235,120Q250,126.6 265,120L262.6,113.4L237.4,113.4z\" fill=\"#e8dcc0\" stroke=\"#6b5330\" stroke-width=\"1.2\"/><rect x=\"248\" y=\"87.4\" width=\"3\" height=\"26\" fill=\"#6b5330\"/><path d=\"M249,89.4L234,111.4L249,111.4z\" fill=\"#f6efe2\" opacity=\".9\"/><path d=\"M144.4,40q2.8,-6 5.6,0q2.8,-6 5.6,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><path d=\"M192.8,50q3.6,-6 7.2,0q3.6,-6 7.2,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><path d=\"M85.2,46q2.4,-6 4.8,0q2.4,-6 4.8,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><circle cx=\"230\" cy=\"192\" r=\"8\" fill=\"none\" stroke=\"#e8443f\" stroke-width=\"3\"/><g fill=\"#f2f6f8\" opacity=\".9\"><circle cx=\"110\" cy=\"204\" r=\"2\"/><circle cx=\"280\" cy=\"206\" r=\"2.4\"/></g><circle cx=\"75\" cy=\"183\" r=\"4\" fill=\"#d9a273\"/><rect x=\"71\" y=\"187\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#f6efe2\"/><circle cx=\"330\" cy=\"185\" r=\"4\" fill=\"#c98a5a\"/><rect x=\"326\" y=\"189\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#f6efe2\"/><circle cx=\"160\" cy=\"175\" r=\"4\" fill=\"#d9a273\"/><rect x=\"156\" y=\"179\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#1a7a8f\"/>",
+    "highland": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#a8c8e0\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"46\" fill=\"#e8f0f4\"/><circle cx=\"340\" cy=\"40\" r=\"18\" fill=\"#f6efe2\"/><path d=\"M135,132L187,32L215.6,72L265,132z\" fill=\"#9a9488\"/><path d=\"M187,32L200,52L207.8,46z\" fill=\"#f2f6f8\"/><path d=\"M51,128L82.2,68L99.4,92L129,128z\" fill=\"#8b8f98\"/><path d=\"M294.9,126L323,72L338.4,93.6L365.1,126z\" fill=\"#9a9488\"/><g opacity=\".9\"><path d=\"M-34,130c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/><path d=\"M66,130c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/><path d=\"M166,130c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/><path d=\"M266,130c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/></g><rect x=\"0\" y=\"130\" width=\"400\" height=\"80\" fill=\"#b3ab6a\"/><path d=\"M30,200a26,16 0 0 1 52,0z\" fill=\"#c9a877\" stroke=\"#8a6a3a\" stroke-width=\"1.2\"/><rect x=\"52\" y=\"192\" width=\"6\" height=\"8\" fill=\"#3a3a40\"/><g fill=\"#f6efe2\" stroke=\"#c9bda0\" stroke-width=\"0.6\"><ellipse cx=\"260\" cy=\"198\" rx=\"8\" ry=\"6\"/><ellipse cx=\"276\" cy=\"200\" rx=\"8\" ry=\"6\"/><ellipse cx=\"292\" cy=\"197\" rx=\"8\" ry=\"6\"/><ellipse cx=\"308\" cy=\"200\" rx=\"8\" ry=\"6\"/><ellipse cx=\"322\" cy=\"199\" rx=\"7\" ry=\"5.4\"/></g><g fill=\"#3a3a40\"><circle cx=\"253\" cy=\"196\" r=\"2.2\"/><circle cx=\"269\" cy=\"198\" r=\"2.2\"/><circle cx=\"285\" cy=\"195\" r=\"2.2\"/><circle cx=\"301\" cy=\"198\" r=\"2.2\"/><circle cx=\"316\" cy=\"197\" r=\"2\"/></g><circle cx=\"240\" cy=\"185\" r=\"4\" fill=\"#d9a273\"/><rect x=\"236\" y=\"189\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#8a1f2b\"/><path d=\"M144.4,44q2.8,-6 5.6,0q2.8,-6 5.6,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><path d=\"M165.2,38q2.4,-6 4.8,0q2.4,-6 4.8,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><path d=\"M53.6,60q3.2,-6 6.4,0q3.2,-6 6.4,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><ellipse cx=\"228\" cy=\"202\" rx=\"5\" ry=\"3.4\" fill=\"#c9a877\"/><circle cx=\"223\" cy=\"199\" r=\"2.2\" fill=\"#c9a877\"/><rect x=\"60\" y=\"208\" width=\"20\" height=\"6\" fill=\"#8a1f2b\"/><rect x=\"60\" y=\"202.5\" width=\"20\" height=\"6\" fill=\"#c9a227\"/><path d=\"M0,210L20,190L45,210z\" fill=\"#8a8478\"/><g fill=\"#8a9a5c\" opacity=\".85\"><ellipse cx=\"120\" cy=\"206\" rx=\"6\" ry=\"3\"/><ellipse cx=\"360\" cy=\"204\" rx=\"6\" ry=\"3\"/></g><g fill=\"#f2f6f8\" opacity=\".7\"><path d=\"M170,60L200,42L215,55L195,64z\"/></g><g fill=\"#9a9488\"><circle cx=\"100\" cy=\"207\" r=\"2\"/><circle cx=\"340\" cy=\"206\" r=\"2.4\"/></g><rect x=\"363\" y=\"152\" width=\"4\" height=\"8\" fill=\"#5a4630\"/><path d=\"M356,150.4L365,141.4L374,150.4z\" fill=\"#2f5f3f\"/><path d=\"M357.4,142L365,134.2L372.6,142z\" fill=\"#2f5f3f\"/><path d=\"M359.6,134.8L365,130L370.4,134.8z\" fill=\"#2f5f3f\"/><rect x=\"13\" y=\"148\" width=\"4\" height=\"8\" fill=\"#5a4630\"/><path d=\"M7.2,147.7L15,139.9L22.8,147.7z\" fill=\"#2f5f3f\"/><path d=\"M8.4,140.4L15,133.6L21.6,140.4z\" fill=\"#2f5f3f\"/><path d=\"M10.3,134.2L15,130L19.7,134.2z\" fill=\"#2f5f3f\"/>",
+    "seaside": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#8fc4e8\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"26\" fill=\"#cfe4f0\"/><circle cx=\"340\" cy=\"46\" r=\"22\" fill=\"#f5b31c\"/><g opacity=\".8\" fill=\"#f6efe2\"><ellipse cx=\"80\" cy=\"30\" rx=\"18\" ry=\"7\"/><ellipse cx=\"70\" cy=\"30\" rx=\"11\" ry=\"5.5\"/><ellipse cx=\"91\" cy=\"30\" rx=\"13\" ry=\"5.5\"/></g><rect x=\"0\" y=\"110\" width=\"400\" height=\"60\" fill=\"#1e6ea0\"/><g stroke=\"#bfe8f4\" stroke-width=\"2\" opacity=\".7\" fill=\"none\"><path d=\"M26,126h74M176,138h92M108,150h62\"/></g><g stroke=\"#9fd0e8\" stroke-width=\"2\" opacity=\".7\" fill=\"none\"><path d=\"M26,146h74M176,158h92M108,170h62\"/></g><g stroke=\"#bfe8f4\" stroke-width=\"2\" opacity=\".7\" fill=\"none\"><path d=\"M26,162h74M176,174h92M108,186h62\"/></g><path d=\"M0,150c60,-8 120,4 200,-2c80,-6 140,4 200,-2v64H0z\" fill=\"#e8dcc0\"/><g><path d=\"M60,168a20,10 0 0 1 40,0z\" fill=\"#e8443f\"/><rect x=\"78\" y=\"168\" width=\"3\" height=\"30\" fill=\"#6b5330\"/></g><g><path d=\"M320,172a16,8 0 0 1 32,0z\" fill=\"#f5b31c\"/><rect x=\"334\" y=\"172\" width=\"3\" height=\"26\" fill=\"#6b5330\"/></g><g><path d=\"M170,178a14,7 0 0 1 28,0z\" fill=\"#1a7a8f\"/><rect x=\"182\" y=\"178\" width=\"2.6\" height=\"22\" fill=\"#6b5330\"/></g><rect x=\"18.6\" y=\"196\" width=\"2.8\" height=\"4\" fill=\"#5a4630\"/><path d=\"M20,166C12.5,176.2 14,193.2 16.3,200L23.8,200C26,193.2 27.5,176.2 20,166z\" fill=\"#2f5f4a\"/><path d=\"M378.4,202q-2,-10 1.6,-21q3.6,11 1.6,0 \" stroke=\"#6b6048\" stroke-width=\"3\" fill=\"none\"/><circle cx=\"380\" cy=\"182.5\" r=\"15\" fill=\"#8a9a6a\"/><circle cx=\"372.5\" cy=\"178\" r=\"9\" fill=\"#8a9a6a\" opacity=\".85\"/><g fill=\"#f6efe2\" stroke=\"#c9a227\" stroke-width=\"1\"><rect x=\"55\" y=\"188\" width=\"14\" height=\"4\"/><rect x=\"325\" y=\"192\" width=\"14\" height=\"4\"/><rect x=\"180\" y=\"196\" width=\"14\" height=\"4\"/></g><path d=\"M235,120Q250,126.6 265,120L262.6,113.4L237.4,113.4z\" fill=\"#e8dcc0\" stroke=\"#6b5330\" stroke-width=\"1.2\"/><rect x=\"248\" y=\"87.4\" width=\"3\" height=\"26\" fill=\"#6b5330\"/><path d=\"M249,89.4L234,111.4L249,111.4z\" fill=\"#f6efe2\" opacity=\".9\"/><path d=\"M144.4,40q2.8,-6 5.6,0q2.8,-6 5.6,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><path d=\"M192.8,50q3.6,-6 7.2,0q3.6,-6 7.2,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><path d=\"M85.2,46q2.4,-6 4.8,0q2.4,-6 4.8,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><circle cx=\"230\" cy=\"192\" r=\"8\" fill=\"none\" stroke=\"#e8443f\" stroke-width=\"3\"/><g fill=\"#f2f6f8\" opacity=\".9\"><circle cx=\"110\" cy=\"204\" r=\"2\"/><circle cx=\"280\" cy=\"206\" r=\"2.4\"/></g><circle cx=\"75\" cy=\"183\" r=\"4\" fill=\"#d9a273\"/><rect x=\"71\" y=\"187\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#f6efe2\"/><circle cx=\"330\" cy=\"185\" r=\"4\" fill=\"#c98a5a\"/><rect x=\"326\" y=\"189\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#f6efe2\"/><circle cx=\"160\" cy=\"175\" r=\"4\" fill=\"#d9a273\"/><rect x=\"156\" y=\"179\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#1a7a8f\"/>",
     "oldtown": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#8fc4e8\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"16\" fill=\"#d8e4e0\"/><g opacity=\".8\" fill=\"#f6efe2\"><ellipse cx=\"340\" cy=\"26\" rx=\"16.2\" ry=\"6.3\"/><ellipse cx=\"331\" cy=\"26\" rx=\"9.9\" ry=\"5\"/><ellipse cx=\"349.9\" cy=\"26\" rx=\"11.7\" ry=\"5\"/></g><g opacity=\".9\"><path d=\"M-34,98c22,-30 52,-30 74,0z\" fill=\"#9a9488\"/><path d=\"M66,98c22,-30 52,-30 74,0z\" fill=\"#9a9488\"/><path d=\"M166,98c22,-30 52,-30 74,0z\" fill=\"#9a9488\"/><path d=\"M266,98c22,-30 52,-30 74,0z\" fill=\"#9a9488\"/></g><rect x=\"0\" y=\"100\" width=\"400\" height=\"110\" fill=\"#b3ab6a\"/><g fill=\"#d8b878\"><rect x=\"10\" y=\"120\" width=\"60\" height=\"30\"/><rect x=\"60\" y=\"140\" width=\"55\" height=\"40\"/><rect x=\"105\" y=\"128\" width=\"50\" height=\"26\"/><rect x=\"290\" y=\"118\" width=\"55\" height=\"34\"/><rect x=\"330\" y=\"140\" width=\"60\" height=\"42\"/></g><g fill=\"#c9a877\" opacity=\".8\"><rect x=\"10\" y=\"120\" width=\"60\" height=\"5\"/><rect x=\"60\" y=\"140\" width=\"55\" height=\"5\"/><rect x=\"290\" y=\"118\" width=\"55\" height=\"5\"/><rect x=\"330\" y=\"140\" width=\"60\" height=\"5\"/></g><g fill=\"#5a4a3a\"><rect x=\"20\" y=\"130\" width=\"6\" height=\"8\"/><rect x=\"34\" y=\"130\" width=\"6\" height=\"8\"/><rect x=\"70\" y=\"150\" width=\"6\" height=\"8\"/><rect x=\"84\" y=\"150\" width=\"6\" height=\"8\"/><rect x=\"300\" y=\"128\" width=\"6\" height=\"8\"/><rect x=\"340\" y=\"150\" width=\"6\" height=\"8\"/></g><rect x=\"196.7\" y=\"124\" width=\"6.6\" height=\"66\" fill=\"#e8dcc0\"/><rect x=\"194.1\" y=\"138.5\" width=\"11.9\" height=\"3\" fill=\"#9a9488\"/><path d=\"M195.4,124L200,114L204.6,124z\" fill=\"#7a8290\"/><circle cx=\"200\" cy=\"112\" r=\"1.6\" fill=\"#c9a227\"/><path d=\"M182,190A18,10 0 0 1 218,190z\" fill=\"#7a8290\" opacity=\".9\"/><g stroke=\"#8a8478\" stroke-width=\"1\"><path d=\"M40,190h60\"/></g><g fill=\"#f6efe2\"><rect x=\"48\" y=\"186\" width=\"8\" height=\"6\"/><rect x=\"60\" y=\"187\" width=\"7\" height=\"5\"/><rect x=\"72\" y=\"186\" width=\"8\" height=\"6\"/></g><path d=\"M180,210q20,-30 40,-40\" stroke=\"#9a8a6a\" stroke-width=\"14\" fill=\"none\" opacity=\".6\"/><circle cx=\"150\" cy=\"185\" r=\"4\" fill=\"#d9a273\"/><rect x=\"146\" y=\"189\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#8a1f2b\"/><circle cx=\"260\" cy=\"187\" r=\"4\" fill=\"#c98a5a\"/><rect x=\"256\" y=\"191\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#3f6f34\"/>",
-    "bazaar": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#e8c890\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"26\" fill=\"#f5e0b8\"/><circle cx=\"60\" cy=\"44\" r=\"18\" fill=\"#f5b31c\"/><rect x=\"0\" y=\"110\" width=\"400\" height=\"100\" fill=\"#c9a877\"/><path d=\"M60,110a70,40 0 0 1 140,0z\" fill=\"#9a8a6a\"/><rect x=\"58\" y=\"108\" width=\"144\" height=\"4\" fill=\"#7a6a4a\"/><path d=\"M220,116a50,30 0 0 1 100,0z\" fill=\"#8a7a5c\"/><rect x=\"218\" y=\"114\" width=\"102\" height=\"4\" fill=\"#6a5a3e\"/><path d=\"M90,122q30,10 60,0\" stroke=\"#6b5330\" stroke-width=\"1.4\" fill=\"none\"/><circle cx=\"90\" cy=\"127\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"105\" cy=\"127\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"120\" cy=\"127\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"135\" cy=\"127\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"150\" cy=\"127\" r=\"2.6\" fill=\"#f5b31c\"/><path d=\"M235,128q25,10 50,0\" stroke=\"#6b5330\" stroke-width=\"1.4\" fill=\"none\"/><circle cx=\"235\" cy=\"133\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"251.7\" cy=\"133\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"268.3\" cy=\"133\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"285\" cy=\"133\" r=\"2.6\" fill=\"#f5b31c\"/><path d=\"M333,130q17,10 34,0\" stroke=\"#6b5330\" stroke-width=\"1.4\" fill=\"none\"/><circle cx=\"333\" cy=\"135\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"350\" cy=\"135\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"367\" cy=\"135\" r=\"2.6\" fill=\"#f5b31c\"/><g><path d=\"M20,205a18,10 0 0 1 36,0z\" fill=\"#c9531a\"/><path d=\"M60,205a14,8 0 0 1 28,0z\" fill=\"#d4a017\"/><path d=\"M92,205a12,7 0 0 1 24,0z\" fill=\"#8a1f2b\"/></g><rect x=\"300\" y=\"202\" width=\"40\" height=\"6\" fill=\"#8a1f2b\"/><rect x=\"300\" y=\"196.5\" width=\"40\" height=\"6\" fill=\"#c9a227\"/><rect x=\"300\" y=\"191\" width=\"40\" height=\"6\" fill=\"#1a5276\"/><rect x=\"300\" y=\"185.5\" width=\"40\" height=\"6\" fill=\"#3f6f34\"/><g fill=\"#8a6a3a\"><rect x=\"180\" y=\"196\" width=\"20\" height=\"12\" rx=\"2\"/><rect x=\"205\" y=\"198\" width=\"18\" height=\"10\" rx=\"2\"/></g><circle cx=\"150\" cy=\"185\" r=\"4\" fill=\"#d9a273\"/><rect x=\"146\" y=\"189\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#3a3a40\"/><circle cx=\"240\" cy=\"187\" r=\"4\" fill=\"#c98a5a\"/><rect x=\"236\" y=\"191\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#8a1f2b\"/><circle cx=\"280\" cy=\"185\" r=\"4\" fill=\"#d9a273\"/><rect x=\"276\" y=\"189\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#3f6f34\"/>",
-    "steppe": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#8fc4e8\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"36\" fill=\"#cfe4f0\"/><g opacity=\".8\" fill=\"#f6efe2\"><ellipse cx=\"300\" cy=\"24\" rx=\"18\" ry=\"7\"/><ellipse cx=\"290\" cy=\"24\" rx=\"11\" ry=\"5.5\"/><ellipse cx=\"311\" cy=\"24\" rx=\"13\" ry=\"5.5\"/></g><g opacity=\".8\" fill=\"#f6efe2\"><ellipse cx=\"90\" cy=\"30\" rx=\"14.4\" ry=\"5.6\"/><ellipse cx=\"82\" cy=\"30\" rx=\"8.8\" ry=\"4.4\"/><ellipse cx=\"98.8\" cy=\"30\" rx=\"10.4\" ry=\"4.4\"/></g><g opacity=\".9\"><path d=\"M-34,118c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/><path d=\"M46,118c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/><path d=\"M126,118c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/><path d=\"M206,118c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/><path d=\"M286,118c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/></g><rect x=\"0\" y=\"120\" width=\"400\" height=\"90\" fill=\"#c9a227\"/><g stroke=\"#e8c060\" stroke-width=\"3\" opacity=\".75\"><path d=\"M0,150h400\"/><path d=\"M0,156h400\"/><path d=\"M0,162h400\"/><path d=\"M0,168h400\"/><path d=\"M0,174h400\"/><path d=\"M0,180h400\"/><path d=\"M0,186h400\"/><path d=\"M0,192h400\"/></g><g fill=\"#7f8896\"><rect x=\"30\" y=\"96\" width=\"50\" height=\"24\"/><rect x=\"30\" y=\"90\" width=\"50\" height=\"6\" fill=\"#5f6a76\"/></g><g fill=\"#bfe0f0\" opacity=\".6\"><rect x=\"36\" y=\"100\" width=\"4\" height=\"4\"/><rect x=\"46\" y=\"100\" width=\"4\" height=\"4\"/><rect x=\"56\" y=\"100\" width=\"4\" height=\"4\"/></g><rect x=\"320\" y=\"92\" width=\"4\" height=\"26\" fill=\"#d8cba8\"/><rect x=\"356\" y=\"92\" width=\"4\" height=\"26\" fill=\"#d8cba8\"/><path d=\"M320,92h40l-6,-10h-28z\" fill=\"#9a8a6a\"/><path d=\"M180,210L200,120L220,210z\" fill=\"#c9bda0\" opacity=\".8\"/><g stroke=\"#f6efe2\" stroke-width=\"2\" opacity=\".7\"><path d=\"M198,200v-10M199,175v-10M200,150v-10\"/></g><rect x=\"100\" y=\"186\" width=\"40\" height=\"16\" rx=\"3\" fill=\"#e8443f\" stroke=\"#20364a\" stroke-width=\"1.4\"/><rect x=\"105\" y=\"189\" width=\"10\" height=\"7\" fill=\"#bfe0f0\"/><rect x=\"118\" y=\"189\" width=\"10\" height=\"7\" fill=\"#bfe0f0\"/><circle cx=\"108\" cy=\"202\" r=\"3.6\" fill=\"#241a10\"/><circle cx=\"132\" cy=\"202\" r=\"3.6\" fill=\"#241a10\"/><circle cx=\"280\" cy=\"185\" r=\"4\" fill=\"#d9a273\"/><rect x=\"276\" y=\"189\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#5b8fe8\"/>",
+    "bazaar": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#e8c890\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"26\" fill=\"#f5e0b8\"/><circle cx=\"60\" cy=\"44\" r=\"18\" fill=\"#f5b31c\"/><rect x=\"0\" y=\"110\" width=\"400\" height=\"100\" fill=\"#c9a877\"/><path d=\"M60,110a70,40 0 0 1 140,0z\" fill=\"#9a8a6a\"/><rect x=\"58\" y=\"108\" width=\"144\" height=\"4\" fill=\"#7a6a4a\"/><path d=\"M220,116a50,30 0 0 1 100,0z\" fill=\"#8a7a5c\"/><rect x=\"218\" y=\"114\" width=\"102\" height=\"4\" fill=\"#6a5a3e\"/><path d=\"M90,122q30,10 60,0\" stroke=\"#6b5330\" stroke-width=\"1.4\" fill=\"none\"/><circle cx=\"90\" cy=\"127\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"105\" cy=\"127\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"120\" cy=\"127\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"135\" cy=\"127\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"150\" cy=\"127\" r=\"2.6\" fill=\"#f5b31c\"/><path d=\"M235,128q25,10 50,0\" stroke=\"#6b5330\" stroke-width=\"1.4\" fill=\"none\"/><circle cx=\"235\" cy=\"133\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"251.7\" cy=\"133\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"268.3\" cy=\"133\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"285\" cy=\"133\" r=\"2.6\" fill=\"#f5b31c\"/><path d=\"M333,130q17,10 34,0\" stroke=\"#6b5330\" stroke-width=\"1.4\" fill=\"none\"/><circle cx=\"333\" cy=\"135\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"350\" cy=\"135\" r=\"2.6\" fill=\"#f5b31c\"/><circle cx=\"367\" cy=\"135\" r=\"2.6\" fill=\"#f5b31c\"/><g><path d=\"M20,205a18,10 0 0 1 36,0z\" fill=\"#c9531a\"/><path d=\"M60,205a14,8 0 0 1 28,0z\" fill=\"#d4a017\"/><path d=\"M92,205a12,7 0 0 1 24,0z\" fill=\"#8a1f2b\"/></g><rect x=\"300\" y=\"202\" width=\"40\" height=\"6\" fill=\"#8a1f2b\"/><rect x=\"300\" y=\"196.5\" width=\"40\" height=\"6\" fill=\"#c9a227\"/><rect x=\"300\" y=\"191\" width=\"40\" height=\"6\" fill=\"#1a5276\"/><rect x=\"300\" y=\"185.5\" width=\"40\" height=\"6\" fill=\"#3f6f34\"/><g fill=\"#8a6a3a\"><rect x=\"180\" y=\"196\" width=\"20\" height=\"12\" rx=\"2\"/><rect x=\"205\" y=\"198\" width=\"18\" height=\"10\" rx=\"2\"/></g><circle cx=\"150\" cy=\"185\" r=\"4\" fill=\"#d9a273\"/><rect x=\"146\" y=\"189\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#3a3a40\"/><circle cx=\"240\" cy=\"187\" r=\"4\" fill=\"#c98a5a\"/><rect x=\"236\" y=\"191\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#8a1f2b\"/><circle cx=\"280\" cy=\"185\" r=\"4\" fill=\"#d9a273\"/><rect x=\"276\" y=\"189\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#3f6f34\"/><g><path d=\"M29.6,204Q28.5,194.1 38.4,193Q42.8,182 49.4,193Q59.3,194.1 61.5,204z\" fill=\"#c9a877\"/><path d=\"M57.1,195.2Q63.7,186.4 61.5,177.6Q67,179.8 64.8,174.3\" fill=\"none\" stroke=\"#c9a877\" stroke-width=\"4.4\" stroke-linecap=\"round\"/><g stroke=\"#c9a877\" stroke-width=\"3.3000000000000003\" stroke-linecap=\"round\"><path d=\"M34,204L34,212.8M42.8,204L42.8,212.8M51.6,204L51.6,212.8M59.3,204L59.3,212.8\"/></g></g>",
+    "steppe": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#8fc4e8\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"36\" fill=\"#cfe4f0\"/><g opacity=\".8\" fill=\"#f6efe2\"><ellipse cx=\"300\" cy=\"24\" rx=\"18\" ry=\"7\"/><ellipse cx=\"290\" cy=\"24\" rx=\"11\" ry=\"5.5\"/><ellipse cx=\"311\" cy=\"24\" rx=\"13\" ry=\"5.5\"/></g><g opacity=\".8\" fill=\"#f6efe2\"><ellipse cx=\"90\" cy=\"30\" rx=\"14.4\" ry=\"5.6\"/><ellipse cx=\"82\" cy=\"30\" rx=\"8.8\" ry=\"4.4\"/><ellipse cx=\"98.8\" cy=\"30\" rx=\"10.4\" ry=\"4.4\"/></g><g opacity=\".9\"><path d=\"M-34,118c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/><path d=\"M46,118c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/><path d=\"M126,118c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/><path d=\"M206,118c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/><path d=\"M286,118c22,-30 52,-30 74,0z\" fill=\"#b3ab6a\"/></g><rect x=\"0\" y=\"120\" width=\"400\" height=\"90\" fill=\"#c9a227\"/><g stroke=\"#e8c060\" stroke-width=\"3\" opacity=\".75\"><path d=\"M0,150h400\"/><path d=\"M0,156h400\"/><path d=\"M0,162h400\"/><path d=\"M0,168h400\"/><path d=\"M0,174h400\"/><path d=\"M0,180h400\"/><path d=\"M0,186h400\"/><path d=\"M0,192h400\"/></g><g fill=\"#7f8896\"><rect x=\"30\" y=\"96\" width=\"50\" height=\"24\"/><rect x=\"30\" y=\"90\" width=\"50\" height=\"6\" fill=\"#5f6a76\"/></g><g fill=\"#bfe0f0\" opacity=\".6\"><rect x=\"36\" y=\"100\" width=\"4\" height=\"4\"/><rect x=\"46\" y=\"100\" width=\"4\" height=\"4\"/><rect x=\"56\" y=\"100\" width=\"4\" height=\"4\"/></g><rect x=\"320\" y=\"92\" width=\"4\" height=\"26\" fill=\"#d8cba8\"/><rect x=\"356\" y=\"92\" width=\"4\" height=\"26\" fill=\"#d8cba8\"/><path d=\"M320,92h40l-6,-10h-28z\" fill=\"#9a8a6a\"/><path d=\"M180,210L200,120L220,210z\" fill=\"#c9bda0\" opacity=\".8\"/><g stroke=\"#f6efe2\" stroke-width=\"2\" opacity=\".7\"><path d=\"M198,200v-10M199,175v-10M200,150v-10\"/></g><rect x=\"100\" y=\"186\" width=\"40\" height=\"16\" rx=\"3\" fill=\"#e8443f\" stroke=\"#20364a\" stroke-width=\"1.4\"/><rect x=\"105\" y=\"189\" width=\"10\" height=\"7\" fill=\"#bfe0f0\"/><rect x=\"118\" y=\"189\" width=\"10\" height=\"7\" fill=\"#bfe0f0\"/><circle cx=\"108\" cy=\"202\" r=\"3.6\" fill=\"#241a10\"/><circle cx=\"132\" cy=\"202\" r=\"3.6\" fill=\"#241a10\"/><circle cx=\"280\" cy=\"185\" r=\"4\" fill=\"#d9a273\"/><rect x=\"276\" y=\"189\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#5b8fe8\"/><rect x=\"259\" y=\"194\" width=\"2\" height=\"6\" fill=\"#6b6048\"/><circle cx=\"260\" cy=\"191\" r=\"10\" fill=\"#9aa85c\"/><rect x=\"285\" y=\"194\" width=\"2\" height=\"6\" fill=\"#6b6048\"/><circle cx=\"286\" cy=\"191\" r=\"10\" fill=\"#9aa85c\"/><rect x=\"311\" y=\"194\" width=\"2\" height=\"6\" fill=\"#6b6048\"/><circle cx=\"312\" cy=\"191\" r=\"10\" fill=\"#9aa85c\"/><rect x=\"337\" y=\"194\" width=\"2\" height=\"6\" fill=\"#6b6048\"/><circle cx=\"338\" cy=\"191\" r=\"10\" fill=\"#9aa85c\"/>",
     "teahills": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#8fa8b8\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"6\" fill=\"#d4dcd8\"/><g opacity=\".5\" fill=\"#f6efe2\"><ellipse cx=\"80\" cy=\"70\" rx=\"50\" ry=\"10\"/><ellipse cx=\"260\" cy=\"60\" rx=\"60\" ry=\"12\"/></g><g opacity=\".9\"><path d=\"M-34,88c22,-30 52,-30 74,0z\" fill=\"#3f6f34\"/><path d=\"M46,88c22,-30 52,-30 74,0z\" fill=\"#3f6f34\"/><path d=\"M126,88c22,-30 52,-30 74,0z\" fill=\"#3f6f34\"/><path d=\"M206,88c22,-30 52,-30 74,0z\" fill=\"#3f6f34\"/><path d=\"M286,88c22,-30 52,-30 74,0z\" fill=\"#3f6f34\"/></g><rect x=\"0\" y=\"90\" width=\"400\" height=\"120\" fill=\"#3f6f34\"/><g stroke=\"#5f9f4a\" stroke-width=\"3\" opacity=\".75\"><path d=\"M0,120h400\"/><path d=\"M0,126h400\"/><path d=\"M0,132h400\"/></g><g stroke=\"#4f8f3a\" stroke-width=\"3\" opacity=\".75\"><path d=\"M0,140h400\"/><path d=\"M0,146h400\"/><path d=\"M0,152h400\"/></g><g stroke=\"#3f6f34\" stroke-width=\"3\" opacity=\".75\"><path d=\"M0,160h400\"/><path d=\"M0,166h400\"/><path d=\"M0,172h400\"/></g><g opacity=\".9\"><circle cx=\"20\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/><circle cx=\"40\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/><circle cx=\"60\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/><circle cx=\"80\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/><circle cx=\"100\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/><circle cx=\"120\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/><circle cx=\"140\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/><circle cx=\"160\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/></g><g opacity=\".9\"><circle cx=\"30\" cy=\"148\" r=\"7\" fill=\"#4f8f3a\"/><circle cx=\"52\" cy=\"148\" r=\"7\" fill=\"#4f8f3a\"/><circle cx=\"74\" cy=\"148\" r=\"7\" fill=\"#4f8f3a\"/><circle cx=\"96\" cy=\"148\" r=\"7\" fill=\"#4f8f3a\"/><circle cx=\"118\" cy=\"148\" r=\"7\" fill=\"#4f8f3a\"/><circle cx=\"140\" cy=\"148\" r=\"7\" fill=\"#4f8f3a\"/><circle cx=\"162\" cy=\"148\" r=\"7\" fill=\"#4f8f3a\"/></g><g opacity=\".9\"><circle cx=\"240\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/><circle cx=\"260\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/><circle cx=\"280\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/><circle cx=\"300\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/><circle cx=\"320\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/><circle cx=\"340\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/><circle cx=\"360\" cy=\"128\" r=\"7\" fill=\"#5f9f4a\"/></g><rect x=\"0\" y=\"90\" width=\"400\" height=\"10\" fill=\"#1e5a8f\" opacity=\".8\"/><g><rect x=\"192\" y=\"182\" width=\"16\" height=\"18\" rx=\"2\" fill=\"#8a6a3a\"/><circle cx=\"200\" cy=\"176\" r=\"4\" fill=\"#d9a273\"/><rect x=\"196\" y=\"180\" width=\"8\" height=\"10\" fill=\"#5f9f4a\"/></g><circle cx=\"140\" cy=\"185\" r=\"4\" fill=\"#c98a5a\"/><rect x=\"136\" y=\"189\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#e8c060\"/><circle cx=\"280\" cy=\"183\" r=\"4\" fill=\"#d9a273\"/><rect x=\"276\" y=\"187\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#3f6f34\"/><rect x=\"330\" y=\"176\" width=\"50\" height=\"30\" fill=\"#e8dcc0\"/><path d=\"M326,176h58l-6,-8h-46z\" fill=\"#5a4a3a\"/>",
-    "nemrut": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#3a3a6a\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"56\" fill=\"#e89858\"/><circle cx=\"90\" cy=\"70\" r=\"24\" fill=\"#f5c060\"/><g opacity=\".6\" fill=\"#5a5a8a\"><ellipse cx=\"300\" cy=\"50\" rx=\"60\" ry=\"10\"/></g><path d=\"M0,140L120,60L200,100L280,50L400,120V210H0z\" fill=\"#b3ab6a\"/><path d=\"M0,140L120,60L200,100L280,50L400,120\" fill=\"none\" stroke=\"#8a8478\" stroke-width=\"1.5\"/><path d=\"M300,110a50,30 0 0 1 100,0z\" fill=\"#c9bda0\"/><g><circle cx=\"70\" cy=\"176\" r=\"14\" fill=\"#c9bda0\"/><path d=\"M60,170a4,3 0 0 1 8,0\" fill=\"none\" stroke=\"#8a8478\" stroke-width=\"0.8\"/></g><g><circle cx=\"120\" cy=\"182\" r=\"12\" fill=\"#b8ac90\"/></g><g><circle cx=\"165\" cy=\"178\" r=\"15\" fill=\"#c9bda0\"/><path d=\"M155,172a4,3 0 0 1 8,0\" fill=\"none\" stroke=\"#8a8478\" stroke-width=\"0.8\"/></g><g><circle cx=\"215\" cy=\"184\" r=\"11\" fill=\"#b8ac90\"/></g><g><circle cx=\"255\" cy=\"180\" r=\"13\" fill=\"#c9bda0\"/></g><g><circle cx=\"300\" cy=\"186\" r=\"10\" fill=\"#b8ac90\"/></g><g fill=\"#9a8a6a\"><rect x=\"55\" y=\"190\" width=\"30\" height=\"8\"/><rect x=\"150\" y=\"192\" width=\"34\" height=\"8\"/><rect x=\"240\" y=\"192\" width=\"30\" height=\"8\"/><rect x=\"290\" y=\"196\" width=\"26\" height=\"7\"/></g><g fill=\"#8a8478\"><circle cx=\"66\" cy=\"174\" r=\"1.4\"/><circle cx=\"74\" cy=\"174\" r=\"1.4\"/><circle cx=\"161\" cy=\"176\" r=\"1.4\"/><circle cx=\"169\" cy=\"176\" r=\"1.4\"/></g><g fill=\"#f6efe2\" opacity=\".8\"><circle cx=\"30\" cy=\"20\" r=\"1.2\"/><circle cx=\"15\" cy=\"35\" r=\"1\"/><circle cx=\"45\" cy=\"30\" r=\"1\"/></g><g fill=\"#8a8478\" opacity=\".7\"><circle cx=\"20\" cy=\"204\" r=\"2\"/><circle cx=\"345\" cy=\"200\" r=\"2.4\"/><circle cx=\"370\" cy=\"205\" r=\"1.8\"/><circle cx=\"100\" cy=\"205\" r=\"1.6\"/></g><path d=\"M15,196L20,180L25,196\" fill=\"none\" stroke=\"#3a3a40\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M335.2,30q2.4,-6 4.8,0q2.4,-6 4.8,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><path d=\"M351,24q2,-6 4,0q2,-6 4,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><g stroke=\"#8a8478\" stroke-width=\"0.8\" opacity=\".6\"><path d=\"M40,150L60,180M330,140L350,175\"/></g><circle cx=\"310\" cy=\"180\" r=\"4\" fill=\"#d9a273\"/><rect x=\"306\" y=\"184\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#3a3a40\"/>",
+    "nemrut": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#3a3a6a\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"56\" fill=\"#e89858\"/><circle cx=\"90\" cy=\"70\" r=\"24\" fill=\"#f5c060\"/><circle cx=\"360\" cy=\"30\" r=\"12\" fill=\"#e8ecf0\"/><g opacity=\".6\" fill=\"#5a5a8a\"><ellipse cx=\"300\" cy=\"50\" rx=\"60\" ry=\"10\"/></g><path d=\"M0,140L120,60L200,100L280,50L400,120V210H0z\" fill=\"#b3ab6a\"/><path d=\"M0,140L120,60L200,100L280,50L400,120\" fill=\"none\" stroke=\"#8a8478\" stroke-width=\"1.5\"/><path d=\"M300,110a50,30 0 0 1 100,0z\" fill=\"#c9bda0\"/><g><circle cx=\"70\" cy=\"176\" r=\"14\" fill=\"#c9bda0\"/><path d=\"M60,170a4,3 0 0 1 8,0\" fill=\"none\" stroke=\"#8a8478\" stroke-width=\"0.8\"/></g><g><circle cx=\"120\" cy=\"182\" r=\"12\" fill=\"#b8ac90\"/></g><g><circle cx=\"165\" cy=\"178\" r=\"15\" fill=\"#c9bda0\"/><path d=\"M155,172a4,3 0 0 1 8,0\" fill=\"none\" stroke=\"#8a8478\" stroke-width=\"0.8\"/></g><g><circle cx=\"215\" cy=\"184\" r=\"11\" fill=\"#b8ac90\"/></g><g><circle cx=\"255\" cy=\"180\" r=\"13\" fill=\"#c9bda0\"/></g><g><circle cx=\"300\" cy=\"186\" r=\"10\" fill=\"#b8ac90\"/></g><g fill=\"#9a8a6a\"><rect x=\"55\" y=\"190\" width=\"30\" height=\"8\"/><rect x=\"150\" y=\"192\" width=\"34\" height=\"8\"/><rect x=\"240\" y=\"192\" width=\"30\" height=\"8\"/><rect x=\"290\" y=\"196\" width=\"26\" height=\"7\"/></g><g fill=\"#8a8478\"><circle cx=\"66\" cy=\"174\" r=\"1.4\"/><circle cx=\"74\" cy=\"174\" r=\"1.4\"/><circle cx=\"161\" cy=\"176\" r=\"1.4\"/><circle cx=\"169\" cy=\"176\" r=\"1.4\"/></g><g fill=\"#f6efe2\" opacity=\".8\"><circle cx=\"30\" cy=\"20\" r=\"1.2\"/><circle cx=\"15\" cy=\"35\" r=\"1\"/><circle cx=\"45\" cy=\"30\" r=\"1\"/></g><g fill=\"#8a8478\" opacity=\".7\"><circle cx=\"20\" cy=\"204\" r=\"2\"/><circle cx=\"345\" cy=\"200\" r=\"2.4\"/><circle cx=\"370\" cy=\"205\" r=\"1.8\"/><circle cx=\"100\" cy=\"205\" r=\"1.6\"/></g><path d=\"M15,196L20,180L25,196\" fill=\"none\" stroke=\"#3a3a40\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M335.2,30q2.4,-6 4.8,0q2.4,-6 4.8,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><path d=\"M351,24q2,-6 4,0q2,-6 4,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><g stroke=\"#8a8478\" stroke-width=\"0.8\" opacity=\".6\"><path d=\"M40,150L60,180M330,140L350,175\"/></g><circle cx=\"310\" cy=\"180\" r=\"4\" fill=\"#d9a273\"/><rect x=\"306\" y=\"184\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#3a3a40\"/>",
     "ruins": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#8fc4e8\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"32\" fill=\"#cfe4f0\"/><circle cx=\"60\" cy=\"44\" r=\"18\" fill=\"#f5b31c\"/><g opacity=\".8\" fill=\"#f6efe2\"><ellipse cx=\"300\" cy=\"26\" rx=\"18\" ry=\"7\"/><ellipse cx=\"290\" cy=\"26\" rx=\"11\" ry=\"5.5\"/><ellipse cx=\"311\" cy=\"26\" rx=\"13\" ry=\"5.5\"/></g><g opacity=\".9\"><path d=\"M-34,114c22,-30 52,-30 74,0z\" fill=\"#9aa85c\"/><path d=\"M66,114c22,-30 52,-30 74,0z\" fill=\"#9aa85c\"/><path d=\"M166,114c22,-30 52,-30 74,0z\" fill=\"#9aa85c\"/><path d=\"M266,114c22,-30 52,-30 74,0z\" fill=\"#9aa85c\"/></g><rect x=\"0\" y=\"116\" width=\"400\" height=\"94\" fill=\"#9aa85c\"/><g fill=\"#e8dcc0\"><rect x=\"40\" y=\"80\" width=\"8\" height=\"40\"/><rect x=\"60\" y=\"76\" width=\"8\" height=\"44\"/><rect x=\"80\" y=\"80\" width=\"8\" height=\"40\"/><rect x=\"310\" y=\"82\" width=\"8\" height=\"38\"/><rect x=\"332\" y=\"78\" width=\"8\" height=\"42\"/></g><g fill=\"#d8cba8\"><rect x=\"38\" y=\"76\" width=\"12\" height=\"4\"/><rect x=\"58\" y=\"72\" width=\"12\" height=\"4\"/><rect x=\"78\" y=\"76\" width=\"12\" height=\"4\"/></g><path d=\"M180,120a30,26 0 0 1 60,0\" fill=\"none\" stroke=\"#c9bda0\" stroke-width=\"5\"/><g fill=\"#c9bda0\"><rect x=\"120\" y=\"180\" width=\"70\" height=\"12\"/><rect x=\"200\" y=\"188\" width=\"12\" height=\"14\"/></g><g fill=\"#5f8f4a\" opacity=\".8\"><circle cx=\"45\" cy=\"96\" r=\"5\"/><circle cx=\"65\" cy=\"100\" r=\"5\"/><circle cx=\"316\" cy=\"98\" r=\"5\"/><circle cx=\"336\" cy=\"102\" r=\"4\"/></g><g><rect x=\"150\" y=\"196\" width=\"60\" height=\"10\" fill=\"#e8dcc0\"/><rect x=\"150\" y=\"196\" width=\"10\" height=\"10\" fill=\"#1a7a8f\"/><rect x=\"170\" y=\"196\" width=\"10\" height=\"10\" fill=\"#c9a227\"/><rect x=\"190\" y=\"196\" width=\"10\" height=\"10\" fill=\"#8a1f2b\"/></g><g fill=\"#c9bda0\"><circle cx=\"30\" cy=\"192\" r=\"6\"/><rect x=\"20\" y=\"198\" width=\"20\" height=\"6\"/></g><g fill=\"#e8a878\"><circle cx=\"100\" cy=\"140\" r=\"2\"/><circle cx=\"290\" cy=\"150\" r=\"2\"/></g><path d=\"M333.6,40q3.2,-6 6.4,0q3.2,-6 6.4,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><circle cx=\"250\" cy=\"185\" r=\"4\" fill=\"#d9a273\"/><rect x=\"246\" y=\"189\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#5b8fe8\"/><circle cx=\"280\" cy=\"183\" r=\"4\" fill=\"#c98a5a\"/><rect x=\"276\" y=\"187\" width=\"8\" height=\"11\" rx=\"2\" fill=\"#3f6f34\"/>"
   },
   "sea": "#1e5a8f",
@@ -5041,8 +5044,20 @@
         42
       ],
       [
+        34.85,
+        42.04
+      ],
+      [
         35,
         42.05
+      ],
+      [
+        35.15,
+        42.045
+      ],
+      [
+        35.3,
+        41.95
       ],
       [
         35.4,
@@ -5225,8 +5240,12 @@
         37
       ],
       [
-        27.45,
-        37.05
+        27.6,
+        36.95
+      ],
+      [
+        27.43,
+        36.97
       ],
       [
         27.29,
@@ -5265,8 +5284,24 @@
         38.5
       ],
       [
-        26.31,
-        38.33
+        26.55,
+        38.42
+      ],
+      [
+        26.2,
+        38.35
+      ],
+      [
+        26.2,
+        38.24
+      ],
+      [
+        26.4,
+        38.2
+      ],
+      [
+        26.7,
+        38.3
       ],
       [
         26.65,
@@ -5371,8 +5406,8 @@
         41.75
       ],
       [
-        26.6,
-        41.73
+        26.45,
+        41.7
       ],
       [
         26.4,
@@ -5420,7 +5455,7 @@
       ],
       [
         27.51,
-        40.98
+        40.94
       ],
       [
         28,
@@ -5435,11 +5470,15 @@
         41
       ],
       [
-        28.95,
+        29,
         41
       ],
       [
-        28.97,
+        29.01,
+        41.01
+      ],
+      [
+        28.99,
         41.05
       ],
       [

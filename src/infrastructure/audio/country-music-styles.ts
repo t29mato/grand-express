@@ -64,6 +64,8 @@ const STYLE_LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
     import("../content/china.content.json").then((m) => (m.default as { styles: unknown }).styles),
   uk: () =>
     import("../content/uk.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  italy: () =>
+    import("../content/italy.content.json").then((m) => (m.default as { styles: unknown }).styles),
 };
 
 /**
