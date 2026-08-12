@@ -290,6 +290,21 @@ function adinkraSymbol(cx, cy, r, color = "#e8e0cc") {
   );
 }
 
+/** 地面の小石・砂利。 */
+function pebbles(y, count, color = "#8a7455") {
+  const parts = [];
+  for (let i = 0; i < count; i++) {
+    const x = 12 + ((i * 400) / count) + (i % 3) * 6;
+    parts.push(`<circle cx="${r1(x % 400)}" cy="${r1(y + (i % 2) * 6)}" r="${1.6 + (i % 3) * 0.4}" fill="${color}" opacity=".6"/>`);
+  }
+  return parts.join("");
+}
+
+/** 草むらの小さな束。 */
+function grassTuft(x, y, color = "#5f8a3f") {
+  return `<path d="M${r1(x - 4)},${y}q2,-8 4,0M${x},${y}q2,-10 4,0M${r1(x + 4)},${y}q2,-7 4,0" fill="none" stroke="${color}" stroke-width="1.6"/>`;
+}
+
 // ---------------------------------------------------------------------------
 // GHANA_BG(400×210)
 // ---------------------------------------------------------------------------
@@ -300,16 +315,22 @@ export const GHANA_BG = {
     const base = 168;
     return (
       sky("#8fc4e8", "#cfe4f0", base) +
-      clouds(70, 26, 0.9) + clouds(320, 20, 0.7) +
+      clouds(70, 26, 0.9) + clouds(320, 20, 0.7) + clouds(200, 14, 0.5) +
+      gull(120, 40, 0.8) + gull(280, 34, 0.7) + gull(150, 54, 0.6) +
       star(200, 72, 22, 8.6, "#1a1a1a") +
       band(base, 210 - base, "#136e8a") +
-      ripples(base + 16, "#bfe8f4") + ripples(base + 30, "#8fd0e4") +
+      ripples(base + 16, "#bfe8f4") + ripples(base + 30, "#8fd0e4") + ripples(base + 44, "#6fc0dc") +
       `<g fill="#e8e0cc">` +
       `<rect x="60" y="${base - 46}" width="10" height="46"/>` +
       `<rect x="330" y="${base - 46}" width="10" height="46"/>` +
       `<rect x="60" y="${base - 46}" width="280" height="8"/>` +
+      `<rect x="130" y="${base - 30}" width="12" height="10"/>` +
+      `<rect x="258" y="${base - 30}" width="12" height="10"/>` +
       `</g>` +
-      palmTree(30, base, 40) + palmTree(374, base, 34)
+      canoe(360, base + 20, 30) +
+      pebbles(base + 4, 8, "#e8dcc0") +
+      palmTree(30, base, 40) + palmTree(374, base, 34) +
+      grassTuft(50, base, "#2f7a3a") + grassTuft(392, base, "#2f7a3a")
     );
   })(),
 
@@ -319,14 +340,16 @@ export const GHANA_BG = {
     return (
       sky("#8fc4e8", "#cfe4f0", base) +
       clouds(90, 24, 0.8) + clouds(300, 18, 0.6) +
-      gull(60, 46, 1) + gull(330, 40, 0.8) +
+      gull(60, 46, 1) + gull(330, 40, 0.8) + gull(200, 30, 0.6) +
       band(base, 210 - base, "#1e88a8") +
-      ripples(base + 18, "#bfe8f4") + ripples(base + 34, "#8fd0e4") +
+      ripples(base + 18, "#bfe8f4") + ripples(base + 34, "#8fd0e4") + ripples(base + 48, "#6fc0dc") +
       bastion(80, base, 60, 34) +
       fortWall(110, base, 190, 34) +
       bastion(320, base, 60, 34) +
       `<rect x="150" y="${base - 50}" width="16" height="16" fill="#e8e0cc"/>` +
-      `<rect x="235" y="${base - 46}" width="14" height="12" fill="#e8e0cc"/>`
+      `<rect x="235" y="${base - 46}" width="14" height="12" fill="#e8e0cc"/>` +
+      canoe(30, base + 16, 26) +
+      pebbles(base + 2, 6, "#e8dcc0")
     );
   })(),
 
@@ -336,7 +359,7 @@ export const GHANA_BG = {
     return (
       sky("#f0c86a", "#f6dfa0", base) +
       sun(340, 44, 22, "#f5b31c") +
-      clouds(80, 26, 0.7) + clouds(180, 18, 0.5) +
+      clouds(80, 26, 0.7) + clouds(180, 18, 0.5) + clouds(20, 14, 0.4) +
       ground(base, "#c9a877") +
       kenteStripe(0, 186, W, 24) +
       `<path d="M40,${base}L40,${base - 30}L90,${base - 30}L90,${base}z" fill="#c9a877"/>` +
@@ -346,11 +369,15 @@ export const GHANA_BG = {
       goldenStool(200, base - 4, 1.6) +
       `<circle cx="188" cy="${base - 16}" r="2.4" fill="#f5b31c"/><circle cx="212" cy="${base - 14}" r="2" fill="#f5b31c"/>` +
       roundTree(340, base, 18) + cocoaPods(340, base, 18) +
-      roundTree(300, base, 10)
+      roundTree(300, base, 10) +
+      roundTree(370, base, 8) +
+      pebbles(base - 2, 10, "#a8895c") +
+      grassTuft(110, base, "#6f8a3a") + grassTuft(150, base, "#6f8a3a") +
+      `<circle cx="240" cy="${base - 6}" r="2" fill="#f5b31c"/><circle cx="252" cy="${base - 4}" r="2" fill="#a83a2a"/><circle cx="264" cy="${base - 6}" r="2" fill="#1f5a2c"/>`
     );
   })(),
 
-  /** 北部のサバンナ。バオバブと草葺きの集落。 */
+  /** 北部のサバンナ。バオバブと草葺きの集落。遠くにモレ国立公園のゾウの影。 */
   savanna: (() => {
     const base = 158;
     return (
@@ -359,12 +386,21 @@ export const GHANA_BG = {
       ground(base, "#cbb673") +
       baobab(70, base, 52) +
       baobab(330, base, 40) +
+      baobab(400, base, 30) +
       thatchHut(160, base + 4, 22) +
       thatchHut(210, base + 8, 16) +
       thatchHut(260, base + 2, 12) +
       `<g stroke="#8a6a3f" stroke-width="2" opacity=".6"><path d="M0,${base + 22}h400M0,${base + 34}h400M0,${base + 46}h400"/></g>` +
       `<path d="M110,${base + 8}q6,-10 12,0q6,-14 12,0" fill="none" stroke="#6f5230" stroke-width="2"/>` +
-      `<circle cx="20" cy="${base - 40}" r="2" fill="#4a4a52"/><path d="M20,${base - 40}q4,-3 8,0" fill="none" stroke="#4a4a52" stroke-width="1.4"/>`
+      `<circle cx="20" cy="${base - 40}" r="2" fill="#4a4a52"/><path d="M20,${base - 40}q4,-3 8,0" fill="none" stroke="#4a4a52" stroke-width="1.4"/>` +
+      `<g fill="#6f6a60" opacity=".55">` +
+      `<path d="M40,${base}q-2,-10 6,-12q4,-6 10,-2q6,-2 8,4q4,0 2,6q2,2 0,4z"/>` +
+      `<rect x="46" y="${base}" width="2.4" height="6"/><rect x="58" y="${base}" width="2.4" height="6"/>` +
+      `</g>` +
+      grassTuft(90, base + 2, "#8a7a3f") + grassTuft(300, base + 4, "#8a7a3f") + grassTuft(370, base, "#8a7a3f") +
+      grassTuft(45, base + 6, "#8a7a3f") + grassTuft(240, base + 2, "#8a7a3f") +
+      `<circle cx="140" cy="${base - 44}" r="2" fill="#4a4a52"/><path d="M140,${base - 44}q4,-3 8,0" fill="none" stroke="#4a4a52" stroke-width="1.4"/>` +
+      pebbles(base + 50, 6, "#a8895c")
     );
   })(),
 
@@ -373,13 +409,17 @@ export const GHANA_BG = {
     const base = 150;
     return (
       sky("#8fc4e8", "#cfe4f0", base) +
-      clouds(100, 26, 0.8) +
-      gull(50, 40, 1) + gull(340, 34, 0.8) +
+      clouds(100, 26, 0.8) + clouds(220, 16, 0.5) +
+      gull(50, 40, 1) + gull(340, 34, 0.8) + gull(280, 24, 0.6) + gull(160, 32, 0.6) +
       band(base, 210 - base, "#1e88a8") +
-      ripples(base + 18, "#bfe8f4") + ripples(base + 34, "#8fd0e4") +
+      ripples(base + 18, "#bfe8f4") + ripples(base + 34, "#8fd0e4") + ripples(base + 48, "#6fc0dc") +
       `<path d="M230,${base}h140v-14l-16,-8h-108l-16,8z" fill="#4a4a52"/>` +
+      `<rect x="234" y="${base - 12}" width="10" height="8" fill="#bfe0f0"/><rect x="250" y="${base - 12}" width="10" height="8" fill="#bfe0f0"/>` +
       crane(70, base, 70) + crane(120, base, 56) +
-      containers(30, base, 4, 3)
+      containers(30, base, 4, 3) +
+      `<rect x="190" y="${base - 16}" width="20" height="16" fill="#e8443f"/>` +
+      pebbles(base + 4, 6, "#e8dcc0") +
+      grassTuft(10, base, "#2f7a3a")
     );
   })(),
 
@@ -388,12 +428,15 @@ export const GHANA_BG = {
     const base = 156;
     return (
       sky("#8fc4e8", "#cfe4f0", base) +
-      clouds(90, 24, 0.7) +
+      clouds(90, 24, 0.7) + clouds(300, 16, 0.5) +
+      gull(130, 40, 0.8) + gull(260, 34, 0.7) +
       band(base, 210 - base, "#1e88a8") +
-      ripples(base + 16, "#bfe8f4") + ripples(base + 30, "#8fd0e4") +
+      ripples(base + 16, "#bfe8f4") + ripples(base + 30, "#8fd0e4") + ripples(base + 44, "#6fc0dc") +
       fortWall(150, base, 70, 22) +
-      canoe(60, base + 4, 46) + canoe(340, base + 6, 40) +
-      palmTree(20, base, 32) + palmTree(378, base, 30)
+      canoe(60, base + 4, 46) + canoe(340, base + 6, 40) + canoe(200, base + 10, 26) +
+      palmTree(20, base, 32) + palmTree(378, base, 30) + palmTree(400, base, 24) +
+      pebbles(base + 2, 6, "#e8dcc0") +
+      grassTuft(300, base, "#2f7a3a")
     );
   })(),
 
@@ -402,17 +445,21 @@ export const GHANA_BG = {
     const base = 162;
     return (
       sky("#8fc4e8", "#cfe4f0", base) +
-      clouds(90, 20, 0.6) +
+      clouds(90, 20, 0.6) + clouds(300, 14, 0.4) +
       hills(base - 4, "#7ea852", 3) +
       ground(base, "#c9a877") +
       marketStall(70, base, 26, "#e8443f") +
       marketStall(150, base, 24, "#f5b31c") +
       marketStall(230, base, 26, "#2f6b3a") +
       marketStall(310, base, 24, "#1e88a8") +
+      marketStall(380, base, 20, "#a83a2a") +
       `<g fill="#a83a2a"><circle cx="60" cy="${base - 4}" r="3"/><circle cx="66" cy="${base - 4}" r="3"/><circle cx="63" cy="${base - 9}" r="3"/></g>` +
       `<g fill="#e8e0cc"><rect x="180" y="${base - 8}" width="16" height="8" rx="2"/><rect x="198" y="${base - 6}" width="14" height="6" rx="2"/></g>` +
       `<g fill="#4a4a52"><circle cx="110" cy="${base - 14}" r="5"/><rect x="105" y="${base - 9}" width="10" height="16" rx="2"/></g>` +
-      `<g fill="#4a4a52"><circle cx="270" cy="${base - 12}" r="5"/><rect x="265" y="${base - 7}" width="10" height="16" rx="2"/></g>`
+      `<g fill="#4a4a52"><circle cx="270" cy="${base - 12}" r="5"/><rect x="265" y="${base - 7}" width="10" height="16" rx="2"/></g>` +
+      `<g fill="#4a4a52"><circle cx="30" cy="${base - 10}" r="5"/><rect x="25" y="${base - 5}" width="10" height="16" rx="2"/></g>` +
+      `<g fill="#f5b31c"><circle cx="345" cy="${base - 6}" r="3"/><circle cx="352" cy="${base - 6}" r="3"/></g>` +
+      pebbles(base + 4, 6, "#a8895c")
     );
   })(),
 
@@ -421,15 +468,18 @@ export const GHANA_BG = {
     const base = 158;
     return (
       sky("#8fc4e8", "#cfe4f0", base) +
-      clouds(320, 24, 0.8) + clouds(60, 16, 0.5) +
+      clouds(320, 24, 0.8) + clouds(60, 16, 0.5) + clouds(200, 12, 0.4) +
       hills(base - 30, "#5f8a52", 3) +
       hills(base - 10, "#7ea852", 4) +
       ground(base, "#7ea852") +
       `<path d="M40,${base - 10}L40,${base + 60}" stroke="#bfe8f4" stroke-width="4" opacity=".8"/>` +
       `<path d="M38,${base + 4}q2,-2 4,0M38,${base + 14}q2,-2 4,0M38,${base + 24}q2,-2 4,0" stroke="#bfe8f4" stroke-width="2" fill="none" opacity=".7"/>` +
       roundTree(320, base, 16) + roundTree(360, base, 12) + roundTree(150, base, 10) +
+      roundTree(100, base, 8) + roundTree(260, base, 9) +
       thatchHut(220, base + 4, 14) +
-      gull(300, 30, 0.8) + gull(330, 24, 0.6)
+      gull(300, 30, 0.8) + gull(330, 24, 0.6) + gull(270, 40, 0.6) +
+      `<g stroke="#4a7a3a" stroke-width="1.6" opacity=".6"><path d="M60,${base + 10}h60M60,${base + 20}h60M60,${base + 30}h60"/></g>` +
+      grassTuft(190, base + 4, "#4a7a3a") + grassTuft(80, base + 8, "#4a7a3a")
     );
   })(),
 
@@ -439,17 +489,20 @@ export const GHANA_BG = {
     return (
       sky("#f0c86a", "#f6dfa0", base) +
       sun(340, 40, 20, "#f5b31c") +
-      clouds(80, 18, 0.5) +
+      clouds(80, 18, 0.5) + clouds(180, 12, 0.4) +
       ground(base, "#c9a877") +
       `<rect x="60" y="${base - 60}" width="8" height="60" fill="#6f5230"/>` +
       `<rect x="200" y="${base - 60}" width="8" height="60" fill="#6f5230"/>` +
       `<rect x="60" y="${base - 60}" width="148" height="6" fill="#6f5230"/>` +
       kenteStripe(70, base - 50, 128, 44) +
-      `<g stroke="#4a3620" stroke-width="1.4"><line x1="80" y1="${base - 60}" x2="80" y2="${base}"/><line x1="100" y1="${base - 60}" x2="100" y2="${base}"/><line x1="120" y1="${base - 60}" x2="120" y2="${base}"/></g>` +
+      `<g stroke="#4a3620" stroke-width="1.4"><line x1="80" y1="${base - 60}" x2="80" y2="${base}"/><line x1="100" y1="${base - 60}" x2="100" y2="${base}"/><line x1="120" y1="${base - 60}" x2="120" y2="${base}"/><line x1="140" y1="${base - 60}" x2="140" y2="${base}"/><line x1="160" y1="${base - 60}" x2="160" y2="${base}"/></g>` +
       `<g fill="#a83a2a"><circle cx="240" cy="${base - 8}" r="6"/><circle cx="256" cy="${base - 8}" r="6"/></g>` +
       `<g fill="#f5b31c"><circle cx="248" cy="${base - 16}" r="6"/></g>` +
+      `<g fill="#1f5a2c"><circle cx="264" cy="${base - 16}" r="5"/><circle cx="278" cy="${base - 8}" r="5"/></g>` +
       roundTree(340, base, 18) +
-      thatchHut(30, base + 4, 14)
+      thatchHut(30, base + 4, 14) +
+      pebbles(base + 2, 6, "#a8895c") +
+      grassTuft(220, base, "#6f8a3a")
     );
   })(),
 
@@ -458,7 +511,7 @@ export const GHANA_BG = {
     const base = 168;
     return (
       sky("#8fc4e8", "#cfe4f0", base) +
-      clouds(90, 24, 0.7) + clouds(200, 16, 0.5) +
+      clouds(90, 24, 0.7) + clouds(200, 16, 0.5) + clouds(340, 12, 0.4) +
       ground(base, "#c9a877") +
       `<rect x="60" y="${base - 50}" width="130" height="46" fill="#241a10"/>` +
       adinkraSymbol(90, base - 28, 12) +
@@ -468,8 +521,13 @@ export const GHANA_BG = {
       `<rect x="56" y="${base - 4}" width="6" height="14" fill="#6f5230"/><rect x="188" y="${base - 4}" width="6" height="14" fill="#6f5230"/>` +
       `<circle cx="230" cy="${base - 10}" r="10" fill="none" stroke="#8a6a3f" stroke-width="2.4"/>` +
       `<circle cx="230" cy="${base - 10}" r="10" fill="#241a10" opacity=".2"/>` +
+      adinkraSymbol(260, base - 10, 8, "#8a6a3f") +
+      `<rect x="20" y="${base - 30}" width="30" height="34" fill="#3a2818" opacity=".85"/>` +
+      `<rect x="18" y="${base - 32}" width="34" height="4" fill="#6f5230"/>` +
       roundTree(320, base, 18) +
-      roundTree(280, base, 10)
+      roundTree(280, base, 10) +
+      pebbles(base + 2, 5, "#a8895c") +
+      grassTuft(300, base, "#6f8a3a")
     );
   })(),
 
@@ -478,16 +536,19 @@ export const GHANA_BG = {
     const base = 160;
     return (
       sky("#8fc4e8", "#cfe4f0", base) +
-      clouds(300, 22, 0.7) + clouds(60, 16, 0.5) +
+      clouds(300, 22, 0.7) + clouds(60, 16, 0.5) + clouds(180, 12, 0.4) +
       ground(base, "#a8794a") +
       mineHeadframe(120, base, 70) +
       mineHeadframe(60, base, 34) +
       `<rect x="180" y="${base - 14}" width="34" height="14" rx="2" fill="#4a4a52"/><circle cx="188" cy="${base}" r="5" fill="#2a2a2a"/><circle cx="206" cy="${base}" r="5" fill="#2a2a2a"/>` +
+      `<rect x="230" y="${base - 20}" width="20" height="20" fill="#6b5330"/><rect x="228" y="${base - 22}" width="24" height="4" fill="#4a3620"/>` +
       `<circle cx="300" cy="${base - 20}" r="4" fill="#f5b31c"/>` +
       `<circle cx="320" cy="${base - 10}" r="3" fill="#f5b31c"/>` +
       `<circle cx="335" cy="${base - 24}" r="3.4" fill="#f5b31c"/>` +
       `<circle cx="310" cy="${base - 4}" r="2.6" fill="#f5b31c"/>` +
-      `<path d="M0,${base + 10}h400M0,${base + 22}h400" stroke="#8a6a3f" stroke-width="2" opacity=".5"/>`
+      `<circle cx="345" cy="${base - 8}" r="2.4" fill="#f5b31c"/><circle cx="355" cy="${base - 18}" r="2" fill="#f5b31c"/>` +
+      `<path d="M0,${base + 10}h400M0,${base + 22}h400M0,${base + 34}h400" stroke="#8a6a3f" stroke-width="2" opacity=".5"/>` +
+      pebbles(base + 4, 8, "#6f5230")
     );
   })(),
 
@@ -496,14 +557,17 @@ export const GHANA_BG = {
     const base = 150;
     return (
       sky("#8fc4e8", "#cfe4f0", base) +
-      clouds(320, 24, 0.8) + clouds(90, 18, 0.6) +
+      clouds(320, 24, 0.8) + clouds(90, 18, 0.6) + clouds(200, 12, 0.4) +
       hills(base - 44, "#5f8a52", 3) +
       damWall(90, base, 220, 46) +
       band(base, 210 - base, "#2f6a95") +
-      ripples(base + 18, "#bfe8f4") + ripples(base + 32, "#8fd0e4") +
+      ripples(base + 18, "#bfe8f4") + ripples(base + 32, "#8fd0e4") + ripples(base + 46, "#6fc0dc") +
       `<path d="M170,${r1(base - 46)}v-30M190,${r1(base - 46)}v-34M210,${r1(base - 46)}v-28" stroke="#bfe8f4" stroke-width="3" opacity=".8"/>` +
       `<rect x="60" y="${base - 20}" width="16" height="20" fill="#c9c4b6"/><rect x="324" y="${base - 20}" width="16" height="20" fill="#c9c4b6"/>` +
-      gull(40, 40, 0.8) + gull(360, 34, 0.7)
+      `<rect x="100" y="${base - 54}" width="10" height="8" fill="#e8e0cc"/><rect x="290" y="${base - 54}" width="10" height="8" fill="#e8e0cc"/>` +
+      gull(40, 40, 0.8) + gull(360, 34, 0.7) + gull(200, 26, 0.6) +
+      canoe(30, base + 20, 26) +
+      pebbles(base + 40, 6, "#8fa8b8")
     );
   })(),
 
@@ -512,15 +576,19 @@ export const GHANA_BG = {
     const base = 168;
     return (
       sky("#8fc4e8", "#cfe4f0", base) +
-      clouds(90, 22, 0.7) + clouds(300, 16, 0.5) +
+      clouds(90, 22, 0.7) + clouds(300, 16, 0.5) + clouds(200, 12, 0.4) +
       ground(base, "#c9a877") +
       `<rect x="0" y="${base - 4}" width="400" height="4" fill="#8a8378"/>` +
       borderBarrier(200, base, 60) +
       `<rect x="170" y="${base - 40}" width="20" height="18" rx="2" fill="#e8e0cc" stroke="#8a8378" stroke-width="1.4"/>` +
+      `<rect x="176" y="${base - 34}" width="4" height="4" fill="#5b8fe8"/><rect x="184" y="${base - 34}" width="4" height="4" fill="#5b8fe8"/>` +
       marketStall(60, base, 20, "#e8443f") +
       marketStall(340, base, 20, "#2f6b3a") +
+      marketStall(120, base, 16, "#f5b31c") +
       `<g fill="#4a4a52"><circle cx="90" cy="${base - 10}" r="5"/><rect x="85" y="${base - 5}" width="10" height="16" rx="2"/></g>` +
-      `<g fill="#4a4a52"><circle cx="310" cy="${base - 10}" r="5"/><rect x="305" y="${base - 5}" width="10" height="16" rx="2"/></g>`
+      `<g fill="#4a4a52"><circle cx="310" cy="${base - 10}" r="5"/><rect x="305" y="${base - 5}" width="10" height="16" rx="2"/></g>` +
+      `<g fill="#4a4a52"><circle cx="250" cy="${base - 8}" r="5"/><rect x="245" y="${base - 3}" width="10" height="16" rx="2"/></g>` +
+      pebbles(base + 2, 6, "#8a7455")
     );
   })(),
 
@@ -546,16 +614,17 @@ export const GHANA_BG = {
     const base = 148;
     return (
       sky("#8fc4e8", "#cfe4f0", base) +
-      clouds(100, 22, 0.7) + clouds(220, 16, 0.5) +
-      gull(50, 40, 0.8) + gull(340, 34, 0.7) +
+      clouds(100, 22, 0.7) + clouds(220, 16, 0.5) + clouds(340, 12, 0.4) +
+      gull(50, 40, 0.8) + gull(340, 34, 0.7) + gull(150, 26, 0.6) +
       band(base, 210 - base, "#2a7196") +
-      ripples(base + 20, "#bfe8f4") + ripples(base + 40, "#8fd0e4") +
+      ripples(base + 20, "#bfe8f4") + ripples(base + 40, "#8fd0e4") + ripples(base + 56, "#6fc0dc") +
       stiltHut(90, base, 26) +
       stiltHut(180, base, 22) +
       stiltHut(270, base, 24) +
-      `<path d="M116,${base - 4}h38M206,${base - 2}h38" stroke="#6f5230" stroke-width="3"/>` +
-      canoe(340, base + 16, 40) +
-      canoe(20, base + 10, 30)
+      stiltHut(340, base, 16) +
+      `<path d="M116,${base - 4}h38M206,${base - 2}h38M294,${base - 2}h30" stroke="#6f5230" stroke-width="3"/>` +
+      canoe(20, base + 10, 30) +
+      pebbles(base + 30, 5, "#bfe8f4")
     );
   })(),
 };
