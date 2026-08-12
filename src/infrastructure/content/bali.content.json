@@ -1763,8 +1763,8 @@
       "padangbai"
     ],
     [
-      "padangbai",
-      "candidasa"
+      "candidasa",
+      "padangbai"
     ],
     [
       "amed",
@@ -1787,8 +1787,8 @@
       "singaraja"
     ],
     [
-      "singaraja",
-      "lovina"
+      "lovina",
+      "singaraja"
     ],
     [
       "singaraja",
@@ -3066,10 +3066,10 @@
     {
       "difficulty": 2,
       "q": {
-        "en": "Besides Hindu-majority Bali, Indonesia as a whole is the world's most populous country of which religion?",
-        "es": "Además de la Bali de mayoría hindú, Indonesia en su conjunto es el país más poblado del mundo de qué religión?",
-        "fr": "Outre Bali à majorité hindoue, l'Indonésie dans son ensemble est le pays le plus peuplé au monde de quelle religion ?",
-        "ja": "ヒンドゥー教徒が多いバリとは別に、インドネシア全体で見れば世界最大の信者数を持つ宗教は?"
+        "en": "More followers of which religion live in Indonesia than in any other single country on Earth?",
+        "es": "¿De qué religión vive en Indonesia más gente seguidora que en cualquier otro país del mundo?",
+        "fr": "Les adeptes de quelle religion sont plus nombreux en Indonésie que dans tout autre pays du monde ?",
+        "ja": "地球上のどの国よりも多くの信者がインドネシアに暮らす宗教は?"
       },
       "o": [
         {
@@ -3093,10 +3093,10 @@
       ],
       "a": 1,
       "f": {
-        "en": "More Muslims live in Indonesia than in any other single country, which is part of why Bali's Hindu majority stands out so clearly on the map.",
-        "es": "En Indonesia viven más musulmanes que en cualquier otro país, lo que explica en parte que la mayoría hindú de Bali destaque tanto en el mapa.",
-        "fr": "Plus de musulmans vivent en Indonésie que dans tout autre pays, ce qui explique en partie pourquoi la majorité hindoue de Bali ressort si nettement sur la carte.",
-        "ja": "インドネシアにはどの国よりも多くのイスラム教徒が暮らす。地図の上でバリのヒンドゥー教徒の多さがこれほど際立つのは、その裏返しでもある。"
+        "en": "Indonesia's Muslim population outnumbers that of any other nation, including those of the Middle East, simply because the country itself has so many people spread across so many islands.",
+        "es": "La población musulmana de Indonesia supera a la de cualquier otra nación, incluidas las de Oriente Medio, sencillamente porque el país tiene mucha gente repartida por muchas islas.",
+        "fr": "La population musulmane d'Indonésie dépasse celle de toute autre nation, y compris celles du Moyen-Orient, simplement parce que le pays compte tant d'habitants répartis sur tant d'îles.",
+        "ja": "インドネシアのイスラム教徒の数は、中東の国々を含むどの国よりも多い。単に、これほど多くの島に、これほど多くの人が暮らす国だからである。"
       }
     },
     {
