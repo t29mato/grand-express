@@ -28,7 +28,7 @@ function overlaps(a: Rect, b: Rect): boolean {
  * 文字列の幅をem単位で見積もる。全角(CJK)は1em、その他は0.58emとして数える。
  * 実際に計測するにはDOMへの描画が要るため、ラベルの衝突判定にはこの近似で足りる。
  */
-function estimateWidthEm(text: string): number {
+export function estimateWidthEm(text: string): number {
   let em = 0;
   for (const ch of text) {
     const code = ch.codePointAt(0) ?? 0;
@@ -87,7 +87,7 @@ function placementFor(direction: Direction, ring: number): CityLabelPlacement {
   }
 }
 
-function labelRect(at: NodePosition, placement: CityLabelPlacement, widthUnits: number, fontUnits: number): Rect {
+export function labelRect(at: NodePosition, placement: CityLabelPlacement, widthUnits: number, fontUnits: number): Rect {
   const pad = fontUnits * 0.12;
   const x = at.x + placement.dx;
   const y = at.y + placement.dy;
@@ -111,7 +111,7 @@ function labelRect(at: NodePosition, placement: CityLabelPlacement, widthUnits: 
  * **はみ出す候補を弾けば、自動的に内側を向いた位置が選ばれる。**
  * 盤面ごとに名札の向きを手で指定して回る必要はない。
  */
-function insideBoard(rect: Rect, projection: { boardWidth: number; boardHeight: number }): boolean {
+export function insideBoard(rect: Rect, projection: { boardWidth: number; boardHeight: number }): boolean {
   return rect.x0 >= 0 && rect.x1 <= projection.boardWidth && rect.y0 >= 0 && rect.y1 <= projection.boardHeight;
 }
 
@@ -188,9 +188,17 @@ export function useCityLabels({
         }
       }
 
-      // 目的地はどこにも置けなくても既定位置に出す(行き先を見失わないため)。
+      // 目的地はどこにも置けなくても出す(行き先を見失わないため)。
+      // **ただし盤面の外へは出さない。**外に描かれた名札はそこで切り取られ、
+      // 「stov-on-Don」のように読めなくなる(ロストフ・ナ・ドヌが目的地に
+      // なったときに実際に起きた)。重なりは許すが、はみ出しは許さない。
       if (!chosen && city.id === destination) {
-        chosen = placementFor(city.labelPosition, 1);
+        chosen =
+          candidateOrder(city.labelPosition)
+            .map((direction) => placementFor(direction, 1))
+            .find((placement) =>
+              insideBoard(labelRect(at, placement, widthUnits, fontUnits), context.content.projection),
+            ) ?? placementFor(city.labelPosition, 1);
         placedRects.push(labelRect(at, chosen, widthUnits, fontUnits));
       }
       if (chosen) placed.set(city.id, chosen);
