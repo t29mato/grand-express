@@ -634,6 +634,68 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
       { op: "region-income-multiplier", regionId: region("sic"), multiplier: 1.3 },
     ],
   ],
+
+  /**
+   * ロシア。ラスプーチツァ(4月・雪解けの泥濘) → 戦勝記念日 →
+   * 白夜のサンクトペテルブルク → ヴォルガの遊覧船とダーチャの夏 →
+   * ダーチャの収穫(8月・休神) → きのこ狩りと新学期 → 黄金の秋 →
+   * 初雪と民族統一の日 → 新年準備 → 新年とジェド・マロース(1月・給アイテム) →
+   * 冬将軍 → マースレニツァとバイカルの氷、という流れ。
+   */
+  russia: [
+    /* 0 Apr ラスプーチツァ(泥濘の季節) */ [
+      { op: "region-income-multiplier", regionId: region("yug"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("vlg"), multiplier: 0.85 },
+    ],
+    /* 1 May 戦勝記念日 */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("tsn"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("yug"), multiplier: 1.15 },
+    ],
+    /* 2 Jun 白夜とロシアの日 */ [
+      { op: "region-income-multiplier", regionId: region("szp"), multiplier: 1.35 },
+      { op: "region-income-multiplier", regionId: region("tsn"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("dv"), multiplier: 1.2 },
+    ],
+    /* 3 Jul ヴォルガの遊覧船とダーチャの夏 */ [
+      { op: "region-income-multiplier", regionId: region("vlg"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("tsn"), multiplier: 1.15 },
+    ],
+    /* 4 Aug ダーチャの収穫(街が空になる) */ [
+      { op: "region-income-multiplier", regionId: region("tsn"), multiplier: 0.75 },
+      { op: "region-income-multiplier", regionId: region("yug"), multiplier: 1.3 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep きのこ狩りと新学期 */ [
+      { op: "region-income-multiplier", regionId: region("sib"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("dv"), multiplier: 1.15 },
+    ],
+    /* 6 Oct 黄金の秋 */ [
+      { op: "region-income-multiplier", regionId: region("tsn"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("szp"), multiplier: 1.15 },
+    ],
+    /* 7 Nov 初雪と民族統一の日 */ [
+      { op: "all-players-pay-cash", amount: 160 },
+      { op: "region-income-multiplier", regionId: region("dv"), multiplier: 1.15 },
+    ],
+    /* 8 Dec 新年準備の市 */ [
+      { op: "all-players-pay-cash", amount: 200 },
+      { op: "region-income-multiplier", regionId: region("szp"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("tsn"), multiplier: 1.2 },
+    ],
+    /* 9 Jan 新年とジェド・マロース */ [{ op: "give-item-to-all" }],
+    /* 10 Feb 冬将軍 */ [
+      { op: "all-players-pay-cash", amount: 200 },
+      { op: "region-income-multiplier", regionId: region("sib"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("vlg"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("tsn"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("yug"), multiplier: 0.85 },
+    ],
+    /* 11 Mar マースレニツァとバイカルの氷 */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("sib"), multiplier: 1.3 },
+    ],
+  ],
 };
 
 /**
@@ -742,4 +804,13 @@ export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>>
   morra: "payOthers",
   "treno-sbagliato": "teleport",
   scippo: "steal",
+
+  // Russia
+  gibdd: "fine",
+  obmennik: "percentLoss",
+  ochered: "skipTurn",
+  buran: "loseProperties",
+  zastolye: "payOthers",
+  "ne-tot-poyezd": "teleport",
+  karmannik: "steal",
 };

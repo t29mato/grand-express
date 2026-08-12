@@ -83,6 +83,13 @@ import { ItalyMorra } from "./italy-morra";
 import { ItalyScippo } from "./italy-scippo";
 import { ItalySciopero } from "./italy-sciopero";
 import { ItalyTrenoSbagliato } from "./italy-treno-sbagliato";
+import { RussiaGibdd } from "./russia-gibdd";
+import { RussiaObmennik } from "./russia-obmennik";
+import { RussiaOchered } from "./russia-ochered";
+import { RussiaBuran } from "./russia-buran";
+import { RussiaZastolye } from "./russia-zastolye";
+import { RussiaNeTotPoyezd } from "./russia-ne-tot-poyezd";
+import { RussiaKarmannik } from "./russia-karmannik";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -171,6 +178,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "italy-scippo": ItalyScippo,
   "italy-sciopero": ItalySciopero,
   "italy-treno-sbagliato": ItalyTrenoSbagliato,
+  "russia-gibdd": RussiaGibdd,
+  "russia-obmennik": RussiaObmennik,
+  "russia-ochered": RussiaOchered,
+  "russia-buran": RussiaBuran,
+  "russia-zastolye": RussiaZastolye,
+  "russia-ne-tot-poyezd": RussiaNeTotPoyezd,
+  "russia-karmannik": RussiaKarmannik,
   "world-crossing-the-line": WorldCrossingTheLine,
   "world-customs-shed": WorldCustomsShed,
   "world-devaluation": WorldDevaluation,

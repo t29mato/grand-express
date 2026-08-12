@@ -50,6 +50,9 @@ const SAMPLES = 600;
  */
 const KEPT = new Map([
   ["japan:aomori-hakodate", "青函トンネル。列車が海の下を通るのが正しい"],
+  ["russia:vladivostok-yuzhnosakhalinsk", "間宮海峡を渡る325pxの航路。サハリンは島なので陸路にできない。端の入れ替えで287px→63px(19%)まで下げた、実測での最良"],
+  ["russia:magadan-petropavlovsk", "オホーツク海を渡る355pxの航路。マガダン湾とカムチャツカの両端で自分の陸地をかすめるだけ(31%)"],
+  ["russia:khabarovsk-ulanude", "シベリア鉄道の711pxの長い区間。バイカル湖の南岸をかすめる(15%)。実在の鉄道"],
   ["italy:genova-olbia", "ティレニア海を渡る759pxの航路。リグーリアとサルデーニャの両端で自分の陸地をかすめるだけ(10%)。実在のフェリー航路"],
   ["uk:belfast-holyhead", "アイリッシュ海を渡る418pxの航路。アングルシー島とベルファスト湾の両端で自分の陸地をかすめる(21%)。実在のフェリー航路"],
   ["uk:bristol-penzance", "コーンウォール半島を下る591pxの長距離線。デヴォンに中継の町を置いていないため、湾を横切って見える(19%)。実在の鉄道"],

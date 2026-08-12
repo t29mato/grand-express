@@ -142,4 +142,15 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   bigino: { type: "quiz-save" },
   lotteria: { type: "gain-cash", amount: 380 },
   raccomandazione: { type: "extra-turn" },
+
+  // Russia
+  troika: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  raspisanie: { type: "choose-exact-dice" },
+  platskart: { type: "roll-fixed-dice", diceCount: 2 },
+  sapsan: { type: "roll-fixed-dice", diceCount: 3 },
+  khlebsol: { type: "none" }, // 厄災の神(ドモヴォイ)のward item(passive)
+  sol: { type: "repel-spirit" },
+  shpargalka: { type: "quiz-save" },
+  gosloto: { type: "gain-cash", amount: 380 },
+  blat: { type: "extra-turn" },
 };
