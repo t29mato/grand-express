@@ -1,5 +1,5 @@
 /**
- * ガーナの都市と路線(37都市)。
+ * ガーナの都市と路線(38都市)。
  *
  * 地方コード: `gar` 大アクラ / `cen` 中部・海岸 / `asa` アシャンティ /
  * `vol` ヴォルタ / `nor` 北部 / `wes` 西部。
@@ -7,7 +7,7 @@
  * - `gar`(6) アクラ・テマ・アダ・ドドワ・コフォリドゥア・ンカウカウ
  * - `cen`(6) ケープコースト・エルミナ・ウィネバ・ソルトポンド・アノマブ・アパム
  * - `asa`(5) クマシ・ボンウィレ・ンソンソ・エジス・オブアシ
- * - `vol`(6) ホー・ホホエ・ケタ・アコソンボ・クパンド・アフラウ
+ * - `vol`(7) ホー・ホホエ・ケタ・アコソンボ・クパンド・ケテ・クラチ・アフラウ
  * - `nor`(8) タマレ・イェンディ・ボルガタンガ・ワ・パガ・ララバンガ・サラガ・イェジ
  * - `wes`(6) タコラディ(セコンディと合併済みの一つの都市として)・アシム・エルボ・
  *   プレステア・タルクワ・ベイン(ンズレズ水上集落への玄関口)
@@ -16,14 +16,19 @@
  * team-lead確認の結果、依頼時の書き間違いだったため、実在が確認できる町
  * (ンカウカウ・コフォリドゥアなど)に置き換えている。
  *
- * ## 路線(41本)
+ * ## 路線(42本)
  *
  * 実在の鉄道は南部に限られる。西部線(クマシ―オブアシ―プレステア―タルクワ―
  * タコラディ)と東部線(アクラ―コフォリドゥア―クマシ)の2本が歴史的な幹線で、
  * この2本だけを歴史的な鉄道としてコメントに明記してある(路線種別は現状
  * 陸路/航路の2つしか無いため、鉄道か道路かは主にコメントで示す)。
  * 北部には鉄道が通っていないので、道路で疎に結んである。
- * ボルタ湖の渡し(アコソンボ⇄イェジ)だけを実在の船便として `sea` にしてある。
+ * ボルタ湖の渡し(実在の船便)は `sea` 2本、アコソンボ⇄ケテ・クラチ⇄イェジに
+ * 分けてある。当初アコソンボ⇄イェジの直線1本だったが、湖が「く」の字に
+ * 折れる形をしているため98%が陸を横切ると指摘され、実在の中継港ケテ・クラチ
+ * (ダムの湛水で旧市街が水没し、住民ごと高台へ移された町)を挟んで
+ * 湖の形に沿わせた(投影後の距離を実測し、湖の楕円チェーンとの距離が
+ * 直線1本のときの15〜97pxから、ほぼ0px前後まで縮まることを確認済み)。
  *
  * ## 価格の階段(実測: 最安150〜最高2800、18.7倍)
  *
@@ -227,6 +232,14 @@ export const GHANA_CITIES = {
     [prop("Lake Ferry Jetty|Embarcadero del ferri del lago|Jetée du ferry du lac|湖のフェリー桟橋", 350, 72),
      prop("Cathedral Bell Tower|Campanario de la catedral|Clocher de la cathédrale|大聖堂の鐘楼", 190, 40)],
   ),
+  ketekrachi: city(
+    "Kete Krachi|Kete Krachi|Kete Krachi|ケテ・クラチ",
+    -0.0500, 7.7667, "vol", "hills", "hills", "l",
+    "A colonial outpost the lake moved to higher ground|Un puesto colonial que el lago trasladó a tierras más altas|Un poste colonial que le lac a déplacé sur les hauteurs|湖が高台へ移した植民地の拠点",
+    "Kete Krachi served as an administrative post under German colonial rule in Togoland before the First World War transferred the territory to British control, and when Lake Volta's reservoir rose in the 1960s, much of that old town went under water along with it. The population relocated to a new Kete Krachi built on higher ground nearby, and the town today serves as the main midpoint stop for the lake ferry connecting Akosombo to Yeji, a journey that can take the better part of two days end to end.|Kete Krachi sirvió como puesto administrativo bajo el dominio colonial alemán en Togolandia antes de que la Primera Guerra Mundial transfiriera el territorio al control británico, y cuando el embalse del lago Volta subió en los años sesenta, buena parte de aquel viejo pueblo quedó sumergida con él. La población se trasladó a un nuevo Kete Krachi construido en terreno más alto cercano, y el pueblo sirve hoy como la principal parada intermedia del ferri del lago que conecta Akosombo con Yeji, un trayecto que puede llevar buena parte de dos días de punta a punta.|Kete Krachi servit de poste administratif sous la domination coloniale allemande au Togoland avant que la Première Guerre mondiale ne transfère le territoire sous contrôle britannique, et quand la retenue du lac Volta monta dans les années 1960, une bonne part de cette vieille ville fut engloutie avec elle. La population se réinstalla dans un nouveau Kete Krachi bâti sur des hauteurs voisines, et la ville sert aujourd'hui de principale étape intermédiaire pour le ferry du lac reliant Akosombo à Yeji, une traversée pouvant prendre la meilleure partie de deux jours d'un bout à l'autre.|ケテ・クラチは第一次世界大戦で領土がイギリスの統治に移るまで、ドイツ領トーゴランドの植民地行政拠点だった。1960年代にボルタ湖の貯水池が水位を上げると、その旧市街の多くもろとも水没した。住民は近くの高台に築かれた新しいケテ・クラチへ移り住み、この町はいまアコソンボからイェジへ向かう湖の渡し船の主要な中継地となっており、その航路は端から端まで丸2日近くかかることもある。",
+    [prop("Old Town Flood Marker|Marcador del pueblo viejo inundado|Repère de l'ancienne ville engloutie|旧市街の水没を示す標", 280, 58),
+     prop("Ferry Midpoint Jetty|Embarcadero intermedio del ferri|Jetée intermédiaire du ferry|渡しの中継桟橋", 180, 38)],
+  ),
   aflao: city(
     "Aflao|Aflao|Aflao|アフラウ",
     1.1978, 6.1167, "vol", "border", "border", "b",
@@ -398,7 +411,8 @@ export const GHANA_EDGES = [
   ["ho", "kpando"],
   ["kpando", "akosombo"],
   // --- ボルタ湖の渡し(実在の船便。ボルタ湖運輸会社がアコソンボ⇄イェジを運航) ---
-  ["akosombo", "yeji", "sea"],
+  ["akosombo", "ketekrachi", "sea"],
+  ["ketekrachi", "yeji", "sea"],
   // --- nor 北部(道路のみ。鉄道は通っていない) ---
   ["kumasi", "tamale"],
   ["tamale", "yendi"],
