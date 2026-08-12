@@ -171,16 +171,6 @@ function waterfall(x, top, h, w = 14, fill = "#bfe8f4") {
   return `<path d="M${r1(x - w / 2)},${top}h${w}l-3,${h}h-${w - 6}z" fill="${fill}" opacity=".9"/>`;
 }
 
-/** バーバリーマカク(猿)のシルエット。 */
-function macaque(x, base, scale = 1) {
-  return (
-    `<g fill="#6b5a42" transform="translate(${r1(x)},${r1(base)}) scale(${scale})">` +
-    `<circle cx="0" cy="-8" r="5"/><ellipse cx="0" cy="0" rx="6" ry="8"/>` +
-    `<circle cx="-6" cy="2" r="2.6"/><circle cx="6" cy="2" r="2.6"/>` +
-    `</g>`
-  );
-}
-
 /** ラバ(荷を積んだ)。 */
 function mule(x, base, scale = 1) {
   return (
@@ -202,14 +192,6 @@ function storkNest(x, y, r = 6) {
   );
 }
 
-/** 精製所の煙突。 */
-function smokestack(x, base, h, fill = "#8a8f95") {
-  return (
-    `<rect x="${r1(x - 3)}" y="${r1(base - h)}" width="6" height="${h}" fill="${fill}"/>` +
-    `<ellipse cx="${x}" cy="${r1(base - h - 8)}" rx="7" ry="4" fill="#c8ccd0" opacity=".7"/>`
-  );
-}
-
 /** アール・デコの建物正面(段状の縦線)。 */
 function artDecoFacade(x, base, w, h, fill = "#e8dcc0") {
   return (
@@ -227,11 +209,6 @@ function potteryKiln(x, base, r = 14, fill = "#b5502f") {
     `<path d="M${r1(x - r)},${base}a${r},${r * 1.3} 0 0 1 ${r * 2},0z" fill="${fill}"/>` +
     `<rect x="${r1(x - 3)}" y="${r1(base - r * 0.5)}" width="6" height="${r * 0.5}" fill="#4a3c2e"/>`
   );
-}
-
-/** 洞窟のアーチ開口部。 */
-function caveArch(x, base, w, h, fill = "#5a4530") {
-  return `<path d="M${r1(x - w / 2)},${base}v-${r1(h * 0.5)}a${r1(w / 2)},${r1(h / 2)} 0 0 1 ${w},0v${r1(h * 0.5)}z" fill="${fill}"/>`;
 }
 
 /** 複葉機のシルエット。 */
@@ -299,16 +276,6 @@ function archRow(x, y, count, w, h, fill, opacity = 1) {
     );
   }
   return `<g opacity="${opacity}">${parts.join("")}</g>`;
-}
-
-/** 国境フェンス。 */
-function borderFence(x, base, w, h, fill = "#7a7a72") {
-  const parts = [`<line x1="${x}" y1="${base}" x2="${x + w}" y2="${base}" stroke="${fill}" stroke-width="2"/>`];
-  for (let i = 0; i <= w; i += 10) {
-    parts.push(`<line x1="${r1(x + i)}" y1="${base}" x2="${r1(x + i)}" y2="${r1(base - h)}" stroke="${fill}" stroke-width="1.6"/>`);
-  }
-  parts.push(`<line x1="${x}" y1="${r1(base - h)}" x2="${x + w}" y2="${r1(base - h)}" stroke="${fill}" stroke-width="2"/>`);
-  return `<g opacity=".85">${parts.join("")}</g>`;
 }
 
 // ---------------------------------------------------------------------------

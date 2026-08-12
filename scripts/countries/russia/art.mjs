@@ -133,15 +133,6 @@ function kremlinTower(x, base, w, h, fill = "#8f2d2d", roof = "#3f6f4a") {
   );
 }
 
-/** 木造の家(イズバー)。切妻屋根、白樺と並べて使う。 */
-function izba(x, base, w, h, roof = "#8f2d2d", wall = "#c9a877") {
-  return (
-    `<rect x="${x}" y="${r1(base - h)}" width="${w}" height="${h}" fill="${wall}"/>` +
-    `<path d="M${r1(x - 3)},${r1(base - h)}L${r1(x + w / 2)},${r1(base - h - w * 0.55)}L${r1(x + w + 3)},${r1(base - h)}z" fill="${roof}"/>` +
-    `<rect x="${r1(x + w / 2 - 3)}" y="${r1(base - h * 0.5)}" width="6" height="${r1(h * 0.5)}" fill="#5a4630"/>`
-  );
-}
-
 /** 麦畑の畝(ステップ)。 */
 function wheatRows(x, y, w, rows, color = "#c8a860") {
   const parts = [];
