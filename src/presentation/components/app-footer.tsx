@@ -13,7 +13,7 @@ export function AppFooter() {
   return (
     <footer className="app-footer">
       <span className="app-version" title={APP_COMMIT ? `commit ${APP_COMMIT}` : undefined}>
-        Altiplano Express v{APP_VERSION}
+        World Express v{APP_VERSION}
         {APP_COMMIT && <span className="app-commit"> ({APP_COMMIT})</span>}
       </span>
       <Link href="/release-notes" className="footer-link">

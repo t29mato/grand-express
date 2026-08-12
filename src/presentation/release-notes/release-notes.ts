@@ -23,6 +23,18 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.36.0",
+    date: "2026-08-12",
+    title: t(
+      "The game is now called World Express|El juego se llama ahora World Express|Le jeu s'appelle désormais World Express|ゲームの名前を World Express にしました",
+    ),
+    highlights: [
+      t(
+        "It began on the Bolivian altiplano and carried that name for a while. There are twelve boards now, on five continents, and the old name only described the first one. The new name says what the game is.|Empezó en el altiplano boliviano y llevó ese nombre un tiempo. Ahora hay doce tableros en cinco continentes, y el nombre antiguo solo describía el primero. El nuevo dice lo que es el juego.|Le jeu est né sur l'altiplano bolivien et en a longtemps porté le nom. Il compte aujourd'hui douze plateaux sur cinq continents, et l'ancien nom ne décrivait que le premier. Le nouveau dit ce qu'est le jeu.|このゲームはボリビアのアルティプラーノで生まれ、しばらくその名前で来ました。いまは5つの大陸に12の盤面があり、古い名前は最初の1枚しか表していません。新しい名前は、このゲームが何なのかを言っています。",
+      ),
+    ],
+  },
+  {
     version: "0.35.0",
     date: "2026-08-12",
     title: t(

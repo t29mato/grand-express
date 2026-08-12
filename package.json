@@ -1,6 +1,6 @@
 {
-  "name": "altiplano-express",
-  "version": "0.35.0",
+  "name": "world-express",
+  "version": "0.36.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

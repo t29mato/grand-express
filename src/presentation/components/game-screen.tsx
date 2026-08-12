@@ -67,7 +67,7 @@ export function GameScreen() {
   return (
     <div className="game-screen">
       <header>
-        <h1>Altiplano Express</h1>
+        <h1>World Express</h1>
         <div className="hdr-right">
           <LocaleSwitch />
           <MusicToggle />

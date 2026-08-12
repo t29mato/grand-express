@@ -165,7 +165,7 @@ export function SetupScreen() {
           <SetupHeroTrain />
           <div className="setup-hero-body">
             <div className="setup-hero-top">
-              <span className="setup-mark">ALTIPLANO EXPRESS</span>
+              <span className="setup-mark">WORLD EXPRESS</span>
               <div className="setup-hero-controls">
                 <LocaleSwitch />
                 <MusicToggle />
