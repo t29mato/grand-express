@@ -936,6 +936,54 @@
         }
       ]
     },
+    "keywest": {
+      "n": {
+        "en": "Key West",
+        "es": "Cayo Hueso",
+        "fr": "Key West",
+        "ja": "キーウェスト"
+      },
+      "lo": -81.8,
+      "la": 24.56,
+      "reg": "south",
+      "mark": "railbridge",
+      "bg": "tropicdeco",
+      "lp": "l",
+      "tag": {
+        "en": "A railroad swept into the sea, reborn as a highway",
+        "es": "Un ferrocarril arrastrado al mar, renacido como autopista",
+        "fr": "Un chemin de fer emporté par la mer, renaissant en autoroute",
+        "ja": "海に流され、道路として生まれ変わった鉄道"
+      },
+      "fact": {
+        "en": "Henry Flagler's Florida East Coast Railway reached Key West in January 1912 after crossing more than 200 kilometres of open water on a chain of bridges, including one nearly seven miles long, and the eighty-two-year-old Flagler rode the first train in himself. The Labor Day Hurricane of 1935, one of the most powerful storms ever recorded in the country, swept away long stretches of track and derailed a rescue train evacuating World War I veteran labourers, killing hundreds; the line was never rebuilt as a railroad, and the state instead paved over the surviving bridges to create the Overseas Highway.",
+        "es": "El Ferrocarril de la Costa Este de Florida de Henry Flagler llegó a Cayo Hueso en enero de 1912 tras cruzar más de 200 kilómetros de mar abierto sobre una cadena de puentes, incluido uno de casi once kilómetros, y el propio Flagler, con ochenta y dos años, viajó en el primer tren. El huracán del Día del Trabajo de 1935, una de las tormentas más potentes jamás registradas en el país, arrasó largos tramos de vía y descarriló un tren de rescate que evacuaba a obreros veteranos de la Primera Guerra Mundial, matando a cientos; la línea nunca se reconstruyó como ferrocarril, y el estado pavimentó los puentes que sobrevivieron para crear la Overseas Highway.",
+        "fr": "Le chemin de fer de la côte est de la Floride de Henry Flagler atteignit Key West en janvier 1912 après avoir traversé plus de 200 kilomètres de mer ouverte sur une chaîne de ponts, dont l'un de près de onze kilomètres, et Flagler lui-même, âgé de quatre-vingt-deux ans, prit place à bord du premier train. L'ouragan de la fête du Travail de 1935, l'une des tempêtes les plus puissantes jamais enregistrées dans le pays, emporta de longs tronçons de voie et fit dérailler un train de secours évacuant des ouvriers vétérans de la Première Guerre mondiale, tuant des centaines de personnes ; la ligne ne fut jamais reconstruite en tant que chemin de fer, et l'État recouvrit d'asphalte les ponts survivants pour créer l'Overseas Highway.",
+        "ja": "ヘンリー・フラグラーのフロリダ東海岸鉄道は、七マイル近くに及ぶ橋を含む橋の連なりで200キロメートルを超える外洋を渡り、1912年1月にキーウェストへ到達した。82歳のフラグラー自身が最初の列車に乗り込んだ。1935年のレイバーデー・ハリケーンは、この国で記録された中でも最強クラスの嵐で、線路の長い区間を押し流し、第一次大戦の退役軍人労働者を避難させようとしていた救援列車を脱線させて数百人の命を奪った。この路線は鉄道としては二度と再建されず、州は生き残った橋の上にそのまま舗装を施してオーバーシーズ・ハイウェイを作った。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Overseas Railroad Bridge Pier",
+            "es": "Pilar del puente del Overseas Railroad",
+            "fr": "Pile du pont de l'Overseas Railroad",
+            "ja": "オーバーシーズ鉄道の橋脚"
+          },
+          "cost": 650,
+          "inc": 135
+        },
+        {
+          "n": {
+            "en": "Duval Street Sunset Pier",
+            "es": "Muelle del atardecer de Duval Street",
+            "fr": "Ponton du coucher de soleil de Duval Street",
+            "ja": "デュバル・ストリートの夕日桟橋"
+          },
+          "cost": 320,
+          "inc": 66
+        }
+      ]
+    },
     "chicago": {
       "n": {
         "en": "Chicago",
@@ -2561,6 +2609,10 @@
     [
       "bozeman",
       "seattle"
+    ],
+    [
+      "miami",
+      "keywest"
     ]
   ],
   "quiz": [
@@ -5474,7 +5526,8 @@
     "rose": "<circle cx=\"12\" cy=\"9\" r=\"5\" fill=\"#e8443f\" stroke=\"#20364a\" stroke-width=\".8\"/><circle cx=\"12\" cy=\"9\" r=\"2.2\" fill=\"#f5b31c\"/><path d=\"M12,14v8\" stroke=\"#4f8f4f\" stroke-width=\"1.6\"/>",
     "cablecar": "<rect x=\"4\" y=\"10\" width=\"16\" height=\"9\" rx=\"1\" fill=\"#a5432c\" stroke=\"#20364a\" stroke-width=\"1\"/><rect x=\"6\" y=\"12\" width=\"4\" height=\"4\" fill=\"#bfe8f4\"/><rect x=\"14\" y=\"12\" width=\"4\" height=\"4\" fill=\"#bfe8f4\"/><circle cx=\"8\" cy=\"20\" r=\"1.8\" fill=\"#20364a\"/><circle cx=\"16\" cy=\"20\" r=\"1.8\" fill=\"#20364a\"/>",
     "hollywoodsign": "<path d=\"M2,20L6,10l3,10M11,20l3,-10h4l-3,10M19,20l3,-10\" fill=\"none\" stroke=\"#f6efe2\" stroke-width=\"1.8\"/>",
-    "vineyard": "<path d=\"M12,4v4\" stroke=\"#4f8f4f\" stroke-width=\"1.4\"/><g fill=\"#5b8fe8\" stroke=\"#20364a\" stroke-width=\".4\"><circle cx=\"10\" cy=\"10\" r=\"2\"/><circle cx=\"14\" cy=\"10\" r=\"2\"/><circle cx=\"8\" cy=\"14\" r=\"2\"/><circle cx=\"12\" cy=\"14\" r=\"2\"/><circle cx=\"16\" cy=\"14\" r=\"2\"/><circle cx=\"10\" cy=\"18\" r=\"2\"/><circle cx=\"14\" cy=\"18\" r=\"2\"/></g>"
+    "vineyard": "<path d=\"M12,4v4\" stroke=\"#4f8f4f\" stroke-width=\"1.4\"/><g fill=\"#5b8fe8\" stroke=\"#20364a\" stroke-width=\".4\"><circle cx=\"10\" cy=\"10\" r=\"2\"/><circle cx=\"14\" cy=\"10\" r=\"2\"/><circle cx=\"8\" cy=\"14\" r=\"2\"/><circle cx=\"12\" cy=\"14\" r=\"2\"/><circle cx=\"16\" cy=\"14\" r=\"2\"/><circle cx=\"10\" cy=\"18\" r=\"2\"/><circle cx=\"14\" cy=\"18\" r=\"2\"/></g>",
+    "railbridge": "<rect x=\"2\" y=\"16\" width=\"9\" height=\"3\" fill=\"#8a92a0\"/><rect x=\"13\" y=\"16\" width=\"9\" height=\"3\" fill=\"#8a92a0\"/><g stroke=\"#7f8896\" stroke-width=\"1.4\"><line x1=\"4\" y1=\"19\" x2=\"4\" y2=\"22\"/><line x1=\"9\" y1=\"19\" x2=\"9\" y2=\"22\"/><line x1=\"15\" y1=\"19\" x2=\"15\" y2=\"22\"/><line x1=\"20\" y1=\"19\" x2=\"20\" y2=\"22\"/></g><path d=\"M11,16l-1,3M13,16l1,3\" stroke=\"#5a4630\" stroke-width=\"1.2\"/>"
   },
   "bg": {
     "skyline": "<rect x=\"0\" y=\"0\" width=\"400\" height=\"92\" fill=\"#8fc4e8\"/><rect x=\"0\" y=\"84\" width=\"400\" height=\"66\" fill=\"#cfe4f0\"/><g opacity=\".9\"><path d=\"M-34,128c22,-30 52,-30 74,0z\" fill=\"#8fae63\"/><path d=\"M99.33333333333334,128c22,-30 52,-30 74,0z\" fill=\"#8fae63\"/><path d=\"M232.66666666666669,128c22,-30 52,-30 74,0z\" fill=\"#8fae63\"/></g><rect x=\"0\" y=\"150\" width=\"400\" height=\"60\" fill=\"#2f4a33\"/><rect x=\"0\" y=\"150\" width=\"400\" height=\"6\" fill=\"#1e4266\"/><rect x=\"33\" y=\"60\" width=\"34\" height=\"90\" fill=\"#7f8896\" stroke=\"#20364a\" stroke-width=\"1.4\"/><g opacity=\".85\"><rect x=\"37.8\" y=\"67.2\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"50\" y=\"67.2\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"62.2\" y=\"67.2\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"37.8\" y=\"82\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"50\" y=\"82\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"62.2\" y=\"82\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"37.8\" y=\"96.8\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"50\" y=\"96.8\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"62.2\" y=\"96.8\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"37.8\" y=\"111.6\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"50\" y=\"111.6\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"62.2\" y=\"111.6\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"37.8\" y=\"126.4\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"50\" y=\"126.4\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"62.2\" y=\"126.4\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"37.8\" y=\"141.2\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"50\" y=\"141.2\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/><rect x=\"62.2\" y=\"141.2\" width=\"3.4\" height=\"3.4\" fill=\"#f5c95c\"/></g><rect x=\"300\" y=\"42\" width=\"40\" height=\"108\" fill=\"#8a92a0\" stroke=\"#20364a\" stroke-width=\"1.4\"/><g opacity=\".85\"><rect x=\"305.6\" y=\"50.6\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"320\" y=\"50.6\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"334.4\" y=\"50.6\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"305.6\" y=\"65.4\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"320\" y=\"65.4\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"334.4\" y=\"65.4\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"305.6\" y=\"80.2\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"320\" y=\"80.2\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"334.4\" y=\"80.2\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"305.6\" y=\"95\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"320\" y=\"95\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"334.4\" y=\"95\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"305.6\" y=\"109.8\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"320\" y=\"109.8\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"334.4\" y=\"109.8\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"305.6\" y=\"124.6\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"320\" y=\"124.6\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"334.4\" y=\"124.6\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"305.6\" y=\"139.4\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"320\" y=\"139.4\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/><rect x=\"334.4\" y=\"139.4\" width=\"4\" height=\"4\" fill=\"#f5c95c\"/></g><rect x=\"345\" y=\"76\" width=\"30\" height=\"74\" fill=\"#6f7a88\" stroke=\"#20364a\" stroke-width=\"1.4\"/><g opacity=\".85\"><rect x=\"349.2\" y=\"81.9\" width=\"3\" height=\"3\" fill=\"#f5c95c\"/><rect x=\"370.8\" y=\"81.9\" width=\"3\" height=\"3\" fill=\"#f5c95c\"/><rect x=\"349.2\" y=\"97.1\" width=\"3\" height=\"3\" fill=\"#f5c95c\"/><rect x=\"370.8\" y=\"97.1\" width=\"3\" height=\"3\" fill=\"#f5c95c\"/><rect x=\"349.2\" y=\"112.3\" width=\"3\" height=\"3\" fill=\"#f5c95c\"/><rect x=\"370.8\" y=\"112.3\" width=\"3\" height=\"3\" fill=\"#f5c95c\"/><rect x=\"349.2\" y=\"127.5\" width=\"3\" height=\"3\" fill=\"#f5c95c\"/><rect x=\"370.8\" y=\"127.5\" width=\"3\" height=\"3\" fill=\"#f5c95c\"/><rect x=\"349.2\" y=\"142.7\" width=\"3\" height=\"3\" fill=\"#f5c95c\"/><rect x=\"370.8\" y=\"142.7\" width=\"3\" height=\"3\" fill=\"#f5c95c\"/></g><rect x=\"7\" y=\"90\" width=\"26\" height=\"60\" fill=\"#6f7a88\" stroke=\"#20364a\" stroke-width=\"1.4\"/><g opacity=\".85\"><rect x=\"10.6\" y=\"94.8\" width=\"2.6\" height=\"2.6\" fill=\"#f5c95c\"/><rect x=\"29.3\" y=\"94.8\" width=\"2.6\" height=\"2.6\" fill=\"#f5c95c\"/><rect x=\"10.6\" y=\"111.2\" width=\"2.6\" height=\"2.6\" fill=\"#f5c95c\"/><rect x=\"29.3\" y=\"111.2\" width=\"2.6\" height=\"2.6\" fill=\"#f5c95c\"/><rect x=\"10.6\" y=\"127.6\" width=\"2.6\" height=\"2.6\" fill=\"#f5c95c\"/><rect x=\"29.3\" y=\"127.6\" width=\"2.6\" height=\"2.6\" fill=\"#f5c95c\"/><rect x=\"10.6\" y=\"144\" width=\"2.6\" height=\"2.6\" fill=\"#f5c95c\"/><rect x=\"29.3\" y=\"144\" width=\"2.6\" height=\"2.6\" fill=\"#f5c95c\"/></g><g><rect x=\"150\" y=\"163\" width=\"90\" height=\"5\" fill=\"#7f8896\"/><path d=\"M150,168L165,150L180,168\" fill=\"none\" stroke=\"#7f8896\" stroke-width=\"2.2\"/><path d=\"M180,168L195,150L210,168\" fill=\"none\" stroke=\"#7f8896\" stroke-width=\"2.2\"/><path d=\"M210,168L225,150L240,168\" fill=\"none\" stroke=\"#7f8896\" stroke-width=\"2.2\"/></g><g stroke=\"#3a6a8a\" stroke-width=\"2\" opacity=\".7\" fill=\"none\"><path d=\"M26,198h74M176,210h92M108,222h62\"/></g><path d=\"M32,60q4,-6 8,0q4,-6 8,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><path d=\"M330.4,45q4.8,-6 9.6,0q4.8,-6 9.6,0\" fill=\"none\" stroke=\"#4a4a52\" stroke-width=\"1.4\"/><g opacity=\".8\" fill=\"#f6efe2\"><ellipse cx=\"200\" cy=\"30\" rx=\"19.8\" ry=\"7.7\"/><ellipse cx=\"189\" cy=\"30\" rx=\"12.1\" ry=\"6.1\"/><ellipse cx=\"212.1\" cy=\"30\" rx=\"14.3\" ry=\"6.1\"/></g>",
@@ -5653,12 +5706,72 @@
         25.25
       ],
       [
+        -80.5,
+        24.96
+      ],
+      [
+        -80.68,
+        24.74
+      ],
+      [
+        -80.9,
+        24.54
+      ],
+      [
         -81.1,
-        24.6
+        24.36
+      ],
+      [
+        -81.35,
+        24.24
       ],
       [
         -81.6,
-        24.9
+        24.16
+      ],
+      [
+        -81.8,
+        24.14
+      ],
+      [
+        -82.05,
+        24.19
+      ],
+      [
+        -82.3,
+        24.58
+      ],
+      [
+        -82.05,
+        24.91
+      ],
+      [
+        -81.8,
+        24.94
+      ],
+      [
+        -81.6,
+        24.96
+      ],
+      [
+        -81.35,
+        24.96
+      ],
+      [
+        -81.1,
+        24.96
+      ],
+      [
+        -80.9,
+        24.98
+      ],
+      [
+        -80.68,
+        25.06
+      ],
+      [
+        -80.5,
+        25.16
       ],
       [
         -81.85,

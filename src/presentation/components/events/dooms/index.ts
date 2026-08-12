@@ -97,6 +97,41 @@ import { UsaThreecardmonte } from "./usa-threecardmonte";
 import { UsaTornado } from "./usa-tornado";
 import { UsaWildfire } from "./usa-wildfire";
 import { UsaWrongexit } from "./usa-wrongexit";
+import { IndonesiaBanjir } from "./indonesia-banjir";
+import { IndonesiaDicopet } from "./indonesia-dicopet";
+import { IndonesiaKalahdomino } from "./indonesia-kalahdomino";
+import { IndonesiaKebakaran } from "./indonesia-kebakaran";
+import { IndonesiaMacet } from "./indonesia-macet";
+import { IndonesiaSalahnaik } from "./indonesia-salahnaik";
+import { IndonesiaTilang } from "./indonesia-tilang";
+import { MoroccoAtay } from "./morocco-atay";
+import { MoroccoChergui } from "./morocco-chergui";
+import { MoroccoCompteur } from "./morocco-compteur";
+import { MoroccoGrandtaxi } from "./morocco-grandtaxi";
+import { MoroccoHarika } from "./morocco-harika";
+import { MoroccoNachal } from "./morocco-nachal";
+import { MoroccoSouqday } from "./morocco-souqday";
+import { GhanaDumsor } from "./ghana-dumsor";
+import { GhanaFantasycoffin } from "./ghana-fantasycoffin";
+import { GhanaHarmattanhaze } from "./ghana-harmattanhaze";
+import { GhanaMatecall } from "./ghana-matecall";
+import { GhanaMudroad } from "./ghana-mudroad";
+import { GhanaOwarebet } from "./ghana-owarebet";
+import { GhanaPickpocket } from "./ghana-pickpocket";
+import { BaliAbuVulkanik } from "./bali-abu-vulkanik";
+import { BaliArusBalik } from "./bali-arus-balik";
+import { BaliHamaTikus } from "./bali-hama-tikus";
+import { BaliMenungguDewasa } from "./bali-menunggu-dewasa";
+import { BaliMonyetMencuri } from "./bali-monyet-mencuri";
+import { BaliRaziaPolisi } from "./bali-razia-polisi";
+import { BaliSumbanganUpacara } from "./bali-sumbangan-upacara";
+import { MalaysiaBanjirKilat } from "./malaysia-banjir-kilat";
+import { MalaysiaBasSalah } from "./malaysia-bas-salah";
+import { MalaysiaDendaAes } from "./malaysia-denda-aes";
+import { MalaysiaGangguanEts } from "./malaysia-gangguan-ets";
+import { MalaysiaKalahMahjong } from "./malaysia-kalah-mahjong";
+import { MalaysiaKebakaranPasar } from "./malaysia-kebakaran-pasar";
+import { MalaysiaRagut } from "./malaysia-ragut";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -199,6 +234,41 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "usa-tornado": UsaTornado,
   "usa-wildfire": UsaWildfire,
   "usa-wrongexit": UsaWrongexit,
+  "indonesia-banjir": IndonesiaBanjir,
+  "indonesia-dicopet": IndonesiaDicopet,
+  "indonesia-kalahdomino": IndonesiaKalahdomino,
+  "indonesia-kebakaran": IndonesiaKebakaran,
+  "indonesia-macet": IndonesiaMacet,
+  "indonesia-salahnaik": IndonesiaSalahnaik,
+  "indonesia-tilang": IndonesiaTilang,
+  "morocco-atay": MoroccoAtay,
+  "morocco-chergui": MoroccoChergui,
+  "morocco-compteur": MoroccoCompteur,
+  "morocco-grandtaxi": MoroccoGrandtaxi,
+  "morocco-harika": MoroccoHarika,
+  "morocco-nachal": MoroccoNachal,
+  "morocco-souqday": MoroccoSouqday,
+  "ghana-matecall": GhanaMatecall,
+  "ghana-dumsor": GhanaDumsor,
+  "ghana-harmattanhaze": GhanaHarmattanhaze,
+  "ghana-owarebet": GhanaOwarebet,
+  "ghana-fantasycoffin": GhanaFantasycoffin,
+  "ghana-mudroad": GhanaMudroad,
+  "ghana-pickpocket": GhanaPickpocket,
+  "bali-abu-vulkanik": BaliAbuVulkanik,
+  "bali-arus-balik": BaliArusBalik,
+  "bali-hama-tikus": BaliHamaTikus,
+  "bali-menunggu-dewasa": BaliMenungguDewasa,
+  "bali-monyet-mencuri": BaliMonyetMencuri,
+  "bali-razia-polisi": BaliRaziaPolisi,
+  "bali-sumbangan-upacara": BaliSumbanganUpacara,
+  "malaysia-banjir-kilat": MalaysiaBanjirKilat,
+  "malaysia-bas-salah": MalaysiaBasSalah,
+  "malaysia-denda-aes": MalaysiaDendaAes,
+  "malaysia-gangguan-ets": MalaysiaGangguanEts,
+  "malaysia-kalah-mahjong": MalaysiaKalahMahjong,
+  "malaysia-kebakaran-pasar": MalaysiaKebakaranPasar,
+  "malaysia-ragut": MalaysiaRagut,
   "world-crossing-the-line": WorldCrossingTheLine,
   "world-customs-shed": WorldCustomsShed,
   "world-devaluation": WorldDevaluation,

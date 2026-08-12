@@ -164,4 +164,61 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   cribsheet: { type: "quiz-save" },
   lotteryticket: { type: "gain-cash", amount: 380 },
   roadtrip: { type: "extra-turn" },
+
+  // Indonesia
+  ojek: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  jadwalkereta: { type: "choose-exact-dice" },
+  eksekutif: { type: "roll-fixed-dice", diceCount: 2 },
+  argobromo: { type: "roll-fixed-dice", diceCount: 3 },
+  jimat: { type: "none" }, // 厄災の神(トゥユル)のward item(passive)
+  kemenyan: { type: "repel-spirit" },
+  contekan: { type: "quiz-save" },
+  rejeki: { type: "gain-cash", amount: 380 },
+  kenalan: { type: "extra-turn" },
+
+  // Morocco
+  mobylette: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  horaire: { type: "choose-exact-dice" },
+  rapide: { type: "roll-fixed-dice", diceCount: 2 },
+  alboraq: { type: "roll-fixed-dice", diceCount: 3 },
+  khamsa: { type: "none" }, // 厄災の神(戸口のジュヌーン)のward item(passive)
+  bakhour: { type: "repel-spirit" },
+  fiche: { type: "quiz-save" },
+  zerbia: { type: "gain-cash", amount: 380 },
+  wasta: { type: "extra-turn" },
+
+  // Ghana
+  kwahu: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  adae: { type: "choose-exact-dice" },
+  trotro: { type: "roll-fixed-dice", diceCount: 2 },
+  motorway: { type: "roll-fixed-dice", diceCount: 3 },
+  sankofa: { type: "none" }, // 厄災の神(アナンシ)のward item(passive)
+  libation: { type: "repel-spirit" },
+  expo: { type: "quiz-save" },
+  lotto: { type: "gain-cash", amount: 380 },
+  okyeame: { type: "extra-turn" },
+
+  // Bali
+  // **`ojek` はインドネシアと共用。**バイクタクシーはインドネシア中で
+  // 同じ呼び名なので、盤面が違っても同じ鍵になった。効果も同じなので1つに
+  // まとめてある(ドイツとイタリアの `intercity` と同じ事情)。
+  padewasan: { type: "choose-exact-dice" },
+  bemo: { type: "roll-fixed-dice", diceCount: 2 },
+  perama: { type: "roll-fixed-dice", diceCount: 3 },
+  tridatu: { type: "none" }, // 厄災の神(レヤック)のward item(passive)
+  keris: { type: "repel-spirit" },
+  lontar: { type: "quiz-save" },
+  perak: { type: "gain-cash", amount: 380 },
+  kecak: { type: "extra-turn" },
+
+  // Malaysia
+  beca: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  jadual: { type: "choose-exact-dice" },
+  ets: { type: "roll-fixed-dice", diceCount: 2 },
+  platinum: { type: "roll-fixed-dice", diceCount: 3 },
+  azimat: { type: "none" }, // 厄災の神(トヨル)のward item(passive)
+  jampi: { type: "repel-spirit" },
+  bocoran: { type: "quiz-save" },
+  durianruntuh: { type: "gain-cash", amount: 380 },
+  orangdalam: { type: "extra-turn" },
 };

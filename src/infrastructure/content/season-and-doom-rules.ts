@@ -759,6 +759,294 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
       { op: "region-income-multiplier", regionId: region("sw"), multiplier: 1.2 },
     ],
   ],
+
+  /**
+   * インドネシア。ラマダンと大帰省(ムディック) → ボロブドゥールのワイサック →
+   * 凪の海とウミガメの産卵 → ドリアン・マンゴーと新学期 → ムルデカ(8月・休神) →
+   * 乾季の稲刈り → バティックの日 → 雨季と田植え → 東部のクリスマス →
+   * 雨季の頂点の新年 → イムレックと紅包(2月・給アイテム) → ニュピ、という流れ。
+   */
+  indonesia: [
+    /* 0 Apr ラマダンと大帰省 */ [
+      { op: "all-players-pay-cash", amount: 160 },
+      { op: "region-income-multiplier", regionId: region("sum"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("jav"), multiplier: 0.8 },
+    ],
+    /* 1 May ワイサック(ボロブドゥール) */ [
+      { op: "region-income-multiplier", regionId: region("jav"), multiplier: 1.25 },
+    ],
+    /* 2 Jun 凪の海とウミガメの産卵 */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("nut"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("sul"), multiplier: 1.15 },
+    ],
+    /* 3 Jul ドリアン・マンゴーと新学期 */ [
+      { op: "region-income-multiplier", regionId: region("sum"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("kal"), multiplier: 1.15 },
+    ],
+    /* 4 Aug ムルデカ(独立記念日) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep 乾季の稲刈り */ [
+      { op: "region-income-multiplier", regionId: region("jav"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("sul"), multiplier: 1.2 },
+    ],
+    /* 6 Oct バティックの日 */ [
+      { op: "all-players-gain-cash", amount: 220 },
+      { op: "region-income-multiplier", regionId: region("jav"), multiplier: 1.15 },
+    ],
+    /* 7 Nov 雨季と田植え */ [
+      { op: "region-income-multiplier", regionId: region("sum"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("kal"), multiplier: 0.85 },
+    ],
+    /* 8 Dec 東部のクリスマス */ [
+      { op: "region-income-multiplier", regionId: region("sul"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("mlp"), multiplier: 1.3 },
+    ],
+    /* 9 Jan 雨季の頂点・新年 */ [
+      { op: "all-players-pay-cash", amount: 180 },
+      { op: "region-income-multiplier", regionId: region("jav"), multiplier: 0.8 },
+    ],
+    /* 10 Feb イムレックと紅包 */ [{ op: "give-item-to-all" }],
+    /* 11 Mar ニュピ(バリの静寂の日) */ [
+      { op: "region-income-multiplier", regionId: region("nut"), multiplier: 0.6 },
+      { op: "region-income-multiplier", regionId: region("kal"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("mlp"), multiplier: 1.15 },
+    ],
+  ],
+
+  /**
+   * モロッコ。移牧の春 → バラの谷の収穫 → 聖なる音楽とグナワの6月 →
+   * 王位記念日(7月) → ラマダン(8月に便宜上固定。太陰暦で実際の月は
+   * 毎年動く) → イミルシルの婚約祭 → デーツの収穫 →
+   * 緑の行進と独立記念日(11月) → オリーブの初搾り(12月) →
+   * ヤンナイルと峠の初雪(1月) → タフラウトのアーモンドの花(2月) →
+   * ガルブのオレンジの花(3月)、という流れ。
+   */
+  morocco: [
+    /* 0 Apr 移牧(アザガル)の春 */ [
+      { op: "region-income-multiplier", regionId: region("atm"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("sud"), multiplier: 1.1 },
+    ],
+    /* 1 May バラの谷の収穫(ケラア・ムグナ) */ [
+      { op: "region-income-multiplier", regionId: region("sud"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("atm"), multiplier: 1.15 },
+    ],
+    /* 2 Jun 聖なる音楽祭とグナワ音楽祭 */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("atl"), multiplier: 1.2 },
+    ],
+    /* 3 Jul 王位記念日とサハラの暑さの始まり */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("sud"), multiplier: 1.2 },
+    ],
+    /* 4 Aug ラマダン(旧暦のため月は便宜上の固定)。日中の商いは静まり、
+       日没後のイフタール商戦でにぎわう */ [
+      { op: "all-players-pay-cash", amount: 140 },
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.15 },
+    ],
+    /* 5 Sep イミルシルの婚約祭 */ [
+      { op: "all-players-gain-cash", amount: 280 },
+      { op: "region-income-multiplier", regionId: region("atm"), multiplier: 1.2 },
+    ],
+    /* 6 Oct エルフードのデーツ祭り */ [
+      { op: "region-income-multiplier", regionId: region("sud"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("est"), multiplier: 1.15 },
+    ],
+    /* 7 Nov 緑の行進と独立記念日 */ [
+      { op: "all-players-pay-cash", amount: 160 },
+      { op: "region-income-multiplier", regionId: region("rif"), multiplier: 1.2 },
+    ],
+    /* 8 Dec オリーブの初搾り(メクネス) */ [
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("est"), multiplier: 1.15 },
+    ],
+    /* 9 Jan ヤンナイルと峠の初雪(給アイテム) */ [{ op: "give-item-to-all" }],
+    /* 10 Feb タフラウトのアーモンドの花 */ [
+      { op: "all-players-pay-cash", amount: 180 },
+      { op: "region-income-multiplier", regionId: region("sud"), multiplier: 1.25 },
+    ],
+    /* 11 Mar ガルブのオレンジの花 */ [
+      { op: "all-players-gain-cash", amount: 220 },
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("atl"), multiplier: 1.15 },
+    ],
+  ],
+
+  /**
+   * ガーナ。クワフェのイースター・パラグライディングと大雨季の始まり →
+   * 雨季のピーク → 雨のあいまの小休止(漁期) → 八月の休み →
+   * ホモウォ(8月・休神) → 小雨季と新ヤムイモ → カカオの収穫開始 →
+   * ハルマッタン到来とホグベツォツォ → ハルマッタンとクリスマス →
+   * 一年でいちばん乾いた1月 → ナショナル・チョコレート・デー → 独立記念日、という流れ。
+   */
+  ghana: [
+    /* 0 Apr クワフェのイースターと大雨季の始まり */ [
+      { op: "all-players-gain-cash", amount: 220 },
+      { op: "region-income-multiplier", regionId: region("gar"), multiplier: 1.15 },
+    ],
+    /* 1 May 大雨季のピーク */ [
+      { op: "region-income-multiplier", regionId: region("asa"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("wes"), multiplier: 1.15 },
+    ],
+    /* 2 Jun 雨のあいまの小休止(漁期) */ [
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.25 },
+    ],
+    /* 3 Jul 八月の休み(海岸の乾いた凪) */ [
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("asa"), multiplier: 0.85 },
+    ],
+    /* 4 Aug ホモウォ(休神) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("gar"), multiplier: 1.3 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep 小雨季と新ヤムイモ・オドウィラ */ [
+      { op: "region-income-multiplier", regionId: region("asa"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("vol"), multiplier: 1.15 },
+    ],
+    /* 6 Oct カカオの収穫開始 */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "region-income-multiplier", regionId: region("asa"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("wes"), multiplier: 1.25 },
+    ],
+    /* 7 Nov ハルマッタン到来とホグベツォツォ */ [
+      { op: "region-income-multiplier", regionId: region("vol"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("nor"), multiplier: 0.85 },
+    ],
+    /* 8 Dec ハルマッタンとクリスマス */ [
+      { op: "all-players-pay-cash", amount: 160 },
+      { op: "region-income-multiplier", regionId: region("gar"), multiplier: 1.2 },
+    ],
+    /* 9 Jan 一年でいちばん乾いた月 */ [
+      { op: "region-income-multiplier", regionId: region("nor"), multiplier: 0.75 },
+      { op: "region-income-multiplier", regionId: region("wes"), multiplier: 1.15 },
+    ],
+    /* 10 Feb ナショナル・チョコレート・デー */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("wes"), multiplier: 1.2 },
+    ],
+    /* 11 Mar 独立記念日 */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("gar"), multiplier: 1.3 },
+    ],
+  ],
+
+  /**
+   * バリ。乾季とサーフの始まり → コーヒーの摘み始め → 芸術祭 → 凧の季節 →
+   * ガルンガン/クニンガン(1回目) → 棚田の刈り取りとマンゴー → 塩づくりの
+   * 仕上げ → 雨季と田起こし → 雨季本番と工芸の季節 → ガルンガン/クニンガン
+   * (2回目、給アイテム) → 雨季の底(南部の水害リスク) → ニュピ(休神)、という流れ。
+   */
+  bali: [
+    /* 0 Apr 乾季とサーフの波が始まる */ [
+      { op: "region-income-multiplier", regionId: region("sel"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("brt"), multiplier: 1.15 },
+    ],
+    /* 1 May コーヒーの実が色づき始める */ [
+      { op: "region-income-multiplier", regionId: region("gl"), multiplier: 1.25 },
+    ],
+    /* 2 Jun 芸術祭(州都) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("sel"), multiplier: 1.2 },
+    ],
+    /* 3 Jul 凧の季節 */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("sel"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("ubu"), multiplier: 1.15 },
+    ],
+    /* 4 Aug ガルンガンとクニンガン(1回目) */ [
+      { op: "all-players-gain-cash", amount: 280 },
+      { op: "region-income-multiplier", regionId: region("ubu"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("tim"), multiplier: 1.25 },
+    ],
+    /* 5 Sep 棚田の刈り取りとマンゴー */ [
+      { op: "region-income-multiplier", regionId: region("sel"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("ubu"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("tim"), multiplier: 1.15 },
+    ],
+    /* 6 Oct 塩田をならす(乾季の仕上げ) */ [
+      { op: "region-income-multiplier", regionId: region("brt"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("utr"), multiplier: 1.1 },
+    ],
+    /* 7 Nov 雨が戻り田を起こす */ [
+      { op: "all-players-pay-cash", amount: 160 },
+      { op: "region-income-multiplier", regionId: region("ubu"), multiplier: 1.1 },
+    ],
+    /* 8 Dec 雨季本番、工芸の季節 */ [
+      { op: "region-income-multiplier", regionId: region("ubu"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("sel"), multiplier: 1.1 },
+    ],
+    /* 9 Jan ガルンガンとクニンガン(2回目)、サラスワティ */ [{ op: "give-item-to-all" }],
+    /* 10 Feb 雨季の底(南部の水害リスク) */ [
+      { op: "all-players-pay-cash", amount: 140 },
+      { op: "region-income-multiplier", regionId: region("sel"), multiplier: 0.75 },
+    ],
+    /* 11 Mar ニュピ(島が丸ごと止まる日) */ [
+      { op: "rest-spirit" },
+      { op: "region-income-multiplier", regionId: region("sel"), multiplier: 0.65 },
+      { op: "region-income-multiplier", regionId: region("ubu"), multiplier: 0.65 },
+      { op: "region-income-multiplier", regionId: region("gl"), multiplier: 0.65 },
+      { op: "region-income-multiplier", regionId: region("tim"), multiplier: 0.65 },
+      { op: "region-income-multiplier", regionId: region("utr"), multiplier: 0.65 },
+      { op: "region-income-multiplier", regionId: region("brt"), multiplier: 0.65 },
+    ],
+  ],
+
+  /**
+   * マレーシア。清明節 → カアマタン(サバ収穫祭) → ガワイ祭(サラワク収穫祭) →
+   * ドリアンの最盛期と学校の長期休暇 → ムルデカ(独立記念日) →
+   * マレーシア・デー(サバ・サラワク加盟) → ディーパヴァリ →
+   * 北東モンスーンで東海岸が閉じる → クリスマスとモンスーン最盛期 →
+   * タイプーサム(全員アイテム配布) → 旧正月(休神) →
+   * ハリラヤ・アイディルフィトリ、という流れ。
+   */
+  malaysia: [
+    /* 0 Apr 清明節 */ [
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("nor"), multiplier: 1.15 },
+    ],
+    /* 1 May カアマタン(サバ収穫祭) */ [
+      { op: "region-income-multiplier", regionId: region("sab"), multiplier: 1.3 },
+    ],
+    /* 2 Jun ガワイ祭(サラワク収穫祭) */ [
+      { op: "region-income-multiplier", regionId: region("swk"), multiplier: 1.3 },
+    ],
+    /* 3 Jul ドリアンの最盛期と学校の長期休暇 */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("eco"), multiplier: 1.15 },
+    ],
+    /* 4 Aug ムルデカ(独立記念日) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+    ],
+    /* 5 Sep マレーシア・デー(サバ・サラワク加盟) */ [
+      { op: "region-income-multiplier", regionId: region("swk"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("sab"), multiplier: 1.25 },
+    ],
+    /* 6 Oct ディーパヴァリ */ [
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("sou"), multiplier: 1.15 },
+    ],
+    /* 7 Nov 北東モンスーンで東海岸が閉じる */ [
+      { op: "region-income-multiplier", regionId: region("eco"), multiplier: 0.75 },
+    ],
+    /* 8 Dec クリスマスとモンスーン最盛期 */ [
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("eco"), multiplier: 0.7 },
+    ],
+    /* 9 Jan タイプーサム(バトゥ洞窟) */ [{ op: "give-item-to-all" }],
+    /* 10 Feb 旧正月(休神) */ [
+      { op: "rest-spirit" },
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("nor"), multiplier: 1.2 },
+    ],
+    /* 11 Mar ハリラヤ・アイディルフィトリ */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("nor"), multiplier: 1.2 },
+    ],
+  ],
 };
 
 /**
@@ -885,4 +1173,49 @@ export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>>
   pickuptab: "payOthers",
   wrongexit: "teleport",
   threecardmonte: "steal",
+
+  // Indonesia
+  tilang: "fine",
+  banjir: "percentLoss",
+  macet: "skipTurn",
+  kebakaran: "loseProperties",
+  kalahdomino: "payOthers",
+  salahnaik: "teleport",
+  dicopet: "steal",
+
+  // Morocco
+  compteur: "fine",
+  chergui: "percentLoss",
+  souqday: "skipTurn",
+  harika: "loseProperties",
+  atay: "payOthers",
+  grandtaxi: "teleport",
+  nachal: "steal",
+
+  // Ghana
+  matecall: "teleport",
+  dumsor: "percentLoss",
+  harmattanhaze: "skipTurn",
+  owarebet: "payOthers",
+  fantasycoffin: "loseProperties",
+  mudroad: "fine",
+  pickpocket: "steal",
+
+  // Bali
+  "razia-polisi": "fine",
+  "hama-tikus": "percentLoss",
+  "menunggu-dewasa": "skipTurn",
+  "abu-vulkanik": "loseProperties",
+  "sumbangan-upacara": "payOthers",
+  "arus-balik": "teleport",
+  "monyet-mencuri": "steal",
+
+  // Malaysia
+  "denda-aes": "fine",
+  "banjir-kilat": "percentLoss",
+  "gangguan-ets": "skipTurn",
+  "kebakaran-pasar": "loseProperties",
+  "kalah-mahjong": "payOthers",
+  "bas-salah": "teleport",
+  ragut: "steal",
 };

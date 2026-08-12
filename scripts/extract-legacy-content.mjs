@@ -40,6 +40,11 @@ import { buildUkContent } from "./countries/uk/index.mjs";
 import { buildItalyContent } from "./countries/italy/index.mjs";
 import { buildRussiaContent } from "./countries/russia/index.mjs";
 import { buildUsaContent } from "./countries/usa/index.mjs";
+import { buildIndonesiaContent } from "./countries/indonesia/index.mjs";
+import { buildMoroccoContent } from "./countries/morocco/index.mjs";
+import { buildGhanaContent } from "./countries/ghana/index.mjs";
+import { buildBaliContent } from "./countries/bali/index.mjs";
+import { buildMalaysiaContent } from "./countries/malaysia/index.mjs";
 import { buildChinaContent } from "./countries/china/index.mjs";
 import { renderJapanDecor } from "./content-overrides/japan-decor.mjs";
 import { renderBoliviaDecor } from "./content-overrides/bolivia-decor.mjs";
@@ -523,6 +528,11 @@ const AUTHORED_COUNTRIES = [
   buildItalyContent(),
   buildRussiaContent(),
   buildUsaContent(),
+  buildIndonesiaContent(),
+  buildMoroccoContent(),
+  buildGhanaContent(),
+  buildBaliContent(),
+  buildMalaysiaContent(),
 ];
 
 /** `scripts/countries/` にあるのに、上の一覧に無い盤面。焼かれずに消える。 */
@@ -531,6 +541,25 @@ const unregistered = readdirSync(join(__dirname, "countries"), { withFileTypes: 
   .map((entry) => entry.name)
   .filter((name) => !AUTHORED_COUNTRIES.some((content) => content.id === name))
   .sort();
+
+/**
+ * **存在しない町を指す路線が無いか。**
+ *
+ * インドネシアで2件出た。近すぎる町を外すよう指摘したところ、町だけ消えて
+ * 路線が残っていた。焼くところは素通りするので、**生成物は普通に出来上がる。**
+ * 気づくのは盤面のテスト(行き止まり・盤面が2つに割れる)で、
+ * どの町のせいかは書いていない。ここで名指しして止める。
+ */
+for (const content of AUTHORED_COUNTRIES) {
+  const known = new Set(Object.keys(content.cities));
+  const dangling = content.edges.filter(([from, to]) => !known.has(from) || !known.has(to));
+  if (dangling.length > 0) {
+    throw new Error(
+      `${content.id}: 存在しない町を指す路線が ${dangling.length} 本あります: ` +
+        dangling.map(([from, to]) => `${from}—${to}`).join(", "),
+    );
+  }
+}
 
 for (const content of AUTHORED_COUNTRIES) {
   // 上書き層はもともと legacy 由来の国だけのものだったが、**お金の尺度は

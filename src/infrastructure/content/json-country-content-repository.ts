@@ -24,6 +24,11 @@ const LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   italy: () => import("./italy.content.json").then((m) => m.default),
   russia: () => import("./russia.content.json").then((m) => m.default),
   usa: () => import("./usa.content.json").then((m) => m.default),
+  indonesia: () => import("./indonesia.content.json").then((m) => m.default),
+  morocco: () => import("./morocco.content.json").then((m) => m.default),
+  ghana: () => import("./ghana.content.json").then((m) => m.default),
+  bali: () => import("./bali.content.json").then((m) => m.default),
+  malaysia: () => import("./malaysia.content.json").then((m) => m.default),
 };
 
 /**

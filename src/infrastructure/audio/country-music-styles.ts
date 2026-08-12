@@ -70,6 +70,16 @@ const STYLE_LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
     import("../content/russia.content.json").then((m) => (m.default as { styles: unknown }).styles),
   usa: () =>
     import("../content/usa.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  indonesia: () =>
+    import("../content/indonesia.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  morocco: () =>
+    import("../content/morocco.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  ghana: () =>
+    import("../content/ghana.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  bali: () =>
+    import("../content/bali.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  malaysia: () =>
+    import("../content/malaysia.content.json").then((m) => (m.default as { styles: unknown }).styles),
 };
 
 /**
