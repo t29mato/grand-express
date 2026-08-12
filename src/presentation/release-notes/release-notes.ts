@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.37.0",
+    date: "2026-08-13",
+    title: t(
+      "Nineteen boards|Diecinueve tableros|Dix-neuf plateaux|盤面が19枚になりました",
+    ),
+    highlights: [
+      t(
+        "Seven new boards join the twelve: Russia along the Trans-Siberian, the United States coast to coast, Indonesia across seventeen thousand islands, Morocco from the Atlantic to the dunes, Ghana from the forts to the northern savanna, Bali on its own, and Malaysia across the South China Sea. Eight hundred and eighty-two towns, one thousand one hundred and twenty-two lines, seven hundred and fifty-six questions.|Siete tableros nuevos se suman a los doce: Rusia por el Transiberiano, Estados Unidos de costa a costa, Indonesia entre diecisiete mil islas, Marruecos del Atlántico a las dunas, Ghana de los fuertes a la sabana, Bali sola y Malasia a ambos lados del mar de China Meridional. Ochocientos ochenta y dos pueblos, mil ciento veintidós líneas, setecientas cincuenta y seis preguntas.|Sept nouveaux plateaux rejoignent les douze : la Russie le long du Transsibérien, les États-Unis d'une côte à l'autre, l'Indonésie parmi dix-sept mille îles, le Maroc de l'Atlantique aux dunes, le Ghana des forts à la savane, Bali seule, et la Malaisie de part et d'autre de la mer de Chine méridionale. Huit cent quatre-vingt-deux villes, mille cent vingt-deux lignes, sept cent cinquante-six questions.|12枚に7枚が加わりました。シベリア鉄道を行くロシア、海から海へ渡るアメリカ、1万7千の島をつなぐインドネシア、大西洋から砂丘までのモロッコ、砦から北のサバンナまでのガーナ、島ひとつのバリ、南シナ海をまたぐマレーシア。882の町、1122の路線、756問。",
+      ),
+      t(
+        "Each board keeps its own money, music, items, spirit of misfortune, and twelve months of weather and festivals. A ferry crosses Lake Volta where the old town lies under the water. The Trans-Siberian runs its real stops. Kete Krachi, Salerno, Purwokerto and Jerada were added because a line was crossing water it should not — and each turned out to have a story worth the stop.|Cada tablero conserva su dinero, su música, sus objetos, su espíritu de la desgracia y sus doce meses. Un transbordador cruza el lago Volta, donde el pueblo viejo yace bajo el agua. El Transiberiano sigue sus paradas reales. Kete Krachi, Salerno, Purwokerto y Jerada se añadieron porque una línea cruzaba agua que no debía, y todas resultaron merecer la parada.|Chaque plateau garde sa monnaie, sa musique, ses objets, son esprit du malheur et ses douze mois. Un bac traverse le lac Volta, où l'ancienne ville repose sous l'eau. Le Transsibérien suit ses arrêts réels. Kete Krachi, Salerne, Purwokerto et Jerada ont été ajoutées parce qu'une ligne traversait de l'eau à tort — et chacune méritait l'arrêt.|盤面ごとにお金・音楽・アイテム・厄災の神・12ヶ月の気候と祭りを持っています。ボルタ湖には渡し船が通り、その湖底には旧市街が沈んでいます。シベリア鉄道は実在の停車順で走ります。ケテ・クラチ、サレルノ、プルウォクルト、ジェラダは「線が通ってはいけない水の上を通っていた」ために足した町ですが、どれも降りる価値のある話を持っていました。",
+      ),
+    ],
+  },
+  {
     version: "0.36.0",
     date: "2026-08-12",
     title: t(
