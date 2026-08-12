@@ -1,5 +1,5 @@
 /**
- * イタリアのクイズ(43問)。
+ * イタリアのクイズ(53問)。
  *
  * 難易度は1〜10で、基準は他の盤面と同じく「その国の外にいる一般的な人が
  * どれくらい答えられそうか」。
@@ -11,11 +11,14 @@
  * ## 都市カードとの重なりについて
  *
  * 都市カード(45件)が扱う具体的な事実(パンテオンのオクルス・ヴェネツィアの
- * 木の杭・ポンペイの石膏像・アルベロベッロの税逃れ・レッジョカラブリアの
+ * 木の杭・ポンペイの石膏像・アルベロベッロの言い伝え・レッジョカラブリアの
  * ブロンズ像など)はここでは問わない。代わりに、地理・歴史・食文化・
  * 現代の暮らしなど、**都市カードが触れていない主題**を選んである。
- * とくにエトナ山・ヴェスヴィオ山・ボルツァーノの二言語表記は3枚もの
- * 都市カードで扱っているため、クイズでは避けた。
+ * エトナ山は2枚(カターニア・タオルミーナ)の都市カードで扱っているため、
+ * それ自体を問う設問は避けた。都市カードを「1都市1話」に絞り込んだ際に
+ * 外れた話(ダンテの墓・ボローニャのラグー・ヴェローナの円形闘技場・
+ * ナポリの地下トンネル・ヌオーロのデレッダ・カリアリのエレベーターなど)は
+ * 捨てずにここへ移してある。
  *
  * 選択肢は3つ。正解の位置(`a`)は 0/1/2 がほぼ同数になるよう散らしてある。
  */
@@ -355,5 +358,54 @@ export const ITALY_QUIZ = [
     ["Silver mining|La minería de plata|L'extraction d'argent|銀の採掘", "Maritime trade with the East|El comercio marítimo con Oriente|Le commerce maritime avec l'Orient|東方との海上交易", "Wheat farming|El cultivo de trigo|La culture du blé|小麦の耕作"],
     1,
     "Venice built a trading empire stretching across the eastern Mediterranean, exchanging European goods for spices, silk and other luxuries from the Byzantine Empire and beyond, and its shipyard, the Arsenale, could reportedly assemble a warship in under a day at its peak.|Venecia construyó un imperio comercial que se extendía por el Mediterráneo oriental, intercambiando productos europeos por especias, seda y otros lujos del Imperio bizantino y más allá, y su astillero, el Arsenale, podía ensamblar un barco de guerra en menos de un día en su apogeo.|Venise bâtit un empire commercial s'étendant sur toute la Méditerranée orientale, échangeant des produits européens contre épices, soie et autres produits de luxe venus de l'Empire byzantin et au-delà, et son chantier naval, l'Arsenal, pouvait assembler un navire de guerre en moins d'une journée à son apogée.|ヴェネツィアは東地中海に広がる交易帝国を築き、ヨーロッパの品々を香辛料や絹、その他ビザンチン帝国以遠からの贅沢品と交換した。その造船所アルセナーレは最盛期、一日足らずで軍艦一隻を組み立てられたと伝えられる。",
+  ),
+  q(
+    7,
+    "What is the name of the system of 78 movable steel gates, completed in 2020, that can seal Venice's lagoon off from the sea during exceptionally high tides?|¿Cómo se llama el sistema de 78 compuertas de acero móviles, terminado en 2020, que puede aislar la laguna de Venecia del mar durante mareas excepcionalmente altas?|Comment s'appelle le système de 78 portes d'acier mobiles, achevé en 2020, capable d'isoler la lagune de Venise de la mer lors de marées exceptionnellement hautes ?|2020年に完成した、異常潮位のときヴェネツィアの干潟を海から締め出せる可動式の鋼鉄の水門78基からなるしくみの名は?",
+    ["MOSE|MOSE|MOSE|モーゼ(MOSE)", "Nettuno|Nettuno|Nettuno|ネットゥーノ", "Argonauta|Argonauta|Argonaute|アルゴナウタ"],
+    0,
+    "MOSE (an acronym playing on the biblical Moses parting the sea) took more than 16 years and over €5 billion to build, and its gates lie flat and invisible on the seabed until rising water triggers compressed air to lift them upright.|El MOSE (un acrónimo que juega con Moisés separando el mar) tardó más de 16 años y más de 5.000 millones de euros en construirse, y sus compuertas yacen planas e invisibles en el fondo marino hasta que la subida del agua activa aire comprimido para alzarlas.|Le MOSE (acronyme jouant sur Moïse séparant la mer) a demandé plus de 16 ans et plus de 5 milliards d'euros, et ses portes reposent à plat, invisibles sur le fond marin, jusqu'à ce que la montée des eaux déclenche de l'air comprimé qui les redresse.|モーゼ(聖書のモーセが海を分けた逸話にかけた略称)は完成までに16年以上、50億ユーロを超える費用がかかった。水門はふだん海底に平らに寝て見えないが、水位が上がると圧縮空気で持ち上げられて立ち上がる。",
+  ),
+  q(
+    6,
+    "The poet Dante Alighieri, exiled from Florence, is buried in which Italian city, which has refused to hand his remains back for 700 years?|¿En qué ciudad italiana está enterrado el poeta Dante Alighieri, exiliado de Florencia, que se ha negado a devolver sus restos durante 700 años?|Le poète Dante Alighieri, exilé de Florence, est enterré dans quelle ville italienne, qui refuse de rendre sa dépouille depuis 700 ans ?|フィレンツェを追放された詩人ダンテ・アリギエーリが埋葬され、700年にわたって遺骸をフィレンツェへ返すことを拒み続けているイタリアの都市は?",
+    ["Florence|Florencia|Florence|フィレンツェ", "Ravenna|Rávena|Ravenne|ラヴェンナ", "Verona|Verona|Vérone|ヴェローナ"],
+    1,
+    "Dante finished the Divine Comedy in exile in Ravenna and died there in 1321; Florence, the city that had banished him, has asked more than once since for his remains back, and Ravenna has said no every time.|Dante terminó la Divina Comedia en el exilio en Rávena y murió allí en 1321; Florencia, la ciudad que lo había desterrado, ha pedido más de una vez desde entonces que le devuelvan sus restos, y Rávena siempre se ha negado.|Dante acheva la Divine Comédie en exil à Ravenne et y mourut en 1321 ; Florence, la ville qui l'avait banni, a demandé plus d'une fois depuis qu'on lui rende sa dépouille, et Ravenne a toujours refusé.|ダンテはラヴェンナでの亡命生活のうちに『神曲』を書き上げ、1321年にこの地で没した。彼を追放したフィレンツェはその後何度も遺骸の返還を求めてきたが、ラヴェンナはそのたびに拒み続けている。",
+  ),
+  q(
+    5,
+    "The rich meat sauce known abroad as \"spaghetti bolognese\" goes by what name in Bologna itself, where it is traditionally spooned over flat tagliatelle rather than spaghetti?|La rica salsa de carne conocida fuera de Italia como «espaguetis a la boloñesa» recibe qué nombre en la propia Bolonia, donde tradicionalmente se sirve sobre tagliatelle anchas y no sobre espaguetis?|La riche sauce à la viande connue à l'étranger sous le nom de « spaghetti bolognaise » porte quel nom à Bologne même, où elle se sert traditionnellement sur de larges tagliatelles et non sur des spaghettis ?|海外で「スパゲッティ・ボロネーゼ」として知られる濃厚な肉ソースは、スパゲッティではなく平たいタリアテッレにかけて供されるボローニャの地元では何と呼ばれるか?",
+    ["Ragù|Ragú|Ragù|ラグー", "Pesto|Pesto|Pesto|ペスト", "Carbonara|Carbonara|Carbonara|カルボナーラ"],
+    0,
+    "Bologna's ragù is simmered for hours from minced meat, wine and a little tomato, a far cry from the thin, tomato-heavy sauce often sold abroad under the city's name, and it is traditionally never served with spaghetti at all.|El ragù boloñés se cuece a fuego lento durante horas con carne picada, vino y algo de tomate, muy distinto de la salsa fina y muy tomatosa que a menudo se vende fuera con el nombre de la ciudad, y tradicionalmente nunca se sirve con espaguetis.|Le ragù bolonais mijote pendant des heures à base de viande hachée, de vin et d'un peu de tomate, bien loin de la sauce fine et très tomatée souvent vendue à l'étranger sous le nom de la ville, et il n'est traditionnellement jamais servi avec des spaghettis.|ボローニャのラグーは挽き肉とワイン、少量のトマトを何時間も煮込んで作られ、この町の名を冠して海外でよく売られている、薄くトマトの効いたソースとはまったくの別物である。伝統的にはスパゲッティに合わせることは一切ない。",
+  ),
+  q(
+    4,
+    "Verona's Roman-era amphitheatre, finished around 30 AD, is put to what use each summer today?|El anfiteatro romano de Verona, terminado hacia el año 30 d. C., ¿para qué se usa hoy cada verano?|L'amphithéâtre romain de Vérone, achevé vers 30 apr. J.-C., sert aujourd'hui chaque été à quoi ?|紀元30年ごろ完成したヴェローナのローマ円形闘技場は、いまも毎夏何のために使われているか?",
+    ["An open-air opera house|Una ópera al aire libre|Un opéra en plein air|野外オペラの会場", "A weekly farmers' market|Un mercado semanal de productores|Un marché fermier hebdomadaire|毎週の朝市", "A motor-racing circuit|Un circuito de carreras|Un circuit de course automobile|自動車レース場"],
+    0,
+    "The arena's stone tiers, on which gladiators once fought, seat an audience of roughly 15,000 for opera each summer, making it one of the largest venues of its kind still in regular use anywhere in the world.|Las gradas de piedra de la arena, donde antaño combatían los gladiadores, acogen cada verano a un público de unas 15.000 personas para la ópera, lo que la convierte en uno de los mayores recintos de su tipo aún en uso regular en el mundo.|Les gradins de pierre de l'arène, où combattaient jadis les gladiateurs, accueillent chaque été un public d'environ 15 000 personnes pour l'opéra, ce qui en fait l'un des plus grands lieux de ce type encore régulièrement utilisés au monde.|かつて剣闘士が戦ったこの闘技場の石の観客席は、毎夏およそ1万5000人のオペラ客を収容する。今なお定期的に使われているこの種の会場としては世界でも最大級である。",
+  ),
+  q(
+    5,
+    "Naples is honeycombed underground with more than 400 kilometres of what, some of it cut by the Greeks 2,400 years ago and reused as shelters during World War Two air raids?|Nápoles está horadada bajo tierra por más de 400 km de qué, en parte excavado por los griegos hace 2.400 años y reutilizado como refugio durante los bombardeos de la Segunda Guerra Mundial?|Naples est creusée sous terre de plus de 400 km de quoi, en partie taillé par les Grecs il y a 2 400 ans et réutilisé comme abri lors des raids aériens de la Seconde Guerre mondiale ?|一部は2400年前にギリシャ人が掘り、第二次世界大戦の空襲時には防空壕として再利用された、ナポリの地下に張り巡らされた400kmを超えるものとは?",
+    ["Wine cellars|Bodegas de vino|Des caves à vin|ワイン貯蔵庫", "Silver mines|Minas de plata|Des mines d'argent|銀山", "Tunnels and cisterns|Túneles y cisternas|Des tunnels et des citernes|トンネルと貯水槽"],
+    2,
+    "The tunnels were originally dug to quarry volcanic tuff for building stone and to carry water into the city, and guided tours today lead visitors past wartime graffiti, abandoned beds and even a vintage car left behind underground.|Los túneles se excavaron originalmente para extraer toba volcánica como piedra de construcción y para llevar agua a la ciudad, y las visitas guiadas de hoy llevan a los visitantes junto a pintadas de guerra, camas abandonadas e incluso un coche de época olvidado bajo tierra.|Les tunnels furent d'abord creusés pour extraire du tuf volcanique comme pierre de construction et pour amener l'eau dans la ville, et les visites guidées d'aujourd'hui mènent les visiteurs devant des graffitis de guerre, des lits abandonnés et même une voiture d'époque oubliée sous terre.|このトンネルはもともと建材用の火山凝灰岩を採掘し、町へ水を引くために掘られたものである。現在のガイドツアーでは、戦時中の落書きや放置されたベッド、地下に置き去りにされた旧い車まで見て回ることができる。",
+  ),
+  q(
+    7,
+    "Which Sardinian town produced the novelist Grazia Deledda, who won the 1926 Nobel Prize in Literature for stories set among the region's shepherds?|¿Qué pueblo de Cerdeña dio a la novelista Grazia Deledda, que ganó el Premio Nobel de Literatura en 1926 por relatos ambientados entre los pastores de la región?|Quelle ville de Sardaigne a donné naissance à la romancière Grazia Deledda, lauréate du prix Nobel de littérature 1926 pour des récits situés parmi les bergers de la région ?|この地方の羊飼いたちを描いた作品で1926年のノーベル文学賞を受賞した作家グラツィア・デレッダを輩出したサルデーニャの町は?",
+    ["Cagliari|Cagliari|Cagliari|カリアリ", "Nuoro|Nuoro|Nuoro|ヌオーロ", "Alghero|Alghero|Alghero|アルゲーロ"],
+    1,
+    "Deledda grew up in Nuoro's isolated pastoral region, Barbagia, once notorious enough for banditry and blood feuds that the rest of Italy considered it half-lawless, and she remains the only Italian woman ever to win the literature prize.|Deledda creció en Barbagia, la región pastoril aislada de Nuoro, antaño tan tristemente famosa por el bandolerismo y las vendettas que el resto de Italia la consideraba casi sin ley, y sigue siendo la única mujer italiana en ganar el premio de literatura.|Deledda grandit dans la Barbagia, la région pastorale isolée de Nuoro, jadis assez réputée pour le banditisme et les vendettas pour que le reste de l'Italie la juge à moitié hors-la-loi, et elle demeure la seule femme italienne à avoir remporté le prix de littérature.|デレッダはヌオーロの隔絶した牧畜地方バルバジアで育った。この地はかつて匪賊や血の抗争で悪名高く、イタリアの他地域からは半ば無法地帯とみなされていた。デレッダはいまもノーベル文学賞を受賞した唯一のイタリア人女性である。",
+  ),
+  q(
+    3,
+    "Cagliari's old citadel quarter, Castello, sits on a limestone plateau ringed by Pisan-built ramparts, and is reached today, to save the climb, by what?|El antiguo barrio de la ciudadela de Cagliari, Castello, se asienta en una meseta caliza rodeada de murallas pisanas, y hoy se alcanza, para ahorrar la subida, mediante qué?|Le vieux quartier de la citadelle de Cagliari, Castello, repose sur un plateau calcaire ceint de remparts pisans, et s'atteint aujourd'hui, pour épargner la montée, par quoi ?|ピサ人が築いた城壁に囲まれた石灰岩の台地の上にあるカリアリの旧市街カステッロ地区へ、登る手間を省くためにいま使われているものは?",
+    ["A cable car over the harbour|Un teleférico sobre el puerto|Un téléphérique au-dessus du port|港の上を渡るロープウェイ", "A spiral carriage ramp|Una rampa en espiral para carruajes|Une rampe en spirale pour calèches|馬車用の螺旋スロープ", "A lift built into the cliff|Un ascensor excavado en el acantilado|Un ascenseur creusé dans la falaise|崖に組み込まれたエレベーター"],
+    2,
+    "The panoramic lift was cut straight through the limestone bastion in the early 2000s, saving pedestrians the long stone stairway that had been the only way up to Castello's terraces for centuries.|El ascensor panorámico se abrió directamente a través del bastión calizo a principios de la década de 2000, ahorrando a los peatones la larga escalinata de piedra que había sido durante siglos el único acceso a las terrazas de Castello.|L'ascenseur panoramique fut percé directement dans le bastion calcaire au début des années 2000, épargnant aux piétons le long escalier de pierre qui avait été pendant des siècles le seul accès aux terrasses de Castello.|この展望エレベーターは2000年代初頭、石灰岩の稜堡を貫いて設置された。それまで何世紀ものあいだカステッロのテラスへ上る唯一の手段だった長い石段を、歩行者は上らずに済むようになった。",
   ),
 ];

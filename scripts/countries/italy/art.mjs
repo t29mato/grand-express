@@ -353,22 +353,7 @@ const ITALY_BASE_BG = {
     gull(60, 40, 0.9) + gull(340, 54, 0.8) +
     ground(196, "#8ba85a"),
 
-  /** サンジミニャーノ専用。中世の石塔が林立する稜線。 */
-  towers:
-    sky("#8fc4e8", "#cfe4f0", 140) +
-    clouds(330, 26, 1) +
-    hills(138, "#9ab35a", 5) +
-    ground(140, "#c2b559") +
-    stoneTower(60, 172, 20, 60, "#c9b896") +
-    stoneTower(92, 176, 16, 46, "#bfae8a") +
-    stoneTower(128, 172, 18, 56, "#c9b896") +
-    stoneTower(230, 178, 16, 42, "#bfae8a") +
-    stoneTower(266, 174, 20, 54, "#c9b896") +
-    stoneTower(300, 178, 15, 38, "#bfae8a") +
-    stoneTower(334, 174, 18, 50, "#c9b896") +
-    ground(196, "#a8bd6a"),
-
-  /** シエナ・アッシジ・ペルージャ・オルヴィエート。丘上の城壁都市。 */
+  /** シエナ・サンジミニャーノ・アッシジ・ペルージャ・オルヴィエート。丘上の城壁都市。 */
   hilltown:
     sky("#8fc4e8", "#cfe4f0", 168) +
     clouds(70, 26, 1) + clouds(320, 20, 0.7) +
@@ -386,28 +371,13 @@ const ITALY_BASE_BG = {
     // 大聖堂(中心)
     `<rect x="176" y="142" width="30" height="26" fill="#e8e0cc"/><path d="M176,142L191,124L206,142z" fill="#c9a877"/>` +
     `<rect x="188" y="128" width="6" height="8" fill="#5a4a30"/>` +
+    // 石塔(サンジミニャーノふうの塔、丘の左右に2本)
+    stoneTower(60, 174, 16, 46, "#c9b896") +
+    stoneTower(322, 176, 15, 40, "#bfae8a") +
     ground(178, "#a8bd6a") +
     cypress(40, 200, 26) + cypress(360, 202, 24) + cypress(20, 205, 20) + cypress(380, 206, 18) +
     // 丘の段々畑(手前)
     vineRows(200, 196, 100, 3, "#7a8f4a"),
-
-  /** ヴェローナ専用。ローマ円形闘技場(オペラの観客席)。 */
-  arena:
-    sky("#8fc4e8", "#cfe4f0", 140) +
-    clouds(320, 28, 1) + clouds(70, 20, 0.7) +
-    ground(140, "#9a9484") +
-    archRow(50, 92, 9, 34, 48, "#e8dcc0") +
-    `<rect x="40" y="140" width="320" height="10" fill="#c9b896"/>` +
-    // アーチの上段(小さく)
-    archRow(60, 76, 7, 30, 18, "#d8cca8", 0.9) +
-    // 観客席の段(手前、オペラ客の点)
-    `<g fill="#f6efe2" opacity=".85">${Array.from({ length: 16 }).map((_, i) => `<circle cx="${40 + i * 22}" cy="${150 + (i % 3) * 6}" r="2.4"/>`).join("")}</g>` +
-    // 舞台の照明(左右)
-    `<rect x="30" y="130" width="4" height="20" fill="#4a4a52"/><circle cx="32" cy="128" r="3" fill="#f5b31c" opacity=".8"/>` +
-    `<rect x="366" y="130" width="4" height="20" fill="#4a4a52"/><circle cx="368" cy="128" r="3" fill="#f5b31c" opacity=".8"/>` +
-    // 石畳(手前)
-    `<g fill="#b8ac8e" opacity=".7">${Array.from({ length: 9 }).map((_, i) => `<rect x="${20 + i * 42}" y="180" width="32" height="14"/>`).join("")}</g>` +
-    ground(190, "#b8ac8e"),
 
   /** ボローニャ・パドヴァ。アーケードの柱廊と大学の塔。 */
   portico:
@@ -428,51 +398,7 @@ const ITALY_BASE_BG = {
     gull(20, 40, 0.8) + gull(370, 44, 0.7) +
     ground(190, "#c9a877"),
 
-  /** ラヴェンナ専用。ビザンチンのドームとモザイクの色。 */
-  mosaic:
-    sky("#8fc4e8", "#cfe4f0", 140) +
-    clouds(300, 26, 1) + clouds(90, 20, 0.7) +
-    ground(140, "#8ba85a") +
-    // 八角形のドーム建物
-    `<rect x="150" y="110" width="60" height="34" fill="#c9a877"/>` +
-    `<path d="M150,110a30,26 0 0 1 60,0z" fill="#d8cca8"/>` +
-    `<circle cx="180" cy="96" r="5" fill="#f4c430"/>` +
-    `<g fill="#9a8f70">${Array.from({ length: 4 }).map((_, i) => `<rect x="${158 + i * 12}" y="118" width="7" height="10"/>`).join("")}</g>` +
-    // 側廊(左右の小さな建物)
-    `<rect x="110" y="128" width="34" height="16" fill="#c9a877"/><path d="M108,128h38l-5,-8h-28z" fill="#8a3a1f"/>` +
-    `<rect x="216" y="130" width="30" height="14" fill="#c9a877"/><path d="M214,130h34l-5,-8h-24z" fill="#8a3a1f"/>` +
-    // モザイクの色帯(手前、2列に拡張)
-    `<g>${["#e8443f", "#f4c430", "#1a4a8f", "#3f8f4f", "#e8dcc0", "#e8443f", "#f4c430"].map((c, i) => `<rect x="${30 + i * 8}" y="176" width="7" height="7" fill="${c}"/>`).join("")}</g>` +
-    `<g>${["#f4c430", "#1a4a8f", "#e8443f", "#e8dcc0", "#3f8f4f", "#1a4a8f", "#e8dcc0"].map((c, i) => `<rect x="${290 + i * 8}" y="184" width="7" height="7" fill="${c}"/>`).join("")}</g>` +
-    `<g>${["#3f8f4f", "#e8dcc0", "#e8443f", "#f4c430"].map((c, i) => `<rect x="${160 + i * 8}" y="192" width="7" height="7" fill="${c}"/>`).join("")}</g>` +
-    // 松林(ラヴェンナ周辺は松林で知られる)
-    roundTree(30, 200, 16, "#2f6b3a") + roundTree(370, 198, 14, "#2f6b3a") + roundTree(50, 202, 12, "#2f6b3a") +
-    gull(340, 40, 0.8) +
-    ground(190, "#7fa85a"),
-
-  /** パルマ専用。チーズの塊と熟成庫。 */
-  dairy:
-    sky("#8fc4e8", "#cfe4f0", 140) +
-    clouds(300, 24, 0.9) + clouds(90, 20, 0.7) +
-    hills(138, "#9ab35a") +
-    ground(140, "#a8bd6a") +
-    // 熟成庫(左)
-    `<rect x="30" y="110" width="120" height="80" fill="#c9a877"/>` +
-    `<path d="M26,110h128l-8,-12h-112z" fill="#8a3a1f"/>` +
-    // 棚の段(横線)
-    `<g stroke="#9a8f70" stroke-width="1.4">${Array.from({ length: 3 }).map((_, r) => `<path d="M36,${132 + r * 20}h108"/>`).join("")}</g>` +
-    `<g fill="#f4d060">${Array.from({ length: 3 }).map((_, r) =>
-      Array.from({ length: 4 }).map((_, c) => `<ellipse cx="${50 + c * 25}" cy="${140 + r * 16}" rx="10" ry="6" stroke="#c9a020" stroke-width="1"/>`).join("")
-    ).join("")}</g>` +
-    // 検品用の小さな槌を持つ職人
-    `<g><circle cx="180" cy="150" r="6" fill="#d9a273"/><rect x="175" y="156" width="10" height="16" fill="#f6efe2"/><line x1="186" y1="158" x2="196" y2="150" stroke="#6b5330" stroke-width="2"/></g>` +
-    // 生ハムの吊り下げ(右)
-    `<g stroke="#8a5a3a" stroke-width="1.4">${Array.from({ length: 4 }).map((_, i) => `<line x1="${280 + i * 22}" y1="100" x2="${280 + i * 22}" y2="118"/>`).join("")}</g>` +
-    `<g fill="#c9714a">${Array.from({ length: 4 }).map((_, i) => `<ellipse cx="${280 + i * 22}" cy="132" rx="9" ry="16"/>`).join("")}</g>` +
-    `<rect x="260" y="90" width="130" height="10" fill="#6b5330"/>` +
-    ground(188, "#8ba85a"),
-
-  /** アオスタ・ボルツァーノ・ラクイラ。アルプス・アペニンの山あいの町。 */
+  /** アオスタ・ボルツァーノ・ラクイラ・ヌオーロ。アルプス・アペニンの山あいの町。 */
   mountain:
     sky("#8fc4e8", "#cfe4f0", 150) +
     clouds(340, 30, 1) + clouds(60, 20, 0.7) +
@@ -492,46 +418,46 @@ const ITALY_BASE_BG = {
     `<rect x="240" y="172" width="34" height="22" fill="#c9714a"/><path d="M236,172h42l-6,-12h-30z" fill="#6b5330"/>` +
     // 松の木の並び
     cypress(60, 200, 22) + cypress(340, 202, 20) + cypress(300, 204, 16) + cypress(20, 204, 15) +
+    // 山あいの放牧(ヌオーロの羊飼いの気配)
+    `<g fill="#f2f0e8" stroke="#8a8478" stroke-width="1">${Array.from({ length: 5 }).map((_, i) => `<ellipse cx="${86 + i * 13}" cy="192" rx="6" ry="4.2"/>`).join("")}</g>` +
+    `<g><circle cx="70" cy="182" r="5" fill="#d9a273"/><rect x="65" y="188" width="10" height="14" fill="#5a4a30"/></g>` +
     gull(200, 40, 0.8),
 
-  /** コモ専用。湖と渡し船、シルクの並木。 */
-  lakeside:
-    sky("#8fc4e8", "#cfe4f0", 98) +
-    clouds(70, 24, 1) + clouds(200, 32, 0.8) +
-    alpinePeak(340, 96, 46, "#9a9ea4") + alpinePeak(300, 100, 34, "#a8aeb4") +
-    hills(96, "#9ab35a") +
-    ground(98, "#8ba85a") +
-    band(138, 72, "#3f8fc4") +
-    ripples(152, "#bfe8f4") + ripples(168, "#bfe8f4") + ripples(184, "#9fd0e4") +
-    // ヴィラ(湖畔の別荘)群
-    `<rect x="54" y="112" width="50" height="26" fill="#e8dcc0"/><path d="M48,112h62l-8,-14h-46z" fill="#c9714a"/>` +
-    `<g fill="#5b8fe8" opacity=".8"><rect x="60" y="120" width="6" height="8"/><rect x="72" y="120" width="6" height="8"/><rect x="84" y="120" width="6" height="8"/></g>` +
-    `<rect x="120" y="122" width="30" height="18" fill="#e8dcc0"/><path d="M116,122h38l-5,-10h-28z" fill="#c9714a"/>` +
-    // シルクの並木(手前)
-    roundTree(30, 200, 14, "#3f8f4f") + roundTree(56, 202, 11, "#4f8f4f") + roundTree(378, 200, 13, "#3f8f4f") +
-    // 渡し船
-    `<path d="M270,168c10,-4 60,-4 70,0l-6,10h-58z" fill="#f6efe2" stroke="#20364a" stroke-width="1.6"/>` +
-    `<rect x="290" y="150" width="30" height="16" fill="#f6efe2" stroke="#20364a" stroke-width="1.4"/>` +
-    `<g fill="#5b8fe8" opacity=".8">${Array.from({ length: 3 }).map((_, i) => `<rect x="${296 + i * 9}" y="154" width="5" height="6"/>`).join("")}</g>` +
-    gull(160, 60, 1) + gull(190, 50, 0.8) +
-    roundTree(370, 198, 12, "#3f8f4f"),
-
-  /** アルバ専用。丘のぶどう畑とトリュフを探す犬。 */
-  vineyard:
-    sky("#8fc4e8", "#cfe4f0", 130) +
+  /** コモ・アルバ・ラヴェンナ・パルマ。北イタリアの田園と小さな町。 */
+  countryside:
+    sky("#8fc4e8", "#cfe4f0", 118) +
     clouds(320, 26, 1) + clouds(80, 20, 0.7) +
-    hills(128, "#9ab35a", 5) +
-    ground(130, "#c2b559") +
-    vineRows(20, 144, 120, 7, "#7a8f4a") +
-    vineRows(240, 152, 140, 7, "#8f9f5a") +
+    hills(116, "#9ab35a", 5) +
+    ground(118, "#a8bd6a") +
+    // 川(または湖の入り江)
+    band(150, 24, "#3f8fc4") +
+    ripples(158, "#bfe8f4") +
+    // ぶどう畑の畝(左)
+    vineRows(16, 130, 130, 6, "#7a8f4a") +
     // ぶどうの房(点)
-    `<g fill="#5f3f6f">${Array.from({ length: 6 }).map((_, i) => `<circle cx="${30 + i * 18}" cy="150" r="2.2"/>`).join("")}</g>` +
-    `<g fill="#5f3f6f">${Array.from({ length: 6 }).map((_, i) => `<circle cx="${250 + i * 20}" cy="158" r="2.2"/>`).join("")}</g>` +
-    // 犬(トリュフ探し)と探す人
-    `<g fill="#c9a877" stroke="#8a5a3a" stroke-width="1"><ellipse cx="180" cy="188" rx="12" ry="7"/><circle cx="192" cy="184" r="5"/><rect x="172" y="192" width="3" height="8"/><rect x="184" y="192" width="3" height="8"/></g>` +
-    `<g><circle cx="150" cy="176" r="6" fill="#d9a273"/><rect x="145" y="182" width="10" height="16" fill="#6b5330"/></g>` +
-    roundTree(60, 202, 14, "#7fae5a") + roundTree(340, 200, 16, "#7fae5a") + roundTree(380, 204, 12, "#7fae5a") +
-    ground(192, "#a8bd6a"),
+    `<g fill="#5f3f6f">${Array.from({ length: 6 }).map((_, i) => `<circle cx="${26 + i * 18}" cy="136" r="2.2"/>`).join("")}</g>` +
+    // 田園の家(レンガ造り)
+    `<rect x="160" y="128" width="46" height="26" fill="#e8dcc0"/><path d="M154,128h58l-8,-14h-42z" fill="#8a3a1f"/>` +
+    `<g fill="#5b8fe8" opacity=".8"><rect x="168" y="136" width="7" height="8"/><rect x="182" y="136" width="7" height="8"/></g>` +
+    // トリュフ探しの犬と人(アルバ)
+    `<g fill="#c9a877" stroke="#8a5a3a" stroke-width="1"><ellipse cx="230" cy="188" rx="11" ry="6.6"/><circle cx="241" cy="184" r="4.6"/><rect x="223" y="192" width="3" height="7"/><rect x="234" y="192" width="3" height="7"/></g>` +
+    `<g><circle cx="205" cy="178" r="5.6" fill="#d9a273"/><rect x="200" y="184" width="10" height="15" fill="#6b5330"/></g>` +
+    // チーズの熟成庫の棚(パルマ)
+    `<rect x="270" y="140" width="70" height="50" fill="#c9a877"/><path d="M266,140h78l-6,-9h-66z" fill="#8a3a1f"/>` +
+    `<g fill="#f4d060">${Array.from({ length: 2 }).map((_, r) =>
+      Array.from({ length: 3 }).map((_, c) => `<ellipse cx="${288 + c * 20}" cy="${156 + r * 16}" rx="8" ry="5" stroke="#c9a020" stroke-width="1"/>`).join("")
+    ).join("")}</g>` +
+    // 生ハムの吊り下げ
+    `<g stroke="#8a5a3a" stroke-width="1.2">${Array.from({ length: 3 }).map((_, i) => `<line x1="${300 + i * 14}" y1="128" x2="${300 + i * 14}" y2="140"/>`).join("")}</g>` +
+    `<g fill="#c9714a">${Array.from({ length: 3 }).map((_, i) => `<ellipse cx="${300 + i * 14}" cy="146" rx="5" ry="9"/>`).join("")}</g>` +
+    // モザイクの色を思わせる小さな装飾帯(ラヴェンナ)
+    `<g>${["#e8443f", "#f4c430", "#1a4a8f", "#3f8f4f"].map((c, i) => `<rect x="${360 + i * 0}" y="${170 + i * 8}" width="8" height="6" fill="${c}"/>`).join("")}</g>` +
+    // 田舎道の並木
+    roundTree(60, 202, 14, "#7fae5a") + roundTree(90, 204, 11, "#7fae5a") + cypress(370, 202, 20) + cypress(390, 206, 16) +
+    // 渡し船
+    `<path d="M40,168c8,-3 24,-3 30,0l-3,6h-24z" fill="#f6efe2" stroke="#20364a" stroke-width="1.4"/>` +
+    gull(120, 40, 0.9) + gull(250, 34, 0.7) +
+    ground(192, "#8ba85a"),
 
   /** トリノ専用。フィアットの工場と組立ライン。 */
   factory:
@@ -598,61 +524,22 @@ const ITALY_BASE_BG = {
     `<g stroke="#4a4a52" stroke-width="1"><path d="M60,150h20"/></g><g fill="#f6efe2"><rect x="62" y="150" width="4" height="6"/><rect x="70" y="150" width="4" height="6"/></g>` +
     ground(184, "#b8ac8e"),
 
-  /** ポンペイ専用。発掘された遺構とヴェスヴィオ山。 */
-  ruins:
-    sky("#8fc4e8", "#cfe4f0", 130) +
-    clouds(80, 20, 0.7) +
-    volcanoShape(320, 130, 56, "#5c4a3a") +
-    smokePuffs(320, 78, 2) +
-    ground(130, "#c9b07a") +
-    columnRow(50, 178, 5, 24, 40, "#e8e0cc") +
-    `<rect x="150" y="176" width="60" height="6" fill="#9a8f70"/>` +
-    `<rect x="160" y="150" width="26" height="26" fill="#c9a877" opacity=".9"/>` +
-    // フレスコ画の名残(壁に残る色)
-    `<g fill="#e8443f" opacity=".6">${Array.from({ length: 3 }).map((_, i) => `<rect x="${164 + i * 8}" y="158" width="5" height="10"/>`).join("")}</g>` +
-    // 割れた円柱(横倒し)
-    `<rect x="220" y="190" width="60" height="12" rx="5" fill="#d8cca8"/>` +
-    `<rect x="290" y="186" width="40" height="10" rx="4" fill="#c9b896"/>` +
-    // 敷石の街路(轍つき、ポンペイの実際の轍跡)
-    `<g fill="#b8ac8e" opacity=".7">${Array.from({ length: 8 }).map((_, i) => `<rect x="${20 + i * 22}" y="196" width="18" height="10"/>`).join("")}</g>` +
-    `<g stroke="#9a8f70" stroke-width="2" opacity=".8"><path d="M20,206h180M20,204h180"/></g>` +
-    // 石畳の飛び石(横断歩道)
-    `<g fill="#e8e0cc">${Array.from({ length: 3 }).map((_, i) => `<rect x="${100 + i * 16}" y="200" width="10" height="8"/>`).join("")}</g>` +
-    // 遠くの人影(発掘作業員)
-    `<g><circle cx="60" cy="168" r="3.4" fill="#d9a273"/><rect x="57" y="172" width="6" height="10" fill="#5b8fe8"/></g>`,
-
-  /** ソレント専用。レモンの木立と崖。 */
-  citrus:
-    sky("#8fc4e8", "#cfe4f0", 130) +
-    clouds(60, 24, 1) + clouds(200, 18, 0.7) +
-    ground(130, "#9ab35a") +
-    citrusTree(60, 176, 20) + citrusTree(100, 182, 16) + citrusTree(140, 178, 14) +
-    citrusTree(280, 176, 17) + citrusTree(310, 178, 18) + citrusTree(350, 184, 15) +
-    // 藁のむしろ(冬の霜よけ)
-    `<g fill="#e8dcc0" opacity=".85">${Array.from({ length: 3 }).map((_, i) => `<rect x="${55 + i * 40}" y="188" width="20" height="4"/>`).join("")}</g>` +
-    `<g stroke="#7fa8c4" stroke-width="2" opacity=".7"><path d="M40,196h100M280,200h100"/></g>` +
-    // 水路(灌漑の溝)
-    `<g stroke="#3f8fc4" stroke-width="2" opacity=".8"><path d="M180,190v16"/></g>` +
-    // レモン畑の家(小屋)
-    `<rect x="190" y="180" width="26" height="18" fill="#e8dcc0"/><path d="M186,180h34l-5,-8h-24z" fill="#c9714a"/>` +
-    // 崖の縁(手前)
-    `<path d="M0,206c60,-10 100,4 160,-6c90,-14 180,6 240,-8v18H0z" fill="#c9b896"/>` +
-    band(170, 40, "#2a7196") +
-    ripples(180, "#bfe8f4") + ripples(196, "#9fd0e4") +
-    gull(340, 40, 0.8),
-
-  /** ポジターノ・チンクエテッレ・トロペア・チェファル。崖に張り付く家並み。 */
+  /** ポジターノ・チンクエテッレ・トロペア・チェファル・ソレント。崖に張り付く家並み。 */
   cliffhouses:
     sky("#8fc4e8", "#cfe4f0", 110) +
     sun(340, 46, 22) +
     clouds(80, 30, 1) +
     band(110, 60, "#1e6ea0") +
     ripples(126, "#bfe8f4") +
-    // 崖
-    `<path d="M0,170c40,-70 90,-100 140,-100c50,0 90,60 100,100v40H0z" fill="#9a8f70"/>` +
+    // 下端の塗り残し防止(崖・浜の曲線がどこで途切れても土台を敷いておく)
+    ground(170, "#9a8f70") +
+    // 崖(装飾。曲線がやや粗くても下は上の土台が受ける)
+    `<path d="M0,170 C40,100 90,70 140,70 C190,70 230,130 240,168 C270,186 320,180 360,172 C378,168 392,178 400,186 V210 H0 Z" fill="#9a8f70"/>` +
     cliffHouseRow(40, 168, 11, ["#e8a020", "#e8dcc0", "#c9714a", "#f4c430", "#e8443f"]) +
-    // 浜(手前)
-    `<path d="M0,196c60,-6 120,4 200,-2c80,-6 140,4 200,-2v16H0z" fill="#e8dcc0"/>`,
+    // レモンの木立(ソレント)
+    citrusTree(255, 192, 13) + citrusTree(285, 196, 11) + citrusTree(315, 190, 12) +
+    // 浜(手前、装飾)
+    `<path d="M0,196 C60,190 120,200 200,194 C280,188 340,198 400,192 V210 H0 Z" fill="#e8dcc0"/>`,
 
   /** アルベロベッロ専用。円錐屋根のトゥルッリ。 */
   trulli:
@@ -717,7 +604,7 @@ const ITALY_BASE_BG = {
     gull(200, 40, 0.9) +
     ground(196, "#9a8f70"),
 
-  /** アグリジェント・シラクーサ・タオルミーナ。ギリシャ様式の列柱。 */
+  /** アグリジェント・シラクーサ・タオルミーナ・ヴェローナ・ポンペイ。古代の列柱と円形闘技場。 */
   temple:
     sky("#8fc4e8", "#cfe4f0", 150) +
     sun(340, 40, 18) +
@@ -726,9 +613,15 @@ const ITALY_BASE_BG = {
     ground(150, "#a8bd6a") +
     columnRow(50, 190, 6, 24, 50, "#e8e0cc") +
     `<rect x="30" y="178" width="180" height="6" fill="#c9b896"/>` +
-    // 崩れた円柱の破片(手前)
-    `<g fill="#d8cca8">${Array.from({ length: 4 }).map((_, i) => `<rect x="${230 + i * 18}" y="196" width="14" height="8" rx="3"/>`).join("")}</g>` +
+    // 円形闘技場のアーチ(ヴェローナ)
+    archRow(240, 130, 5, 22, 26, "#d8cca8", 0.9) +
+    `<rect x="238" y="152" width="112" height="8" fill="#c9b896"/>` +
+    // 崩れた円柱の破片(手前、ポンペイ)
+    `<rect x="230" y="188" width="50" height="10" rx="4" fill="#d8cca8"/>` +
     `<g fill="#c9b896">${Array.from({ length: 3 }).map((_, i) => `<rect x="${300 + i * 20}" y="188" width="16" height="7" rx="3"/>`).join("")}</g>` +
+    // 発掘の敷石街路(轍つき)
+    `<g fill="#b8ac8e" opacity=".7">${Array.from({ length: 5 }).map((_, i) => `<rect x="${20 + i * 22}" y="198" width="18" height="8"/>`).join("")}</g>` +
+    `<g stroke="#9a8f70" stroke-width="1.6" opacity=".8"><path d="M20,204h110"/></g>` +
     // アーモンド・オリーブの木立
     roundTree(250, 202, 12, "#7fae5a") + roundTree(80, 204, 10, "#7fae5a") + roundTree(360, 200, 11, "#5f8f4a") +
     // 段になった石の基壇(手前)
@@ -774,27 +667,6 @@ const ITALY_BASE_BG = {
     // 羊(遠景の放牧)
     `<g fill="#f2f0e8" opacity=".9">${Array.from({ length: 3 }).map((_, i) => `<ellipse cx="${340 + i * 10}" cy="188" rx="5" ry="3.4"/>`).join("")}</g>` +
     ground(206, "#8ba85a"),
-
-  /** ヌオーロ専用。羊飼いと羊、バルバジアの山。 */
-  shepherd:
-    sky("#8fc4e8", "#cfe4f0", 140) +
-    clouds(80, 22, 0.8) +
-    alpinePeak(340, 138, 50, "#6f8a52") + alpinePeak(300, 142, 34, "#7f9f5c") +
-    hills(138, "#7f9f5c", 5) +
-    ground(140, "#8fae63") +
-    `<g fill="#f2f0e8" stroke="#8a8478" stroke-width="1">${Array.from({ length: 9 }).map((_, i) => {
-      const x = 30 + (i % 5) * 24 + Math.floor(i / 5) * 12; const y = 180 + Math.floor(i / 5) * 14;
-      return `<ellipse cx="${x}" cy="${y}" rx="9" ry="6.4"/><circle cx="${x - 7}" cy="${y - 2}" r="3.6" fill="#3a3028"/>`;
-    }).join("")}</g>` +
-    // 遠くの群れ(小さく)
-    `<g fill="#e8e0cc" opacity=".85">${Array.from({ length: 5 }).map((_, i) => `<ellipse cx="${240 + i * 12}" cy="158" rx="4" ry="2.6"/>`).join("")}</g>` +
-    // 羊飼い
-    `<g><circle cx="320" cy="168" r="7" fill="#d9a273"/><rect x="313" y="176" width="14" height="20" fill="#5a4a30"/><line x1="330" y1="170" x2="345" y2="150" stroke="#6b5330" stroke-width="2.4"/></g>` +
-    // 石積みの羊小屋(手前)
-    `<rect x="20" y="184" width="40" height="20" fill="#9a9488"/><path d="M16,184h48l-6,-8h-36z" fill="#6b7060"/>` +
-    // マムトーネスの木の面(壁に掛けた飾り)
-    `<circle cx="360" cy="192" r="8" fill="#8a5a3a"/><circle cx="357" cy="190" r="1.4" fill="#241a10"/><circle cx="363" cy="190" r="1.4" fill="#241a10"/>` +
-    ground(198, "#7fae5a"),
 };
 
 export const ITALY_BG = { ...ITALY_BASE_BG };
