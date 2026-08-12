@@ -79,6 +79,15 @@ const CJK = /[぀-ヿ一-鿿]/;
 const LATIN = /[A-Za-z]{3,}/g;
 /** 日本語に出てもよい英字(単位・固有の略号)。 */
 const ALLOWED = new Set(["km", "kg", "jr", "gps"]);
+/**
+ * **全部大文字の略号は数えない**(FIFA・BMW・NATO・EEC・TGV・ICE・KTX など)。
+ *
+ * この検査が探しているのは「訳し忘れた英文が日本語の欄に残っている」ことで、
+ * 略号は日本語の文章でもそのまま英字で書く。ドイツ盤面で19件挙がったうち
+ * 過半がこれで、**本物の訳し忘れが埋もれる。**
+ * 訳し忘れの英文が全部大文字になることはまず無いので、切ってよい。
+ */
+const isAcronym = (word) => /^[A-Z]{2,5}$/.test(word);
 /** 答えが短すぎると一般名詞に当たるので、この長さ未満は漏れ判定から外す。 */
 const MIN_ANSWER = 3;
 /** どのカードにも出るので、突き合わせの手がかりにならない語。 */
@@ -103,6 +112,11 @@ const ACCEPTED = [
   { c: "france", has: "denim(デニム)", why: "語の由来を訊く問題。綴りが問いの中身" },
   { c: "france", has: "serge de Nîmes", why: "語源になった原語。訳すと答えにならない" },
   { c: "turkey", has: "turquoise", why: "英語turquoiseの語源を訊く問題。綴りが問いの中身" },
+  { c: "germany", has: "Rücken", why: "リュックサックの語源を訊く問題。原語が問いの中身" },
+  { c: "germany", has: "wandern", why: "Wanderlustの語源を訊く問題。原語が問いの中身" },
+  { c: "germany", has: "Doppelg", why: "Doppelgängerの意味を訊く問題。原語が問いの中身" },
+  { c: "germany", has: "Gänger(歩く者)", why: "Doppelgängerの成り立ちの説明。原語を分解して見せている" },
+  { c: "germany", has: "Geist", why: "ツァイトガイストの説明。原語が話題そのもの" },
   { c: "turkey", has: "kiosk", why: "英語kioskの語源を訊く問題。綴りが問いの中身" },
 ];
 /** 答えの漏れのうち、見たうえで漏れではないと判断したもの。 */
@@ -114,6 +128,18 @@ const ACCEPTED_LEAKS = [
     ans: "アンカラ",
     city: "アンカラ",
     why: "首都そのものを訊く易しい問題。町のカードに書いてあるのは当然で、読んだ人が答えられるのはむしろ狙いどおり",
+  },
+  {
+    c: "germany",
+    ans: "ベルリン",
+    city: "カールスルーエ",
+    why: "カールスルーエのカードは町の扇形の造りの話で、首都がどこかは書いていない",
+  },
+  {
+    c: "germany",
+    ans: "ヨーロッパ",
+    city: "デュッセルドルフ",
+    why: "「大陸ヨーロッパ最大の日本人コミュニティ」と出るだけ。問いの答えは与えていない",
   },
   {
     c: "turkey",
@@ -183,7 +209,7 @@ for (const country of countries) {
     for (const [tag, tr] of fields) {
       const okJa = accepted(country, tr.ja);
       for (const m of String(tr.ja ?? "").match(LATIN) ?? []) {
-        if (ALLOWED.has(m.toLowerCase())) continue;
+        if (ALLOWED.has(m.toLowerCase()) || isAcronym(m)) continue;
         if (okJa) {
           excused++;
           console.log(`  例外 Q${i + 1} ${tag} 英字「${m}」: ${okJa.why}`);

@@ -417,6 +417,58 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
       { op: "region-income-multiplier", regionId: region("ica"), multiplier: 1.1 },
     ],
   ],
+
+  /**
+   * ドイツ。春のシュパーゲルツァイト(白アスパラガス) → バイエルンの
+   * マイバウム → ラインの花火 → キーラー・ヴォッヘ → 夏休み(休神) →
+   * オクトーバーフェスト → 統一記念日とワイン収穫 → 聖マルティンの提灯 →
+   * クリスマス市 → ジルヴェスター(給アイテム) → カーニバル →
+   * 春の大掃除、という流れ。
+   */
+  germany: [
+    /* 0 Apr シュパーゲルツァイト(白アスパラガス) */ [
+      { op: "region-income-multiplier", regionId: region("sw"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("ost"), multiplier: 1.15 },
+    ],
+    /* 1 May マイバウム(バイエルンの五月柱) */ [
+      { op: "region-income-multiplier", regionId: region("bay"), multiplier: 1.25 },
+    ],
+    /* 2 Jun ラインの花火(ライン・イン・フラメン) */ [
+      { op: "region-income-multiplier", regionId: region("rhein"), multiplier: 1.2 },
+    ],
+    /* 3 Jul キーラー・ヴォッヘ */ [
+      { op: "region-income-multiplier", regionId: region("nord"), multiplier: 1.3 },
+    ],
+    /* 4 Aug 夏休み(休神) */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep オクトーバーフェスト開幕 */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("bay"), multiplier: 1.3 },
+    ],
+    /* 6 Oct 統一記念日とワイン収穫 */ [
+      { op: "all-players-gain-cash", amount: 320 },
+      { op: "region-income-multiplier", regionId: region("rhein"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("sw"), multiplier: 1.15 },
+    ],
+    /* 7 Nov 聖マルティンの提灯行列(ラインラント) */ [
+      { op: "region-income-multiplier", regionId: region("rhein"), multiplier: 1.2 },
+    ],
+    /* 8 Dec クリスマス市 */ [
+      { op: "region-income-multiplier", regionId: region("bay"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("ost"), multiplier: 1.2 },
+    ],
+    /* 9 Jan ジルヴェスター(給アイテム) */ [{ op: "give-item-to-all" }],
+    /* 10 Feb カーニバル(ラインラント) */ [
+      { op: "all-players-pay-cash", amount: 150 },
+      { op: "region-income-multiplier", regionId: region("rhein"), multiplier: 1.3 },
+    ],
+    /* 11 Mar 春の大掃除と新年度の準備 */ [
+      { op: "all-players-pay-cash", amount: 120 },
+      { op: "region-income-multiplier", regionId: region("sw"), multiplier: 1.1 },
+    ],
+  ],
 };
 
 /**
@@ -489,4 +541,13 @@ export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>>
   meyhane: "payOthers",
   "karakoncolos-yolu": "teleport",
   yankesici: "steal",
+
+  // Germany
+  foehn: "fine",
+  hochwasser: "percentLoss",
+  stau: "skipTurn",
+  sturmflut: "loseProperties",
+  runde: "payOthers",
+  bergnebel: "teleport",
+  marktdieb: "steal",
 };

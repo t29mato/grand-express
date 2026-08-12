@@ -55,6 +55,13 @@ import { TurkeyLodos } from "./turkey-lodos";
 import { TurkeyMeyhane } from "./turkey-meyhane";
 import { TurkeyTrafik } from "./turkey-trafik";
 import { TurkeyYankesici } from "./turkey-yankesici";
+import { GermanyBergnebel } from "./germany-bergnebel";
+import { GermanyFoehn } from "./germany-foehn";
+import { GermanyHochwasser } from "./germany-hochwasser";
+import { GermanyMarktdieb } from "./germany-marktdieb";
+import { GermanyRunde } from "./germany-runde";
+import { GermanyStau } from "./germany-stau";
+import { GermanySturmflut } from "./germany-sturmflut";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -115,6 +122,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "turkey-meyhane": TurkeyMeyhane,
   "turkey-trafik": TurkeyTrafik,
   "turkey-yankesici": TurkeyYankesici,
+  "germany-bergnebel": GermanyBergnebel,
+  "germany-foehn": GermanyFoehn,
+  "germany-hochwasser": GermanyHochwasser,
+  "germany-marktdieb": GermanyMarktdieb,
+  "germany-runde": GermanyRunde,
+  "germany-stau": GermanyStau,
+  "germany-sturmflut": GermanySturmflut,
   "world-crossing-the-line": WorldCrossingTheLine,
   "world-customs-shed": WorldCustomsShed,
   "world-devaluation": WorldDevaluation,

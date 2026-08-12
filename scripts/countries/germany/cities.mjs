@@ -465,7 +465,10 @@ export const GERMANY_EDGES = [
   ["hamburg", "hannover"],
   ["kiel", "flensburg"],
   ["flensburg", "husum"],
-  ["husum", "sylt", "sea"], // 直線を40分割して実測。中間の約27%区間が海(検証スクリプト参照)
+  // **航路ではなく陸路。**ジュルト島へはヒンデンブルク堤防(1927年)を列車が渡る。
+  // 道路の橋は無く、車も列車に載せて渡る。航路として引くと、線の69%が
+  // 陸の上を走る絵になった(実測132px/192px)。青函トンネルと同じ考え方。
+  ["sylt", "husum"], // 入れ替え済み(陸132px → 59px)
   ["bremen", "hannover"],
   ["hannover", "kassel"], // mitte へ
   ["hannover", "goettingen"], // mitte へ
@@ -522,5 +525,7 @@ export const GERMANY_EDGES = [
   ["dresden", "goerlitz"],
   ["berlin", "rostock"],
   ["rostock", "stralsund"],
-  ["stralsund", "ruegen", "sea"], // シュトラールズント海峡(実測済み)
+  // **航路ではなく陸路。**リューゲン島へはリューゲン堤(1936年)を列車が渡る。
+  // 航路として引くと線の98%が陸の上だった(実測113px/115px)。
+  ["ruegen", "stralsund"], // 入れ替え済み(陸113px → 0px)
 ];

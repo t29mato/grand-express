@@ -96,4 +96,15 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   deneme: { type: "quiz-save" },
   akce: { type: "gain-cash", amount: 380 },
   dolmus: { type: "extra-turn" },
+
+  // Germany
+  zeppelinfahrt: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  fahrplan: { type: "choose-exact-dice" },
+  intercity: { type: "roll-fixed-dice", diceCount: 2 },
+  ice: { type: "roll-fixed-dice", diceCount: 3 },
+  kaminkehrer: { type: "none" }, // 厄災の神(リューベツァール)のward item(passive)
+  almglocke: { type: "repel-spirit" },
+  eselsbruecke: { type: "quiz-save" },
+  flohmarkt: { type: "gain-cash", amount: 380 },
+  autobahn: { type: "extra-turn" },
 };
