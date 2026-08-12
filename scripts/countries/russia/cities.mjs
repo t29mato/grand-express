@@ -96,7 +96,7 @@ export const RUSSIA_CITIES = {
     [
       prop(
         "A mead brewery by the monastery|Una fábrica de aguamiel junto al monasterio|Une brasserie d'hydromel près du monastère|修道院そばの蜂蜜酒醸造所",
-        700, 210,
+        230, 66,
       ),
       prop(
         "A gift shop at the wooden architecture museum|Una tienda del museo de arquitectura de madera|Une boutique du musée d'architecture en bois|木造家屋の民俗博物館みやげ店",
@@ -246,7 +246,7 @@ export const RUSSIA_CITIES = {
       ),
       prop(
         "A riverside café on the Velikaya|Un café junto al río Velikaya|Un café au bord de la Velikaïa|ヴェリカヤ川岸のカフェ",
-        600, 175,
+        200, 58,
       ),
     ],
   ),
@@ -392,7 +392,7 @@ export const RUSSIA_CITIES = {
       ),
       prop(
         "An Ossetian pie bakery|Una panadería de empanadas osetias|Une boulangerie de tourtes ossètes|オセチアパイの店",
-        700, 200,
+        240, 68,
       ),
     ],
   ),
@@ -474,7 +474,7 @@ export const RUSSIA_CITIES = {
       ),
       prop(
         "A leatherwork stall in the old quarter|Un puesto de cuero en el barrio antiguo|Un stand de maroquinerie dans le vieux quartier|旧市街の革製品店",
-        800, 230,
+        290, 83,
       ),
     ],
   ),
@@ -620,7 +620,7 @@ export const RUSSIA_CITIES = {
       ),
       prop(
         "A café at the regional history museum|Un café en el museo de historia regional|Un café au musée d'histoire régionale|郷土博物館のカフェ",
-        650, 185,
+        210, 60,
       ),
     ],
   ),
@@ -668,7 +668,7 @@ export const RUSSIA_CITIES = {
       ),
       prop(
         "A Buryat craft shop near the monastery|Una tienda de artesanía buriata cerca del monasterio|Une boutique d'artisanat bouriate près du monastère|寺院そばのブリヤート工芸品店",
-        750, 215,
+        260, 74,
       ),
     ],
   ),
@@ -750,7 +750,7 @@ export const RUSSIA_CITIES = {
       ),
       prop(
         "A fur-market stall in the covered arcade|Un puesto de pieles en la galería cubierta|Un stand de fourrures dans la galerie couverte|屋根付き市場の毛皮売り場",
-        900, 260,
+        280, 80,
       ),
     ],
   ),
@@ -814,7 +814,7 @@ export const RUSSIA_CITIES = {
       ),
       prop(
         "A gift shop at the regional history museum|Una tienda del museo de historia regional|Une boutique du musée d'histoire régionale|郷土博物館の売店",
-        600, 170,
+        180, 52,
       ),
     ],
   ),
@@ -885,11 +885,11 @@ export const RUSSIA_EDGES = [
   ["krasnoyarsk", "norilsk"], // エニセイ川の水路(要約。上の注記を参照)
   // --- sib-dv・dv 極東(シベリア鉄道の骨格その3・BAM・サハリン航路) ---
   ["ulanude", "khabarovsk"],
-  ["khabarovsk", "vladivostok"],
+  ["vladivostok", "khabarovsk"], // 端の入れ替え済み(海128px/49% → 0px)
   ["khabarovsk", "birobidzhan"],
   ["khabarovsk", "blagoveshchensk"],
   ["irkutsk", "yakutsk"], // バイカル・アムール鉄道沿いの陸路(要約)
   ["yakutsk", "magadan"], // コルィマ街道(通称「骨の道」)
   ["magadan", "petropavlovsk", "sea"], // オホーツク海の航路(カムチャツカは陸路・鉄道が無い)
-  ["vladivostok", "yuzhnosakhalinsk", "sea"], // サハリンへの航路
+  ["yuzhnosakhalinsk", "vladivostok", "sea"], // サハリンへの航路。端の入れ替え済み(陸287px/88% → 63px)
 ];
