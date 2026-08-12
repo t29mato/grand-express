@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.35.0",
+    date: "2026-08-12",
+    title: t(
+      "Five more boards: Turkey, Germany, China, the United Kingdom and Italy|Cinco tableros más: Turquía, Alemania, China, el Reino Unido e Italia|Cinq plateaux de plus : Turquie, Allemagne, Chine, Royaume-Uni et Italie|盤面が5つ増えました。トルコ・ドイツ・中国・イギリス・イタリア",
+    ),
+    highlights: [
+      t(
+        "Two hundred and twenty-six towns, joined by two hundred and ninety-eight lines, with two hundred and thirteen new questions between them. Istanbul to Kars on the eastern express, Beijing to Lhasa on the line that climbs the plateau, Sylt and Rügen by the causeways the trains actually cross, Holyhead to Belfast by ferry, and ships from Naples and Genoa to Sicily and Sardinia.|Doscientos veintiséis pueblos unidos por doscientas noventa y ocho líneas, con doscientas trece preguntas nuevas. De Estambul a Kars en el expreso de oriente, de Pekín a Lhasa por la línea que sube a la meseta, a Sylt y Rügen por los diques que cruzan los trenes de verdad, de Holyhead a Belfast en ferry, y barcos desde Nápoles y Génova a Sicilia y Cerdeña.|Deux cent vingt-six villes reliées par deux cent quatre-vingt-dix-huit lignes, avec deux cent treize nouvelles questions. D'Istanbul à Kars par l'express de l'est, de Pékin à Lhassa par la ligne qui grimpe sur le plateau, vers Sylt et Rügen par les digues que les trains empruntent vraiment, de Holyhead à Belfast en ferry, et des navires de Naples et Gênes vers la Sicile et la Sardaigne.|226の町を298本の路線でつなぎ、クイズは213問増えました。イスタンブールからカルスへ東方急行の筋で、北京からラサへ高原を登る線で、ジュルト島とリューゲン島へは列車が実際に渡る堤防で、ホーリーヘッドからベルファストへは船で。ナポリとジェノヴァからはシチリアとサルデーニャへ渡ります。",
+      ),
+      t(
+        "Each board keeps its own music, its own nine items, its own spirit of misfortune and its own twelve months of weather and festivals — Chungcheong takes the slowest tempo in Korea, the Karakoncolos walks the cold nights of February in Turkey, and the Monacello of Naples pays you back in treasure if you steal his red cap.|Cada tablero conserva su música, sus nueve objetos, su propio espíritu de la desgracia y sus doce meses de clima y fiestas: Chungcheong lleva el tempo más lento de Corea, el Karakoncolos recorre las noches frías de febrero en Turquía, y el Monacello de Nápoles te paga con tesoros si le robas el gorro rojo.|Chaque plateau garde sa musique, ses neuf objets, son propre esprit du malheur et ses douze mois de climat et de fêtes : le Chungcheong prend le tempo le plus lent de Corée, le Karakoncolos parcourt les nuits froides de février en Turquie, et le Monacello de Naples vous paie en trésors si vous lui volez son bonnet rouge.|盤面ごとに音楽・9つのアイテム・厄災の神・12ヶ月の気候と祭りを持っています。韓国では忠清道がいちばんゆっくりした調子で鳴り、トルコでは2月の寒い夜をカラコンジョロスが歩き、ナポリのモナチェッロは赤い帽子を盗まれると財宝で償います。",
+      ),
+      t(
+        "Where a map cuts a name off at the edge of the board, the name now moves to where it fits — Kashgar had been showing as “ashgar”, and Çeşme as “eşme”.|Cuando un mapa cortaba un nombre en el borde del tablero, el nombre se desplaza ahora a donde cabe: Kashgar aparecía como «ashgar» y Çeşme como «eşme».|Lorsqu'une carte coupait un nom au bord du plateau, le nom se déplace désormais là où il tient : Kashgar s'affichait « ashgar » et Çeşme « eşme ».|地図の端で名前が切れていたところは、収まる場所へ動くようにしました。カシュガルが「ashgar」、チェシメが「eşme」としか出ていませんでした。",
+      ),
+    ],
+  },
+  {
     version: "0.34.0",
     date: "2026-08-12",
     title: t(
