@@ -366,3 +366,66 @@ import { IndonesiaTilang } from "./indonesia-tilang";
   こと」の節を参照)。
 - `seg`は前任者から継承した`geography.mjs`の140のまま(実測で5マス超の
   路線は0本、修正後も変わらず)。
+
+## check-sea-routes.mjs 実測での修正(2026-08-12・2回目)
+
+**登録・焼き込みが完了し、`node scripts/check-sea-routes.mjs indonesia` を
+自分で回せるようになったため、指摘された12本(実質11本、`makassar–ambon`は
+除く)をすべて実測ベースで直した。**
+
+### 分かったこと: 経路は端の並び順や他の路線の追加に敏感
+
+`["a","b"]` と `["b","a"]` で結果のpx数が変わる(オクティリニア描画が
+どちら向きから折れ始めるかに依存するらしい)。**さらに、無関係に見える
+路線を1本直すと、既に直したはずの別の路線の最適な向きが変わることがある**
+(都市を1件追加しただけで、以前「端の入れ替えで0px」だった路線が
+元に戻って別の向きが最適になった)。そのため、**1件直すたびに
+`node scripts/extract-legacy-content.mjs && node scripts/check-sea-routes.mjs indonesia -v`
+を回して確かめ直す**という反復作業になった。1回で終わらせようとして
+複数箇所を一度に直すと、かえって悪化することがあった(実際に一度、
+5本→12本に悪化させてから気づいた)。
+
+### 端の入れ替えだけで解消した路線(9本)
+
+`medan⇄banda_aceh` / `cirebon⇄jakarta` / `yogyakarta⇄bandung` /
+`kupang⇄mataram` / `ende⇄labuanbajo` / `balikpapan⇄surabaya`(のち
+`surabaya⇄balikpapan`に戻す方が最終的に良かった) / `purwokerto⇄jakarta` /
+`makassar⇄balikpapan` / `tanatoraja⇄kendari`。**最終的な向きは
+コード上のコメントではなく `check-sea-routes.mjs -v` の出力を都度信じて
+決めている**(向きの「正解」は他の変更で動くため)。
+
+### 中継都市を新設して解消した路線(2本)
+
+- **`jakarta–yogyakarta`**: 端の入れ替えでも88pxまでしか下がらなかった。
+  実在する南部線の分岐駅**プルウォクルト**(1895年、後のBRI銀行の前身と
+  なる村落信用組合が始まった町)を挟み、`jakarta–purwokerto–yogyakarta`
+  に組み替えて解消。
+- **`tanatoraja–gorontalo`**(旧`makassar–gorontalo`から組み替えたが
+  これも184pxで解消せず): 実在するトランス・スラウェシ道路沿いの
+  **パロポ**(南スラウェシ最古とされるルウ王国の王都、1603年にイスラムへ
+  改宗)を挟んだが、`palopo–gorontalo`が162pxで残った。最終的には
+  `tanatoraja–palopo`(陸路)で止め、`gorontalo–kendari`を航路に直して
+  ゴロンタロ・マナド側とクンダリ・マカッサル側を結び直す形に変更した
+  (陸路でボネ湾岸をつなぐより、両州都間の実在する沿岸定期船(Pelni)を
+  航路として使うほうが安定した)。パロポのgeography.mjsへの沖出し
+  頂点追加(クンダリ・ゴロンタロと同じ種類の修正)も行った。
+
+### そのまま残した路線(1本)
+
+- **`makassar–ambon`**(航路が陸79px・12%、線長640px、候補なし):
+  team-lead側で理由付きのKEPT登録をするとのことなので、こちらでは
+  手を加えていない。
+
+### 結果
+
+`node scripts/check-sea-routes.mjs indonesia -v` で `makassar–ambon` を
+除く全54本が閾値(60px)以内に収まることを確認。都市はプルウォクルト・
+パロポの2件を追加して**47件**(スマトラ8・ジャワ12・小スンダ列島8・
+カリマンタン5・スラウェシ7・マルク&パプア7)、路線は**55本**になった。
+都市が海に浮くチェック・4言語の欠けチェック・`mark`/`bg`の過不足チェック・
+連結性(BFS)チェックをすべて再実行し、問題無いことを確認済み。
+
+**物件上限(ボロブドゥール2700・モナス2800)は前回の修正コミット
+(aa250ac)で既に反映済みだった。** 指摘を受けて `indonesia.content.json`
+の焼き込み結果を確認したところ、既に2800/2700になっていることを確認した
+(念のため再度 `extract-legacy-content.mjs` を回して焼き直し済み)。

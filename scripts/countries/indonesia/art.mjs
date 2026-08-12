@@ -361,6 +361,12 @@ export const INDONESIA_MARKS = {
     `<rect x="4" y="12" width="16" height="10" fill="#9a8f70"/>` +
     `<path d="M4,12L4,8L7,8L7,12M11,12L11,8L14,8L14,12M18,12L18,8L21,8L21,12" fill="#9a8f70" stroke="#5a4a30" stroke-width="0.6"/>` +
     `<circle cx="12" cy="17" r="2" fill="#4a3c30"/>`,
+
+  /** 銀行の柱廊玄関。プルウォクルト。 */
+  bank:
+    `<rect x="3" y="12" width="18" height="10" fill="#e8dcc0"/>` +
+    `<path d="M2,12l10,-7l10,7z" fill="#8a5a3a"/>` +
+    `<g fill="#8a5a3a"><rect x="6" y="15" width="2.4" height="7"/><rect x="11" y="15" width="2.4" height="7"/><rect x="16" y="15" width="2.4" height="7"/></g>`,
 };
 
 // ---------------------------------------------------------------------------

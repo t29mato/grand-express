@@ -211,6 +211,14 @@ export const INDONESIA_CITIES = {
     [prop("Mega Mendung Batik Workshop|Taller de batik Mega Mendung|Atelier de batik Mega Mendung|メガ・ムンドゥン・バティック工房", 380, 79),
      prop("Kasepuhan Palace Gate|Puerta del palacio Kasepuhan|Porte du palais Kasepuhan|カスプハン宮殿の門", 260, 54)],
   ),
+  purwokerto: city(
+    "Purwokerto|Purwokerto|Purwokerto|プルウォクルト",
+    109.2380, -7.4235, "jav", "bank", "colonial", "l",
+    "A bank that started with one clerk's own salary|Un banco que empezó con el propio sueldo de un empleado|Une banque commencée avec le seul salaire d'un employé|一人の役人の給料から始まった銀行",
+    "Purwokerto is where a Javanese colonial official named Raden Bei Aria Wirjaatmadja started a small village credit cooperative in 1895, lending out his own salary and a mosque's charitable fund to farmers who had nowhere else to borrow at a fair rate, a modest scheme that grew into Bank Rakyat Indonesia, now one of the country's largest banks and among the oldest in Asia. The city also sits on the southern rail line that lets trains reach Yogyakarta from Jakarta without detouring through Bandung, a junction role that has kept it busy long after the bank's founder moved on.|Purwokerto es donde un funcionario colonial javanés llamado Raden Bei Aria Wirjaatmadja fundó en 1895 una pequeña cooperativa de crédito rural, prestando su propio sueldo y el fondo benéfico de una mezquita a agricultores sin otro lugar donde pedir prestado a un tipo justo, un modesto proyecto que creció hasta convertirse en el Bank Rakyat Indonesia, hoy uno de los mayores bancos del país.|Purwokerto est l'endroit où un fonctionnaire colonial javanais nommé Raden Bei Aria Wirjaatmadja fonda en 1895 une petite coopérative de crédit villageoise, prêtant son propre salaire et le fonds caritatif d'une mosquée à des agriculteurs qui n'avaient nulle part ailleurs où emprunter à un taux juste, un modeste projet devenu la Bank Rakyat Indonesia, aujourd'hui l'une des plus grandes banques du pays.|プルウォクルトは、ジャワ人の植民地官吏ラデン・ベイ・アリア・ウィルジャアトマジャが1895年、自らの給料とモスクの慈善基金を元手に、公正な利率で借りる先の無かった農民たちへ貸し付ける小さな村の信用組合を始めた場所である。この慎ましい試みは、いまではインドネシア最大級かつアジアでも屈指の歴史を持つ銀行「ブリ(BRI)」へと育った。この町はまた、ジャカルタからバンドンを回り道せずヨグヤカルタへ抜けられる南部の鉄道路線上にあり、この分岐点としての役割が、創業者が去ったあともこの町を賑わせ続けている。",
+    [prop("Old Village Credit Cooperative Building|Antiguo edificio de la cooperativa de crédito rural|Ancien bâtiment de la coopérative de crédit villageoise|旧村落信用組合の建物", 320, 67),
+     prop("Southern Line Junction Platform|Andén de la unión de la línea sur|Quai de la jonction de la ligne sud|南部線分岐駅のホーム", 220, 46)],
+  ),
   semarang: city(
     "Semarang|Semarang|Semarang|スマラン",
     110.4203, -6.9932, "jav", "colonial", "colonial", "r",
@@ -423,6 +431,14 @@ export const INDONESIA_CITIES = {
     [prop("Tongkonan Ancestral House Compound|Recinto de casas ancestrales tongkonan|Enclos des maisons ancestrales tongkonan|トンコナン祖先の家の敷地", 500, 104),
      prop("Buffalo Market Trading Ground|Terreno del mercado de búfalos|Terrain du marché aux buffles|水牛市場の取引場", 280, 58)],
   ),
+  palopo: city(
+    "Palopo|Palopo|Palopo|パロポ",
+    120.1958, -2.9925, "sul", "mosque", "mosque", "l",
+    "A Bugis kingdom's court that converted to Islam by treaty|Una corte del reino bugis que se convirtió al islam por tratado|Une cour du royaume bugis convertie à l'islam par traité|条約でイスラムに改宗したブギス王国の宮廷",
+    "Palopo was the seat of the Luwu sultanate, remembered by Bugis and Torajan tradition alike as the oldest and most senior of South Sulawesi's kingdoms even after younger courts at Gowa and Bone eclipsed it in wealth and power, and it formally adopted Islam in 1603 when its ruler accepted teachers sent from the newly converted court of Gowa. The city sits where the Trans-Sulawesi highway rounds the head of the Gulf of Bone, a junction that still makes it the natural stopover between the island's southern and northern peninsulas.|Palopo fue la sede del sultanato de Luwu, recordado por la tradición bugis y torajana como el más antiguo y prestigioso de los reinos del sur de Sulawesi incluso después de que cortes más jóvenes como Gowa y Bone lo eclipsaran en riqueza y poder, y adoptó formalmente el islam en 1603 cuando su gobernante aceptó a maestros enviados desde la corte recién convertida de Gowa.|Palopo fut le siège du sultanat de Luwu, considéré par la tradition bugis et torajane comme le plus ancien et le plus prestigieux des royaumes du sud de Sulawesi même après que des cours plus jeunes comme Gowa et Bone l'eurent éclipsé en richesse et en puissance, et il adopta formellement l'islam en 1603 quand son souverain accueillit des maîtres envoyés par la cour tout juste convertie de Gowa.|パロポはルウ王国の王都であり、ゴワやボネといった後発の王国が富と力でこれを凌駕したのちも、ブギス族とトラジャ族双方の伝承では南スラウェシで最も古く格の高い王国として記憶されている。1603年、改宗したばかりのゴワ王国から派遣された教師を君主が受け入れたことで、正式にイスラム教を採り入れた。この町はトランス・スラウェシ道路がボネ湾の湾奥を回り込む地点にあり、いまも島の南半島と北半島を結ぶ自然な中継地となっている。",
+    [prop("Luwu Sultanate Palace Grounds|Terrenos del palacio del sultanato de Luwu|Terrain du palais du sultanat de Luwu|ルウ王宮跡地", 300, 62),
+     prop("Bone Gulf Highway Rest Stop|Área de descanso de la carretera del golfo de Bone|Aire de repos de la route du golfe de Bone|ボネ湾道路の休憩所", 200, 42)],
+  ),
   wakatobi: city(
     "Wakatobi|Wakatobi|Wakatobi|ワカトビ",
     123.6, -5.35, "sul", "reef", "reef", "l",
@@ -505,7 +521,7 @@ export const INDONESIA_CITIES = {
  */
 export const INDONESIA_EDGES = [
   // --- sum スマトラ(鎖状+サワルント枝、メダン―ブキッティンギ間に代替路) ---
-  ["banda_aceh", "medan"],
+  ["medan", "banda_aceh"], // 端を入れ替えて解消(check-sea-routes.mjsで実測)
   ["medan", "toba"],
   ["medan", "bukittinggi"],
   ["toba", "bukittinggi"],
@@ -521,9 +537,13 @@ export const INDONESIA_EDGES = [
   ["jakarta", "bandung"],
   // ジャカルタ―スマランは直線だと北岸が湾曲する区間で海に出るため、
   // 実在の中継点チルボンを挟む(実測で確認)。
-  ["jakarta", "cirebon"],
+  ["cirebon", "jakarta"], // 端を入れ替えて解消(check-sea-routes.mjsで実測)
   ["cirebon", "semarang"],
-  ["jakarta", "yogyakarta"],
+  // ジャカルタ―ジョグジャカルタ直線は端の入れ替えでも88pxしか下がらなかった
+  // ため(check-sea-routes.mjsで実測)、実在する南部線の分岐駅プルウォクルト
+  // を中継する形に直した。
+  ["purwokerto", "jakarta"],
+  ["purwokerto", "yogyakarta"],
   ["semarang", "surabaya"],
   ["semarang", "yogyakarta"],
   ["bandung", "yogyakarta"],
@@ -558,13 +578,26 @@ export const INDONESIA_EDGES = [
   ["banjarmasin", "samarinda"],
   ["balikpapan", "samarinda"],
   // --- kal-sul 航路(マカッサル海峡) ---
-  ["balikpapan", "makassar", "sea"],
+  ["makassar", "balikpapan", "sea"],
   // --- sul スラウェシ(本島は道路、離島は航路) ---
   // ブナケン(マナドから船で1時間の海洋公園の島)は町として別に立てるには
   // マナドに近すぎるため外し、南東半島の州都クンダリに差し替えた
   // (取りまとめ側の指摘。ニッケル鉱業という他都市と被らない切り口も持てる)。
-  ["manado", "gorontalo"],
-  ["gorontalo", "makassar"],
+  // マナド―ゴロンタロは北スラウェシ半島が湾曲しているため陸路の直線だと
+  // 海に大きく出る(実測75%)。半島の北岸・南岸を結ぶ沿岸航路として実在の
+  // 定期船もあるため、航路に直して解消した(check-sea-routes.mjsの提案)。
+  ["gorontalo", "manado", "sea"],
+  // マカッサル―ゴロンタロ直線は端の入れ替えでも174pxと解消しなかったため
+  // (check-sea-routes.mjsで実測)、実在するトランス・スラウェシ道路の経路
+  // (マカッサル―タナトラジャ―パロポ回りでゴロンタロ・マナド方面)に合わせ、
+  // タナトラジャ経由に組み替えた。タナトラジャ―ゴロンタロも直線では
+  // 184pxと解消しなかったため、ボネ湾の湾奥を回る実在の中継地パロポを
+  // さらに挟んだ(geography.mjsにパロポ沖の頂点も1点追加)。
+  ["tanatoraja", "palopo"],
+  // ゴロンタロ―クンダリ・パロポ経由いずれも陸路の直線では海に大きく出て
+  // しまう(実測)。半島基部を陸路でつなぐより、両州都を結ぶ実在の沿岸
+  // 定期船(Pelni)を使う航路として直したほうが安定した(check-sea-routes.mjsで実測)。
+  ["gorontalo", "kendari", "sea"],
   ["makassar", "tanatoraja"],
   // マカッサル―クンダリを直線で結ぶとボネ湾を横切ってしまう(実測で確認)。
   // タナトラジャ経由(実在するパロポ回りの幹線道路に近い)にすると陸に収まる。
@@ -587,6 +620,9 @@ export const INDONESIA_EDGES = [
   // パプア道路の西端区間)。マノクワリ―ジャヤプラは実在するPelniフェリーの
   // 北岸航路で海路。
   ["sorong", "manokwari"],
-  ["manokwari", "jayapura", "sea"],
+  // 「陸路にする」は0pxになるが、パプア北岸に鉄道は無いため選ばない。
+  // 端の並びは他の路線の追加・変更で最良の向きが変わるため、都度
+  // check-sea-routes.mjsで実測して決め直している(直近の実測で此の向きが良好)。
+  ["jayapura", "manokwari", "sea"],
   ["jayapura", "wamena"],
 ];
