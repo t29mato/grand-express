@@ -1,4 +1,5 @@
 import { test, expect, Page } from "@playwright/test";
+import { boardChoice } from "./pick-board";
 
 /**
  * BGMの入り・切り替わり・止まりを実ブラウザで確かめる。
@@ -111,7 +112,7 @@ test("トップ画面の音楽が最初の操作で鳴り、ゲーム開始で�
   // どの国を選んだかで次に鳴る曲のテンポが決まるので、順番ではなく名前で選ぶ。
   // 押せたことを `aria-pressed` で確かめてから測る(空振りしたまま
   // 「鳴っていない」と読み違えないため)。
-  const bolivia = page.locator(".ccard").filter({ hasText: "Bolivia" });
+  const bolivia = boardChoice(page, "Bolivia");
   await bolivia.click();
   await expect(bolivia).toHaveAttribute("aria-pressed", "true");
   await page.waitForTimeout(3000);

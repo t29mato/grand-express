@@ -7,6 +7,7 @@ import { DEFAULT_KNOWLEDGE_LEVEL, KNOWLEDGE_LEVELS, KnowledgeLevel } from "../..
 import { PlayerSetup } from "../../../application/use-cases/start-game/start-game.use-case";
 import { COUNTRY_INDEX } from "../../../infrastructure/content/country-index";
 import { ALL_REGIONS, SCALE_LABEL, boardScale, groupCountries } from "./country-groups";
+import { WorldPicker } from "./world-picker";
 import { loadPlayerSetup, savePlayerSetup } from "../../../infrastructure/persistence/local-storage-player-setup";
 import { useGameStore } from "../../state/game-store";
 import { useLocale } from "../../i18n/locale-context";
@@ -69,8 +70,13 @@ export function SetupScreen() {
    * どんな盤面があるのか分からないまま選ぶことになる。
    */
   const [region, setRegion] = useState<string>(ALL_REGIONS.key);
+  /**
+   * 絞り込みの帯に出す地域。**「地球をまわる」は外す。**
+   * 世界一周は地図の1点で指せないので、地図の下に専用のボタンを置いている。
+   * 帯にも同じ名前を並べると、同じ名前のボタンが2つになって何が違うのか分からない。
+   */
   const groupsWithBoards = useMemo(
-    () => groupCountries(COUNTRY_INDEX).map(({ group }) => group),
+    () => groupCountries(COUNTRY_INDEX).map(({ group }) => group).filter((group) => group.key !== "world"),
     [],
   );
   const shownCountries = useMemo(() => {
@@ -183,12 +189,12 @@ export function SetupScreen() {
         <div className="card">
           <fieldset className="setup-group">
             <legend className="eyebrow">{t("chooseCountry")}</legend>
-            {/* **束は行を占有させず、絞り込みの帯にする。**見出しを立てて並べる形は
-                19枚で実測したら選ぶところが815pxになり、「旅を始める」が
-                画面の下(y=1533)へ消えた。札からは説明文も外してある
-                (説明の長さで背が変わり、茨城だけ4行になっていた)。 */}
-            {/* tab/tabpanel の作法を半端に真似ると、読み上げが「タブなのに
-                中身が無い」状態になる。押しボタンの入切として素直に伝える。 */}
+            {/* **世界地図から選ぶ。**盤面が19枚になり、名前の一覧だけでは
+                「どこの話なのか」が分からなくなった。地理を扱う遊びなので、
+                地図の上で選べるほうが筋が通っている。
+
+                帯で地域を絞ると印が減り、**そのときだけ印に名前が出る。**
+                18個に名前を付けると字だらけで地図が見えなくなる(撮って確かめた)。 */}
             <div className="region-tabs">
               {[ALL_REGIONS, ...groupsWithBoards].map((group) => (
                 <button
@@ -202,6 +208,15 @@ export function SetupScreen() {
                 </button>
               ))}
             </div>
+            <WorldPicker
+              boards={shownCountries}
+              allBoards={COUNTRY_INDEX}
+              selected={country}
+              onSelect={(id) => setCountry(CountryId(id))}
+            />
+            {/* **狭い画面では地図を使わない。**390pxの幅だと地図は324×106pxにしかならず、
+                印の間隔が7pxになって指では押し分けられない(実測)。札の一覧に切り替える。
+                どちらを見せるかはCSSの担当(`.world-picker` と `.country-grid`)。 */}
             <div className="country-grid">
               {shownCountries.map((entry) => (
                 <button

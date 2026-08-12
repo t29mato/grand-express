@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.38.0",
+    date: "2026-08-13",
+    title: t(
+      "Pick your board from the world map|Elige tu tablero en el mapamundi|Choisis ton plateau sur la carte du monde|行き先を世界地図から選べます",
+    ),
+    highlights: [
+      t(
+        "The board list is now a world map. Every board sits where it belongs, so you can see that Bali is a dot beside Java and that Russia stretches across a third of the map. Tap a mark to choose it; the whole-world board has its own button under the map.|La lista de tableros es ahora un mapamundi. Cada tablero está donde le corresponde, así que se ve que Bali es un punto junto a Java y que Rusia ocupa un tercio del mapa. Toca una marca para elegirla; el tablero de la vuelta al mundo tiene su botón bajo el mapa.|La liste des plateaux est devenue une carte du monde. Chaque plateau est à sa place : on voit que Bali n'est qu'un point à côté de Java et que la Russie occupe un tiers de la carte. Touche une marque pour la choisir ; le tour du monde a son propre bouton sous la carte.|盤面の一覧が世界地図になりました。それぞれの盤面が本当の場所に置かれているので、バリがジャワの隣の点でしかないことも、ロシアが地図の3分の1に伸びていることも見て分かります。印を押すと選べます。世界一周は1点で指せないので、地図の下のボタンにしました。",
+      ),
+      t(
+        "Marks that would overlap are nudged apart, with a thin line back to the true spot. Filter by region and the names appear beside each mark. On a phone the map is too small to tap accurately, so the card list is used there instead.|Las marcas que se solaparían se separan un poco, con una línea fina hasta su lugar real. Filtra por región y aparecen los nombres junto a cada marca. En el móvil el mapa es demasiado pequeño para acertar, así que allí se usa la lista de fichas.|Les marques qui se chevaucheraient sont écartées, avec un fil vers leur vraie position. Filtre par région et les noms s'affichent à côté de chaque marque. Sur téléphone la carte est trop petite pour viser juste : la liste de cartes y est conservée.|重なってしまう印は少しずらし、本当の位置へ細い線を引いています。地域で絞ると、印の横に名前が出ます。携帯では地図が小さすぎて押し分けられないので、そちらは今までの札の一覧のままです。",
+      ),
+    ],
+  },
+  {
     version: "0.37.0",
     date: "2026-08-13",
     title: t(

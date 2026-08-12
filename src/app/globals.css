@@ -307,6 +307,91 @@ h3 {
  * 「誰が遊ぶか」が画面の外へ出る。札から説明文を外し(選んだ1枚だけ下に出す)、
  * 幅を118pxまで詰めて、地域ごとの見出しで束ねている。
  */
+/* 世界地図から盤面を選ぶところ。
+   下地は世界一周の盤面のサムネイルそのもの(3703×1210)。 */
+.world-picker {
+  margin: 10px 0 0;
+}
+
+.world-picker-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: #16324f;
+}
+
+/* 押し離した印から本当の位置へ引く線。**これが無いと、日本の印が
+   日本を指していないように見える。** */
+.world-pin-leader {
+  stroke: #f6efe2;
+  stroke-width: 5;
+  opacity: 0.5;
+}
+
+.world-pin {
+  cursor: pointer;
+}
+
+.world-pin-dot {
+  fill: #f6efe2;
+  stroke: #16324f;
+  stroke-width: 7;
+  transition: fill 0.15s ease, r 0.15s ease;
+}
+
+.world-pin:hover .world-pin-dot,
+.world-pin:focus-visible .world-pin-dot {
+  fill: var(--gold);
+  r: 32;
+}
+
+.world-pin.on .world-pin-dot {
+  fill: var(--gold);
+  stroke: #26183f;
+  r: 36;
+}
+
+.world-pin:focus {
+  outline: none;
+}
+
+/* 印に添える名前。**絞り込んだときだけ出す。**18個ぶん出すと地図が字で埋まる。
+   下地が濃紺なので、縁取りをして海の上でも陸の上でも読めるようにする。 */
+.world-pin-name {
+  fill: var(--salt);
+  font-size: 44px;
+  font-weight: 800;
+  paint-order: stroke;
+  stroke: #0e1626;
+  stroke-width: 11;
+  pointer-events: none;
+}
+
+.world-pin-name.on {
+  fill: var(--gold);
+}
+
+/* 「地球をまわる」は1点で指せないので、地図の下のボタンにしている。 */
+.world-whole-board {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel2);
+  color: var(--salt);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.world-whole-board.on {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #26183f;
+}
+
 /* 地域で絞る帯。**束ごとに見出しを立てて並べる形は捨てた。**
    見出しが行を占有するため、19枚をブラウザに並べて実測すると
    選ぶところが815pxになり、「旅を始める」が画面の下へ消えた。 */
@@ -339,11 +424,24 @@ h3 {
   color: #26183f;
 }
 
+/* **広い画面では地図から選ぶので、札の一覧は出さない。**
+   狭い画面(携帯)では逆に地図を出さない。390pxだと地図は324×106pxにしかならず、
+   印の間隔が7pxで指では押し分けられない(実測)。 */
 .country-grid {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   gap: 8px;
   margin: 6px 0 2px;
+}
+
+@media (max-width: 640px) {
+  .world-picker {
+    display: none;
+  }
+
+  .country-grid {
+    display: flex;
+  }
 }
 
 .ccard {

@@ -6,10 +6,9 @@ test("言語を切り替えるとセットアップ画面の文言が変わる",
 
   await page.getByRole("button", { name: "JA", exact: true }).click();
   await expect(page.getByText("旅を選ぼう")).toBeVisible();
-  // **札の中の名前だけを見る。**選んでいる盤面の名前は、札と、その下の
-  // 説明行(`.country-chosen`)の2箇所に出る。盤面が19枚になっても
-  // 「誰が遊ぶか」を画面の外へ押し出さないため、説明を札から外した結果。
-  await expect(page.locator(".ccard .nm").getByText("ボリビア", { exact: true })).toBeVisible();
+  // **地図の印の名前で見る。**盤面の名前は印(押せる相手)と、その下の
+  // 説明行(`.country-chosen`)の2箇所に出るので、どちらか一方に絞って見る。
+  await expect(page.locator(".world-picker").getByRole("button", { name: "ボリビア", exact: true })).toBeVisible();
 
   await page.getByRole("button", { name: "ES", exact: true }).click();
   await expect(page.getByText("Elige tu viaje")).toBeVisible();

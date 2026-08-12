@@ -1,4 +1,5 @@
 import { test, expect, Page } from "@playwright/test";
+import { boardChoice } from "./pick-board";
 
 /**
  * 画面の音楽ボタンで、BGMが本当に止まるかを実ブラウザで確かめる。
@@ -73,7 +74,7 @@ test("トップ画面で音楽を止められ、開き直しても止まった�
 
   // 1. 音楽が入っているあいだは、音源が増え続ける。
   //    自動再生ポリシーがあるので、まず何か触って音楽を始める。
-  const bolivia = page.locator(".ccard").filter({ hasText: "Bolivia" });
+  const bolivia = boardChoice(page, "Bolivia");
   await bolivia.click();
   await expect(bolivia).toHaveAttribute("aria-pressed", "true");
   await page.waitForTimeout(1500);
@@ -93,7 +94,7 @@ test("トップ画面で音楽を止められ、開き直しても止まった�
   await page.reload();
   await expect(page.getByText("Choose your journey")).toBeVisible();
   await expect(page.getByTestId(MUSIC_TOGGLE)).toHaveAttribute("aria-pressed", "false");
-  await page.locator(".ccard").filter({ hasText: "Bolivia" }).click();
+  await boardChoice(page, "Bolivia").click();
   await page.waitForTimeout(1000);
   expect(await countGrowth(page, 2500)).toBe(0);
 });
