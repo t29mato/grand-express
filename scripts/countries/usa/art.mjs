@@ -946,4 +946,11 @@ export const USA_MARKS = {
   vineyard:
     `<path d="M12,4v4" stroke="#4f8f4f" stroke-width="1.4"/>` +
     `<g fill="#5b8fe8" stroke="#20364a" stroke-width=".4"><circle cx="10" cy="10" r="2"/><circle cx="14" cy="10" r="2"/><circle cx="8" cy="14" r="2"/><circle cx="12" cy="14" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10" cy="18" r="2"/><circle cx="14" cy="18" r="2"/></g>`,
+
+  /** 途切れた鉄橋(海に流されたフラグラーの鉄道)。キーウェスト専用。 */
+  railbridge:
+    `<rect x="2" y="16" width="9" height="3" fill="#8a92a0"/>` +
+    `<rect x="13" y="16" width="9" height="3" fill="#8a92a0"/>` +
+    `<g stroke="#7f8896" stroke-width="1.4"><line x1="4" y1="19" x2="4" y2="22"/><line x1="9" y1="19" x2="9" y2="22"/><line x1="15" y1="19" x2="15" y2="22"/><line x1="20" y1="19" x2="20" y2="22"/></g>` +
+    `<path d="M11,16l-1,3M13,16l1,3" stroke="#5a4630" stroke-width="1.2"/>`,
 };

@@ -1,15 +1,16 @@
 /**
  * アメリカ合衆国(本土48州)の都市と路線。
  *
- * 47都市・6地方(ne北東部8 / south南部10 / mw中西部7 / plains大平原・山岳部7 /
+ * 48都市・6地方(ne北東部8 / south南部11 / mw中西部7 / plains大平原・山岳部7 /
  * sw南西部8 / pacific太平洋岸7)。ポートランドは `portlandmaine`(メイン州)と
  * `portlandoregon`(オレゴン州)で区別してある。
  *
  * 経度・緯度は実際の値。投影の範囲は geography.mjs の USA_PROJ を参照。
  * 全都市の座標は自作の点-in-多角形チェックで本土ポリゴンの内側に収まる
- * ことを確認済み(境界まで最低8.8px、多くは15px以上)。フロリダキーズと
- * サンディエゴは海岸線の単純化に合わせて実際のキーウェスト/ダウンタウンから
- * 少しだけ動かしてある(下記コメント参照)。
+ * ことを確認済み(境界まで最低8.8px、多くは15px以上)。サンディエゴは
+ * 海岸線の単純化に合わせて実際のダウンタウンから少しだけ動かしてある
+ * (下記コメント参照)。キーウェスト(`keywest`)は実際の経緯度のまま置けるよう
+ * `geography.mjs` のフロリダキーズを描き足した。
  */
 import { city, prop } from "../../content-overrides/city-helpers.mjs";
 
@@ -180,6 +181,15 @@ export const USA_CITIES = {
     "Spanish missionaries founded Misión San Antonio de Valero in 1718; by 1836 the former mission, by then known as the Alamo, was where a small garrison held out for thirteen days against Mexican forces before falling, and \"Remember the Alamo\" became the rallying cry that helped win Texan independence weeks later. After a catastrophic flood in 1921, the city lowered part of downtown around the San Antonio River into a landscaped walkway now known as the River Walk, lined with cafés a full level below street traffic.|Misioneros españoles fundaron la Misión de San Antonio de Valero en 1718; hacia 1836, la antigua misión, ya conocida como el Álamo, fue donde una pequeña guarnición resistió trece días frente a las fuerzas mexicanas antes de caer. Tras una inundación catastrófica en 1921, la ciudad rebajó parte del centro en torno al río San Antonio hasta convertirlo en un paseo hoy conocido como el River Walk.|Des missionnaires espagnols fondèrent la Mission San Antonio de Valero en 1718 ; vers 1836, l'ancienne mission, alors connue sous le nom d'Alamo, fut le lieu où une petite garnison résista treize jours face aux forces mexicaines avant de tomber. Après une inondation catastrophique en 1921, la ville abaissa une partie du centre-ville autour de la rivière San Antonio en une promenade aujourd'hui connue sous le nom de River Walk.|スペインの宣教師たちは1718年、サン・アントニオ・デ・バレロ伝道所を築いた。1836年、当時「アラモ」と呼ばれるようになっていたこの旧伝道所では、少数の守備隊がメキシコ軍相手に13日間持ちこたえたのち陥落し、「アラモを忘れるな」という合言葉が、数週間後のテキサス独立を後押しする掛け声になった。1921年の壊滅的な洪水のあと、この町はサン・アントニオ川沿いの中心街の一部を掘り下げて庭園風の遊歩道に造り替えた。それが今日のリバー・ウォークである。",
     [prop("The Alamo Courtyard|Patio del Álamo|Cour de l'Alamo|アラモの中庭", 780, 161),
      prop("River Walk Barge Dock|Muelle de barcazas del River Walk|Ponton des barges du River Walk|リバー・ウォークの遊覧船乗り場", 380, 79)],
+  ),
+
+  keywest: city(
+    "Key West|Cayo Hueso|Key West|キーウェスト",
+    -81.80, 24.56, "south", "railbridge", "tropicdeco", "l",
+    "A railroad swept into the sea, reborn as a highway|Un ferrocarril arrastrado al mar, renacido como autopista|Un chemin de fer emporté par la mer, renaissant en autoroute|海に流され、道路として生まれ変わった鉄道",
+    "Henry Flagler's Florida East Coast Railway reached Key West in January 1912 after crossing more than 200 kilometres of open water on a chain of bridges, including one nearly seven miles long, and the eighty-two-year-old Flagler rode the first train in himself. The Labor Day Hurricane of 1935, one of the most powerful storms ever recorded in the country, swept away long stretches of track and derailed a rescue train evacuating World War I veteran labourers, killing hundreds; the line was never rebuilt as a railroad, and the state instead paved over the surviving bridges to create the Overseas Highway.|El Ferrocarril de la Costa Este de Florida de Henry Flagler llegó a Cayo Hueso en enero de 1912 tras cruzar más de 200 kilómetros de mar abierto sobre una cadena de puentes, incluido uno de casi once kilómetros, y el propio Flagler, con ochenta y dos años, viajó en el primer tren. El huracán del Día del Trabajo de 1935, una de las tormentas más potentes jamás registradas en el país, arrasó largos tramos de vía y descarriló un tren de rescate que evacuaba a obreros veteranos de la Primera Guerra Mundial, matando a cientos; la línea nunca se reconstruyó como ferrocarril, y el estado pavimentó los puentes que sobrevivieron para crear la Overseas Highway.|Le chemin de fer de la côte est de la Floride de Henry Flagler atteignit Key West en janvier 1912 après avoir traversé plus de 200 kilomètres de mer ouverte sur une chaîne de ponts, dont l'un de près de onze kilomètres, et Flagler lui-même, âgé de quatre-vingt-deux ans, prit place à bord du premier train. L'ouragan de la fête du Travail de 1935, l'une des tempêtes les plus puissantes jamais enregistrées dans le pays, emporta de longs tronçons de voie et fit dérailler un train de secours évacuant des ouvriers vétérans de la Première Guerre mondiale, tuant des centaines de personnes ; la ligne ne fut jamais reconstruite en tant que chemin de fer, et l'État recouvrit d'asphalte les ponts survivants pour créer l'Overseas Highway.|ヘンリー・フラグラーのフロリダ東海岸鉄道は、七マイル近くに及ぶ橋を含む橋の連なりで200キロメートルを超える外洋を渡り、1912年1月にキーウェストへ到達した。82歳のフラグラー自身が最初の列車に乗り込んだ。1935年のレイバーデー・ハリケーンは、この国で記録された中でも最強クラスの嵐で、線路の長い区間を押し流し、第一次大戦の退役軍人労働者を避難させようとしていた救援列車を脱線させて数百人の命を奪った。この路線は鉄道としては二度と再建されず、州は生き残った橋の上にそのまま舗装を施してオーバーシーズ・ハイウェイを作った。",
+    [prop("Overseas Railroad Bridge Pier|Pilar del puente del Overseas Railroad|Pile du pont de l'Overseas Railroad|オーバーシーズ鉄道の橋脚", 650, 135),
+     prop("Duval Street Sunset Pier|Muelle del atardecer de Duval Street|Ponton du coucher de soleil de Duval Street|デュバル・ストリートの夕日桟橋", 320, 66)],
   ),
 
   // ---------------------------------------------------------------------
@@ -457,15 +467,20 @@ export const USA_CITIES = {
 };
 
 /**
- * 路線。全55路線の投影後距離を実測し、seg=130(geography.mjs)で
- * 最長5マス・9マス超0本を確認済み(check-usa-edges.mjsで検証)。
+ * 路線。全59路線の投影後距離を実測し、seg=130(geography.mjs)で
+ * 最長5マス・9マス超0本を確認済み(自作の検証スクリプトで検証)。
  * アムトラックの実在の系統(北東回廊・シティ・オブ・ニューオーリンズ・
  * カリフォルニア ゼファー・サンセット・リミテッド・エンパイア ビルダー等)を
- * 下敷きにしつつ、47都市が1つの連結成分になるよう補助線を足している。
+ * 下敷きにしつつ、48都市が1つの連結成分になるよう補助線を足している。
  *
  * savannah–miami は当初の直線だと海に321px以上はみ出すため外し、
  * savannah–atlanta–tampa–miami の経路で迂回させた
  * (check-sea-routesの簡易版で0本まで詰めた)。
+ *
+ * miami–keywest は最後に追加した(フロリダキーズの描き足しに合わせて
+ * `USA_EDGES` の末尾に追記。**途中挿入すると他の路線の折れ方が変わる**
+ * ため、必ず末尾に足すこと)。海の上29px(全長108pxの27%)を通るが、
+ * 実際にフラグラーの鉄道も橋の連なりで海を渡っていたので妥当と判断した。
  */
 export const USA_EDGES = [
   ["newyork", "boston"],
@@ -526,4 +541,5 @@ export const USA_EDGES = [
   ["losangeles", "phoenix"],
   ["saltlakecity", "sacramento"],
   ["bozeman", "seattle"],
+  ["miami", "keywest"],
 ];
