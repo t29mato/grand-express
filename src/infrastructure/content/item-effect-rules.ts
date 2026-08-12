@@ -107,4 +107,26 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   eselsbruecke: { type: "quiz-save" },
   flohmarkt: { type: "gain-cash", amount: 380 },
   autobahn: { type: "extra-turn" },
+
+  // China
+  jindouyun: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  luopan: { type: "choose-exact-dice" },
+  lupiheche: { type: "roll-fixed-dice", diceCount: 2 },
+  gaotiepiao: { type: "roll-fixed-dice", diceCount: 3 },
+  baozhu: { type: "none" }, // 厄災の神(年獣)のward item(passive)
+  taomujian: { type: "repel-spirit" },
+  jinnang: { type: "quiz-save" },
+  yuzhuo: { type: "gain-cash", amount: 380 },
+  qianlima: { type: "extra-turn" },
+
+  // UK
+  girdle: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  osmap: { type: "choose-exact-dice" },
+  nightriviera: { type: "roll-fixed-dice", diceCount: 2 },
+  scotsman: { type: "roll-fixed-dice", diceCount: 3 },
+  horseshoe: { type: "none" }, // 厄災の神(ボガート)のward item(passive)
+  rowan: { type: "repel-spirit" },
+  pubquiz: { type: "quiz-save" },
+  detectorist: { type: "gain-cash", amount: 380 },
+  guardswhistle: { type: "extra-turn" },
 };

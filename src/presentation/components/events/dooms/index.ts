@@ -62,6 +62,20 @@ import { GermanyMarktdieb } from "./germany-marktdieb";
 import { GermanyRunde } from "./germany-runde";
 import { GermanyStau } from "./germany-stau";
 import { GermanySturmflut } from "./germany-sturmflut";
+import { ChinaChaiqian } from "./china-chaiqian";
+import { ChinaChunyun } from "./china-chunyun";
+import { ChinaMiaohuiPaishou } from "./china-miaohui-paishou";
+import { ChinaShachenbao } from "./china-shachenbao";
+import { ChinaSuifenzi } from "./china-suifenzi";
+import { ChinaTaifeng } from "./china-taifeng";
+import { ChinaWuruTaohuayuan } from "./china-wuru-taohuayuan";
+import { UkFeteRainedOff } from "./uk-fete-rained-off";
+import { UkFogDelay } from "./uk-fog-delay";
+import { UkLastBus } from "./uk-last-bus";
+import { UkLeavesOnLine } from "./uk-leaves-on-line";
+import { UkParkingWarden } from "./uk-parking-warden";
+import { UkQueueJumper } from "./uk-queue-jumper";
+import { UkYourRound } from "./uk-your-round";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -129,6 +143,20 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "germany-runde": GermanyRunde,
   "germany-stau": GermanyStau,
   "germany-sturmflut": GermanySturmflut,
+  "china-chaiqian": ChinaChaiqian,
+  "china-chunyun": ChinaChunyun,
+  "china-miaohui-paishou": ChinaMiaohuiPaishou,
+  "china-shachenbao": ChinaShachenbao,
+  "china-suifenzi": ChinaSuifenzi,
+  "china-taifeng": ChinaTaifeng,
+  "china-wuru-taohuayuan": ChinaWuruTaohuayuan,
+  "uk-fete-rained-off": UkFeteRainedOff,
+  "uk-fog-delay": UkFogDelay,
+  "uk-last-bus": UkLastBus,
+  "uk-leaves-on-line": UkLeavesOnLine,
+  "uk-parking-warden": UkParkingWarden,
+  "uk-queue-jumper": UkQueueJumper,
+  "uk-your-round": UkYourRound,
   "world-crossing-the-line": WorldCrossingTheLine,
   "world-customs-shed": WorldCustomsShed,
   "world-devaluation": WorldDevaluation,

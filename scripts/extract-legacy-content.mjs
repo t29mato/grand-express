@@ -36,6 +36,8 @@ import { buildIbarakiContent } from "./countries/ibaraki/index.mjs";
 import { buildKoreaContent } from "./countries/korea/index.mjs";
 import { buildTurkeyContent } from "./countries/turkey/index.mjs";
 import { buildGermanyContent } from "./countries/germany/index.mjs";
+import { buildUkContent } from "./countries/uk/index.mjs";
+import { buildChinaContent } from "./countries/china/index.mjs";
 import { renderJapanDecor } from "./content-overrides/japan-decor.mjs";
 import { renderBoliviaDecor } from "./content-overrides/bolivia-decor.mjs";
 
@@ -513,6 +515,8 @@ const AUTHORED_COUNTRIES = [
   buildKoreaContent(),
   buildTurkeyContent(),
   buildGermanyContent(),
+  buildChinaContent(),
+  buildUkContent(),
 ];
 
 /** `scripts/countries/` にあるのに、上の一覧に無い盤面。焼かれずに消える。 */

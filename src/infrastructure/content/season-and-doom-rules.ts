@@ -469,6 +469,113 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
       { op: "region-income-multiplier", regionId: region("sw"), multiplier: 1.1 },
     ],
   ],
+
+  china: [
+    /* 0 Apr 清明・洛陽の牡丹(華北) */ [
+      { op: "region-income-multiplier", regionId: region("hb"), multiplier: 1.3 },
+    ],
+    /* 1 May 労働節の旅ラッシュ・華東の工場休業 */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("hd"), multiplier: 1.15 },
+    ],
+    /* 2 Jun 端午節の竜舟(長江=華東・珠江=華南) */ [
+      { op: "region-income-multiplier", regionId: region("hn"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("hd"), multiplier: 1.15 },
+    ],
+    /* 3 Jul 暑さで東北が避暑地に、華南は屋内へ */ [
+      { op: "region-income-multiplier", regionId: region("db"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("hn"), multiplier: 0.8 },
+    ],
+    /* 4 Aug 夏休み最盛期、南の海辺(厦門〜三亜)が埋まる */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "region-income-multiplier", regionId: region("hn"), multiplier: 1.2 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep 中秋節、月餅を贈り合う */ [
+      { op: "all-players-gain-cash", amount: 380 },
+      { op: "region-income-multiplier", regionId: region("hn"), multiplier: 1.2 },
+    ],
+    /* 6 Oct 国慶節の黄金週間、北京の公園と紅葉 */ [
+      { op: "region-income-multiplier", regionId: region("hb"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("xn"), multiplier: 1.15 },
+    ],
+    /* 7 Nov 菊花展と収穫市 */ [
+      { op: "region-income-multiplier", regionId: region("hd"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("hb"), multiplier: 1.15 },
+    ],
+    /* 8 Dec 冬至の餃子、ハルビン氷祭りの準備(東北) */ [
+      { op: "region-income-multiplier", regionId: region("db"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("xb"), multiplier: 0.85 },
+    ],
+    /* 9 Jan 春節 */ [{ op: "give-item-to-all" }],
+    /* 10 Feb 元宵節、ハルビンの氷祭りが続く */ [
+      { op: "all-players-pay-cash", amount: 180 },
+      { op: "region-income-multiplier", regionId: region("db"), multiplier: 1.2 },
+    ],
+    /* 11 Mar 黄砂の季節が始まる(西北・華北) */ [
+      { op: "region-income-multiplier", regionId: region("xb"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("hb"), multiplier: 0.9 },
+    ],
+  ],
+
+  /**
+   * イギリス。イースターと競馬(4月) → チェルシー花博(5月) → ウィンブルドンと
+   * 夏至(6月) → 夏休みと海辺(7月) → エディンバラ・フリンジと休神(8月) →
+   * サッカー再開と収穫(9月) → 紅葉と冬時間(10月) → ボンファイア・ナイト(11月) →
+   * クリスマス市(12月) → ホグマネイと給アイテム(1月) → シックス・ネイションズ(2月) →
+   * 聖デイヴィッド・聖パトリックの日(3月)、という流れ。
+   * 他国のAugust=休神/January=給アイテムの慣例に揃えてある。
+   */
+  uk: [
+    /* 0 Apr イースターとグランドナショナル(リヴァプール) */ [
+      { op: "region-income-multiplier", regionId: region("no"), multiplier: 1.2 },
+    ],
+    /* 1 May チェルシー・フラワー・ショーとメーデー */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("se"), multiplier: 1.25 },
+    ],
+    /* 2 Jun ウィンブルドンと夏至 */ [
+      { op: "region-income-multiplier", regionId: region("se"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("sc"), multiplier: 1.1 },
+    ],
+    /* 3 Jul 夏休みと海辺・湖水地方のにぎわい */ [
+      { op: "all-players-pay-cash", amount: 200 },
+      { op: "region-income-multiplier", regionId: region("wa"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("no"), multiplier: 1.15 },
+    ],
+    /* 4 Aug エディンバラ・フリンジとヒースの季節 */ [
+      { op: "region-income-multiplier", regionId: region("sc"), multiplier: 1.3 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep サッカー再開と収穫 */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "region-income-multiplier", regionId: region("mi"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("no"), multiplier: 1.15 },
+    ],
+    /* 6 Oct 紅葉と冬時間 */ [
+      { op: "region-income-multiplier", regionId: region("no"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("wa"), multiplier: 1.1 },
+    ],
+    /* 7 Nov ボンファイア・ナイトとリメンバランス */ [
+      { op: "all-players-gain-cash", amount: 220 },
+      { op: "region-income-multiplier", regionId: region("mi"), multiplier: 1.15 },
+    ],
+    /* 8 Dec クリスマス市とパントマイム */ [
+      { op: "all-players-pay-cash", amount: 220 },
+      { op: "region-income-multiplier", regionId: region("se"), multiplier: 1.3 },
+    ],
+    /* 9 Jan ホグマネイとバーンズ・ナイト */ [{ op: "give-item-to-all" }],
+    /* 10 Feb シックス・ネイションズと中間休み */ [
+      { op: "all-players-pay-cash", amount: 160 },
+      { op: "region-income-multiplier", regionId: region("wa"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("sc"), multiplier: 1.15 },
+    ],
+    /* 11 Mar 聖デイヴィッドの日・聖パトリックの日 */ [
+      { op: "all-players-gain-cash", amount: 200 },
+      { op: "region-income-multiplier", regionId: region("wa"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("ni"), multiplier: 1.25 },
+    ],
+  ],
 };
 
 /**
@@ -550,4 +657,22 @@ export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>>
   runde: "payOthers",
   bergnebel: "teleport",
   marktdieb: "steal",
+
+  // China
+  shachenbao: "fine",
+  taifeng: "percentLoss",
+  chunyun: "skipTurn",
+  chaiqian: "loseProperties",
+  suifenzi: "payOthers",
+  "wuru-taohuayuan": "teleport",
+  "miaohui-paishou": "steal",
+
+  // UK
+  "parking-warden": "fine",
+  "fog-delay": "percentLoss",
+  "leaves-on-line": "skipTurn",
+  "fete-rained-off": "loseProperties",
+  "your-round": "payOthers",
+  "last-bus": "teleport",
+  "queue-jumper": "steal",
 };
