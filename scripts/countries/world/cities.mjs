@@ -596,7 +596,7 @@ export const WORLD_EDGES = [
   ["athens", "rome", "sea"], // 入れ替え済み(陸95px → 51px)
   ["athens", "istanbul"],
   ["barcelona", "lisbon"], // 入れ替え済み(31px → 0px)
-  ["istanbul", "moscow"],
+  ["moscow", "istanbul"], // 入れ替え済み(黒海・湖を横切る63px → 35px)
 
   // ヨーロッパから陸続きの東へ(オリエント急行・シベリア鉄道)
   ["moscow", "samarkand"],

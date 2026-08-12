@@ -50,6 +50,13 @@ const SAMPLES = 600;
  */
 const KEPT = new Map([
   ["japan:aomori-hakodate", "青函トンネル。列車が海の下を通るのが正しい"],
+  // ボルタ湖の渡し。**この検査の限界**で、湖は楕円の集まりとしてしか
+  // 表せない(`lakes` の形)。ボルタ湖は「く」の字に折れた形で、
+  // 楕円10個を鎖にしても実際の水面を覆いきれず、渡しの線が楕円の
+  // 隙間(=陸と判定される)を通る。船便は実在する(アコソンボ⇄イェジの
+  // ヤペイ・クイーン号)。陸路にすると、湖の上を列車が走る絵になる。
+  ["ghana:akosombo-ketekrachi", "ボルタ湖の渡し。湖を楕円でしか表せないための誤検知(下の注記参照)"],
+  ["ghana:ketekrachi-yeji", "ボルタ湖の渡し。湖を楕円でしか表せないための誤検知"],
   ["russia:vladivostok-yuzhnosakhalinsk", "間宮海峡を渡る325pxの航路。サハリンは島なので陸路にできない。端の入れ替えで287px→63px(19%)まで下げた、実測での最良"],
   ["russia:magadan-petropavlovsk", "オホーツク海を渡る355pxの航路。マガダン湾とカムチャツカの両端で自分の陸地をかすめるだけ(31%)"],
   ["russia:khabarovsk-ulanude", "シベリア鉄道の711pxの長い区間。バイカル湖の南岸をかすめる(15%)。実在の鉄道"],
@@ -145,8 +152,28 @@ for (const file of files) {
   const py = (lat) => ((lat - LAT0) / (LAT1 - LAT0)) * BH;
   const lonAt = (x) => (x / BW) * (LON1 - LON0) + LON0;
   const latAt = (y) => (y / BH) * (LAT1 - LAT0) + LAT0;
+  /**
+   * 湖の上か。**湖は陸ポリゴンの内側に描かれる**ので、引いておかないと
+   * 湖を渡る船が「陸の上を走っている」と出る。ガーナのボルタ湖の渡し
+   * (アコソンボ⇄イェジ、実在の船便)が100%陸と判定されて分かった。
+   *
+   * 湖は `[経度, 緯度, 横半径px, 縦半径px, 傾き, 色]` の楕円で持っている。
+   */
+  const inLake = (x, y) =>
+    (pack.lakes ?? []).some(([lo, la, rx, ry, tilt]) => {
+      const cx = px(lo);
+      const cy = py(la);
+      const rad = ((tilt ?? 0) * Math.PI) / 180;
+      const dx = x - cx;
+      const dy = y - cy;
+      const ux = dx * Math.cos(rad) + dy * Math.sin(rad);
+      const uy = -dx * Math.sin(rad) + dy * Math.cos(rad);
+      return (ux / rx) ** 2 + (uy / ry) ** 2 <= 1;
+    });
+
   const onLand = (x, y) => {
     const wx = wrapBack(x, proj, wrapWidth);
+    if (inLake(wx, y)) return false;
     return pack.land.some((poly) => pointInPolygon(lonAt(wx), latAt(y), poly));
   };
 

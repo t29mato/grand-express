@@ -461,7 +461,10 @@ export const TURKEY_EDGES = [
   ["erzurum", "kars"],
   ["erzurum", "dogubayazit"],
   ["dogubayazit", "van"],
-  ["van", "diyarbakir"],
+  // ヴァン湖を横切っていた(検査が湖を海として数えるようになって出た)。
+  // 実際にはタトヴァン⇄ヴァンの鉄道連絡船が貨車を積んで渡るのだが、
+  // 盤面では1本の線なので、湖にかからない折れ方にした。
+  ["diyarbakir", "van"], // 入れ替え済み(湖62px → 0px)
   ["diyarbakir", "mardin"],
   ["mardin", "sanliurfa"],
   ["sanliurfa", "gaziantep"],
