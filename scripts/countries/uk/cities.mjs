@@ -5,9 +5,10 @@
  * `no` イングランド北部 / `wa` ウェールズ / `sc` スコットランド /
  * `ni` 北アイルランド)。
  *
- * 42都市55路線。se10 / mi6 / no8 / wa6 / sc8 / ni4。
- * ワイト島(カウズ)は海路("sea")でのみ結ばれる。北アイルランドへは
- * ホーリーヘッド⇄ベルファスト・スタランレア⇄ベルファストの2航路で渡る。
+ * 44都市58路線。se12 / mi6 / no8 / wa6 / sc8 / ni4。
+ * ワイト島(カウズ)は海路("sea")でのみ結ばれる(ポーツマス・ブライトンの2航路)。
+ * 北アイルランドへは、ホーリーヘッド⇄ベルファスト・ケアンライアン⇄ベルファストの
+ * 2航路で渡る。
  * アングルシー島(ホーリーヘッド)・スカイ島(ポートリー)は、実在する橋
  * (ブリタニア橋1850年・スカイ橋1995年)にならって陸路でつないである
  * (直線がほぼ陸を通ってしまうため、計測のうえで陸路に直した。理由は路線定義の側に書く)。
@@ -15,7 +16,7 @@
  * 経度・緯度は実際の値。投影の範囲は geography.mjs の UK_PROJ を参照。
  * 海岸線に近い都市は、投影後に陸の上へ収まることを検証済み
  * (`node scripts/check-sea-routes.mjs` 相当のpoint-in-polygon確認を
- * 自作スクリプトで実施。全42都市が海岸線から4.9px以上の余白を持つ)。
+ * 自作スクリプトで実施。全44都市が海岸線から4.9px以上の余白を持つ)。
  *
  * 物件の価格は `scripts/content-overrides/property-economy.mjs` の設計
  * (S目玉2,600〜3,000 / A大都市900〜1,400 / B中核350〜650 / C小さな町150〜300、
@@ -30,7 +31,7 @@
  * | キー | 描くもの | 受け持つ町 |
  * |---|---|---|
  * | `capital`     | 国会議事堂の時計塔 | ロンドン |
- * | `cathedral`   | 大聖堂の尖塔 | カンタベリー・ダラム・セント・デイヴィッズ・コヴェントリー・レスター |
+ * | `cathedral`   | 大聖堂の尖塔 | カンタベリー・ダラム・セント・デイヴィッズ・コヴェントリー・レスター・アーマー |
  * | `cliffs`      | 白い断崖 | ドーヴァー |
  * | `pier`        | 海に突き出た桟橋 | ブライトン |
  * | `university`  | 尖塔とカレッジの中庭 | オックスフォード・ケンブリッジ |
@@ -40,29 +41,29 @@
  * | `mill`        | 紡績工場の煙突 | バーミンガム・マンチェスター・リーズ |
  * | `tudor`       | 木骨造りの家 | ストラトフォード・アポン・エイヴォン |
  * | `outlaw`      | 弓を構える緑の人影 | ノッティンガム |
- * | `docks`       | 波止場と起重機 | リヴァプール・ベルファスト・グラスゴー |
+ * | `docks`       | 波止場と起重機 | リヴァプール・ベルファスト・グラスゴー・ポーツマス |
  * | `minster`     | 双塔の大聖堂 | ヨーク |
  * | `romanwall`   | 城壁の見張り塔 | チェスター・デリー |
  * | `lake`        | 湖面と峰 | ウィンダミア |
  * | `castle`      | 塔と城壁 | カーディフ・カーナーヴォン・コンウィ・エディンバラ |
- * | `coast`       | 波と帆船 | スウォンジー・ポートリー・カウズ・ホーリーヘッド・スタランレア |
- * | `mountain`    | 二つ並んだ峰 | フォート・ウィリアム・マーン・インヴァネス |
+ * | `coast`       | 波と帆船 | スウォンジー・ポートリー・カウズ・ホーリーヘッド・ケアンライアン・ペンザンス |
+ * | `mountain`    | 二つ並んだ峰 | フォート・ウィリアム・インヴァネス |
  * | `granite`     | 灰色の花崗岩の建物 | アバディーン |
  * | `golf`        | 旗の立つグリーン | セント・アンドリューズ |
  * | `causeway`    | 六角形の石柱 | ブッシュミルズ |
  *
  * ## `bg`(22種)
  *
- * `capital`(ロンドン) / `cathedral`(カンタベリー・ダラム・セント・デイヴィッズ) /
+ * `capital`(ロンドン) / `cathedral`(カンタベリー・ダラム・セント・デイヴィッズ・アーマー) /
  * `citycentre`(コヴェントリー・レスター) / `cliffs`(ドーヴァー) /
  * `seaside`(ブライトン・カウズ) / `university`(オックスフォード・ケンブリッジ) /
- * `georgian`(バース・バクストン) / `harbour`(ブリストル・リヴァプール・ベルファスト) /
+ * `georgian`(バース・バクストン) / `harbour`(ブリストル・リヴァプール・ベルファスト・ポーツマス) /
  * `stonehenge`(ソールズベリー) / `millcity`(バーミンガム・マンチェスター・リーズ) /
  * `tudor`(ストラトフォード) / `sherwood`(ノッティンガム) /
  * `walledtown`(ヨーク・チェスター・デリー) / `riverbridges`(ニューカッスル) /
  * `lakedistrict`(ウィンダミア) / `castletown`(カーディフ・カーナーヴォン・コンウィ・エディンバラ) /
- * `coasttown`(スウォンジー・ポートリー・ホーリーヘッド・スタランレア) /
- * `highland`(フォート・ウィリアム・インヴァネス・マーン) / `shipyard`(グラスゴー) /
+ * `coasttown`(スウォンジー・ポートリー・ホーリーヘッド・ケアンライアン・ペンザンス) /
+ * `highland`(フォート・ウィリアム・インヴァネス) / `shipyard`(グラスゴー) /
  * `granitecity`(アバディーン) / `linksgolf`(セント・アンドリューズ) /
  * `causeway`(ブッシュミルズ)
  */
@@ -151,6 +152,22 @@ export const UK_CITIES = {
     "Cowes Week has run almost every summer since 1826, and up to 40 races a day fill the Solent with a thousand boats during the regatta, making it one of the longest-running sailing events on Earth. Queen Victoria kept a seaside home a few kilometres along the coast at Osborne House, close enough that she could watch the racing from her window.|La Semana de Cowes se celebra casi cada verano desde 1826, y hasta 40 regatas al día llenan el Solent con un millar de barcos, lo que la convierte en uno de los eventos de vela más antiguos y continuos del planeta.|La Semaine de Cowes se tient presque chaque été depuis 1826, et jusqu'à 40 régates par jour remplissent le Solent d'un millier de bateaux, ce qui en fait l'un des plus anciens événements de voile ininterrompus au monde.|カウズ・ウィークは1826年以来ほぼ毎年夏に開かれ、レガッタの期間中は一日最大40レースがソレント海峡を千隻のヨットで埋め尽くす、世界でも屈指の長い歴史を持つセーリング大会である。ヴィクトリア女王は海岸沿い数km先のオズボーン・ハウスに別荘を構え、窓からレースを眺められるほどの近さだった。",
     [prop("Solent Regatta Marina|Marina de la regata del Solent|Marina de la régate du Solent|ソレント海峡のヨット桟橋", 220, 46),
      prop("Osborne House Seaside Terrace|Terraza junto al mar de Osborne House|Terrasse côtière d'Osborne House|オズボーン・ハウスの海辺のテラス", 180, 38)],
+  ),
+  portsmouth: city(
+    "Portsmouth|Portsmouth|Portsmouth|ポーツマス",
+    -1.09, 50.80, "se", "docks", "harbour", "r",
+    "A dockyard that built the fleet an empire sailed on|Un astillero que construyó la flota con la que navegó un imperio|Un chantier naval qui construisit la flotte d'un empire|帝国が乗った艦隊を築いた造船所",
+    "HMS Victory, Admiral Nelson's flagship at the Battle of Trafalgar in 1805, is preserved in dry dock at Portsmouth's historic dockyard and remains formally commissioned in the Royal Navy, making it the world's oldest naval ship still in commission. The harbour was also a principal departure point for the D-Day invasion fleet in June 1944, when hundreds of thousands of troops embarked from quays around the Solent.|El HMS Victory, buque insignia del almirante Nelson en la batalla de Trafalgar en 1805, se conserva en dique seco en el histórico astillero de Portsmouth y sigue formalmente en servicio en la Marina Real, lo que lo convierte en el buque naval más antiguo del mundo aún en servicio. El puerto fue también un punto de partida principal de la flota de invasión del Día D en junio de 1944.|Le HMS Victory, vaisseau amiral de l'amiral Nelson à la bataille de Trafalgar en 1805, est conservé en cale sèche dans l'arsenal historique de Portsmouth et reste formellement en service dans la Royal Navy, ce qui en fait le plus vieux navire de guerre au monde encore en service. Le port fut aussi un point de départ majeur de la flotte d'invasion du jour J en juin 1944.|1805年のトラファルガーの海戦でネルソン提督の旗艦を務めたHMSヴィクトリー号は、ポーツマスの歴史的造船所の乾ドックに保存されており、いまも正式に王立海軍に現役登録されている。現役の軍艦としては世界最古である。この港は1944年6月、ノルマンディー上陸作戦(Dデイ)の侵攻艦隊の主要な出発地の一つでもあり、何十万もの兵士がソレント海峡沿いの埠頭から乗船した。",
+    [prop("Nelson's Flagship Dry Dock|Dique seco del buque insignia de Nelson|Cale sèche du vaisseau amiral de Nelson|ネルソン提督旗艦の乾ドック", 950, 196),
+     prop("D-Day Embarkation Quay|Muelle de embarque del Día D|Quai d'embarquement du jour J|Dデイ出撃の埠頭", 600, 124)],
+  ),
+  penzance: city(
+    "Penzance|Penzance|Penzance|ペンザンス",
+    -5.54, 50.12, "se", "coast", "coasttown", "b",
+    "A castle on an island that becomes a beach twice a day|Un castillo en una isla que se convierte en playa dos veces al día|Un château sur une île qui devient plage deux fois par jour|一日に二度、浜になる島の城",
+    "St Michael's Mount, a small tidal island just offshore crowned by a medieval castle, connects to the mainland by a cobbled causeway that surfaces only at low tide — a sister site to France's Mont-Saint-Michel, granted to the same Benedictine order by an 11th-century English king. The Gulf Stream keeps winters mild enough here that palm trees and other sub-tropical plants grow outdoors along the seafront, in a town that averages some of the warmest January temperatures anywhere on mainland Britain.|El Monte de San Miguel, una pequeña isla de marea frente a la costa coronada por un castillo medieval, se une al continente por una calzada empedrada que solo emerge con la marea baja: un lugar hermano del Mont-Saint-Michel francés, concedido a la misma orden benedictina por un rey inglés del siglo XI. La corriente del Golfo mantiene aquí inviernos tan suaves que palmeras y otras plantas subtropicales crecen al aire libre en el paseo marítimo.|Le mont Saint-Michel de Cornouailles, petite île de marée au large couronnée d'un château médiéval, se relie au continent par une chaussée pavée qui n'émerge qu'à marée basse — site jumeau du Mont-Saint-Michel français, concédé au même ordre bénédictin par un roi anglais du XIe siècle. Le Gulf Stream y adoucit les hivers au point que palmiers et autres plantes subtropicales poussent en plein air sur le front de mer.|沖合の小さな島セント・マイケルズ・マウントには中世の城が立ち、石畳の道は引き潮のときだけ現れて本土とつながる。11世紀のイングランド王が同じベネディクト会に寄進した、フランスのモン・サン・ミシェルの姉妹寺院である。メキシコ湾流のおかげでこの町の冬は温暖で、海沿いの遊歩道にはヤシの木をはじめ亜熱帯の植物が屋外で育ち、1月の平均気温はブリテン本土でも屈指の高さになる。",
+    [prop("Tidal Causeway Castle|Castillo de la calzada de marea|Château de la chaussée de marée|潮の道の城", 280, 58),
+     prop("Palm-Lined Seafront Promenade|Paseo marítimo bordeado de palmeras|Promenade du front de mer bordée de palmiers|ヤシ並木の海岸遊歩道", 220, 46)],
   ),
 
   // ---------------------------------------------------------------------
@@ -384,13 +401,13 @@ export const UK_CITIES = {
     [prop("Painted Harbourfront Cottage Row|Hilera de casas pintadas del puerto|Rangée de maisons peintes du front de mer|港沿いの色とりどりの家並み", 280, 58),
      prop("Sheltered Bay Fishing Pier|Muelle pesquero de la bahía resguardada|Jetée de pêche de la baie abritée|風よけの湾の漁港", 220, 46)],
   ),
-  stranraer: city(
-    "Stranraer|Stranraer|Stranraer|スタランレア",
-    -5.02, 54.90, "sc", "coast", "coasttown", "b",
-    "A shortcut to Ireland that a longer road eventually stole|Un atajo a Irlanda que una carretera más larga acabó por robarle|Un raccourci vers l'Irlande finalement volé par une route plus longue|より長い道に奪われた、アイルランドへの近道",
-    "Stranraer grew around ferry crossings at the head of Loch Ryan, the shortest sea gap to Northern Ireland at only about 35 kilometres, which for generations made it the fastest way to travel between Britain and Ireland by rail and boat combined. Ferry operators shifted their main terminal a few kilometres north to Cairnryan in 2011 for deeper water access, leaving Stranraer's old railway pier quiet after more than a century as the town's reason for existing.|Stranraer creció en torno a los cruces de ferri en la cabecera del Loch Ryan, el paso marítimo más corto hacia Irlanda del Norte, de solo unos 35 km, lo que durante generaciones la convirtió en la vía más rápida entre Gran Bretaña e Irlanda combinando tren y barco.|Stranraer s'est développée autour des traversées en ferry à la tête du Loch Ryan, le passage maritime le plus court vers l'Irlande du Nord, à seulement environ 35 km, ce qui en fit pendant des générations la voie la plus rapide entre la Grande-Bretagne et l'Irlande en combinant train et bateau.|スタランレアはロッホ・ライアンの奥、北アイルランドまでわずか約35kmという最短の海路を渡るフェリーの発着地として発展し、何世代にもわたって鉄道と船を乗り継ぐ英国・アイルランド間最速の道であり続けた。フェリー会社は2011年、より深い水域を求めて主要ターミナルを数km北のケアンライアンへ移し、100年以上町の存在理由だったスタランレアの古い鉄道桟橋は静けさに包まれた。",
-    [prop("Loch Ryan Railway Pier|Muelle ferroviario del Loch Ryan|Jetée ferroviaire du Loch Ryan|ロッホ・ライアンの鉄道桟橋", 220, 46),
-     prop("Old Ferry Terminal Waiting Hall|Sala de espera de la vieja terminal de ferris|Hall d'attente de l'ancien terminal de ferry|旧フェリーターミナルの待合所", 180, 38)],
+  cairnryan: city(
+    "Cairnryan|Cairnryan|Cairnryan|ケアンライアン",
+    -5.03, 54.96, "sc", "coast", "coasttown", "b",
+    "A wartime harbour built to stay out of the bombers' reach|Un puerto de guerra construido para quedar fuera del alcance de los bombarderos|Un port de guerre bâti pour rester hors de portée des bombardiers|爆撃機の射程外に築かれた戦時中の港",
+    "The Ministry of War Transport built a new deep-water harbour and a 13-kilometre military railway here from 1941, choosing Loch Ryan because its sheltered waters sat safely out of range of bombers hunting the shipyards on the Clyde. That same deep water is why ferry operators shifted their main Belfast crossing here from neighbouring Stranraer in 2011, a few kilometres south, once ships grew too large for the old harbour to take.|El Ministerio de Transporte de Guerra construyó aquí un nuevo puerto de aguas profundas y un ferrocarril militar de 13 km desde 1941, eligiendo el Loch Ryan porque sus aguas resguardadas quedaban fuera del alcance de los bombarderos que buscaban los astilleros del Clyde.|Le ministère des Transports de guerre bâtit ici à partir de 1941 un nouveau port en eau profonde et une voie ferrée militaire de 13 km, choisissant le Loch Ryan parce que ses eaux abritées étaient hors de portée des bombardiers visant les chantiers navals de la Clyde.|戦時輸送省は1941年から、ここに新たな深水港と13kmの軍用鉄道を築いた。ロッホ・ライアンを選んだのは、その守られた水域がクライド川の造船所を狙う爆撃機の射程外にあったからである。同じ深い水域という理由で、2011年、フェリー会社は数km南の隣町スタランレアからベルファスト行きの主要航路をここへ移した。船が大型化し、旧来の港では受け入れきれなくなったためである。",
+    [prop("Wartime Military Railway Halt|Apeadero del ferrocarril militar de guerra|Halte du chemin de fer militaire de guerre|戦時軍用鉄道の停車場", 220, 46),
+     prop("Belfast Ferry Terminal Berth|Atracadero de la terminal del ferri a Belfast|Poste d'amarrage du terminal de ferry vers Belfast|ベルファスト行きフェリーターミナルの岸壁", 180, 38)],
   ),
 
   // ---------------------------------------------------------------------
@@ -420,13 +437,13 @@ export const UK_CITIES = {
     [prop("Hexagonal Basalt Column Field|Campo de columnas basálticas hexagonales|Champ de colonnes basaltiques hexagonales|六角形玄武岩柱の広場", 300, 62),
      prop("Old Distillery Malting Floor|Sala de malteado de la vieja destilería|Salle de maltage de la vieille distillerie|旧蒸留所の製麦場", 220, 46)],
   ),
-  mourne: city(
-    "Newcastle, County Down|Newcastle, condado de Down|Newcastle, comté de Down|ニューカッスル(コ・ダウン)",
-    -5.89, 54.21, "ni", "mountain", "highland", "b",
-    "Mountains that \"sweep down to the sea\", and may have swept a wardrobe into a book|Montañas que «bajan hasta el mar» y quizá arrastraron un armario hasta un libro|Des montagnes qui « descendent jusqu'à la mer », peut-être jusque dans un roman|「海へなだれ落ちる」山と、物語に紛れ込んだ衣装だんす",
-    "The Mourne Mountains rise straight from this small resort town to Slieve Donard at 850 metres, the highest peak in Northern Ireland, inspiring the line \"where the Mountains of Mourne sweep down to the Sea\" in a 1896 song that gave the range its enduring image. C. S. Lewis, who spent childhood holidays walking these hills, is widely thought to have drawn on their granite peaks and hidden valleys when imagining the landscape of Narnia.|Los montes Mourne se alzan directamente desde este pequeño pueblo turístico hasta el Slieve Donard, de 850 m, el pico más alto de Irlanda del Norte, e inspiraron el verso «donde los montes Mourne bajan hasta el mar» de una canción de 1896.|Les monts Mourne s'élèvent directement depuis cette petite station balnéaire jusqu'au Slieve Donard, à 850 m, le plus haut sommet d'Irlande du Nord, et inspirèrent le vers « où les monts Mourne descendent jusqu'à la mer » d'une chanson de 1896.|マーン山地はこの小さな行楽地からいきなり立ち上がり、北アイルランド最高峰の標高850mスリーヴ・ドナードへと続く。1896年の歌にある「マーンの山々が海へなだれ落ちるところ」という一節は、この山並みの変わらぬイメージを作った。少年時代の休暇をこの丘で過ごしたC・S・ルイスは、その花崗岩の峰々と隠れた谷をナルニア国の風景の着想源にしたとよく言われる。",
-    [prop("Slieve Donard Granite Ridge Path|Sendero de la cresta de granito del Slieve Donard|Sentier de la crête granitique du Slieve Donard|スリーヴ・ドナードの花崗岩稜線の道", 260, 54),
-     prop("Seaside Resort Bandstand|Quiosco de música del pueblo costero|Kiosque à musique de la station balnéaire|海辺の行楽地の音楽堂", 200, 42)],
+  armagh: city(
+    "Armagh|Armagh|Armagh|アーマー",
+    -6.65, 54.35, "ni", "cathedral", "cathedral", "b",
+    "Two cathedrals on two hills, both claiming to be first in Ireland|Dos catedrales en dos colinas, ambas se dicen primeras de Irlanda|Deux cathédrales sur deux collines, toutes deux se disant premières d'Irlande|二つの丘の二つの大聖堂、どちらも「アイルランド首位」を名乗る",
+    "Saint Patrick is said to have founded a church on this hill around 445, and Armagh has been treated as the ecclesiastical capital of Ireland ever since. Two cathedrals now stand on separate hills in sight of each other, both named St Patrick's and each formally headed by an archbishop styled Primate of All Ireland — one Church of Ireland, one Roman Catholic — and neither is willing to concede the title to the other.|Se dice que san Patricio fundó una iglesia en esta colina hacia el año 445, y desde entonces Armagh se ha tratado como la capital eclesiástica de Irlanda. Hoy dos catedrales se alzan en colinas separadas y a la vista una de otra, ambas llamadas de San Patricio y encabezadas cada una por un arzobispo con el título de Primado de toda Irlanda —una de la Iglesia de Irlanda, otra católica romana—, sin que ninguna ceda el título a la otra.|Saint Patrick aurait fondé une église sur cette colline vers 445, et Armagh est depuis traitée comme la capitale ecclésiastique de l'Irlande. Deux cathédrales se dressent aujourd'hui sur des collines séparées, à vue l'une de l'autre, toutes deux nommées Saint-Patrick et dirigées chacune par un archevêque portant le titre de primat de toute l'Irlande — l'une de l'Église d'Irlande, l'autre catholique romaine —, sans qu'aucune ne cède le titre à l'autre.|聖パトリックは西暦445年頃、この丘に教会を建てたと伝わり、以来アーマーはアイルランドの教会の首都として扱われてきた。いま二つの大聖堂が互いに見渡せる別々の丘に立ち、どちらも「聖パトリック大聖堂」を名乗る。それぞれをアイルランド教会とローマ・カトリックの大主教が率いており、どちらも「アイルランド全島首座大主教」の称号を掲げて譲らない。",
+    [prop("Church of Ireland Cathedral Hill|Colina de la catedral de la Iglesia de Irlanda|Colline de la cathédrale de l'Église d'Irlande|アイルランド教会大聖堂の丘", 280, 58),
+     prop("Twin-Spired Catholic Cathedral|Catedral católica de agujas gemelas|Cathédrale catholique aux flèches jumelles|双塔のカトリック大聖堂", 220, 46)],
   ),
 };
 
@@ -448,6 +465,9 @@ export const UK_CITIES = {
  * - `holyhead-belfast`は418px中88px(21%)が陸をかすめるが、これ以上の
  *   引きかたでも下がらず、実際のホーリーヘッド発フェリーもアングルシー北端を
  *   かすめて出ていくので、韓国盤面の済州航路と同じ理由で残してある。
+ * - `penzance-bristol`は591px中115px(19%)がブリストル海峡沿いの湾をかすめる。
+ *   デヴォン(エクセター・プリマス)に中継駅を置いていないための長距離線で、
+ *   これも同じ理由で残してある。
  */
 export const UK_EDGES = [
   // --- se イングランド南部(ロンドンを中心に) ---
@@ -460,7 +480,10 @@ export const UK_EDGES = [
   ["salisbury", "bath"],
   ["bath", "bristol"],
   ["bristol", "cardiff"],
-  ["brighton", "cowes", "sea"], // 陸に乗る34px(REPORT_PX=60以下)
+  ["london", "portsmouth"],
+  ["cowes", "brighton", "sea"], // 陸に乗る34px(REPORT_PX=60以下)
+  ["portsmouth", "cowes", "sea"], // ポーツマス⇄ワイト島。実在の主要航路(ポーツマス-ライド/フィッシュボーン)
+  ["penzance", "bristol"], // 591px中115px(19%)がブリストル海峡沿いの湾をかすめる。デヴォンの中継駅を置いていないための長距離線。ホーリーヘッド航路と同じ理由で許容
   // --- se-mi・mi中部(West Coast Main Line・グレート・ウェスタン系統) ---
   ["oxford", "stratford"],
   ["stratford", "birmingham"],
@@ -483,34 +506,34 @@ export const UK_EDGES = [
   ["windermere", "newcastle"],
   ["durham", "edinburgh"],
   // --- wa ウェールズ ---
-  ["cardiff", "swansea"], // 陸に乗る0px
+  ["swansea", "cardiff"], // 陸に乗る0px
   ["chester", "conwy"],
   ["conwy", "caernarfon"],
   ["caernarfon", "holyhead"], // 陸路。ブリタニア橋(1850年)で本土とつながる実在の鉄路
-  ["swansea", "stdavids"], // 陸に乗る0px
+  ["stdavids", "swansea"], // 陸に乗る0px
   // --- sc スコットランド(East Coast・West Coast Main Line・West Highland Line) ---
   ["edinburgh", "glasgow"],
-  ["standrews", "edinburgh"], // 陸に乗る28px(REPORT_PX=60以下)
-  ["standrews", "aberdeen"], // 陸に乗る48px(REPORT_PX=60以下)
+  ["edinburgh", "standrews"], // 陸に乗る28px(REPORT_PX=60以下)
+  ["aberdeen", "standrews"], // 陸に乗る48px(REPORT_PX=60以下)
   ["aberdeen", "inverness"],
   ["edinburgh", "inverness"],
   ["glasgow", "fortwilliam"],
   ["fortwilliam", "inverness"],
   ["fortwilliam", "portree"], // 陸路。スカイ橋(1995年)で本土とつながる道
-  ["glasgow", "stranraer"], // 陸に乗る0px
+  ["cairnryan", "glasgow"],
   // --- 航路(アイリッシュ海を渡って北アイルランドへ) ---
-  ["belfast", "holyhead", "sea"], // 418px中88px(21%)がアングルシー北端をかすめる。済州航路と同じ理由で許容
-  ["stranraer", "belfast", "sea"], // 陸に乗る53px(31%)。スタランレアは湾の奥の港なので、これ以上は縮まらない
+  ["holyhead", "belfast", "sea"], // 418px中88px(21%)がアングルシー北端をかすめる。済州航路と同じ理由で許容
+  ["belfast", "cairnryan", "sea"], // 陸に乗る59px(REPORT_PX=60以下)
   // --- ni 北アイルランド ---
   ["belfast", "derry"],
   ["derry", "bushmills"],
-  ["belfast", "mourne"],
+  ["belfast", "armagh"],
   // --- 少し離れた地方をまたぐ補助線(移動の選択肢を増やす) ---
-  ["holyhead", "liverpool"], // 陸に乗る31px(REPORT_PX=60以下)
-  ["bristol", "stdavids"], // 陸に乗る30px(REPORT_PX=60以下)
+  ["liverpool", "holyhead"], // 陸に乗る31px(REPORT_PX=60以下)
+  ["stdavids", "bristol"], // 陸に乗る30px(REPORT_PX=60以下)
   ["nottingham", "york"],
   ["cambridge", "york"],
   ["glasgow", "newcastle"],
   ["cardiff", "birmingham"],
-  ["mourne", "derry"],
+  ["armagh", "derry"],
 ];
