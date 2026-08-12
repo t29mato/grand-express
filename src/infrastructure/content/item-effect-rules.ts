@@ -85,4 +85,15 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   jokbo: { type: "quiz-save" },
   yeopjeon: { type: "gain-cash", amount: 380 },
   ppalli: { type: "extra-turn" },
+
+  // Turkey
+  balon: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  fal: { type: "choose-exact-dice" },
+  mavitren: { type: "roll-fixed-dice", diceCount: 2 },
+  yht: { type: "roll-fixed-dice", diceCount: 3 },
+  nazar: { type: "none" }, // 厄災の神(カラコンジョロス)を退ける護符。持っているだけで効く
+  karacevap: { type: "repel-spirit" },
+  deneme: { type: "quiz-save" },
+  akce: { type: "gain-cash", amount: 380 },
+  dolmus: { type: "extra-turn" },
 };

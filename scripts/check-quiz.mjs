@@ -102,11 +102,25 @@ const ACCEPTED = [
   { c: "france", has: "AOCとは", why: "略号そのものを訊く問題" },
   { c: "france", has: "denim(デニム)", why: "語の由来を訊く問題。綴りが問いの中身" },
   { c: "france", has: "serge de Nîmes", why: "語源になった原語。訳すと答えにならない" },
+  { c: "turkey", has: "turquoise", why: "英語turquoiseの語源を訊く問題。綴りが問いの中身" },
+  { c: "turkey", has: "kiosk", why: "英語kioskの語源を訊く問題。綴りが問いの中身" },
 ];
 /** 答えの漏れのうち、見たうえで漏れではないと判断したもの。 */
 const ACCEPTED_LEAKS = [
   { c: "world", ans: "アフリカ", city: "ダカール", why: "大陸名は世界一周盤面のどのカードにも出る。カードを読んでも答えは分からない" },
   { c: "world", ans: "エチオピア", city: "アディスアベバ", why: "首都と国名の対応は常識の範囲。カードは首都の話しかしていない" },
+  {
+    c: "turkey",
+    ans: "アンカラ",
+    city: "アンカラ",
+    why: "首都そのものを訊く易しい問題。町のカードに書いてあるのは当然で、読んだ人が答えられるのはむしろ狙いどおり",
+  },
+  {
+    c: "turkey",
+    ans: "イスタンブール",
+    city: "ブルサ",
+    why: "ブルサのカードはイスタンブールの名を出すが、人口の多寡もノーベル賞の話も書いていない。答えは分からない",
+  },
 ];
 const accepted = (country, text) =>
   ACCEPTED.find((a) => a.c === country && String(text).includes(a.has));

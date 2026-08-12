@@ -48,6 +48,13 @@ import { WorldExpropriation } from "./world-expropriation";
 import { WorldQuarantine } from "./world-quarantine";
 import { WorldShellGame } from "./world-shell-game";
 import { WorldWrongPort } from "./world-wrong-port";
+import { TurkeyAyakkabi } from "./turkey-ayakkabi";
+import { TurkeyCamyangini } from "./turkey-camyangini";
+import { TurkeyKarakoncolosYolu } from "./turkey-karakoncolos-yolu";
+import { TurkeyLodos } from "./turkey-lodos";
+import { TurkeyMeyhane } from "./turkey-meyhane";
+import { TurkeyTrafik } from "./turkey-trafik";
+import { TurkeyYankesici } from "./turkey-yankesici";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -101,6 +108,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "korea-sanbul": KoreaSanbul,
   "korea-somaechigi": KoreaSomaechigi,
   "korea-taepung": KoreaTaepung,
+  "turkey-ayakkabi": TurkeyAyakkabi,
+  "turkey-camyangini": TurkeyCamyangini,
+  "turkey-karakoncolos-yolu": TurkeyKarakoncolosYolu,
+  "turkey-lodos": TurkeyLodos,
+  "turkey-meyhane": TurkeyMeyhane,
+  "turkey-trafik": TurkeyTrafik,
+  "turkey-yankesici": TurkeyYankesici,
   "world-crossing-the-line": WorldCrossingTheLine,
   "world-customs-shed": WorldCustomsShed,
   "world-devaluation": WorldDevaluation,

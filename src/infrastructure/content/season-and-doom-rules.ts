@@ -357,6 +357,66 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
       { op: "region-income-multiplier", regionId: region("jj"), multiplier: 1.15 },
     ],
   ],
+
+  /**
+   * トルコ。チューリップ(4月) → ヒドゥレルレズ(5月) → さくらんぼ(6月) →
+   * 海岸リゾートの最盛期(7月) → 戦勝記念日・休神(8月) → ブドウの収穫(9月) →
+   * 共和国記念日(10月・最大の祝日) → オリーブ(11月) → 柑橘(12月) →
+   * シェケル・バイラム(1月・給アイテム) → カラコンジョロス・ギュンレリ/寒波
+   * (2月) → ネヴルズ(3月・東部で特に盛ん)、という流れ。
+   * 中央アナトリア(ica)は首都アンカラを含むため、国の祝日でよく上がる。
+   */
+  turkey: [
+    /* 0 Apr チューリップとカッパドキアの好天 */ [
+      { op: "region-income-multiplier", regionId: region("mar"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("ica"), multiplier: 1.15 },
+    ],
+    /* 1 May ヒドゥレルレズ */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("mar"), multiplier: 1.2 },
+    ],
+    /* 2 Jun さくらんぼの収穫 */ [
+      { op: "region-income-multiplier", regionId: region("kar"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("ica"), multiplier: 1.15 },
+    ],
+    /* 3 Jul 海岸リゾートの最盛期 */ [
+      { op: "region-income-multiplier", regionId: region("ege"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("akd"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("ica"), multiplier: 0.85 },
+    ],
+    /* 4 Aug 戦勝記念日と休神 */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "region-income-multiplier", regionId: region("ica"), multiplier: 1.2 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep ブドウの収穫 */ [
+      { op: "region-income-multiplier", regionId: region("mar"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("ege"), multiplier: 1.2 },
+    ],
+    /* 6 Oct 共和国記念日 */ [
+      { op: "all-players-gain-cash", amount: 380 },
+      { op: "region-income-multiplier", regionId: region("ica"), multiplier: 1.25 },
+    ],
+    /* 7 Nov オリーブの収穫 */ [
+      { op: "region-income-multiplier", regionId: region("ege"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("akd"), multiplier: 1.1 },
+    ],
+    /* 8 Dec 柑橘の収穫 */ [
+      { op: "region-income-multiplier", regionId: region("akd"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("ege"), multiplier: 1.1 },
+    ],
+    /* 9 Jan シェケル・バイラム(旧暦のため月は便宜上の固定) */ [{ op: "give-item-to-all" }],
+    /* 10 Feb カラコンジョロス・ギュンレリ(寒波) */ [
+      { op: "all-players-pay-cash", amount: 160 },
+      { op: "region-income-multiplier", regionId: region("dogu"), multiplier: 0.75 },
+      { op: "region-income-multiplier", regionId: region("kar"), multiplier: 0.85 },
+    ],
+    /* 11 Mar ネヴルズ(春分) */ [
+      { op: "all-players-gain-cash", amount: 200 },
+      { op: "region-income-multiplier", regionId: region("dogu"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("ica"), multiplier: 1.1 },
+    ],
+  ],
 };
 
 /**
@@ -420,4 +480,13 @@ export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>>
   hoesikgap: "payOthers",
   "dokkaebi-gil": "teleport",
   somaechigi: "steal",
+
+  // Turkey
+  ayakkabi: "fine",
+  lodos: "percentLoss",
+  trafik: "skipTurn",
+  camyangini: "loseProperties",
+  meyhane: "payOthers",
+  "karakoncolos-yolu": "teleport",
+  yankesici: "steal",
 };
