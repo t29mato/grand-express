@@ -335,31 +335,42 @@ const MALAYSIA_BASE_BG = {
   /** マラッカ専用。アファモサ要塞の門とオランダ広場の赤い建物、河畔。 */
   afamosa:
     sky("#8fc4e8", "#cfe4f0", 128) +
-    clouds(90, 26, 1) +
+    clouds(90, 26, 1) + clouds(300, 18, 0.7) +
     ground(128, "#9ab35a") +
     // アファモサ要塞の石門(左)
     stoneGate(56, 176, 60, 66, "#9a8f78") +
     `<g fill="#7a7060">${Array.from({ length: 5 }).map((_, i) => `<rect x="${34 + i * 10}" y="${168 - (i % 2) * 4}" width="8" height="6"/>`).join("")}</g>` +
+    // 石門の苔と蔦(古さを示す)
+    `<g fill="#5f8f4a" opacity=".7"><ellipse cx="40" cy="128" rx="6" ry="10"/><ellipse cx="76" cy="122" rx="5" ry="9"/></g>` +
     // オランダ統治時代の赤い建物(スタダイス、右)
     `<rect x="280" y="120" width="90" height="56" fill="#a8402e"/>` +
     `<g fill="#f6efe2"><rect x="292" y="132" width="12" height="16"/><rect x="312" y="132" width="12" height="16"/><rect x="332" y="132" width="12" height="16"/><rect x="352" y="132" width="12" height="16"/></g>` +
     `<rect x="278" y="118" width="94" height="6" fill="#7a2a1f"/>` +
-    // ジョンカー通りのランタン(石門と建物のあいだ、手前)
-    `<g fill="#e8443f" opacity=".85"><ellipse cx="200" cy="150" rx="6" ry="8"/><ellipse cx="220" cy="146" rx="5" ry="7"/></g>` +
+    // プラナカン風タイルの装飾帯(スタダイス下)
+    `<g fill="#f4c430" opacity=".8">${[286, 302, 318, 334, 350].map((x) => `<rect x="${x}" y="174" width="8" height="4"/>`).join("")}</g>` +
+    // 時計塔(スタダイス右手前)
+    `<rect x="364" y="96" width="10" height="24" fill="#a8402e"/><circle cx="369" cy="94" r="8" fill="#f6efe2" stroke="#7a2a1f" stroke-width="1.4"/><path d="M369,94v-5M369,94h4" stroke="#241a10" stroke-width="1"/>` +
+    // ジョンカー通りのランタン(石門と建物のあいだ、手前の通りに連なる)
+    `<path d="M150,140q30,-16 60,0q30,-16 60,0" fill="none" stroke="#5a4630" stroke-width="1"/>` +
+    `<g fill="#e8443f" opacity=".85"><ellipse cx="150" cy="146" rx="5" ry="7"/><ellipse cx="180" cy="132" rx="5" ry="7"/><ellipse cx="210" cy="146" rx="5" ry="7"/><ellipse cx="240" cy="132" rx="5" ry="7"/><ellipse cx="270" cy="146" rx="5" ry="7"/></g>` +
+    // 手押し車のトライショー(手前の広場)
+    `<g><circle cx="120" cy="196" r="6" fill="none" stroke="#4a4a52" stroke-width="1.4"/><rect x="112" y="182" width="16" height="10" rx="2" fill="#7fae5a"/><g fill="#e8443f"><circle cx="116" cy="180" r="2"/><circle cx="124" cy="180" r="2"/></g></g>` +
     // マラッカ川と伝統的な小舟(手前いっぱいまで水面)
     band(176, 34, "#2a95af") +
-    ripples(184, "#bfe8f4") +
+    ripples(184, "#bfe8f4") + ripples(198, "#9fd0e4") +
     `<path d="M150,194c6,-4 40,-4 46,0l-4,6h-38z" fill="#c9714a"/><path d="M172,194v-14" stroke="#5a4630" stroke-width="2"/>` +
+    `<path d="M300,198c5,-3 24,-3 29,0l-3,5h-23z" fill="#e8dcc0"/>` +
     gull(240, 40, 0.8) + gull(30, 46, 0.7),
 
   /** クチン専用。猫の像と川辺の遊歩道、フォート・マルガリータ。 */
   catstatue:
     sky("#8fc4e8", "#cfe4f0", 132) +
-    clouds(60, 28, 0.9) +
+    clouds(60, 28, 0.9) + clouds(340, 18, 0.7) +
     ground(132, "#4a8f3f") +
     // フォート・マルガリータ(対岸の丘、右奥)
     `<path d="M300,132c0,-24 60,-24 60,0z" fill="#7a9068" opacity=".8"/>` +
     `<rect x="322" y="96" width="16" height="36" fill="#e8dcc0"/><path d="M322,96h16l-8,-10z" fill="#c9714a"/>` +
+    `<g fill="#5a4a3a" opacity=".85"><rect x="326" y="106" width="4" height="6"/><rect x="334" y="106" width="4" height="6"/></g>` +
     // サラワク川と伝統的な渡し船(プラフ)
     band(132, 40, "#2a95af") +
     ripples(140, "#bfe8f4") + ripples(155, "#9fd0e4") +
@@ -368,18 +379,31 @@ const MALAYSIA_BASE_BG = {
     ground(172, "#c9c0a8") +
     catStatue(140, 200, 2.2) +
     catStatue(320, 196, 1.4) +
+    // 小さい子猫の像(親子で並ぶ)
+    catStatue(90, 204, 0.9) +
     palmTree(230, 200, 44) +
-    gull(200, 36, 0.8) + gull(30, 44, 0.7),
+    // ボードウォークの手すり
+    `<g fill="#9a7b4a" opacity=".85"><rect x="10" y="200" width="30" height="3"/><rect x="360" y="200" width="30" height="3"/></g>` +
+    gull(200, 36, 0.8) + gull(30, 44, 0.7) + gull(280, 40, 0.6),
 
   /** コタキナバル専用。キナバル山と海沿いの漁村。 */
   mountain:
     sky("#7cb8e0", "#e8c890", 132) +
-    clouds(300, 26, 0.9) + clouds(70, 18, 0.7) +
+    clouds(300, 26, 0.9) + clouds(70, 18, 0.7) + clouds(160, 14, 0.6) +
     granitePeak(200, 132, 110, "#8f8a80") +
+    // 花崗岩の岩肌の縦筋(浸食の溝)
+    `<g stroke="#7a7568" stroke-width="1.4" opacity=".7"><path d="M180,110q-4,10 -8,22M220,108q4,10 8,22M200,60q0,14 0,28"/></g>` +
+    // 登拝路のロープと標識(頂上直下の岩場を斜めに横切る)
+    `<path d="M172,96q14,10 30,16" fill="none" stroke="#f6efe2" stroke-width="1.4" opacity=".85"/>` +
+    `<g fill="#e8443f" opacity=".9"><circle cx="180" cy="100" r="2"/><circle cx="196" cy="108" r="2"/><circle cx="202" cy="112" r="2"/></g>` +
+    // 頂上の雲海(峰の中腹を帯状に覆う)
+    `<g fill="#f6efe2" opacity=".55"><ellipse cx="150" cy="118" rx="46" ry="9"/><ellipse cx="250" cy="122" rx="50" ry="10"/><ellipse cx="200" cy="126" rx="36" ry="8"/></g>` +
     // 山裾の雨林
     `<path d="M60,132c40,-20 260,-20 300,0v10H60z" fill="#2f6a30"/>` +
     ground(132, "#2f6a30") +
     `<g fill="#245a26" opacity=".8">${[100, 300].map((x) => `<path d="M${x - 14},132q14,-18 28,0z"/>`).join("")}</g>` +
+    // ウツボカズラ(キナバル固有種を思わせる、壺形の食虫植物)
+    `<g>${[70, 340].map((x) => `<path d="M${x},178c-4,-2 -6,-8 -3,-13c3,-4 9,-4 12,0c3,5 1,11 -3,13z" fill="#8a3a2a" stroke="#5a2010" stroke-width="1"/><ellipse cx="${x + 4.5}" cy="163" rx="5" ry="2" fill="#7a4a2a"/><path d="M${x},178q-1,8 -6,10" stroke="#3f7a3a" stroke-width="2" fill="none"/>`).join("")}</g>` +
     // 海と漁船
     band(160, 38, "#14788f") +
     ripples(168, "#bfe8f4") + ripples(178, "#9fd0e4") +
@@ -402,21 +426,32 @@ const MALAYSIA_BASE_BG = {
     ground(190, "#e8dcc0") +
     palmTree(40, 190, 42) + palmTree(340, 194, 38) + palmTree(200, 200, 30) +
     `<g fill="#f6efe2" opacity=".9"><ellipse cx="290" cy="200" rx="16" ry="5"/></g>` +
-    gull(150, 34, 0.8) + gull(250, 40, 0.7),
+    // ビーチチェアとパラソル
+    `<g><path d="M320,180a14,14 0 0 1 28,0z" fill="#e8443f"/><rect x="333" y="180" width="2" height="18" fill="#5a4630"/></g>` +
+    `<g fill="#f6efe2" opacity=".85"><rect x="110" y="196" width="20" height="4"/><rect x="112" y="192" width="16" height="4"/></g>` +
+    // 貝殻(手前)
+    `<g fill="#e8dcc0" opacity=".9"><path d="M20,204q4,-6 8,0z"/><path d="M370,206q4,-6 8,0z"/></g>` +
+    gull(150, 34, 0.8) + gull(250, 40, 0.7) + gull(50, 44, 0.6),
 
   /** プトラジャヤ・シャーアラム専用。バラ色/青のドームを持つ巨大モスクと湖。 */
   government:
     sky("#8fc4e8", "#cfe4f0", 140) +
-    clouds(90, 26, 1) +
+    clouds(90, 26, 1) + clouds(320, 18, 0.7) +
     ground(140, "#7fae5a") +
     mosqueDome(200, 140, 46, "#e8b0a0", "#8a3a2a") +
     `<g fill="#8a3a2a" opacity=".8">${[120, 280].map((x) => `<rect x="${x - 3}" y="70" width="6" height="70"/><path d="M${x - 4},70a4,4 0 0 1 8,0z"/>`).join("")}</g>` +
+    `<g fill="#f6efe2" opacity=".7">${[117, 277].flatMap((x) => [0, 1, 2].map((r) => `<rect x="${x}" y="${84 + r * 16}" width="6" height="6"/>`)).join("")}</g>` +
+    // 政府庁舎(遠景、対称に2棟)
+    `<g fill="#f6efe2" opacity=".85"><rect x="60" y="110" width="34" height="30"/><rect x="306" y="110" width="34" height="30"/></g>` +
     band(176, 22, "#3f8fc4") +
-    ripples(182, "#bfe8f4") +
+    ripples(182, "#bfe8f4") + ripples(190, "#9fd0e4") +
     `<path d="M140,176c20,-8 100,-8 120,0" fill="none" stroke="#e8dcc0" stroke-width="6"/>` +
+    `<g fill="#c9a877" opacity=".8"><rect x="196" y="172" width="4" height="10"/><rect x="200" y="172" width="4" height="10"/></g>` +
     ground(196, "#8ba85a") +
     palmTree(40, 196, 34) + palmTree(360, 200, 30) +
-    gull(220, 40, 0.8) + gull(60, 34, 0.7),
+    // 花壇
+    `<g fill="#e8443f" opacity=".85"><circle cx="150" cy="200" r="2.4"/><circle cx="160" cy="204" r="2.4"/><circle cx="250" cy="202" r="2.4"/></g>` +
+    gull(220, 40, 0.8) + gull(60, 34, 0.7) + gull(300, 44, 0.6),
 
   /** プタリンジャヤ・スパン専用。現代的な住宅街と高速道路。 */
   suburb:
@@ -435,14 +470,21 @@ const MALAYSIA_BASE_BG = {
   /** アロースター専用。ケダの田んぼとタワー、モスク。 */
   ricefield:
     sky("#8fc4e8", "#e8c890", 130) +
-    clouds(320, 24, 0.8) +
+    clouds(320, 24, 0.8) + clouds(60, 18, 0.7) +
     ground(130, "#c8d46a") +
     mosqueDome(90, 154, 22, "#f2f0e8", "#d4a017") +
     `<rect x="292" y="60" width="10" height="94" fill="#c9c0a8"/><ellipse cx="297" cy="58" rx="14" ry="7" fill="#8f96a0"/>` +
+    `<g fill="#e8dcc0" opacity=".7">${[64, 78, 100, 112].map((y) => `<rect x="293" y="${y}" width="8" height="4"/>`).join("")}</g>` +
     `<g stroke="#a8b850" stroke-width="1.6" opacity=".85">${Array.from({ length: 9 }).map((_, i) => `<path d="M${20 + i * 42},210v-40"/>`).join("")}</g>` +
     `<g stroke="#7a8f4a" stroke-width="1.2" opacity=".7">${Array.from({ length: 4 }).map((_, i) => `<line x1="0" y1="${140 + i * 16}" x2="400" y2="${140 + i * 16}"/>`).join("")}</g>` +
+    // 水牛
+    `<g fill="#5a5a5a"><ellipse cx="150" cy="170" rx="14" ry="8"/><circle cx="164" cy="164" r="6"/><path d="M160,158q-2,-6 2,-8M168,158q2,-6 -2,-8" stroke="#3a3a3a" stroke-width="1.4" fill="none"/><rect x="142" y="176" width="3" height="10"/><rect x="156" y="176" width="3" height="10"/></g>` +
     ground(190, "#9a8f70") +
-    gull(150, 40, 0.8) + gull(250, 34, 0.7),
+    // 束ねた稲わら
+    `<g fill="#d4a017" opacity=".85"><ellipse cx="60" cy="200" rx="10" ry="6"/><ellipse cx="340" cy="204" rx="12" ry="6"/></g>` +
+    // 案山子(スケアクロウ)
+    `<g stroke="#8a6a4a" stroke-width="2"><path d="M230,206v-24M218,190h24"/></g><circle cx="230" cy="178" r="5" fill="#e8dcc0"/><rect x="222" y="184" width="16" height="4" fill="#7fae5a"/>` +
+    gull(150, 40, 0.8) + gull(250, 34, 0.7) + gull(30, 46, 0.6),
 
   /** タイピン専用。植民地時代の建物と湖畔庭園。 */
   "colonial-museum":
@@ -459,7 +501,11 @@ const MALAYSIA_BASE_BG = {
     roundTreeFallback(50, 190, 26) + roundTreeFallback(350, 194, 24) + roundTreeFallback(100, 198, 16) +
     ground(190, "#8ba85a") +
     `<g fill="#e8443f" opacity=".85"><circle cx="120" cy="196" r="2.4"/><circle cx="280" cy="200" r="2.4"/></g>` +
-    gull(230, 40, 0.8) + gull(30, 46, 0.7),
+    // 廃坑跡の湖畔庭園の池
+    `<ellipse cx="200" cy="202" rx="24" ry="5" fill="#3f8fc4" opacity=".8"/>` +
+    // ベンチ
+    `<g fill="#5a4630"><rect x="60" y="200" width="16" height="3"/><rect x="64" y="203" width="2" height="5"/><rect x="72" y="203" width="2" height="5"/></g>` +
+    gull(230, 40, 0.8) + gull(30, 46, 0.7) + gull(340, 42, 0.6),
 
   /** クアラカンサール専用。金色のドームを持つ王室モスクと川。 */
   "royal-mosque":
@@ -489,9 +535,17 @@ const MALAYSIA_BASE_BG = {
     `<rect x="196" y="60" width="8" height="30" fill="#bfe0f0"/><circle cx="200" cy="58" r="2.4" fill="#d4a017"/>` +
     `<g fill="#8f96a0" opacity=".4"><rect x="270" y="100" width="14" height="38"/><rect x="290" y="94" width="12" height="44"/></g>` +
     `<path d="M60,168c6,-4 26,-4 32,0l-3,6H63z" fill="#c9714a"/><path d="M76,168v-10" stroke="#5a4630" stroke-width="1.2"/>` +
+    // ドゥヨン島の造船小屋(半完成の木造船)
+    `<rect x="20" y="140" width="30" height="20" fill="#e8dcc0" opacity=".8"/><path d="M18,140h34l-8,-10h-18z" fill="#9a7b4a"/>` +
+    `<path d="M24,158c4,-8 18,-8 22,0z" fill="none" stroke="#8a6a4a" stroke-width="1.6"/>` +
     ground(178, "#c9c0a8") +
     `<g fill="#e8dcc0" opacity=".8"><rect x="100" y="182" width="20" height="4"/><rect x="290" y="186" width="24" height="4"/></g>` +
-    gull(300, 40, 0.8) + gull(340, 34, 0.7),
+    // 睡蓮(川面の浮き草)
+    `<g fill="#5f9f4a" opacity=".7"><ellipse cx="130" cy="160" rx="8" ry="3"/><ellipse cx="340" cy="168" rx="7" ry="3"/></g>` +
+    // 河岸のヤシと桟橋の柵
+    palmTree(370, 176, 26) +
+    `<g fill="#9a7b4a" opacity=".85"><rect x="200" y="186" width="24" height="3"/><rect x="204" y="189" width="2" height="6"/><rect x="218" y="189" width="2" height="6"/></g>` +
+    gull(300, 40, 0.8) + gull(340, 34, 0.7) + gull(20, 46, 0.6),
 
   /** コタバル専用。市場の露店と大きなワウ凧。 */
   "batik-kite":
@@ -511,7 +565,11 @@ const MALAYSIA_BASE_BG = {
     `<g fill="#7fae5a" opacity=".8">${[132, 172, 212, 252].map((x) => `<circle cx="${x + 15}" cy="126" r="3"/>`).join("")}</g>` +
     ground(184, "#b8ac8e") +
     `<g fill="#9a8f70" opacity=".8"><ellipse cx="200" cy="196" rx="14" ry="4"/><ellipse cx="300" cy="200" rx="10" ry="3"/></g>` +
-    gull(340, 40, 0.8) + gull(30, 46, 0.7),
+    // 手前のバティック染めの布地(乾かして並べる)
+    `<g fill="#e8443f" opacity=".8"><rect x="30" y="198" width="16" height="10"/></g><g fill="#f4c430" opacity=".8"><rect x="50" y="198" width="16" height="10"/></g>` +
+    // 天秤棒を担ぐ売り子
+    `<g><circle cx="350" cy="184" r="4" fill="#d9a273"/><rect x="346" y="188" width="8" height="10" fill="#5b8fe8"/></g><rect x="338" y="182" width="24" height="1.6" fill="#8a6a4a"/>` +
+    gull(340, 40, 0.8) + gull(30, 46, 0.7) + gull(180, 42, 0.6),
 
   /** キャメロンハイランド専用。段々の茶畑と霧。 */
   "hillstation-tea":
@@ -521,9 +579,16 @@ const MALAYSIA_BASE_BG = {
     terraceRows(120, 200, 180, 9, "#3f7a3a") +
     terraceRows(300, 190, 140, 7, "#4a8a44") +
     `<rect x="330" y="150" width="30" height="20" fill="#e8dcc0"/><path d="M328,150h34l-17,-14z" fill="#c9714a"/>` +
+    `<g fill="#5b8fe8" opacity=".7"><rect x="338" y="158" width="6" height="6"/><rect x="350" y="158" width="6" height="6"/></g>` +
     `<g fill="#f6efe2" opacity=".7"><ellipse cx="90" cy="150" rx="40" ry="10"/><ellipse cx="250" cy="130" rx="30" ry="8"/></g>` +
+    // 茶摘みの籠を背負う人影(小さく)
+    `<g><circle cx="60" cy="176" r="4" fill="#d9a273"/><rect x="56" y="180" width="8" height="12" fill="#e8443f"/><ellipse cx="60" cy="188" rx="6" ry="4" fill="#8a6a4a"/></g>` +
+    `<g><circle cx="200" cy="168" r="4" fill="#d9a273"/><rect x="196" y="172" width="8" height="12" fill="#7fae5a"/></g>` +
+    // イチゴ畑の畝(手前)
+    `<g stroke="#8a6a4a" stroke-width="3" opacity=".8"><path d="M40,196h60M40,204h60"/></g>` +
+    `<g fill="#e8443f" opacity=".85"><circle cx="50" cy="196" r="2"/><circle cx="70" cy="204" r="2"/><circle cx="90" cy="196" r="2"/></g>` +
     ground(200, "#4a8a44") +
-    gull(60, 40, 0.8),
+    gull(60, 40, 0.8) + gull(280, 34, 0.7),
 
   /** ゲンティンハイランド専用。雲の上のロープウェイとリゾート。 */
   "hillstation-casino":
@@ -535,9 +600,13 @@ const MALAYSIA_BASE_BG = {
     `<g fill="#8f96a0">${[180, 210, 240].map((x, i) => `<rect x="${x}" y="${80 - i * 8}" width="20" height="${70 + i * 8}"/>`).join("")}</g>` +
     `<g fill="#f4c430" opacity=".7">${[186, 216, 246].flatMap((x) => [0, 1, 2].map((r) => `<rect x="${x + 3}" y="${100 + r * 16}" width="6" height="8"/>`)).join("")}</g>` +
     `<g fill="#5b8fe8" opacity=".6">${[144].flatMap(() => [0, 1, 2, 3].map((r) => `<rect x="142" y="${76 + r * 16}" width="6" height="8"/>`)).join("")}</g>` +
+    // 遊園地の観覧車(小さく)
+    `<circle cx="330" cy="130" r="18" fill="none" stroke="#8f96a0" stroke-width="2"/><g fill="#e8443f">${[0, 60, 120, 180, 240, 300].map((a) => `<circle cx="${330 + 18 * Math.cos((a * Math.PI) / 180)}" cy="${130 + 18 * Math.sin((a * Math.PI) / 180)}" r="2.4"/>`).join("")}</g>` +
     ground(150, "#3f6a3f") +
     `<g fill="#2f5a2f" opacity=".8">${[40, 370].map((x) => `<path d="M${x - 10},150q10,-18 20,0z"/>`).join("")}</g>` +
-    gull(100, 40, 0.8) + gull(300, 34, 0.7),
+    // 遊歩道の街灯
+    `<g fill="#5a5a5a"><rect x="90" y="140" width="3" height="10"/><rect x="260" y="140" width="3" height="10"/></g>` +
+    gull(100, 40, 0.8) + gull(300, 34, 0.7) + gull(200, 44, 0.6),
 
   /** タマンヌガラ専用。木々のあいだのキャノピーウォークと熱帯雨林。 */
   "rainforest-canopy":
@@ -552,7 +621,11 @@ const MALAYSIA_BASE_BG = {
     `<g fill="#c9a877" opacity=".9"><circle cx="120" cy="126" r="3"/><circle cx="280" cy="128" r="3"/></g>` +
     ground(190, "#3f7a3a") +
     `<g fill="#7fae5a" opacity=".8">${[30, 100, 300, 370].map((x) => `<path d="M${x - 6},200q6,-14 12,0z"/>`).join("")}</g>` +
-    gull(200, 40, 0.8) + gull(320, 34, 0.7),
+    // 巨大な板根(バットレスルート)
+    `<path d="M60,210q-4,-14 4,-20q4,10 2,20z" fill="#1e4a20"/><path d="M340,210q4,-14 -4,-20q-4,10 -2,20z" fill="#1e4a20"/>` +
+    // 蔓草
+    `<g stroke="#5f9f4a" stroke-width="1.4" fill="none" opacity=".8"><path d="M160,70q-4,30 4,60"/><path d="M260,80q6,26 -2,50"/></g>` +
+    gull(200, 40, 0.8) + gull(320, 34, 0.7) + gull(50, 44, 0.6),
 
   /** セレンバン専用。鞍形屋根のミナンカバウ様式建築。 */
   minangkabau:
@@ -562,31 +635,47 @@ const MALAYSIA_BASE_BG = {
     `<rect x="150" y="110" width="100" height="30" fill="#e8dcc0"/>` +
     `<path d="M150,110c0,-20 10,-30 20,-30c-4,10 0,18 10,18c-6,-14 4,-24 20,-24c-6,12 2,20 12,20c-4,-12 8,-22 20,-22c10,0 18,10 18,26c0,4 -4,10 -8,12z" fill="#8a3a2a"/>` +
     `<g fill="#c9714a"><rect x="164" y="118" width="10" height="16"/><rect x="188" y="118" width="10" height="16"/><rect x="212" y="118" width="10" height="16"/><rect x="236" y="118" width="10" height="16"/></g>` +
+    `<g fill="#f6efe2" opacity=".85"><rect x="166" y="120" width="6" height="8"/><rect x="190" y="120" width="6" height="8"/><rect x="214" y="120" width="6" height="8"/><rect x="238" y="120" width="6" height="8"/></g>` +
     `<rect x="146" y="138" width="108" height="4" fill="#c9a877"/>` +
     `<g fill="#8a3a2a" opacity=".85"><circle cx="170" cy="106" r="2"/><circle cx="200" cy="102" r="2"/><circle cx="230" cy="106" r="2"/></g>` +
+    // 高床の柱
+    `<g fill="#8a6a4a"><rect x="160" y="140" width="6" height="14"/><rect x="234" y="140" width="6" height="14"/></g>` +
+    // 隣接する小さな米倉(同じ鞍形屋根の縮小版)
+    `<rect x="60" y="128" width="40" height="16" fill="#e8dcc0"/><path d="M56,128c0,-8 6,-14 8,-14c-2,4 0,8 4,8c-2,-6 2,-10 8,-10c-2,4 0,8 4,8c0,-4 4,-8 8,-8c4,0 8,4 8,10c0,2 -2,6 -4,6z" fill="#8a3a2a"/>` +
     ground(188, "#8ba85a") +
     roundTreeFallback(60, 190, 24) + roundTreeFallback(340, 194, 22) + roundTreeFallback(100, 198, 16) +
     `<g fill="#e8443f" opacity=".8"><circle cx="80" cy="196" r="2.4"/><circle cx="90" cy="200" r="2.4"/></g>` +
-    gull(230, 40, 0.8) + gull(30, 44, 0.7),
+    // 手前の水牛の角(ミナンカバウの語源、装飾として)
+    `<g stroke="#5a4a3a" stroke-width="2" fill="none" opacity=".7"><path d="M310,200q-8,-14 -2,-20M330,200q8,-14 2,-20"/></g>` +
+    // 手前の階段と手すり
+    `<g fill="#c9a877"><rect x="192" y="150" width="16" height="4"/><rect x="192" y="156" width="16" height="4"/></g>` +
+    `<g fill="#5a4a3a" opacity=".8"><rect x="20" y="200" width="14" height="4"/><rect x="366" y="202" width="14" height="4"/></g>` +
+    gull(230, 40, 0.8) + gull(30, 44, 0.7) + gull(150, 46, 0.6),
 
   /** ジョホールバル専用。近代的な高層ビルとコーズウェイ、モスク。 */
   "causeway-city":
     sky("#8fc4e8", "#cfe4f0", 128) +
-    clouds(60, 26, 0.9) +
+    clouds(60, 26, 0.9) + clouds(340, 18, 0.7) +
     ground(128, "#7fae5a") +
     `<g fill="#8f96a0">${[40, 70, 320, 350].map((x, i) => `<rect x="${x}" y="${70 - (i % 2) * 16}" width="24" height="${60 + (i % 2) * 16}"/>`).join("")}</g>` +
+    `<g fill="#bfe0f0" opacity=".6">${[46, 76, 326, 356].flatMap((x) => [0, 1, 2].map((r) => `<rect x="${x + 4}" y="${86 + r * 14}" width="6" height="6"/>`)).join("")}</g>` +
     mosqueDome(200, 128, 24, "#f6efe2", "#3a5a30") +
+    `<rect x="180" y="104" width="6" height="16" fill="#f6efe2" stroke="#3a5a30" stroke-width="1"/><rect x="214" y="104" width="6" height="16" fill="#f6efe2" stroke="#3a5a30" stroke-width="1"/>` +
     band(160, 20, "#2a95af") +
-    ripples(166, "#bfe8f4") +
+    ripples(166, "#bfe8f4") + ripples(174, "#9fd0e4") +
     `<rect x="0" y="180" width="400" height="8" fill="#c9c0a8"/>` +
     `<g fill="#5a5a5a">${Array.from({ length: 8 }).map((_, i) => `<rect x="${16 + i * 48}" y="184" width="4" height="10"/>`).join("")}</g>` +
+    // 検問所のゲート(コーズウェイの入口)
+    `<g fill="#8a8478"><rect x="90" y="168" width="6" height="14"/><rect x="106" y="168" width="6" height="14"/></g><rect x="88" y="166" width="26" height="4" fill="#e8443f"/>` +
     ground(196, "#8ba85a") +
-    gull(150, 40, 0.8) + gull(260, 34, 0.7),
+    // 手前の並木
+    roundTreeFallback(50, 200, 18) + roundTreeFallback(350, 202, 16) +
+    gull(150, 40, 0.8) + gull(260, 34, 0.7) + gull(30, 46, 0.6),
 
   /** ムアル・シブ・リンバン専用。川辺のショップハウスと渡し船。 */
   rivertown:
     sky("#8fc4e8", "#cfe4f0", 116) +
-    clouds(340, 22, 0.8) +
+    clouds(340, 22, 0.8) + clouds(60, 18, 0.7) +
     ground(116, "#c9c0a8") +
     shophouseRow([
       [40, 116, 30, 44, "#e8a020", "#f6efe2"],
@@ -594,11 +683,16 @@ const MALAYSIA_BASE_BG = {
       [300, 116, 30, 44, "#5b8fe8", "#f6efe2"],
       [340, 116, 26, 38, "#e8443f", "#f6efe2"],
     ]) +
+    // 川に沿った倉庫(木材集積場を思わせる)
+    `<rect x="120" y="130" width="60" height="30" fill="#8a7050"/><path d="M116,130h68l-10,-10h-48z" fill="#5a4630"/>` +
+    `<g fill="#9a7b4a" opacity=".85"><rect x="200" y="150" width="40" height="6"/><rect x="200" y="158" width="40" height="6"/></g>` +
     ground(160, "#b8ac8e") +
     band(172, 30, "#2a95af") +
-    ripples(178, "#bfe8f4") +
+    ripples(178, "#bfe8f4") + ripples(190, "#9fd0e4") +
     `<path d="M150,196c6,-4 40,-4 46,0l-4,6h-38z" fill="#c9714a"/><path d="M172,196v-14" stroke="#5a4630" stroke-width="2"/>` +
-    gull(240, 40, 0.8) + gull(30, 44, 0.7),
+    // 貨物船(木材輸送)
+    `<path d="M260,192c8,-4 46,-4 54,0l-4,7h-46z" fill="#8f96a0"/><rect x="272" y="182" width="30" height="8" fill="#9a7b4a"/>` +
+    gull(240, 40, 0.8) + gull(30, 44, 0.7) + gull(340, 42, 0.6),
 
   /** メルシン専用。桟橋と底引き網漁船。 */
   "fishing-jetty":
@@ -614,7 +708,11 @@ const MALAYSIA_BASE_BG = {
     `<rect x="0" y="190" width="400" height="6" fill="#9a7b4a"/>` +
     `<g fill="#5a4630">${Array.from({ length: 8 }).map((_, i) => `<rect x="${10 + i * 50}" y="196" width="4" height="10"/>`).join("")}</g>` +
     `<g fill="#f4c430" opacity=".8"><rect x="330" y="180" width="14" height="10"/><rect x="348" y="184" width="12" height="6"/></g>` +
-    gull(150, 40, 0.8) + gull(340, 34, 0.7) + gull(200, 44, 0.6),
+    // 網を積んだ荷台と浮き
+    `<g fill="#e8443f" opacity=".8"><circle cx="100" cy="188" r="3"/><circle cx="108" cy="190" r="3"/><circle cx="116" cy="188" r="3"/></g>` +
+    // 灯台
+    `<rect x="380" y="140" width="8" height="40" fill="#f6efe2" stroke="#e8443f" stroke-width="1.4"/><path d="M378,140h12l-6,-8z" fill="#e8443f"/>` +
+    gull(150, 40, 0.8) + gull(340, 34, 0.7) + gull(200, 44, 0.6) + gull(280, 38, 0.5),
 
   /** ミリ専用。石油掘削やぐらとヤシ。 */
   oilderrick:
@@ -630,12 +728,18 @@ const MALAYSIA_BASE_BG = {
     ripples(180, "#bfe8f4") +
     ground(196, "#c9c0a8") +
     `<g fill="#5a4630" opacity=".8"><rect x="150" y="200" width="4" height="8"/><rect x="170" y="200" width="4" height="8"/></g>` +
-    gull(200, 40, 0.8) + gull(280, 34, 0.7),
+    // 貯油タンク(遠景)
+    `<g fill="#8f96a0" opacity=".7"><ellipse cx="360" cy="130" rx="16" ry="6"/><rect x="344" y="118" width="32" height="12"/></g>` +
+    // パイプライン
+    `<rect x="60" y="188" width="80" height="4" fill="#5a5a5a"/><g fill="#8a8478"><rect x="70" y="192" width="3" height="6"/><rect x="120" y="192" width="3" height="6"/></g>` +
+    gull(200, 40, 0.8) + gull(280, 34, 0.7) + gull(60, 44, 0.6),
 
   /** グヌン・ムル専用。洞窟の入り口とコウモリの渦。 */
   caves:
     sky("#7cb8e0", "#cfe4f0", 120) +
-    clouds(330, 20, 0.7) +
+    clouds(330, 20, 0.7) + clouds(60, 16, 0.6) +
+    // カルスト地形の尖峰(遠景)
+    `<g fill="#5a7a5a" opacity=".85">${[30, 350].map((x) => `<path d="M${x - 12},120q6,-40 12,-40q6,0 12,40z"/>`).join("")}</g>` +
     `<path d="M0,120c40,-16 360,-16 400,0v10H0z" fill="#2f6a30"/>` +
     ground(120, "#2f6a30") +
     caveMouth(200, 190, 160, 100, "#6a6558") +
@@ -646,23 +750,34 @@ const MALAYSIA_BASE_BG = {
       const cy = 70 + Math.sin(a) * r * 0.5;
       return `<path d="M${r1(cx)},${r1(cy)}l4,-2l4,2l-4,2z"/>`;
     }).join("")}</g>` +
+    // 洞窟から流れ出す小川(ムル川)
+    `<path d="M180,190q10,10 0,20" fill="none" stroke="#2a95af" stroke-width="6"/>` +
     ground(198, "#8a8478") +
-    gull(60, 40, 0.7),
+    // 木道(トレッキング用)
+    `<rect x="60" y="200" width="80" height="4" fill="#9a7b4a"/><g fill="#5a4630"><rect x="66" y="204" width="3" height="6"/><rect x="90" y="204" width="3" height="6"/><rect x="114" y="204" width="3" height="6"/></g>` +
+    gull(60, 40, 0.7) + gull(340, 34, 0.6),
 
   /** バコ専用。海食柱とテングザル。 */
   seastacks:
     sky("#8fc4e8", "#cfe4f0", 140) +
-    clouds(70, 24, 0.9) + clouds(340, 20, 0.7) +
+    clouds(70, 24, 0.9) + clouds(340, 20, 0.7) + clouds(200, 14, 0.6) +
     ground(140, "#7fae5a") +
     `<g fill="#245a26">${[40, 380].map((x) => `<rect x="${x - 5}" y="106" width="10" height="34"/>`).join("")}</g>` +
+    `<g fill="#1e4a20" opacity=".8">${[40, 380].map((x) => `<ellipse cx="${x}" cy="104" rx="14" ry="8"/>`).join("")}</g>` +
     band(160, 40, "#2a95af") +
     ripples(166, "#bfe8f4") + ripples(182, "#9fd0e4") +
     seaStack(100, 200, 30, 60) + seaStack(150, 202, 20, 40) + seaStack(320, 198, 26, 50) +
     `<g fill="#8a7a5a"><ellipse cx="240" cy="176" rx="10" ry="7"/><circle cx="240" cy="164" r="6"/><path d="M232,158l6,-2l-2,6z" fill="#c9a877"/></g>` +
+    // もう1匹のテングザル(木の枝に座る)
+    `<g fill="#7a4a2a"><ellipse cx="70" cy="120" rx="7" ry="5"/><circle cx="76" cy="112" r="4"/><path d="M78,113q4,1 4,4" stroke="#5a3010" stroke-width="1.4" fill="none"/></g>` +
     `<g fill="#7a4a2a" opacity=".9"><circle cx="60" cy="182" r="5"/><ellipse cx="60" cy="192" rx="4" ry="8"/></g>` +
     ground(198, "#c9c0a8") +
+    // 潮だまり
+    `<g fill="#4f9fd0" opacity=".7"><ellipse cx="120" cy="206" rx="10" ry="3"/></g>` +
     `<g fill="#e8dcc0" opacity=".8"><ellipse cx="200" cy="204" rx="14" ry="3"/><ellipse cx="260" cy="206" rx="10" ry="2.6"/></g>` +
-    gull(300, 40, 0.8) + gull(20, 46, 0.7),
+    // 流木
+    `<rect x="290" y="202" width="26" height="4" rx="2" fill="#8a6a4a"/>` +
+    gull(300, 40, 0.8) + gull(20, 46, 0.7) + gull(180, 42, 0.6),
 
   /** サンダカン専用。雨林とオランウータン、記念公園。 */
   orangutan:
@@ -676,8 +791,14 @@ const MALAYSIA_BASE_BG = {
     `<g fill="#5a3a1f"><ellipse cx="270" cy="96" rx="3" ry="4"/><ellipse cx="290" cy="96" rx="3" ry="4"/></g>` +
     `<rect x="60" y="150" width="18" height="40" fill="#e8dcc0"/><path d="M58,150h22l-11,-12z" fill="#c9714a"/>` +
     `<g fill="#9a8f70" opacity=".85"><rect x="55" y="188" width="28" height="4"/><rect x="52" y="192" width="34" height="3"/></g>` +
+    // 幼いオランウータン(親のそばに小さく)
+    `<g fill="#8a5a3a"><circle cx="252" cy="112" r="6"/><ellipse cx="252" cy="126" rx="5" ry="10"/></g>` +
+    // 戦争墓地の白い十字架の列(小さく、遠景)
+    `<g fill="#f6efe2" opacity=".8">${[180, 195, 210].map((x) => `<rect x="${x}" y="170" width="2" height="8"/><rect x="${x - 2}" y="172" width="6" height="2"/>`).join("")}</g>` +
     ground(190, "#8ba85a") +
     `<g fill="#f4c430" opacity=".7"><circle cx="150" cy="196" r="3"/><circle cx="160" cy="200" r="3"/></g>` +
+    // 遊歩道の手すり
+    `<rect x="20" y="200" width="40" height="3" fill="#9a7b4a"/><g fill="#5a4630"><rect x="24" y="203" width="3" height="6"/><rect x="52" y="203" width="3" height="6"/></g>` +
     gull(150, 40, 0.8) + gull(230, 34, 0.7) + gull(30, 46, 0.6),
 
   /** センポルナ専用。ターコイズブルーの礁湖に浮かぶ水上高床式集落。 */
@@ -691,9 +812,15 @@ const MALAYSIA_BASE_BG = {
     stiltHouse(140, 182, 20, 32, "#e8dcc0", "#9a7b4a") +
     stiltHouse(300, 178, 22, 34, "#c9714a", "#9a7b4a") +
     `<g stroke="#9a7b4a" stroke-width="2.4"><path d="M102,176h26M160,182h30"/></g>` +
+    // 潜水装備を運ぶボート(バジャウ・ラウトの生活)
+    `<path d="M40,190c6,-4 26,-4 32,0l-3,5H43z" fill="#c9714a"/><rect x="52" y="176" width="3" height="14" fill="#5a4630"/>` +
     `<path d="M220,196c6,-4 24,-4 30,0l-3,5H223z" fill="#e8dcc0"/><path d="M235,196v-10" stroke="#5a4630" stroke-width="1.4"/>` +
+    // サンゴ礁の輪郭(水中に透ける)
+    `<g fill="#f4c430" opacity=".4"><ellipse cx="180" cy="150" rx="20" ry="6"/><ellipse cx="60" cy="160" rx="14" ry="5"/></g>` +
     ground(206, "#e8dcc0") +
     `<g fill="#5a4a3a" opacity=".85"><ellipse cx="60" cy="210" rx="10" ry="3"/></g>` +
+    // 網を干す竿
+    `<rect x="260" y="200" width="60" height="3" fill="#9a7b4a"/><g fill="#5a4630"><rect x="264" y="203" width="3" height="6"/><rect x="312" y="203" width="3" height="6"/></g>` +
     gull(250, 40, 0.8) + gull(40, 34, 0.7) + gull(180, 44, 0.6),
 
   /** クダット専用。ロングハウスとボルネオ最北端の岬。 */
@@ -707,24 +834,37 @@ const MALAYSIA_BASE_BG = {
     ripples(184, "#bfe8f4") + ripples(192, "#9fd0e4") +
     `<path d="M340,190c-4,-30 20,-50 40,-50c0,20 -14,40 -40,50z" fill="#8a8478"/>` +
     `<rect x="360" y="150" width="6" height="16" fill="#f2f0e8"/>` +
+    // ビーズ細工の旗飾り(ルングス族の伝統)
+    `<g fill="#f4c430" opacity=".85"><rect x="60" y="152" width="4" height="4"/><rect x="70" y="150" width="4" height="4"/><rect x="80" y="152" width="4" height="4"/></g>` +
     ground(198, "#c9c0a8") +
     `<g fill="#c9a877" opacity=".85"><rect x="40" y="200" width="16" height="4"/><rect x="60" y="204" width="12" height="3"/></g>` +
+    // 牛(牧畜、クダットの平原)
+    `<g fill="#8a6a4a"><ellipse cx="300" cy="202" rx="12" ry="7"/><circle cx="312" cy="196" r="5"/></g>` +
+    // 手前のヤシと竹垣
+    palmTree(30, 200, 24) +
+    `<g stroke="#9a7b4a" stroke-width="2" opacity=".8"><path d="M150,206h60"/></g><g fill="#5a4630"><rect x="152" y="200" width="2" height="8"/><rect x="180" y="200" width="2" height="8"/><rect x="206" y="200" width="2" height="8"/></g>` +
     gull(60, 40, 0.9) + gull(300, 34, 0.7) + gull(200, 46, 0.6),
 
   /** テノム専用。パダス渓谷を走る蒸気機関車。 */
   steamtrain:
     sky("#8fc4e8", "#cfe4f0", 110) +
-    clouds(70, 24, 0.9) +
+    clouds(70, 24, 0.9) + clouds(330, 16, 0.6) +
+    // パダス渓谷の切り立った崖
+    `<path d="M0,70c20,-10 40,10 60,0c10,-6 14,10 20,4v36H0z" fill="#7a7568" opacity=".85"/>` +
+    `<path d="M320,60c20,-8 50,8 80,0v50H320z" fill="#7a7568" opacity=".85"/>` +
     `<path d="M0,110c30,-40 100,-50 140,-30c20,-30 80,-30 100,0c40,-20 120,-10 160,20v10H0z" fill="#2f6a30"/>` +
     ground(110, "#2f6a30") +
     band(150, 20, "#3f8fc4") +
-    ripples(156, "#bfe8f4") +
+    ripples(156, "#bfe8f4") + ripples(164, "#9fd0e4") +
     `<rect x="0" y="176" width="400" height="10" fill="#8a8478"/>` +
     `<g stroke="#5a4630" stroke-width="2">${Array.from({ length: 12 }).map((_, i) => `<line x1="${20 + i * 32}" y1="176" x2="${20 + i * 32}" y2="186"/>`).join("")}</g>` +
     steamLoco(180, 176, 1.4) +
     `<g fill="#c8c8c8" opacity=".7"><ellipse cx="120" cy="120" rx="16" ry="8"/><ellipse cx="100" cy="112" rx="12" ry="6"/></g>` +
     ground(186, "#9a7b4a") +
-    gull(320, 40, 0.8),
+    // 線路脇の野花(ムルット族の竹の台ランサランを思わせる小さな柵も)
+    `<g fill="#e8443f" opacity=".85"><circle cx="30" cy="198" r="2.2"/><circle cx="370" cy="200" r="2.2"/></g>` +
+    `<g fill="#c9a877" opacity=".8"><rect x="340" y="190" width="30" height="4"/><rect x="342" y="182" width="3" height="8"/><rect x="364" y="182" width="3" height="8"/></g>` +
+    gull(320, 40, 0.8) + gull(60, 34, 0.7),
 
   /** クラン・ビントゥル・タワウ専用。起重機とコンテナ、貨物船の港。 */
   port:
@@ -742,7 +882,11 @@ const MALAYSIA_BASE_BG = {
     `<g fill="#e8443f" opacity=".9"><rect x="270" y="184" width="10" height="6"/><rect x="284" y="184" width="10" height="6"/></g>` +
     ground(196, "#c9c0a8") +
     `<g fill="#5a4630"><rect x="20" y="200" width="4" height="10"/><rect x="40" y="200" width="4" height="10"/></g>` +
-    gull(340, 40, 0.8) + gull(50, 46, 0.7) + gull(200, 36, 0.6),
+    // 港湾管理棟と信号灯
+    `<rect x="340" y="150" width="20" height="26" fill="#e8dcc0"/><circle cx="350" cy="146" r="3" fill="#e8443f"/>` +
+    // タグボート
+    `<path d="M20,190c5,-3 20,-3 24,0l-3,5H23z" fill="#5b8fe8"/><rect x="26" y="180" width="4" height="10" fill="#241a10"/>` +
+    gull(340, 40, 0.8) + gull(50, 46, 0.7) + gull(200, 36, 0.6) + gull(120, 42, 0.5),
 };
 
 export const MALAYSIA_BG = { ...MALAYSIA_BASE_BG };
