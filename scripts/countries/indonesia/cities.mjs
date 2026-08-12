@@ -184,7 +184,7 @@ export const INDONESIA_CITIES = {
     106.8456, -6.2088, "jav", "monas", "capital", "r",
     "A capital sinking fast enough to need a replacement|Una capital que se hunde tan rápido que necesita un reemplazo|Une capitale qui s'enfonce assez vite pour devoir être remplacée|身代わりが要るほど速く沈む首都",
     "Jakarta is sinking faster than almost any coastal city on Earth, by as much as 25 centimeters a year in parts of the north as residents and industry pump groundwater out faster than the aquifer can refill, while much of the city already sits below sea level behind an expanding system of sea walls. The crisis is serious enough that in 2019 Indonesia decided to move its capital altogether, to a newly built city called Nusantara more than 1,200 kilometers away on Borneo.|Yakarta se hunde más rápido que casi cualquier ciudad costera del mundo, hasta 25 centímetros al año en partes del norte, a medida que residentes e industria extraen agua subterránea más rápido de lo que el acuífero puede recargarse, mientras buena parte de la ciudad ya está bajo el nivel del mar tras un sistema de diques cada vez mayor. La crisis es tan grave que en 2019 Indonesia decidió trasladar del todo su capital, a una ciudad de nueva construcción llamada Nusantara, a más de 1.200 kilómetros de distancia, en Borneo.|Jakarta s'enfonce plus vite que presque toute autre ville côtière au monde, jusqu'à 25 centimètres par an dans certains quartiers du nord, les habitants et l'industrie pompant l'eau souterraine plus vite que la nappe ne peut se recharger, tandis qu'une bonne partie de la ville se trouve déjà sous le niveau de la mer derrière un système de digues en expansion. La crise est assez grave pour qu'en 2019, l'Indonésie décide de déplacer purement et simplement sa capitale, vers une ville toute nouvelle baptisée Nusantara, à plus de 1 200 kilomètres de là, à Bornéo.|ジャカルタは世界でも屈指の速さで沈んでいる都市で、北部の一部では地下水を帯水層が満たせる速さを超えて住民と産業がくみ上げ続けるため、年に最大25センチも沈む。すでに市街の多くが海面より低く、広がり続ける防潮堤の内側に守られている。この危機はあまりに深刻で、インドネシアは2019年、首都そのものをボルネオ島に新しく建設中の都市ヌサンタラへ、1200キロメートル以上離れた場所へ移すことを決めた。",
-    [prop("Monas National Monument Base|Base del Monumento Nacional Monas|Base du monument national Monas|モナス国立記念塔の基部", 1600, 332),
+    [prop("Monas National Monument Base|Base del Monumento Nacional Monas|Base du monument national Monas|モナス国立記念塔の基部", 2800, 581),
      prop("Kota Tua Batavia Warehouse|Almacén de Kota Tua Batavia|Entrepôt de Kota Tua Batavia|コタトゥア(バタヴィア旧市街)の倉庫", 700, 145)],
   ),
   merak: city(
@@ -232,7 +232,7 @@ export const INDONESIA_CITIES = {
     110.2038, -7.6079, "jav", "temple", "temple", "r",
     "The world's largest Buddhist monument, lost and found again|El mayor monumento budista del mundo, perdido y hallado de nuevo|Le plus grand monument bouddhiste au monde, perdu puis retrouvé|失われ、再び見出された世界最大の仏教建造物",
     "Borobudur, built by the Sailendra dynasty in the 8th and 9th centuries, is the largest Buddhist monument on Earth, its nine stacked platforms carved with 2,672 relief panels and ringed by 504 Buddha statues meant to be walked clockwise as a physical pilgrimage through Buddhist cosmology. Abandoned and buried under volcanic ash and jungle growth for centuries, it was not properly rediscovered until 1814, when the British colonial administrator Thomas Stamford Raffles ordered the site cleared.|Borobudur, construido por la dinastía Sailendra en los siglos VIII y IX, es el mayor monumento budista del mundo, con nueve plataformas apiladas talladas con 2.672 relieves y rodeadas de 504 estatuas de Buda pensadas para recorrerse en el sentido de las agujas del reloj como una peregrinación física por la cosmología budista. Abandonado y sepultado bajo ceniza volcánica y selva durante siglos, no se redescubrió como es debido hasta 1814, cuando el administrador colonial británico Thomas Stamford Raffles ordenó despejar el lugar.|Borobudur, bâti par la dynastie Sailendra aux VIIIe et IXe siècles, est le plus grand monument bouddhiste au monde, ses neuf plateformes empilées ornées de 2 672 panneaux en relief et entourées de 504 statues de Bouddha, conçues pour être parcourues dans le sens des aiguilles d'une montre comme un pèlerinage physique à travers la cosmologie bouddhiste. Abandonné et enseveli sous la cendre volcanique et la jungle pendant des siècles, il ne fut vraiment redécouvert qu'en 1814, quand l'administrateur colonial britannique Thomas Stamford Raffles en ordonna le dégagement.|8〜9世紀にサイレーンドラ王朝が築いたボロブドゥールは世界最大の仏教建造物で、9層に積み重なる基壇には2672面の浮彫が刻まれ、504体の仏像に囲まれている。これらは仏教の宇宙観をたどる巡礼として時計回りに歩くよう作られている。何世紀ものあいだ火山灰とジャングルに埋もれて放棄されていたが、1814年、イギリス植民地行政官トマス・スタンフォード・ラッフルズが現地の伐開を命じるまで、本格的に再発見されることはなかった。",
-    [prop("Borobudur Stupa Terrace|Terraza de estupas de Borobudur|Terrasse des stupas de Borobudur|ボロブドゥールのストゥーパ壇", 1200, 249),
+    [prop("Borobudur Stupa Terrace|Terraza de estupas de Borobudur|Terrasse des stupas de Borobudur|ボロブドゥールのストゥーパ壇", 2700, 560),
      prop("Relief Panel Walkway|Pasarela de los relieves|Promenoir des bas-reliefs|浮彫の回廊", 560, 116)],
   ),
   solo: city(
@@ -391,13 +391,13 @@ export const INDONESIA_CITIES = {
     [prop("Pasar Bersehati Market Stall|Puesto del mercado Pasar Bersehati|Échoppe du marché Pasar Bersehati|パサール・ブルセハティの露店", 380, 79),
      prop("Manado Bay Waterfront|Paseo marítimo de la bahía de Manado|Front de mer de la baie de Manado|マナド湾の海岸通り", 260, 54)],
   ),
-  bunaken: city(
-    "Bunaken|Bunaken|Bunaken|ブナケン",
-    124.75, 1.62, "sul", "reef", "reef", "l",
-    "A wall dropping into waters densest with life on the planet|Una pared que se hunde en las aguas más densas de vida del planeta|Une paroi plongeant dans les eaux les plus denses en vie de la planète|地球で最も生命が密な海へ落ち込む壁",
-    "Bunaken's marine park protects a coral wall that drops almost vertically from just below the surface to depths of more than 25 meters, a formation that concentrates an extraordinary density of species within Coral Triangle waters said to hold the highest marine biodiversity on Earth. The park has been protected since 1991, among the earliest such areas in Indonesia, largely because local dive operators pushed back against unregulated fishing and coral mining they saw damaging the reefs.|El parque marino de Bunaken protege una pared coralina que cae casi en vertical desde justo debajo de la superficie hasta más de 25 metros de profundidad, una formación que concentra una densidad extraordinaria de especies en aguas del Triángulo de Coral, consideradas las de mayor biodiversidad marina del planeta. El parque está protegido desde 1991, una de las primeras zonas así en Indonesia, en gran parte porque los operadores de buceo locales se opusieron a la pesca sin regular y la extracción de coral que veían dañar los arrecifes.|Le parc marin de Bunaken protège une paroi corallienne qui plonge presque à la verticale depuis juste sous la surface jusqu'à plus de 25 mètres de profondeur, une formation qui concentre une densité extraordinaire d'espèces dans les eaux du Triangle de corail, réputées abriter la plus grande biodiversité marine de la planète. Le parc est protégé depuis 1991, l'une des premières zones de ce type en Indonésie, en grande partie parce que les opérateurs de plongée locaux s'opposèrent à la pêche non réglementée et à l'extraction de corail qu'ils voyaient endommager les récifs.|ブナケンの海洋公園は、水面のすぐ下から深さ25メートル以上までほぼ垂直に落ち込むサンゴの壁を保護しており、この地形が、地球上でもっとも海洋生物多様性が高いとされるコーラル・トライアングルの海域の中でも、とりわけ濃密な種の密度を生んでいる。この公園は1991年からインドネシアでも最も早い時期に保護区となったが、それは地元のダイビング業者が、サンゴ礁を傷めていた無規制の漁業やサンゴ採取に反対の声を上げたことが大きい。",
-    [prop("Bunaken Wall Dive Site|Punto de buceo de la pared de Bunaken|Site de plongée de la paroi de Bunaken|ブナケン・ウォールのダイブスポット", 460, 96),
-     prop("Marine Park Ranger Station|Estación de guardaparques del parque marino|Poste de rangers du parc marin|海洋公園のレンジャー詰所", 260, 54)],
+  kendari: city(
+    "Kendari|Kendari|Kendari|クンダリ",
+    122.5150, -3.9985, "sul", "nickel", "nickel", "l",
+    "A port shipping the metal an EV battery needs|Un puerto que embarca el metal que necesita una batería de coche eléctrico|Un port qui expédie le métal dont a besoin une batterie de voiture électrique|電気自動車の電池に要る金属を積み出す港",
+    "Southeast Sulawesi's hills hold some of Indonesia's richest nickel deposits, and after the government banned exports of raw, unprocessed ore in 2020 to force miners to build smelters at home rather than ship the ore abroad, the province became one of the engines behind Indonesia's rise to producing roughly half the world's nickel, a metal now central to electric-vehicle batteries. Kendari, the provincial capital built around a long natural harbor, ships much of that ore and processed metal out through a port that barely registered on regional trade maps two decades ago.|Las colinas del sureste de Sulawesi contienen algunos de los depósitos de níquel más ricos de Indonesia, y tras prohibir el gobierno en 2020 la exportación de mineral en bruto para obligar a los mineros a construir fundiciones en el país, la provincia se convirtió en uno de los motores del ascenso de Indonesia hasta producir cerca de la mitad del níquel mundial. Kendari, la capital provincial construida en torno a un largo puerto natural, embarca buena parte de ese mineral y metal procesado por un puerto que apenas figuraba en los mapas comerciales regionales hace dos décadas.|Les collines du sud-est de Sulawesi renferment certains des gisements de nickel les plus riches d'Indonésie, et après que le gouvernement eut interdit en 2020 l'exportation de minerai brut pour forcer les mineurs à bâtir des fonderies sur place, la province devint l'un des moteurs de l'essor de l'Indonésie, qui produit désormais près de la moitié du nickel mondial. Kendari, capitale provinciale bâtie autour d'un long port naturel, expédie une bonne part de ce minerai et de ce métal transformé par un port qui figurait à peine sur les cartes commerciales régionales il y a vingt ans.|南東スラウェシの丘陵地帯にはインドネシア屈指のニッケル鉱床が眠っており、2020年に政府が未加工鉱石の輸出を禁じ、鉱山会社に鉱石を海外へ送る代わり自国内に製錬所を建てさせて以来、この州はインドネシアを世界のニッケル生産のおよそ半分を占める国へと押し上げた原動力の一つとなった。ニッケルはいまや電気自動車の電池に欠かせない金属である。長い天然の良港を囲んで築かれた州都クンダリは、その鉱石と加工された金属の多くを、二十年前には地域の交易地図にほとんど載っていなかった港から積み出している。",
+    [prop("Kendari Bay Ore Terminal|Terminal de mineral de la bahía de Kendari|Terminal minéralier de la baie de Kendari|クンダリ湾の鉱石ターミナル", 380, 79),
+     prop("Kendari Beach Waterfront|Paseo marítimo de la playa de Kendari|Front de mer de la plage de Kendari|クンダリ・ビーチの海岸通り", 240, 50)],
   ),
   gorontalo: city(
     "Gorontalo|Gorontalo|Gorontalo|ゴロンタロ",
@@ -459,13 +459,13 @@ export const INDONESIA_CITIES = {
     [prop("Bird-of-Paradise Forest Trail|Sendero forestal del ave del paraíso|Sentier forestier de l'oiseau de paradis|極楽鳥の森の遊歩道", 400, 83),
      prop("Sorong Harbor Ferry Terminal|Terminal de ferris del puerto de Sorong|Terminal de ferry du port de Sorong|ソロン港フェリーターミナル", 260, 54)],
   ),
-  waisai: city(
-    "Waisai|Waisai|Waisai|ワイサイ",
-    130.8167, -0.2333, "mlp", "reef", "reef", "r",
-    "The most species-rich reefs anyone has ever counted|Los arrecifes más ricos en especies jamás contados|Les récifs les plus riches en espèces jamais recensés|これまで数えられた中で最も種の豊かな礁",
-    "Raja Ampat's reefs hold the highest recorded marine biodiversity on the planet, with scientific surveys counting over 1,600 fish species and more than 75% of all known coral species in its waters, a concentration researchers attribute to the archipelago sitting at the biological heart of the Coral Triangle. The limestone karst islands scattered through Wayag and Piaynemo, their forested domes rising straight out of turquoise water, have become one of the most photographed views in Indonesian tourism, though reaching them still requires a multi-leg journey by plane and boat that keeps visitor numbers relatively low.|Los arrecifes de Raja Ampat tienen la mayor biodiversidad marina registrada del planeta, con estudios científicos que cuentan más de 1.600 especies de peces y más del 75% de todas las especies de coral conocidas en sus aguas, una concentración que los investigadores atribuyen a que el archipiélago se sitúa en el corazón biológico del Triángulo de Coral. Las islas kársticas de piedra caliza repartidas por Wayag y Piaynemo, con sus cúpulas boscosas que se alzan directamente del agua turquesa, se han convertido en una de las vistas más fotografiadas del turismo indonesio, aunque llegar hasta allí todavía exige un viaje de varias etapas en avión y barco que mantiene relativamente bajo el número de visitantes.|Les récifs de Raja Ampat affichent la plus grande biodiversité marine jamais enregistrée sur la planète, les relevés scientifiques y comptant plus de 1 600 espèces de poissons et plus de 75 % de toutes les espèces de corail connues, une concentration que les chercheurs attribuent à la position de l'archipel au cœur biologique du Triangle de corail. Les îles karstiques calcaires disséminées autour de Wayag et Piaynemo, leurs dômes boisés jaillissant directement de l'eau turquoise, sont devenues l'une des vues les plus photographiées du tourisme indonésien, bien que les atteindre exige encore un trajet en plusieurs étapes, en avion puis en bateau, qui maintient le nombre de visiteurs relativement bas.|ラジャアンパットのサンゴ礁は地球上で記録された中でも最高の海洋生物多様性を誇り、科学調査ではこの海域だけで1600種を超える魚類と、既知のサンゴ種の75%以上が確認されている。研究者たちはこの集中を、この諸島がコーラル・トライアングルの生物学的な中心に位置することに帰している。ワヤグやパヤモに点在する石灰岩のカルスト島々は、森に覆われたドーム状の姿がターコイズ色の水面から直接そびえ立つ様子で、インドネシア観光でも屈指の被写体となっているが、そこへ至るにはいまも飛行機と船を乗り継ぐ道のりが必要で、訪れる人の数を比較的少なく保っている。",
-    [prop("Wayag Karst Viewpoint|Mirador kárstico de Wayag|Belvédère karstique de Wayag|ワヤグのカルスト展望台", 620, 129),
-     prop("Piaynemo Lookout Steps|Escalinata del mirador de Piaynemo|Escalier du belvédère de Piaynemo|パヤモ展望台の階段", 380, 79)],
+  bandaneira: city(
+    "Banda Neira|Banda Neira|Banda Neira|バンダネイラ",
+    129.897, -4.525, "mlp", "fort", "volcano", "r",
+    "An island worth more, ounce for ounce, than gold, and a massacre to keep it|Una isla que valía, onza por onza, más que el oro, y una masacre para conservarla|Une île qui valait, once pour once, plus que l'or, et un massacre pour la garder|重さあたり金より高値だった島と、それを守るための虐殺",
+    "Banda Neira was the administrative seat of the Banda Islands, the only place on Earth nutmeg grew before the 19th century, and in 1621 the Dutch East India Company's governor Jan Pieterszoon Coen enforced a trade monopoly here by killing or deporting nearly the entire Bandanese population, replacing them with enslaved laborers to run the plantations under Dutch control. Two colonial forts, Belgica and Nassau, still stand guard over the harbor, built to defend a spice once traded, weight for weight, above the price of gold.|Banda Neira fue la sede administrativa de las islas Banda, el único lugar del mundo donde crecía la nuez moscada antes del siglo XIX, y en 1621 el gobernador de la Compañía Neerlandesa de las Indias Orientales, Jan Pieterszoon Coen, impuso aquí un monopolio comercial matando o deportando a casi toda la población bandanesa, sustituida por trabajadores esclavizados. Dos fuertes coloniales, Belgica y Nassau, siguen vigilando el puerto, construidos para defender una especia antaño más cara que el oro, onza por onza.|Banda Neira fut le siège administratif des îles Banda, seul endroit au monde où poussait la muscade avant le XIXe siècle, et en 1621 le gouverneur de la Compagnie néerlandaise des Indes orientales, Jan Pieterszoon Coen, y imposa un monopole commercial en tuant ou déportant la quasi-totalité de la population bandanaise, remplacée par une main-d'œuvre réduite en esclavage. Deux forts coloniaux, Belgica et Nassau, gardent encore le port, bâtis pour défendre une épice jadis échangée, once pour once, plus cher que l'or.|バンダネイラはバンダ諸島の行政の中心地で、19世紀以前は世界でこの島々にしか育たなかったナツメグの産地だった。1621年、オランダ東インド会社総督ヤン・ピーテルスゾーン・クーンはここで交易独占を強行するため、バンダの住民をほぼ皆殺しか国外追放にし、代わりに奴隷労働者をオランダの支配下でプランテーションに就かせた。ベルヒカとナッサウという二つの植民地時代の要塞は、重さあたり金より高値で取引されたこの香辛料を守るため築かれ、いまも港を見張り続けている。",
+    [prop("Fort Belgica Ramparts|Murallas del Fuerte Belgica|Remparts du fort Belgica|ベルヒカ要塞の城壁", 460, 96),
+     prop("Nutmeg Plantation Terrace|Terraza de la plantación de nuez moscada|Terrasse de la plantation de muscade|ナツメグ農園のテラス", 280, 58)],
   ),
   manokwari: city(
     "Manokwari|Manokwari|Manokwari|マノクワリ",
@@ -537,6 +537,12 @@ export const INDONESIA_EDGES = [
   // --- nut 小スンダ列島(バリ―ロンボク―フローレス―スンバ―ティモールの数珠つなぎ) ---
   ["gilimanuk", "denpasar"],
   ["denpasar", "ubud"],
+  // バリ⇄ロンボクの実在フェリーはパダンバイ⇄レンバル(ジャワ⇄バリの
+  // ギリマヌク⇄クタパンとは別の航路)。デンパサールは港町ではないため、
+  // この路線は「デンパサール⇄マタラム」で簡略化しており、線はバリ島東部
+  // (ギャニャール・クルンクン方面)の陸を実際にはなぞって描かれる。
+  // バリは別盤面が計画されているため、ここでバリの町(パダンバイ)を
+  // 増やさずに簡略化のまま残すことを選んだ(判断はREGISTER.md参照)。
   ["denpasar", "mataram", "sea"],
   ["mataram", "labuanbajo", "sea"],
   ["mataram", "kupang", "sea"],
@@ -554,19 +560,27 @@ export const INDONESIA_EDGES = [
   // --- kal-sul 航路(マカッサル海峡) ---
   ["balikpapan", "makassar", "sea"],
   // --- sul スラウェシ(本島は道路、離島は航路) ---
-  ["manado", "bunaken", "sea"],
+  // ブナケン(マナドから船で1時間の海洋公園の島)は町として別に立てるには
+  // マナドに近すぎるため外し、南東半島の州都クンダリに差し替えた
+  // (取りまとめ側の指摘。ニッケル鉱業という他都市と被らない切り口も持てる)。
   ["manado", "gorontalo"],
   ["gorontalo", "makassar"],
   ["makassar", "tanatoraja"],
+  // マカッサル―クンダリを直線で結ぶとボネ湾を横切ってしまう(実測で確認)。
+  // タナトラジャ経由(実在するパロポ回りの幹線道路に近い)にすると陸に収まる。
+  ["tanatoraja", "kendari"],
   ["makassar", "wakatobi", "sea"],
   ["makassar", "ambon", "sea"],
   // --- sul-mlp 航路(モルッカ海) ---
   ["manado", "ternate", "sea"],
   // --- mlp マルク・パプア(全域が航路。ワメナ―ジャヤプラのみ簡略化した陸路) ---
+  // ワイサイ(ソロンと同じくラジャアンパットの玄関口で近すぎた)をバンダ諸島に
+  // 差し替えた(取りまとめ側の指摘。香辛料交易の要衝という、アンボンの豆知識
+  // で触れたマンハッタン交換の当事者を町として立てられる)。
   ["ternate", "ambon", "sea"],
   ["ternate", "sorong", "sea"],
   ["ambon", "sorong", "sea"],
-  ["sorong", "waisai", "sea"],
+  ["ambon", "bandaneira", "sea"],
   // マノクワリを中継。ソロン―ジャヤプラを直航路にすると、パプア北岸が
   // 弓なりに張り出しているため直線が本土内陸を横切ってしまう(実測で確認)。
   // ソロン―マノクワリは鳥の頭半島の付け根を横切る実測でも陸路(トランス・

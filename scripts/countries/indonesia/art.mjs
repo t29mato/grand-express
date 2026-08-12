@@ -349,6 +349,18 @@ export const INDONESIA_MARKS = {
     `<path d="M2,20c1,-9 5,-15 10,-15c5,0 9,6 10,15z" fill="#5f7a44"/>` +
     `<path d="M6,21c0,-5 3,-8 6,-8c3,0 6,3 6,8z" fill="#c9a877"/>` +
     `<path d="M4,21L12,10L20,21z" fill="#8a6a3a"/>`,
+
+  /** 鉱石トラックと積出ベルト。クンダリ。 */
+  nickel:
+    `<path d="M2,22L8,8L16,8L22,22z" fill="#8a7860"/>` +
+    `<rect x="2" y="18" width="20" height="4" fill="#5a4a38"/>` +
+    `<rect x="14" y="4" width="8" height="3" fill="#8f96a0"/>`,
+
+  /** 植民地要塞の稜堡。バンダネイラ。 */
+  fort:
+    `<rect x="4" y="12" width="16" height="10" fill="#9a8f70"/>` +
+    `<path d="M4,12L4,8L7,8L7,12M11,12L11,8L14,8L14,12M18,12L18,8L21,8L21,12" fill="#9a8f70" stroke="#5a4a30" stroke-width="0.6"/>` +
+    `<circle cx="12" cy="17" r="2" fill="#4a3c30"/>`,
 };
 
 // ---------------------------------------------------------------------------
@@ -756,6 +768,24 @@ export const INDONESIA_BG = {
     `<g fill="#c8ccc4" opacity=".7"><ellipse cx="330" cy="40" rx="18" ry="6"/></g>` +
     `<rect x="55" y="88" width="30" height="10" fill="#8f96a0"/>` +
     `<circle cx="70" cy="94" r="3" fill="#e8443f"/>`,
+
+  /** 露天掘りの鉱山とベルトコンベア。クンダリ。 */
+  nickel:
+    sky("#8fc4e8", "#cfe4f0", 108) +
+    hills(108, "#9a8f70", 4) +
+    ground(140, "#b0a878") +
+    water(176, 34, "#1c6f7a") +
+    ripples(190) +
+    `<path d="M20,140L80,110L140,140z" fill="#8a7860"/>` +
+    `<g stroke="#8f96a0" stroke-width="4"><path d="M60,140L150,60"/></g>` +
+    `<g fill="#5a6068"><rect x="140" y="52" width="20" height="10"/></g>` +
+    `<g stroke-linejoin="round"><rect x="240" y="120" width="40" height="22" fill="#e8443f" stroke="#3a2f24" stroke-width="1.6"/>` +
+    `<rect x="234" y="112" width="14" height="12" fill="#c8ccc4" stroke="#3a2f24" stroke-width="1.4"/>` +
+    `<circle cx="250" cy="146" r="6" fill="#241a10"/><circle cx="270" cy="146" r="6" fill="#241a10"/></g>` +
+    crane(340, 176, 34, "#8f96a0") +
+    `<g fill="#8a7860" opacity=".85"><rect x="20" y="176" width="18" height="10"/><rect x="330" y="176" width="20" height="10"/></g>` +
+    gull(100, 40, 1) +
+    `<g fill="#c8ccc4" opacity=".7"><ellipse cx="200" cy="30" rx="18" ry="6"/></g>`,
 
   /** 水上マーケットの舟。バンジャルマシン。 */
   floatingmarket:

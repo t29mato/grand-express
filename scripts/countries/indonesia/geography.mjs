@@ -220,6 +220,7 @@ const SULAWESI = [
   [122.50, -3.00],
   [122.00, -3.30], // トロ湾の奥
   [122.30, -3.80],
+  [122.75, -3.95], // ケンダリ沖(町の座標122.515,-3.9985より東へ沖出し)
   [122.80, -4.30],
   [123.20, -4.80], // 南東半島
   [123.60, -5.30], // 南東半島の先端(ケンダリ付近)
@@ -276,6 +277,17 @@ const AMBON = [
   [128.05, -3.75],
   [127.98, -3.68],
   [128.05, -3.60], // 閉じる
+];
+
+/** バンダ諸島。バンダネイラ島を代表させる(実際はいくつもの小島からなる)。 */
+const BANDA = [
+  [129.85, -4.48],
+  [129.94, -4.49],
+  [129.96, -4.55],
+  [129.90, -4.58],
+  [129.83, -4.56],
+  [129.80, -4.51],
+  [129.85, -4.48], // 閉じる
 ];
 
 /** ワイサイ島(ラジャアンパットの中心、ワイゲオ島を代表させる)。 */
@@ -339,7 +351,7 @@ const WEST_PAPUA = [
 
 export const INDONESIA_LAND = [
   SUMATRA, JAVA, BALI, LOMBOK, SUMBA, FLORES, WEST_TIMOR, KALIMANTAN,
-  SULAWESI, TERNATE, AMBON, WAISAI, BUNAKEN, WAKATOBI, WEST_PAPUA,
+  SULAWESI, TERNATE, AMBON, BANDA, WAISAI, BUNAKEN, WAKATOBI, WEST_PAPUA,
 ];
 
 /**
