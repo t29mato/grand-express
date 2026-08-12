@@ -4,17 +4,19 @@
  * **バリに鉄道は無いので、ここは道の町として繋ぐ**(乗り合いバス・車道)。
  * ヌサペニダ・ヌサレンボンガンへは実在の船便(サヌール/パダンバイ発着)で結ぶ。
  *
- * 32都市43路線。南部6・中部/ウブド5・山岳/湖5・東部6・北部4・西部/島嶼6。
- * 観光地の一覧にしないため、南部に偏らせず北岸(シガラジャ・ロビナ)と
+ * 33都市44路線。南部6・中部/ウブド5・山岳/湖5・東部6・北部5・西部/島嶼6。
+ * 観光地の一覧にしないため、南部に偏らせず北岸(シガラジャ・ロビナ・トゥジャクラ)と
  * 山あい(キンタマーニ・ムンドゥック)を厚めにしてある。
  *
  * 経度・緯度は実際の値。投影の範囲は geography.mjs の BALI_PROJ を参照。
  *
- * `seg`(geography.mjsで110)は、この43路線を投影後の距離で実測して決めた。
- * 最長はロヴィナ〜ギリマヌッ(903px、8マス)とタナロット〜ヌガラ(853px、8マス)で、
- * どちらも実在する北岸・西岸の一本道の長い区間そのもの。5マス超は
- * この2本とトゥランベン〜クブタンブハン(702px、6マス)の計3本のみで、
+ * `seg`(geography.mjsで110)は、この44路線を投影後の距離で実測して決めた。
+ * 最長はロヴィナ〜ギリマヌッ(903px、8マス)とタナロット〜ヌガラ(853px、8マス)の
+ * 2本のみで、どちらも実在する北岸・西岸の一本道の長い区間そのもの。
  * 「実在するかどうかで決める」の原則で残してある(詳細はREGISTER.md)。
+ * (北部にトゥジャクラを足したことで、もともとの5マス超3本目
+ * トゥランベン〜クブタンブハン702pxは、トゥランベン〜トゥジャクラ526px +
+ * トゥジャクラ〜クブタンブハンの2本に分かれ、5マス超では無くなった。)
  *
  * ## `mark`(12種)
  *
@@ -33,16 +35,16 @@ export const BALI_CITIES = {
     115.2192, -8.6705, "sel", "palace", "royaltown", "r",
     "The market that became a capital|El mercado que se hizo capital|Le marché devenu capitale|市場から州都になった町",
     "On 20 September 1906 several hundred members of the Badung court, dressed in white cremation clothes, walked out of their palace and into Dutch gunfire rather than surrender — a mass ritual suicide called a puputan. The market that grew up north of that palace gave the city its name (denpasar, \"north market\"), and it became Bali's capital only in 1958, when the seat of government moved from Singaraja.|El 20 de septiembre de 1906, varios cientos de miembros de la corte de Badung, vestidos de blanco de cremación, salieron de su palacio hacia los fusiles holandeses antes que rendirse: un suicidio ritual en masa llamado puputan. El mercado que creció al norte de ese palacio dio nombre a la ciudad (denpasar, «mercado del norte»), que solo se convirtió en capital de Bali en 1958, cuando el gobierno se trasladó desde Singaraja.|Le 20 septembre 1906, plusieurs centaines de membres de la cour de Badung, vêtus de blanc de crémation, sortirent de leur palais pour marcher vers les fusils néerlandais plutôt que de se rendre — un suicide rituel collectif appelé puputan. Le marché qui se développa au nord de ce palais donna son nom à la ville (denpasar, « marché du nord »), qui ne devint la capitale de Bali qu'en 1958, quand le siège du gouvernement fut transféré depuis Singaraja.|1906年9月20日、バドゥン王宮の数百人が白い葬儀の装束をまとって宮殿を出、降伏するよりオランダ軍の銃口へ歩み入った。集団による儀礼的な自死で、ププタンと呼ばれる。その宮殿の北に立った市場がこの町の名の由来で(デンパサール=「北の市場」)、州都がシンガラジャからここへ移ったのは1958年のことである。",
-    [prop("Puri Pemecutan Gate|Puerta del Puri Pemecutan|Porte du Puri Pemecutan|プリ・プメチュタンの門", 260, 54),
-     prop("Bajra Sandhi Monument|Monumento Bajra Sandhi|Monument Bajra Sandhi|バジラ・サンディ記念塔", 300, 62)],
+    [prop("Puri Pemecutan Gate|Puerta del Puri Pemecutan|Porte du Puri Pemecutan|プリ・プメチュタンの門", 650, 135),
+     prop("Bajra Sandhi Monument|Monumento Bajra Sandhi|Monument Bajra Sandhi|バジラ・サンディ記念塔", 750, 156)],
   ),
   kuta: city(
     "Kuta|Kuta|Kuta|クタ",
     115.1729, -8.7183, "sel", "surf", "surfbeach", "l",
     "Where the surfers never quite left|Donde los surfistas nunca se fueron del todo|Là où les surfeurs ne repartirent jamais vraiment|サーファーが居着いた町",
     "The beach break here is where Australian surfers on their way to somewhere else stopped in the 1930s and never entirely left, turning a fishing and trading village into Bali's first resort town. A memorial in the centre of town lists the 202 people killed in the 2002 bombing of two nightclubs a short walk from the sand, a quiet corner most visitors now pass without knowing why it's there.|Aquí, en los años 30, surfistas australianos de paso se detuvieron y ya no se fueron del todo, convirtiendo una aldea de pesca y comercio en el primer centro turístico de Bali. Un monumento en el centro recuerda a las 202 personas muertas en el atentado de 2002 contra dos discotecas a pocos pasos de la arena, un rincón tranquilo que hoy casi nadie sabe por qué está ahí.|C'est ici que des surfeurs australiens de passage s'arrêtèrent dans les années 1930 sans jamais tout à fait repartir, transformant un village de pêche et de commerce en première station balnéaire de Bali. Un mémorial au centre-ville rappelle les 202 personnes tuées lors de l'attentat de 2002 contre deux boîtes de nuit à quelques pas du sable, un coin tranquille que la plupart des visiteurs traversent aujourd'hui sans savoir pourquoi il est là.|1930年代、たまたま立ち寄ったオーストラリア人サーファーたちがそのまま居着き、漁業と交易の村をバリ最初のリゾートの町に変えた。町の中心の慰霊碑には、浜からすぐの二軒のナイトクラブを狙った2002年の爆弾事件で亡くなった202人の名が刻まれている。いまでは、なぜそこにあるのか知らないまま通り過ぎる観光客の方が多い静かな一角である。",
-    [prop("Mads Lange Trading Post|Puesto comercial de Mads Lange|Comptoir de Mads Lange|マッツ・ランゲの交易所", 240, 50),
-     prop("Bombing Memorial Wall|Muro conmemorativo del atentado|Mur du mémorial de l'attentat|爆弾事件の慰霊壁", 220, 46)],
+    [prop("Mads Lange Trading Post|Puesto comercial de Mads Lange|Comptoir de Mads Lange|マッツ・ランゲの交易所", 700, 146),
+     prop("Kuta Beach Boardwalk|Paseo marítimo de Kuta|Promenade de Kuta Beach|クタ・ビーチの遊歩道", 600, 125)],
   ),
   canggu: city(
     "Canggu|Canggu|Canggu|チャングー",
@@ -65,16 +67,16 @@ export const BALI_CITIES = {
     115.0857, -8.8291, "sel", "meru", "cliffcove", "l",
     "The cliff where monkeys collect a toll|El acantilado donde los monos cobran peaje|La falaise où les singes prélèvent un péage|猿が通行料を取る断崖",
     "The temple stands on a cliff seventy metres above the surf, one of the sea-facing shrines said to guard Bali's coastline from evil spirits, and its resident macaques are practised enough at stealing sunglasses and phones that a stallholder nearby will trade them back for a bag of peanuts. Below the cliff, a right-hand break considered one of the best in Indonesia was surfed by almost no one before the 1970s, when a first paved road finally reached this end of the peninsula.|El templo se alza en un acantilado setenta metros sobre el oleaje, uno de los santuarios frente al mar que se dice protegen la costa de Bali de espíritus malignos, y sus macacos residentes son tan hábiles robando gafas de sol y móviles que un vendedor cercano los cambia por una bolsa de cacahuetes. Bajo el acantilado, una ola derecha de las mejores de Indonesia casi nadie la surfeaba antes de los años 70.|Le temple se dresse sur une falaise à soixante-dix mètres au-dessus du ressac, l'un des sanctuaires tournés vers la mer censés protéger la côte de Bali des mauvais esprits, et ses macaques résidents sont assez habiles pour voler lunettes de soleil et téléphones qu'un vendeur voisin les échange contre un sachet de cacahuètes. Sous la falaise, une droite parmi les meilleures d'Indonésie n'était surfée par presque personne avant les années 1970.|寺院は波の70メートル上の断崖に立つ。バリの海岸を悪しき霊から守るとされる、海に向いた寺院のひとつである。住み着いたマカクはサングラスや携帯電話を奪う手練れで、近くの売店が落花生の袋と交換に取り返してくれる。崖の下には、インドネシア屈指ともいわれるライトブレイクがあるが、1970年代に舗装道路が届くまで、ほとんど誰も乗っていなかった。",
-    [prop("Uluwatu Cliff Shrine|Santuario del acantilado de Uluwatu|Sanctuaire de la falaise d'Uluwatu|ウルワトゥ断崖の祠", 300, 62),
-     prop("Right-Hand Reef Break|Ola derecha del arrecife|Droite du récif|右回りのリーフブレイク", 270, 56)],
+    [prop("Uluwatu Cliff Shrine|Santuario del acantilado de Uluwatu|Sanctuaire de la falaise d'Uluwatu|ウルワトゥ断崖の祠", 1700, 354),
+     prop("Right-Hand Reef Break|Ola derecha del arrecife|Droite du récif|右回りのリーフブレイク", 650, 135)],
   ),
   sanur: city(
     "Sanur|Sanur|Sanur|サヌール",
     115.2624, -8.6788, "sel", "boat", "quietbeach", "r",
     "The hotel that capped every building after it|El hotel que limitó todos los edificios después|L'hôtel qui plafonna tous les bâtiments suivants|以後の建物の高さを決めたホテル",
     "Bali's first hotel for foreign tourists opened here in 1966, built with Japanese war-reparations money, and its ten storeys towered so far over anything else on the island that the backlash led directly to a law still in force today limiting new buildings to the height of a coconut palm. Boats to Nusa Penida and Nusa Lembongan still leave from the same stretch of beach each morning.|El primer hotel de Bali para turistas extranjeros abrió aquí en 1966, pagado con fondos de reparaciones de guerra japonesas, y sus diez plantas se alzaban tanto sobre todo lo demás en la isla que la reacción llevó a una ley, aún vigente, que limita los edificios nuevos a la altura de una palmera.|Le premier hôtel de Bali pour touristes étrangers ouvrit ici en 1966, financé par les réparations de guerre japonaises, et ses dix étages dominaient si nettement tout le reste de l'île que la réaction mena à une loi, toujours en vigueur, limitant les nouveaux bâtiments à la hauteur d'un cocotier.|バリで外国人観光客向けの最初のホテルは1966年、日本の戦争賠償金で建てられた。その十階建ては島のほかの何よりも高くそびえ、その反発がそのまま、いまも有効な「新しい建物はヤシの木の高さまで」という法律につながった。ヌサペニダ・ヌサレンボンガンへの船は、いまも毎朝同じ浜から出ている。",
-    [prop("Ten-Storey Beach Hotel|Hotel de playa de diez plantas|Hôtel de plage à dix étages|十階建ての海辺のホテル", 290, 60),
-     prop("Island Boat Pier|Muelle de las lanchas|Embarcadère des bateaux|島行きの渡し場", 240, 50)],
+    [prop("Ten-Storey Beach Hotel|Hotel de playa de diez plantas|Hôtel de plage à dix étages|十階建ての海辺のホテル", 650, 135),
+     prop("Island Boat Pier|Muelle de las lanchas|Embarcadère des bateaux|島行きの渡し場", 550, 114)],
   ),
 
   // ---------------------------------------------------------------------
@@ -85,8 +87,8 @@ export const BALI_CITIES = {
     115.2625, -8.5069, "ubu", "craft", "artvillage", "l",
     "The healer's village that painting made famous|El pueblo sanador que la pintura hizo famoso|Le village guérisseur rendu célèbre par la peinture|薬の村が絵で知られるようになるまで",
     "The name comes from ubad, the Balinese word for medicine, after healers who worked the springs here long before painters arrived. In 1936 the Balinese royal family and the German painter Walter Spies founded the Pita Maha artists' collective, and the crowded, everyday-life style it taught is still what most people picture as \"Balinese painting\".|El nombre viene de ubad, la palabra balinesa para medicina, por los sanadores que trabajaban en estos manantiales mucho antes de que llegaran los pintores. En 1936 la familia real balinesa y el pintor alemán Walter Spies fundaron el colectivo de artistas Pita Maha, y el estilo abigarrado y cotidiano que enseñó sigue siendo lo que la mayoría imagina como «pintura balinesa».|Le nom vient d'ubad, le mot balinais pour médecine, d'après les guérisseurs qui travaillaient à ces sources bien avant l'arrivée des peintres. En 1936, la famille royale balinaise et le peintre allemand Walter Spies fondèrent le collectif d'artistes Pita Maha, dont le style foisonnant et proche du quotidien reste ce que l'on imagine aujourd'hui sous le nom de « peinture balinaise ».|この地の名は、バリ語で薬を意味する「ウバッド」に由来する。画家たちが来るよりずっと前から、この泉のほとりで治療師たちが働いていたからである。1936年、バリの王族とドイツ人画家ヴァルター・シュピースが美術家集団「ピタ・マハ」を興し、そこで教えられた、日々の暮らしを細部まで描き込む画風が、いまも多くの人が思い浮かべる「バリ絵画」そのものである。",
-    [prop("Puri Saren Royal Court|Puri Saren (corte real)|Cour royale du Puri Saren|プリ・サレンの王宮", 280, 58),
-     prop("Neka Art Museum|Museo de Arte Neka|Musée d'art Neka|ネカ美術館", 250, 52)],
+    [prop("Puri Saren Royal Court|Puri Saren (corte real)|Cour royale du Puri Saren|プリ・サレンの王宮", 1300, 270),
+     prop("Neka Art Museum|Museo de Arte Neka|Musée d'art Neka|ネカ美術館", 700, 146)],
   ),
   tegalalang: city(
     "Tegalalang|Tegalalang|Tegalalang|テガララン",
@@ -109,16 +111,16 @@ export const BALI_CITIES = {
     115.2926, -8.5228, "ubu", "meru", "templegate", "r",
     "A demon's mouth for a door|La boca de un demonio por puerta|La bouche d'un démon en guise de porte|鬼の口が扉になる洞窟",
     "The doorway into the meditation cave is the open mouth of a demon face carved directly into the rock in the 11th century, and the niches inside were cut by hand deep enough for a monk to sit cross-legged out of the weather. Despite the name (\"Elephant Cave\"), no elephant statue or bone has ever been found here — historians think it comes from a mistranslated reference to the nearby Petanu river.|La entrada a la cueva de meditación es la boca abierta de una cara de demonio tallada en la roca en el siglo XI, y los nichos interiores se excavaron a mano lo bastante hondo para un monje. Pese al nombre («cueva del elefante»), nunca se ha hallado aquí estatua ni hueso de elefante.|L'entrée de la grotte de méditation est la bouche ouverte d'un visage de démon sculpté dans la roche au XIe siècle, et les niches intérieures furent creusées à la main assez profondément pour un moine. Malgré son nom (« grotte de l'Éléphant »), aucune statue ni ossement d'éléphant n'y a jamais été trouvé.|瞑想窟の入口は、11世紀に岩肌へ直接刻まれた鬼の顔の開いた口である。内部の壁龕は、僧が結跏趺坐して雨風をしのげるだけの深さに手で掘られた。「象の洞窟」という名にもかかわらず、象の像や骨はここから一つも見つかっていない。歴史家は、近くのプタヌ川の名の誤訳から来た名だろうと考えている。",
-    [prop("Demon-Mouth Entrance|Entrada boca de demonio|Entrée bouche de démon|鬼の口の入口", 280, 58),
-     prop("Rock-Cut Meditation Niche|Nicho tallado en roca|Niche taillée dans la roche|岩を掘った瞑想の壁龕", 240, 50)],
+    [prop("Demon-Mouth Entrance|Entrada boca de demonio|Entrée bouche de démon|鬼の口の入口", 650, 135),
+     prop("Rock-Cut Meditation Niche|Nicho tallado en roca|Niche taillée dans la roche|岩を掘った瞑想の壁龕", 550, 114)],
   ),
   tirtaempul: city(
     "Tirta Empul|Tirta Empul|Tirta Empul|ティルタエンプル",
     115.3144, -8.4131, "ubu", "meru", "templegate", "l",
     "A spring old enough to date, a palace built to watch it|Un manantial fechado, un palacio para contemplarlo|Une source datée, un palais pour la contempler|年代の分かる泉と、それを見る宮殿",
     "An inscription dates the spring to 962 CE, and Balinese Hindus still queue at its row of water spouts to bathe in a purification rite called melukat, each spout washing away a different kind of misfortune. Indonesia's first president, Sukarno, built his own mountain palace directly overlooking the temple in the 1950s, reportedly because he found the view and the water itself restorative.|Una inscripción fecha el manantial en el año 962, y los hindúes balineses aún hacen cola ante su hilera de surtidores para bañarse en un rito de purificación llamado melukat. El primer presidente de Indonesia, Sukarno, construyó su propio palacio de montaña justo sobre el templo en los años 50.|Une inscription date la source de 962, et les hindous balinais font encore la queue devant sa rangée de becs pour se baigner dans un rite de purification appelé melukat. Sukarno, premier président d'Indonésie, fit bâtir son propre palais de montagne juste au-dessus du temple dans les années 1950.|碑文はこの泉を西暦962年のものとする。バリのヒンドゥー教徒はいまも並んだ吹き出し口の前に列を作り、「ムルカット」という浄めの沐浴をする。インドネシア初代大統領スカルノは1950年代、寺院を見下ろす場所に自分の山荘を建てた。景色と水そのものに癒やされたからだと言われている。",
-    [prop("Purification Spout Row|Hilera de surtidores de purificación|Rangée de becs de purification|浄めの吹き出し口", 270, 56),
-     prop("Sukarno's Mountain Palace|Palacio de montaña de Sukarno|Palais de montagne de Sukarno|スカルノの山荘", 300, 62)],
+    [prop("Purification Spout Row|Hilera de surtidores de purificación|Rangée de becs de purification|浄めの吹き出し口", 700, 146),
+     prop("Sukarno's Mountain Palace|Palacio de montaña de Sukarno|Palais de montagne de Sukarno|スカルノの山荘", 1200, 250)],
   ),
 
   // ---------------------------------------------------------------------
@@ -129,16 +131,16 @@ export const BALI_CITIES = {
     115.3667, -8.2667, "gl", "volcano", "cratervolcano", "r",
     "The lake every rice farmer answers to|El lago al que todo arrocero rinde cuentas|Le lac auquel chaque riziculteur doit tout|すべての田が頼る湖",
     "Mount Batur has erupted more than twenty times since records began, most destructively in 1926, when the flow buried the old lakeside temple so completely that survivors rebuilt Pura Ulun Danu Batur higher up the crater rim. Balinese farmers far from here still credit the lake below, not the rain, as the true source of the water carried to their rice terraces by subak, the temple-run irrigation canals.|El monte Batur ha entrado en erupción más de veinte veces desde que hay registros, y la más destructiva, en 1926, sepultó tan por completo el antiguo templo junto al lago que los supervivientes reconstruyeron el Pura Ulun Danu Batur más arriba, en el borde del cráter. Agricultores balineses muy lejos de aquí siguen atribuyendo al lago el verdadero origen del agua de sus terrazas.|Le mont Batur est entré en éruption plus de vingt fois depuis que l'on tient des registres, la plus destructrice en 1926, ensevelissant si complètement l'ancien temple au bord du lac que les survivants rebâtirent le Pura Ulun Danu Batur plus haut, sur le rebord du cratère. Des agriculteurs balinais bien loin d'ici attribuent encore au lac la véritable origine de l'eau de leurs rizières.|バトゥール山は記録に残るだけで二十回以上噴火しており、もっとも被害の大きかった1926年の噴火では、湖畔の古い寺院がすっかり埋もれ、生き残った人々はカルデラの縁のもっと高い場所にウルンダヌ・バトゥール寺院を建て直した。ここから遠く離れた土地の農民たちも、雨ではなくこの湖こそが、寺院が管理する灌漑水路スバックを通じて棚田に届く水の本当の源だと、いまも考えている。",
-    [prop("Pura Ulun Danu Batur|Pura Ulun Danu Batur|Pura Ulun Danu Batur|ウルンダヌ・バトゥール寺院", 290, 60),
-     prop("Crater Rim Warung|Fonda del borde del cráter|Warung du rebord du cratère|カルデラ縁の食堂", 220, 46)],
+    [prop("Pura Ulun Danu Batur|Pura Ulun Danu Batur|Pura Ulun Danu Batur|ウルンダヌ・バトゥール寺院", 800, 166),
+     prop("Crater Rim Warung|Fonda del borde del cráter|Warung du rebord du cratère|カルデラ縁の食堂", 650, 135)],
   ),
   bedugul: city(
     "Bedugul|Bedugul|Bedugul|ブドゥグル",
     115.1661, -8.2763, "gl", "meru", "lakeside", "r",
     "The temple on the 50,000-rupiah note|El templo del billete de 50.000 rupias|Le temple du billet de 50 000 roupies|5万ルピア紙幣の寺院",
     "Built in 1633 for Dewi Danu, goddess of the lake, the temple's pagodas seem to float when the water is high enough to submerge their stone base, an image familiar to most Indonesians because it appears on the 50,000-rupiah banknote. Farmers from as far as the dry southern plains still consider this lake, and Batur's, the true source of every subak's water.|Construido en 1633 para Dewi Danu, diosa del lago, las pagodas del templo parecen flotar cuando el agua sube lo bastante para cubrir su base de piedra, imagen que la mayoría de indonesios reconoce por el billete de 50.000 rupias. Agricultores de las llanuras secas del sur siguen viendo este lago como la fuente verdadera del agua de todo subak.|Bâti en 1633 pour Dewi Danu, déesse du lac, les pagodes du temple semblent flotter quand l'eau monte assez pour submerger leur base de pierre, image que la plupart des Indonésiens reconnaissent car elle figure sur le billet de 50 000 roupies. Des agriculteurs des plaines sèches du sud considèrent encore ce lac comme la véritable source de l'eau de chaque subak.|1633年、湖の女神デウィ・ダヌのために建てられたこの寺院の塔は、水位が上がって石の土台が沈むと浮かんでいるように見える。5万ルピア紙幣に描かれているため、インドネシア人の多くにおなじみの姿である。乾いた南の平野からも、農民たちはいまもこの湖こそがすべてのスバックの水の本当の源だと考えている。",
-    [prop("Floating Pagoda Shrine|Santuario pagoda flotante|Sanctuaire pagode flottant|浮かぶ塔の祠", 300, 62),
-     prop("Lakeside Nursery Garden|Jardín vivero junto al lago|Jardin pépinière au bord du lac|湖畔の苗木園", 230, 48)],
+    [prop("Floating Pagoda Shrine|Santuario pagoda flotante|Sanctuaire pagode flottant|浮かぶ塔の祠", 850, 177),
+     prop("Lakeside Nursery Garden|Jardín vivero junto al lago|Jardin pépinière au bord du lac|湖畔の苗木園", 700, 146)],
   ),
   munduk: city(
     "Munduk|Munduk|Munduk|ムンドゥック",
@@ -153,16 +155,16 @@ export const BALI_CITIES = {
     115.3547, -8.4562, "gl", "palace", "hillvillage", "r",
     "The only kingdom with no coast|El único reino sin costa|Le seul royaume sans côte|海を持たなかった唯一の王国",
     "Of Bali's old royal kingdoms, this was the only one with no coastline at all, landlocked between the territories of its neighbours and dependent on them for any access to the sea. Pura Kehen, its terraced state temple built up a hillside in eleven rising courtyards, is considered second in importance only to Besakih, and a stone inscription found on the site is dated to 1206.|De los antiguos reinos balineses, este fue el único sin costa alguna, encerrado entre los territorios vecinos y dependiente de ellos para llegar al mar. Pura Kehen, su templo estatal en terrazas de once patios, se considera el segundo en importancia tras Besakih, y una inscripción en piedra hallada allí data de 1206.|Parmi les anciens royaumes balinais, celui-ci fut le seul sans aucune façade maritime, enclavé entre les territoires voisins et dépendant d'eux pour tout accès à la mer. Pura Kehen, son temple d'État en terrasses à onze cours étagées, est considéré comme le second en importance après Besakih, et une inscription trouvée sur place est datée de 1206.|バリのかつての王国のうち、海に一切面していなかったのはこの国だけで、周りの領土に囲まれ、海へ出るにも隣国に頼らねばならなかった。丘の斜面に十一段の中庭を重ねて築かれた州寺院プラ・クヘンは、重要度でブサキ寺院に次ぐとされる。境内で見つかった石碑は1206年のものとされる。",
-    [prop("Eleven-Courtyard Temple|Templo de once patios|Temple aux onze cours|十一段の中庭を持つ寺院", 280, 58),
-     prop("1206 Inscription Stone|Piedra de inscripción de 1206|Pierre d'inscription de 1206|1206年の石碑", 250, 52)],
+    [prop("Eleven-Courtyard Temple|Templo de once patios|Temple aux onze cours|十一段の中庭を持つ寺院", 750, 156),
+     prop("1206 Inscription Stone|Piedra de inscripción de 1206|Pierre d'inscription de 1206|1206年の石碑", 300, 62)],
   ),
   jatiluwih: city(
     "Jatiluwih|Jatiluwih|Jatiluwih|ジャティルウィ",
     115.1258, -8.3717, "gl", "terrace", "riceterrace", "l",
     "Registered for the system, not the view|Registrado por el sistema, no por la vista|Classé pour le système, pas pour la vue|眺めではなく仕組みが登録された棚田",
     "The name means roughly \"truly marvellous\", and in 2012 UNESCO listed the terraces here, together with several other subak sites, as a cultural landscape rather than just scenery, recognising the water-temple system that manages them. Some fields are still planted with tall heirloom rice varieties that take longer to grow and yield less than modern strains, kept on for taste and for temple offerings rather than income.|El nombre significa algo así como «verdaderamente maravilloso», y en 2012 la UNESCO declaró estas terrazas, junto con otros sitios subak, paisaje cultural y no solo vista panorámica. Algunos campos aún se siembran con variedades de arroz altas y tradicionales, mantenidas por el sabor y las ofrendas antes que por el ingreso.|Le nom signifie à peu près « vraiment merveilleux », et en 2012 l'UNESCO a classé ces terrasses, avec plusieurs autres sites subak, comme paysage culturel plutôt que simple panorama. Certains champs sont encore plantés de variétés de riz anciennes et hautes, conservées pour le goût et les offrandes plutôt que pour le revenu.|地名はおおよそ「まことに見事な」を意味する。2012年、ユネスコはこの棚田をほかのスバック遺跡とともに、眺めそのものではなく、それを支える水利寺院の仕組みごと文化的景観として登録した。いまも一部の田では、成長が遅く収量も少ない在来の丈高い米が、稼ぎのためではなく味と供物のために作られている。",
-    [prop("Heirloom Rice Field|Campo de arroz tradicional|Champ de riz ancien|在来種の稲田", 260, 54),
-     prop("Subak Water Temple|Templo de agua del subak|Temple de l'eau du subak|スバックの水利寺院", 280, 58)],
+    [prop("Heirloom Rice Field|Campo de arroz tradicional|Champ de riz ancien|在来種の稲田", 650, 135),
+     prop("Subak Water Temple|Templo de agua del subak|Temple de l'eau du subak|スバックの水利寺院", 1400, 291)],
   ),
 
   // ---------------------------------------------------------------------
@@ -173,16 +175,16 @@ export const BALI_CITIES = {
     115.4517, -8.3742, "tim", "meru", "templegate", "r",
     "The lava that stopped at the wall|La lava que se detuvo en el muro|La lave arrêtée au mur|壁の手前で止まった溶岩",
     "Mother Temple to more than eighty villages, it is actually two dozen separate temples climbing the southwestern slope of Gunung Agung, and in 1963 lava from the volcano's worst eruption of the 20th century stopped only metres from its walls while burying villages elsewhere on the mountain. Many Balinese still read the temple's survival that day as more than luck.|Templo madre de más de ochenta aldeas, es en realidad dos docenas de templos que ascienden por la ladera suroeste del Gunung Agung, y en 1963 la lava de la peor erupción del volcán en el siglo XX se detuvo a solo metros de sus muros. Muchos balineses siguen viendo aquel día como algo más que suerte.|Temple mère de plus de quatre-vingts villages, ce sont en réalité deux douzaines de temples qui gravissent le versant sud-ouest du Gunung Agung, et en 1963 la lave de la pire éruption du volcan au XXe siècle s'arrêta à quelques mètres de ses murs. Beaucoup de Balinais voient encore dans cette survie plus qu'un simple hasard.|八十を超す村の母なる寺院とされるが、実際には二十あまりの別々の寺院がグヌン・アグンの南西斜面を這い上るように連なっている。1963年、この火山の20世紀最大の噴火の溶岩は、山の別の斜面の村々を埋めながら、この寺院の壁の数メートル手前で止まった。多くのバリ人は、この日の生存をいまも単なる偶然以上のものと見ている。",
-    [prop("Mother Temple Courtyard|Patio del templo madre|Cour du temple mère|母なる寺院の中庭", 320, 66),
-     prop("Volcano-Slope Shrine Row|Hilera de santuarios en la ladera|Rangée de sanctuaires sur le versant|山腹に並ぶ祠", 280, 58)],
+    [prop("Mother Temple Courtyard|Patio del templo madre|Cour du temple mère|母なる寺院の中庭", 2800, 582),
+     prop("Volcano-Slope Shrine Row|Hilera de santuarios en la ladera|Rangée de sanctuaires sur le versant|山腹に並ぶ祠", 2600, 540)],
   ),
   klungkung: city(
     "Klungkung|Klungkung|Klungkung|クルンクン",
     115.4034, -8.5372, "tim", "palace", "royaltown", "l",
     "A ceiling that judged you back|Un techo que también te juzgaba|Un plafond qui vous jugeait aussi|見上げる者を裁く天井画",
     "The kingdom's law court, the Kertha Gosa, has a painted ceiling telling the fate that awaits wrongdoers in the afterlife, arranged panel by panel so a defendant sitting for judgement looked straight up at it. In 1908 the royal family and hundreds of their court walked out of the palace gate in ceremonial white to die facing Dutch rifles rather than surrender, the last of Bali's puputan and the one that ended the island's remaining independent kingdoms.|El tribunal del reino, el Kertha Gosa, tiene un techo pintado que narra el destino de los culpables en el más allá, ordenado panel a panel para que el acusado lo tuviera justo encima. En 1908 la familia real y su corte salieron del palacio en blanco ceremonial para morir ante los fusiles holandeses, el último puputan de Bali.|Le tribunal du royaume, le Kertha Gosa, a un plafond peint racontant le sort des coupables dans l'au-delà, disposé panneau par panneau pour qu'un accusé l'ait droit au-dessus de lui. En 1908, la famille royale et sa cour sortirent du palais en blanc de cérémonie pour mourir face aux fusils néerlandais, le dernier puputan de Bali.|王国の裁判所クルタ・ゴサの天井画は、悪事を働いた者があの世で受ける報いを描いており、判決を待って座る被告の真上に配されている。1908年、王族とその廷臣数百人が儀式用の白い装束で宮殿の門を出、降伏するよりオランダ軍の銃口の前で死ぬことを選んだ。これがバリ最後のププタンであり、島に残っていた独立王国の終わりだった。",
-    [prop("Kertha Gosa Painted Ceiling|Techo pintado del Kertha Gosa|Plafond peint du Kertha Gosa|クルタ・ゴサの天井画", 300, 62),
-     prop("1908 Puputan Gate|Puerta del puputan de 1908|Porte du puputan de 1908|1908年ププタンの門", 260, 54)],
+    [prop("Kertha Gosa Painted Ceiling|Techo pintado del Kertha Gosa|Plafond peint du Kertha Gosa|クルタ・ゴサの天井画", 800, 166),
+     prop("Puri Agung Semarapura|Puri Agung Semarapura|Puri Agung Semarapura|プリ・アグン・スマラプラ", 700, 146)],
   ),
   amed: city(
     "Amed|Amed|Amed|アメッド",
@@ -225,8 +227,8 @@ export const BALI_CITIES = {
     115.0882, -8.1120, "utr", "boat", "portferry", "l",
     "The port that lost the capital|El puerto que perdió la capital|Le port qui perdit la capitale|州都の座を失った港町",
     "Dutch colonial administrators ran all of Bali from this port town from 1882 until 1958, when the new republic moved the capital south to Denpasar. Its 1928 library, Gedong Kirtya, still holds thousands of lontar — palm-leaf manuscripts inscribed with a knife and rubbed with soot — making it the largest such collection on the island.|Los administradores coloniales holandeses gobernaron toda Bali desde este puerto entre 1882 y 1958, cuando la nueva república trasladó la capital al sur, a Denpasar. Su biblioteca de 1928, el Gedong Kirtya, conserva todavía miles de lontar, la mayor colección de su tipo en la isla.|Les administrateurs coloniaux néerlandais gouvernèrent tout Bali depuis ce port de 1882 à 1958, année où la nouvelle république transféra la capitale au sud, à Denpasar. Sa bibliothèque de 1928, le Gedong Kirtya, conserve encore des milliers de lontar, la plus grande collection de ce genre sur l'île.|オランダの植民地行政は1882年から1958年まで、この港町からバリ全島を治めた。新しい共和国が州都を南のデンパサールへ移したのはその年である。1928年に開かれた図書館ゲドン・キルティヤには、ナイフで文字を刻みすすで黒くした椰子の葉の写本「ロンタル」が今も数千点残り、島内最大のコレクションになっている。",
-    [prop("Gedong Kirtya Library|Biblioteca Gedong Kirtya|Bibliothèque Gedong Kirtya|ゲドン・キルティヤ図書館", 240, 50),
-     prop("Old Harbour Warehouse|Almacén del viejo puerto|Entrepôt du vieux port|旧港の倉庫", 210, 44)],
+    [prop("Gedong Kirtya Library|Biblioteca Gedong Kirtya|Bibliothèque Gedong Kirtya|ゲドン・キルティヤ図書館", 750, 156),
+     prop("Old Harbour Warehouse|Almacén del viejo puerto|Entrepôt du vieux port|旧港の倉庫", 600, 125)],
   ),
   lovina: city(
     "Lovina|Lovina|Lovina|ロビナ",
@@ -244,6 +246,14 @@ export const BALI_CITIES = {
     [prop("Bicycle-Rider Relief|Relieve del ciclista|Bas-relief du cycliste|自転車乗りの浮彫", 260, 54),
      prop("First-Rice Offering Hall|Sala de ofrenda del primer arroz|Salle d'offrande du premier riz|初穂を供える堂", 230, 48)],
   ),
+  tejakula: city(
+    "Tejakula|Tejakula|Tejakula|トゥジャクラ",
+    115.2801, -8.1372, "utr", "lake", "quietbeach", "r",
+    "A cold spring within sight of the sea|Un manantial frío a la vista del mar|Une source froide à la vue de la mer|海を望む冷たい湧き水",
+    "The name is often paired with Air Sanih, a natural pool just along the coast where fresh water bubbles up from an underground channel within sight of the sea, cold enough to surprise anyone expecting the tropical warmth of the beach beside it. Villages along this stretch of coast are also known for arak, a spirit distilled from fermented palm sap or rice in small backyard stills, most of it never bottled for sale at all.|El nombre suele ir unido a Air Sanih, una piscina natural junto a la costa donde brota agua dulce de un canal subterráneo a la vista del mar, lo bastante fría como para sorprender a quien espera el calor tropical de la playa de al lado. Los pueblos de este tramo de costa también son conocidos por el arak, un aguardiente destilado de savia de palma o arroz fermentados en pequeños alambiques caseros.|Le nom est souvent associé à Air Sanih, un bassin naturel juste sur la côte où l'eau douce jaillit d'un chenal souterrain à la vue de la mer, assez froide pour surprendre qui s'attend à la chaleur tropicale de la plage voisine. Les villages de ce tronçon de côte sont aussi connus pour l'arak, un alcool distillé de sève de palmier ou de riz fermentés dans de petits alambics domestiques.|この地名はよく、海のすぐそばにありながら地下の水路から真水が湧き出す天然のプール、アイル・サニーと共に語られる。隣の浜の熱帯らしい暖かさを期待していると驚くほど冷たい。この海岸沿いの村々はまた、椰子の樹液や米を発酵させ、家庭の小さな蒸留器で作る蒸留酒「アラック」でも知られる。そのほとんどは瓶詰めされて売られることさえない。",
+    [prop("Air Sanih Spring Pool|Piscina de Air Sanih|Bassin d'Air Sanih|アイル・サニーの湧水プール", 240, 50),
+     prop("Backyard Arak Still|Alambique casero de arak|Alambic domestique d'arak|裏庭のアラック蒸留器", 200, 42)],
+  ),
   sukasada: city(
     "Sukasada|Sukasada|Sukasada|スカサダ",
     115.1391, -8.1633, "utr", "lake", "hillvillage", "r",
@@ -260,9 +270,9 @@ export const BALI_CITIES = {
     "Nusa Penida|Nusa Penida|Nusa Penida|ヌサペニダ",
     115.556, -8.706, "brt", "dive", "cliffcove", "r",
     "The island where fear was sent|La isla adonde se enviaba el miedo|L'île où l'on envoyait la peur|恐れを流した島",
-    "Balinese kings once exiled criminals and the unwell here, and villages across the island still parade a fanged giant puppet named after its guardian spirit, Jero Gede Macaling, each new year. The steep cliff road that finally reached the island's turquoise coves was cut only in 2016 — before that, most of Bali knew this place only by reputation.|Los reyes balineses exiliaban aquí a criminales y enfermos, y aldeas de toda la isla siguen sacando cada año nuevo un títere gigante de colmillos con el nombre de su espíritu guardián, Jero Gede Macaling. La carretera tallada en el acantilado se abrió recién en 2016.|Les rois balinais y exilaient jadis criminels et malades, et des villages de toute l'île font encore défiler chaque nouvel an une marionnette géante aux crocs, nommée d'après son esprit gardien, Jero Gede Macaling. La route taillée dans la falaise ne fut ouverte qu'en 2016.|かつてバリの王たちは罪人や病者をこの島へ追放し、島の守護霊にちなむ牙を持つ巨大な人形は、いまも毎年の新年に島じゅうの村で担ぎ出される。その霊の名はジュロ・グデ・マチャリン。断崖を切り開いた急な道が開通したのは2016年のことで、それまでバリの多くの人にとってこの島は噂でしか知らない場所だった。",
-    [prop("Kelingking Cliff Path|Sendero del acantilado Kelingking|Sentier de la falaise de Kelingking|クリンキン断崖の小道", 270, 56),
-     prop("Toyapakeh Crossing Pier|Muelle de Toyapakeh|Embarcadère de Toyapakeh|トヤパケの渡し場", 230, 48)],
+    "Balinese kings once exiled criminals and the unwell here, and villages across the island still parade a fanged giant puppet named after its guardian spirit, Jero Gede Macaling, each new year. A steep cliff road eventually reached the island's turquoise coves, but until well into the 2010s most of Bali knew this place only by reputation.|Los reyes balineses exiliaban aquí a criminales y enfermos, y aldeas de toda la isla siguen sacando cada año nuevo un títere gigante de colmillos con el nombre de su espíritu guardián, Jero Gede Macaling. Una empinada carretera de acantilado acabó llegando a las calas turquesa de la isla, pero hasta bien entrada la década de 2010 la mayor parte de Bali solo conocía este lugar de oídas.|Les rois balinais y exilaient jadis criminels et malades, et des villages de toute l'île font encore défiler chaque nouvel an une marionnette géante aux crocs, nommée d'après son esprit gardien, Jero Gede Macaling. Une route escarpée finit par atteindre les criques turquoise de l'île, mais jusque tard dans les années 2010, le reste de Bali ne connaissait ce lieu que de réputation.|かつてバリの王たちは罪人や病者をこの島へ追放し、島の守護霊にちなむ牙を持つ巨大な人形は、いまも毎年の新年に島じゅうの村で担ぎ出される。その霊の名はジュロ・グデ・マチャリン。断崖を切り開いた急な道はやがてこの島のターコイズ色の入り江まで届いたが、2010年代半ばを過ぎるまで、バリ本島の人にとってもこの島は噂でしか知らない場所だった。",
+    [prop("Kelingking Cliff Path|Sendero del acantilado Kelingking|Sentier de la falaise de Kelingking|クリンキン断崖の小道", 700, 146),
+     prop("Toyapakeh Crossing Pier|Muelle de Toyapakeh|Embarcadère de Toyapakeh|トヤパケの渡し場", 260, 54)],
   ),
   nusalembongan: city(
     "Nusa Lembongan|Nusa Lembongan|Nusa Lembongan|ヌサレンボンガン",
@@ -293,16 +303,16 @@ export const BALI_CITIES = {
     115.4406, -8.5661, "brt", "harvest", "fishingvillage", "r",
     "Salt that costs more abroad than here|Sal que vale más fuera que aquí|Un sel qui vaut plus cher ailleurs qu'ici|よそのほうが高く売れる塩",
     "Salt farmers here soak black volcanic sand in seawater, dry it in the sun, then filter it through a trough lined with palm-leaf fibre before reducing it in shallow wooden troughs — a process that takes about two weeks from first soaking to finished salt. The same salt now sells abroad as a costly gourmet ingredient, though the family working a stretch of sand here sees only a small fraction of that price.|Los salineros de aquí empapan arena volcánica negra en agua de mar, la secan al sol, y la filtran por una artesa de fibra de palma antes de reducirla, un proceso de unas dos semanas. Esa misma sal se vende hoy en el extranjero como ingrediente gourmet caro, aunque la familia local solo ve una pequeña parte de ese precio.|Les sauniers d'ici trempent du sable volcanique noir dans l'eau de mer, le sèchent au soleil, puis le filtrent dans une auge de fibre de palmier avant de le réduire, un procédé d'environ deux semaines. Ce même sel se vend aujourd'hui à l'étranger comme ingrédient gastronomique coûteux, la famille locale n'en voyant qu'une petite fraction du prix.|ここの塩職人は黒い火山灰の砂を海水に浸し、天日で乾かし、椰子の葉の繊維を敷いた樋で濾して塩分を濃くしてから、浅い木の桶で煮詰める。最初に砂を浸してから塩ができるまでおよそ二週間かかる。同じ塩はいま海外では高級食材として売られているが、ここで一区画の砂を扱う家族の手に入るのは、その値のごくわずかでしかない。",
-    [prop("Palm-Fibre Filter Trough|Artesa filtrante de fibra de palma|Auge filtrante en fibre de palmier|椰子繊維の濾し樋", 220, 46),
-     prop("Sun-Drying Sand Bed|Lecho de arena de secado solar|Lit de sable de séchage solaire|天日干しの砂床", 200, 42)],
+    [prop("Palm-Fibre Filter Trough|Artesa filtrante de fibra de palma|Auge filtrante en fibre de palmier|椰子繊維の濾し樋", 210, 44),
+     prop("Sun-Drying Sand Bed|Lecho de arena de secado solar|Lit de sable de séchage solaire|天日干しの砂床", 150, 31)],
   ),
   tanahlot: city(
     "Tanah Lot|Tanah Lot|Tanah Lot|タナロット",
     115.0868, -8.6212, "brt", "meru", "templegate", "b",
     "A rock said to be moved by a priest|Una roca que un sacerdote habría movido|Un rocher qu'un prêtre aurait déplacé|僧が動かしたと伝わる岩",
     "Tradition holds that the 16th-century priest Dang Hyang Nirartha, travelling the coast founding sea temples, moved this rock offshore himself and left a nest of venomous sea snakes in a cave beneath it to guard the site — a cave that still holds banded sea kraits today, kept calm, guides say, by a resident priest. The temple is reachable on foot only at low tide, and older maps show at least six other sea temples along this coast built to the same plan.|La tradición dice que el sacerdote del siglo XVI Dang Hyang Nirartha trasladó él mismo esta roca mar adentro y dejó un nido de serpientes marinas venenosas en una cueva debajo para vigilar el lugar, cueva que aún hoy alberga serpientes de bandas. El templo solo se alcanza a pie con marea baja.|La tradition veut que le prêtre du XVIe siècle Dang Hyang Nirartha ait lui-même déplacé ce rocher au large et laissé un nid de serpents marins venimeux dans une grotte en dessous pour garder le site, grotte qui abrite encore aujourd'hui des tricots-rayés. Le temple n'est accessible à pied qu'à marée basse.|言い伝えでは、海沿いに寺院を建てながら旅した16世紀の僧ダン・ヒヤン・ニラルタが、この岩を自ら沖へ動かし、その下の洞窟に毒を持つウミヘビの巣を残して守らせたという。その洞窟にはいまもエラブウミヘビがおり、案内人によれば常駐の僧がヘビを落ち着かせているという。この寺院へは干潮のときだけ歩いて渡れる。",
-    [prop("Sea-Snake Guardian Cave|Cueva guardiana de serpientes marinas|Grotte gardienne aux serpents marins|ウミヘビの守り洞窟", 290, 60),
-     prop("Low-Tide Rock Causeway|Paso de roca en marea baja|Chaussée rocheuse à marée basse|干潮の岩の道", 250, 52)],
+    [prop("Sea-Snake Guardian Cave|Cueva guardiana de serpientes marinas|Grotte gardienne aux serpents marins|ウミヘビの守り洞窟", 1600, 333),
+     prop("Low-Tide Rock Causeway|Paso de roca en marea baja|Chaussée rocheuse à marée basse|干潮の岩の道", 1300, 270)],
   ),
 };
 
@@ -341,7 +351,8 @@ export const BALI_EDGES = [
   ["padangbai", "candidasa"],
   ["candidasa", "amed"],
   ["amed", "tulamben"],
-  ["tulamben", "kubutambahan"],
+  ["tulamben", "tejakula"],
+  ["tejakula", "kubutambahan"],
   ["kubutambahan", "singaraja"],
   ["singaraja", "lovina"],
   ["singaraja", "sukasada"],
