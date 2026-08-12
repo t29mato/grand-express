@@ -448,7 +448,7 @@ export const MALAYSIA_EDGES = [
   ["taiping", "lumut"],
   ["alorsetar", "langkawi", "sea"],
   ["alorsetar", "georgetown", "sea"],
-  ["georgetown", "lumut", "sea"],
+  ["lumut", "georgetown", "sea"],
   ["ipoh", "cameronhighlands"],
 
   // --- KL―西海岸線の南半分・高原 ---
@@ -470,7 +470,7 @@ export const MALAYSIA_EDGES = [
   ["kuantan", "mersing"],
 
   // --- sou 南部(ヌグリスンビラン・マラッカ・ジョホール) ---
-  ["seremban", "johorbahru"],
+  ["johorbahru", "seremban"],
   ["seremban", "malacca"],
   ["seremban", "portdickson"],
   ["portdickson", "malacca"],
@@ -483,10 +483,10 @@ export const MALAYSIA_EDGES = [
   ["kuching", "bako", "sea"],
   ["kuching", "sibu"],
   ["sibu", "bintulu"],
-  ["bintulu", "miri"],
-  ["miri", "limbang", "sea"],
-  ["miri", "mulu", "sea"],
-  ["limbang", "mulu", "sea"],
+  ["bintulu", "miri", "sea"],
+  ["miri", "limbang"],
+  ["miri", "mulu"],
+  ["limbang", "mulu"],
 
   // --- sab サバ州(コタキナバル―テノムのみ実在の鉄道) ---
   ["kotakinabalu", "tenom"],
