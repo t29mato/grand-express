@@ -23,7 +23,7 @@
  * 実行: node scripts/extract-legacy-content.mjs
  * 出力: src/infrastructure/content/raw/{bolivia,japan,ui,months}.raw.json
  */
-import { readFileSync, writeFileSync, mkdtempSync, mkdirSync, readdirSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdtempSync, mkdirSync, readdirSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
