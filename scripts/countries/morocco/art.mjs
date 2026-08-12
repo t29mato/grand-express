@@ -1164,6 +1164,12 @@ export const MOROCCO_BG = {
     `<g fill="#5a7a3f">${[[15, 130], [30, 150], [370, 120], [385, 145]].map(([x, y]) => `<ellipse cx="${x}" cy="${y}" rx="4" ry="2.6"/>`).join("")}</g>`,
     // 手前の石垣(渓谷入口の目印)
     `<g fill="#7a6650">${Array.from({ length: 5 }).map((_, i) => `<rect x="${20 + i * 8}" y="200" width="6" height="8"/>`).join("")}</g>`,
+    // 対岸の低木(密度を足す)
+    `<g fill="#5a7a3f">${[[300, 190], [320, 194], [360, 188]].map(([x, y]) => `<ellipse cx="${x}" cy="${y}" rx="4" ry="2.6"/>`).join("")}</g>`,
+    // 手前の水たまりの反射
+    `<ellipse cx="60" cy="204" rx="20" ry="3" fill="#5aafd0" opacity=".5"/>`,
+    // 崖の亀裂(縦線)
+    `<g stroke="#7a6540" stroke-width="1.2" opacity=".5">${[30, 45, 355, 372].map((x) => `<line x1="${x}" y1="60" x2="${x + 4}" y2="120"/>`).join("")}</g>`,
   ].join(""),
 
   /** シディイフニ・タンタン・タルファヤ: 平らな砂漠の海岸。 */
@@ -1195,6 +1201,14 @@ export const MOROCCO_BG = {
     `<path d="M180,132c-2,4 12,4 10,0z" fill="#4a7bd0"/>`,
     // ラクダの足跡(南部の海岸道)
     `<g fill="#c9922f" opacity=".5">${[[100, 205], [115, 207], [130, 205]].map(([x, y]) => `<ellipse cx="${x}" cy="${y}" rx="2.4" ry="1.4"/>`).join("")}</g>`,
+    // 崖の上のカフェ(小さな四角)
+    `<rect x="10" y="132" width="18" height="14" fill="#e0d0a0"/>`,
+    // 追加のかもめ
+    gull(200, 40, 0.6),
+    // 手前の貝殻・小石
+    `<g fill="#e8dcc0">${[[180, 202], [200, 206], [220, 202]].map(([x, y]) => `<ellipse cx="${x}" cy="${y}" rx="3" ry="2"/>`).join("")}</g>`,
+    // 波打ち際の泡
+    `<path d="M140,144q10,4 20,0t20,0" fill="none" stroke="#f6efe2" stroke-width="2" opacity=".6"/>`,
   ].join(""),
 
   /** ウジダ・タザ: 乾いた高原の峠道。 */

@@ -1,8 +1,8 @@
 /**
  * モロッコの都市と路線。
  *
- * 38都市41路線。北部・リーフ7 / 大西洋岸8 / 中部・内陸5 / アトラス山脈5 /
- * 南部・砂漠9 / 東部4。
+ * 39都市42路線。北部・リーフ7 / 大西洋岸8 / 中部・内陸5 / アトラス山脈5 /
+ * 南部・砂漠9 / 東部5(ジェラダを追加し、地方あたり最低5を満たす)。
  *
  * 地方区分は6つ(team-lead の指示どおり): `rif` 北部・リーフ /
  * `atl` 大西洋岸 / `cen` 中部・内陸 / `atm` アトラス山脈 /
@@ -25,7 +25,7 @@
  * `chalet`=イフレン・アズルー、`countryside`=ベニ・メラル・ミデルト・ベルカン、
  * `mountains`=イムリル・セッティ・ファトマ、`kasbah`=ワルザザート・
  * アイット・ベン・ハドゥ、`palmoasis`=ザゴラ・エルラシディア・フィギッグ、
- * `coastdesert`=シディイフニ・タンタン・タルファヤ、`borderdesert`=ウジダ・タザ)。
+ * `coastdesert`=シディイフニ・タンタン・タルファヤ、`borderdesert`=ウジダ・タザ・ジェラダ)。
  */
 import { city, prop } from "../../content-overrides/city-helpers.mjs";
 
@@ -137,7 +137,7 @@ export const MOROCCO_CITIES = {
     "Essaouira|Essaouira|Essaouira|エッサウィラ",
     -9.7595, 31.5085, "atl", "skala", "skala", "r",
     "A purple-dye island that became a Vauban-style port|Una isla de tinte púrpura que se volvió puerto amurallado a la Vauban|Une île à pourpre devenue port fortifié à la Vauban|紫の染料の島が、ヴォーバン様式の要塞港になるまで",
-    "In the first century BCE, the Mauretanian king Juba II set up a workshop on the small island just offshore to crush murex sea snails into a purple dye nearly as prized as the Phoenicians' own. The walled town seen today was laid out in the 1760s by the French architect Théodore Cornut for Sultan Mohammed III, who wanted a single fortified port to channel Morocco's Atlantic trade — its straight streets and sea-facing bastions echo Saint-Malo because that was the model Cornut had trained on.|En el siglo I a. C., el rey mauritano Juba II instaló un taller en la pequeña isla frente a la costa para triturar caracoles múrice y obtener un tinte púrpura casi tan preciado como el de los fenicios. La ciudad amurallada de hoy la trazó en la década de 1760 el arquitecto francés Théodore Cornut para el sultán Mohamed III, que quería un único puerto fortificado por el que canalizar el comercio atlántico de Marruecos; sus calles rectas y bastiones frente al mar recuerdan a Saint-Malo porque ese fue el modelo con el que se formó Cornut.|Au premier siècle avant J.-C., le roi mauritanien Juba II installa un atelier sur la petite île au large pour broyer des murex et en tirer une teinture pourpre presque aussi prisée que celle des Phéniciens. La ville fortifiée que l'on voit aujourd'hui fut tracée dans les années 1760 par l'architecte français Théodore Cornut pour le sultan Mohammed III, qui voulait un unique port fortifié pour canaliser le commerce atlantique du Maroc ; ses rues droites et ses bastions tournés vers la mer rappellent Saint-Malo, le modèle sur lequel Cornut s'était formé.|紀元前1世紀、マウレタニア王ユバ2世は沖合の小島に工房を築き、アクキガイを砕いてフェニキア人の紫にひけを取らない紫色の染料を作らせた。現在見られる城壁の町は1760年代、フランス人建築家テオドール・コルニュがスルタン・ムハンマド3世のために設計したもので、モロッコの大西洋貿易を一つの要塞港に集約する狙いがあった。まっすぐな通りと海に向いた稜堡がサン・マロを思わせるのは、コルニュがその町で修行した建築家だったからである。",
+    "In the first century BCE, the Mauretanian king Juba II set up a workshop on the small island just offshore to crush murex sea snails into a purple dye nearly as prized as the Phoenicians' own. The walled town seen today was laid out in the 1760s by Théodore Cornut, a military engineer from Avignon working in the Vauban tradition of star-shaped bastions, for Sultan Mohammed III, who wanted a single fortified port to channel Morocco's Atlantic trade — its straight streets and sea-facing ramparts are often likened to Saint-Malo, though that comparison is more a tourist-guide shorthand than a documented model.|En el siglo I a. C., el rey mauritano Juba II instaló un taller en la pequeña isla frente a la costa para triturar caracoles múrice y obtener un tinte púrpura casi tan preciado como el de los fenicios. La ciudad amurallada de hoy la trazó en la década de 1760 Théodore Cornut, ingeniero militar de Aviñón que trabajaba en la tradición de bastiones en estrella de Vauban, para el sultán Mohamed III, que quería un único puerto fortificado por el que canalizar el comercio atlántico de Marruecos; sus calles rectas y murallas frente al mar se comparan a menudo con Saint-Malo, aunque esa comparación es más un atajo de guía turística que un modelo documentado.|Au premier siècle avant J.-C., le roi mauritanien Juba II installa un atelier sur la petite île au large pour broyer des murex et en tirer une teinture pourpre presque aussi prisée que celle des Phéniciens. La ville fortifiée que l'on voit aujourd'hui fut tracée dans les années 1760 par Théodore Cornut, ingénieur militaire originaire d'Avignon travaillant dans la tradition vaubanienne des bastions en étoile, pour le sultan Mohammed III, qui voulait un unique port fortifié pour canaliser le commerce atlantique du Maroc ; ses rues droites et ses remparts tournés vers la mer sont souvent comparés à Saint-Malo, bien que ce rapprochement relève davantage du raccourci de guide touristique que d'un modèle documenté.|紀元前1世紀、マウレタニア王ユバ2世は沖合の小島に工房を築き、アクキガイを砕いてフェニキア人の紫にひけを取らない紫色の染料を作らせた。現在見られる城壁の町は1760年代、アヴィニョン出身の軍事技術者テオドール・コルニュがヴォーバン式の星形稜堡の伝統に則って設計したもので、スルタン・ムハンマド3世のために、モロッコの大西洋貿易を一つの要塞港に集約する狙いがあった。まっすぐな通りと海に向いた城壁はしばしばサン・マロになぞらえられるが、その比較は裏付けのある手本というより観光案内の慣用句に近い。",
     [prop("Skala Sea Bastion Cannons|Cañones del bastión marino de la Skala|Canons du bastion maritime de la Skala|スカラ要塞の海に向いた大砲", 620, 128),
      prop("Fish Auction Hall|Lonja de subasta de pescado|Halle de criée aux poissons|魚のセリ場", 380, 78)],
   ),
@@ -333,6 +333,14 @@ export const MOROCCO_CITIES = {
     [prop("Sidi Yahya Oasis Garden|Jardín del oasis de Sidi Yahya|Jardin de l'oasis de Sidi Yahya|シディ・ヤヒヤ・オアシスの庭園", 280, 58),
      prop("Closed Border Overlook|Mirador de la frontera cerrada|Point de vue sur la frontière fermée|閉ざされた国境の展望台", 200, 42)],
   ),
+  jerada: city(
+    "Jerada|Yerada|Jerada|ジェラダ",
+    -2.1633, 34.3092, "est", "corkoak", "borderdesert", "r",
+    "A mining town that kept digging after the mine officially closed|Un pueblo minero que siguió excavando tras el cierre oficial de la mina|Une ville minière qui a continué de creuser après la fermeture officielle de la mine|鉱山が正式に閉じたあとも掘り続けた町",
+    "Jerada's state coal mine, once the engine of the whole town, shut down in the early 2000s after nearly seven decades of production, but with no other major employer to replace it, out-of-work miners kept digging by hand in the abandoned shafts anyway. In December 2017, the deaths of two brothers in one of those unofficial pits triggered months of protests demanding real jobs, a movement locals still call simply the Hirak.|La mina de carbón estatal de Jerada, antaño el motor de todo el pueblo, cerró a principios de la década de 2000 tras casi siete décadas de producción, pero sin otro gran empleador que la sustituyera, los mineros sin trabajo siguieron excavando a mano en los pozos abandonados. En diciembre de 2017, la muerte de dos hermanos en uno de esos pozos no oficiales desencadenó meses de protestas exigiendo empleo real, un movimiento que la gente del lugar sigue llamando simplemente el Hirak.|La mine d'État de charbon de Jerada, jadis moteur de toute la ville, ferma au début des années 2000 après près de sept décennies de production, mais sans autre grand employeur pour la remplacer, les mineurs sans emploi ont continué de creuser à la main dans les puits abandonnés. En décembre 2017, la mort de deux frères dans l'un de ces puits non officiels déclencha des mois de manifestations réclamant de vrais emplois, un mouvement que les habitants appellent encore simplement le Hirak.|かつて町全体を支えていたジェラダの国営炭鉱は2000年代初頭、およそ70年の操業を経て閉山したが、代わりとなる大きな雇用先がないまま、職を失った鉱夫たちは放棄された坑道を手作業で掘り続けた。2017年12月、そうした非公式の坑道の一つで兄弟二人が死亡した事故をきっかけに、実質のある雇用を求める抗議運動が数か月にわたり続いた。地元ではいまもこれを単に「ヒラク」と呼ぶ。",
+    [prop("Old Colliery Headframe|Torre de extracción de la vieja mina|Chevalement de l'ancienne mine|旧炭鉱の巻き上げ櫓", 220, 46),
+     prop("Hirak Memorial Plaza|Plaza conmemorativa del Hirak|Place commémorative du Hirak|ヒラク記念広場", 160, 34)],
+  ),
   figuig: city(
     "Figuig|Figuig|Figuig|フィギッグ",
     -1.2286, 32.1136, "est", "oasis", "palmoasis", "b",
@@ -360,7 +368,7 @@ export const MOROCCO_CITIES = {
 };
 
 /**
- * 路線(41本)。ONCFの実在の筋(タンジェ―ケニトラ―ラバト―カサブランカが
+ * 路線(42本)。ONCFの実在の筋(タンジェ―ケニトラ―ラバト―カサブランカが
  * アル・ボラーク高速線、カサブランカ―マラケシュ・フェズ―タザ―ウジダが
  * 幹線)を骨にしている。アトラス山脈と南部・砂漠には鉄道が通っていないため、
  * それらの区間は実在の幹線道路(N/R番号の国道)に置き換えている
@@ -413,5 +421,6 @@ export const MOROCCO_EDGES = [
   ["fes", "taza"],
   ["taza", "oujda"],
   ["oujda", "berkane"],
-  ["oujda", "figuig"], // 道路(N17)
+  ["oujda", "jerada"], // 道路(かつて石炭輸送の鉱山鉄道が通っていた区間)
+  ["jerada", "figuig"], // 道路(N17続き)
 ];

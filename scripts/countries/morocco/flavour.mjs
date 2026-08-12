@@ -7,11 +7,11 @@
  * `src/infrastructure/content/season-and-doom-rules.ts` 側に置く
  * (REGISTER.md に貼り付け用のコード片を用意してある)。
  *
- * **ラマダンは意図的に入れていない。**イスラム暦は太陽暦と噛み合わず、
- * 年によって月が動く(トルコ盤面も同じ理由で入れていない)。
- * 固定の12ヶ月サイクルに嵌め込むと不正確になるため、代わりに
- * 王位の祝日(7月30日)・独立記念日(11月18日)・ヤンナイル(アマジグ暦の新年、
- * 1月中旬)など、**グレゴリオ暦で日付が固定されている祝祭**を選んだ。
+ * **ラマダンはトルコ盤面と同じやり方で入れている。**イスラム暦は太陽暦と
+ * 噛み合わず、年によって月が動くため、8月の枠に**便宜上固定**して置き、
+ * ずれることを英語ほか4言語の`f`(補足事実)にそのまま書いてある(隠さない)。
+ * ほかに王位の祝日(7月30日)・独立記念日(11月18日)・ヤンナイル(アマジグ暦の
+ * 新年、1月中旬)など、グレゴリオ暦で日付が固定されている祝祭も選んだ。
  */
 
 function t(source) {
@@ -297,11 +297,13 @@ export const MOROCCO_SEASONS = [
     ),
   },
   {
-    e: "🏜️",
-    n: t("Peak heat, and the khettaras run dry|El calor máximo, y las khettaras se secan|Le pic de chaleur, et les khettaras s'assèchent|暑さの頂点、涸れるハッタラ",
-    ),
+    e: "🌙",
+    n: t("Ramadan|Ramadán|Ramadan|ラマダン"),
     t: t(
-      "Interior towns like Ouarzazate and Errachidia see their hottest weeks now, and the ancient khettara system of gently sloped underground tunnels that has carried groundwater to oasis fields without pumps for close to a thousand years is worked hardest just as the water table it depends on drops lowest.|Los pueblos del interior como Uarzazate y Errachidia viven ahora sus semanas más calurosas, y el antiguo sistema de khettaras, túneles subterráneos de suave pendiente que llevan agua freática a los campos de oasis sin bombas desde hace casi mil años, trabaja al máximo justo cuando el nivel freático del que depende baja más.|Les villes de l'intérieur comme Ouarzazate et Errachidia connaissent maintenant leurs semaines les plus chaudes, et l'antique système des khettaras, ces tunnels souterrains en pente douce qui acheminent l'eau souterraine vers les champs des oasis sans pompe depuis près de mille ans, tourne à plein régime juste quand la nappe dont il dépend est au plus bas.|ワルザザートやエルラシディアといった内陸の町はいま最も暑い数週間を迎え、ポンプを使わずおよそ千年にわたりオアシスの畑へ地下水を運んできた、緩やかに傾斜した地下トンネル網「ハッタラ」は、頼みの地下水位が最も下がるこの時期にこそ最も酷使される。",
+      "Streets and offices empty out by mid-afternoon as the day's fast nears its end, only to fill again within minutes of sunset, when families break the fast together over dates and a bowl of harira soup. Before dawn in some neighbourhoods, a nafar still walks the streets banging a small drum to wake households in time for a last meal before the fast begins again.|Calles y oficinas se vacían a media tarde según se acerca el fin del ayuno diario, para llenarse de nuevo a los pocos minutos de la puesta de sol, cuando las familias rompen el ayuno juntas con dátiles y un plato de harira. Antes del amanecer, en algunos barrios un nafar sigue recorriendo las calles tocando un pequeño tambor para despertar a las casas a tiempo para una última comida.|Rues et bureaux se vident en milieu d'après-midi à l'approche de la fin du jeûne quotidien, pour se remplir à nouveau quelques minutes après le coucher du soleil, quand les familles rompent le jeûne ensemble autour de dattes et d'un bol de harira. Avant l'aube, dans certains quartiers, un nafar parcourt encore les rues en battant un petit tambour pour réveiller les foyers à temps pour un dernier repas avant que le jeûne ne reprenne.|一日の断食が終わりに近づく午後半ば、通りやオフィスは人影が消え、日没から数分のうちに再び賑わいを取り戻す。家族はナツメヤシとハリラスープの椀を囲んで一緒に断食を明ける。夜明け前には、いまも一部の街区で「ナファル」と呼ばれる太鼓叩きが通りを歩き、断食が再び始まる前の最後の食事に間に合うよう家々を小さな太鼓の音で起こして回る。",
+    ),
+    f: t(
+      "Ramadan follows the Islamic lunar calendar, roughly eleven days shorter than the solar year, so its real dates shift earlier every year rather than falling in the same month; this board fixes it here for consistency, the same way it fixes every other month.|El Ramadán sigue el calendario islámico lunar, unos once días más corto que el año solar, así que sus fechas reales se adelantan cada año en vez de caer siempre en el mismo mes; este tablero lo fija aquí por coherencia, igual que fija cualquier otro mes.|Le Ramadan suit le calendrier islamique lunaire, plus court d'environ onze jours que l'année solaire, si bien que ses dates réelles avancent chaque année plutôt que de tomber toujours le même mois ; ce plateau le fixe ici par souci de cohérence, comme il fixe chaque autre mois.|ラマダンは太陽暦よりおよそ11日短いイスラム太陰暦に従うため、実際の日付は同じ月に留まらず毎年少しずつ早まっていく。この盤面ではほかの月と同じく、便宜上ここに固定して置いている。",
     ),
     months: [4],
   },
