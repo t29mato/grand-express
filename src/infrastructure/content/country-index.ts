@@ -19,6 +19,19 @@ const CountryIndexSchema = z.array(
     currency: z.object({ prefix: z.string(), suffix: z.string(), multiplier: z.number() }),
     thumbViewBox: z.string(),
     thumbSvg: z.string(),
+    /**
+     * 盤面が世界のどこにあたるか(投影の四隅の真ん中)。
+     * トップ画面の世界地図に印を打つのに使う。
+     *
+     * **ここに書き足すのを忘れると、zodが黙って落とす。**生成物には入っているのに
+     * 画面には出てこない、という形で気づくことになる(実際そうなった)。
+     */
+    centre: z.object({ lon: z.number(), lat: z.number() }),
+    /**
+     * 都市の点を打たない地図。**世界一周の盤面だけが持つ。**
+     * トップ画面で世界地図から盤面を選ぶときの下地に使う。
+     */
+    mapSvg: z.string().optional(),
   }),
 );
 

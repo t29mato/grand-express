@@ -590,7 +590,12 @@ function blueDominance(color) {
   return b - Math.max(r, g);
 }
 
-function renderCountryThumb(country) {
+/**
+ * @param {boolean} showCities 都市の点を打つか。
+ *   トップ画面の**世界地図から盤面を選ぶ下地**には打たない。60個の白い点が並ぶと、
+ *   盤面を指す印と見分けがつかなくなる(撮って分かった)。
+ */
+function renderCountryThumb(country, showCities = true) {
   const p = country.proj;
   const px = (lon) => ((lon - p.LON0) / (p.LON1 - p.LON0)) * p.BW;
   const py = (lat) => ((lat - p.LAT0) / (p.LAT1 - p.LAT0)) * p.BH;
@@ -643,7 +648,9 @@ function renderCountryThumb(country) {
       );
     })
     .join("");
-  const dots = Object.values(country.cities)
+  const dots = !showCities
+    ? ""
+    : Object.values(country.cities)
     .map(
       (city) =>
         `<circle cx="${px(city.lo).toFixed(0)}" cy="${py(city.la).toFixed(0)}" r="${w(1.4)}"` +
@@ -680,6 +687,13 @@ const countryIndex = [BOLIVIA, JAPAN].map((country) => {
     },
     thumbViewBox: `0 0 ${country.proj.BW} ${country.proj.BH}`,
     thumbSvg: renderCountryThumb({ ...country, land: overridden.land, cities: overridden.cities }),
+    // 盤面が世界のどこにあたるか(トップ画面の世界地図の印)。下の
+    // `AUTHORED_COUNTRIES` 側と同じ式。**両方に書かないと、legacy由来の
+    // 2国だけ印が出ない。**
+    centre: {
+      lon: Math.round(((country.proj.LON0 + country.proj.LON1) / 2) * 100) / 100,
+      lat: Math.round(((country.proj.LAT0 + country.proj.LAT1) / 2) * 100) / 100,
+    },
   };
 });
 
@@ -692,6 +706,16 @@ for (const content of AUTHORED_COUNTRIES) {
     currency: { prefix: content.cur.pre, suffix: content.cur.post, multiplier: content.cur.mul },
     thumbViewBox: `0 0 ${content.proj.BW} ${content.proj.BH}`,
     thumbSvg: renderCountryThumb(content),
+    // 世界一周だけ、**都市の点を打たない版**も持たせる。トップ画面で
+    // 「世界地図から盤面を選ぶ」ときの下地に使う。点があると印と紛れる。
+    ...(content.id === "world" ? { mapSvg: renderCountryThumb(content, false) } : {}),
+    // 盤面が世界のどこにあたるか。トップ画面の世界地図に印を打つのに使う。
+    // 投影の四隅の真ん中。国の重心ではないが、印を置く目的には十分で、
+    // **投影から機械的に出せるので盤面を足すたびに書く必要がない。**
+    centre: {
+      lon: Math.round(((content.proj.LON0 + content.proj.LON1) / 2) * 100) / 100,
+      lat: Math.round(((content.proj.LAT0 + content.proj.LAT1) / 2) * 100) / 100,
+    },
   });
 }
 writeFileSync(join(contentDir, "country-index.json"), JSON.stringify(countryIndex, null, 2) + "\n");
