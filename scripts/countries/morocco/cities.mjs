@@ -380,17 +380,17 @@ export const MOROCCO_EDGES = [
   ["asilah", "larache"],
   ["tanger", "tetouan"],
   ["tetouan", "chefchaouen"],
-  ["tetouan", "alhoceima"], // 道路(N16、リーフ海岸道路。鉄道は無い)
+  ["alhoceima", "tetouan"], // 道路(N16、リーフ海岸道路。鉄道は無い)。入れ替え済み(海244px→0px)
   ["alhoceima", "nador"], // 道路
   ["nador", "oujda"], // 道路(N2)。rif-est を結ぶ
   // --- rif-atl・atl 大西洋岸 ---
-  ["larache", "kenitra"],
+  ["kenitra", "larache"], // 入れ替え済み(海177px→0px)
   ["tanger", "kenitra"], // アル・ボラーク高速線(直行)
   ["kenitra", "rabat"], // アル・ボラーク高速線
-  ["rabat", "casablanca"], // アル・ボラーク高速線
+  ["casablanca", "rabat"], // アル・ボラーク高速線。入れ替え済み(海116px→0px)
   ["casablanca", "mohammedia"],
-  ["casablanca", "eljadida"],
-  ["eljadida", "safi"], // 道路(鉄道の直通は無い)
+  ["eljadida", "casablanca"], // 入れ替え済み(海146px→0px)
+  ["safi", "eljadida"], // 道路(鉄道の直通は無い)。入れ替え済み(海143px→0px)
   ["safi", "essaouira"], // 道路
   ["essaouira", "agadir"], // 道路
   // --- atl-cen・cen 中部・内陸 ---
@@ -422,5 +422,5 @@ export const MOROCCO_EDGES = [
   ["taza", "oujda"],
   ["oujda", "berkane"],
   ["oujda", "jerada"], // 道路(かつて石炭輸送の鉱山鉄道が通っていた区間)
-  ["jerada", "figuig"], // 道路(N17続き)
+  ["figuig", "jerada"], // 道路(N17続き)。入れ替え済み(海296px→0px)
 ];
