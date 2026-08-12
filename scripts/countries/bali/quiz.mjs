@@ -279,10 +279,10 @@ export const BALI_QUIZ = [
   ),
   q(
     2,
-    "Besides Hindu-majority Bali, Indonesia as a whole is the world's most populous country of which religion?|Además de la Bali de mayoría hindú, Indonesia en su conjunto es el país más poblado del mundo de qué religión?|Outre Bali à majorité hindoue, l'Indonésie dans son ensemble est le pays le plus peuplé au monde de quelle religion ?|ヒンドゥー教徒が多いバリとは別に、インドネシア全体で見れば世界最大の信者数を持つ宗教は?",
+    "More followers of which religion live in Indonesia than in any other single country on Earth?|¿De qué religión vive en Indonesia más gente seguidora que en cualquier otro país del mundo?|Les adeptes de quelle religion sont plus nombreux en Indonésie que dans tout autre pays du monde ?|地球上のどの国よりも多くの信者がインドネシアに暮らす宗教は?",
     ["Christianity|El cristianismo|Le christianisme|キリスト教", "Islam|El islam|L'islam|イスラム教", "Buddhism|El budismo|Le bouddhisme|仏教"],
     1,
-    "More Muslims live in Indonesia than in any other single country, which is part of why Bali's Hindu majority stands out so clearly on the map.|En Indonesia viven más musulmanes que en cualquier otro país, lo que explica en parte que la mayoría hindú de Bali destaque tanto en el mapa.|Plus de musulmans vivent en Indonésie que dans tout autre pays, ce qui explique en partie pourquoi la majorité hindoue de Bali ressort si nettement sur la carte.|インドネシアにはどの国よりも多くのイスラム教徒が暮らす。地図の上でバリのヒンドゥー教徒の多さがこれほど際立つのは、その裏返しでもある。",
+    "Indonesia's Muslim population outnumbers that of any other nation, including those of the Middle East, simply because the country itself has so many people spread across so many islands.|La población musulmana de Indonesia supera a la de cualquier otra nación, incluidas las de Oriente Medio, sencillamente porque el país tiene mucha gente repartida por muchas islas.|La population musulmane d'Indonésie dépasse celle de toute autre nation, y compris celles du Moyen-Orient, simplement parce que le pays compte tant d'habitants répartis sur tant d'îles.|インドネシアのイスラム教徒の数は、中東の国々を含むどの国よりも多い。単に、これほど多くの島に、これほど多くの人が暮らす国だからである。",
   ),
   q(
     10,

@@ -328,7 +328,7 @@ export const BALI_EDGES = [
   ["jimbaran", "uluwatu"],
   ["kuta", "canggu"],
   ["denpasar", "celuk"],
-  ["canggu", "tanahlot"],
+  ["tanahlot", "canggu"], // 端を入れ替え(海への出79px→7px)
   ["denpasar", "ubud"],
   ["celuk", "ubud"],
   ["celuk", "goagajah"],
@@ -348,13 +348,13 @@ export const BALI_EDGES = [
   ["bangli", "besakih"],
   ["besakih", "klungkung"],
   ["klungkung", "padangbai"],
-  ["padangbai", "candidasa"],
-  ["candidasa", "amed"],
+  ["candidasa", "padangbai"], // 端を入れ替え(海への出20px→0px)
+  ["amed", "candidasa"], // 端を入れ替え(海への出260px→55px)
   ["amed", "tulamben"],
-  ["tulamben", "tejakula"],
+  ["tejakula", "tulamben"], // 端を入れ替え(海への出550px→61px)
   ["tejakula", "kubutambahan"],
   ["kubutambahan", "singaraja"],
-  ["singaraja", "lovina"],
+  ["lovina", "singaraja"], // 端を入れ替え(海への出12px→0px)
   ["singaraja", "sukasada"],
   ["lovina", "munduk"],
   ["lovina", "gilimanuk"],
@@ -362,8 +362,14 @@ export const BALI_EDGES = [
   ["klungkung", "kusamba"],
   ["kusamba", "sanur"],
   ["tanahlot", "negara"],
-  ["sanur", "nusapenida"],
-  ["padangbai", "nusapenida"],
-  ["nusapenida", "nusalembongan"],
-  ["sanur", "nusalembongan"],
+  // 実在の船便。check-sea-routes.mjs で4通り(そのまま/端を入れ替え/陸路化/
+  // 陸路化+入れ替え)すべて試したうえで、いまの形がいちばん小さい(216px)。
+  // ヌサレンボンガン島がサヌール〜ヌサペニダの直線の途中にあるため、
+  // 直線描画である以上これ以上は縮まらない。KEPT(実在する船便のため残す)。
+  ["nusapenida", "sanur", "sea"],
+  // 同じく4通り試して「そのまま」が最小(60px)。パダンバイ側の海岸線に
+  // 対する到着点の取り方で生じる残差で、これ以上は縮まらない。KEPT。
+  ["padangbai", "nusapenida", "sea"],
+  ["nusapenida", "nusalembongan"], // 隣島間で近く、投影上は陸路扱いで海への出0px。実測に従いsea無し
+  ["nusalembongan", "sanur", "sea"], // 実在の船便。端を入れ替え+航路化(海路から陸への出240px→46px)
 ];
