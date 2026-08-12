@@ -23,6 +23,7 @@ const LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   uk: () => import("./uk.content.json").then((m) => m.default),
   italy: () => import("./italy.content.json").then((m) => m.default),
   russia: () => import("./russia.content.json").then((m) => m.default),
+  usa: () => import("./usa.content.json").then((m) => m.default),
 };
 
 /**

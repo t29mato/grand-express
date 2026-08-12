@@ -90,6 +90,13 @@ import { RussiaBuran } from "./russia-buran";
 import { RussiaZastolye } from "./russia-zastolye";
 import { RussiaNeTotPoyezd } from "./russia-ne-tot-poyezd";
 import { RussiaKarmannik } from "./russia-karmannik";
+import { UsaGovernmentshutdown } from "./usa-governmentshutdown";
+import { UsaPickuptab } from "./usa-pickuptab";
+import { UsaSpeedingticket } from "./usa-speedingticket";
+import { UsaThreecardmonte } from "./usa-threecardmonte";
+import { UsaTornado } from "./usa-tornado";
+import { UsaWildfire } from "./usa-wildfire";
+import { UsaWrongexit } from "./usa-wrongexit";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -185,6 +192,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "russia-zastolye": RussiaZastolye,
   "russia-ne-tot-poyezd": RussiaNeTotPoyezd,
   "russia-karmannik": RussiaKarmannik,
+  "usa-governmentshutdown": UsaGovernmentshutdown,
+  "usa-pickuptab": UsaPickuptab,
+  "usa-speedingticket": UsaSpeedingticket,
+  "usa-threecardmonte": UsaThreecardmonte,
+  "usa-tornado": UsaTornado,
+  "usa-wildfire": UsaWildfire,
+  "usa-wrongexit": UsaWrongexit,
   "world-crossing-the-line": WorldCrossingTheLine,
   "world-customs-shed": WorldCustomsShed,
   "world-devaluation": WorldDevaluation,

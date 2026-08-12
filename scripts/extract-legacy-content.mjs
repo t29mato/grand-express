@@ -39,6 +39,7 @@ import { buildGermanyContent } from "./countries/germany/index.mjs";
 import { buildUkContent } from "./countries/uk/index.mjs";
 import { buildItalyContent } from "./countries/italy/index.mjs";
 import { buildRussiaContent } from "./countries/russia/index.mjs";
+import { buildUsaContent } from "./countries/usa/index.mjs";
 import { buildChinaContent } from "./countries/china/index.mjs";
 import { renderJapanDecor } from "./content-overrides/japan-decor.mjs";
 import { renderBoliviaDecor } from "./content-overrides/bolivia-decor.mjs";
@@ -521,6 +522,7 @@ const AUTHORED_COUNTRIES = [
   buildUkContent(),
   buildItalyContent(),
   buildRussiaContent(),
+  buildUsaContent(),
 ];
 
 /** `scripts/countries/` にあるのに、上の一覧に無い盤面。焼かれずに消える。 */

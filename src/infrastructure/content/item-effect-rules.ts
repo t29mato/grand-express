@@ -153,4 +153,15 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   shpargalka: { type: "quiz-save" },
   gosloto: { type: "gain-cash", amount: 380 },
   blat: { type: "extra-turn" },
+
+  // USA
+  greyhound: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  roadatlas: { type: "choose-exact-dice" },
+  amtrakcoach: { type: "roll-fixed-dice", diceCount: 2 },
+  acela: { type: "roll-fixed-dice", diceCount: 3 },
+  rabbitfoot: { type: "none" }, // 厄災の神(グレムリン)のward item(passive)
+  luckypenny: { type: "repel-spirit" },
+  cribsheet: { type: "quiz-save" },
+  lotteryticket: { type: "gain-cash", amount: 380 },
+  roadtrip: { type: "extra-turn" },
 };

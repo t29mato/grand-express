@@ -696,6 +696,69 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
       { op: "region-income-multiplier", regionId: region("sib"), multiplier: 1.3 },
     ],
   ],
+
+  /**
+   * アメリカ合衆国。オープニングデー(野球) → ダービーと road trip 開幕 →
+   * ルート66の夏 → 独立記念日(7月・休神) → 州フェアと熱波 →
+   * 紅葉狩りとレイバーデー → ワールドシリーズ → 感謝祭の帰省ラッシュ →
+   * ホリデー商戦とクリスマス市 → 元日のボウルゲーム(1月・給アイテム) →
+   * グラウンドホッグ・デーとスーパーボウル → 桜とスプリングトレーニング、
+   * という流れ。
+   */
+  usa: [
+    /* 0 Apr オープニングデーと国立公園の再開 */ [
+      { op: "region-income-multiplier", regionId: region("mw"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("plains"), multiplier: 1.15 },
+    ],
+    /* 1 May ケンタッキーダービーとメモリアルデー */ [
+      { op: "region-income-multiplier", regionId: region("south"), multiplier: 1.25 },
+      { op: "all-players-gain-cash", amount: 220 },
+    ],
+    /* 2 Jun ルート66の夏休みロードトリップ */ [
+      { op: "region-income-multiplier", regionId: region("sw"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("pacific"), multiplier: 1.15 },
+    ],
+    /* 3 Jul 独立記念日(グレムリンも休む) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "rest-spirit" },
+    ],
+    /* 4 Aug 州フェアと熱波ドーム */ [
+      { op: "region-income-multiplier", regionId: region("mw"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("plains"), multiplier: 0.75 },
+    ],
+    /* 5 Sep 紅葉狩りとレイバーデー */ [
+      { op: "region-income-multiplier", regionId: region("ne"), multiplier: 1.3 },
+      { op: "all-players-pay-cash", amount: 180 },
+    ],
+    /* 6 Oct ワールドシリーズ */ [
+      { op: "region-income-multiplier", regionId: region("ne"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("mw"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("south"), multiplier: 1.15 },
+    ],
+    /* 7 Nov 感謝祭の帰省ラッシュ */ [
+      { op: "all-players-pay-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("south"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("sw"), multiplier: 1.15 },
+    ],
+    /* 8 Dec ホリデー商戦とクリスマス市 */ [
+      { op: "region-income-multiplier", regionId: region("ne"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("mw"), multiplier: 1.2 },
+      { op: "all-players-gain-cash", amount: 200 },
+    ],
+    /* 9 Jan 元日のボウルゲーム */ [
+      { op: "give-item-to-all" },
+      { op: "region-income-multiplier", regionId: region("sw"), multiplier: 1.2 },
+    ],
+    /* 10 Feb グラウンドホッグ・デーとスーパーボウル */ [
+      { op: "region-income-multiplier", regionId: region("ne"), multiplier: 1.15 },
+      { op: "all-players-gain-cash", amount: 260 },
+    ],
+    /* 11 Mar 桜とスプリングトレーニング */ [
+      { op: "region-income-multiplier", regionId: region("ne"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("south"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("sw"), multiplier: 1.2 },
+    ],
+  ],
 };
 
 /**
@@ -813,4 +876,13 @@ export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>>
   zastolye: "payOthers",
   "ne-tot-poyezd": "teleport",
   karmannik: "steal",
+
+  // USA
+  speedingticket: "fine",
+  tornado: "percentLoss",
+  governmentshutdown: "skipTurn",
+  wildfire: "loseProperties",
+  pickuptab: "payOthers",
+  wrongexit: "teleport",
+  threecardmonte: "steal",
 };
