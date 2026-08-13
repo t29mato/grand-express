@@ -144,6 +144,13 @@ async function pickBoard(page, name) {
       await pick();
       return;
     }
+    // **その大陸ぜんぶを走る盤面**(ヨーロッパ・南アメリカなど)は名札ではなく、
+    // 大陸を開いたときに地図の下に出るボタン。名札を探すだけでは見つからない。
+    const wholeHere = page.locator(".world-whole-board").filter({ hasText: name });
+    if ((await wholeHere.count()) > 0) {
+      await wholeHere.click();
+      return;
+    }
     // **国の中に入っている盤面**(日本の中の茨城・百名山、インドネシアの中のバリ)は、
     // 大陸を開いただけでは名札が出ない。国をひとつずつ開いて探す。
     const names = await page.locator(".picker-plate").allTextContents();

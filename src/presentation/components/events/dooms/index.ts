@@ -181,6 +181,27 @@ import { HyakumeizanHachisasare } from "./hyakumeizan-hachisasare";
 import { HyakumeizanManshitsu } from "./hyakumeizan-manshitsu";
 import { HyakumeizanKorogashi } from "./hyakumeizan-korogashi";
 import { HyakumeizanTengukakushi } from "./hyakumeizan-tengukakushi";
+import { EuropeLawine } from "./europe-lawine";
+import { EuropeHitzewelle } from "./europe-hitzewelle";
+import { EuropeGreveContinentale } from "./europe-greve-continentale";
+import { EuropeNebel } from "./europe-nebel";
+import { EuropeHerbstlaub } from "./europe-herbstlaub";
+import { EuropeWaldbrand } from "./europe-waldbrand";
+import { EuropeGrenzstau } from "./europe-grenzstau";
+import { NorthamericaHurricane } from "./northamerica-hurricane";
+import { NorthamericaHielo } from "./northamerica-hielo";
+import { NorthamericaCenizas } from "./northamerica-cenizas";
+import { NorthamericaVentisca } from "./northamerica-ventisca";
+import { NorthamericaSombreronTrenza } from "./northamerica-sombreron-trenza";
+import { NorthamericaAduana } from "./northamerica-aduana";
+import { NorthamericaPickpocketMercado } from "./northamerica-pickpocket-mercado";
+import { SouthamericaAduanaSudamericana } from "./southamerica-aduana-sudamericana";
+import { SouthamericaBloqueoSudamericano } from "./southamerica-bloqueo-sudamericano";
+import { SouthamericaCamanchaca } from "./southamerica-camanchaca";
+import { SouthamericaCreciente } from "./southamerica-creciente";
+import { SouthamericaHuayco } from "./southamerica-huayco";
+import { SouthamericaTunchesilba } from "./southamerica-tunchesilba";
+import { SouthamericaZonda } from "./southamerica-zonda";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -374,6 +395,27 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "hyakumeizan-manshitsu": HyakumeizanManshitsu,
   "hyakumeizan-korogashi": HyakumeizanKorogashi,
   "hyakumeizan-tengukakushi": HyakumeizanTengukakushi,
+  "europe-lawine": EuropeLawine,
+  "europe-hitzewelle": EuropeHitzewelle,
+  "europe-greve-continentale": EuropeGreveContinentale,
+  "europe-nebel": EuropeNebel,
+  "europe-herbstlaub": EuropeHerbstlaub,
+  "europe-waldbrand": EuropeWaldbrand,
+  "europe-grenzstau": EuropeGrenzstau,
+  "northamerica-hurricane": NorthamericaHurricane,
+  "northamerica-hielo": NorthamericaHielo,
+  "northamerica-cenizas": NorthamericaCenizas,
+  "northamerica-ventisca": NorthamericaVentisca,
+  "northamerica-sombreron-trenza": NorthamericaSombreronTrenza,
+  "northamerica-aduana": NorthamericaAduana,
+  "northamerica-pickpocket-mercado": NorthamericaPickpocketMercado,
+  "southamerica-aduana-sudamericana": SouthamericaAduanaSudamericana,
+  "southamerica-bloqueo-sudamericano": SouthamericaBloqueoSudamericano,
+  "southamerica-camanchaca": SouthamericaCamanchaca,
+  "southamerica-creciente": SouthamericaCreciente,
+  "southamerica-huayco": SouthamericaHuayco,
+  "southamerica-tunchesilba": SouthamericaTunchesilba,
+  "southamerica-zonda": SouthamericaZonda,
 };
 
 /** その国のその災難の絵。無ければ undefined。 */

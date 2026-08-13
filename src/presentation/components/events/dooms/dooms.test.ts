@@ -11,13 +11,6 @@ import { ALL_COUNTRY_IDS } from "../../../../infrastructure/content/all-country-
 const DIR = join(process.cwd(), "src/presentation/components/events/dooms");
 const FILES = readdirSync(DIR).filter((f) => f.endsWith(".tsx"));
 
-/** 各国の災難ID(season-and-doom-rules.ts の対応表と揃える)。 */
-const DOOM_IDS: Readonly<Record<string, readonly string[]>> = {
-  japan: ["typhoon", "quake", "delay", "fire", "bottakuri", "maigo", "suri"],
-  bolivia: ["offering", "collapse", "bloqueo", "landslide", "tranca", "soroche", "theft"],
-  india: ["monsoonflood", "drought", "bandh", "cyclone", "tollgate", "wrongtrain", "chori"],
-};
-
 describe("厄災の絵", () => {
   it.each(FILES)("%s: 仕様を守っている", (file) => {
     const source = readFileSync(join(DIR, file), "utf8");
@@ -29,13 +22,10 @@ describe("厄災の絵", () => {
     expect(source, "外部URLを参照している").not.toMatch(/https?:\/\//);
   });
 
-  it("3か国×7種がすべて揃っている", () => {
-    const missing: string[] = [];
-    for (const [country, ids] of Object.entries(DOOM_IDS)) {
-      for (const id of ids) if (!doomAnimationFor(country, id)) missing.push(`${country}-${id}`);
-    }
-    expect(missing, "絵が無い災難").toEqual([]);
-  });
+  // **「7種が揃っているか」はここでは見ない。**
+  // `doom-animation-coverage.test.ts` が、焼き上がった目録から全盤面ぶんを引いて
+  // 同じことをしている。ここには3か国べた書きの一覧が残っていて、
+  // 盤面が28枚に増えても3枚しか見ていなかった。**古い一覧は消すほうが安全。**
 
   it("ファイルはすべて登録されている", () => {
     const registered = new Set(Object.keys(DOOM_ANIMATIONS));

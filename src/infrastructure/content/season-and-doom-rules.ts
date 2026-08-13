@@ -19,6 +19,229 @@ const region = (code: string) => RegionId(code);
 /** 月インデックス(0=4月)ごとの季節効果。 */
 export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readonly SeasonEffectOp[])[]>> = {
   /**
+   * 南アメリカ大陸。メンドーサの収穫終わり(4月) → アンデス高地の収穫
+   * (5月) → インティ・ライミとスキー開幕(6月) → フリアヘの寒波で
+   * アマゾン・アンデスが沈む(7月) → パチャママの月(8月) → チリの
+   * ディエシオチョ(9月) → アタカマの花咲く砂漠とアマゾン乾季の観光
+   * (10月) → 死者の日(11月) → 真夏のクリスマス(12月) → パタゴニアの
+   * 短い夏の観光(1月) → 大陸各地のカーニバル(2月) → アンデスの峠が
+   * 雪で閉じ交易が滞る(3月)、という流れ。
+   *
+   * **地方の偏りについて:** `and`(アンデス、11都市)が12か月中6回、
+   * `pla`(ラプラタ・パンパ・パタゴニア、15都市)が4回登場する。
+   * どちらも大陸内で都市数が多い地方で、実際の経済規模の大きさを
+   * 反映した形のつもりだが、`pla` は最大の地方でもあるので、
+   * 効きすぎていないか確認をお願いしたい(team-leadの指摘どおり)。
+   * `car`・`gui` は各1回のみで、実質的な出番は薄い
+   * (この2地方はもともと都市数が少なく、路線も大陸の中では
+   * 疎らな地方であるため)。
+   */
+  /**
+   * 南アメリカ大陸。メンドーサの収穫終わり(4月) → アマゾンの乾季で
+   * 川が通りやすくなる(5月) → インティ・ライミとアンデスのスキー開幕
+   * (6月) → フリアヘの寒波でアマゾン・アンデスが沈む(7月) →
+   * パチャママの月(8月) → チリのディエシオチョ(9月) → アタカマの
+   * 花咲く砂漠とアマゾン乾季の観光(10月) → 死者の日の代わりに
+   * ラプラタ側の秋の観光(11月) → 真夏のクリスマス(12月) → パタゴニアの
+   * 短い夏の観光(1月) → 大陸各地のカーニバル(2月) → アンデスの峠が
+   * 雪で閉じ交易が滞る(3月)、という流れ。
+   *
+   * **地方の偏りについて(2026-08-14、指摘を受けて直した版):**
+   * `and`(アンデス、11都市)を6回から4回に減らし、`riv`(川の国境、
+   * 5都市)を1回から3回に増やした。最終的な出番は
+   * car1 / gui1 / riv3 / and4 / atc4 / pla4 で、`pla`(15都市、最大の
+   * 地方)と同じ4回の水準に `and`・`atc` を揃え、`riv` も3回まで
+   * 底上げしている。`car`・`gui` が1回ずつなのは指摘のとおりそのままにした
+   * (都市数・路線数がもともと少ない地方であるため)。
+   */
+  southamerica: [
+    /* 0 Apr メンドーサの収穫終わり */ [
+      { op: "region-income-multiplier", regionId: region("pla"), multiplier: 1.2 },
+    ],
+    /* 1 May アマゾンの乾季で川が通りやすくなる */ [
+      { op: "region-income-multiplier", regionId: region("riv"), multiplier: 1.1 },
+    ],
+    /* 2 Jun インティ・ライミ(クスコ)とアンデスのスキー開幕 */ [
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("atc"), multiplier: 1.15 },
+    ],
+    /* 3 Jul フリアヘの寒波(アマゾン・アンデスが沈む) */ [
+      { op: "region-income-multiplier", regionId: region("riv"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 0.9 },
+    ],
+    /* 4 Aug パチャママの月(アンデス各地の供物) */ [
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.2 },
+    ],
+    /* 5 Sep チリのディエシオチョ(独立記念日) */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("atc"), multiplier: 1.3 },
+    ],
+    /* 6 Oct アタカマの花咲く砂漠とアマゾン乾季の観光 */ [
+      { op: "region-income-multiplier", regionId: region("atc"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("riv"), multiplier: 1.15 },
+    ],
+    /* 7 Nov ラプラタ側の秋の観光(死者の日はandの豆知識にのみ残す) */ [
+      { op: "region-income-multiplier", regionId: region("pla"), multiplier: 1.1 },
+    ],
+    /* 8 Dec 真夏のクリスマス */ [
+      { op: "all-players-gain-cash", amount: 280 },
+      { op: "region-income-multiplier", regionId: region("pla"), multiplier: 1.15 },
+    ],
+    /* 9 Jan パタゴニアの短い夏の観光シーズン */ [
+      { op: "region-income-multiplier", regionId: region("pla"), multiplier: 1.3 },
+    ],
+    /* 10 Feb 大陸各地のカーニバル(バランキージャ・マシュラマニ・エンカルナシオン) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("car"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("gui"), multiplier: 1.15 },
+    ],
+    /* 11 Mar アンデスの峠が雪で閉じ、交易が滞る */ [
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("atc"), multiplier: 0.85 },
+    ],
+  ],
+
+  /**
+   * 北アメリカ。中米のコーヒー開花(4月)→ウミガメの産卵(5月)→乾季の合間の雨
+   * (6月)→バナナ収穫の盛り(7月)→ハリケーンシーズン開幕(8月・出費)→
+   * コーヒー収穫本番(9月)→独立記念日ラッシュ(10月・休神)→北の紅葉(11月)→
+   * 北の収穫祝日で鉄路混雑(12月・出費)→ポインセチアとポサーダ(1月・給アイテム)
+   * →寒波の南下(2月)→乾季明けと保線(3月)、という流れ。北米(米加)は北半球の
+   * 秋冬に、中米・カリブは乾季/雨季と収穫暦に沿わせてある。
+   */
+  /**
+   * 北アメリカ。中米のコーヒー開花(4月)→ウミガメの産卵(5月)→乾季の合間の雨
+   * (6月)→バナナ収穫の盛り(7月)→ハリケーンシーズン開幕(8月・出費)→
+   * コーヒー収穫本番(9月)→独立記念日ラッシュ(10月・休神)→北の紅葉(11月)→
+   * 北の収穫祝日で鉄路混雑(12月・出費)→ポインセチアとポサーダ(1月・給アイテム)
+   * →寒波の南下(2月)→乾季明けと保線(3月)、という流れ。北米(米加)は北半球の
+   * 秋冬に、中米・カリブは乾季/雨季と収穫暦に沿わせてある。中米向けの効果は
+   * canorth/casouthの両方に等しく掛けている(コーヒー・バナナは北部
+   * 〔グアテマラ・ホンジュラス〕にも南部〔コスタリカ〕にもまたがる産業のため)。
+   */
+  northamerica: [
+    /* 0 Apr 中米高地でコーヒーの花が咲く */ [
+      { op: "region-income-multiplier", regionId: region("canorth"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("casouth"), multiplier: 1.15 },
+    ],
+    /* 1 May ウミガメが産卵に上陸する */ [
+      { op: "region-income-multiplier", regionId: region("cargr"), multiplier: 1.1 },
+    ],
+    /* 2 Jun 乾季の合間に雨が来る */ [
+      { op: "region-income-multiplier", regionId: region("canorth"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("casouth"), multiplier: 1.1 },
+    ],
+    /* 3 Jul バナナの収穫が盛りを迎える */ [
+      { op: "region-income-multiplier", regionId: region("canorth"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("casouth"), multiplier: 1.25 },
+    ],
+    /* 4 Aug ハリケーンシーズンが始まる(備えの出費) */ [
+      { op: "all-players-pay-cash", amount: 200 },
+      { op: "region-income-multiplier", regionId: region("cargr"), multiplier: 0.85 },
+    ],
+    /* 5 Sep コーヒーの収穫が本格化する */ [
+      { op: "region-income-multiplier", regionId: region("canorth"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("casouth"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("mex"), multiplier: 1.1 },
+    ],
+    /* 6 Oct 独立記念日が相次ぐ(休神) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("canorth"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("casouth"), multiplier: 1.15 },
+      { op: "rest-spirit" },
+    ],
+    /* 7 Nov 北の鉄路沿いに紅葉が広がる */ [
+      { op: "region-income-multiplier", regionId: region("plains"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("atl"), multiplier: 1.2 },
+    ],
+    /* 8 Dec 収穫祝日で北の鉄路が混む(旅費がかさむ) */ [
+      { op: "region-income-multiplier", regionId: region("plains"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("atl"), multiplier: 1.25 },
+      { op: "all-players-pay-cash", amount: 180 },
+    ],
+    /* 9 Jan ポインセチアとポサーダが南から北へ(新年の贈り物) */ [
+      { op: "give-item-to-all" },
+      { op: "region-income-multiplier", regionId: region("mex"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("canorth"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("casouth"), multiplier: 1.1 },
+    ],
+    /* 10 Feb 寒波がふだんより南まで下がる */ [
+      { op: "region-income-multiplier", regionId: region("mex"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("canorth"), multiplier: 0.9 },
+      { op: "region-income-multiplier", regionId: region("casouth"), multiplier: 0.9 },
+    ],
+    /* 11 Mar 乾季が終わり、線路が開き直す */ [
+      { op: "region-income-multiplier", regionId: region("canorth"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("casouth"), multiplier: 1.1 },
+    ],
+  ],
+
+  /**
+   * ヨーロッパ。アルプス峠の春の再開通 → 球根畑 → 白夜 →
+   * インターレイルの季節 → フェラゴスト(8月・休神) → ぶどうの収穫 →
+   * ライン渓谷の紅葉 → 日暮れが早まる → クリスマス市とクランプスナハト
+   * (12月・給アイテム) → 冬ダイヤへの切り替えと寒波 → カーニバル →
+   * 夏時間への切り替えとアルプス峠の試運転、という流れ。都市カードと同じく
+   * 「国単位の好不況」ではなく「大陸ぜんぶの鉄道網に起きること」で差をつけた。
+   */
+  europe: [
+    /* 0 Apr 高い峠が春に開く */ [
+      { op: "region-income-multiplier", regionId: region("nord"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("cent"), multiplier: 1.15 },
+    ],
+    /* 1 May 球根畑の脇を列車が走る */ [
+      { op: "region-income-multiplier", regionId: region("west"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("brit"), multiplier: 1.1 },
+    ],
+    /* 2 Jun 白夜が北で始まる */ [
+      { op: "region-income-multiplier", regionId: region("nord"), multiplier: 1.35 },
+      { op: "region-income-multiplier", regionId: region("east"), multiplier: 1.1 },
+    ],
+    /* 3 Jul インターレイルの季節が始まる */ [
+      { op: "all-players-gain-cash", amount: 200 },
+      { op: "region-income-multiplier", regionId: region("brit"), multiplier: 1.15 },
+    ],
+    /* 4 Aug 国じゅうが8月に休業する(フェラゴスト) */ [
+      { op: "region-income-multiplier", regionId: region("ibe"), multiplier: 0.75 },
+      { op: "region-income-multiplier", regionId: region("balk"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("west"), multiplier: 0.85 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep ぶどうの収穫が谷を遡る */ [
+      { op: "region-income-multiplier", regionId: region("west"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("ibe"), multiplier: 1.15 },
+    ],
+    /* 6 Oct 色がライン渓谷を下る */ [
+      { op: "region-income-multiplier", regionId: region("cent"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("west"), multiplier: 1.1 },
+    ],
+    /* 7 Nov 日暮れが早まる */ [
+      { op: "all-players-pay-cash", amount: 150 },
+      { op: "region-income-multiplier", regionId: region("nord"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("east"), multiplier: 0.85 },
+    ],
+    /* 8 Dec クリスマス市とクランプスナハト */ [
+      { op: "region-income-multiplier", regionId: region("cent"), multiplier: 1.3 },
+      { op: "give-item-to-all" },
+    ],
+    /* 9 Jan 冬ダイヤへの切り替えと寒波 */ [
+      { op: "all-players-pay-cash", amount: 180 },
+      { op: "region-income-multiplier", regionId: region("east"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("nord"), multiplier: 0.8 },
+    ],
+    /* 10 Feb カーニバル */ [
+      { op: "region-income-multiplier", regionId: region("west"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("cent"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("ibe"), multiplier: 1.1 },
+    ],
+    /* 11 Mar 夏時間への切り替えとアルプス峠の試運転 */ [
+      { op: "all-players-gain-cash", amount: 220 },
+      { op: "region-income-multiplier", regionId: region("cent"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("nord"), multiplier: 1.1 },
+    ],
+  ],
+
+  /**
    * 日本百名山。残雪期で北アルプス・中央南アルプスが閉山気味(4月) → GW混雑
    * (5月) → 梅雨で西日本が沈む(6月) → 山開きで富士・北アルプスが賑わい
    * 休神(7月) → お盆最混雑と雷雲の物入り(8月) → 台風と初冠雪の物入り
@@ -1435,6 +1658,37 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
  * フレーバーに応じて異なる。`id` → 効果種別の対応。
  */
 export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>> = {
+  // South America
+  huayco: "loseProperties", // アンデスの土石流が線路沿いの資産を押し流す
+  creciente: "percentLoss", // アマゾンの増水で商品・現金の一部が水浸しになる
+  camanchaca: "skipTurn", // 太平洋岸の朝霧でバスが立ち往生し足止め
+  // **既存と鍵がぶつかった。**効果が違うので統合できず、あとから入れたこちらを改名。
+  "aduana-sudamericana": "steal", // 国境の税関職員が「不足した書類」を口実に金品を取る
+  // **既存と鍵がぶつかった。**効果が違うので統合できず、あとから入れたこちらを改名。
+  "bloqueo-sudamericano": "payOthers", // 道路封鎖の通行料・迂回の手配で周りに金を払う
+  zonda: "fine", // アンデスから吹く熱風の被害で修繕費がかかる
+  tunchesilba: "teleport", // エル・トゥンチェの口笛に化かされ、別の場所へ迷い込む
+
+  // North America
+  hurricane: "loseProperties",
+  hielo: "percentLoss",
+  cenizas: "fine",
+  ventisca: "payOthers",
+  "sombreron-trenza": "teleport",
+  aduana: "skipTurn",
+  "pickpocket-mercado": "steal",
+
+  // Europe
+  lawine: "skipTurn",
+  hitzewelle: "fine",
+  // **フランスの `greve`(skipTurn)と鍵がぶつかった。**この表は全盤面で1つなので、
+  // 違う効果に同じ鍵は当てられない。あとから入れたこちらの名前を変えている。
+  "greve-continentale": "payOthers",
+  nebel: "teleport",
+  herbstlaub: "percentLoss",
+  waldbrand: "loseProperties",
+  grenzstau: "steal",
+
   // Hyakumeizan
   kirimayoi: "skipTurn",       // 濃霧: 晴れるまで足止め
   rakurai: "fine",             // 雷雲: 緊急避難・装備の修理費

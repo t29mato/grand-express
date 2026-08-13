@@ -43,6 +43,12 @@ function t(source) {
  * (€120,000 は不動産の金額として通る)。下げると後退になる。
  */
 export const CURRENCY_MULTIPLIERS = {
+  // US$120,000 → 開始資金1200×100(team-lead指定)。
+  southamerica: 100,
+  northamerica: 100,
+  // €120,000(1200×100)。フランス・世界一周・イタリア・ドイツと同じユーロ圏の
+  // 据え置き(€120,000は既に不動産の桁として通る)。
+  europe: 100,
   hyakumeizan: 10000,
   solarsystem: 100,
   // A$1,200 → A$120,000。1豪ドル≒100円(2020年代半ばの目安相場)とすると、

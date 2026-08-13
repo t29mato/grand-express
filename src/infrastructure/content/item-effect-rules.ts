@@ -298,4 +298,37 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   matsutake: { type: "gain-cash", amount: 380 },
   raicho: { type: "extra-turn" },
 
+  // Europe
+  interrail: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  bradshaw: { type: "choose-exact-dice" },
+  eurocity: { type: "roll-fixed-dice", diceCount: 2 },
+  eurostar: { type: "roll-fixed-dice", diceCount: 3 },
+  rauhnachtskreide: { type: "none" }, // 厄災の神(クランプス)のward item(passive)
+  schnapsflasche: { type: "repel-spirit" },
+  phrasebook: { type: "quiz-save" },
+  wechselstube: { type: "gain-cash", amount: 380 },
+  laissezpasser: { type: "extra-turn" },
+
+  // North America
+  boxcar: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  officialguide: { type: "choose-exact-dice" },
+  zephyr: { type: "roll-fixed-dice", diceCount: 2 },
+  superchief: { type: "roll-fixed-dice", diceCount: 3 },
+  worrydoll: { type: "none" }, // 厄災の神(エル・ソンブレロン)のward item(passive)
+  cintaroja: { type: "repel-spirit" },
+  cliffsnotes: { type: "quiz-save" },
+  pieceseight: { type: "gain-cash", amount: 380 },
+  handcar: { type: "extra-turn" },
+
+  // South America
+  harpia: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  salvoconducto: { type: "choose-exact-dice" },
+  trasandino: { type: "roll-fixed-dice", diceCount: 2 },
+  alasnubes: { type: "roll-fixed-dice", diceCount: 3 },
+  ojodevenado: { type: "none" }, // 厄災の神(エル・トゥンチェ)のward item(passive)
+  palosanto: { type: "repel-spirit" },
+  amauta: { type: "quiz-save" },
+  escudo: { type: "gain-cash", amount: 380 },
+  sacoleiro: { type: "extra-turn" },
+
 };
