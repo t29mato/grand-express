@@ -1,5 +1,5 @@
 /**
- * 北アメリカ大陸の都市と路線(60都市)。
+ * 北アメリカ大陸の都市と路線(61都市)。
  *
  * この盤面は**国の盤面ではなく大陸の盤面**なので、アメリカ・カナダ両国の
  * `cities.mjs` を読んだうえで、同じ都市を選ぶ場合も**書く中身を変える**方針を
@@ -9,20 +9,24 @@
  *
  * ## 国別上限(この盤面に限りteam-leadが緩めたもの)
  *
- * アメリカ10・カナダ**9**・メキシコ7・それ以外は1〜3(大国でも通常の上限)。
- * 当初の合意は8だったが、`portauxbasques–calaismaine` の海陸修正
- * (陸66%の航路を、実在のフェリー航路どおり `portauxbasques–northsydney`
- * (航路)+`northsydney–calaismaine`(陸路)に分割)でノースシドニーを
- * 1都市足したため、カナダのみ9になっている。**この上限超過はteam-leadに
- * 報告済みで、承認前提の暫定値。**
+ * アメリカ10・カナダ**9**・メキシコ**8**・それ以外は1〜3(大国でも通常の
+ * 上限)。当初の合意はカナダ8・メキシコ7だったが、実焼きの海陸チェックで
+ * 出た2件を「実在する町を中継に挟む」方法で直した結果、それぞれ1都市
+ * 増えた: `portauxbasques–calaismaine`(陸66%)を実在のフェリー航路
+ * (ポートオーバスク–ノースシドニー)どおり `portauxbasques–northsydney`
+ * (航路)+`northsydney–calaismaine`(陸路)に分割してノースシドニーを、
+ * `veracruz–merida`(海88%)を実在の2023年開通トレン・マヤの西起点
+ * どおり `veracruz–villahermosa`+`villahermosa–merida` に分割して
+ * ビジャエルモサを追加した。**どちらもteam-leadに報告し、承認済み**
+ * (「上限は目的ではなく手段」「橋渡しを失って盤面が薄くなるほうが損」)。
  *
  * ## 地方区分(`reg`、8つ)
  *
  * 季節・お金の出来事・音楽が地方ごとに要るため、国別ではなく地理で切る。
  * team-leadから示された目安 `arctic5/pac7/plains7/atl7` の合計26は、
- * この4地帯が地理的に米加だけで構成される(米10+加8=18が天井)ことと
- * 合わなかったため、**比率を保ったまま18に収めた**(下表。ノースシドニー
- * 追加でatlのみ5になり、4地帯合計は19)。
+ * この4地帯が地理的に米加だけで構成される(米10+加9=19が天井)ことと
+ * 合わなかったため、**比率を保ったまま18(ノースシドニー追加でatlが+1、
+ * 19)に収めた**(下表)。
  *
  * | コード | 地帯 | 都市数 |
  * |---|---|---|
@@ -30,7 +34,7 @@
  * | `pac` | 西海岸・ロッキー(米加) | 5 |
  * | `plains` | 大平原・五大湖(米加) | 5 |
  * | `atl` | 東海岸・大西洋岸(米加) | 5 |
- * | `mex` | メキシコ(米墨国境の町を含む) | 7 |
+ * | `mex` | メキシコ(米墨国境の町を含む) | 8 |
  * | `canorth` | 中米北部(グアテマラ・ベリーズ・ホンジュラス・エルサルバドル) | 10 |
  * | `casouth` | 中米南部(ニカラグア・コスタリカ・パナマ) | 9 |
  * | `cargr` | 大アンティル諸島とバハマ | 15 |
@@ -258,6 +262,14 @@ export const NORTHAMERICA_CITIES = {
     "The railway to Mexico City, finished in 1873 after 36 years of false starts and revolutions, climbs from sea level here to over 2,600 meters through the Sierra Madre Oriental, crossing the Metlac ravine on a curved viaduct engineers of the day called one of the boldest works of railway construction anywhere. Hernán Cortés founded the port in 1519, and it has operated continuously since, making it the oldest working port city in the Americas.|El ferrocarril a la Ciudad de México, terminado en 1873 tras 36 años de falsos comienzos y revoluciones, sube desde el nivel del mar aquí hasta más de 2.600 metros por la Sierra Madre Oriental, cruzando la barranca de Metlac por un viaducto curvo que los ingenieros de la época llamaron una de las obras ferroviarias más audaces del mundo. Hernán Cortés fundó el puerto en 1519, y ha funcionado sin interrupción desde entonces, lo que lo convierte en el puerto en activo más antiguo de América.|Le chemin de fer vers Mexico, achevé en 1873 après 36 ans de faux départs et de révolutions, grimpe ici du niveau de la mer à plus de 2 600 mètres à travers la Sierra Madre Oriental, franchissant le ravin de Metlac sur un viaduc courbe que les ingénieurs de l'époque qualifiaient de l'un des ouvrages ferroviaires les plus audacieux au monde. Hernán Cortés fonda le port en 1519, et il fonctionne sans interruption depuis, ce qui en fait le plus ancien port encore actif des Amériques.|メキシコシティへの鉄道は、36年に及ぶ頓挫と革命を経て1873年にようやく完成した。ここ海抜0mから、シエラ・マドレ・オリエンタルを越えて標高2600m超まで登る路線で、メトラック峡谷を渡る曲線高架橋は当時の技師たちに「世界でも最も大胆な鉄道工事の一つ」と呼ばれた。エルナン・コルテスが1519年に開いたこの港は、以来途切れず操業を続けており、南北アメリカで現役最古の港町となっている。",
     [prop("Metlac Viaduct Overlook|Mirador del viaducto de Metlac|Belvédère du viaduc de Metlac|メトラック高架橋の展望台", 380, 78),
      prop("Oldest Wharf Customs House|Aduana del muelle más antiguo|Douane du plus ancien quai|最古の埠頭の税関", 340, 70)],
+  ),
+  villahermosa: city(
+    "Villahermosa|Villahermosa|Villahermosa|ビジャエルモサ",
+    -92.9303, 17.9895, "mex", "canyonrail", "canyon", "l",
+    "Where a 19th-century line and a 2023 one meet on the same gulf coast|Donde una vía del siglo XIX y otra de 2023 se encuentran en la misma costa del golfo|Où une voie du XIXe siècle et une de 2023 se rejoignent sur la même côte du golfe|19世紀の鉄道と2023年の鉄道が同じ湾岸で出会う町",
+    "This river port on the Grijalva, long a transshipment point between highland Chiapas and the gulf, became the western terminus of the Tren Maya in 2023 — a state-built line running the length of the Yucatán Peninsula that is, depending on who is asked, either a tourism project or the country's most ambitious rail construction in a century. It runs on the same coast as, but never touches, the 19th-century Veracruz–Mexico City line, built for coffee and oil rather than passengers headed the other way.|Este puerto fluvial sobre el Grijalva, durante mucho tiempo punto de trasbordo entre las tierras altas de Chiapas y el golfo, se convirtió en 2023 en la terminal occidental del Tren Maya, una línea estatal que recorre toda la península de Yucatán y que, según a quién se pregunte, es un proyecto turístico o la obra ferroviaria más ambiciosa del país en un siglo. Corre por la misma costa que la línea Veracruz-Ciudad de México del siglo XIX, sin llegar a tocarla, construida para el café y el petróleo y no para pasajeros rumbo al otro lado.|Ce port fluvial sur le Grijalva, longtemps point de transbordement entre les hautes terres du Chiapas et le golfe, devint en 2023 le terminus occidental du Tren Maya, une ligne construite par l'État qui parcourt toute la péninsule du Yucatán et qui, selon qui l'on interroge, est soit un projet touristique soit le chantier ferroviaire le plus ambitieux du pays depuis un siècle. Elle longe la même côte que la ligne Veracruz-Mexico du XIXe siècle, sans jamais la toucher, bâtie pour le café et le pétrole plutôt que pour des voyageurs allant dans l'autre sens.|グリハルバ川沿いのこの河港は、長らくチアパス高地と湾岸を結ぶ積み替え地だったが、2023年、ユカタン半島全体を走る国営鉄道トレン・マヤの西の起点になった。聞く相手によって、観光開発とも、この一世紀でこの国いちばん野心的な鉄道工事とも評される路線である。同じ湾岸を走りながら一度も交わらないのが、19世紀のベラクルス—メキシコシティ線で、あちらはコーヒーと石油のために敷かれ、行き先も逆向きである。",
+    [prop("Tren Maya Western Terminus Platform|Andén de la terminal occidental del Tren Maya|Quai du terminus occidental du Tren Maya|トレン・マヤ西起点のホーム", 440, 92),
+     prop("Grijalva River Transshipment Dock|Muelle de trasbordo del río Grijalva|Quai de transbordement du fleuve Grijalva|グリハルバ川積み替え埠頭", 340, 70)],
   ),
   tijuana: city(
     "Tijuana|Tijuana|Tijuana|ティフアナ",
@@ -567,7 +579,7 @@ export const NORTHAMERICA_CITIES = {
 
 /**
  * 路線(17都市を復元して8地方に組み直したうえ、team-leadの実焼きで
- * 出た海陸チェック3件を直した。60都市・59路線)。
+ * 2回にわたって出た海陸チェック計4件を直した。61都市・60路線)。
  *
  * 地方どうしの橋渡しは7本(すべて既存の橋渡しをそのまま使い、
  * 橋渡し自体には手を入れていない): `dawsoncity-craigellachie`
@@ -618,22 +630,34 @@ export const NORTHAMERICA_CITIES = {
  *   陸地を突っ切っていた)→ 実在のフェリー航路(ポートオーバスク–
  *   ノースシドニー)どおり、`northsydney` を新規都市として追加し
  *   `portauxbasques-northsydney`(航路)+`northsydney-calaismaine`(陸路)
- *   に分割。**これでカナダがアメリカと同じ10……ではなく9都市になり、
- *   当初合意の上限8を1超えている。**team-leadに報告済み、承認待ちの暫定値。
- *   portauxbasques自身の豆知識に「同じ海峡をノースシドニー行きフェリーが
- *   渡っている」という記述がすでにあったため、ノースシドニーの豆知識は
- *   フェリーの話ではなくシドニー炭田の炭鉱鉄道網の話にして、重複を避けた。
+ *   に分割。カナダが9都市になった(上限超過)ことをteam-leadに報告し、
+ *   **「上限は目的ではなく手段。橋渡しを失って盤面が薄くなるほうが損」
+ *   として承認された。**portauxbasques自身の豆知識に「同じ海峡を
+ *   ノースシドニー行きフェリーが渡っている」という記述がすでにあったため、
+ *   ノースシドニーの豆知識はフェリーの話ではなくシドニー炭田の炭鉱鉄道網の
+ *   話にして、重複を避けた。
  *
- * 3件とも自分の手では計測できない(焼かないと分からない)ため、
+ * 3回目の実焼き(60都市版。上の3件は解消)で1件残った:
+ * - `veracruz–merida`(メキシコ湾を横切り海88%。上のciudaddemexico版の
+ *   差し替え先でもまだ足りなかった)→ team-leadの見立て(トレン・マヤの
+ *   西起点であるビジャエルモサを中継に挟む案)を採用し、`villahermosa`
+ *   を新規都市として追加、`veracruz-villahermosa`+`villahermosa-merida`
+ *   に分割。ビジャエルモサの豆知識は、19世紀のベラクルス線(コーヒー・
+ *   石油のための鉄道)と対比させ、2023年開通で現在進行形のトレン・マヤを
+ *   軸にした。メキシコが8都市になった(上限超過)ことも、カナダと同じ
+ *   理由でteam-leadから承認済み。
+ *
+ * 4件とも自分の手では計測できない(焼かないと分からない)ため、
  * 焼き直したあとに再度 `check-sea-routes.mjs` で確認してほしい。
  *
  * ## seg の実測
  *
- * ノースシドニー追加で60都市・59路線になったため、再度測り直した。
- * 90/100/110/120を比較し、90・100では最長辺(dawsoncity-craigellachie、
- * 579px)が6マスになって「5マス超0本」を満たさないが、110の時点で
- * 「5マス超0本・9マス(上限)0本」になった。42都市版・59都市版から
- * 値は変わっていない(geography.mjsのNORTHAMERICA_PROJ.seg参照)。
+ * ノースシドニー・ビジャエルモサ追加で61都市・60路線になったため、
+ * その都度測り直した。90/100/110/120を比較し、90・100では最長辺
+ * (dawsoncity-craigellachie、579px)が6マスになって「5マス超0本」を
+ * 満たさないが、110の時点で「5マス超0本・9マス(上限)0本」になった。
+ * 42都市版・59都市版・60都市版から値は一貫して変わっていない
+ * (geography.mjsのNORTHAMERICA_PROJ.seg参照)。
  */
 export const NORTHAMERICA_EDGES = [
   // --- arctic(北極圏・アラスカ・ユーコン) ---
@@ -668,7 +692,7 @@ export const NORTHAMERICA_EDGES = [
   ["ciudaddemexico", "veracruz"],
   ["ciudaddemexico", "nuevolaredo"],
   ["ciudadjuarez", "tijuana"],
-  ["veracruz", "merida"],
+  ["veracruz", "villahermosa"],
   // --- mex-canorth 橋渡し ---
   ["ciudaddemexico", "guatemalacity"],
   // --- canorth(中米北部。グアテマラ・ベリーズ・ホンジュラス・エルサルバドル) ---
@@ -711,4 +735,5 @@ export const NORTHAMERICA_EDGES = [
   ["nassau", "freeport", "sea"],
   // --- 海陸チェック対応で追加(末尾に追記。既存の添字はずらしていない) ---
   ["northsydney", "calaismaine"],
+  ["villahermosa", "merida"],
 ];

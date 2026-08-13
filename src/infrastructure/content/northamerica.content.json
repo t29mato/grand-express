@@ -1188,6 +1188,54 @@
         }
       ]
     },
+    "villahermosa": {
+      "n": {
+        "en": "Villahermosa",
+        "es": "Villahermosa",
+        "fr": "Villahermosa",
+        "ja": "ビジャエルモサ"
+      },
+      "lo": -92.9303,
+      "la": 17.9895,
+      "reg": "mex",
+      "mark": "canyonrail",
+      "bg": "canyon",
+      "lp": "l",
+      "tag": {
+        "en": "Where a 19th-century line and a 2023 one meet on the same gulf coast",
+        "es": "Donde una vía del siglo XIX y otra de 2023 se encuentran en la misma costa del golfo",
+        "fr": "Où une voie du XIXe siècle et une de 2023 se rejoignent sur la même côte du golfe",
+        "ja": "19世紀の鉄道と2023年の鉄道が同じ湾岸で出会う町"
+      },
+      "fact": {
+        "en": "This river port on the Grijalva, long a transshipment point between highland Chiapas and the gulf, became the western terminus of the Tren Maya in 2023 — a state-built line running the length of the Yucatán Peninsula that is, depending on who is asked, either a tourism project or the country's most ambitious rail construction in a century. It runs on the same coast as, but never touches, the 19th-century Veracruz–Mexico City line, built for coffee and oil rather than passengers headed the other way.",
+        "es": "Este puerto fluvial sobre el Grijalva, durante mucho tiempo punto de trasbordo entre las tierras altas de Chiapas y el golfo, se convirtió en 2023 en la terminal occidental del Tren Maya, una línea estatal que recorre toda la península de Yucatán y que, según a quién se pregunte, es un proyecto turístico o la obra ferroviaria más ambiciosa del país en un siglo. Corre por la misma costa que la línea Veracruz-Ciudad de México del siglo XIX, sin llegar a tocarla, construida para el café y el petróleo y no para pasajeros rumbo al otro lado.",
+        "fr": "Ce port fluvial sur le Grijalva, longtemps point de transbordement entre les hautes terres du Chiapas et le golfe, devint en 2023 le terminus occidental du Tren Maya, une ligne construite par l'État qui parcourt toute la péninsule du Yucatán et qui, selon qui l'on interroge, est soit un projet touristique soit le chantier ferroviaire le plus ambitieux du pays depuis un siècle. Elle longe la même côte que la ligne Veracruz-Mexico du XIXe siècle, sans jamais la toucher, bâtie pour le café et le pétrole plutôt que pour des voyageurs allant dans l'autre sens.",
+        "ja": "グリハルバ川沿いのこの河港は、長らくチアパス高地と湾岸を結ぶ積み替え地だったが、2023年、ユカタン半島全体を走る国営鉄道トレン・マヤの西の起点になった。聞く相手によって、観光開発とも、この一世紀でこの国いちばん野心的な鉄道工事とも評される路線である。同じ湾岸を走りながら一度も交わらないのが、19世紀のベラクルス—メキシコシティ線で、あちらはコーヒーと石油のために敷かれ、行き先も逆向きである。"
+      },
+      "props": [
+        {
+          "n": {
+            "en": "Tren Maya Western Terminus Platform",
+            "es": "Andén de la terminal occidental del Tren Maya",
+            "fr": "Quai du terminus occidental du Tren Maya",
+            "ja": "トレン・マヤ西起点のホーム"
+          },
+          "cost": 440,
+          "inc": 92
+        },
+        {
+          "n": {
+            "en": "Grijalva River Transshipment Dock",
+            "es": "Muelle de trasbordo del río Grijalva",
+            "fr": "Quai de transbordement du fleuve Grijalva",
+            "ja": "グリハルバ川積み替え埠頭"
+          },
+          "cost": 340,
+          "inc": 70
+        }
+      ]
+    },
     "tijuana": {
       "n": {
         "en": "Tijuana",
@@ -3061,7 +3109,7 @@
     ],
     [
       "veracruz",
-      "merida"
+      "villahermosa"
     ],
     [
       "ciudaddemexico",
@@ -3208,6 +3256,10 @@
     [
       "northsydney",
       "calaismaine"
+    ],
+    [
+      "villahermosa",
+      "merida"
     ]
   ],
   "quiz": [

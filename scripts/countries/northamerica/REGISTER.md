@@ -397,3 +397,50 @@ segは60都市・59路線でも110のままで足りた(90/100だとdawsoncity-c
 mark/bgは既存キー`spike`/`canalport`の使い回しなので新しい塗り残しは
 出ないはずだが未確認)・`npm run check` / `npm run shot` は未実行。
 焼き直したあとに確認をお願いします。
+
+---
+
+# 報告(5回目。残り1本 `veracruz–merida` を直した)
+
+## カナダ9都市の承認
+
+ありがとうございます。「上限は目的ではなく手段」というのはそのとおりで、
+ノースシドニーもビジャエルモサも、実在の航路・実在の鉄道に必然のある
+町なので、削って上限を守るより残す方が盤面としては正しいと考えています。
+
+## `veracruz–merida`(海88%)への対応
+
+**team-leadの見立て2(ビジャエルモサを中継に挟む)を採用しました。**
+
+- `villahermosa`(mex)を新規都市として追加。座標`-92.9303, 17.9895`、
+  point-in-polygonで陸地内を確認済み
+- 豆知識は**トレン・マヤ(2023年開通)の西の起点**を軸にした。
+  「19世紀のベラクルス—メキシコシティ線(コーヒーと石油のための鉄道)と
+  同じ湾岸を走りながら一度も交わらない」という一文で、19世紀の大陸横断
+  鉄道の話が多いこの盤面に、現在進行形の鉄道史を対比として置いています
+- 路線を `veracruz-villahermosa` + `villahermosa-merida` に分割
+  (既存の`veracruz-merida`を`veracruz-villahermosa`に書き換え、
+  `villahermosa-merida`は末尾に追加。配列途中への挿入はしていません)
+- これでメキシコが8都市になりました(上限超過。理由はカナダ9都市と同じで、
+  ご承認いただいたものとして進めています)
+
+## 全体の再確認(61都市・60路線・地方8)
+
+`buildNorthAmericaContent()`成功・61都市全件のpoint-in-polygon・60路線での
+BFS連結性・4言語欠落0件・`npx eslint``npx tsc --noEmit`エラー0件を確認済み。
+segは61都市・60路線でも110のままで足りました(90/100だと
+dawsoncity-craigellachieが6マスになり不足)。物件価格は12.7倍のまま
+(変わらず)。地方の内訳は
+`arctic4 pac5 plains5 atl5 mex8 canorth10 casouth9 cargr15`(合計61)。
+
+## quiz Q23
+
+ご確認ありがとうございます。誤検知と判断したままにしています。
+
+## 走らせていない検査(5回目時点)
+
+`node scripts/extract-legacy-content.mjs`は今回も走らせていません。
+`check-sea-routes.mjs`(特に`veracruz-villahermosa`)・
+`check-city-backgrounds.mjs`(ビジャエルモサのmark/bgも既存キー
+`canyonrail`/`canyon`の使い回し)・`npm run check` / `npm run shot`は
+未実行です。焼き直しをお願いします。
