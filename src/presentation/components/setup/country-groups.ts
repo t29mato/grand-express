@@ -30,6 +30,12 @@ export interface CountryGroup {
    * 緯度経度で印を打つと嘘になるので、地図ではなく**下のボタン**として出す。
    */
   readonly offMap?: boolean;
+  /**
+   * その大陸ぜんぶを走る盤面。**大陸そのものと同じ広さなので、
+   * 国の名札に混ぜると「ヨーロッパ」が2つ並ぶ。**地図の下のボタンにする
+   * (「地球をまわる」を世界地図の下に置いているのと同じ考え方)。
+   */
+  readonly wholeBoardId?: string;
 }
 
 export const COUNTRY_GROUPS: readonly CountryGroup[] = [
@@ -48,7 +54,9 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
   {
     key: "asia",
     label: { en: "Asia", es: "Asia", fr: "Asie", ja: "アジア" },
+    wholeBoardId: "asia",
     countryIds: [
+      "asia",
       "japan",
       "ibaraki",
       "korea",
@@ -64,7 +72,8 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
   {
     key: "europe",
     label: { en: "Europe", es: "Europa", fr: "Europe", ja: "ヨーロッパ" },
-    countryIds: ["france", "germany", "italy", "uk", "ukraine", "russia"],
+    wholeBoardId: "europe",
+    countryIds: ["europe", "france", "germany", "italy", "uk", "ukraine", "russia"],
   },
   {
     key: "africa",
@@ -72,9 +81,18 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
     countryIds: ["morocco", "ghana"],
   },
   {
-    key: "americas",
-    label: { en: "The Americas", es: "América", fr: "Amériques", ja: "アメリカ大陸" },
-    countryIds: ["canada", "usa", "venezuela", "bolivia", "brazil"],
+    // **南北を分けた。**大陸ぜんぶを走る盤面が「北アメリカ」「南アメリカ」の
+    // 2枚あり、1つの束には収まらない。地理としてもこちらが素直。
+    key: "northamerica",
+    label: { en: "North America", es: "América del Norte", fr: "Amérique du Nord", ja: "北アメリカ" },
+    wholeBoardId: "northamerica",
+    countryIds: ["northamerica", "canada", "usa"],
+  },
+  {
+    key: "southamerica",
+    label: { en: "South America", es: "América del Sur", fr: "Amérique du Sud", ja: "南アメリカ" },
+    wholeBoardId: "southamerica",
+    countryIds: ["southamerica", "venezuela", "bolivia", "brazil"],
   },
   {
     key: "oceania",

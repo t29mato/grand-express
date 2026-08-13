@@ -76,18 +76,25 @@ export function WorldPicker({
   let baseSvg = world?.mapSvg ?? world?.thumbSvg ?? "";
   let onPlate: (id: string) => void;
   let back: { label: string; to: Focus } | null = null;
+  /** 地図の下に出すボタン。世界なら「地球をまわる」と太陽系、大陸ならその大陸ぜんぶ。 */
+  let whole: CountryIndexEntry[] = [];
 
   if (focus.kind === "world") {
     sources = continents.map(({ group, members }) => ({
       id: group.key,
       name: group.label,
-      at: medianCentre(members.map((id) => byId.get(id)!.bounds)),
+      at: medianCentre(
+        members.filter((id) => id !== group.wholeBoardId).map((id) => byId.get(id)!.bounds),
+      ),
     }));
     view = fullView(WORLD_PROJECTION);
+    whole = offMapBoards;
     onPlate = (key) => setFocus({ kind: "continent", key });
   } else if (focus.kind === "continent") {
     const here = continents.find((entry) => entry.group.key === focus.key) ?? continents[0];
-    const members = here.members.map((id) => byId.get(id)!);
+    // 大陸ぜんぶを走る盤面は、国の名札に混ぜない(「ヨーロッパ」が2つ並ぶ)。
+    const members = here.members.filter((id) => id !== here.group.wholeBoardId).map((id) => byId.get(id)!);
+    whole = here.group.wholeBoardId ? [byId.get(here.group.wholeBoardId)].filter(Boolean) as CountryIndexEntry[] : [];
     sources = members.map((board) => ({ id: board.id, name: board.name, at: centreOf(board.bounds) }));
     view = viewBoxFor(unionBounds(members.map((board) => board.bounds)), WORLD_PROJECTION);
     onPlate = (id) => {
@@ -162,7 +169,7 @@ export function WorldPicker({
       {/* 地図の上に置けない盤面。「地球をまわる」は1点で指せず、
           太陽系はそもそも地球の上に無い。**緯度経度で印を打つと嘘になる**ので、
           名札ではなくボタンとして地図の下に並べる。 */}
-      {offMapBoards.map((board) => (
+      {whole.map((board) => (
         <button
           key={board.id}
           type="button"
