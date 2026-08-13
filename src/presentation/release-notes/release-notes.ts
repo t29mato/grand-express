@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.42.0",
+    date: "2026-08-14",
+    title: t(
+      "Three continents you can ride end to end|Tres continentes que puedes recorrer de punta a punta|Trois continents à parcourir d'un bout à l'autre|大陸まるごとの盤面が3枚",
+    ),
+    highlights: [
+      t(
+        "Europe, South America and North America each fit onto a single board. These are not the country boards zoomed out — they carry the stories that only cross a border: the coaches lifted one by one at Brest to change their bogies for Russian gauge, the Pan-American Highway stopping dead at the Darién Gap, the Trans-Andine that cut thirty-six hours off the voyage around Cape Horn, the harbour at Punta Arenas that emptied overnight when the Panama Canal opened.|Europa, Sudamérica y Norteamérica caben cada una en un solo tablero. No son los tableros de país alejados: llevan las historias que solo cruzan una frontera — los coches izados uno a uno en Brest para cambiar de bogie al ancho ruso, la Panamericana que se detiene en seco en el Tapón del Darién, el Transandino que recortó treinta y seis horas al viaje por el Cabo de Hornos, el puerto de Punta Arenas que se vació de un día para otro al abrirse el Canal de Panamá.|L'Europe, l'Amérique du Sud et l'Amérique du Nord tiennent chacune sur un seul plateau. Ce ne sont pas les plateaux de pays vus de loin : ils portent les histoires qui ne se racontent qu'en traversant une frontière — les voitures soulevées une à une à Brest pour changer de bogies, la route panaméricaine qui s'arrête net au Darién, le Transandin qui a retranché trente-six heures au voyage par le cap Horn, le port de Punta Arenas vidé du jour au lendemain par l'ouverture du canal de Panama.|ヨーロッパ・南アメリカ・北アメリカが、それぞれ1枚の盤面に収まりました。国の盤面を引いて見たものではありません。国境をまたがないと出てこない話を集めてあります——ブレストで客車を1両ずつ持ち上げてロシア軌間の台車に履き替えること、パンアメリカン・ハイウェイがダリエン地峡でぷつりと途切れること、ホーン岬回りを36時間縮めたトランスアンディーノ、パナマ運河の開通で一夜にして空になったプンタアレナスの港。",
+      ),
+      t(
+        "The same river changes its name at the border, and so does the board: it reads Rio Grande in English and Río Bravo del Norte in Spanish. Iceland has never had a railway. Kathmandu is a capital with no station. Not one of these is a country's own story.|El mismo río cambia de nombre en la frontera, y el tablero también: dice Rio Grande en inglés y Río Bravo del Norte en español. Islandia nunca ha tenido ferrocarril. Katmandú es una capital sin estación. Ninguna de estas es la historia de un solo país.|Le même fleuve change de nom à la frontière, et le plateau aussi : il affiche Rio Grande en anglais et Río Bravo del Norte en espagnol. L'Islande n'a jamais eu de chemin de fer. Katmandou est une capitale sans gare. Aucune de ces histoires n'appartient à un seul pays.|同じ川が国境の向こうで名前を変えるので、盤面も変えました。英語では Rio Grande、スペイン語では Río Bravo del Norte と出ます。アイスランドには鉄道が一度もありません。カトマンズは駅の無い首都です。どれも一つの国の話ではありません。",
+      ),
+      t(
+        "Auschwitz-Birkenau is not a square you can land on and buy. It is written into Kraków's card as fact, the way Hiroshima has always been written on the Japan board, and what you can buy there has nothing to do with it.|Auschwitz-Birkenau no es una casilla en la que caer y comprar. Está escrito como hecho en la carta de Cracovia, igual que Hiroshima en el tablero de Japón, y lo que allí se compra nada tiene que ver.|Auschwitz-Birkenau n'est pas une case où s'arrêter et acheter. C'est écrit comme un fait sur la carte de Cracovie, comme Hiroshima l'est depuis toujours sur le plateau du Japon, et ce qu'on y achète n'a rien à voir.|アウシュヴィッツ=ビルケナウは、止まって物件を買うマスにはしていません。日本の盤面が広島をずっとそう書いてきたのと同じように、クラクフの豆知識に事実として置き、そこで買えるものはその歴史と関係のない地元の商いにしてあります。",
+      ),
+    ],
+  },
+  {
     version: "0.41.1",
     date: "2026-08-14",
     title: t(
