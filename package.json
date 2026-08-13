@@ -16,8 +16,9 @@
     "ci": "npm run lint && npm run typecheck && npm run depcruise && npm run test && npm run build",
     "graph": "node scripts/generate-dependency-graph.mjs",
     "graph:check": "node scripts/generate-dependency-graph.mjs --check",
+    "art:check": "node scripts/check-city-backgrounds.mjs",
     "shot": "node scripts/shot.mjs",
-    "check": "npm run ci && npm run graph:check && npm run test:e2e",
+    "check": "npm run ci && npm run graph:check && npm run art:check && npm run test:e2e",
     "preview": "node scripts/preview-animation.mjs"
   },
   "dependencies": {

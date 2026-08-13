@@ -453,7 +453,7 @@ const UK_BASE_BG = {
     clouds(80, 28, 1) +
     `<rect x="0" y="108" width="400" height="62" fill="#1e6ea0"/>` +
     ripples(124, "#bfe8f4") +
-    `<path d="M0,148c60,-8 120,4 200,-2c80,-6 140,4 200,-2v64H0z" fill="#c8c2ac"/>` +
+    `<path d="M0,148c60,-8 120,4 200,-2c80,-6 140,4 200,-2v66H0z" fill="#c8c2ac"/>` +
     // 桟橋
     pier(200, 176, 160, 26) +
     `<rect x="352" y="140" width="30" height="22" fill="#e8dcc0"/>` +
@@ -957,7 +957,7 @@ const UK_BASE_BG = {
    * 崖、蒸留所の建物。
    */
   causeway:
-    sky("#9fb8c8", "#dfe6e0", 96) +
+    sky("#9fb8c8", "#dfe6e0", 102) +
     raincloud(80, 24, 1) +
     raincloud(300, 20, 0.8) +
     // 崖(奥)

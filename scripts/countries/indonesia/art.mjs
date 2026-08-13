@@ -484,7 +484,7 @@ export const INDONESIA_BG = {
 
   /** 山あいの棚田と時計塔の町。ブキッティンギ・ワメナ。 */
   highland:
-    sky("#8fc4e8", "#cfe4f0", 90) +
+    sky("#8fc4e8", "#cfe4f0", 120) +
     hills(90, "#5f7a44", 4) +
     ground(120, "#7f8f5c") +
     ground(160, "#3f7a3f") +
@@ -513,7 +513,7 @@ export const INDONESIA_BG = {
 
   /** 坑口とトロッコ。サワルント。 */
   mine:
-    sky("#8fc4e8", "#cfe4f0", 100) +
+    sky("#8fc4e8", "#cfe4f0", 130) +
     hills(100, "#5f7a44", 4) +
     ground(130, "#7f8f5c") +
     ground(168, "#5a4a38") +
@@ -571,7 +571,7 @@ export const INDONESIA_BG = {
 
   /** 丘の上のアール・デコ建築。バンドン。 */
   hillcity:
-    sky("#8fc4e8", "#cfe4f0", 100) +
+    sky("#8fc4e8", "#cfe4f0", 150) +
     hills(100, "#5f7a44", 4) +
     hills(120, "#7f8f5c", 3) +
     ground(150, "#3f7a3f") +
@@ -599,7 +599,7 @@ export const INDONESIA_BG = {
 
   /** 仏塔(ストゥーパ)。ボロブドゥール。 */
   temple:
-    sky("#8fc4e8", "#cfe4f0", 110) +
+    sky("#8fc4e8", "#cfe4f0", 140) +
     hills(110, "#5f7a44", 4) +
     ground(140, "#3f7a3f") +
     `<path d="M20,140c0,-30 40,-40 50,-40c10,0 50,10 50,40z" fill="#8f8a78"/>` +
@@ -634,7 +634,7 @@ export const INDONESIA_BG = {
 
   /** 噴煙を上げる火山。ブロモ山・テルナテ。 */
   volcano:
-    sky("#8fc4e8", "#cfe4f0", 130) +
+    sky("#8fc4e8", "#cfe4f0", 150) +
     hills(130, "#7f8f5c", 3) +
     ground(150, "#8f8a78") +
     ground(176, "#3f7a3f") +
@@ -651,7 +651,7 @@ export const INDONESIA_BG = {
 
   /** 青い炎の火口。バニュワンギ(イジェン山)。 */
   bluefire:
-    sky("#1a1a30", "#2a2440", 130) +
+    sky("#1a1a30", "#2a2440", 150) +
     hills(130, "#2a2440", 3) +
     ground(150, "#3a2f24") +
     ground(176, "#241f1a") +
@@ -665,7 +665,7 @@ export const INDONESIA_BG = {
 
   /** 割れ門(チャンディ・ブンタル)。デンパサール。 */
   baligate:
-    sky("#8fc4e8", "#cfe4f0", 100) +
+    sky("#8fc4e8", "#cfe4f0", 130) +
     hills(100, "#7f8f5c", 3) +
     ground(130, "#3f7a3f") +
     `<g><path d="M20,176V110l16,-34h9v100z" fill="#8a5a3a"/><path d="M100,176V110l-16,-34h-9v100z" fill="#8a5a3a"/>` +
@@ -678,7 +678,7 @@ export const INDONESIA_BG = {
 
   /** 棚田。ウブド。 */
   riceterrace:
-    sky("#8fc4e8", "#cfe4f0", 90) +
+    sky("#8fc4e8", "#cfe4f0", 120) +
     hills(90, "#5f7a44", 4) +
     ground(120, "#7f8f5c") +
     terraceRows(206, 9, 0, 400, "#c9dc7a", "#8fa84f") +
@@ -690,7 +690,7 @@ export const INDONESIA_BG = {
 
   /** コモドドラゴンと乾いた丘。ラブアンバジョ。 */
   dragon:
-    sky("#8fc4e8", "#d8e8c8", 120) +
+    sky("#8fc4e8", "#d8e8c8", 150) +
     hills(120, "#9a9060", 4) +
     ground(150, "#b0a870") +
     water(176, 34, "#1c6f7a") +
@@ -708,7 +708,7 @@ export const INDONESIA_BG = {
 
   /** 三色の火口湖。エンデ(クリムトゥ)。 */
   crater:
-    sky("#8fc4e8", "#cfe4f0", 110) +
+    sky("#8fc4e8", "#cfe4f0", 140) +
     hills(110, "#7a7568", 3) +
     ground(140, "#8f8a78") +
     `<path d="M20,178c4,-30 20,-46 30,-46c10,0 24,16 28,46z" fill="#9a9488"/>` +
@@ -727,7 +727,7 @@ export const INDONESIA_BG = {
 
   /** イカット織の文様と馬。ワインガプ。 */
   ikat:
-    sky("#8fc4e8", "#cfe4f0", 120) +
+    sky("#8fc4e8", "#cfe4f0", 150) +
     hills(120, "#c9b878", 4) +
     ground(150, "#d8cc94") +
     ground(178, "#3f7a3f") +
@@ -777,7 +777,7 @@ export const INDONESIA_BG = {
 
   /** 露天掘りの鉱山とベルトコンベア。クンダリ。 */
   nickel:
-    sky("#8fc4e8", "#cfe4f0", 108) +
+    sky("#8fc4e8", "#cfe4f0", 140) +
     hills(108, "#9a8f70", 4) +
     ground(140, "#b0a878") +
     water(176, 34, "#1c6f7a") +
@@ -808,7 +808,7 @@ export const INDONESIA_BG = {
 
   /** オランウータンの森。パランカラヤ。 */
   orangutan:
-    sky("#8fc4e8", "#cfe4f0", 96) +
+    sky("#8fc4e8", "#cfe4f0", 120) +
     hills(96, "#3f7a3f", 4) +
     ground(120, "#3f7a3f") +
     roundTree(30, 176, 24, "#2f6a2f") +
@@ -824,7 +824,7 @@ export const INDONESIA_BG = {
 
   /** 市場の屋台。マナド。 */
   market:
-    sky("#8fc4e8", "#cfe4f0", 110) +
+    sky("#8fc4e8", "#cfe4f0", 140) +
     hills(110, "#5f7a44", 3) +
     ground(140, "#3f7a3f") +
     stallRow(176, 3, 40, 24, ["#e8443f", "#f5b31c", "#3f8fc4"]) +
@@ -837,7 +837,7 @@ export const INDONESIA_BG = {
   /** 高床の水上家屋。ゴロンタロ。 */
   stilthouse:
     sky("#8fc4e8", "#cfe4f0", 130) +
-    water(130, 46, "#1c6f7a") +
+    water(130, 80, "#1c6f7a") +
     ripples(148) +
     ripples(164, "#9fd4e8") +
     stiltRow(178, 4, 34, 20) +
@@ -866,7 +866,7 @@ export const INDONESIA_BG = {
 
   /** 舟形屋根の家(トンコナン)。タナトラジャ。 */
   tongkonan:
-    sky("#8fc4e8", "#cfe4f0", 100) +
+    sky("#8fc4e8", "#cfe4f0", 140) +
     hills(100, "#5f7a44", 4) +
     ground(140, "#3f7a3f") +
     boatRoof(50, 170, 70, 46) +
@@ -884,7 +884,7 @@ export const INDONESIA_BG = {
 
   /** 極楽鳥の森。ソロン。 */
   birdparadise:
-    sky("#8fc4e8", "#cfe4f0", 90) +
+    sky("#8fc4e8", "#cfe4f0", 120) +
     hills(90, "#2f6a2f", 4) +
     ground(120, "#3f7a3f") +
     roundTree(30, 190, 26, "#2f6a2f") +
