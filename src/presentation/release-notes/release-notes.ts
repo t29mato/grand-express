@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.41.0",
+    date: "2026-08-14",
+    title: t(
+      "Two boards that are not countries: the Solar System and Japan's Hundred Mountains|Dos tableros que no son países: el Sistema Solar y las Cien Montañas de Japón|Deux plateaux qui ne sont pas des pays : le Système solaire et les Cent Montagnes du Japon|国ではない盤面が2枚。太陽系と、日本百名山",
+    ),
+    highlights: [
+      t(
+        "The Solar System board treats space as the sea and each body as an island, so the line between planets is a ship's route — a probe's trajectory. Forty bodies from the Sun to the Oort Cloud, spaced by the logarithm of their distance, because at true scale the inner planets collapse into a single dot. The Oort Cloud does not fit even so, and the board says so.|El tablero del Sistema Solar trata el espacio como el mar y cada cuerpo como una isla, de modo que la línea entre planetas es una ruta marítima: la trayectoria de una sonda. Cuarenta cuerpos del Sol a la nube de Oort, espaciados por el logaritmo de su distancia, porque a escala real los planetas interiores se reducen a un punto. La nube de Oort no cabe ni así, y el tablero lo dice.|Le plateau du Système solaire traite l'espace comme la mer et chaque corps comme une île : la ligne entre deux planètes est donc une route maritime — la trajectoire d'une sonde. Quarante corps du Soleil au nuage d'Oort, espacés selon le logarithme de leur distance, car à l'échelle réelle les planètes intérieures se réduisent à un point. Le nuage d'Oort n'entre pas même ainsi, et le plateau le dit.|太陽系の盤面は、宇宙を「海」、天体を「島」として作りました。惑星のあいだの線は航路——探査機の軌道です。太陽からオールトの雲まで40天体を、距離の対数で並べています。実際の距離で並べると内側の惑星が1点に潰れてしまうためです。それでもオールトの雲は盤面に収まりません。そのことも盤面に書いてあります。",
+      ),
+      t(
+        "The Hundred Mountains board turns Fukada Kyūya's hundred peaks into a hundred stops. A third of them crowd into the Japan Alps, close enough that the map cannot name them all at once — but the ridge lines between them are real, and so is the gap: not one of the hundred stands in western Honshū, so no train can round the Inland Sea.|El tablero de las Cien Montañas convierte las cien cumbres de Fukada Kyūya en cien paradas. Un tercio se agolpa en los Alpes japoneses, tan juntas que el mapa no puede nombrarlas todas a la vez, pero las crestas que las unen son reales, y también lo es el vacío: ninguna de las cien está en el oeste de Honshū.|Le plateau des Cent Montagnes fait des cent sommets de Fukada Kyūya cent arrêts. Un tiers se presse dans les Alpes japonaises, si serrées que la carte ne peut toutes les nommer à la fois — mais les crêtes qui les relient sont réelles, et le vide aussi : aucune des cent ne se dresse dans l'ouest de Honshū.|日本百名山の盤面は、深田久弥の選んだ100座をそのまま100の止まり場所にしました。3分の1が日本アルプスに集まっていて、俯瞰では名前を全部は出せないほど近いのですが、そのあいだをつなぐ縦走路は実在します。抜けているところも実在します——100座のうち1座も中国地方より西の本州にありません。",
+      ),
+      t(
+        "The board picker now has a button under the map for boards that cannot be pinned to a place on Earth, and the Americas are split into North and South.|El selector de tableros tiene ahora un botón bajo el mapa para los tableros que no pueden fijarse a un punto de la Tierra, y América se divide en Norte y Sur.|Le sélecteur de plateaux propose désormais un bouton sous la carte pour ceux qu'on ne peut pas épingler sur Terre, et les Amériques sont séparées en Nord et Sud.|地球の上に置けない盤面のために、地図の下にボタンを付けました。アメリカ大陸は北と南に分かれました。",
+      ),
+    ],
+  },
+  {
     version: "0.40.0",
     date: "2026-08-13",
     title: t(
