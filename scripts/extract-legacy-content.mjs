@@ -665,6 +665,26 @@ function renderCountryThumb(country, showCities = true) {
 
 // セットアップ画面の国選択カード用の軽量インデックス(id/name/blurb + 地図サムネイル)。
 // フルコンテンツ(各約215KB)を読み込まずに一覧表示できるようにする(Phase8のバンドルサイズ対策)。
+/**
+ * 盤面が世界のどこにあたるか。**投影の四隅そのもの。**
+ *
+ * トップ画面で「大陸 → 国」と選ばせるのに使う。国の輪郭は持っていないので、
+ * この四角を押せる範囲として扱っている。重なる盤面(茨城⊂日本、バリ⊂インドネシア)は
+ * 小さいほうを上に描いて、内側の押しが親に吸われないようにする(画面側の担当)。
+ *
+ * **legacy由来の国と書き起こした国の2箇所から呼ぶ。**以前は同じ式を両方に
+ * 書き写していて、片方に足し忘れると**その国だけ地図から消える**穴があった。
+ */
+function boardBounds(proj) {
+  const round = (value) => Math.round(value * 100) / 100;
+  return {
+    lon0: round(Math.min(proj.LON0, proj.LON1)),
+    lon1: round(Math.max(proj.LON0, proj.LON1)),
+    lat0: round(Math.max(proj.LAT0, proj.LAT1)),
+    lat1: round(Math.min(proj.LAT0, proj.LAT1)),
+  };
+}
+
 const countryIndex = [BOLIVIA, JAPAN].map((country) => {
   // サムネイルもオーバーライド後の海岸線・都市で描く。
   // **`cur` も渡すこと。** 渡さないと表示倍率の上書きがここだけ効かず、
@@ -687,13 +707,7 @@ const countryIndex = [BOLIVIA, JAPAN].map((country) => {
     },
     thumbViewBox: `0 0 ${country.proj.BW} ${country.proj.BH}`,
     thumbSvg: renderCountryThumb({ ...country, land: overridden.land, cities: overridden.cities }),
-    // 盤面が世界のどこにあたるか(トップ画面の世界地図の印)。下の
-    // `AUTHORED_COUNTRIES` 側と同じ式。**両方に書かないと、legacy由来の
-    // 2国だけ印が出ない。**
-    centre: {
-      lon: Math.round(((country.proj.LON0 + country.proj.LON1) / 2) * 100) / 100,
-      lat: Math.round(((country.proj.LAT0 + country.proj.LAT1) / 2) * 100) / 100,
-    },
+    bounds: boardBounds(country.proj),
   };
 });
 
@@ -709,13 +723,7 @@ for (const content of AUTHORED_COUNTRIES) {
     // 世界一周だけ、**都市の点を打たない版**も持たせる。トップ画面で
     // 「世界地図から盤面を選ぶ」ときの下地に使う。点があると印と紛れる。
     ...(content.id === "world" ? { mapSvg: renderCountryThumb(content, false) } : {}),
-    // 盤面が世界のどこにあたるか。トップ画面の世界地図に印を打つのに使う。
-    // 投影の四隅の真ん中。国の重心ではないが、印を置く目的には十分で、
-    // **投影から機械的に出せるので盤面を足すたびに書く必要がない。**
-    centre: {
-      lon: Math.round(((content.proj.LON0 + content.proj.LON1) / 2) * 100) / 100,
-      lat: Math.round(((content.proj.LAT0 + content.proj.LAT1) / 2) * 100) / 100,
-    },
+    bounds: boardBounds(content.proj),
   });
 }
 writeFileSync(join(contentDir, "country-index.json"), JSON.stringify(countryIndex, null, 2) + "\n");
