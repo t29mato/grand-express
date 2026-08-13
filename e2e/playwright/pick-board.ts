@@ -20,12 +20,17 @@ function isNarrow(page: Page): boolean {
 /** 選び終わったあとの、その盤面を指す相手(`aria-pressed` を持つ)。 */
 export function boardChoice(page: Page, name: string): Locator {
   if (isNarrow(page)) return page.locator(".ccard").filter({ hasText: name });
-  if (name === WHOLE_WORLD) return page.locator(".world-whole-board");
+  // **名前で絞る。**地図の下のボタンは1つではない(地球をまわる/太陽系)。
+  // 盤面が増えるたびにここが増えるので、位置ではなく名前で指す。
+  if (OFF_MAP.includes(name)) return page.locator(".world-whole-board").filter({ hasText: name });
   return page.locator(".picker-plate").filter({ hasText: name });
 }
 
-/** 「地球をまわる」だけは地図の下のボタン。1点で指せないため名札にしていない。 */
-const WHOLE_WORLD = "Around the World";
+/**
+ * 地図の上に置けない盤面。**名札ではなく地図の下のボタン**になる。
+ * 「地球をまわる」は1点で指せないため、太陽系はそもそも地球の上に無いため。
+ */
+const OFF_MAP = ["Around the World", "The Solar System"];
 
 /**
  * 盤面を選ぶ。広い画面では、その国が入っている大陸を先に開く。
@@ -33,7 +38,7 @@ const WHOLE_WORLD = "Around the World";
  */
 export async function pickBoard(page: Page, name: string): Promise<Locator> {
   const target = boardChoice(page, name);
-  if (isNarrow(page) || name === WHOLE_WORLD) {
+  if (isNarrow(page) || OFF_MAP.includes(name)) {
     await target.click();
     return target;
   }

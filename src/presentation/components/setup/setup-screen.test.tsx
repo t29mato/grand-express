@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { LocaleProvider } from "../../i18n/locale-context";
 import { SetupScreen } from "./setup-screen";
@@ -26,7 +26,17 @@ function switchTo(language: "EN" | "ES" | "FR" | "JA") {
   fireEvent.click(screen.getByRole("button", { name: language }));
 }
 
+/**
+ * **この組は遅い。**セットアップ画面は世界地図の下地(16,633文字のSVG)を
+ * そのまま描くので、言語を4つ切り替えるあいだに何度も描き直される。
+ * 単体で 8.8 秒かかり、全体を並行で回すと既定の30秒を超えて時間切れになった(実測)。
+ *
+ * **地図から選ぶようにしたことの代償**なので、隠さずここに書いておく。
+ * 速くするなら、描き直しのたびに下地を作り直さないようにするのが本筋。
+ */
 describe("SetupScreen の既定のプレイヤー名", () => {
+  vi.setConfig({ testTimeout: 60_000 });
+
   it(
     "既定名は表示中の言語で出て、CPUの枠は4言語とも「CPU 1」のまま",
     () => {

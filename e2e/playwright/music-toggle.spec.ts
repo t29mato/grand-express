@@ -1,5 +1,5 @@
 import { test, expect, Page } from "@playwright/test";
-import { boardChoice, pickBoard } from "./pick-board";
+import { pickBoard } from "./pick-board";
 
 /**
  * **音楽の検査は実時間で測る。**先読みの間隔ぶん待たないと音が数えられないので、
@@ -82,7 +82,7 @@ test("トップ画面で音楽を止められ、開き直しても止まった�
 
   // 1. 音楽が入っているあいだは、音源が増え続ける。
   //    自動再生ポリシーがあるので、まず何か触って音楽を始める。
-  const bolivia = await pickBoard(page, "Bolivia");
+  await pickBoard(page, "Bolivia");
   await page.waitForTimeout(1500);
   expect(await countGrowth(page, 2000)).toBeGreaterThan(10);
 

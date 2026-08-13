@@ -276,4 +276,15 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   cupsweep: { type: "gain-cash", amount: 380 },
   twoup: { type: "extra-turn" },
 
+  // Solar System
+  gravassist: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  ionburn: { type: "choose-exact-dice" },
+  solarsail: { type: "roll-fixed-dice", diceCount: 2 },
+  fusiondrive: { type: "roll-fixed-dice", diceCount: 3 },
+  shieldplating: { type: "none" }, // 厄災の神(スクラップ・スプライト)のward item(passive)
+  distressflare: { type: "repel-spirit" },
+  missionuplink: { type: "quiz-save" },
+  salvagepod: { type: "gain-cash", amount: 380 },
+  overclock: { type: "extra-turn" },
+
 };

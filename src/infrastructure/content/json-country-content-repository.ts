@@ -14,6 +14,7 @@ const LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   ukraine: () => import("./ukraine.content.json").then((m) => m.default),
   brazil: () => import("./brazil.content.json").then((m) => m.default),
   australia: () => import("./australia.content.json").then((m) => m.default),
+  solarsystem: () => import("./solarsystem.content.json").then((m) => m.default),
   venezuela: () => import("./venezuela.content.json").then((m) => m.default),
   bolivia: () => import("./bolivia.content.json").then((m) => m.default),
   japan: () => import("./japan.content.json").then((m) => m.default),

@@ -18,6 +18,55 @@ const region = (code: string) => RegionId(code);
 
 /** 月インデックス(0=4月)ごとの季節効果。 */
 export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readonly SeasonEffectOp[])[]>> = {
+  solarsystem: [
+    /* 0 Apr ガガーリンの日(地球周回) */ [
+      { op: "region-income-multiplier", regionId: region("inner"), multiplier: 1.3 },
+    ],
+    /* 1 May シェパードの弾道飛行 */ [
+      { op: "region-income-multiplier", regionId: region("inner"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("probe"), multiplier: 1.15 },
+    ],
+    /* 2 Jun テレシコワ、初の女性宇宙飛行士 */ [
+      { op: "region-income-multiplier", regionId: region("inner"), multiplier: 1.25 },
+    ],
+    /* 3 Jul 月面着陸(太陽系じゅうが祝う特別な月) */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "region-income-multiplier", regionId: region("inner"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("core"), multiplier: 1.1 },
+      { op: "rest-spirit" },
+    ],
+    /* 4 Aug キュリオシティの火星着陸 */ [
+      { op: "region-income-multiplier", regionId: region("inner"), multiplier: 1.25 },
+    ],
+    /* 5 Sep ボイジャー打ち上げの季節(巨大惑星を回った探査機) */ [
+      { op: "region-income-multiplier", regionId: region("outer"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("probe"), multiplier: 1.2 },
+    ],
+    /* 6 Oct スプートニク1号(最初の人工衛星) */ [
+      { op: "region-income-multiplier", regionId: region("inner"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("probe"), multiplier: 1.15 },
+    ],
+    /* 7 Nov ライカを偲ぶ月(静かな追悼) */ [
+      { op: "region-income-multiplier", regionId: region("inner"), multiplier: 0.9 },
+    ],
+    /* 8 Dec 「地球の出」(贈り物のような一枚の写真) */ [
+      { op: "give-item-to-all" },
+      { op: "region-income-multiplier", regionId: region("inner"), multiplier: 1.15 },
+    ],
+    /* 9 Jan エクスプローラー1号、ヴァン・アレン帯の発見 */ [
+      { op: "region-income-multiplier", regionId: region("inner"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("outer"), multiplier: 0.85 },
+    ],
+    /* 10 Feb ペイル・ブルー・ドット(海王星を越えた辺りから撮影) */ [
+      { op: "region-income-multiplier", regionId: region("tno"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("deep"), multiplier: 1.15 },
+    ],
+    /* 11 Mar 最初の宇宙遊泳(小惑星帯へ踏み出す気概にかけて) */ [
+      { op: "region-income-multiplier", regionId: region("inner"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("belt"), multiplier: 1.15 },
+    ],
+  ],
+
   australia: [
     /* 0 Apr アンザック・デー(夜明けの式典) */ [
       { op: "rest-spirit" },
@@ -1316,6 +1365,15 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
  * フレーバーに応じて異なる。`id` → 効果種別の対応。
  */
 export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>> = {
+  // Solar System
+  solarflare: "fine",             // 太陽フレア: 機器修理費
+  debris: "percentLoss",          // デブリ衝突: 船体の割合ダメージ
+  commblackout: "skipTurn",       // 通信途絶: 手も足も出ず足止め
+  gravityassistfail: "teleport",  // 重力アシスト失敗: 意図しない場所へ飛ばされる
+  radiationbelt: "loseProperties",// 被曝: 治療費のため資産を手放す
+  duststorm: "steal",             // 砂嵐: 電力(=稼ぎ)を奪われる
+  fuelshortage: "payOthers",      // 燃料切れ: 近くの誰かに融通してもらう
+
   // Australia
   sunburn: "fine",
   // **インドの `cyclone`(percentLoss)と鍵がぶつかった。**この表は全盤面で

@@ -53,6 +53,7 @@ const STYLE_LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   ukraine: () => import("../content/ukraine.content.json").then((m) => (m.default as { styles: unknown }).styles),
   brazil: () => import("../content/brazil.content.json").then((m) => (m.default as { styles: unknown }).styles),
   australia: () => import("../content/australia.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  solarsystem: () => import("../content/solarsystem.content.json").then((m) => (m.default as { styles: unknown }).styles),
   venezuela: () => import("../content/venezuela.content.json").then((m) => (m.default as { styles: unknown }).styles),
   bolivia: () => import("../content/bolivia.content.json").then((m) => (m.default as { styles: unknown }).styles),
   japan: () => import("../content/japan.content.json").then((m) => (m.default as { styles: unknown }).styles),

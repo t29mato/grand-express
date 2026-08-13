@@ -120,8 +120,11 @@ const CONTINENTS = ["Asia", "Europe", "Africa", "The Americas", "Oceania"];
  * どの大陸に入っているかはここに書かない。書くと盤面を足すたびに直すことになる。
  */
 async function pickBoard(page, name) {
-  if (name === "Around the World") {
-    await page.locator(".world-whole-board").click();
+  // **地図の下のボタンは1つではない。**「地球をまわる」は1点で指せないから、
+  // 太陽系はそもそも地球の上に無いから、どちらも地図に置けない。名前で絞る。
+  const offMap = page.locator(".world-whole-board").filter({ hasText: name });
+  if ((await offMap.count()) > 0) {
+    await offMap.click();
     return;
   }
   const target = page.locator(".picker-plate").filter({ hasText: name });

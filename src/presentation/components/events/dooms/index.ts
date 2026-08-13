@@ -167,6 +167,13 @@ import { AustraliaHuntsman } from "./australia-huntsman";
 import { AustraliaMagpieSwoop } from "./australia-magpieswoop";
 import { AustraliaShout } from "./australia-shout";
 import { AustraliaSunburn } from "./australia-sunburn";
+import { SolarsystemCommblackout } from "./solarsystem-commblackout";
+import { SolarsystemDebris } from "./solarsystem-debris";
+import { SolarsystemDuststorm } from "./solarsystem-duststorm";
+import { SolarsystemFuelshortage } from "./solarsystem-fuelshortage";
+import { SolarsystemGravityassistfail } from "./solarsystem-gravityassistfail";
+import { SolarsystemRadiationbelt } from "./solarsystem-radiationbelt";
+import { SolarsystemSolarflare } from "./solarsystem-solarflare";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -346,6 +353,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "australia-magpieswoop": AustraliaMagpieSwoop,
   "australia-shout": AustraliaShout,
   "australia-sunburn": AustraliaSunburn,
+  "solarsystem-solarflare": SolarsystemSolarflare,
+  "solarsystem-debris": SolarsystemDebris,
+  "solarsystem-commblackout": SolarsystemCommblackout,
+  "solarsystem-gravityassistfail": SolarsystemGravityassistfail,
+  "solarsystem-radiationbelt": SolarsystemRadiationbelt,
+  "solarsystem-duststorm": SolarsystemDuststorm,
+  "solarsystem-fuelshortage": SolarsystemFuelshortage,
 };
 
 /** その国のその災難の絵。無ければ undefined。 */
