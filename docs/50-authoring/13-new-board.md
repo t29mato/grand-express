@@ -121,6 +121,33 @@ npm run shot -- <id> overview                  # **撮った画像は必ず開�
 **端の入れ替えがいちばん安全**で、添字が動かないので他の路線に波及しない。
 路線配列に**途中挿入してはいけない**(添字がずれると無関係な路線の折れ方とマスの種類が変わる)。
 
+### 焼く前でも、海陸判定は回せる
+
+`check-sea-routes.mjs` は焼き上がり(`*.content.json`)を読むが、**読んでいるのは
+5項目だけ**(`proj` / `cities` の `lo`,`la` / `edges` / `land` / `lakes`)。
+だから**その5項目だけの使い捨ての焼き上がりを組んで検査に掛ければ、
+登録前でも本物の判定が得られる。**取りまとめ側の作業。
+
+```js
+// 書いたら検査に掛けて、すぐ消す
+const g = await import("./scripts/countries/<id>/geography.mjs");
+const c = await import("./scripts/countries/<id>/cities.mjs");
+writeFileSync("src/infrastructure/content/<id>.content.json", JSON.stringify({
+  id: "<id>", proj: g.<ID>_PROJ, cities: c.<ID>_CITIES, edges: c.<ID>_EDGES,
+  land: g.<ID>_LAND, lakes: g.<ID>_LAKES ?? [],
+}));
+```
+
+**これで往復が1回まるごと減る。**担当は `index.mjs` 一式(quiz/money-events/
+flavour/music)が揃うまで焼いてもらえないが、路線の直しはそれより早く始められる。
+
+実際、百名山・ヨーロッパ・南アメリカで、`cities.mjs` ができた時点で
+それぞれ4本・6本・2本を見つけた。**ヨーロッパの担当は絵を見て「露骨な破綻は
+無さそう」と判断していたが、6本出た。**目で見て分かる種類の食い違いではない。
+
+**使ったら必ず消すこと。**中途半端な焼き上がりを置いたままにすると、
+`check-city-backgrounds.mjs` など他の検査が拾って壊れる。
+
 ### 測った焼き上がりが、いま書いているソースと一致しているか
 
 **これが `check-sea-routes.mjs` を使ううえで一番厄介なところ。**この検査は
