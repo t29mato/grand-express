@@ -57,7 +57,13 @@ export function WorldPicker({
   // そこが選択の入口だと分からなくなった。
   const [focus, setFocus] = useState<Focus>({ kind: "world" });
 
-  const continents = COUNTRY_GROUPS.filter((group) => group.key !== "world")
+  // **地図の上に置けない盤面**(地球をまわる・太陽系)は大陸に混ぜない。
+  const offMapBoards = COUNTRY_GROUPS.filter((group) => group.offMap)
+    .flatMap((group) => group.countryIds)
+    .filter((id) => available.has(id))
+    .map((id) => byId.get(id)!);
+
+  const continents = COUNTRY_GROUPS.filter((group) => !group.offMap)
     .map((group) => ({
       group,
       members: group.countryIds.filter((id) => available.has(id) && !isSubBoard(id)),
@@ -153,18 +159,20 @@ export function WorldPicker({
         ))}
       </svg>
 
-      {/* 「地球をまわる」は1点で指せない。地図そのものがその盤面にあたるので、
-          名札ではなくボタンとして地図の下に置く。 */}
-      {world && (
+      {/* 地図の上に置けない盤面。「地球をまわる」は1点で指せず、
+          太陽系はそもそも地球の上に無い。**緯度経度で印を打つと嘘になる**ので、
+          名札ではなくボタンとして地図の下に並べる。 */}
+      {offMapBoards.map((board) => (
         <button
+          key={board.id}
           type="button"
-          className={`world-whole-board${selected === "world" ? " on" : ""}`}
-          aria-pressed={selected === "world"}
-          onClick={() => onSelect("world")}
+          className={`world-whole-board${selected === board.id ? " on" : ""}`}
+          aria-pressed={selected === board.id}
+          onClick={() => onSelect(board.id)}
         >
-          {tx(world.name)}
+          {tx(board.name)}
         </button>
-      )}
+      ))}
     </div>
   );
 }

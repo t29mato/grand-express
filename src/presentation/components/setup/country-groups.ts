@@ -23,6 +23,13 @@ export interface CountryGroup {
   readonly key: string;
   readonly label: LocalizedText;
   readonly countryIds: readonly string[];
+  /**
+   * **地図の上に置けない盤面の束。**
+   *
+   * 「地球をまわる」は1点で指せない。太陽系は地球の上に無い。どちらも
+   * 緯度経度で印を打つと嘘になるので、地図ではなく**下のボタン**として出す。
+   */
+  readonly offMap?: boolean;
 }
 
 export const COUNTRY_GROUPS: readonly CountryGroup[] = [
@@ -30,6 +37,13 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
     key: "world",
     label: { en: "Around the world", es: "Vuelta al mundo", fr: "Tour du monde", ja: "地球をまわる" },
     countryIds: ["world"],
+    offMap: true,
+  },
+  {
+    key: "space",
+    label: { en: "Beyond Earth", es: "Más allá de la Tierra", fr: "Au-delà de la Terre", ja: "地球のそと" },
+    countryIds: ["solarsystem"],
+    offMap: true,
   },
   {
     key: "asia",
@@ -40,6 +54,7 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
       "korea",
       "china",
       "india",
+      "hyakumeizan",
       "indonesia",
       "bali",
       "malaysia",
@@ -80,7 +95,7 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
  * 韓国は中国の一部ではない。**地理の事実は式では出ないので、ここに手で書く。**
  */
 export const SUB_BOARDS: Record<string, readonly string[]> = {
-  japan: ["ibaraki"],
+  japan: ["ibaraki", "hyakumeizan"],
   indonesia: ["bali"],
 };
 
@@ -135,10 +150,11 @@ export function groupCountries<T extends { readonly id: string }>(
  * 札の肩に出す縮尺の印。**同じ大きさの札に、地球全体と県が並ぶ**ので、
  * 何の広さを走るのかが分からないと選べない。
  */
-export type BoardScale = "world" | "country" | "region";
+export type BoardScale = "space" | "world" | "country" | "region";
 
 const SCALE_BY_ID: Record<string, BoardScale> = {
   world: "world",
+  solarsystem: "space",
   ibaraki: "region",
   bali: "region",
 };
@@ -148,6 +164,7 @@ export function boardScale(countryId: string): BoardScale {
 }
 
 export const SCALE_LABEL: Record<BoardScale, LocalizedText> = {
+  space: { en: "Solar system", es: "Sistema solar", fr: "Système solaire", ja: "太陽系" },
   world: { en: "World", es: "Mundo", fr: "Monde", ja: "世界" },
   country: { en: "Country", es: "País", fr: "Pays", ja: "国" },
   region: { en: "Close up", es: "De cerca", fr: "De près", ja: "地方" },
