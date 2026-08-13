@@ -1,5 +1,5 @@
 import { test, expect, Page } from "@playwright/test";
-import { boardChoice } from "./pick-board";
+import { pickBoard } from "./pick-board";
 
 /**
  * 凡例が盤面の邪魔をしないことを守る。
@@ -102,7 +102,7 @@ async function waitForCameraSettled(page: Page) {
 
 async function startGame(page: Page, country: string) {
   await page.goto("/");
-  await boardChoice(page, country).click();
+  await pickBoard(page, country);
   await page.getByRole("button", { name: "Start the journey" }).click();
   await page.getByRole("button", { name: "Depart!" }).click();
   await expect(page.locator("#die")).toBeVisible();

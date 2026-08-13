@@ -313,63 +313,93 @@ h3 {
   margin: 10px 0 0;
 }
 
+/* **入れ物の縦横比を固定する。**中身(世界地図・大陸・盤面の絵)で
+   比が変わると、日本まで寄ったところで地図の高さが3倍になり、
+   「旅を始める」が y=1068 から y=1835 へ飛んだ(実測)。
+   縦長の絵は左右に余白を残して収める(`preserveAspectRatio` の `meet`)。 */
 .world-picker-map {
   display: block;
   width: 100%;
-  height: auto;
+  aspect-ratio: 3703 / 1210;
   border-radius: 12px;
   background: #16324f;
 }
 
-/* 押し離した印から本当の位置へ引く線。**これが無いと、日本の印が
-   日本を指していないように見える。** */
-.world-pin-leader {
-  stroke: #f6efe2;
-  stroke-width: 5;
-  opacity: 0.5;
+/* 地図の上の帯。大陸を選んだあとは「もどる」、選ぶ前は説明が出る。 */
+.picker-bar {
+  display: flex;
+  align-items: center;
+  min-height: 26px;
+  margin: 0 0 6px;
 }
 
-.world-pin {
+.picker-back {
+  padding: 3px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel2);
+  color: var(--salt);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.picker-back:hover {
+  border-color: var(--salt-dim);
+}
+
+.picker-hint {
+  color: var(--salt-dim);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+/* 押し離した名札から本来の位置へ引く線。**これが無いと、日本の名札が
+   日本を指していないように見える。** */
+.picker-leader {
+  stroke: #f6efe2;
+  stroke-width: 4;
+  opacity: 0.55;
+}
+
+/* 国名そのものが押せる範囲。**名前を書いた札にしているのは、点だと
+   「どこを押せばどの国か」が分からなかったため。** */
+.picker-plate {
   cursor: pointer;
 }
 
-.world-pin-dot {
-  fill: #f6efe2;
-  stroke: #16324f;
-  stroke-width: 7;
-  transition: fill 0.15s ease, r 0.15s ease;
+.picker-plate rect {
+  fill: #0e1626;
+  fill-opacity: 0.82;
+  stroke: #f6efe2;
+  stroke-opacity: 0.55;
+  stroke-width: 3;
+  transition: fill 0.15s ease, stroke-opacity 0.15s ease;
 }
 
-.world-pin:hover .world-pin-dot,
-.world-pin:focus-visible .world-pin-dot {
-  fill: var(--gold);
-  r: 32;
-}
-
-.world-pin.on .world-pin-dot {
-  fill: var(--gold);
-  stroke: #26183f;
-  r: 36;
-}
-
-.world-pin:focus {
-  outline: none;
-}
-
-/* 印に添える名前。**絞り込んだときだけ出す。**18個ぶん出すと地図が字で埋まる。
-   下地が濃紺なので、縁取りをして海の上でも陸の上でも読めるようにする。 */
-.world-pin-name {
+.picker-plate text {
   fill: var(--salt);
-  font-size: 44px;
   font-weight: 800;
-  paint-order: stroke;
-  stroke: #0e1626;
-  stroke-width: 11;
   pointer-events: none;
 }
 
-.world-pin-name.on {
+.picker-plate:hover rect,
+.picker-plate:focus-visible rect {
+  fill: #26183f;
+  stroke-opacity: 1;
+}
+
+.picker-plate.on rect {
   fill: var(--gold);
+  stroke: var(--gold);
+  stroke-opacity: 1;
+}
+
+.picker-plate.on text {
+  fill: #26183f;
+}
+
+.picker-plate:focus {
+  outline: none;
 }
 
 /* 「地球をまわる」は1点で指せないので、地図の下のボタンにしている。 */
@@ -392,41 +422,9 @@ h3 {
   color: #26183f;
 }
 
-/* 地域で絞る帯。**束ごとに見出しを立てて並べる形は捨てた。**
-   見出しが行を占有するため、19枚をブラウザに並べて実測すると
-   選ぶところが815pxになり、「旅を始める」が画面の下へ消えた。 */
-.region-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 10px 0 0;
-}
-
-.region-tab {
-  padding: 4px 11px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--panel2);
-  color: var(--salt-dim);
-  font-size: 0.78rem;
-  font-weight: 700;
-  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
-}
-
-.region-tab:hover {
-  color: var(--salt);
-  border-color: var(--salt-dim);
-}
-
-.region-tab.on {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: #26183f;
-}
-
 /* **広い画面では地図から選ぶので、札の一覧は出さない。**
    狭い画面(携帯)では逆に地図を出さない。390pxだと地図は324×106pxにしかならず、
-   印の間隔が7pxで指では押し分けられない(実測)。 */
+   名札の字が6pxになって読めない(実測)。 */
 .country-grid {
   display: none;
   flex-wrap: wrap;

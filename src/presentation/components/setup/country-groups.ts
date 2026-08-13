@@ -49,7 +49,7 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
   {
     key: "europe",
     label: { en: "Europe", es: "Europa", fr: "Europe", ja: "ヨーロッパ" },
-    countryIds: ["france", "germany", "italy", "uk", "russia"],
+    countryIds: ["france", "germany", "italy", "uk", "ukraine", "russia"],
   },
   {
     key: "africa",
@@ -59,9 +59,40 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
   {
     key: "americas",
     label: { en: "The Americas", es: "América", fr: "Amériques", ja: "アメリカ大陸" },
-    countryIds: ["usa", "bolivia"],
+    countryIds: ["canada", "usa", "venezuela", "bolivia", "brazil"],
+  },
+  {
+    key: "oceania",
+    label: { en: "Oceania", es: "Oceanía", fr: "Océanie", ja: "オセアニア" },
+    countryIds: ["australia"],
   },
 ];
+
+/**
+ * 中に入っている盤面。**親を選ぶと、もう一段だけ選び直せる。**
+ *
+ * 茨城は日本の中、バリはインドネシアの中にある。地図の上では親の札に
+ * 重なってしまい、大陸の縮尺では点にしかならないので、
+ * **親を押したらそこへ寄って、親と子を並べて選ばせる。**
+ *
+ * **四隅の重なりから機械的に出してはいけない。**投影の四隅どうしで包含を調べると
+ * `korea ⊂ china` が出る(韓国の四隅が中国の四隅の内側に収まるため)。
+ * 韓国は中国の一部ではない。**地理の事実は式では出ないので、ここに手で書く。**
+ */
+export const SUB_BOARDS: Record<string, readonly string[]> = {
+  japan: ["ibaraki"],
+  indonesia: ["bali"],
+};
+
+/** その盤面が親か(押すと選ぶのではなく、もう一段に降りるか)。 */
+export function subBoardsOf(countryId: string, available: ReadonlySet<string>): string[] {
+  return (SUB_BOARDS[countryId] ?? []).filter((id) => available.has(id));
+}
+
+/** 子として親の中に出る盤面(大陸の一覧には出さない)。 */
+export function isSubBoard(countryId: string): boolean {
+  return Object.values(SUB_BOARDS).some((children) => children.includes(countryId));
+}
 
 /** 絞り込みの帯のいちばん左。**既定はここ。**まず全部見せる。 */
 export const ALL_REGIONS: CountryGroup = {

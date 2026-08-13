@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.39.0",
+    date: "2026-08-13",
+    title: t(
+      "Pick a region, then a board|Elige una región y luego un tablero|Choisis une région, puis un plateau|大陸をえらんでから、行き先をえらぶ",
+    ),
+    highlights: [
+      t(
+        "The map now asks for a region first. Tap Asia, Europe, Africa or the Americas and the map moves in, writing each board's name across its own country — tap the name to ride there. With nineteen boards on one world map the marks were closer together than a fingertip; a region at a time leaves room to read them.|El mapa pide primero una región. Toca Asia, Europa, África o América y el mapa se acerca, escribiendo el nombre de cada tablero sobre su país: toca el nombre para viajar allí. Con diecinueve tableros en un solo mapamundi las marcas quedaban más juntas que un dedo; de región en región hay sitio para leerlas.|La carte demande d'abord une région. Touche l'Asie, l'Europe, l'Afrique ou les Amériques et la carte s'approche, en inscrivant le nom de chaque plateau sur son pays — touche le nom pour y partir. Avec dix-neuf plateaux sur une seule carte du monde, les marques étaient plus serrées qu'un doigt ; une région à la fois laisse la place de les lire.|地図はまず大陸をたずねます。アジア・ヨーロッパ・アフリカ・アメリカ大陸のどれかを押すと地図がそこへ寄り、それぞれの盤面の名前がその国の上に書かれます。名前を押すとその盤面へ。19枚を1枚の世界地図に載せると、印の間隔が指より狭くなっていました。大陸ごとなら名前を読む余地があります。",
+      ),
+      t(
+        "Boards that live inside another board now have their own step. Tapping Japan moves in to Japan's own map, where Japan and Ibaraki sit side by side — the same for Indonesia and Bali. Around the World keeps its button under the map, because a whole planet cannot be pointed at with one mark.|Los tableros que viven dentro de otro tienen ahora su propio paso. Al tocar Japón se entra en el mapa de Japón, donde Japón e Ibaraki aparecen juntos; lo mismo con Indonesia y Bali. La vuelta al mundo conserva su botón bajo el mapa, porque un planeta entero no se señala con una sola marca.|Les plateaux contenus dans un autre ont désormais leur propre étape. Toucher le Japon ouvre la carte du Japon, où le Japon et Ibaraki figurent côte à côte — de même pour l'Indonésie et Bali. Le tour du monde garde son bouton sous la carte : on ne montre pas une planète entière d'un seul point.|中に入っている盤面には、もう一段が付きました。日本を押すと日本自身の地図へ寄り、日本と茨城県が並びます。インドネシアとバリ島も同じです。世界一周は1点で指せないので、これまでどおり地図の下のボタンのままです。",
+      ),
+    ],
+  },
+  {
     version: "0.38.0",
     date: "2026-08-13",
     title: t(

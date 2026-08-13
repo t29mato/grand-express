@@ -1,5 +1,13 @@
 import { test, expect, Page } from "@playwright/test";
-import { boardChoice } from "./pick-board";
+import { pickBoard } from "./pick-board";
+
+/**
+ * **音楽の検査は実時間で測る。**先読みの間隔ぶん待たないと音が数えられないので、
+ * 明示的な待ちだけで10秒を超える。既定の30秒では、盤面を選ぶ手順が
+ * 「大陸 → 国」の二段になった途端に時間切れになった(2ワーカー並行時)。
+ */
+test.describe.configure({ timeout: 60_000 });
+
 
 /**
  * BGMの入り・切り替わり・止まりを実ブラウザで確かめる。
@@ -112,9 +120,7 @@ test("トップ画面の音楽が最初の操作で鳴り、ゲーム開始で�
   // どの国を選んだかで次に鳴る曲のテンポが決まるので、順番ではなく名前で選ぶ。
   // 押せたことを `aria-pressed` で確かめてから測る(空振りしたまま
   // 「鳴っていない」と読み違えないため)。
-  const bolivia = boardChoice(page, "Bolivia");
-  await bolivia.click();
-  await expect(bolivia).toHaveAttribute("aria-pressed", "true");
+  await pickBoard(page, "Bolivia");
   await page.waitForTimeout(3000);
   const titlePlaying = await readProbe(page);
   expect(titlePlaying.state).toBe("running");
@@ -144,8 +150,8 @@ test("トップ画面の音楽が最初の操作で鳴り、ゲーム開始で�
   await expect(page.getByText("Choose your journey")).toBeVisible();
 
   // 戻ってきた画面で何か触れば、またテーマ曲が鳴り出す。
-  await bolivia.click();
-  await expect(bolivia).toHaveAttribute("aria-pressed", "true");
+  // **新しい画面なので、地図は大陸選びに戻っている。**選び直しから始める。
+  await pickBoard(page, "Bolivia");
   await page.waitForTimeout(3000);
   const titleAgain = await readProbe(page);
   expect(titleAgain.osc.length).toBeGreaterThan(stillStopped.osc.length + 10);

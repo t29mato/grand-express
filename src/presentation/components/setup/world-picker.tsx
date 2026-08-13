@@ -1,97 +1,160 @@
 "use client";
 
+import { useState } from "react";
 import { CountryIndexEntry } from "../../../infrastructure/content/country-index";
 import { useLocale } from "../../i18n/locale-context";
-import { BoardPin, boardPins, isDisplaced, nameSides } from "./world-picker-pins";
+import { COUNTRY_GROUPS, isSubBoard, subBoardsOf } from "./country-groups";
+import {
+  AreaSource,
+  MapProjection,
+  Plate,
+  ViewBox,
+  WORLD_PROJECTION,
+  centreOf,
+  fontFor,
+  fullView,
+  isMoved,
+  layoutPlates,
+  medianCentre,
+  unionBounds,
+  viewBoxFor,
+} from "./picker-areas";
 
 /**
- * 世界地図から盤面を選ぶ。
+ * 地図から盤面を選ぶ。**大陸をひとつ選んでから、国を選ぶ。**
  *
- * 下地は**世界一周の盤面のサムネイルをそのまま使う**(`thumbSvg`)。地図を
- * 別に用意していない。座標系も世界一周の投影(3703×1210)なので、各盤面の
- * 中心を同じ式で落とせばそのまま重なる。
+ * 19枚を世界地図に一度に出すと、アジアだけで9枚が団子になって選べなかった
+ * (印を押し離しても、画面上の間隔は指より狭い)。大陸で一段絞ると、
+ * どの大陸も2〜9枚になり、**国名をそのまま押せる大きさで書ける。**
  *
- * 印は必ず重なるので、押し離してから描く(`world-picker-pins.ts`)。
- * 動かした印には、本当の位置へ細い線を引く。**線が無いと、日本の印が
- * 日本を指していないように見える。**
- *
- * 名前は**絞り込んだときだけ**出す。18枚ぶんを地図に載せると字だらけになって、
- * 地図そのものが見えなくなる(撮って確かめた)。地域で絞れば数が減るので、
- * そのときは名前を添えられる。選んでいる盤面の名前は、絞っていなくても出す。
+ * 中に入っている盤面(茨城⊂日本、バリ⊂インドネシア)は、大陸の縮尺では
+ * 親に重なって点にしかならない。**親を押したらそこへ寄って、親と子を並べる。**
+ * このときの下地は世界地図ではなく**その盤面自身の絵**にする。世界地図を
+ * 日本の大きさまで拡大すると、輪郭が粗すぎて緑の塊にしか見えない(撮って分かった)。
  */
-/** これ以下の数まで絞られたら、印に名前を添える。 */
-const NAME_LIMIT = 9;
+type Focus =
+  | { readonly kind: "world" }
+  | { readonly kind: "continent"; readonly key: string }
+  | { readonly kind: "board"; readonly id: string };
 
 export function WorldPicker({
   boards,
-  allBoards,
   selected,
   onSelect,
 }: {
-  /** 地図に出す盤面(地域で絞られたもの)。 */
+  /** 目録の全部。ここで大陸に振り分ける。 */
   boards: readonly CountryIndexEntry[];
-  /** 下地と「地球をまわる」を引くための全一覧。絞り込みの影響を受けない。 */
-  allBoards: readonly CountryIndexEntry[];
   selected: string;
   onSelect: (id: string) => void;
 }) {
   const { tx } = useLocale();
-  const world = allBoards.find((board) => board.id === "world");
-  const pins = boardPins(boards);
-  // 絞り込んで数が減ったら、印に名前を添える。**18個に名前を付けると地図が消える。**
-  const showNames = pins.length <= NAME_LIMIT;
-  // 名前どうしがぶつかるので、置ける場所を決めてから描く(置けなければ出さない)。
-  const sides = nameSides(pins, pins.map((pin) => tx(pin.name)));
+  const byId = new Map(boards.map((board) => [board.id, board]));
+  const world = byId.get("world");
+  const available = new Set(boards.map((board) => board.id));
+
+  // **必ず大陸選びから始める。**既定の盤面(ボリビア)の大陸から開くようにしてみたが、
+  // 誰も選んでいないのに「アメリカ大陸」に居ることになり、
+  // そこが選択の入口だと分からなくなった。
+  const [focus, setFocus] = useState<Focus>({ kind: "world" });
+
+  const continents = COUNTRY_GROUPS.filter((group) => group.key !== "world")
+    .map((group) => ({
+      group,
+      members: group.countryIds.filter((id) => available.has(id) && !isSubBoard(id)),
+    }))
+    .filter((entry) => entry.members.length > 0);
+
+  let sources: AreaSource[];
+  let view: ViewBox;
+  let projection: MapProjection = WORLD_PROJECTION;
+  let baseSvg = world?.mapSvg ?? world?.thumbSvg ?? "";
+  let onPlate: (id: string) => void;
+  let back: { label: string; to: Focus } | null = null;
+
+  if (focus.kind === "world") {
+    sources = continents.map(({ group, members }) => ({
+      id: group.key,
+      name: group.label,
+      at: medianCentre(members.map((id) => byId.get(id)!.bounds)),
+    }));
+    view = fullView(WORLD_PROJECTION);
+    onPlate = (key) => setFocus({ kind: "continent", key });
+  } else if (focus.kind === "continent") {
+    const here = continents.find((entry) => entry.group.key === focus.key) ?? continents[0];
+    const members = here.members.map((id) => byId.get(id)!);
+    sources = members.map((board) => ({ id: board.id, name: board.name, at: centreOf(board.bounds) }));
+    view = viewBoxFor(unionBounds(members.map((board) => board.bounds)), WORLD_PROJECTION);
+    onPlate = (id) => {
+      // 中に入っている盤面があるなら、選ばずにそこへ寄る。
+      if (subBoardsOf(id, available).length > 0) setFocus({ kind: "board", id });
+      else onSelect(id);
+    };
+    back = { label: tx(BACK_TO_WORLD), to: { kind: "world" } };
+  } else {
+    const parent = byId.get(focus.id)!;
+    // **下地はその盤面自身の絵。**座標系も違うので、投影ごと差し替える。
+    projection = boardProjection(parent);
+    baseSvg = parent.thumbSvg;
+    view = fullView(projection);
+    sources = [parent, ...subBoardsOf(focus.id, available).map((id) => byId.get(id)!)].map(
+      (board) => ({ id: board.id, name: board.name, at: centreOf(board.bounds) }),
+    );
+    onPlate = onSelect;
+    const home = continents.find((entry) => entry.members.includes(focus.id));
+    back = home
+      ? { label: tx(home.group.label), to: { kind: "continent", key: home.group.key } }
+      : { label: tx(BACK_TO_WORLD), to: { kind: "world" } };
+  }
+
+  const font = fontFor(view);
+  const plates = layoutPlates(sources, sources.map((source) => tx(source.name)), view, font, projection);
 
   return (
     <div className="world-picker">
+      <div className="picker-bar">
+        {back ? (
+          <button type="button" className="picker-back" onClick={() => setFocus(back!.to)}>
+            ‹ {back.label}
+          </button>
+        ) : (
+          <span className="picker-hint">{tx(PICK_A_REGION)}</span>
+        )}
+      </div>
+
       <svg
-        viewBox={world?.thumbViewBox ?? "0 0 3703 1210"}
+        viewBox={`${view.x} ${view.y} ${view.w} ${view.h}`}
         className="world-picker-map"
+        preserveAspectRatio="xMidYMid meet"
         role="group"
         aria-label={tx(world?.name)}
       >
-        {/* 下地。世界一周の盤面と同じ絵。 */}
-        {world && <g dangerouslySetInnerHTML={{ __html: world.mapSvg ?? world.thumbSvg }} />}
+        <g dangerouslySetInnerHTML={{ __html: baseSvg }} />
 
-        {/* 押し離した印から、本当の位置への引き出し線。印より先に描いて下に敷く。 */}
-        {pins.filter(isDisplaced).map((pin) => (
+        {/* 動かした名札から、本来の位置への線。名札より先に描いて下に敷く。 */}
+        {plates.filter((plate) => isMoved(plate, font)).map((plate) => (
           <line
-            key={`leader-${pin.id}`}
-            x1={pin.trueX}
-            y1={pin.trueY}
-            x2={pin.x}
-            y2={pin.y}
-            className="world-pin-leader"
+            key={`leader-${plate.id}`}
+            x1={plate.trueX}
+            y1={plate.trueY}
+            x2={plate.x}
+            y2={plate.y}
+            className="picker-leader"
           />
         ))}
 
-        {/* **丸を全部描いてから、名前を全部描く。**同じ印の中で描くと、
-            隣の盤面の丸が名前の頭に乗る(マレーシアの丸がインドネシアの
-            「In」を隠していた。撮って分かった)。 */}
-        {pins.map((pin) => (
-          <PinMark key={pin.id} pin={pin} selected={pin.id === selected} onSelect={onSelect} name={tx(pin.name)} />
+        {plates.map((plate) => (
+          <PlateMark
+            key={plate.id}
+            plate={plate}
+            font={font}
+            selected={plate.id === selected}
+            onPick={onPlate}
+          />
         ))}
-        {pins.map((pin, index) => {
-          // 選んでいる盤面の名前は、置ければ必ず出す(行き先を見失わないため)。
-          const side = showNames || pin.id === selected ? (sides[index] ?? (pin.id === selected ? "above" : null)) : null;
-          if (!side) return null;
-          return (
-            <text
-              key={`name-${pin.id}`}
-              className={`world-pin-name${pin.id === selected ? " on" : ""}`}
-              x={pin.x}
-              y={pin.y + (side === "above" ? -40 : 75)}
-              textAnchor="middle"
-            >
-              {tx(pin.name)}
-            </text>
-          );
-        })}
       </svg>
 
       {/* 「地球をまわる」は1点で指せない。地図そのものがその盤面にあたるので、
-          印ではなくボタンとして地図の下に置く。 */}
+          名札ではなくボタンとして地図の下に置く。 */}
       {world && (
         <button
           type="button"
@@ -106,38 +169,65 @@ export function WorldPicker({
   );
 }
 
-function PinMark({
-  pin,
+/**
+ * その盤面の絵の投影。四隅は目録が持っているが、絵の大きさは
+ * `thumbViewBox`(`0 0 BW BH`)からしか取れない。
+ */
+function boardProjection(board: CountryIndexEntry): MapProjection {
+  const [, , width, height] = board.thumbViewBox.split(" ").map(Number);
+  return { ...board.bounds, width, height };
+}
+
+function PlateMark({
+  plate,
+  font,
   selected,
-  name,
-  onSelect,
+  onPick,
 }: {
-  pin: BoardPin;
+  plate: Plate;
+  font: number;
   selected: boolean;
-  name: string;
-  onSelect: (id: string) => void;
+  onPick: (id: string) => void;
 }) {
   return (
     <g
-      className={`world-pin${selected ? " on" : ""}`}
-      transform={`translate(${pin.x}, ${pin.y})`}
+      className={`picker-plate${selected ? " on" : ""}`}
       role="button"
       tabIndex={0}
-      aria-label={name}
+      aria-label={plate.text}
       aria-pressed={selected}
-      onClick={() => onSelect(pin.id)}
+      onClick={() => onPick(plate.id)}
       onKeyDown={(event) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          onSelect(pin.id);
+          onPick(plate.id);
         }
       }}
     >
-      {/* 押せる範囲。見えている丸(r=26)より大きくとる。
-          指で押す相手なので、見た目の大きさで判定してはいけない。 */}
-      <circle r={54} fill="transparent" />
-      <circle className="world-pin-dot" r={26} />
-      <title>{name}</title>
+      <rect
+        x={plate.x - plate.w / 2}
+        y={plate.y - plate.h / 2}
+        width={plate.w}
+        height={plate.h}
+        rx={plate.h / 2}
+      />
+      <text x={plate.x} y={plate.y + font * 0.35} textAnchor="middle" style={{ fontSize: font }}>
+        {plate.text}
+      </text>
     </g>
   );
 }
+
+const BACK_TO_WORLD = {
+  en: "All regions",
+  es: "Todas las regiones",
+  fr: "Toutes les régions",
+  ja: "ぜんぶの大陸",
+};
+
+const PICK_A_REGION = {
+  en: "Pick a region, then a board",
+  es: "Elige una región y luego un tablero",
+  fr: "Choisis une région, puis un plateau",
+  ja: "大陸をえらんでから、盤面をえらぶ",
+};

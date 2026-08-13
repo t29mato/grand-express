@@ -1,5 +1,13 @@
 import { test, expect, Page } from "@playwright/test";
-import { boardChoice } from "./pick-board";
+import { boardChoice, pickBoard } from "./pick-board";
+
+/**
+ * **音楽の検査は実時間で測る。**先読みの間隔ぶん待たないと音が数えられないので、
+ * 明示的な待ちだけで10秒を超える。既定の30秒では、盤面を選ぶ手順が
+ * 「大陸 → 国」の二段になった途端に時間切れになった(2ワーカー並行時)。
+ */
+test.describe.configure({ timeout: 60_000 });
+
 
 /**
  * 画面の音楽ボタンで、BGMが本当に止まるかを実ブラウザで確かめる。
@@ -74,9 +82,7 @@ test("トップ画面で音楽を止められ、開き直しても止まった�
 
   // 1. 音楽が入っているあいだは、音源が増え続ける。
   //    自動再生ポリシーがあるので、まず何か触って音楽を始める。
-  const bolivia = boardChoice(page, "Bolivia");
-  await bolivia.click();
-  await expect(bolivia).toHaveAttribute("aria-pressed", "true");
+  const bolivia = await pickBoard(page, "Bolivia");
   await page.waitForTimeout(1500);
   expect(await countGrowth(page, 2000)).toBeGreaterThan(10);
 
@@ -94,7 +100,7 @@ test("トップ画面で音楽を止められ、開き直しても止まった�
   await page.reload();
   await expect(page.getByText("Choose your journey")).toBeVisible();
   await expect(page.getByTestId(MUSIC_TOGGLE)).toHaveAttribute("aria-pressed", "false");
-  await boardChoice(page, "Bolivia").click();
+  await pickBoard(page, "Bolivia");
   await page.waitForTimeout(1000);
   expect(await countGrowth(page, 2500)).toBe(0);
 });

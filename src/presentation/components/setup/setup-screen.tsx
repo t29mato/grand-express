@@ -6,7 +6,7 @@ import { CpuLevel } from "../../../domain/cpu/cpu-level";
 import { DEFAULT_KNOWLEDGE_LEVEL, KNOWLEDGE_LEVELS, KnowledgeLevel } from "../../../domain/quiz/knowledge-level";
 import { PlayerSetup } from "../../../application/use-cases/start-game/start-game.use-case";
 import { COUNTRY_INDEX } from "../../../infrastructure/content/country-index";
-import { ALL_REGIONS, SCALE_LABEL, boardScale, groupCountries } from "./country-groups";
+import { SCALE_LABEL, boardScale, groupCountries } from "./country-groups";
 import { WorldPicker } from "./world-picker";
 import { loadPlayerSetup, savePlayerSetup } from "../../../infrastructure/persistence/local-storage-player-setup";
 import { useGameStore } from "../../state/game-store";
@@ -66,27 +66,16 @@ export function SetupScreen() {
   const [country, setCountry] = useState<CountryId>(CountryId("bolivia"));
   const chosenCountry = COUNTRY_INDEX.find((entry) => entry.id === country);
   /**
-   * 見せている地域。**既定は「ぜんぶ」。**最初から絞ってしまうと、
-   * どんな盤面があるのか分からないまま選ぶことになる。
+   * 狭い画面に出す札の一覧。**並び順は大陸の順。**
+   * 登録順のままだと、盤面が増えるたびに、いつもの場所からいつものものが消える。
+   *
+   * 地域で絞る帯は**やめた。**大陸を選ぶ役目は地図そのものが持つようになったので、
+   * 帯を残すと同じことを2箇所でやることになる。
    */
-  const [region, setRegion] = useState<string>(ALL_REGIONS.key);
-  /**
-   * 絞り込みの帯に出す地域。**「地球をまわる」は外す。**
-   * 世界一周は地図の1点で指せないので、地図の下に専用のボタンを置いている。
-   * 帯にも同じ名前を並べると、同じ名前のボタンが2つになって何が違うのか分からない。
-   */
-  const groupsWithBoards = useMemo(
-    () => groupCountries(COUNTRY_INDEX).map(({ group }) => group).filter((group) => group.key !== "world"),
+  const shownCountries = useMemo(
+    () => groupCountries(COUNTRY_INDEX).flatMap(({ entries }) => entries),
     [],
   );
-  const shownCountries = useMemo(() => {
-    const grouped = groupCountries(COUNTRY_INDEX);
-    // 「ぜんぶ」でも並び順は束の順。登録順のままだと、盤面が増えるたびに
-    // いつもの場所からいつものものが消える。
-    return grouped
-      .filter(({ group }) => region === ALL_REGIONS.key || group.key === region)
-      .flatMap(({ entries }) => entries);
-  }, [region]);
   const [months, setMonths] = useState(12);
   /**
    * ゲーム全体のCPUの強さ。**画面からは選べない**(強さはCPUごとに選ぶ)。
@@ -193,29 +182,16 @@ export function SetupScreen() {
                 「どこの話なのか」が分からなくなった。地理を扱う遊びなので、
                 地図の上で選べるほうが筋が通っている。
 
-                帯で地域を絞ると印が減り、**そのときだけ印に名前が出る。**
-                18個に名前を付けると字だらけで地図が見えなくなる(撮って確かめた)。 */}
-            <div className="region-tabs">
-              {[ALL_REGIONS, ...groupsWithBoards].map((group) => (
-                <button
-                  key={group.key}
-                  type="button"
-                  aria-pressed={region === group.key}
-                  className={`region-tab${region === group.key ? " on" : ""}`}
-                  onClick={() => setRegion(group.key)}
-                >
-                  {tx(group.label)}
-                </button>
-              ))}
-            </div>
+                **大陸をひとつ選んでから国を選ぶ。**19枚を一度に世界地図へ出すと
+                アジアだけで9枚が団子になって選べなかった。大陸で一段絞れば
+                どの大陸も2〜9枚になり、国名をそのまま押せる大きさで書ける。 */}
             <WorldPicker
-              boards={shownCountries}
-              allBoards={COUNTRY_INDEX}
+              boards={COUNTRY_INDEX}
               selected={country}
               onSelect={(id) => setCountry(CountryId(id))}
             />
             {/* **狭い画面では地図を使わない。**390pxの幅だと地図は324×106pxにしかならず、
-                印の間隔が7pxになって指では押し分けられない(実測)。札の一覧に切り替える。
+                名札の字が6pxになって読めない(実測)。札の一覧に切り替える。
                 どちらを見せるかはCSSの担当(`.world-picker` と `.country-grid`)。 */}
             <div className="country-grid">
               {shownCountries.map((entry) => (
