@@ -7,7 +7,7 @@ test("言語を切り替えるとセットアップ画面の文言が変わる",
   await page.getByRole("button", { name: "JA", exact: true }).click();
   await expect(page.getByText("旅を選ぼう")).toBeVisible();
   // **地図の名札で見る。**まず大陸を選ばないと国の名札は出ない。
-  await page.locator(".picker-plate").filter({ hasText: "アメリカ大陸" }).click();
+  await page.locator(".picker-plate").filter({ hasText: "南アメリカ" }).click();
   await expect(page.locator(".picker-plate").filter({ hasText: "ボリビア" })).toBeVisible();
 
   await page.getByRole("button", { name: "ES", exact: true }).click();
