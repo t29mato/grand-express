@@ -107,16 +107,45 @@ async function dismissModal() {
   return false;
 }
 
+/** トップ画面の地図に出る大陸。ここに無い大陸を足したら、ここにも足すこと。 */
+const CONTINENTS = ["Asia", "Europe", "Africa", "The Americas", "Oceania"];
+
+/**
+ * 盤面を選ぶ。**大陸をひとつ開いてから、国の名札を押す。**
+ *
+ * 以前は `.ccard`(札の一覧)を押していたが、広い画面では札を出さなくなった
+ * (地図から選ぶ形にしたため)。**この道具が黙って撮れなくなる**ので、
+ * 地図をたどる形に直してある。
+ *
+ * どの大陸に入っているかはここに書かない。書くと盤面を足すたびに直すことになる。
+ */
+async function pickBoard(page, name) {
+  if (name === "Around the World") {
+    await page.locator(".world-whole-board").click();
+    return;
+  }
+  const target = page.locator(".picker-plate").filter({ hasText: name });
+  for (const continent of CONTINENTS) {
+    const chip = page.locator(".picker-plate").filter({ hasText: continent });
+    if ((await chip.count()) === 0) continue;
+    await chip.click();
+    if ((await target.count()) > 0) {
+      await target.first().click();
+      // 中に入っている盤面(茨城・バリ)を持つ国は、押しても選ばれずに一段降りる。
+      if ((await target.first().getAttribute("aria-pressed")) !== "true") {
+        await target.first().click();
+      }
+      return;
+    }
+    await page.locator(".picker-back").click();
+  }
+  throw new Error(`盤面「${name}」が地図のどの大陸にも見つからない`);
+}
+
 if (scene === "setup") {
   await page.getByText("Choose your journey").waitFor();
 } else {
-  // **札の名前そのもので選ぶ。**押しボタン全体の読み上げ名には肩の印
-  // (「Country」「World」)も入るので、名前を丸ごと突き合わせると外れる。
-  await page
-    .locator(".ccard")
-    .filter({ has: page.getByText(COUNTRIES[country], { exact: true }) })
-    .first()
-    .click();
+  await pickBoard(page, COUNTRIES[country]);
   // CPUの手番は演出のぶん待たされるので、全員を人間にして手番を速く回す。
   await page.getByRole("button", { name: "Human" }).nth(1).click();
   await page.getByRole("button", { name: "Human" }).nth(2).click();
