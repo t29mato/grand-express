@@ -18,6 +18,76 @@ const region = (code: string) => RegionId(code);
 
 /** 月インデックス(0=4月)ごとの季節効果。 */
 export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readonly SeasonEffectOp[])[]>> = {
+  /**
+   * 日本百名山。残雪期で北アルプス・中央南アルプスが閉山気味(4月) → GW混雑
+   * (5月) → 梅雨で西日本が沈む(6月) → 山開きで富士・北アルプスが賑わい
+   * 休神(7月) → お盆最混雑と雷雲の物入り(8月) → 台風と初冠雪の物入り
+   * (9月) → 紅葉前線で東北・中央南アルプス・近畿北陸が賑わう(10月) →
+   * 小屋閉めで上信越・北アルプス・中央南アルプスが沈む(11月) → 樹氷で
+   * 東北、本格積雪で北海道が沈む(12月) → スキー最盛期で北アルプス・
+   * 上信越・北海道が賑わい新年アイテム(1月) → 豪雪の物入り(2月) →
+   * 雪解けで近畿北陸・西日本がやや戻る(3月)、という流れ。
+   */
+  hyakumeizan: [
+    /* 0 Apr 残雪期・雪崩注意(北アルプス・中央南アルプスはまだ本調子でない) */ [
+      { op: "region-income-multiplier", regionId: region("kitaalps"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("chuo_minami_alps"), multiplier: 0.85 },
+    ],
+    /* 1 May ゴールデンウィークで登山口が混み合う */ [
+      { op: "region-income-multiplier", regionId: region("joshinetsu"), multiplier: 1.3 },
+      { op: "all-players-gain-cash", amount: 200 },
+    ],
+    /* 2 Jun 梅雨(西日本・近畿北陸がやや沈む) */ [
+      { op: "region-income-multiplier", regionId: region("nishinihon"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("kinkihokuriku"), multiplier: 0.9 },
+    ],
+    /* 3 Jul 山開きで夏山シーズン開幕(休神) */ [
+      { op: "region-income-multiplier", regionId: region("fujihakone"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("kitaalps"), multiplier: 1.15 },
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "rest-spirit" },
+    ],
+    /* 4 Aug お盆最混雑と雷雲の物入り */ [
+      { op: "region-income-multiplier", regionId: region("fujihakone"), multiplier: 1.4 },
+      { op: "region-income-multiplier", regionId: region("joshinetsu"), multiplier: 1.15 },
+      { op: "all-players-pay-cash", amount: 150 },
+    ],
+    /* 5 Sep 台風と初冠雪の物入り(西日本が沈む) */ [
+      { op: "region-income-multiplier", regionId: region("nishinihon"), multiplier: 0.8 },
+      { op: "all-players-pay-cash", amount: 180 },
+    ],
+    /* 6 Oct 紅葉前線(東北・中央南アルプス・近畿北陸が賑わう) */ [
+      { op: "region-income-multiplier", regionId: region("tohoku"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("chuo_minami_alps"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("kinkihokuriku"), multiplier: 1.15 },
+      { op: "all-players-gain-cash", amount: 220 },
+    ],
+    /* 7 Nov 小屋閉め(上信越・北アルプス・中央南アルプスが沈む) */ [
+      { op: "region-income-multiplier", regionId: region("joshinetsu"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("kitaalps"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("chuo_minami_alps"), multiplier: 0.8 },
+    ],
+    /* 8 Dec 樹氷(東北が賑わう)・本格積雪(北海道が沈む) */ [
+      { op: "region-income-multiplier", regionId: region("tohoku"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("hokkaido"), multiplier: 0.8 },
+    ],
+    /* 9 Jan スキー最盛期(北アルプス・上信越・北海道が賑わう)・新年 */ [
+      { op: "region-income-multiplier", regionId: region("kitaalps"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("joshinetsu"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("hokkaido"), multiplier: 1.2 },
+      { op: "give-item-to-all" },
+    ],
+    /* 10 Feb 豪雪の物入り(上信越・北海道が沈む) */ [
+      { op: "region-income-multiplier", regionId: region("joshinetsu"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("hokkaido"), multiplier: 0.8 },
+      { op: "all-players-pay-cash", amount: 160 },
+    ],
+    /* 11 Mar 雪解け・残雪期入口(近畿北陸・西日本がやや戻る) */ [
+      { op: "region-income-multiplier", regionId: region("kinkihokuriku"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("nishinihon"), multiplier: 1.1 },
+    ],
+  ],
+
   solarsystem: [
     /* 0 Apr ガガーリンの日(地球周回) */ [
       { op: "region-income-multiplier", regionId: region("inner"), multiplier: 1.3 },
@@ -1365,6 +1435,15 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
  * フレーバーに応じて異なる。`id` → 効果種別の対応。
  */
 export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>> = {
+  // Hyakumeizan
+  kirimayoi: "skipTurn",       // 濃霧: 晴れるまで足止め
+  rakurai: "fine",             // 雷雲: 緊急避難・装備の修理費
+  kumadeai: "percentLoss",     // クマ: 慌てて後退し荷物を落とす割合ダメージ
+  hachisasare: "payOthers",    // スズメバチ: 応急手当をした近くの登山者に礼を払う
+  manshitsu: "steal",          // 満室: 先に着いた誰かに予約の寝床を取られる
+  korogashi: "loseProperties", // 落石: 予定していた資産を手放して迂回費に充てる
+  tengukakushi: "teleport",    // 天狗: 気づけば違う場所に立っている
+
   // Solar System
   solarflare: "fine",             // 太陽フレア: 機器修理費
   debris: "percentLoss",          // デブリ衝突: 船体の割合ダメージ

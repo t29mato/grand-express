@@ -107,8 +107,6 @@ async function dismissModal() {
   return false;
 }
 
-/** トップ画面の地図に出る大陸。ここに無い大陸を足したら、ここにも足すこと。 */
-const CONTINENTS = ["Asia", "Europe", "Africa", "The Americas", "Oceania"];
 
 /**
  * 盤面を選ぶ。**大陸をひとつ開いてから、国の名札を押す。**
@@ -128,17 +126,37 @@ async function pickBoard(page, name) {
     return;
   }
   const target = page.locator(".picker-plate").filter({ hasText: name });
-  for (const continent of CONTINENTS) {
+  const pick = async () => {
+    await target.first().click();
+    // 中に入っている盤面(茨城・百名山・バリ)を持つ国は、押しても選ばれずに一段降りる。
+    if ((await target.first().getAttribute("aria-pressed")) !== "true") {
+      await target.first().click();
+    }
+  };
+
+  // **大陸の一覧は画面から読む。**書き並べると束を分けたときに直し忘れる。
+  const continents = await page.locator(".picker-plate").allTextContents();
+  for (const continent of continents) {
     const chip = page.locator(".picker-plate").filter({ hasText: continent });
     if ((await chip.count()) === 0) continue;
     await chip.click();
     if ((await target.count()) > 0) {
-      await target.first().click();
-      // 中に入っている盤面(茨城・バリ)を持つ国は、押しても選ばれずに一段降りる。
-      if ((await target.first().getAttribute("aria-pressed")) !== "true") {
-        await target.first().click();
-      }
+      await pick();
       return;
+    }
+    // **国の中に入っている盤面**(日本の中の茨城・百名山、インドネシアの中のバリ)は、
+    // 大陸を開いただけでは名札が出ない。国をひとつずつ開いて探す。
+    const names = await page.locator(".picker-plate").allTextContents();
+    for (const country of names) {
+      await page.locator(".picker-plate").filter({ hasText: country }).first().click();
+      if ((await target.count()) > 0) {
+        await pick();
+        return;
+      }
+      // 降りていたら戻る(降りていなければ、その国を選んだだけなので何も起きない)。
+      const back = page.locator(".picker-back");
+      if ((await back.textContent()) !== `‹ ${continent}`) continue;
+      await back.click();
     }
     await page.locator(".picker-back").click();
   }

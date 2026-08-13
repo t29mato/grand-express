@@ -287,4 +287,15 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   salvagepod: { type: "gain-cash", amount: 380 },
   overclock: { type: "extra-turn" },
 
+  // Hyakumeizan
+  kyuujoheri: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  chikeizu: { type: "choose-exact-dice" },
+  tozanbus: { type: "roll-fixed-dice", diceCount: 2 },
+  yakoubus: { type: "roll-fixed-dice", diceCount: 3 },
+  // bearbells は既存(カナダ)と同じ鍵・同じ効果なので追記不要(確認のみ)
+  // bearspray も既存(カナダ)と同じ鍵・同じ効果なので追記不要(確認のみ)
+  yamachizu: { type: "quiz-save" },
+  matsutake: { type: "gain-cash", amount: 380 },
+  raicho: { type: "extra-turn" },
+
 };

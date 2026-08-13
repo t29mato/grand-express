@@ -11,7 +11,6 @@ import { Locator, Page, expect } from "@playwright/test";
  * 押せたことは `aria-pressed` で確かめられる。空振りしたまま
  * 「鳴っていない」と読み違えないため、押した相手を返す。
  */
-const CONTINENTS = ["Asia", "Europe", "Africa", "The Americas", "Oceania"];
 
 function isNarrow(page: Page): boolean {
   return (page.viewportSize()?.width ?? 1280) <= 640;
@@ -43,7 +42,10 @@ export async function pickBoard(page: Page, name: string): Promise<Locator> {
     return target;
   }
 
-  for (const continent of CONTINENTS) {
+  // **大陸の一覧は画面から読む。**書き並べると、束を分けたときに直し忘れる
+  // (アメリカ大陸を南北に分けたとき、実際に直し忘れてE2Eが7件落ちた)。
+  const continents = await page.locator(".picker-plate").allTextContents();
+  for (const continent of continents) {
     const chip = page.locator(".picker-plate").filter({ hasText: continent });
     if ((await chip.count()) === 0) continue;
     await chip.click();

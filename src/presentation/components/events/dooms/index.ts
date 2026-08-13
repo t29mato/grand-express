@@ -174,6 +174,13 @@ import { SolarsystemFuelshortage } from "./solarsystem-fuelshortage";
 import { SolarsystemGravityassistfail } from "./solarsystem-gravityassistfail";
 import { SolarsystemRadiationbelt } from "./solarsystem-radiationbelt";
 import { SolarsystemSolarflare } from "./solarsystem-solarflare";
+import { HyakumeizanKirimayoi } from "./hyakumeizan-kirimayoi";
+import { HyakumeizanRakurai } from "./hyakumeizan-rakurai";
+import { HyakumeizanKumadeai } from "./hyakumeizan-kumadeai";
+import { HyakumeizanHachisasare } from "./hyakumeizan-hachisasare";
+import { HyakumeizanManshitsu } from "./hyakumeizan-manshitsu";
+import { HyakumeizanKorogashi } from "./hyakumeizan-korogashi";
+import { HyakumeizanTengukakushi } from "./hyakumeizan-tengukakushi";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -360,6 +367,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "solarsystem-radiationbelt": SolarsystemRadiationbelt,
   "solarsystem-duststorm": SolarsystemDuststorm,
   "solarsystem-fuelshortage": SolarsystemFuelshortage,
+  "hyakumeizan-kirimayoi": HyakumeizanKirimayoi,
+  "hyakumeizan-rakurai": HyakumeizanRakurai,
+  "hyakumeizan-kumadeai": HyakumeizanKumadeai,
+  "hyakumeizan-hachisasare": HyakumeizanHachisasare,
+  "hyakumeizan-manshitsu": HyakumeizanManshitsu,
+  "hyakumeizan-korogashi": HyakumeizanKorogashi,
+  "hyakumeizan-tengukakushi": HyakumeizanTengukakushi,
 };
 
 /** その国のその災難の絵。無ければ undefined。 */
