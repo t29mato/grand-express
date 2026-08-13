@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.40.0",
+    date: "2026-08-13",
+    title: t(
+      "Five more boards: Brazil, Venezuela, Australia, Canada, Ukraine|Cinco tableros más: Brasil, Venezuela, Australia, Canadá y Ucrania|Cinq plateaux de plus : Brésil, Venezuela, Australie, Canada, Ukraine|盤面が5枚ふえました。ブラジル・ベネズエラ・オーストラリア・カナダ・ウクライナ",
+    ),
+    highlights: [
+      t(
+        "Twenty-four boards now, with one thousand and eighty-three towns and nine hundred and thirty-four questions. Ride the Indian Pacific across the Nullarbor, follow the line the Canadian Pacific was built to make a country, cross Brazil where the railways mostly went quiet, take the ferry to Margarita Island, and travel a Ukraine that keeps its timetable.|Ya son veinticuatro tableros, con mil ochenta y tres pueblos y novecientas treinta y cuatro preguntas. Cruza el Nullarbor en el Indian Pacific, sigue la línea que el Canadian Pacific tendió para hacer un país, recorre un Brasil donde los trenes casi callaron, toma el ferry a la isla Margarita y viaja por una Ucrania que mantiene su horario.|Vingt-quatre plateaux désormais, mille quatre-vingt-trois villes et neuf cent trente-quatre questions. Traverse le Nullarbor à bord de l'Indian Pacific, suis la ligne que le Canadien Pacifique a posée pour faire un pays, parcours un Brésil où les trains se sont tus, prends le bac pour l'île de Margarita, et voyage dans une Ukraine qui tient son horaire.|24枚になりました。1083の町と934問です。ナラボー平原を横切るインディアン・パシフィック号、国をつくるために敷かれたカナディアン・パシフィック鉄道、鉄道がほとんど黙ってしまったブラジル、マルガリータ島への渡し船、そして時刻表を守り続けるウクライナの鉄道。",
+      ),
+      t(
+        "Each board keeps its own money, music, items, spirit of misfortune, and twelve months of weather and festivals. Venezuela prices its property in US dollars, because that is how homes there are actually bought. Ukraine's board leaves the occupied and shelled towns off the route, and draws Crimea as the land it is recognised to be.|Cada tablero conserva su dinero, su música, sus objetos, su espíritu de la desgracia y sus doce meses. Venezuela pone precio a sus inmuebles en dólares, porque así se compran allí las casas. El tablero de Ucrania deja fuera del recorrido los pueblos ocupados y bombardeados, y dibuja Crimea como el territorio que se le reconoce.|Chaque plateau garde sa monnaie, sa musique, ses objets, son esprit du malheur et ses douze mois. Le Venezuela affiche ses biens en dollars, car c'est ainsi qu'on y achète une maison. Le plateau ukrainien laisse hors du parcours les villes occupées et bombardées, et dessine la Crimée comme le territoire qu'on lui reconnaît.|盤面ごとにお金・音楽・アイテム・厄災の神・12ヶ月の気候と祭りを持っています。ベネズエラの物件は米ドル建てです。実際にそうやって家が売り買いされているからです。ウクライナの盤面は、占領されている町と砲撃の続く町を止まりマスにしていません。クリミアは国際的に認められたとおりの陸地として描いています。",
+      ),
+      t(
+        "Twenty city backgrounds that had a see-through gap between sky and ground — most of them in Indonesia — have been repaired.|Se han reparado veinte fondos de ciudad que dejaban ver un hueco entre el cielo y el suelo, la mayoría en Indonesia.|Vingt décors de ville laissaient voir un vide entre le ciel et le sol — surtout en Indonésie — et ont été réparés.|都市の背景20枚で、空と地面のあいだが透けていたのを直しました(多くはインドネシアの町です)。",
+      ),
+    ],
+  },
+  {
     version: "0.39.0",
     date: "2026-08-13",
     title: t(
