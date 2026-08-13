@@ -104,6 +104,18 @@ const GENERIC = new Set([
  * わざと文面に結び付けている。
  */
 const ACCEPTED = [
+  // オーストラリア。大文字の Country という語そのものが問いの中身。
+  // アボリジナル英語では土地・水・人・法をまとめて指す語で、訳すと問いが消える。
+  { c: "australia", has: "「Country」", why: "大文字のCountryという語そのものを訊く問題" },
+  // カナダ。国の標語そのものを選択肢に並べる設問なので、ラテン語・フランス語が
+  // 日本語文に残るのは意図どおり。訳してしまうと「どれがカナダの標語か」が問えない。
+  { c: "canada", has: "E Pluribus Unum", why: "アメリカの標語。原語を出さないと見分ける問いにならない" },
+  { c: "canada", has: "A Mari Usque Ad Mare", why: "カナダの標語そのもの。ラテン語が問いの中身" },
+  { c: "canada", has: "Dieu et Mon Droit", why: "イギリス王室の標語。原語を出さないと見分ける問いにならない" },
+  // ベネズエラ。組織名の頭字語そのものが問いの中身。
+  { c: "venezuela", has: "OPEC", why: "1960年に創設に加わった組織の名がOPECそのもの" },
+  { c: "venezuela", has: "NATO", why: "OPECと見分けさせる設問。略号を訳すと問いが成立しない" },
+  { c: "venezuela", has: "PDVSA", why: "国営石油会社の略称そのものを答えさせる設問" },
   { c: "japan", has: "弾丸列車(bullet train)", why: "英語の通称そのものを訊く問題。原語が無いと問いが成立しない" },
   { c: "japan", has: "1871", why: "「円」という字の意味を説明している。字そのものが話題" },
   { c: "india", has: "UTC+5:30", why: "時刻帯の正式な書きかた。カタカナに直すと通じない" },

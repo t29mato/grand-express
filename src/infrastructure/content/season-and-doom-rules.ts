@@ -18,6 +18,268 @@ const region = (code: string) => RegionId(code);
 
 /** 月インデックス(0=4月)ごとの季節効果。 */
 export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readonly SeasonEffectOp[])[]>> = {
+  australia: [
+    /* 0 Apr アンザック・デー(夜明けの式典) */ [
+      { op: "rest-spirit" },
+    ],
+    /* 1 May ヴィヴィッド・シドニー */ [
+      { op: "region-income-multiplier", regionId: region("nsw"), multiplier: 1.25 },
+    ],
+    /* 2 Jun アルパインスキーのシーズン開幕(NSW・VICの山岳部) */ [
+      { op: "region-income-multiplier", regionId: region("nsw"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("vic"), multiplier: 1.15 },
+    ],
+    /* 3 Jul NAIDOC週間 */ [
+      { op: "all-players-gain-cash", amount: 240 },
+    ],
+    /* 4 Aug クジラの回遊とWAの野生の花畑 */ [
+      { op: "region-income-multiplier", regionId: region("wa"), multiplier: 1.3 },
+    ],
+    /* 5 Sep グランドファイナル(AFL=VIC・NRL=NSW) */ [
+      { op: "region-income-multiplier", regionId: region("vic"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("nsw"), multiplier: 1.15 },
+    ],
+    /* 6 Oct サマータイム開始、州で食い違う */ [
+      { op: "all-players-pay-cash", amount: 150 },
+    ],
+    /* 7 Nov メルボルン・カップ */ [
+      { op: "region-income-multiplier", regionId: region("vic"), multiplier: 1.35 },
+      { op: "all-players-gain-cash", amount: 260 },
+    ],
+    /* 8 Dec クリスマスとボクシングデー・テスト(MCG=VIC) */ [
+      { op: "region-income-multiplier", regionId: region("vic"), multiplier: 1.2 },
+      { op: "all-players-gain-cash", amount: 300 },
+    ],
+    /* 9 Jan オーストラリア・デー(祝日勤務の割増賃金という形で経済効果のみ扱う) */ [
+      { op: "all-players-gain-cash", amount: 220 },
+    ],
+    /* 10 Feb 猛暑とシドニー・マルディグラ */ [
+      { op: "region-income-multiplier", regionId: region("nsw"), multiplier: 1.25 },
+    ],
+    /* 11 Mar ムーンバ(メルボルン) */ [
+      { op: "region-income-multiplier", regionId: region("vic"), multiplier: 1.15 },
+    ],
+  ],
+
+  /**
+   * ブラジル。復活祭とバカリャウ(4月) → コーヒー収穫最盛期(5月) →
+   * フェスタ・ジュニーナ/サンジョアン(6月) → 冬休みの旅行(7月) →
+   * 乾季・野焼きの季節(8月・中西部と北部にとって負担) →
+   * 独立記念日(9月) → アパレシーダの巡礼(10月・サンパウロ州) →
+   * 黒人意識の日(11月) → 夏とイエマンジャーへの捧げ物(12月) →
+   * レヴェイヨン(1月・リオ最盛期) → カーニバルの街頭ブローコ(2月) →
+   * ジャボチカーバの実り(3月)、という流れ。
+   * 北部(no)は乾季の負担を、南東部(se)は観光・収穫での好況を多めに受ける。
+   */
+  brazil: [
+    /* 0 Apr 復活祭とバカリャウ */ [
+      { op: "region-income-multiplier", regionId: region("ne"), multiplier: 1.15 },
+    ],
+    /* 1 May コーヒー収穫最盛期 */ [
+      { op: "region-income-multiplier", regionId: region("se"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("co"), multiplier: 1.1 },
+    ],
+    /* 2 Jun フェスタ・ジュニーナ/サンジョアン */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("ne"), multiplier: 1.3 },
+    ],
+    /* 3 Jul 冬休みの旅行(南東部・南部の観光地) */ [
+      { op: "region-income-multiplier", regionId: region("se"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("su"), multiplier: 1.2 },
+    ],
+    /* 4 Aug 乾季・野焼きの季節(負担) */ [
+      { op: "all-players-pay-cash", amount: 150 },
+      { op: "region-income-multiplier", regionId: region("no"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("co"), multiplier: 0.85 },
+    ],
+    /* 5 Sep 独立記念日 */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "region-income-multiplier", regionId: region("co"), multiplier: 1.15 },
+    ],
+    /* 6 Oct アパレシーダの巡礼(サンパウロ州) */ [
+      { op: "region-income-multiplier", regionId: region("se"), multiplier: 1.2 },
+    ],
+    /* 7 Nov 黒人意識の日 */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("ne"), multiplier: 1.15 },
+    ],
+    /* 8 Dec 夏の始まりとイエマンジャーへの捧げ物 */ [
+      { op: "region-income-multiplier", regionId: region("se"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("ne"), multiplier: 1.15 },
+    ],
+    /* 9 Jan レヴェイヨン(リオの最盛期) */ [
+      { op: "region-income-multiplier", regionId: region("se"), multiplier: 1.35 },
+    ],
+    /* 10 Feb カーニバルの街頭ブローコ */ [
+      { op: "all-players-gain-cash", amount: 280 },
+      { op: "region-income-multiplier", regionId: region("se"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("ne"), multiplier: 1.2 },
+    ],
+    /* 11 Mar ジャボチカーバの実り */ [
+      { op: "region-income-multiplier", regionId: region("se"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("co"), multiplier: 1.1 },
+    ],
+  ],
+
+  ukraine: [
+    /* 0 Apr 柳の日曜日とピサンカ、復活祭の支度 */ [
+      { op: "region-income-multiplier", regionId: region("west"), multiplier: 1.15 },
+      { op: "all-players-pay-cash", amount: 160 },
+    ],
+    /* 1 May マイウカ(春の野遊び)が西部で盛ん、市場に春物 */ [
+      { op: "region-income-multiplier", regionId: region("west"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.1 },
+    ],
+    /* 2 Jun イヴァナ・クパーラの焚き火と牧草刈り */ [
+      { op: "region-income-multiplier", regionId: region("pl"), multiplier: 1.2 },
+    ],
+    /* 3 Jul 桜桃(スミミザクラ)の収穫期 */ [
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("pl"), multiplier: 1.1 },
+    ],
+    /* 4 Aug 蜂蜜・リンゴのスパス祭と独立記念日(24日) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("south"), multiplier: 1.15 },
+    ],
+    /* 5 Sep 新学期「最初の鐘」とぶどうの収穫始め */ [
+      { op: "region-income-multiplier", regionId: region("west"), multiplier: 1.2 },
+      { op: "all-players-pay-cash", amount: 180 },
+    ],
+    /* 6 Oct ポクロヴァ(コサックの守護聖人祭)とジャガイモの収穫 */ [
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("east"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("west"), multiplier: 1.1 },
+    ],
+    /* 7 Nov 聖マルティヌスのガチョウ祭りと新酒、待降節の斎で市が静まる */ [
+      { op: "region-income-multiplier", regionId: region("west"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("pl"), multiplier: 0.9 },
+    ],
+    /* 8 Dec ディドゥフを立て、十二品のクリスマスイブ(いまは12/25が中心) */ [
+      { op: "all-players-pay-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("ky"), multiplier: 1.15 },
+    ],
+    /* 9 Jan マランカの仮面行列とキャロル歌い、旧正月 */ [
+      { op: "give-item-to-all" },
+      { op: "region-income-multiplier", regionId: region("pl"), multiplier: 1.1 },
+    ],
+    /* 10 Feb ブリヌィ週間(マスリャナ)、市に薄焼きが並ぶ */ [
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("south"), multiplier: 1.1 },
+    ],
+    /* 11 Mar シェウチェンコの日(9日)、早春の静けさ */ [
+      { op: "region-income-multiplier", regionId: region("ky"), multiplier: 1.15 },
+      { op: "rest-spirit" },
+    ],
+  ],
+
+  venezuela: [
+    /* 0 Apr 聖週間、海辺とアンデスの巡礼で賑わう */ [
+      { op: "region-income-multiplier", regionId: region("cap"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.1 },
+      { op: "all-players-pay-cash", amount: 180 },
+    ],
+    /* 1 May 五月の十字架、バルロベント海岸の徹夜の歌 */ [
+      { op: "region-income-multiplier", regionId: region("cap"), multiplier: 1.2 },
+    ],
+    /* 2 Jun サンフアンの太鼓とカラボボ戦勝記念日(同日) */ [
+      { op: "region-income-multiplier", regionId: region("cap"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 1.3 },
+    ],
+    /* 3 Jul 独立記念日とボリバル誕生日、国じゅうが祝う */ [
+      { op: "all-players-gain-cash", amount: 260 },
+    ],
+    /* 4 Aug エンジェルフォールが雨季で水量最大に(カナイマ観光の書き入れ時) */ [
+      { op: "region-income-multiplier", regionId: region("gua"), multiplier: 1.3 },
+    ],
+    /* 5 Sep 台風シーズンだが低緯度のため直撃をほぼ免れる(オリエンテ沿岸は平常どおり) */ [
+      { op: "region-income-multiplier", regionId: region("ori"), multiplier: 1.1 },
+    ],
+    /* 6 Oct ラノスが増水し、牧畜が難しくなる */ [
+      { op: "region-income-multiplier", regionId: region("cen"), multiplier: 0.85 },
+    ],
+    /* 7 Nov フェリア・デ・ラ・チニタ(マラカイボ)とガイタの季節の始まり */ [
+      { op: "region-income-multiplier", regionId: region("zu"), multiplier: 1.3 },
+      { op: "all-players-gain-cash", amount: 240 },
+    ],
+    /* 8 Dec ガイタがラジオを占拠するクリスマス、アジャカ作りで物入り */ [
+      { op: "region-income-multiplier", regionId: region("zu"), multiplier: 1.15 },
+      { op: "all-players-pay-cash", amount: 220 },
+    ],
+    /* 9 Jan アンデスのパラドゥーラ・デル・ニーニョ(名付け親が宴を開く) */ [
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.2 },
+      { op: "give-item-to-all" },
+    ],
+    /* 10 Feb カーニバル、エルカジャオとカルパノが練り歩く */ [
+      { op: "region-income-multiplier", regionId: region("gua"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("ori"), multiplier: 1.2 },
+      { op: "rest-spirit" },
+    ],
+    /* 11 Mar 乾季の締めくくり、ロス・ロケスの海が澄む */ [
+      { op: "region-income-multiplier", regionId: region("cap"), multiplier: 1.2 },
+    ],
+  ],
+
+  /**
+   * カナダ。メープル season(4月) → 5月連休・別荘地(5月) → 建設シーズンと
+   * ブヨ(6月) → カナダ・デーと山火事(7月・休神) → プレーリー収穫(8月) →
+   * テリー・フォックスと新学期(9月) → 感謝祭と紅葉(10月) → 戦没者追悼の日と
+   * グレイカップ(11月) → クリスマスマーケット(12月) → ポーラーベア・ディップ
+   * (1月・給アイテム) → ウィンタールードと冬祭り(2月) → 春休みとメープル再開
+   * (3月)、という流れ。
+   */
+  canada: [
+    /* 0 Apr メープルシロップの season 終盤 */ [
+      { op: "region-income-multiplier", regionId: region("qc"), multiplier: 1.2 },
+    ],
+    /* 1 May 5月の連休・別荘地の season 開き */ [
+      { op: "region-income-multiplier", regionId: region("on"), multiplier: 1.25 },
+      { op: "all-players-gain-cash", amount: 220 },
+    ],
+    /* 2 Jun 建設シーズンとブヨ */ [
+      { op: "region-income-multiplier", regionId: region("on"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("north"), multiplier: 0.85 },
+    ],
+    /* 3 Jul カナダ・デーと山火事シーズン(休神) */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "region-income-multiplier", regionId: region("bc"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("ab"), multiplier: 0.85 },
+      { op: "rest-spirit" },
+    ],
+    /* 4 Aug プレーリーの収穫 */ [
+      { op: "region-income-multiplier", regionId: region("pr"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("ab"), multiplier: 1.1 },
+    ],
+    /* 5 Sep テリー・フォックスと新学期の物入り */ [
+      { op: "all-players-pay-cash", amount: 160 },
+      { op: "region-income-multiplier", regionId: region("on"), multiplier: 1.1 },
+    ],
+    /* 6 Oct 感謝祭と紅葉 */ [
+      { op: "all-players-gain-cash", amount: 280 },
+      { op: "region-income-multiplier", regionId: region("qc"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("on"), multiplier: 1.15 },
+    ],
+    /* 7 Nov 戦没者追悼の日 */ [
+      { op: "all-players-pay-cash", amount: 140 },
+    ],
+    /* 8 Dec クリスマスマーケット */ [
+      { op: "all-players-pay-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("qc"), multiplier: 1.15 },
+    ],
+    /* 9 Jan 新年・ポーラーベア・ディップ */ [
+      { op: "give-item-to-all" },
+      { op: "region-income-multiplier", regionId: region("north"), multiplier: 0.85 },
+    ],
+    /* 10 Feb ウィンタールードと冬祭り */ [
+      { op: "region-income-multiplier", regionId: region("on"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("qc"), multiplier: 1.2 },
+      { op: "all-players-gain-cash", amount: 200 },
+    ],
+    /* 11 Mar 春休みとメープルの season 再開 */ [
+      { op: "region-income-multiplier", regionId: region("ab"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("qc"), multiplier: 1.1 },
+    ],
+  ],
+
   bolivia: [
     /* 0 Apr */ [{ op: "region-income-multiplier", regionId: region("val"), multiplier: 1.25 }],
     /* 1 May */ [{ op: "region-income-multiplier", regionId: region("alt"), multiplier: 1.2 }],
@@ -1054,6 +1316,54 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
  * フレーバーに応じて異なる。`id` → 効果種別の対応。
  */
 export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>> = {
+  // Australia
+  sunburn: "fine",
+  // **インドの `cyclone`(percentLoss)と鍵がぶつかった。**この表は全盤面で
+  // 1つなので、違う効果に同じ鍵は当てられない(アイテムの `intercity` と同じ形)。
+  // あとから入れたこちらの名前を変えている。
+  coastalcyclone: "percentLoss",
+  bogged: "skipTurn",
+  bushfire: "loseProperties",
+  shout: "payOthers",
+  huntsman: "teleport",
+  magpieswoop: "steal",
+
+  // Brazil
+  "conta-atrasada": "fine",
+  enchente: "percentLoss",
+  "greve-onibus": "skipTurn",
+  deslizamento: "loseProperties",
+  "rodada-boteco": "payOthers",
+  redemoinho: "teleport",
+  arrastao: "steal",
+
+  // Ukraine
+  hrad: "fine",
+  povin: "percentLoss",
+  zamitil: "skipTurn",
+  "stepova-pozhezha": "loseProperties",
+  "tamada-obov-yazok": "payOthers",
+  "lisovyk-stezhka": "teleport",
+  "bazaar-pickpocket": "steal",
+
+  // Venezuela
+  "relampago-catatumbo": "fine",
+  "derrumbe-andino": "percentLoss",
+  "cola-de-transito": "skipTurn",
+  "techo-inundado": "loseProperties",
+  "vaca-de-cumpleanos": "payOthers",
+  "silbon-enganio": "teleport",
+  "carterista-mercado": "steal",
+
+  // Canada
+  "gravy-spill": "fine",
+  "raccoon-cooler": "steal",
+  "black-ice-fender": "percentLoss",
+  "blackfly-swarm": "payOthers",
+  "led-astray": "teleport",
+  "drive-thru-line": "skipTurn",
+  "ice-storm-outage": "loseProperties",
+
   // Bolivia
   offering: "fine",
   collapse: "percentLoss",

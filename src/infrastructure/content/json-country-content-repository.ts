@@ -10,6 +10,11 @@ import { mapRawContentToCountryPack } from "./country-content-mapper";
  * 含まれない(docs/90-migration/03-as-built-status.md 参照)。
  */
 const LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
+  canada: () => import("./canada.content.json").then((m) => m.default),
+  ukraine: () => import("./ukraine.content.json").then((m) => m.default),
+  brazil: () => import("./brazil.content.json").then((m) => m.default),
+  australia: () => import("./australia.content.json").then((m) => m.default),
+  venezuela: () => import("./venezuela.content.json").then((m) => m.default),
   bolivia: () => import("./bolivia.content.json").then((m) => m.default),
   japan: () => import("./japan.content.json").then((m) => m.default),
   india: () => import("./india.content.json").then((m) => m.default),

@@ -49,6 +49,11 @@ export type CountryStyles = Readonly<Record<string, RegionStyle>>;
  * 足し忘れるとテストが赤くなる。
  */
 const STYLE_LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
+  canada: () => import("../content/canada.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  ukraine: () => import("../content/ukraine.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  brazil: () => import("../content/brazil.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  australia: () => import("../content/australia.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  venezuela: () => import("../content/venezuela.content.json").then((m) => (m.default as { styles: unknown }).styles),
   bolivia: () => import("../content/bolivia.content.json").then((m) => (m.default as { styles: unknown }).styles),
   japan: () => import("../content/japan.content.json").then((m) => (m.default as { styles: unknown }).styles),
   india: () => import("../content/india.content.json").then((m) => (m.default as { styles: unknown }).styles),

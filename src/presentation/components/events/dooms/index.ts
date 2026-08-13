@@ -132,6 +132,41 @@ import { MalaysiaGangguanEts } from "./malaysia-gangguan-ets";
 import { MalaysiaKalahMahjong } from "./malaysia-kalah-mahjong";
 import { MalaysiaKebakaranPasar } from "./malaysia-kebakaran-pasar";
 import { MalaysiaRagut } from "./malaysia-ragut";
+import { VenezuelaCarteristaMercado } from "./venezuela-carterista-mercado";
+import { VenezuelaColaDeTransito } from "./venezuela-cola-de-transito";
+import { VenezuelaDerrumbeAndino } from "./venezuela-derrumbe-andino";
+import { VenezuelaRelampagoCatatumbo } from "./venezuela-relampago-catatumbo";
+import { VenezuelaSilbonEnganio } from "./venezuela-silbon-enganio";
+import { VenezuelaTechoInundado } from "./venezuela-techo-inundado";
+import { VenezuelaVacaDeCumpleanos } from "./venezuela-vaca-de-cumpleanos";
+import { CanadaGravySpill } from "./canada-gravy-spill";
+import { CanadaRaccoonCooler } from "./canada-raccoon-cooler";
+import { CanadaBlackIceFender } from "./canada-black-ice-fender";
+import { CanadaBlackflySwarm } from "./canada-blackfly-swarm";
+import { CanadaLedAstray } from "./canada-led-astray";
+import { CanadaDriveThruLine } from "./canada-drive-thru-line";
+import { CanadaIceStormOutage } from "./canada-ice-storm-outage";
+import { UkraineBazaarPickpocket } from "./ukraine-bazaar-pickpocket";
+import { UkraineHrad } from "./ukraine-hrad";
+import { UkraineLisovykStezhka } from "./ukraine-lisovyk-stezhka";
+import { UkrainePovin } from "./ukraine-povin";
+import { UkraineStepovaPozhezha } from "./ukraine-stepova-pozhezha";
+import { UkraineTamadaObovYazok } from "./ukraine-tamada-obov-yazok";
+import { UkraineZamitil } from "./ukraine-zamitil";
+import { BrazilArrastao } from "./brazil-arrastao";
+import { BrazilContaAtrasada } from "./brazil-conta-atrasada";
+import { BrazilDeslizamento } from "./brazil-deslizamento";
+import { BrazilEnchente } from "./brazil-enchente";
+import { BrazilGreveOnibus } from "./brazil-greve-onibus";
+import { BrazilRedemoinho } from "./brazil-redemoinho";
+import { BrazilRodadaBoteco } from "./brazil-rodada-boteco";
+import { AustraliaBogged } from "./australia-bogged";
+import { AustraliaBushfire } from "./australia-bushfire";
+import { AustraliaCoastalCyclone } from "./australia-coastalcyclone";
+import { AustraliaHuntsman } from "./australia-huntsman";
+import { AustraliaMagpieSwoop } from "./australia-magpieswoop";
+import { AustraliaShout } from "./australia-shout";
+import { AustraliaSunburn } from "./australia-sunburn";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -276,6 +311,41 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "world-quarantine": WorldQuarantine,
   "world-shell-game": WorldShellGame,
   "world-wrong-port": WorldWrongPort,
+  "venezuela-carterista-mercado": VenezuelaCarteristaMercado,
+  "venezuela-cola-de-transito": VenezuelaColaDeTransito,
+  "venezuela-derrumbe-andino": VenezuelaDerrumbeAndino,
+  "venezuela-relampago-catatumbo": VenezuelaRelampagoCatatumbo,
+  "venezuela-silbon-enganio": VenezuelaSilbonEnganio,
+  "venezuela-techo-inundado": VenezuelaTechoInundado,
+  "venezuela-vaca-de-cumpleanos": VenezuelaVacaDeCumpleanos,
+  "canada-gravy-spill": CanadaGravySpill,
+  "canada-raccoon-cooler": CanadaRaccoonCooler,
+  "canada-black-ice-fender": CanadaBlackIceFender,
+  "canada-blackfly-swarm": CanadaBlackflySwarm,
+  "canada-led-astray": CanadaLedAstray,
+  "canada-drive-thru-line": CanadaDriveThruLine,
+  "canada-ice-storm-outage": CanadaIceStormOutage,
+  "ukraine-bazaar-pickpocket": UkraineBazaarPickpocket,
+  "ukraine-hrad": UkraineHrad,
+  "ukraine-lisovyk-stezhka": UkraineLisovykStezhka,
+  "ukraine-povin": UkrainePovin,
+  "ukraine-stepova-pozhezha": UkraineStepovaPozhezha,
+  "ukraine-tamada-obov-yazok": UkraineTamadaObovYazok,
+  "ukraine-zamitil": UkraineZamitil,
+  "brazil-arrastao": BrazilArrastao,
+  "brazil-conta-atrasada": BrazilContaAtrasada,
+  "brazil-deslizamento": BrazilDeslizamento,
+  "brazil-enchente": BrazilEnchente,
+  "brazil-greve-onibus": BrazilGreveOnibus,
+  "brazil-redemoinho": BrazilRedemoinho,
+  "brazil-rodada-boteco": BrazilRodadaBoteco,
+  "australia-bogged": AustraliaBogged,
+  "australia-bushfire": AustraliaBushfire,
+  "australia-coastalcyclone": AustraliaCoastalCyclone,
+  "australia-huntsman": AustraliaHuntsman,
+  "australia-magpieswoop": AustraliaMagpieSwoop,
+  "australia-shout": AustraliaShout,
+  "australia-sunburn": AustraliaSunburn,
 };
 
 /** その国のその災難の絵。無ければ undefined。 */

@@ -221,4 +221,59 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   bocoran: { type: "quiz-save" },
   durianruntuh: { type: "gain-cash", amount: 380 },
   orangdalam: { type: "extra-turn" },
+  // Venezuela
+  condor: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  animalito: { type: "choose-exact-dice" },
+  porpuesto: { type: "roll-fixed-dice", diceCount: 2 },
+  metro: { type: "roll-fixed-dice", diceCount: 3 },
+  tabaco: { type: "none" }, // 厄災の神(エル・シルボン)を遠ざける護符。効果は持っているだけで働く
+  ruda: { type: "repel-spirit" },
+  chuleta: { type: "quiz-save" },
+  billete: { type: "gain-cash", amount: 240 },
+  mototaxi: { type: "extra-turn" },
+
+  // Canada
+  bushplane: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  portage: { type: "choose-exact-dice" },
+  oceantrain: { type: "roll-fixed-dice", diceCount: 2 },
+  canadianrail: { type: "roll-fixed-dice", diceCount: 3 },
+  bearbells: { type: "none" }, // 厄災の神(サスクワッチ)のward item(passive)
+  bearspray: { type: "repel-spirit" },
+  almanac: { type: "quiz-save" },
+  loonie: { type: "gain-cash", amount: 380 },
+  doubledouble: { type: "extra-turn" },
+
+  // Ukraine
+  leleka: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  vinok: { type: "choose-exact-dice" },
+  elektrychka: { type: "roll-fixed-dice", diceCount: 2 },
+  shvydkisnyi: { type: "roll-fixed-dice", diceCount: 3 },
+  rushnyk: { type: "none" }, // 厄災の神(リソヴィク)のward item(passive)
+  sil: { type: "repel-spirit" },
+  shpora: { type: "quiz-save" },
+  karbovanets: { type: "gain-cash", amount: 380 },
+  marshrutka: { type: "extra-turn" },
+
+  // Brazil
+  arara: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  horacerta: { type: "choose-exact-dice" },
+  mariafumaca: { type: "roll-fixed-dice", diceCount: 2 },
+  trembala: { type: "roll-fixed-dice", diceCount: 3 },
+  figa: { type: "none" }, // 厄災の神(サシ・ペレレ)のward item(passive)
+  defumacao: { type: "repel-spirit" },
+  cola: { type: "quiz-save" },
+  bicho: { type: "gain-cash", amount: 380 },
+  atalho: { type: "extra-turn" },
+
+  // Australia
+  willywilly: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  swag: { type: "choose-exact-dice" },
+  roadtrain: { type: "roll-fixed-dice", diceCount: 2 },
+  ghanticket: { type: "roll-fixed-dice", diceCount: 3 },
+  vegemite: { type: "none" }, // 厄災の神(バニップ)のward item(passive)
+  canetoad: { type: "repel-spirit" },
+  speewah: { type: "quiz-save" },
+  cupsweep: { type: "gain-cash", amount: 380 },
+  twoup: { type: "extra-turn" },
+
 };

@@ -46,6 +46,11 @@ import { buildGhanaContent } from "./countries/ghana/index.mjs";
 import { buildBaliContent } from "./countries/bali/index.mjs";
 import { buildMalaysiaContent } from "./countries/malaysia/index.mjs";
 import { buildChinaContent } from "./countries/china/index.mjs";
+import { buildVenezuelaContent } from "./countries/venezuela/index.mjs";
+import { buildCanadaContent } from "./countries/canada/index.mjs";
+import { buildUkraineContent } from "./countries/ukraine/index.mjs";
+import { buildBrazilContent } from "./countries/brazil/index.mjs";
+import { buildAustraliaContent } from "./countries/australia/index.mjs";
 import { renderJapanDecor } from "./content-overrides/japan-decor.mjs";
 import { renderBoliviaDecor } from "./content-overrides/bolivia-decor.mjs";
 
@@ -533,6 +538,11 @@ const AUTHORED_COUNTRIES = [
   buildGhanaContent(),
   buildBaliContent(),
   buildMalaysiaContent(),
+  buildVenezuelaContent(),
+  buildCanadaContent(),
+  buildUkraineContent(),
+  buildBrazilContent(),
+  buildAustraliaContent(),
 ];
 
 /** `scripts/countries/` にあるのに、上の一覧に無い盤面。焼かれずに消える。 */
