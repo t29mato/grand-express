@@ -19,6 +19,7 @@ import { BoardCompass } from "./board-compass";
 import { candidateLabels as buildCandidateLabels, nextFocusIndex, orderByAzimuth } from "./candidate-guide";
 import { soundAdapter } from "../../state/game-store-dependencies";
 import { WALK_STEP_MS } from "../../state/motion-preference";
+import { vehicleFor } from "./token-vehicle";
 
 const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
 
@@ -779,6 +780,7 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
                 color={token.color}
                 isActive={token.isActive}
                 scale={placement.scale}
+                vehicle={vehicleFor(context.content.id)}
                 carriedEmoji={token.carriedEmoji}
                 spiritEmoji={token.spiritEmoji}
                 /* 1マスごとに位置が変わるので、既定の0.35秒では次のマスまでに滑り切らず、

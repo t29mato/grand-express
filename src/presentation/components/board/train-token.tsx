@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react";
 import { TOKEN_BASE_SCALE } from "./token-layout";
+import { SpacecraftBody, TrainBody, Vehicle } from "./token-vehicle";
 
 /**
  * これ以上いっぺんに動いたら、滑らせずに**瞬間移動**として描く距離(盤面座標)。
@@ -26,6 +27,7 @@ export function TrainToken({
   color,
   isActive,
   scale = TOKEN_BASE_SCALE,
+  vehicle = "train",
   carriedEmoji = null,
   spiritEmoji = null,
   stepMs,
@@ -41,6 +43,8 @@ export function TrainToken({
    * 運んでくれているアイテムの絵文字(エケコ人形・帆引き船・飛行機など)。
    * 6盤面で効果は同じだがアイテムは別物なので、**何に運ばれているか**をここで見せる。
    */
+  /** 乗り物。盤面によって変わる(太陽系は探査機)。 */
+  vehicle?: Vehicle;
   carriedEmoji?: string | null;
   /**
    * 憑いている厄災の神の絵文字(ボリビアはエル・ティオ、茨城はダイダラボウの足跡)。
@@ -88,28 +92,7 @@ export function TrainToken({
       {isActive && <circle r={15} fill="none" stroke="#f6efe2" strokeWidth={1.6} opacity={0.85} className="token-ring" />}
       {/* 影 */}
       <ellipse cx={0} cy={7.5} rx={10} ry={2.6} fill="#0d0a18" opacity={0.45} />
-      {/* 車体 */}
-      <path
-        d="M-10,4.2V-2.2a2,2 0 0 1 2,-2h5.4v-3.2a1.4,1.4 0 0 1 1.4,-1.4h4.4a1.4,1.4 0 0 1 1.4,1.4v3.2h1.6a4,4 0 0 1 4,4v4.4z"
-        fill={color}
-        stroke="#1b1330"
-        strokeWidth={1.5}
-        strokeLinejoin="round"
-      />
-      {/* 運転席の窓 */}
-      <rect x={-8.2} y={-2.6} width={4.4} height={3.6} rx={0.8} fill="#f6efe2" opacity={0.92} />
-      {/* 煙突 */}
-      <rect x={4.6} y={-6.4} width={2.6} height={2.6} rx={0.6} fill="#1b1330" />
-      {/* 車輪 */}
-      <g fill="#1b1330">
-        <circle cx={-5.6} cy={5} r={2.4} />
-        <circle cx={1.4} cy={5} r={2.4} />
-        <circle cx={7} cy={5.4} r={1.8} />
-      </g>
-      <g fill="#f6efe2" opacity={0.75}>
-        <circle cx={-5.6} cy={5} r={0.8} />
-        <circle cx={1.4} cy={5} r={0.8} />
-      </g>
+      {vehicle === "spacecraft" ? <SpacecraftBody color={color} /> : <TrainBody color={color} />}
       {/* 運ばれている最中の目印。機関車の上に、運んでいるものを乗せる。
           文字なので盤面の縮尺に関わらず読める大きさに固定はせず、駒と一緒に拡縮させる
           (駒が小さくなる場面では、これも一緒に小さくないと駒を覆ってしまう)。 */}

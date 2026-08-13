@@ -23,6 +23,18 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.41.1",
+    date: "2026-08-14",
+    title: t(
+      "A steam engine was running between the planets|Una locomotora circulaba entre los planetas|Une locomotive à vapeur circulait entre les planètes|惑星のあいだを蒸気機関車が走っていました",
+    ),
+    highlights: [
+      t(
+        "On the Solar System board your piece is now a probe with solar panels and a dish, not a steam locomotive. The water texture has been taken out of space as well.|En el tablero del Sistema Solar tu ficha es ahora una sonda con paneles solares y antena, no una locomotora de vapor. También se ha quitado del espacio la textura de agua.|Sur le plateau du Système solaire, votre pion est désormais une sonde à panneaux solaires et antenne, non une locomotive à vapeur. La texture d'eau a également disparu de l'espace.|太陽系の盤面では、駒が蒸気機関車ではなく、太陽電池のパドルとパラボラを持つ探査機になりました。宇宙に出ていた水面の模様も消しました。",
+      ),
+    ],
+  },
+  {
     version: "0.41.0",
     date: "2026-08-14",
     title: t(
