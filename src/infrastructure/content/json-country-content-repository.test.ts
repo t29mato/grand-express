@@ -64,14 +64,27 @@ describe("JsonCountryContentRepository", () => {
   });
 
   it("都市が参照する地方・イラストのキーがすべて実在する", async () => {
+    /*
+     * **見つけたものを溜めて、最後に1回だけ突き合わせる。**
+     *
+     * 都市ごとに `expect` を3回呼ぶ書き方だと、30盤面1,446都市で
+     * **4,338回**になる。盤面が増えるにつれて重くなり、**30秒の上限を超えて
+     * 落ちるようになった**(単独なら14秒、`npm run check` の中では31〜48秒)。
+     * 中身は正しいのに時間切れで赤くなるので、原因を探す時間が無駄になる。
+     *
+     * まとめるともう一つ良いことがあって、**壊れている箇所が全部いっぺんに出る。**
+     * 1件目で止まらないので、直す回数が減る。
+     */
+    const missing: string[] = [];
     for (const countryId of ALL_COUNTRY_IDS) {
       const pack = await repo.load(CountryId(countryId));
       for (const city of pack.cities) {
-        expect(pack.regions.has(city.regionId), `${countryId}: 地方 ${city.regionId}`).toBe(true);
-        expect(pack.artScenes[city.artSceneKey], `${countryId}: 背景 ${city.artSceneKey}`).toBeDefined();
-        expect(pack.artGlyphs[city.artGlyphKey], `${countryId}: 記号 ${city.artGlyphKey}`).toBeDefined();
+        if (!pack.regions.has(city.regionId)) missing.push(`${countryId}/${city.id}: 地方 ${city.regionId}`);
+        if (!pack.artScenes[city.artSceneKey]) missing.push(`${countryId}/${city.id}: 背景 ${city.artSceneKey}`);
+        if (!pack.artGlyphs[city.artGlyphKey]) missing.push(`${countryId}/${city.id}: 記号 ${city.artGlyphKey}`);
       }
     }
+    expect(missing, "都市が実在しないキーを指している").toEqual([]);
   });
 
   it("すべての都市が路線でつながっている(孤立した都市がない)", async () => {
