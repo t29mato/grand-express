@@ -60,17 +60,24 @@ export function buildBoardGraph(
       const between = [a.id, b.id] as const;
       const edgeKind = edge.kind;
 
-      // 毎回クイズだと重いので、青マス・赤マスを挟んで息をつげるようにする。
-      // ただし学ぶことが目的なので、半分はクイズのままにしておく。
+      // マスの配分。**半分は何も起きない `quiet` にしてある。**
+      //
+      // 以前は quiz 50% / blue 30% / red 20% で、**中間マスの100%が何かを起こしていた。**
+      // 止まれば必ずモーダルが開き、閉じるまで盤面が見えない。
+      // 「停止マスが多すぎてテンポが悪い」という指摘はここを指している。
       //
       // カードマス(星)は廃止した。アイテムは屋台とクイズの褒美で十分手に入り、
       // マスの種類が4つあると盤面の見分けが付きにくかった。
-      // その4分の1ぶんは青マス・赤マスへ回している。
+      //
+      // **クイズの割合は落とすが、出題の総数はさほど減らない。**盤面1枚の
+      // マスは数百あり、1ゲームで踏むのはその一部でしかないため。
       const roll = h32(edgeIndex * 97 + k) % 20;
       let node: BoardNode;
       if (roll < 10) {
+        node = { id: nodeId, type: "quiet", between, regionId, edgeKind };
+      } else if (roll < 15) {
         node = { id: nodeId, type: "quiz", between, regionId, edgeKind };
-      } else if (roll < 16) {
+      } else if (roll < 18) {
         node = { id: nodeId, type: "blue", between, regionId, edgeKind };
       } else {
         node = { id: nodeId, type: "red", between, regionId, edgeKind };
