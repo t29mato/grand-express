@@ -37,7 +37,7 @@ describe("PathfindingService", () => {
     expect(reach.get(NodeId("c"))).toEqual([NodeId("b"), NodeId("c")]);
   });
 
-  it("後ろ方向にも移動できる(桃鉄式の双方向移動)。行き止まりでは同じマスへ折り返す", () => {
+  it("後ろ方向にも移動できる(双方向移動)。行き止まりでは同じマスへ折り返す", () => {
     const service = new PathfindingService(linearGraph());
     const reach = service.reachableNodes(NodeId("c"), 2);
     // c から2歩: 後ろ方向はa。前方向はd(隣接1つの行き止まり)で折り返すためcに戻る。

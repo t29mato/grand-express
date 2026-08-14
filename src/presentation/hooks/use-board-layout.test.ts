@@ -171,14 +171,19 @@ describe("盤面配置の前提", () => {
     expect(offLand, `${countryId}: 陸の外にあってクリップで消える湖`).toEqual([]);
   });
 
-  it.each(countries)("%s: 中間マスは3種類そろっている", async (countryId) => {
+  it.each(countries)("%s: 中間マスは4種類そろっている", async (countryId) => {
     const pack = await repo.load(CountryId(countryId));
     const graph = buildBoardGraph(pack.cities, pack.edges, pack.projection);
     const kinds = new Set<string>();
     for (const node of graph.nodes.values()) if (!isCityNode(node)) kinds.add(node.type);
-    // カードマス(★)は廃止した。マスの種類が4つあると見分けが付きにくく、
-    // アイテムは屋台とクイズの褒美で十分手に入るため。
-    expect([...kinds].sort()).toEqual(["blue", "quiz", "red"]);
+    // カードマス(★)は廃止した。アイテムは屋台とクイズの褒美で十分手に入るため。
+    //
+    // `quiet` は**止まっても何も起きないマス**。以前は中間マスの100%が何かを
+    // 起こしており(全30盤面で3466マス)、止まれば必ずモーダルが開いた。
+    // 「停止マスが多すぎてテンポが悪い」という指摘を受けて足したもので、
+    // **どの盤面にも行き渡っていること**をここで確かめる
+    // (1盤面だけ配分が変わっても気づけるように、種類の有無で見る)。
+    expect([...kinds].sort()).toEqual(["blue", "quiet", "quiz", "red"]);
   });
 
   it.each(countries)("%s: どの地方・どの月でも青マス・赤マスの出来事を引ける", async (countryId) => {

@@ -188,12 +188,23 @@ describe("アイテムを使うと、ちゃんと何かが起きる", () => {
     }
   });
 
-  /** 上のループ用。`beforeEach` の局面をそのまま使い回すと厄災などが混ざる。 */
+  /**
+   * 上のループ用。`beforeEach` の局面をそのまま使い回すと厄災などが混ざる。
+   *
+   * **手番を人間(添字0)に戻すのを忘れない。**ここが抜けていて、
+   * 「何も起きないマス」を入れた途端にループが落ちた。**アイテムの不具合ではない。**
+   * それまでは着地すると必ずモーダルが開き、閉じるまで手番が進まなかったので、
+   * 1周したあとも人間が手番を持ったままだった。何も起きないマスに止まると
+   * モーダルが開かずそのまま手番が進むので、次の周では**CPUが手番を持っている。**
+   * `useInventoryItem` は手番の人の持ち物に働くため、人間の持ち物は減らないまま
+   * 「消えていない」と落ちる(実測: `activePlayerIndex` が 1 になっていた)。
+   */
   function startGameSync() {
     const session = useGameStore.getState().session!;
     useGameStore.setState({
       session: {
         ...session,
+        activePlayerIndex: 0,
         players: session.players.map((p) => ({ ...p, location: session.players[0].location })),
         misfortune: { ...session.misfortune, holderId: null as unknown as PlayerId, level: 0 },
       },

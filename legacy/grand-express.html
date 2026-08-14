@@ -2312,7 +2312,7 @@ async function playTurn(){
   await land(p);
   if(!over) await settleSpirit(p);
 }
-/* passing over an occupied square hands the spirit across, momotetsu-style */
+/* passing over an occupied square hands the spirit across */
 async function tryPassSpirit(mover,node){
   if(!spiritLevel||players[spiritHolder]!==mover)return false;
   const other=players.findIndex((o,i)=>o!==mover&&o.node===node);

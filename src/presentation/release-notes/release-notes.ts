@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.45.0",
+    date: "2026-08-15",
+    title: t(
+      "Room to breathe|Espacio para respirar|De quoi souffler|息をつげる間",
+    ),
+    highlights: [
+      t(
+        "Every square used to do something. Land anywhere between two towns and a window opened — a quiz, a windfall, a setback — and the board disappeared behind it until you closed it. Across all thirty boards that was 3,466 squares, every one of them an interruption. Now about half of them are plain: you stop, nothing happens, and the next traveler rolls. The rail journey has some quiet stretches in it again.|Antes cada casilla hacía algo. Caías en cualquier punto entre dos pueblos y se abría una ventana —una pregunta, una ganancia, un contratiempo— y el tablero desaparecía tras ella hasta que la cerrabas. En los treinta tableros eran 3.466 casillas, todas ellas una interrupción. Ahora cerca de la mitad son simples: te detienes, no pasa nada, y tira el siguiente viajero. El viaje en tren vuelve a tener tramos tranquilos.|Chaque case faisait quelque chose. On s'arrêtait n'importe où entre deux villes et une fenêtre s'ouvrait — une question, une aubaine, un contretemps — et le plateau disparaissait derrière jusqu'à ce qu'on la referme. Sur les trente plateaux, cela faisait 3 466 cases, autant d'interruptions. Environ la moitié sont désormais neutres : on s'arrête, rien ne se passe, et le voyageur suivant lance le dé. Le trajet retrouve des portions calmes.|これまでは、どのマスに止まっても必ず何かが起きていました。町と町のあいだのどこに止まっても窓が開き(クイズ、臨時収入、災難)、閉じるまで盤面が見えませんでした。全30盤面で3,466マス、その全部が中断だったことになります。**いまはそのおよそ半分が、止まっても何も起きないマスです。**止まって、何も起きず、次の人がサイコロを振る。鉄道の旅に、静かな区間が戻ってきました。",
+      ),
+      t(
+        "Quiz squares are now about a quarter of the run between towns rather than half. You will still meet plenty of questions — a board has hundreds of squares and one game touches only a few of them — but they no longer arrive on every single stop. The legend under \"What the squares do\" lists the plain square alongside the others.|Las casillas de preguntas son ahora cerca de una cuarta parte del trayecto entre pueblos, en vez de la mitad. Seguirás encontrando muchas preguntas —un tablero tiene cientos de casillas y una partida pisa solo unas pocas— pero ya no llegan en cada parada. La leyenda de «Qué hace cada casilla» incluye la casilla simple junto a las demás.|Les cases quiz représentent maintenant environ un quart du trajet entre deux villes, au lieu de la moitié. Vous rencontrerez encore beaucoup de questions — un plateau compte des centaines de cases et une partie n'en touche qu'une poignée — mais elles n'arrivent plus à chaque arrêt. La légende « Ce que font les cases » présente la case neutre avec les autres.|クイズのマスは、町と町のあいだの半分から**4分の1ほど**になりました。問題に出会う機会が大きく減るわけではありません(盤面には数百のマスがあり、1回の対局で踏むのはその一部だけです)。ただ、止まるたびに出題されることは無くなりました。「マスの意味」の凡例にも、何も起きないマスを載せてあります。",
+      ),
+    ],
+  },
+  {
     version: "0.44.0",
     date: "2026-08-14",
     title: t(

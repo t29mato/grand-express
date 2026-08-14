@@ -21,23 +21,27 @@ export const LEGEND_MESSAGES: Record<Locale, Record<string, string>> = {
     legendQuiz: "Quiz · {0} if right",
     legendBlue: "Blue · good news, you gain",
     legendRed: "Red · trouble, you pay",
+    legendQuiet: "Plain · nothing happens, ride on",
   },
   es: {
     legendTitle: "Qué hace cada casilla",
     legendQuiz: "Quiz · {0} si aciertas",
     legendBlue: "Azul · algo bueno, ganas",
     legendRed: "Roja · algo malo, pagas",
+    legendQuiet: "Simple · no pasa nada, sigues",
   },
   fr: {
     legendTitle: "Ce que font les cases",
     legendQuiz: "Quiz · {0} si juste",
     legendBlue: "Bleue · bonne nouvelle, tu gagnes",
     legendRed: "Rouge · ennui, tu paies",
+    legendQuiet: "Simple · rien ne se passe, on avance",
   },
   ja: {
     legendTitle: "マスの意味",
     legendQuiz: "クイズ・正解で{0}",
     legendBlue: "青・良いことが起きてお金が増える",
     legendRed: "赤・悪いことが起きてお金が減る",
+    legendQuiet: "無印・何も起きない。そのまま進む",
   },
 };

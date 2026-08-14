@@ -41,6 +41,7 @@ export function BoardLegend({ currency }: { currency: CurrencyFormat }) {
     { color: SQUARE_QUIZ_COLOR, label: t("legendQuiz", quizRange) },
     { color: "#5b8fe8", label: t("legendBlue") },
     { color: "#e05252", label: t("legendRed") },
+    { color: "#7c7469", label: t("legendQuiet") },
     { color: "#f6efe2", label: t("townSq"), town: true },
   ];
 
