@@ -1045,6 +1045,289 @@ main {
   }
 }
 
+/*
+ * ここから下は**携帯の実寸(390×844 / 375×667)で1画面に収めるための決まり**。
+ *
+ * ## 何が起きていたか(実測)
+ *
+ * 940px以下では既にサイコロを盤面の上へ出していたので、**サイコロと盤面は
+ * 画面に入っていた。**問題はその先で、375×667 のとき:
+ *
+ * ```
+ * ヘッダ      127px (3段に折り返していた)
+ * サイコロ     96px
+ * 盤面        400px  → ここまでで 623px
+ * 行き先・持ち物・旅人一覧・記録   合計 924px が画面の外
+ * さらにページ全体が 389px はみ出してスクロールした
+ * ```
+ *
+ * 行き先が見えないと**どこを目指すのか分からず**、持ち物が見えないと
+ * **アイテムを使えない**。サイコロだけ届いても遊びは完結しない。
+ *
+ * ## どう直したか
+ *
+ * 縦に積むのをやめ、**要るものを帯にして畳む。**
+ * ヘッダ48・上の帯(サイコロ+行き先)・盤面(残り全部)・持ち物の帯・
+ * 旅人の帯。旅の記録だけは下に置き、そこだけスクロールさせる
+ * (直近の1件は `LogToast` が画面の上に出すので、記録を開かなくても追える)。
+ */
+@media (max-width: 560px) {
+  /* **ページそのものはスクロールさせない。**中身が画面の高さを超えないようにする。 */
+  html,
+  body {
+    overflow: hidden;
+  }
+
+  .game-screen {
+    height: 100dvh;
+    max-height: 100dvh;
+  }
+
+  /* ヘッダを1段に畳む。3段で127px使っていたのを50px前後にする。 */
+  header {
+    padding: 6px 10px;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  /*
+   * **遊んでいる最中は題名を出さない。**横に並べきれず、「新しい旅」が
+   * 画面の外へ押し出されていた(実測: 375px幅で右端の「保存」が切れる)。
+   * どのアプリを開いているかは、この画面まで来た人には分かっている。
+   */
+  header h1 {
+    display: none;
+  }
+
+  .hdr-right {
+    margin-left: auto;
+    width: auto;
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+  .hdr-right .btn {
+    padding: 6px 8px;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  /* 言語切替も詰める。4つ並ぶので、ここが一番幅を食う。 */
+  header .langseg button {
+    padding: 5px 7px;
+    font-size: 0.7rem;
+  }
+
+  /* 年月と国の札は、旅人の帯と同じ行に小さく置く。 */
+  .players-card .date-chip {
+    margin-top: 4px !important;
+    padding: 2px 8px;
+    font-size: 0.66rem;
+  }
+
+  /* main は**スクロールしない箱**にして、中を高さで割り振る。 */
+  main {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* 帯が6本あるので、隙間1pxが6px効く。ここは詰める。 */
+    gap: 6px;
+    padding: 8px;
+    min-height: 0;
+  }
+
+  /* 縦積みのときの並び替え(940px以下の規則)をここでも効かせる。 */
+  main > aside {
+    display: contents;
+  }
+
+  .turn-card {
+    order: 1;
+  }
+  .dest-card {
+    order: 2;
+  }
+  .board-wrap {
+    order: 3;
+  }
+  .items-card {
+    order: 4;
+  }
+  .players-card {
+    order: 5;
+  }
+  .board-status {
+    order: 6;
+  }
+  .log-card {
+    order: 7;
+  }
+
+  /* 盤面が余りを全部もらう。**ここだけが伸び縮みする。** */
+  /*
+   * **`main >` を付けて特異度を上げる。**素の `.board-wrap { min-height: 0 }` は
+   * この規則よりファイルの後ろにあるので、同じ強さでは負ける
+   * (メディアクエリは特異度を上げない)。負けていたせいで盤面が59pxまで潰れた。
+   */
+  main > .board-wrap {
+    height: auto;
+    /* **余りを全部もらい、潰れない。**盤面が小さいと駅を押し分けられない。 */
+    flex: 1 1 0;
+    min-height: 240px;
+  }
+
+  /* 上の帯: サイコロ。文字を1行に収め、駒の絵を小さくする。 */
+  .turn-card {
+    flex: 0 0 auto;
+    padding: 6px 10px;
+  }
+
+  /* サイコロの絵。押しやすさは残しつつ(48px角は指で押せる)、高さを削る。 */
+  .turn-card .turn-row > button {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+  }
+
+  .turn-card .turn-name {
+    font-size: 0.85rem;
+  }
+
+  .turn-card .turn-hint {
+    font-size: 0.72rem;
+    line-height: 1.25;
+  }
+
+  /*
+   * 行き先。**絵を落として1行にする。**
+   * 絵は雰囲気のためのもので、どこを目指すのかという情報は名前と金額にある。
+   * 携帯では情報を優先する。
+   */
+  .dest-card {
+    flex: 0 0 auto;
+    padding: 8px 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  /* 絵は `.city-art-stack` という器に入っている(`city-art.tsx`)。
+     ここを閉じないと294px使ったままになり、盤面が18pxまで潰れる(実測)。 */
+  .dest-card .city-art-stack {
+    display: none;
+  }
+
+  /* 見出し(「次の行き先」)は畳む。金額と町名が並んでいれば意味は伝わる。 */
+  .dest-card h2 {
+    display: none;
+  }
+
+  .dest-city {
+    font-size: 1rem;
+  }
+
+  /* 町の一言だけは残す。行き先を選ぶ理由になるため。 */
+  .dest-tag {
+    font-size: 0.7rem;
+    flex: 1 1 100%;
+    order: 3;
+    /* 2行に伸びると盤面を削るので、1行で切る。 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* 持ち物と旅人は、横に流れる帯にする。 */
+  .items-card,
+  .players-card {
+    flex: 0 0 auto;
+    padding: 6px 10px;
+  }
+
+  .items-card h2,
+  .players-card h2 {
+    font-size: 0.62rem;
+    margin: 0 0 2px;
+  }
+
+  .items-card .items,
+  .players-card .players {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  /* 旅人は1人1行の札にして、横に流す。名前と所持金を縦に積むと帯が倍の高さになる。 */
+  .players-card .prow {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 8px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+
+  .players-card .pname {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* 旅人の帯では持ち物件数まで出すと横に伸びるので、そこは畳む。 */
+  .players-card .pprops {
+    display: none;
+  }
+
+  /*
+   * 現在地と目的地までの距離は1行に収める。
+   * 盤面に押せるものが無いあいだ、ここだけが「あと何マスか」を教えてくれる。
+   */
+  .board-status {
+    flex: 0 0 auto;
+    padding: 5px 10px;
+    font-size: 0.72rem;
+    max-height: 40px;
+    overflow: hidden;
+  }
+
+  /* 2行に伸びると下が切れて読めなくなる(行き先名が長い盤面で実際に切れた)。
+     1行に収め、溢れたら「…」で止める。 */
+  .board-status-line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /*
+   * **旅の記録は畳む。**盤面の高さを削ってまで常時出すものではない。
+   * 直近の1件は `LogToast` が画面の上に出すので、閉じていても見落とさない
+   * (`log-toast.tsx`)。広い画面では今までどおり出る。
+   */
+  .log-card {
+    display: none;
+  }
+}
+
+/*
+ * **背の低い携帯(667pxなど)。**上の決まりだけだと15pxはみ出して、
+ * 現在地の行が画面の下で切れる(実測 375×667)。盤面の下限をここだけ下げる。
+ * 390×844 では下げない(あちらは盤面が402px取れている)。
+ */
+@media (max-width: 560px) and (max-height: 700px) {
+  main > .board-wrap {
+    min-height: 200px;
+  }
+}
+
 .board-wrap {
   position: relative;
   background: #141d31;
