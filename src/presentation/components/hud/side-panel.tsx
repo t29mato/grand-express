@@ -35,7 +35,7 @@ export function PlayersPanel({ context, session }: { context: GameEngineContext;
   const economyContext = economyContextFor(context, session);
   const currency = context.content.currency;
   return (
-    <div className="card">
+    <div className="card players-card">
       <h2>{t("travelers")}</h2>
       <div className="players">
         {session.players.map((p, i) => {
@@ -90,7 +90,7 @@ export function ItemBar({
   const { tx, t } = useLocale();
   const player = currentPlayer(session);
   return (
-    <div className="card">
+    <div className="card items-card">
       <h2>{t("items")}</h2>
       {player.inventory.length === 0 ? (
         <span className="empty">{t("noItems")}</span>
@@ -146,7 +146,7 @@ export function TravelLog({ log }: { log: readonly LogEntry[] }) {
   // ログの引数に含まれる{en,es,fr,ja}(都市名・物件名など)は表示時に現在の言語で解決する。
   const resolve = (arg: LogEntry["args"][number]) => (typeof arg === "object" ? tx(arg) : arg);
   return (
-    <div className="card">
+    <div className="card log-card">
       <h2>{t("travelLog")}</h2>
       <div id="log">
         {log.map((entry) => (

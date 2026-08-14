@@ -49,6 +49,11 @@ scripts/_tmp-*
 # 確認用のスクリーンショット(npm run shot)
 screenshots/
 
+# ただし docs/screenshots/ は残す。**UI変更の報告にスクリーンショットを添える**
+# 決まりになったため(オーナー指示 2026-08-15)、before/after をここに置いて
+# PR から参照する。使い捨ての `npm run shot` の出力とは別物。
+!docs/screenshots/
+
 # npm run preview の一時ファイル
 .preview-entry.tsx
 .preview.html
