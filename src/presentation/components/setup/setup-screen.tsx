@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 import { CountryId } from "../../../domain/shared-kernel/ids";
 import { CpuLevel } from "../../../domain/cpu/cpu-level";
 import { DEFAULT_KNOWLEDGE_LEVEL, KNOWLEDGE_LEVELS, KnowledgeLevel } from "../../../domain/quiz/knowledge-level";
 import { PlayerSetup } from "../../../application/use-cases/start-game/start-game.use-case";
-import { COUNTRY_INDEX } from "../../../infrastructure/content/country-index";
+import { COUNTRY_INDEX, CountryIndexEntry } from "../../../infrastructure/content/country-index";
 import { SCALE_LABEL, boardScale, groupCountries } from "./country-groups";
 import { WorldPicker } from "./world-picker";
 import { loadPlayerSetup, savePlayerSetup } from "../../../infrastructure/persistence/local-storage-player-setup";
@@ -45,6 +45,65 @@ const KNOWLEDGE_LABEL: Record<KnowledgeLevel, string> = {
   familiar: "knowledgeFamiliar",
   local: "knowledgeLocal",
 };
+
+/**
+ * 札の中の盤面の絵。**言語に依らないので、ここだけ切り出してある。**
+ *
+ * 札そのものは言語を切り替えると名前と縮尺の印が変わるため描き直される。
+ * 絵まで一緒に描き直すと、30枚で**235KB**のSVGを毎回組み立て直すことになる。
+ * `entry` は言語で変わらないので、`memo` すれば言語の切り替えでは描き直されない。
+ */
+const CountryThumb = memo(function CountryThumb({ entry }: { entry: CountryIndexEntry }) {
+  return (
+    <svg
+      className="country-thumb"
+      viewBox={entry.thumbViewBox}
+      role="presentation"
+      preserveAspectRatio="xMidYMid meet"
+      dangerouslySetInnerHTML={{ __html: entry.thumbSvg }}
+    />
+  );
+});
+
+/**
+ * 狭い画面に出す札1枚。**描き直しを止めるためだけに分けてある。**
+ *
+ * 札はそれぞれ盤面のサムネイル(SVGの文字列)を `dangerouslySetInnerHTML` で
+ * 描く。30枚ぶんで**235KB**あり、`dangerouslySetInnerHTML` は描画のたびに
+ * これを解析し直す。セットアップ画面は**名前を1文字打つたびに描き直される**ので、
+ * そのたびに235KBを組み立て直していた。**広い画面ではCSSで隠れていて、
+ * 一枚も見えていないのに。**
+ *
+ * `memo` で、その札に関わるものが変わったときだけ組み立て直す。
+ */
+const CountryCard = memo(function CountryCard({
+  entry,
+  selected,
+  label,
+  name,
+  onSelect,
+}: {
+  entry: CountryIndexEntry;
+  selected: boolean;
+  label: string;
+  name: string;
+  onSelect: (id: CountryId) => void;
+}) {
+  return (
+    <button
+      type="button"
+      className={`ccard${selected ? " on" : ""}`}
+      aria-pressed={selected}
+      onClick={() => onSelect(CountryId(entry.id))}
+    >
+      <span className="country-thumb-wrap">
+        <CountryThumb entry={entry} />
+        <span className={`scale-tag ${boardScale(entry.id)}`}>{label}</span>
+      </span>
+      <span className="nm">{name}</span>
+    </button>
+  );
+});
 
 export function SetupScreen() {
   const { t, tx } = useLocale();
@@ -195,27 +254,14 @@ export function SetupScreen() {
                 どちらを見せるかはCSSの担当(`.world-picker` と `.country-grid`)。 */}
             <div className="country-grid">
               {shownCountries.map((entry) => (
-                <button
+                <CountryCard
                   key={entry.id}
-                  type="button"
-                  className={`ccard${country === entry.id ? " on" : ""}`}
-                  aria-pressed={country === entry.id}
-                  onClick={() => setCountry(CountryId(entry.id))}
-                >
-                  <span className="country-thumb-wrap">
-                    <svg
-                      className="country-thumb"
-                      viewBox={entry.thumbViewBox}
-                      role="presentation"
-                      preserveAspectRatio="xMidYMid meet"
-                      dangerouslySetInnerHTML={{ __html: entry.thumbSvg }}
-                    />
-                    <span className={`scale-tag ${boardScale(entry.id)}`}>
-                      {tx(SCALE_LABEL[boardScale(entry.id)])}
-                    </span>
-                  </span>
-                  <span className="nm">{tx(entry.name)}</span>
-                </button>
+                  entry={entry}
+                  selected={country === entry.id}
+                  label={tx(SCALE_LABEL[boardScale(entry.id)])}
+                  name={tx(entry.name)}
+                  onSelect={setCountry}
+                />
               ))}
             </div>
             {chosenCountry && (

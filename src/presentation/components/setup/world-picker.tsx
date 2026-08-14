@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { memo, useState } from "react";
 import { CountryIndexEntry } from "../../../infrastructure/content/country-index";
 import { useLocale } from "../../i18n/locale-context";
 import { COUNTRY_GROUPS, isSubBoard, subBoardsOf } from "./country-groups";
@@ -141,7 +141,7 @@ export function WorldPicker({
         role="group"
         aria-label={tx(world?.name)}
       >
-        <g dangerouslySetInnerHTML={{ __html: baseSvg }} />
+        <BaseMap svg={baseSvg} />
 
         {/* 動かした名札から、本来の位置への線。名札より先に描いて下に敷く。 */}
         {plates.filter((plate) => isMoved(plate, font)).map((plate) => (
@@ -183,6 +183,21 @@ export function WorldPicker({
     </div>
   );
 }
+
+/**
+ * 地図の下地。**描き直しを止めるためだけに分けてある。**
+ *
+ * 下地は16,633文字のSVGで、`dangerouslySetInnerHTML` は描画のたびに
+ * これを解析し直す。セットアップ画面は名前の入力・大陸の選択・言語の切り替えの
+ * たびに描き直されるので、**名前を1文字打つたびに地図を組み立て直していた。**
+ *
+ * 検査でも出ていた(セットアップ画面の検査が単体8.8秒、盤面が31枚に増えた
+ * ところで並行実行だと時間切れになった)。`memo` で、下地の中身が
+ * 変わったときだけ組み立て直す。
+ */
+const BaseMap = memo(function BaseMap({ svg }: { svg: string }) {
+  return <g dangerouslySetInnerHTML={{ __html: svg }} />;
+});
 
 /**
  * その盤面の絵の投影。四隅は目録が持っているが、絵の大きさは
