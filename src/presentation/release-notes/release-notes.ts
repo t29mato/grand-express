@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.45.1",
+    date: "2026-08-15",
+    title: t(
+      "The phone screen fits again|La pantalla del móvil vuelve a caber|L'écran du téléphone tient enfin|携帯の画面に収まるようにしました",
+    ),
+    highlights: [
+      t(
+        "On a phone, everything below the map was off the screen. The destination you are racing to, your items, the other travelers, how many squares are left — all of it needed scrolling, and the page itself ran 326 to 389 pixels past the bottom. You could roll the die, but you could not see where you were going or use what you were carrying. Now it all fits on one screen at once, on a 375-wide phone as well as a 390-wide one.|En el móvil, todo lo que había debajo del mapa quedaba fuera de la pantalla. El destino al que corres, tus objetos, los demás viajeros, cuántas casillas faltan: todo exigía desplazarse, y la propia página se pasaba entre 326 y 389 píxeles del borde inferior. Podías tirar el dado, pero no ver adónde ibas ni usar lo que llevabas. Ahora todo cabe de una vez, tanto en un móvil de 375 de ancho como en uno de 390.|Sur téléphone, tout ce qui se trouvait sous la carte sortait de l'écran. La destination visée, vos objets, les autres voyageurs, le nombre de cases restantes : il fallait faire défiler, et la page elle-même dépassait de 326 à 389 pixels. On pouvait lancer le dé, mais sans voir où l'on allait ni utiliser ce qu'on portait. Tout tient désormais sur un seul écran, sur un téléphone de 375 de large comme de 390.|携帯では、地図から下がすべて画面の外にありました。目指している行き先も、持ち物も、ほかの旅人も、あと何マスかも、全部スクロールしないと見えず、ページ自体も326〜389ピクセルはみ出していました。サイコロは振れるのに、**どこへ向かっているのかが見えず、持っているものも使えない**状態でした。横375の機種でも390の機種でも、いまは一度に収まります。",
+      ),
+      t(
+        "Getting there meant giving up some things on small screens: the header no longer shows the app name, the destination card hides its artwork, and the travel log is folded away. The most recent line of the log still appears at the top of the screen when something happens, so nothing is lost. On a tablet or a computer, nothing has changed.|Para lograrlo hubo que ceder algo en pantallas pequeñas: la cabecera ya no muestra el nombre, la tarjeta de destino oculta su ilustración y el diario de viaje queda plegado. La última línea del diario sigue apareciendo arriba cuando ocurre algo, así que no se pierde nada. En tableta u ordenador no cambia nada.|Il a fallu renoncer à certaines choses sur petit écran : l'en-tête n'affiche plus le nom, la carte de destination masque son illustration et le journal de voyage est replié. La dernière ligne du journal apparaît toujours en haut quand il se passe quelque chose, rien n'est donc perdu. Sur tablette ou ordinateur, rien ne change.|そのために、狭い画面ではいくつか譲りました。ヘッダの題名を伏せ、行き先カードの絵を隠し、旅の記録を畳んでいます。記録の最新の1行は、何かが起きたときに画面の上に出るので見落としません。タブレットやパソコンでは何も変わりません。",
+      ),
+    ],
+  },
+  {
     version: "0.45.0",
     date: "2026-08-15",
     title: t(
