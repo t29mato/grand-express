@@ -18,6 +18,8 @@ import { BOLIVIA_MONEY_EVENTS_EXTRA } from "./money-events-bolivia-extra.mjs";
 import { BOLIVIA_EXTRA_CITIES, BOLIVIA_EXTRA_EDGES } from "./bolivia-cities.mjs";
 import { BOLIVIA_QUIZ_REPLACEMENTS } from "./bolivia-quiz.mjs";
 import { JAPAN_QUIZ_REPLACEMENTS } from "./japan-quiz.mjs";
+import { BOLIVIA_QUIZ_EXTRA } from "./bolivia-quiz-extra.mjs";
+import { JAPAN_QUIZ_EXTRA } from "./japan-quiz-extra.mjs";
 import { ITEM_TEXT } from "./item-text.mjs";
 import { CITY_BG } from "./city-backgrounds.mjs";
 import { CURRENCY_MULTIPLIERS, CITY_PROPS, applyCityProps } from "./property-economy.mjs";
@@ -98,6 +100,7 @@ const OVERRIDES = {
     boardScale: BOARD_SCALE.bolivia,
     quizDifficulty: QUIZ_DIFFICULTY.bolivia,
     quiz: BOLIVIA_QUIZ_REPLACEMENTS,
+    extraQuiz: BOLIVIA_QUIZ_EXTRA,
     extraCities: BOLIVIA_EXTRA_CITIES,
     extraEdges: BOLIVIA_EXTRA_EDGES,
   },
@@ -134,6 +137,7 @@ const OVERRIDES = {
     extraEdges: [...JAPAN_EXTRA_EDGES, ...JAPAN_PREFECTURE_EDGES, ...JAPAN_ISLAND_EDGES, ...JAPAN_HOKKAIDO_EDGES],
     quizDifficulty: QUIZ_DIFFICULTY.japan,
     quiz: JAPAN_QUIZ_REPLACEMENTS,
+    extraQuiz: JAPAN_QUIZ_EXTRA,
   },
 };
 
@@ -266,6 +270,31 @@ export function applyContentOverrides(countryId, content) {
       }
       return { ...q, difficulty: level };
     });
+  }
+
+  /**
+   * クイズを**足す**(日本・ボリビアだけ)。
+   *
+   * ほかの盤面は `scripts/countries/<国>/quiz.mjs` に直接書き足せるが、この2つは
+   * 問題が凍結した legacy の中にあるので、差し替え(添字)しか手が無かった。
+   * **足す口が無いと、この2盤面だけクイズを増やせない。**
+   *
+   * **`quizDifficulty` の件数合わせより後で足すこと。**あれは legacy の問題数と
+   * 突き合わせる検査なので、先に足すと必ず件数が食い違って落ちる。
+   *
+   * 足すほうは難易度を自分で持つ(`quiz-difficulty.mjs` には書かない)。
+   */
+  if (override.extraQuiz && content.quiz) {
+    for (const [i, q] of override.extraQuiz.entries()) {
+      const level = q.difficulty;
+      if (!Number.isInteger(level) || level < 1 || level > 10) {
+        throw new Error(`${countryId}: 足した問題 ${i} の難易度 ${level} が範囲外です(1〜10)`);
+      }
+      if (q.o.length !== 3 || !Number.isInteger(q.a) || q.a < 0 || q.a >= q.o.length) {
+        throw new Error(`${countryId}: 足した問題 ${i} の選択肢は3つ、正解の添字は0〜2です`);
+      }
+    }
+    content.quiz = [...content.quiz, ...override.extraQuiz];
   }
 
   // 既存都市の座標補正は、追加より先に行う(追加分と混ざらないように)。
