@@ -79,6 +79,9 @@ const SQUARE_STYLES: Record<string, { color: string; glyph: string }> = {
   quiz: { color: "#f5b31c", glyph: "?" },
   blue: { color: "#5b8fe8", glyph: "+" },
   red: { color: "#e05252", glyph: "−" },
+  // 何も起きないマス。**記号を持たない。**印を付けると「何かある」と読めてしまう。
+  // 線路の色に寄せた鈍い色にして、進む道であることだけが分かるようにしてある。
+  quiet: { color: "#7c7469", glyph: "" },
 };
 
 /**
@@ -500,7 +503,7 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
   /**
    * 町ごとの持ち主。
    *
-   * 桃鉄の面白さの核は「地図が自分の色に染まっていくのを見る」ことなのに、
+   * この遊びの核は「地図が自分の色に染まっていくのを見る」ことなのに、
    * これまで物件を買っても盤面は何も変わらず、所有は横の数字でしか
    * 分からなかった。いちばん多く持っている人の色を町に付ける。
    * 同数で並んだときは色を付けない(誰の町とも言えないため)。
