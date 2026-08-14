@@ -56,6 +56,7 @@ import { buildHyakumeizanContent } from "./countries/hyakumeizan/index.mjs";
 import { buildEuropeContent } from "./countries/europe/index.mjs";
 import { buildNorthAmericaContent } from "./countries/northamerica/index.mjs";
 import { buildSouthAmericaContent } from "./countries/southamerica/index.mjs";
+import { buildAsiaContent } from "./countries/asia/index.mjs";
 import { renderJapanDecor } from "./content-overrides/japan-decor.mjs";
 import { renderBoliviaDecor } from "./content-overrides/bolivia-decor.mjs";
 
@@ -553,6 +554,7 @@ const AUTHORED_COUNTRIES = [
   buildEuropeContent(),
   buildNorthAmericaContent(),
   buildSouthAmericaContent(),
+  buildAsiaContent(),
 ];
 
 /** `scripts/countries/` にあるのに、上の一覧に無い盤面。焼かれずに消える。 */

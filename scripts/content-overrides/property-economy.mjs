@@ -43,6 +43,8 @@ function t(source) {
  * (€120,000 は不動産の金額として通る)。下げると後退になる。
  */
 export const CURRENCY_MULTIPLIERS = {
+  // 開始資金1200 × 100 = $120,000。世界一周・他の大陸盤面と同じ倍率。
+  asia: 100,
   // US$120,000 → 開始資金1200×100(team-lead指定)。
   southamerica: 100,
   northamerica: 100,

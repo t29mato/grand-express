@@ -19,6 +19,56 @@ const region = (code: string) => RegionId(code);
 /** 月インデックス(0=4月)ごとの季節効果。 */
 export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readonly SeasonEffectOp[])[]>> = {
   /**
+   * アジア大陸。草原のチューリップ → 暑さの前の隊商 → フェルガナの綿花 →
+   * ベンガル湾のモンスーン → ヒジャーズへの巡礼 → 環太平洋の台風(9月・休神) →
+   * オアシスのメロン → 東アジアの中秋節 → ヒマラヤ山麓の紅葉 →
+   * 湾岸の大晦日(1月・給アイテム) → タイガの初氷 → 高原からの冷風、という流れ。
+   */
+  asia: [
+    /* 0 Apr 草原のチューリップ */ [
+      { op: "region-income-multiplier", regionId: region("cas"), multiplier: 1.2 },
+    ],
+    /* 1 May 暑さの前の隊商 */ [
+      { op: "region-income-multiplier", regionId: region("arb"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("cas"), multiplier: 1.1 },
+    ],
+    /* 2 Jun フェルガナの綿花 */ [
+      { op: "region-income-multiplier", regionId: region("cas"), multiplier: 1.3 },
+    ],
+    /* 3 Jul ベンガル湾のモンスーン */ [
+      { op: "region-income-multiplier", regionId: region("sas"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("sea"), multiplier: 0.9 },
+    ],
+    /* 4 Aug ヒジャーズへの巡礼 */ [
+      { op: "region-income-multiplier", regionId: region("arb"), multiplier: 1.3 },
+    ],
+    /* 5 Sep 環太平洋の台風(休神) */ [
+      { op: "region-income-multiplier", regionId: region("eas"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("sea"), multiplier: 0.9 },
+      { op: "rest-spirit" },
+    ],
+    /* 6 Oct オアシスのメロン */ [
+      { op: "region-income-multiplier", regionId: region("cas"), multiplier: 1.25 },
+    ],
+    /* 7 Nov 東アジアの中秋節(帰省ラッシュ) */ [
+      { op: "region-income-multiplier", regionId: region("eas"), multiplier: 1.3 },
+      { op: "all-players-pay-cash", amount: 200 },
+    ],
+    /* 8 Dec ヒマラヤ山麓の紅葉(トレッキング最盛期) */ [
+      { op: "region-income-multiplier", regionId: region("sas"), multiplier: 1.2 },
+    ],
+    /* 9 Jan 湾岸の大晦日 */ [{ op: "give-item-to-all" }],
+    /* 10 Feb タイガの初氷 */ [
+      { op: "region-income-multiplier", regionId: region("sib"), multiplier: 0.75 },
+      { op: "all-players-pay-cash", amount: 180 },
+    ],
+    /* 11 Mar 高原からの冷風 */ [
+      { op: "region-income-multiplier", regionId: region("sea"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("arb"), multiplier: 1.1 },
+    ],
+  ],
+
+  /**
    * 南アメリカ大陸。メンドーサの収穫終わり(4月) → アンデス高地の収穫
    * (5月) → インティ・ライミとスキー開幕(6月) → フリアヘの寒波で
    * アマゾン・アンデスが沈む(7月) → パチャママの月(8月) → チリの
@@ -1658,6 +1708,15 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
  * フレーバーに応じて異なる。`id` → 効果種別の対応。
  */
 export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>> = {
+  // Asia
+  sandstorm: "fine", // 埋もれた線路の掘り出し費用
+  monsoonwash: "loseProperties", // 洗い流された土手ぞいの物件
+  avalanche: "teleport", // 雪崩で迂回路に回される
+  railbuckle: "percentLoss", // 徐行と積み荷の傷みで目減り
+  customsdelay: "skipTurn", // 全部の鞄を検められて足止め
+  bazaarpickpocket: "steal", // すりに盗まれる
+  powercut: "payOthers", // 立ち往生した車内で食料を分け合う
+
   // South America
   huayco: "loseProperties", // アンデスの土石流が線路沿いの資産を押し流す
   creciente: "percentLoss", // アマゾンの増水で商品・現金の一部が水浸しになる

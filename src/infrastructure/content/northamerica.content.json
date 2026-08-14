@@ -4558,6 +4558,2382 @@
         "fr": "Fondée en 1948 et puisant ses racines dans une conférence panaméricaine encore plus ancienne, datant de 1889, l'Organisation des États américains compte parmi ses membres tous les pays reconnus des Amériques sauf Cuba, exclue en 1962.",
         "ja": "1948年に設立され、さらに古い1889年の汎米会議にその起源をたどる米州機構には、1962年に除名されたキューバを除く南北アメリカのすべての承認国が加盟している。"
       }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "Which two oceans does the Panama Canal connect?",
+        "es": "¿Qué dos océanos conecta el Canal de Panamá?",
+        "fr": "Quels deux océans le canal de Panama relie-t-il ?",
+        "ja": "パナマ運河はどの二つの大洋を結んでいるか?"
+      },
+      "o": [
+        {
+          "en": "The Pacific and the Atlantic",
+          "es": "El Pacífico y el Atlántico",
+          "fr": "Le Pacifique et l'Atlantique",
+          "ja": "太平洋と大西洋"
+        },
+        {
+          "en": "The Pacific and the Indian",
+          "es": "El Pacífico y el Índico",
+          "fr": "Le Pacifique et l'Indien",
+          "ja": "太平洋とインド洋"
+        },
+        {
+          "en": "The Atlantic and the Arctic",
+          "es": "El Atlántico y el Ártico",
+          "fr": "L'Atlantique et l'Arctique",
+          "ja": "大西洋と北極海"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Opened in 1914, the canal cuts roughly 80 kilometers across the isthmus, saving ships the months-long voyage around South America's Cape Horn.",
+        "es": "Inaugurado en 1914, el canal atraviesa unos 80 kilómetros del istmo, ahorrando a los barcos el viaje de meses para rodear el cabo de Hornos en Sudamérica.",
+        "fr": "Ouvert en 1914, le canal traverse environ 80 kilomètres de l'isthme, épargnant aux navires le voyage de plusieurs mois pour contourner le cap Horn, en Amérique du Sud.",
+        "ja": "1914年に開通したこの運河は地峡を約80km貫いており、南アメリカのホーン岬を回る何か月もの航海を船から省かせている。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "Baseball's championship series, the World Series, is contested almost entirely between teams from which two countries?",
+        "es": "¿Entre equipos de qué dos países se disputa casi siempre la Serie Mundial, el campeonato del béisbol?",
+        "fr": "La Série mondiale, le championnat de baseball, oppose presque toujours des équipes de quels deux pays ?",
+        "ja": "野球の頂点を決める「ワールドシリーズ」は、ほぼどの二か国のチームの間で争われるか?"
+      },
+      "o": [
+        {
+          "en": "The United States and Mexico",
+          "es": "Estados Unidos y México",
+          "fr": "Les États-Unis et le Mexique",
+          "ja": "アメリカとメキシコ"
+        },
+        {
+          "en": "The United States and Canada",
+          "es": "Estados Unidos y Canadá",
+          "fr": "Les États-Unis et le Canada",
+          "ja": "アメリカとカナダ"
+        },
+        {
+          "en": "The United States and Cuba",
+          "es": "Estados Unidos y Cuba",
+          "fr": "Les États-Unis et Cuba",
+          "ja": "アメリカとキューバ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Despite the name, only one non-US team, Canada's Toronto Blue Jays, has ever won it, doing so in 1992 and 1993.",
+        "es": "A pesar del nombre, solo un equipo no estadounidense, los Azulejos de Toronto de Canadá, la ha ganado, en 1992 y 1993.",
+        "fr": "Malgré son nom, une seule équipe non américaine, les Blue Jays de Toronto, l'a remportée, en 1992 et 1993.",
+        "ja": "その名に反して、アメリカ以外のチームで優勝したのはカナダのトロント・ブルージェイズ(1992年・1993年)だけである。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "Greenland, geographically part of North America, is a territory of which European country?",
+        "es": "Groenlandia, geográficamente parte de América del Norte, es territorio de qué país europeo?",
+        "fr": "Le Groenland, géographiquement en Amérique du Nord, est un territoire de quel pays européen ?",
+        "ja": "地理的には北アメリカに属するグリーンランドは、どのヨーロッパの国の領土か?"
+      },
+      "o": [
+        {
+          "en": "Norway",
+          "es": "Noruega",
+          "fr": "La Norvège",
+          "ja": "ノルウェー"
+        },
+        {
+          "en": "The United Kingdom",
+          "es": "El Reino Unido",
+          "fr": "Le Royaume-Uni",
+          "ja": "イギリス"
+        },
+        {
+          "en": "Denmark",
+          "es": "Dinamarca",
+          "fr": "Le Danemark",
+          "ja": "デンマーク"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Greenland runs most of its own domestic affairs but relies on Denmark for defense and foreign policy, and a majority of its population is Inuit.",
+        "es": "Groenlandia gestiona la mayoría de sus asuntos internos, pero depende de Dinamarca en defensa y política exterior, y la mayoría de su población es inuit.",
+        "fr": "Le Groenland gère l'essentiel de ses affaires intérieures mais dépend du Danemark pour la défense et la politique étrangère, et la majorité de sa population est inuit.",
+        "ja": "グリーンランドは内政の大半を自ら担うが、国防と外交はデンマークに委ねており、住民の多くはイヌイットである。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "The loonie and the toonie are coins used in which country?",
+        "es": "¿En qué país se usan las monedas llamadas loonie y toonie?",
+        "fr": "Dans quel pays utilise-t-on les pièces appelées loonie et toonie ?",
+        "ja": "ルーニーとトゥーニーという硬貨が使われているのはどの国か?"
+      },
+      "o": [
+        {
+          "en": "Canada",
+          "es": "Canadá",
+          "fr": "Le Canada",
+          "ja": "カナダ"
+        },
+        {
+          "en": "The United States",
+          "es": "Estados Unidos",
+          "fr": "Les États-Unis",
+          "ja": "アメリカ"
+        },
+        {
+          "en": "Mexico",
+          "es": "México",
+          "fr": "Le Mexique",
+          "ja": "メキシコ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The loonie, a one-dollar coin, is named for the loon pictured on it; the two-dollar coin that followed was nicknamed the toonie to match.",
+        "es": "El loonie, moneda de un dólar, debe su nombre al somorgujo (loon) grabado en ella; la moneda de dos dólares que siguió se apodó toonie a juego.",
+        "fr": "Le loonie, pièce d'un dollar, doit son nom au huard (loon) qui y est gravé ; la pièce de deux dollars qui a suivi fut surnommée toonie en écho.",
+        "ja": "1ドル硬貨「ルーニー」の名は、刻まれた水鳥アビ(loon)に由来する。その後発行された2ドル硬貨は語呂を合わせて「トゥーニー」と呼ばれるようになった。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "Guatemala's currency, the quetzal, is named after a type of what?",
+        "es": "La moneda de Guatemala, el quetzal, debe su nombre a un tipo de qué?",
+        "fr": "La monnaie du Guatemala, le quetzal, doit son nom à un type de quoi ?",
+        "ja": "グアテマラの通貨ケツァルは、何の一種にちなんで名付けられたか?"
+      },
+      "o": [
+        {
+          "en": "A flower",
+          "es": "Una flor",
+          "fr": "Une fleur",
+          "ja": "花"
+        },
+        {
+          "en": "A bird",
+          "es": "Un ave",
+          "fr": "Un oiseau",
+          "ja": "鳥"
+        },
+        {
+          "en": "A tree",
+          "es": "Un árbol",
+          "fr": "Un arbre",
+          "ja": "木"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The resplendent quetzal, prized by the Maya for its brilliant green tail feathers, is also Guatemala's national bird.",
+        "es": "El quetzal resplandeciente, apreciado por los mayas por sus brillantes plumas verdes de la cola, es también el ave nacional de Guatemala.",
+        "fr": "Le quetzal resplendissant, apprécié des Mayas pour ses plumes caudales d'un vert éclatant, est aussi l'oiseau national du Guatemala.",
+        "ja": "マヤの人々が輝く緑の尾羽を珍重したケツァルは、グアテマラの国鳥でもある。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "The English word \"canoe\" entered European languages from the language of which Caribbean indigenous people?",
+        "es": "La palabra inglesa \"canoe\" (canoa) llegó a las lenguas europeas del idioma de qué pueblo indígena del Caribe?",
+        "fr": "Le mot anglais « canoe » (canoë) est entré dans les langues européennes par la langue de quel peuple indigène des Caraïbes ?",
+        "ja": "英語のcanoe(カヌー)という語は、カリブ海のどの先住民の言語からヨーロッパの言語に入ったか?"
+      },
+      "o": [
+        {
+          "en": "The Maya",
+          "es": "Los mayas",
+          "fr": "Les Mayas",
+          "ja": "マヤ"
+        },
+        {
+          "en": "The Aztec",
+          "es": "Los aztecas",
+          "fr": "Les Aztèques",
+          "ja": "アステカ"
+        },
+        {
+          "en": "The Taíno",
+          "es": "Los taínos",
+          "fr": "Les Taïnos",
+          "ja": "タイノ"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Spanish colonists first recorded the word from the Taíno of the Greater Antilles in the late 15th century, and it spread from Spanish into English and other European languages soon after.",
+        "es": "Los colonos españoles registraron la palabra por primera vez tomándola de los taínos de las Antillas Mayores a finales del siglo XV, y de ahí pasó pronto del español al inglés y a otras lenguas europeas.",
+        "fr": "Les colons espagnols consignèrent le mot pour la première fois auprès des Taïnos des Grandes Antilles à la fin du XVe siècle, d'où il passa bientôt de l'espagnol vers l'anglais et d'autres langues européennes.",
+        "ja": "スペインの植民者たちは15世紀末、大アンティル諸島のタイノの人々からこの語を初めて記録し、そこからほどなくスペイン語を経て英語など他のヨーロッパの言語へ広まった。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "The Aleutian Islands, stretching from mainland Alaska toward Russia, belong to which country?",
+        "es": "Las islas Aleutianas, que se extienden desde Alaska continental hacia Rusia, ¿a qué país pertenecen?",
+        "fr": "Les îles Aléoutiennes, qui s'étirent de l'Alaska continentale vers la Russie, appartiennent à quel pays ?",
+        "ja": "アラスカ本土からロシアへ向けて連なるアリューシャン列島は、どの国に属するか?"
+      },
+      "o": [
+        {
+          "en": "The United States",
+          "es": "Estados Unidos",
+          "fr": "Les États-Unis",
+          "ja": "アメリカ"
+        },
+        {
+          "en": "Russia",
+          "es": "Rusia",
+          "fr": "La Russie",
+          "ja": "ロシア"
+        },
+        {
+          "en": "Canada",
+          "es": "Canadá",
+          "fr": "Le Canada",
+          "ja": "カナダ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Some of the outermost islands, like Attu, sit so far west that they fall on the other side of the International Date Line from the rest of the country.",
+        "es": "Algunas de las islas más occidentales, como Attu, están tan al oeste que quedan al otro lado de la línea internacional de cambio de fecha respecto al resto del país.",
+        "fr": "Certaines des îles les plus occidentales, comme Attu, sont si loin à l'ouest qu'elles se trouvent de l'autre côté de la ligne de changement de date internationale par rapport au reste du pays.",
+        "ja": "アッツ島など最も西にある島々は、あまりに西寄りにあるため、国の他の地域から見て日付変更線の反対側に位置する。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Costa Rica and Nicaragua both claim as their own a rice-and-beans dish called what?",
+        "es": "Costa Rica y Nicaragua reclaman como propio un plato de arroz con frijoles llamado cómo?",
+        "fr": "Le Costa Rica et le Nicaragua revendiquent tous deux comme leur un plat de riz et de haricots appelé comment ?",
+        "ja": "コスタリカとニカラグアがともに自国発祥だと主張する、米と豆の料理は何か?"
+      },
+      "o": [
+        {
+          "en": "Mofongo",
+          "es": "Mofongo",
+          "fr": "Le mofongo",
+          "ja": "モフォンゴ"
+        },
+        {
+          "en": "Gallo pinto",
+          "es": "Gallo pinto",
+          "fr": "Le gallo pinto",
+          "ja": "ガジョ・ピント"
+        },
+        {
+          "en": "Ceviche",
+          "es": "Ceviche",
+          "fr": "Le ceviche",
+          "ja": "セビーチェ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The dish's name, meaning \"spotted rooster,\" refers to the speckled look the rice takes on once mixed with beans, and each country insists it invented the recipe first.",
+        "es": "El nombre del plato, «gallo pinto», alude al aspecto moteado que toma el arroz al mezclarse con los frijoles, y cada país insiste en haber inventado la receta primero.",
+        "fr": "Le nom du plat, « coq tacheté », évoque l'aspect moucheté que prend le riz une fois mélangé aux haricots, et chaque pays insiste avoir inventé la recette en premier.",
+        "ja": "「まだら模様の雄鶏」を意味するこの料理名は、豆と混ざった米のまだら模様に由来し、両国とも自分たちが先に考案したと譲らない。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Chili con carne, a dish often assumed to be Mexican, is generally traced to which US state?",
+        "es": "El chile con carne, un plato que suele darse por mexicano, se remonta generalmente a qué estado de EE. UU.?",
+        "fr": "Le chili con carne, un plat souvent supposé mexicain, est généralement rattaché à quel État américain ?",
+        "ja": "しばしばメキシコ料理だと思われているチリ・コン・カルネは、一般にアメリカのどの州が起源とされるか?"
+      },
+      "o": [
+        {
+          "en": "California",
+          "es": "California",
+          "fr": "La Californie",
+          "ja": "カリフォルニア州"
+        },
+        {
+          "en": "New Mexico",
+          "es": "Nuevo México",
+          "fr": "Le Nouveau-Mexique",
+          "ja": "ニューメキシコ州"
+        },
+        {
+          "en": "Texas",
+          "es": "Texas",
+          "fr": "Le Texas",
+          "ja": "テキサス州"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The dish is largely unknown in traditional Mexican cuisine, and its association with Texas gave rise to the broader food category now called Tex-Mex.",
+        "es": "El plato es prácticamente desconocido en la cocina tradicional mexicana, y su asociación con Texas dio origen a la categoría culinaria más amplia hoy llamada tex-mex.",
+        "fr": "Le plat est largement méconnu de la cuisine mexicaine traditionnelle, et son association avec le Texas donna naissance à la catégorie culinaire aujourd'hui appelée tex-mex.",
+        "ja": "この料理は伝統的なメキシコ料理にはほとんど見られず、テキサス州との結びつきから、いまの「テクスメクス」という料理区分が生まれた。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Lacrosse, with roots among Indigenous peoples of North America, is Canada's official national sport of which season?",
+        "es": "El lacrosse, con raíces entre los pueblos indígenas de América del Norte, es el deporte nacional oficial de Canadá de qué estación?",
+        "fr": "La crosse, dont les racines remontent aux peuples autochtones d'Amérique du Nord, est le sport national officiel du Canada de quelle saison ?",
+        "ja": "北アメリカ先住民に起源を持つラクロスは、カナダのどの季節の公式国技とされているか?"
+      },
+      "o": [
+        {
+          "en": "Summer",
+          "es": "Verano",
+          "fr": "L'été",
+          "ja": "夏"
+        },
+        {
+          "en": "Winter",
+          "es": "Invierno",
+          "fr": "L'hiver",
+          "ja": "冬"
+        },
+        {
+          "en": "Autumn",
+          "es": "Otoño",
+          "fr": "L'automne",
+          "ja": "秋"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "A 1994 law names lacrosse Canada's official summer sport and ice hockey its official winter sport, giving the country two national sports rather than one.",
+        "es": "Una ley de 1994 declara al lacrosse deporte nacional de verano de Canadá y al hockey sobre hielo deporte nacional de invierno, dando al país dos deportes nacionales en vez de uno.",
+        "fr": "Une loi de 1994 fait de la crosse le sport national d'été du Canada et du hockey sur glace son sport national d'hiver, donnant au pays deux sports nationaux plutôt qu'un seul.",
+        "ja": "1994年の法律により、ラクロスはカナダの夏の公式国技、アイスホッケーは冬の公式国技とされ、この国には国技が一つではなく二つある。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Nunavut, Canada's largest and newest territory, was created in 1999 by splitting it off from which territory?",
+        "es": "Nunavut, el territorio más grande y reciente de Canadá, se creó en 1999 al separarse de qué territorio?",
+        "fr": "Le Nunavut, le plus vaste et le plus récent territoire du Canada, fut créé en 1999 en se détachant de quel territoire ?",
+        "ja": "カナダ最大かつ最も新しい準州ヌナブトは、1999年にどの準州から分離して生まれたか?"
+      },
+      "o": [
+        {
+          "en": "Yukon",
+          "es": "Yukón",
+          "fr": "Le Yukon",
+          "ja": "ユーコン準州"
+        },
+        {
+          "en": "The Northwest Territories",
+          "es": "Los Territorios del Noroeste",
+          "fr": "Les Territoires du Nord-Ouest",
+          "ja": "ノースウェスト準州"
+        },
+        {
+          "en": "British Columbia",
+          "es": "Columbia Británica",
+          "fr": "La Colombie-Britannique",
+          "ja": "ブリティッシュコロンビア州"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The split followed decades of negotiation with the Inuit, who make up the majority of Nunavut's population and whose land claim helped define its borders.",
+        "es": "La separación siguió a décadas de negociación con los inuit, mayoría de la población de Nunavut, cuya reivindicación territorial ayudó a definir sus fronteras.",
+        "fr": "La séparation suivit des décennies de négociations avec les Inuits, majoritaires dans la population du Nunavut, dont la revendication territoriale contribua à définir ses frontières.",
+        "ja": "この分離は、ヌナブトの住民の多数を占め、その土地要求が境界の決定に寄与したイヌイットとの数十年に及ぶ交渉の末に実現した。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "The brief 1969 \"Football War,\" whose real causes lay in migration and land disputes rather than sport, was fought between which two countries?",
+        "es": "La breve «Guerra del Fútbol» de 1969, cuyas causas reales fueron migratorias y territoriales más que deportivas, ¿entre qué dos países se libró?",
+        "fr": "La brève « guerre du Football » de 1969, dont les vraies causes tenaient à la migration et aux différends territoriaux plutôt qu'au sport, opposa quels deux pays ?",
+        "ja": "1969年の短い「サッカー戦争」――本当の原因はスポーツではなく移民と土地問題だった――は、どの二国のあいだで戦われたか?"
+      },
+      "o": [
+        {
+          "en": "Guatemala and Belize",
+          "es": "Guatemala y Belice",
+          "fr": "Le Guatemala et le Belize",
+          "ja": "グアテマラとベリーズ"
+        },
+        {
+          "en": "Nicaragua and Costa Rica",
+          "es": "Nicaragua y Costa Rica",
+          "fr": "Le Nicaragua et le Costa Rica",
+          "ja": "ニカラグアとコスタリカ"
+        },
+        {
+          "en": "El Salvador and Honduras",
+          "es": "El Salvador y Honduras",
+          "fr": "Le Salvador et le Honduras",
+          "ja": "エルサルバドルとホンジュラス"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The conflict broke out amid tensions surrounding a World Cup qualifying match between the two countries, giving the four-day war its popular nickname, though the underlying dispute was over land and migrant workers.",
+        "es": "El conflicto estalló en medio de las tensiones de un partido clasificatorio para el Mundial entre ambos países, lo que dio a la guerra de cuatro días su apodo, aunque el fondo del litigio era la tierra y los trabajadores migrantes.",
+        "fr": "Le conflit éclata au milieu des tensions entourant un match de qualification pour la Coupe du monde entre les deux pays, ce qui valut à cette guerre de quatre jours son surnom, bien que le vrai différend portât sur la terre et les travailleurs migrants.",
+        "ja": "この紛争は両国間のワールドカップ予選の緊張の最中に勃発し、それが4日間の戦争にこの通称を与えたが、根底にあったのは土地と出稼ぎ労働者をめぐる争いだった。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "The 1917 Zimmermann Telegram, intercepted by British intelligence, proposed a wartime alliance between Germany and which North American country against the United States?",
+        "es": "El telegrama Zimmermann de 1917, interceptado por inteligencia británica, proponía una alianza de guerra entre Alemania y qué país norteamericano contra Estados Unidos?",
+        "fr": "Le télégramme Zimmermann de 1917, intercepté par le renseignement britannique, proposait une alliance de guerre entre l'Allemagne et quel pays nord-américain contre les États-Unis ?",
+        "ja": "イギリス情報部が傍受した1917年のツィンメルマン電報は、ドイツとどの北アメリカの国との対米同盟を持ちかけていたか?"
+      },
+      "o": [
+        {
+          "en": "Mexico",
+          "es": "México",
+          "fr": "Le Mexique",
+          "ja": "メキシコ"
+        },
+        {
+          "en": "Cuba",
+          "es": "Cuba",
+          "fr": "Cuba",
+          "ja": "キューバ"
+        },
+        {
+          "en": "Canada",
+          "es": "Canadá",
+          "fr": "Le Canada",
+          "ja": "カナダ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The telegram, which promised Mexico help recovering Texas, New Mexico and Arizona in exchange for joining Germany, helped push the United States into World War I once it became public.",
+        "es": "El telegrama, que prometía a México ayuda para recuperar Texas, Nuevo México y Arizona a cambio de unirse a Alemania, ayudó a empujar a Estados Unidos a la Primera Guerra Mundial al hacerse público.",
+        "fr": "Le télégramme, qui promettait à Mexico une aide pour récupérer le Texas, le Nouveau-Mexique et l'Arizona en échange d'un ralliement à l'Allemagne, contribua à pousser les États-Unis dans la Première Guerre mondiale une fois rendu public.",
+        "ja": "この電報はドイツ側につけばテキサス・ニューメキシコ・アリゾナの奪還を助けると約束するもので、公になったことがアメリカを第一次世界大戦参戦へ後押しする一因となった。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Belize, an English-speaking country in Central America, was known by which name until its 1973 renaming?",
+        "es": "Belice, país anglófono de Centroamérica, ¿con qué nombre se conocía hasta su cambio de nombre en 1973?",
+        "fr": "Le Belize, pays anglophone d'Amérique centrale, était connu sous quel nom avant son changement de nom en 1973 ?",
+        "ja": "中米の英語圏の国ベリーズは、1973年に改名するまで何と呼ばれていたか?"
+      },
+      "o": [
+        {
+          "en": "New Caledonia",
+          "es": "Nueva Caledonia",
+          "fr": "La Nouvelle-Calédonie",
+          "ja": "ニューカレドニア"
+        },
+        {
+          "en": "British Honduras",
+          "es": "Honduras Británico",
+          "fr": "Le Honduras britannique",
+          "ja": "イギリス領ホンジュラス"
+        },
+        {
+          "en": "British Guiana",
+          "es": "Guayana Británica",
+          "fr": "La Guyane britannique",
+          "ja": "イギリス領ギアナ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The colony kept its old name for nine years after gaining self-government in 1964, only adopting \"Belize\" in the run-up to full independence in 1981.",
+        "es": "La colonia conservó su antiguo nombre nueve años después de obtener el autogobierno en 1964, y adoptó «Belice» solo en el tramo previo a la independencia plena de 1981.",
+        "fr": "La colonie conserva son ancien nom neuf ans après avoir obtenu l'autonomie en 1964, n'adoptant « Belize » qu'à l'approche de l'indépendance complète de 1981.",
+        "ja": "この植民地は1964年に自治を得たあとも9年間旧名を保ち、「ベリーズ」を名乗ったのは1981年の完全独立を目前にしてのことだった。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Canada's 1969 law making English and French equal at the federal level is known as what?",
+        "es": "La ley canadiense de 1969 que igualó al inglés y al francés a nivel federal se conoce como qué?",
+        "fr": "La loi canadienne de 1969 qui rendit l'anglais et le français égaux au niveau fédéral est connue sous quel nom ?",
+        "ja": "1969年、カナダで英語とフランス語を連邦レベルで対等に扱うよう定めた法律は何と呼ばれるか?"
+      },
+      "o": [
+        {
+          "en": "The Indian Act",
+          "es": "La Ley Indígena",
+          "fr": "La Loi sur les Indiens",
+          "ja": "インディアン法"
+        },
+        {
+          "en": "The Multiculturalism Act",
+          "es": "La Ley de Multiculturalismo",
+          "fr": "La Loi sur le multiculturalisme",
+          "ja": "多文化主義法"
+        },
+        {
+          "en": "The Official Languages Act",
+          "es": "La Ley de Idiomas Oficiales",
+          "fr": "La Loi sur les langues officielles",
+          "ja": "公用語法"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The act requires federal services to be available in both languages nationwide, though it does not require individual Canadians outside Quebec to be bilingual.",
+        "es": "La ley exige que los servicios federales estén disponibles en ambos idiomas en todo el país, aunque no obliga a los canadienses fuera de Quebec a ser bilingües.",
+        "fr": "La loi exige que les services fédéraux soient offerts dans les deux langues à l'échelle du pays, sans pour autant obliger les Canadiens hors Québec à être bilingues.",
+        "ja": "この法律は連邦の行政サービスを全国で両言語で提供するよう定めているが、ケベック州外のカナダ人個人にバイリンガルを義務付けるものではない。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "A Canadian Football League field is how many yards long, compared with the NFL's 100?",
+        "es": "¿Cuántas yardas mide un campo de la Liga Canadiense de Fútbol Americano, frente a las 100 de la NFL?",
+        "fr": "Un terrain de la Ligue canadienne de football compte combien de verges, contre 100 pour la NFL ?",
+        "ja": "カナダン・フットボール・リーグの競技場は、NFLの100ヤードに対して何ヤードあるか?"
+      },
+      "o": [
+        {
+          "en": "110",
+          "es": "110",
+          "fr": "110",
+          "ja": "110"
+        },
+        {
+          "en": "105",
+          "es": "105",
+          "fr": "105",
+          "ja": "105"
+        },
+        {
+          "en": "120",
+          "es": "120",
+          "fr": "120",
+          "ja": "120"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The extra 10 yards, plus wider goal posts and only three downs instead of four, are among the rule differences that give Canadian football its own distinct rhythm.",
+        "es": "Las 10 yardas de más, junto con postes más anchos y solo tres downs en vez de cuatro, son algunas de las diferencias que dan al fútbol canadiense su ritmo propio.",
+        "fr": "Ces 10 verges supplémentaires, des poteaux plus larges et seulement trois essais au lieu de quatre comptent parmi les différences de règles qui donnent au football canadien son rythme propre.",
+        "ja": "この10ヤードの差に加え、より幅の広いゴールポストや、4回ではなく3回のダウン制など、カナダン・フットボールにはこの競技独自のリズムを生む規則の違いがいくつもある。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Mexico's Baja California peninsula is separated from the mainland by which body of water?",
+        "es": "La península de Baja California, en México, ¿de qué cuerpo de agua la separa del continente?",
+        "fr": "La péninsule mexicaine de Basse-Californie est séparée du continent par quelle étendue d'eau ?",
+        "ja": "メキシコのバハカリフォルニア半島を本土から隔てているのはどの海域か?"
+      },
+      "o": [
+        {
+          "en": "The Gulf of Mexico",
+          "es": "El golfo de México",
+          "fr": "Le golfe du Mexique",
+          "ja": "メキシコ湾"
+        },
+        {
+          "en": "The Gulf of California",
+          "es": "El golfo de California",
+          "fr": "Le golfe de Californie",
+          "ja": "カリフォルニア湾"
+        },
+        {
+          "en": "The Caribbean Sea",
+          "es": "El mar Caribe",
+          "fr": "La mer des Caraïbes",
+          "ja": "カリブ海"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Also called the Sea of Cortés, the gulf is prized by marine biologists for its unusually high concentration of whale and dolphin species.",
+        "es": "También llamado mar de Cortés, el golfo es apreciado por los biólogos marinos por su concentración inusualmente alta de especies de ballenas y delfines.",
+        "fr": "Aussi appelé mer de Cortés, le golfe est prisé des biologistes marins pour sa concentration inhabituellement élevée d'espèces de baleines et de dauphins.",
+        "ja": "コルテス海とも呼ばれるこの湾は、クジラやイルカの種数が異例に多いことで海洋生物学者に珍重されている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Unlike the United States, which North American country switched its highway signs to metric distances in the 1970s?",
+        "es": "A diferencia de Estados Unidos, ¿qué país norteamericano pasó sus señales de carretera a distancias métricas en los años 1970?",
+        "fr": "Contrairement aux États-Unis, quel pays nord-américain a fait passer ses panneaux routiers aux distances métriques dans les années 1970 ?",
+        "ja": "アメリカとは異なり、1970年代に道路標識の距離をメートル法に切り替えた北アメリカの国はどこか?"
+      },
+      "o": [
+        {
+          "en": "Mexico",
+          "es": "México",
+          "fr": "Le Mexique",
+          "ja": "メキシコ"
+        },
+        {
+          "en": "Guatemala",
+          "es": "Guatemala",
+          "fr": "Le Guatemala",
+          "ja": "グアテマラ"
+        },
+        {
+          "en": "Canada",
+          "es": "Canadá",
+          "fr": "Le Canada",
+          "ja": "カナダ"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The changeover, largely completed by 1977, means a Canadian driver crossing into the US must suddenly start reading distances in miles rather than kilometers.",
+        "es": "El cambio, prácticamente completo en 1977, hace que un conductor canadiense que cruce a Estados Unidos deba leer de pronto las distancias en millas en vez de kilómetros.",
+        "fr": "Le changement, en grande partie achevé dès 1977, fait qu'un automobiliste canadien franchissant la frontière américaine doit soudain lire les distances en miles plutôt qu'en kilomètres.",
+        "ja": "この切り替えは1977年までにほぼ完了しており、カナダの運転手がアメリカへ入った途端、距離をキロメートルではなくマイルで読まねばならなくなる。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Cacao, used to make chocolate, was so valued by Mesoamerican civilizations that its beans were once used as what?",
+        "es": "El cacao, usado para hacer chocolate, era tan valorado por las civilizaciones mesoamericanas que sus granos se usaban como qué?",
+        "fr": "Le cacao, utilisé pour faire le chocolat, était si prisé des civilisations mésoaméricaines que ses fèves servaient jadis de quoi ?",
+        "ja": "チョコレートの原料であるカカオは、メソアメリカの文明にあまりに重んじられ、豆は何として使われていたか?"
+      },
+      "o": [
+        {
+          "en": "Currency",
+          "es": "Moneda",
+          "fr": "Monnaie",
+          "ja": "通貨"
+        },
+        {
+          "en": "Medicine only",
+          "es": "Solo medicina",
+          "fr": "Uniquement de médicament",
+          "ja": "薬としてのみ"
+        },
+        {
+          "en": "Building material",
+          "es": "Material de construcción",
+          "fr": "Matériau de construction",
+          "ja": "建材"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Aztec markets recorded fixed cacao-bean prices for everyday goods — a rabbit for around 30 beans, according to one Spanish colonial account — making it one of history's few edible currencies.",
+        "es": "Los mercados aztecas registraban precios fijos en granos de cacao para bienes cotidianos —un conejo por unos 30 granos, según un relato colonial español—, lo que la convierte en una de las pocas monedas comestibles de la historia.",
+        "fr": "Les marchés aztèques consignaient des prix fixes en fèves de cacao pour les biens courants — un lapin pour une trentaine de fèves, selon un récit colonial espagnol —, en faisant l'une des rares monnaies comestibles de l'histoire.",
+        "ja": "アステカの市場ではカカオ豆で日用品の値段が定められており、あるスペイン植民地時代の記録によればウサギ1羽が豆30粒ほどだったという。史上数少ない「食べられる通貨」の一つである。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Of Haiti and the Dominican Republic, which nation occupies the larger share of the island of Hispaniola?",
+        "es": "De Haití y la República Dominicana, ¿cuál ocupa la mayor parte de la isla de La Española?",
+        "fr": "D'Haïti et de la République dominicaine, lequel occupe la plus grande partie de l'île d'Hispaniola ?",
+        "ja": "ハイチとドミニカ共和国のうち、イスパニョーラ島でより広い面積を占めるのはどちらか?"
+      },
+      "o": [
+        {
+          "en": "Haiti",
+          "es": "Haití",
+          "fr": "Haïti",
+          "ja": "ハイチ"
+        },
+        {
+          "en": "The Dominican Republic",
+          "es": "La República Dominicana",
+          "fr": "La République dominicaine",
+          "ja": "ドミニカ共和国"
+        },
+        {
+          "en": "They split it exactly evenly",
+          "es": "Se lo reparten en partes exactamente iguales",
+          "fr": "Ils se le partagent exactement en deux",
+          "ja": "正確に半分ずつ分けている"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The Dominican Republic covers roughly the eastern two-thirds of the island, while Haiti occupies the more mountainous western third.",
+        "es": "La República Dominicana cubre aproximadamente los dos tercios orientales de la isla, mientras que Haití ocupa el tercio occidental, más montañoso.",
+        "fr": "La République dominicaine couvre environ les deux tiers orientaux de l'île, tandis qu'Haïti occupe le tiers occidental, plus montagneux.",
+        "ja": "ドミニカ共和国は島のおよそ東側3分の2を占め、ハイチはより山がちな西側3分の1を占めている。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Maya hieroglyphic writing, once thought largely undecipherable, saw its major breakthroughs mostly during which decade?",
+        "es": "La escritura jeroglífica maya, considerada en gran parte indescifrable, tuvo sus grandes avances sobre todo en qué década?",
+        "fr": "L'écriture hiéroglyphique maya, longtemps jugée largement indéchiffrable, a connu ses principales avancées surtout au cours de quelle décennie ?",
+        "ja": "かつて大部分は解読不能とされていたマヤの象形文字は、主にどの年代に大きな解読の進展があったか?"
+      },
+      "o": [
+        {
+          "en": "The 1950s",
+          "es": "Los años 1950",
+          "fr": "Les années 1950",
+          "ja": "1950年代"
+        },
+        {
+          "en": "The 1970s",
+          "es": "Los años 1970",
+          "fr": "Les années 1970",
+          "ja": "1970年代"
+        },
+        {
+          "en": "The 1980s",
+          "es": "Los años 1980",
+          "fr": "Les années 1980",
+          "ja": "1980年代"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Breakthroughs by epigraphers including Linda Schele and David Stuart in the 1980s showed the script recorded actual history, not just calendar dates, transforming how Maya civilization is understood.",
+        "es": "Los avances de epigrafistas como Linda Schele y David Stuart en los años 1980 mostraron que la escritura registraba historia real, no solo fechas del calendario, y transformaron la comprensión de la civilización maya.",
+        "fr": "Les percées d'épigraphistes comme Linda Schele et David Stuart dans les années 1980 montrèrent que l'écriture consignait une histoire réelle, et non de simples dates calendaires, transformant la compréhension de la civilisation maya.",
+        "ja": "1980年代、リンダ・シェーレやデイヴィッド・スチュアートらの碑文学者による解読の進展により、この文字が単なる暦の日付ではなく実際の歴史を記していたことが分かり、マヤ文明の理解を一変させた。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Which Central American country abolished its standing army altogether in 1948?",
+        "es": "¿Qué país centroamericano abolió por completo su ejército permanente en 1948?",
+        "fr": "Quel pays d'Amérique centrale a totalement aboli son armée permanente en 1948 ?",
+        "ja": "1948年に常備軍を全廃した中米の国はどこか?"
+      },
+      "o": [
+        {
+          "en": "Costa Rica",
+          "es": "Costa Rica",
+          "fr": "Le Costa Rica",
+          "ja": "コスタリカ"
+        },
+        {
+          "en": "Panama",
+          "es": "Panamá",
+          "fr": "Le Panama",
+          "ja": "パナマ"
+        },
+        {
+          "en": "Belize",
+          "es": "Belice",
+          "fr": "Le Belize",
+          "ja": "ベリーズ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The decision followed a brief civil war, and the money saved on the military was redirected toward education and healthcare, a point of national pride ever since.",
+        "es": "La decisión siguió a una breve guerra civil, y el dinero ahorrado en lo militar se redirigió a educación y salud, motivo de orgullo nacional desde entonces.",
+        "fr": "La décision suivit une brève guerre civile, et l'argent économisé sur le militaire fut réorienté vers l'éducation et la santé, une fierté nationale depuis lors.",
+        "ja": "この決定は短い内戦のあとに下され、軍事費に充てるはずだった予算は教育と医療に振り向けられた。以来これは国の誇りとされている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "The Pan-American Highway, the world's longest motorable road, has one deliberate gap of roughly 100 kilometers left unbuilt, separating Panama from Colombia — what is this gap called?",
+        "es": "La Carretera Panamericana, la carretera transitable más larga del mundo, tiene un vacío deliberado de unos 100 kilómetros sin construir, que separa Panamá de Colombia; ¿cómo se llama este vacío?",
+        "fr": "La route panaméricaine, la plus longue route carrossable au monde, comporte un vide volontaire d'environ 100 kilomètres jamais construit, séparant le Panama de la Colombie — comment appelle-t-on ce vide ?",
+        "ja": "世界最長の自動車道パンアメリカン・ハイウェイには、パナマとコロンビアを隔てる約100kmの意図的な未整備区間がある。この空白地帯は何と呼ばれるか?"
+      },
+      "o": [
+        {
+          "en": "The Sonora Gap",
+          "es": "El Vacío de Sonora",
+          "fr": "Le vide de Sonora",
+          "ja": "ソノラ・ギャップ"
+        },
+        {
+          "en": "The Darién Gap",
+          "es": "El Tapón del Darién",
+          "fr": "Le bouchon du Darién",
+          "ja": "ダリエン・ギャップ"
+        },
+        {
+          "en": "The Chiapas Gap",
+          "es": "El Vacío de Chiapas",
+          "fr": "Le vide du Chiapas",
+          "ja": "チアパス・ギャップ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Dense rainforest, swampland and the difficulty of policing a border used by smugglers and, more recently, migrants heading north, have kept the gap unbuilt since the highway's other sections were completed decades ago.",
+        "es": "La densa selva, los pantanos y la dificultad de vigilar una frontera usada por contrabandistas y, más recientemente, por migrantes rumbo al norte, han mantenido el vacío sin construir desde que se completaron las demás secciones de la carretera hace décadas.",
+        "fr": "La forêt tropicale dense, les marécages et la difficulté de surveiller une frontière empruntée par des contrebandiers puis, plus récemment, par des migrants en route vers le nord, ont empêché la construction de ce tronçon depuis que le reste de la route fut achevé il y a des décennies.",
+        "ja": "うっそうとした熱帯雨林と湿地、そして密輸業者や近年では北を目指す移民が使う国境地帯の取り締まりの難しさから、他の区間が何十年も前に完成したあとも、この空白地帯だけは手つかずのままである。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Cinco de Mayo, widely celebrated in the United States, commemorates an 1862 Mexican military victory over the forces of which country?",
+        "es": "El Cinco de Mayo, muy celebrado en Estados Unidos, conmemora una victoria militar mexicana de 1862 sobre las fuerzas de qué país?",
+        "fr": "Le Cinco de Mayo, largement célébré aux États-Unis, commémore une victoire militaire mexicaine de 1862 sur les forces de quel pays ?",
+        "ja": "アメリカで盛んに祝われる「シンコ・デ・マヨ」は、1862年にメキシコがどの国の軍を破った勝利を記念しているか?"
+      },
+      "o": [
+        {
+          "en": "Spain",
+          "es": "España",
+          "fr": "L'Espagne",
+          "ja": "スペイン"
+        },
+        {
+          "en": "The United States",
+          "es": "Estados Unidos",
+          "fr": "Les États-Unis",
+          "ja": "アメリカ"
+        },
+        {
+          "en": "France",
+          "es": "Francia",
+          "fr": "La France",
+          "ja": "フランス"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The battle, fought at Puebla, was a single unexpected win in a war Mexico ultimately lost; the date is barely marked in most of Mexico itself but became a major celebration among Mexican-American communities in the US.",
+        "es": "La batalla, librada en Puebla, fue un triunfo inesperado y aislado en una guerra que México acabó perdiendo; la fecha apenas se celebra en la mayor parte de México, pero se volvió una gran fiesta entre las comunidades méxico-estadounidenses.",
+        "fr": "La bataille, livrée à Puebla, fut une victoire isolée et inattendue dans une guerre que le Mexique perdit finalement ; la date est à peine marquée dans la majeure partie du Mexique mais devint une grande fête parmi les communautés mexicaines-américaines des États-Unis.",
+        "ja": "プエブラで行われたこの戦いは、結局メキシコが敗れる戦争の中での一度きりの意外な勝利だった。この日はメキシコ本国ではほとんど祝われないが、アメリカのメキシコ系コミュニティでは大きな祝日となった。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Canada's Trans-Canada Highway, one of the longest national highways in the world, officially opened in which year?",
+        "es": "La autopista Transcanadiense, una de las carreteras nacionales más largas del mundo, ¿en qué año se inauguró oficialmente?",
+        "fr": "La route transcanadienne, l'une des plus longues routes nationales au monde, a été officiellement inaugurée en quelle année ?",
+        "ja": "世界でも指折りの長さを誇るカナダ横断ハイウェイが公式に開通したのは何年か?"
+      },
+      "o": [
+        {
+          "en": "1962",
+          "es": "1962",
+          "fr": "1962",
+          "ja": "1962年"
+        },
+        {
+          "en": "1975",
+          "es": "1975",
+          "fr": "1975",
+          "ja": "1975年"
+        },
+        {
+          "en": "1948",
+          "es": "1948",
+          "fr": "1948",
+          "ja": "1948年"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Even after its official 1962 opening, sections in Newfoundland and British Columbia remained unpaved for years afterward.",
+        "es": "Incluso tras su inauguración oficial en 1962, tramos en Terranova y Columbia Británica siguieron sin pavimentar durante años.",
+        "fr": "Même après son inauguration officielle en 1962, des tronçons à Terre-Neuve et en Colombie-Britannique restèrent non pavés pendant des années.",
+        "ja": "1962年の公式開通後も、ニューファンドランドとブリティッシュコロンビアの一部区間は長年舗装されないままだった。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Nicaragua's currency is called the córdoba, named after which historical figure?",
+        "es": "La moneda de Nicaragua, el córdoba, debe su nombre a qué figura histórica?",
+        "fr": "La monnaie du Nicaragua, le córdoba, doit son nom à quelle figure historique ?",
+        "ja": "ニカラグアの通貨コルドバは、どの歴史上の人物にちなんで名付けられたか?"
+      },
+      "o": [
+        {
+          "en": "A Nicaraguan poet",
+          "es": "Un poeta nicaragüense",
+          "fr": "Un poète nicaraguayen",
+          "ja": "ニカラグアの詩人"
+        },
+        {
+          "en": "The Spanish conquistador who founded several of the country's colonial cities",
+          "es": "El conquistador español que fundó varias de las ciudades coloniales del país",
+          "fr": "Le conquistador espagnol qui fonda plusieurs des villes coloniales du pays",
+          "ja": "同国の植民地時代の複数の都市を建設したスペインの征服者"
+        },
+        {
+          "en": "A 19th-century president",
+          "es": "Un presidente del siglo XIX",
+          "fr": "Un président du XIXe siècle",
+          "ja": "19世紀の大統領"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Francisco Hernández de Córdoba founded León and Granada in the 1520s, and both the currency and the city of Granada's central plaza still carry his name.",
+        "es": "Francisco Hernández de Córdoba fundó León y Granada en la década de 1520, y tanto la moneda como la plaza central de Granada aún llevan su nombre.",
+        "fr": "Francisco Hernández de Córdoba fonda León et Grenade dans les années 1520, et tant la monnaie que la place centrale de Grenade portent encore son nom.",
+        "ja": "フランシスコ・エルナンデス・デ・コルドバは1520年代にレオンとグラナダを築いた人物で、通貨だけでなくグラナダの中央広場も今なお彼の名を冠している。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "A 1494 treaty between Spain and Portugal drew a north-south line dividing newly claimed territory in the Americas — what is this treaty called?",
+        "es": "Un tratado de 1494 entre España y Portugal trazó una línea de norte a sur que dividía el territorio recién reclamado en América; ¿cómo se llama este tratado?",
+        "fr": "Un traité de 1494 entre l'Espagne et le Portugal traça une ligne nord-sud divisant le territoire nouvellement revendiqué dans les Amériques — comment appelle-t-on ce traité ?",
+        "ja": "1494年、スペインとポルトガルの間で結ばれ、南北アメリカの新たに主張された領土を南北の線で分けた条約は何と呼ばれるか?"
+      },
+      "o": [
+        {
+          "en": "The Treaty of Paris",
+          "es": "El Tratado de París",
+          "fr": "Le traité de Paris",
+          "ja": "パリ条約"
+        },
+        {
+          "en": "The Treaty of Utrecht",
+          "es": "El Tratado de Utrecht",
+          "fr": "Le traité d'Utrecht",
+          "ja": "ユトレヒト条約"
+        },
+        {
+          "en": "The Treaty of Tordesillas",
+          "es": "El Tratado de Tordesillas",
+          "fr": "Le traité de Tordesillas",
+          "ja": "トルデシリャス条約"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The line, running mostly through what is now Brazil, is a key reason Brazil speaks Portuguese while its neighbors speak Spanish, though the treaty's original terms rested on a wildly inaccurate sense of the Americas' true width.",
+        "es": "La línea, que atraviesa en su mayor parte el actual Brasil, es una razón clave por la que Brasil habla portugués mientras sus vecinos hablan español, aunque los términos originales del tratado se basaban en una idea muy inexacta de la anchura real de América.",
+        "fr": "La ligne, traversant surtout ce qui est aujourd'hui le Brésil, explique en grande partie pourquoi le Brésil parle portugais alors que ses voisins parlent espagnol, bien que les termes originaux du traité reposaient sur une idée très inexacte de la largeur réelle des Amériques.",
+        "ja": "主にいまのブラジルを通るこの線引きは、隣国がスペイン語を話す中でブラジルだけがポルトガル語を話す大きな理由の一つになっているが、条約が結ばれた当初、南北アメリカの実際の幅についての認識はひどく不正確だった。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Which North American country's name is, unusually, also literally the name most commonly used for its capital city?",
+        "es": "¿Qué país norteamericano tiene, de forma poco común, el mismo nombre que se usa comúnmente para su capital?",
+        "fr": "Quel pays nord-américain porte, fait rare, le même nom que celui couramment utilisé pour sa capitale ?",
+        "ja": "珍しく、国名がその首都を呼ぶときにも最もよく使われる名前と重なっている北アメリカの国はどこか?"
+      },
+      "o": [
+        {
+          "en": "Panama",
+          "es": "Panamá",
+          "fr": "Le Panama",
+          "ja": "パナマ"
+        },
+        {
+          "en": "Guatemala",
+          "es": "Guatemala",
+          "fr": "Le Guatemala",
+          "ja": "グアテマラ"
+        },
+        {
+          "en": "Honduras",
+          "es": "Honduras",
+          "fr": "Le Honduras",
+          "ja": "ホンジュラス"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Panama City takes its name directly from the country, while Guatemala City and Guatemala are distinguished by the word \"City,\" making Panama's pairing the closest overlap among North American capitals.",
+        "es": "Ciudad de Panamá toma su nombre directamente del país, mientras que Ciudad de Guatemala y Guatemala se distinguen por la palabra «Ciudad», lo que hace del caso panameño la coincidencia más cercana entre las capitales norteamericanas.",
+        "fr": "Panama City tire son nom directement du pays, tandis que Guatemala Ciudad et le Guatemala se distinguent par le mot « Ciudad », faisant du cas panaméen le chevauchement le plus étroit parmi les capitales nord-américaines.",
+        "ja": "「パナマシティ」は国名パナマからそのまま取られた名だが、「グアテマラシティ」はグアテマラと「シティ」の語で区別されており、パナマの場合が北アメリカの首都の中でも国名との重なりが最も大きい。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Which strait, separating Cuba from Mexico's Yucatán Peninsula, connects the Gulf of Mexico to the Caribbean Sea?",
+        "es": "¿Qué estrecho, que separa Cuba de la península mexicana de Yucatán, conecta el golfo de México con el mar Caribe?",
+        "fr": "Quel détroit, séparant Cuba de la péninsule mexicaine du Yucatán, relie le golfe du Mexique à la mer des Caraïbes ?",
+        "ja": "キューバとメキシコのユカタン半島を隔て、メキシコ湾とカリブ海を結んでいる海峡はどこか?"
+      },
+      "o": [
+        {
+          "en": "The Strait of Florida",
+          "es": "El estrecho de Florida",
+          "fr": "Le détroit de Floride",
+          "ja": "フロリダ海峡"
+        },
+        {
+          "en": "The Yucatán Channel",
+          "es": "El canal de Yucatán",
+          "fr": "Le canal du Yucatán",
+          "ja": "ユカタン海峡"
+        },
+        {
+          "en": "The Windward Passage",
+          "es": "El paso de los Vientos",
+          "fr": "Le passage du Vent",
+          "ja": "ウィンドワード海峡"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The channel is narrow enough, at just over 200 kilometers across, that it is often used as a reference point in studies of the Gulf Stream current.",
+        "es": "El canal es lo bastante estrecho, con poco más de 200 kilómetros de ancho, como para usarse a menudo como referencia en estudios de la corriente del Golfo.",
+        "fr": "Le canal est assez étroit, un peu plus de 200 kilomètres de large, pour servir souvent de point de référence dans les études sur le courant du Gulf Stream.",
+        "ja": "わずか200kmあまりの幅しかないこの海峡は、メキシコ湾流の研究でしばしば基準点として使われる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Panama and Belize were both absent from the short-lived Federal Republic of Central America formed in 1823 — Panama, at the time, was part of which South American country?",
+        "es": "Panamá y Belice estuvieron ausentes de la efímera República Federal de Centroamérica formada en 1823; Panamá, en aquel entonces, formaba parte de qué país sudamericano?",
+        "fr": "Le Panama et le Belize étaient tous deux absents de l'éphémère République fédérale d'Amérique centrale formée en 1823 ; le Panama, à l'époque, faisait partie de quel pays sud-américain ?",
+        "ja": "1823年に成立した短命の中米連邦共和国に、パナマとベリーズはともに参加していない。当時パナマは南アメリカのどの国の一部だったか?"
+      },
+      "o": [
+        {
+          "en": "Peru",
+          "es": "Perú",
+          "fr": "Le Pérou",
+          "ja": "ペルー"
+        },
+        {
+          "en": "Venezuela",
+          "es": "Venezuela",
+          "fr": "Le Venezuela",
+          "ja": "ベネズエラ"
+        },
+        {
+          "en": "Gran Colombia",
+          "es": "La Gran Colombia",
+          "fr": "La Grande Colombie",
+          "ja": "グラン・コロンビア"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Panama did not become fully independent until 1903, when it separated from Colombia with US backing during negotiations over what became the Panama Canal.",
+        "es": "Panamá no se independizó plenamente hasta 1903, cuando se separó de Colombia con el respaldo de Estados Unidos durante las negociaciones sobre lo que sería el Canal de Panamá.",
+        "fr": "Le Panama ne devint pleinement indépendant qu'en 1903, lorsqu'il se sépara de la Colombie avec le soutien des États-Unis, en pleine négociation autour de ce qui allait devenir le canal de Panama.",
+        "ja": "パナマが完全に独立したのは1903年になってからで、後にパナマ運河となるものをめぐる交渉のさなか、アメリカの後押しを受けてコロンビアから分離した。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Due to an 18th-century surveying error, which part of Minnesota lies north of the 49th parallel and can be reached by land only by driving through Canada?",
+        "es": "Debido a un error de agrimensura del siglo XVIII, ¿qué parte de Minnesota queda al norte del paralelo 49 y solo se alcanza por tierra atravesando Canadá?",
+        "fr": "En raison d'une erreur d'arpentage du XVIIIe siècle, quelle partie du Minnesota se trouve au nord du 49e parallèle et n'est accessible par la route qu'en traversant le Canada ?",
+        "ja": "18世紀の測量の誤りにより、北緯49度線より北に位置し、陸路ではカナダを通らなければ行けないミネソタ州の一角はどこか?"
+      },
+      "o": [
+        {
+          "en": "The Northwest Angle",
+          "es": "El Ángulo Noroeste",
+          "fr": "Le Northwest Angle",
+          "ja": "ノースウェスト・アングル"
+        },
+        {
+          "en": "The Aroostook Strip",
+          "es": "La Franja de Aroostook",
+          "fr": "La bande d'Aroostook",
+          "ja": "アルーストゥーク・ストリップ"
+        },
+        {
+          "en": "The Chilkoot Corridor",
+          "es": "El Corredor de Chilkoot",
+          "fr": "Le corridor de Chilkoot",
+          "ja": "チルクート回廊"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The mistake traces to a 1783 treaty map based on inaccurate geography of the Lake of the Woods area; roughly 150 people live in the isolated pocket today.",
+        "es": "El error se remonta a un mapa de un tratado de 1783 basado en una geografía inexacta de la zona del Lago de los Bosques; hoy viven allí unas 150 personas en ese enclave aislado.",
+        "fr": "L'erreur remonte à une carte de traité de 1783 fondée sur une géographie inexacte de la région du lac des Bois ; environ 150 personnes vivent aujourd'hui dans cette poche isolée.",
+        "ja": "この誤りは1783年の条約地図がウッズ湖周辺の地理を不正確に描いたことに端を発する。この孤立した一角には現在およそ150人が暮らす。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "In the twin towns of Derby Line, Vermont, and Stanstead, Quebec, a shared library and opera house building straddles the international border — where is the line marked inside?",
+        "es": "En las localidades gemelas de Derby Line (Vermont) y Stanstead (Quebec), un edificio compartido de biblioteca y teatro de ópera está a caballo sobre la frontera internacional; ¿dónde está marcada la línea en su interior?",
+        "fr": "Dans les villes jumelles de Derby Line, au Vermont, et Stanstead, au Québec, un bâtiment partagé abritant bibliothèque et opéra chevauche la frontière internationale ; où la ligne est-elle marquée à l'intérieur ?",
+        "ja": "バーモント州ダービーラインとケベック州スタンステッドという双子の町では、図書館とオペラハウスを兼ねた一つの建物が国際国境をまたいでいる。建物の中でその境界線はどこに引かれているか?"
+      },
+      "o": [
+        {
+          "en": "Across the ceiling",
+          "es": "A través del techo",
+          "fr": "Au plafond",
+          "ja": "天井を横切って"
+        },
+        {
+          "en": "Across the floor",
+          "es": "A través del suelo",
+          "fr": "Au sol",
+          "ja": "床を横切って"
+        },
+        {
+          "en": "There is no marking at all",
+          "es": "No hay marca alguna",
+          "fr": "Il n'y a aucun marquage",
+          "ja": "何の印もない"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "A black tape line runs diagonally across the reading room floor, letting patrons sit in the US to check out a book shelved in Canada, a quirk that became far more complicated after post-9/11 border security tightened.",
+        "es": "Una cinta negra cruza en diagonal el suelo de la sala de lectura, lo que permite a los usuarios sentarse en EE. UU. para sacar un libro guardado en Canadá, una rareza que se complicó mucho tras el endurecimiento fronterizo posterior al 11-S.",
+        "fr": "Un ruban noir traverse en diagonale le sol de la salle de lecture, permettant aux usagers assis aux États-Unis d'emprunter un livre rangé côté canadien, une curiosité bien plus compliquée depuis le renforcement de la sécurité frontalière après le 11-Septembre.",
+        "ja": "閲覧室の床には黒いテープの線が斜めに引かれており、利用者はアメリカ側に座ったままカナダ側の棚にある本を借りられる。この奇妙な仕組みは、9・11後の国境警備強化でずっと厄介なものになった。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "The bloodless 1838–39 \"Aroostook War,\" a dispute over the Maine–New Brunswick border, was ultimately settled by which 1842 treaty?",
+        "es": "La incruenta «guerra de Aroostook» de 1838–39, un litigio por la frontera entre Maine y Nuevo Brunswick, se resolvió finalmente con qué tratado de 1842?",
+        "fr": "La « guerre d'Aroostook » de 1838-1839, un différend sans effusion de sang sur la frontière entre le Maine et le Nouveau-Brunswick, fut finalement réglée par quel traité de 1842 ?",
+        "ja": "1838〜39年の流血のない「アルーストゥーク戦争」――メーン州とニューブランズウィックの国境をめぐる争い――は、1842年のどの条約で決着したか?"
+      },
+      "o": [
+        {
+          "en": "The Jay Treaty",
+          "es": "El Tratado de Jay",
+          "fr": "Le traité Jay",
+          "ja": "ジェイ条約"
+        },
+        {
+          "en": "The Treaty of Ghent",
+          "es": "El Tratado de Gante",
+          "fr": "Le traité de Gand",
+          "ja": "ガン条約"
+        },
+        {
+          "en": "The Webster-Ashburton Treaty",
+          "es": "El Tratado Webster-Ashburton",
+          "fr": "Le traité Webster-Ashburton",
+          "ja": "ウェブスター・アシュバートン条約"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Despite the name, the standoff produced no battle deaths on either side, though both Maine and New Brunswick called up militia and the affair strained US-British relations for months.",
+        "es": "A pesar del nombre, el enfrentamiento no dejó muertos en combate en ningún bando, aunque tanto Maine como Nuevo Brunswick movilizaron milicias y el asunto tensó las relaciones angloestadounidenses durante meses.",
+        "fr": "Malgré son nom, l'affrontement ne fit aucun mort au combat d'aucun côté, bien que le Maine et le Nouveau-Brunswick aient tous deux mobilisé leurs milices et que l'affaire ait tendu les relations anglo-américaines pendant des mois.",
+        "ja": "「戦争」と呼ばれるものの、双方に戦死者は一人も出ていない。それでもメーン州とニューブランズウィックはともに民兵を招集し、この一件は米英関係を数か月にわたり緊張させた。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Which 1846 treaty set the western section of the US-Canada border at the 49th parallel?",
+        "es": "¿Qué tratado de 1846 fijó el tramo occidental de la frontera entre EE. UU. y Canadá en el paralelo 49?",
+        "fr": "Quel traité de 1846 fixa la section occidentale de la frontière américano-canadienne au 49e parallèle ?",
+        "ja": "1846年、米加国境の西側部分を北緯49度線に定めた条約はどれか?"
+      },
+      "o": [
+        {
+          "en": "The Oregon Treaty",
+          "es": "El Tratado de Oregón",
+          "fr": "Le traité de l'Oregon",
+          "ja": "オレゴン条約"
+        },
+        {
+          "en": "The Treaty of Paris",
+          "es": "El Tratado de París",
+          "fr": "Le traité de Paris",
+          "ja": "パリ条約"
+        },
+        {
+          "en": "The Convention of 1818",
+          "es": "La Convención de 1818",
+          "fr": "La convention de 1818",
+          "ja": "1818年条約"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The settlement ended a long dispute known by the slogan \"Fifty-Four Forty or Fight,\" after the more northerly line some Americans had demanded.",
+        "es": "El acuerdo puso fin a un largo litigio conocido por el lema «Cincuenta y cuatro cuarenta o pelea», por la línea más septentrional que exigían algunos estadounidenses.",
+        "fr": "L'accord mit fin à un long différend connu sous le slogan « Cinquante-quatre quarante ou la guerre », du nom de la ligne plus septentrionale que réclamaient certains Américains.",
+        "ja": "この合意により、一部のアメリカ人が求めていたより北寄りの境界線にちなむ「北緯54度40分でなければ戦争だ」というスローガンで知られた長い対立に終止符が打たれた。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Although the US-Canada border runs along the 49th parallel for most of its western length, why does it dip south around Vancouver Island?",
+        "es": "Aunque la frontera entre EE. UU. y Canadá sigue el paralelo 49 en la mayor parte de su tramo occidental, ¿por qué se desvía al sur alrededor de la isla de Vancouver?",
+        "fr": "Bien que la frontière américano-canadienne suive le 49e parallèle sur la majeure partie de sa section occidentale, pourquoi s'incurve-t-elle vers le sud autour de l'île de Vancouver ?",
+        "ja": "米加国境は西側の大半で北緯49度線をたどるのに、なぜバンクーバー島の周りだけ南へ迂回しているのか?"
+      },
+      "o": [
+        {
+          "en": "To give the US a Pacific naval base",
+          "es": "Para dar a EE. UU. una base naval en el Pacífico",
+          "fr": "Pour offrir aux États-Unis une base navale sur le Pacifique",
+          "ja": "アメリカに太平洋の海軍基地を与えるため"
+        },
+        {
+          "en": "To keep the entire island under British/Canadian control",
+          "es": "Para mantener toda la isla bajo control británico/canadiense",
+          "fr": "Pour maintenir l'île entière sous contrôle britannique/canadien",
+          "ja": "島全体をイギリス・カナダの支配下に置くため"
+        },
+        {
+          "en": "To follow a river's course",
+          "es": "Para seguir el curso de un río",
+          "fr": "Pour suivre le cours d'une rivière",
+          "ja": "川の流路に沿わせるため"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Straightening the line at the 49th parallel would have split the island roughly in half, so the 1846 Oregon Treaty routed the border through the strait south of it instead.",
+        "es": "Trazar la línea recta por el paralelo 49 habría partido la isla casi por la mitad, así que el Tratado de Oregón de 1846 hizo pasar la frontera por el estrecho situado al sur.",
+        "fr": "Faire passer la ligne droite par le 49e parallèle aurait coupé l'île à peu près en deux, si bien que le traité de l'Oregon de 1846 fit passer la frontière par le détroit situé plus au sud.",
+        "ja": "北緯49度線をそのまま直進させると島がほぼ半分に割れてしまうため、1846年のオレゴン条約は国境をその南側の海峡に通した。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "The jaguar, an animal usually associated with South America, has confirmed sightings as far north as which US state?",
+        "es": "El jaguar, animal que suele asociarse con Sudamérica, tiene avistamientos confirmados hasta qué estado de EE. UU. por el norte?",
+        "fr": "Le jaguar, animal généralement associé à l'Amérique du Sud, a des observations confirmées aussi loin au nord que dans quel État américain ?",
+        "ja": "通常は南アメリカと結びつけられるジャガーが、北はアメリカのどの州まで確認されているか?"
+      },
+      "o": [
+        {
+          "en": "Texas",
+          "es": "Texas",
+          "fr": "Le Texas",
+          "ja": "テキサス州"
+        },
+        {
+          "en": "New Mexico",
+          "es": "Nuevo México",
+          "fr": "Le Nouveau-Mexique",
+          "ja": "ニューメキシコ州"
+        },
+        {
+          "en": "Arizona",
+          "es": "Arizona",
+          "fr": "L'Arizona",
+          "ja": "アリゾナ州"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Camera-trap photographs have documented individual jaguars in the mountains of southern Arizona periodically since the 1990s, at the very edge of a range that once reached much further north.",
+        "es": "Fotografías de cámaras trampa han documentado jaguares individuales en las montañas del sur de Arizona periódicamente desde los años 1990, en el mismo borde de un territorio que antes se extendía mucho más al norte.",
+        "fr": "Des photographies prises par pièges photographiques ont documenté des jaguars isolés dans les montagnes du sud de l'Arizona de façon périodique depuis les années 1990, à l'extrême limite d'une aire de répartition qui s'étendait jadis bien plus au nord.",
+        "ja": "自動撮影カメラにより、1990年代以降アリゾナ州南部の山地で個体のジャガーが断続的に記録されている。かつてはもっと北まで広がっていた生息域の、まさに縁にあたる場所である。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Haitian Creole became a co-official language alongside French in which year's Haitian constitution?",
+        "es": "El criollo haitiano se convirtió en idioma cooficial junto al francés en la constitución haitiana de qué año?",
+        "fr": "Le créole haïtien est devenu langue coofficielle aux côtés du français dans la constitution haïtienne de quelle année ?",
+        "ja": "ハイチ語がフランス語と並んで共同公用語となったのは、何年の憲法によってか?"
+      },
+      "o": [
+        {
+          "en": "1987",
+          "es": "1987",
+          "fr": "1987",
+          "ja": "1987年"
+        },
+        {
+          "en": "1957",
+          "es": "1957",
+          "fr": "1957",
+          "ja": "1957年"
+        },
+        {
+          "en": "2004",
+          "es": "2004",
+          "fr": "2004",
+          "ja": "2004年"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Although the vast majority of Haitians speak Creole as a first language, French had remained the sole official language for most of the country's history until the change.",
+        "es": "Aunque la inmensa mayoría de los haitianos habla criollo como primera lengua, el francés siguió siendo el único idioma oficial durante la mayor parte de la historia del país hasta ese cambio.",
+        "fr": "Bien que l'immense majorité des Haïtiens parlent le créole comme langue maternelle, le français resta la seule langue officielle pendant la majeure partie de l'histoire du pays, jusqu'à ce changement.",
+        "ja": "ハイチ人の大多数はハイチ語を母語とするが、この改正までは国史の大半を通じてフランス語だけが唯一の公用語であり続けた。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Before switching to standard gauge in the 1870s, many of Canada's earliest railways, including the Grand Trunk, were built to which wider gauge?",
+        "es": "Antes de pasar a la vía ancha estándar en la década de 1870, muchos de los primeros ferrocarriles de Canadá, incluido el Grand Trunk, se construyeron con qué trocha más ancha?",
+        "fr": "Avant de passer à l'écartement standard dans les années 1870, bon nombre des premiers chemins de fer du Canada, dont le Grand Trunk, furent construits selon quel écartement plus large ?",
+        "ja": "1870年代に標準軌へ切り替える前、グランド・トランク鉄道をはじめカナダ初期の多くの鉄道は、どの広い軌間で敷かれていたか?"
+      },
+      "o": [
+        {
+          "en": "4 feet 8.5 inches",
+          "es": "4 pies 8,5 pulgadas",
+          "fr": "4 pieds 8,5 pouces",
+          "ja": "4フィート8.5インチ"
+        },
+        {
+          "en": "5 feet 6 inches",
+          "es": "5 pies 6 pulgadas",
+          "fr": "5 pieds 6 pouces",
+          "ja": "5フィート6インチ"
+        },
+        {
+          "en": "6 feet",
+          "es": "6 pies",
+          "fr": "6 pieds",
+          "ja": "6フィート"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The wider \"Provincial gauge\" was chosen partly to discourage easy military use of Canadian track by American forces in case of war, but it meant freight had to be transferred by hand at the US border for decades.",
+        "es": "La más ancha «trocha provincial» se eligió en parte para dificultar el uso militar de la vía canadiense por fuerzas estadounidenses en caso de guerra, pero obligó a trasbordar la carga a mano en la frontera con EE. UU. durante décadas.",
+        "fr": "Le plus large « écartement provincial » fut choisi en partie pour dissuader une utilisation militaire aisée des voies canadiennes par les forces américaines en cas de guerre, mais il obligea pendant des décennies à transborder le fret à la main à la frontière américaine.",
+        "ja": "この幅広の「州際軌間」が選ばれた理由の一つは、戦争になった際にアメリカ軍がカナダの線路を容易に使えないようにするためだったが、そのせいで数十年にわたり米国境で貨物を手作業で積み替える必要があった。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which Central American country is the only one without a coastline on the Caribbean Sea?",
+        "es": "¿Qué país centroamericano es el único que no tiene costa en el mar Caribe?",
+        "fr": "Quel pays d'Amérique centrale est le seul à ne pas avoir de côte sur la mer des Caraïbes ?",
+        "ja": "中米で唯一、カリブ海に面していない国はどこか?"
+      },
+      "o": [
+        {
+          "en": "Guatemala",
+          "es": "Guatemala",
+          "fr": "Le Guatemala",
+          "ja": "グアテマラ"
+        },
+        {
+          "en": "Panama",
+          "es": "Panamá",
+          "fr": "Le Panama",
+          "ja": "パナマ"
+        },
+        {
+          "en": "El Salvador",
+          "es": "El Salvador",
+          "fr": "Le Salvador",
+          "ja": "エルサルバドル"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "El Salvador's entire coast faces the Pacific Ocean, making it the sole Central American nation whose territory does not touch the Caribbean at any point.",
+        "es": "Toda la costa de El Salvador da al océano Pacífico, lo que lo convierte en la única nación centroamericana cuyo territorio no toca el Caribe en ningún punto.",
+        "fr": "Toute la côte du Salvador donne sur l'océan Pacifique, ce qui en fait la seule nation d'Amérique centrale dont le territoire ne touche nulle part la mer des Caraïbes.",
+        "ja": "エルサルバドルの海岸はすべて太平洋に面しており、領土がどこにおいてもカリブ海に接していない中米唯一の国となっている。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Pancho Villa's 1916 cross-border raid, which prompted a US military expedition into Mexico, struck which New Mexico town?",
+        "es": "El ataque transfronterizo de Pancho Villa en 1916, que provocó una expedición militar estadounidense a México, golpeó a qué pueblo de Nuevo México?",
+        "fr": "Le raid transfrontalier de Pancho Villa en 1916, qui provoqua une expédition militaire américaine au Mexique, frappa quelle ville du Nouveau-Mexique ?",
+        "ja": "1916年、アメリカによるメキシコへの軍事遠征を招いたパンチョ・ビリャの越境襲撃が襲ったニューメキシコ州の町はどこか?"
+      },
+      "o": [
+        {
+          "en": "Columbus",
+          "es": "Columbus",
+          "fr": "Columbus",
+          "ja": "コロンバス"
+        },
+        {
+          "en": "Deming",
+          "es": "Deming",
+          "fr": "Deming",
+          "ja": "デミング"
+        },
+        {
+          "en": "Truth or Consequences",
+          "es": "Truth or Consequences",
+          "fr": "Truth or Consequences",
+          "ja": "トゥルース・オア・コンシクエンシズ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The raid killed several American residents and soldiers, and General John J. Pershing's subsequent \"Punitive Expedition\" into Mexico failed to capture Villa despite months of pursuit.",
+        "es": "El ataque mató a varios residentes y soldados estadounidenses, y la posterior «Expedición Punitiva» del general John J. Pershing en México no logró capturar a Villa pese a meses de persecución.",
+        "fr": "Le raid tua plusieurs résidents et soldats américains, et l'« expédition punitive » du général John J. Pershing qui s'ensuivit au Mexique ne parvint pas à capturer Villa malgré des mois de poursuite.",
+        "ja": "この襲撃で複数のアメリカ人住民と兵士が死亡し、続くジョン・パーシング将軍の「懲罰遠征」はメキシコに何か月も追跡を続けたが、ビリャを捕らえることはできなかった。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which 1965 US law abolished the national-origin quota system, significantly increasing immigration from Latin America and Asia in the decades that followed?",
+        "es": "¿Qué ley estadounidense de 1965 abolió el sistema de cuotas por origen nacional, aumentando notablemente la inmigración desde América Latina y Asia en las décadas siguientes?",
+        "fr": "Quelle loi américaine de 1965 abolit le système de quotas par origine nationale, augmentant nettement l'immigration en provenance d'Amérique latine et d'Asie dans les décennies suivantes ?",
+        "ja": "1965年に成立し、以後数十年にわたりラテンアメリカとアジアからの移民を大きく増やすことになった、出身国別割当制度を廃止したアメリカの法律はどれか?"
+      },
+      "o": [
+        {
+          "en": "The Displaced Persons Act",
+          "es": "La Ley de Personas Desplazadas",
+          "fr": "La loi sur les personnes déplacées",
+          "ja": "避難民法"
+        },
+        {
+          "en": "The Immigration and Nationality Act of 1965",
+          "es": "La Ley de Inmigración y Nacionalidad de 1965",
+          "fr": "La loi de 1965 sur l'immigration et la nationalité",
+          "ja": "1965年移民国籍法"
+        },
+        {
+          "en": "The Homestead Act",
+          "es": "La Ley de Asentamientos Rurales",
+          "fr": "La loi sur les concessions de terres",
+          "ja": "ホームステッド法"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Also known as the Hart-Celler Act, the law reversed a quota system dating to the 1920s that had heavily favored immigrants from Western Europe.",
+        "es": "Conocida también como Ley Hart-Celler, revirtió un sistema de cuotas que databa de los años 1920 y favorecía en gran medida a los inmigrantes de Europa occidental.",
+        "fr": "Aussi appelée loi Hart-Celler, elle inversa un système de quotas datant des années 1920 qui favorisait largement les immigrants d'Europe occidentale.",
+        "ja": "ハート=セラー法とも呼ばれるこの法律は、1920年代から続き西ヨーロッパからの移民を大きく優遇していた割当制度を覆した。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "The bracero program, a mid-20th-century agreement bringing Mexican farm laborers to work legally in the United States, ran from 1942 to which year?",
+        "es": "El programa Bracero, acuerdo de mediados del siglo XX que llevó a trabajadores agrícolas mexicanos a trabajar legalmente en EE. UU., ¿operó de 1942 a qué año?",
+        "fr": "Le programme Bracero, accord du milieu du XXe siècle amenant des ouvriers agricoles mexicains à travailler légalement aux États-Unis, fonctionna de 1942 à quelle année ?",
+        "ja": "20世紀半ば、メキシコの農業労働者が合法的にアメリカで働けるようにしたブラセロ計画は、1942年から何年まで続いたか?"
+      },
+      "o": [
+        {
+          "en": "1952",
+          "es": "1952",
+          "fr": "1952",
+          "ja": "1952年"
+        },
+        {
+          "en": "1958",
+          "es": "1958",
+          "fr": "1958",
+          "ja": "1958年"
+        },
+        {
+          "en": "1964",
+          "es": "1964",
+          "fr": "1964",
+          "ja": "1964年"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Over its more than two decades, the program issued millions of short-term contracts, and its 1964 end is often cited as one factor behind a later rise in undocumented farm labor migration.",
+        "es": "A lo largo de más de dos décadas, el programa emitió millones de contratos temporales, y su fin en 1964 suele citarse como uno de los factores tras el posterior aumento de la migración laboral agrícola indocumentada.",
+        "fr": "Sur plus de deux décennies, le programme délivra des millions de contrats de courte durée, et sa fin en 1964 est souvent citée comme l'un des facteurs de la hausse ultérieure de la migration agricole sans papiers.",
+        "ja": "20年以上続いたこの計画は数百万件の短期契約を発給し、1964年の終了は、その後の非正規の農業移民労働者増加の一因としてしばしば挙げられる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which Canadian province is the only one whose sole official language, provincially, is French?",
+        "es": "¿Qué provincia canadiense es la única cuyo único idioma oficial, a nivel provincial, es el francés?",
+        "fr": "Quelle province canadienne est la seule dont la seule langue officielle, au niveau provincial, est le français ?",
+        "ja": "州レベルで公用語がフランス語のみとされている唯一のカナダの州はどこか?"
+      },
+      "o": [
+        {
+          "en": "Quebec",
+          "es": "Quebec",
+          "fr": "Le Québec",
+          "ja": "ケベック州"
+        },
+        {
+          "en": "New Brunswick",
+          "es": "Nuevo Brunswick",
+          "fr": "Le Nouveau-Brunswick",
+          "ja": "ニューブランズウィック州"
+        },
+        {
+          "en": "Ontario",
+          "es": "Ontario",
+          "fr": "L'Ontario",
+          "ja": "オンタリオ州"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "New Brunswick, by contrast, is Canada's only officially bilingual province at the provincial level, while the federal government itself operates in both English and French nationwide.",
+        "es": "Nuevo Brunswick, en cambio, es la única provincia oficialmente bilingüe de Canadá a nivel provincial, mientras que el propio gobierno federal opera en inglés y francés en todo el país.",
+        "fr": "Le Nouveau-Brunswick, à l'inverse, est la seule province officiellement bilingue du Canada au niveau provincial, tandis que le gouvernement fédéral lui-même fonctionne dans les deux langues à l'échelle du pays.",
+        "ja": "一方ニューブランズウィック州は、州レベルで公式に英仏バイリンガルとされる唯一の州であり、連邦政府自体は全国で英語とフランス語の両方を用いて運営されている。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "The Cascadia Subduction Zone, capable of producing a magnitude-9 earthquake, lies off the coast of which region?",
+        "es": "La zona de subducción de Cascadia, capaz de producir un terremoto de magnitud 9, se encuentra frente a la costa de qué región?",
+        "fr": "La zone de subduction de Cascadia, capable de produire un séisme de magnitude 9, se trouve au large des côtes de quelle région ?",
+        "ja": "マグニチュード9クラスの地震を引き起こしうるカスケード沈み込み帯は、どの地域の沖にあるか?"
+      },
+      "o": [
+        {
+          "en": "The Gulf of Mexico",
+          "es": "El golfo de México",
+          "fr": "Le golfe du Mexique",
+          "ja": "メキシコ湾"
+        },
+        {
+          "en": "The Pacific Northwest",
+          "es": "El noroeste del Pacífico",
+          "fr": "Le Nord-Ouest Pacifique",
+          "ja": "太平洋岸北西部"
+        },
+        {
+          "en": "The Bay of Fundy",
+          "es": "La bahía de Fundy",
+          "fr": "La baie de Fundy",
+          "ja": "ファンディ湾"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Geological evidence points to the fault's last major rupture in January 1700, an event precisely dated thanks to a tsunami it triggered that was recorded in written accounts in Japan.",
+        "es": "La evidencia geológica señala la última gran ruptura de la falla en enero de 1700, fechada con precisión gracias a un tsunami que provocó y que quedó registrado en crónicas escritas en Japón.",
+        "fr": "Les preuves géologiques situent la dernière rupture majeure de la faille en janvier 1700, un événement daté avec précision grâce à un tsunami qu'elle déclencha et qui fut consigné dans des récits écrits au Japon.",
+        "ja": "地質学的な証拠は、この断層の最後の大規模な破壊が1700年1月に起きたことを示しており、それが引き起こした津波が日本の文献記録に残っていたことから正確な日付が判明している。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "The 1840s US political slogan \"Fifty-Four Forty or Fight\" referred to a boundary dispute over which region, eventually settled at the 49th parallel?",
+        "es": "El eslogan político estadounidense de la década de 1840 «Cincuenta y cuatro cuarenta o pelea» se refería a una disputa fronteriza sobre qué región, resuelta finalmente en el paralelo 49?",
+        "fr": "Le slogan politique américain des années 1840 « Cinquante-quatre quarante ou la guerre » renvoyait à un différend frontalier sur quelle région, finalement réglé au 49e parallèle ?",
+        "ja": "1840年代のアメリカの政治スローガン「北緯54度40分でなければ戦争だ」は、最終的に北緯49度線で決着した、どの地域をめぐる国境紛争を指していたか?"
+      },
+      "o": [
+        {
+          "en": "The Alaska Panhandle",
+          "es": "La franja de Alaska",
+          "fr": "Le Panhandle de l'Alaska",
+          "ja": "アラスカ・パンハンドル"
+        },
+        {
+          "en": "The Yucatán Peninsula",
+          "es": "La península de Yucatán",
+          "fr": "La péninsule du Yucatán",
+          "ja": "ユカタン半島"
+        },
+        {
+          "en": "The Oregon Country",
+          "es": "El País de Oregón",
+          "fr": "Le pays de l'Oregon",
+          "ja": "オレゴン・カントリー"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Some expansionists wanted the border pushed north to the latitude 54°40', which would have given the US most of present-day British Columbia; the eventual 1846 treaty settled for far less.",
+        "es": "Algunos expansionistas querían empujar la frontera al norte hasta la latitud 54°40', lo que habría dado a EE. UU. la mayor parte de la actual Columbia Británica; el tratado final de 1846 se conformó con mucho menos.",
+        "fr": "Certains expansionnistes voulaient repousser la frontière au nord jusqu'à la latitude 54°40', ce qui aurait donné aux États-Unis l'essentiel de l'actuelle Colombie-Britannique ; le traité de 1846 se contenta finalement de bien moins.",
+        "ja": "一部の拡張主義者は国境を北緯54度40分まで押し上げることを望んでおり、それが実現していれば現在のブリティッシュコロンビア州の大半がアメリカ領になっていた。1846年に結ばれた条約は、それよりずっと控えめな線に落ち着いた。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "The 1853–54 Gadsden Purchase, bought from Mexico to allow a southern transcontinental railroad route, added territory to which two present-day US states?",
+        "es": "La Compra de Gadsden de 1853–54, adquirida a México para permitir una ruta ferroviaria transcontinental sur, añadió territorio a qué dos estados actuales de EE. UU.?",
+        "fr": "L'achat Gadsden de 1853-1854, acquis au Mexique pour permettre une route ferroviaire transcontinentale méridionale, ajouta du territoire à quels deux États américains actuels ?",
+        "ja": "南回りの大陸横断鉄道を通すためメキシコから購入した1853〜54年のガズデン購入は、現在のどの二つのアメリカの州に領土を加えたか?"
+      },
+      "o": [
+        {
+          "en": "Arizona and New Mexico",
+          "es": "Arizona y Nuevo México",
+          "fr": "L'Arizona et le Nouveau-Mexique",
+          "ja": "アリゾナ州とニューメキシコ州"
+        },
+        {
+          "en": "Texas and Oklahoma",
+          "es": "Texas y Oklahoma",
+          "fr": "Le Texas et l'Oklahoma",
+          "ja": "テキサス州とオクラホマ州"
+        },
+        {
+          "en": "California and Nevada",
+          "es": "California y Nevada",
+          "fr": "La Californie et le Nevada",
+          "ja": "カリフォルニア州とネバダ州"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The strip was bought for 10 million dollars specifically because it offered a flatter, lower-elevation route for a railway than the mountainous land to the north.",
+        "es": "La franja se compró por 10 millones de dólares precisamente porque ofrecía una ruta ferroviaria más llana y de menor altitud que el terreno montañoso al norte.",
+        "fr": "La bande fut achetée pour 10 millions de dollars précisément parce qu'elle offrait un tracé ferroviaire plus plat et de moindre altitude que le terrain montagneux plus au nord.",
+        "ja": "この帯状の土地が1000万ドルで購入されたのは、まさに北側の山がちな土地よりも平坦で標高の低い鉄道用地を提供したからだった。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which Central American country has English, rather than Spanish, as its sole official language, a legacy of British colonial rule?",
+        "es": "¿Qué país centroamericano tiene el inglés, y no el español, como único idioma oficial, herencia del dominio colonial británico?",
+        "fr": "Quel pays d'Amérique centrale a l'anglais, et non l'espagnol, pour seule langue officielle, héritage de la domination coloniale britannique ?",
+        "ja": "イギリス植民地支配の名残で、スペイン語ではなく英語を唯一の公用語としている中米の国はどこか?"
+      },
+      "o": [
+        {
+          "en": "Panama",
+          "es": "Panamá",
+          "fr": "Le Panama",
+          "ja": "パナマ"
+        },
+        {
+          "en": "Belize",
+          "es": "Belice",
+          "fr": "Le Belize",
+          "ja": "ベリーズ"
+        },
+        {
+          "en": "Honduras",
+          "es": "Honduras",
+          "fr": "Le Honduras",
+          "ja": "ホンジュラス"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Despite English being the official language, Belizean Kriol and Spanish are both more widely spoken day to day than formal English.",
+        "es": "A pesar de que el inglés es el idioma oficial, tanto el criollo beliceño como el español se hablan más en el día a día que el inglés formal.",
+        "fr": "Bien que l'anglais soit la langue officielle, le kriol bélizien et l'espagnol sont tous deux plus parlés au quotidien que l'anglais formel.",
+        "ja": "英語が公用語であるにもかかわらず、日常ではベリーズ・クリオール語とスペイン語のほうが正式な英語よりも広く話されている。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "The Panama Canal's lock system lifts ships to Gatun Lake, which sits roughly how many meters above sea level?",
+        "es": "El sistema de esclusas del Canal de Panamá eleva los buques hasta el lago Gatún, situado a unos cuántos metros sobre el nivel del mar?",
+        "fr": "Le système d'écluses du canal de Panama élève les navires jusqu'au lac Gatún, situé à environ combien de mètres au-dessus du niveau de la mer ?",
+        "ja": "パナマ運河の閘門システムは船をガトゥン湖まで持ち上げるが、この湖は海抜およそ何メートルにあるか?"
+      },
+      "o": [
+        {
+          "en": "10 meters",
+          "es": "10 metros",
+          "fr": "10 mètres",
+          "ja": "10メートル"
+        },
+        {
+          "en": "45 meters",
+          "es": "45 metros",
+          "fr": "45 mètres",
+          "ja": "45メートル"
+        },
+        {
+          "en": "26 meters",
+          "es": "26 metros",
+          "fr": "26 mètres",
+          "ja": "26メートル"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Gatun Lake, formed by damming the Chagres River, was the largest artificial lake in the world when it was created in the 1910s and still supplies the fresh water that operates the canal's locks.",
+        "es": "El lago Gatún, formado al represar el río Chagres, fue el mayor lago artificial del mundo cuando se creó en la década de 1910 y aún hoy suministra el agua dulce que opera las esclusas del canal.",
+        "fr": "Le lac Gatún, formé en barrant le fleuve Chagres, était le plus grand lac artificiel du monde lors de sa création dans les années 1910, et il fournit encore l'eau douce qui actionne les écluses du canal.",
+        "ja": "チャグレス川をせき止めて作られたガトゥン湖は、1910年代の完成当時は世界最大の人工湖であり、いまも運河の閘門を動かす真水を供給し続けている。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which desert, spanning much of northern Mexico and parts of the southwestern United States, is North America's largest by area?",
+        "es": "¿Qué desierto, que abarca buena parte del norte de México y partes del suroeste de EE. UU., es el más extenso de América del Norte?",
+        "fr": "Quel désert, s'étendant sur une grande partie du nord du Mexique et des parties du sud-ouest des États-Unis, est le plus vaste d'Amérique du Nord ?",
+        "ja": "メキシコ北部の大部分とアメリカ南西部の一部にまたがる、北アメリカ最大の面積を持つ砂漠はどれか?"
+      },
+      "o": [
+        {
+          "en": "The Chihuahuan Desert",
+          "es": "El desierto de Chihuahua",
+          "fr": "Le désert de Chihuahua",
+          "ja": "チワワ砂漠"
+        },
+        {
+          "en": "The Mojave Desert",
+          "es": "El desierto de Mojave",
+          "fr": "Le désert de Mojave",
+          "ja": "モハーヴェ砂漠"
+        },
+        {
+          "en": "The Sonoran Desert",
+          "es": "El desierto de Sonora",
+          "fr": "Le désert de Sonora",
+          "ja": "ソノラ砂漠"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Despite its size, the Chihuahuan Desert sits at a relatively high elevation and receives more of its modest rainfall in summer than deserts further west.",
+        "es": "Pese a su tamaño, el desierto de Chihuahua se sitúa a una altitud relativamente alta y recibe más de su modesta lluvia en verano que los desiertos más al oeste.",
+        "fr": "Malgré sa taille, le désert de Chihuahua se situe à une altitude relativement élevée et reçoit une plus grande part de ses modestes précipitations en été que les déserts plus à l'ouest.",
+        "ja": "チワワ砂漠はその広さにもかかわらず標高が比較的高く、わずかな降水の多くが、より西にある砂漠地帯より夏に集中する。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which Canadian province was a separate British Dominion, not part of Canada, until it joined the confederation in 1949?",
+        "es": "¿Qué provincia canadiense fue un Dominio británico independiente, no parte de Canadá, hasta unirse a la confederación en 1949?",
+        "fr": "Quelle province canadienne fut un Dominion britannique distinct, non rattaché au Canada, jusqu'à son adhésion à la confédération en 1949 ?",
+        "ja": "1949年に連邦へ加わるまで、カナダとは別のイギリス自治領だったカナダの州はどこか?"
+      },
+      "o": [
+        {
+          "en": "Prince Edward Island",
+          "es": "Isla del Príncipe Eduardo",
+          "fr": "L'Île-du-Prince-Édouard",
+          "ja": "プリンスエドワードアイランド州"
+        },
+        {
+          "en": "Newfoundland",
+          "es": "Terranova",
+          "fr": "Terre-Neuve",
+          "ja": "ニューファンドランド州"
+        },
+        {
+          "en": "Nova Scotia",
+          "es": "Nueva Escocia",
+          "fr": "La Nouvelle-Écosse",
+          "ja": "ノバスコシア州"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "A close 1948 referendum decided the question, with confederation with Canada narrowly defeating the option of returning to full self-government as an independent dominion.",
+        "es": "Un reñido referéndum de 1948 decidió la cuestión, con la confederación con Canadá ganando por poco a la opción de volver al autogobierno pleno como dominio independiente.",
+        "fr": "Un référendum serré en 1948 trancha la question, la confédération avec le Canada l'emportant de justesse sur l'option d'un retour à l'autonomie complète en tant que dominion indépendant.",
+        "ja": "1948年の僅差の住民投票でこの問題が決着し、カナダとの連邦入りが、独立自治領としての完全自治復帰という選択肢をわずかに上回った。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "The Confederation Bridge, linking Prince Edward Island to the New Brunswick mainland, opened to traffic in which year?",
+        "es": "El puente de la Confederación, que une la Isla del Príncipe Eduardo con el continente en Nuevo Brunswick, se abrió al tráfico en qué año?",
+        "fr": "Le pont de la Confédération, reliant l'Île-du-Prince-Édouard au continent au Nouveau-Brunswick, a ouvert à la circulation en quelle année ?",
+        "ja": "プリンスエドワードアイランド州とニューブランズウィック州本土を結ぶコンフェデレーション橋が開通したのは何年か?"
+      },
+      "o": [
+        {
+          "en": "1985",
+          "es": "1985",
+          "fr": "1985",
+          "ja": "1985年"
+        },
+        {
+          "en": "2005",
+          "es": "2005",
+          "fr": "2005",
+          "ja": "2005年"
+        },
+        {
+          "en": "1997",
+          "es": "1997",
+          "fr": "1997",
+          "ja": "1997年"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "At roughly 12.9 kilometers, it is often cited as the longest bridge in the world over ice-covered water, engineered to withstand seasonal pack ice in the Northumberland Strait.",
+        "es": "Con unos 12,9 kilómetros, suele citarse como el puente más largo del mundo sobre aguas cubiertas de hielo, diseñado para resistir el hielo estacional del estrecho de Northumberland.",
+        "fr": "Avec environ 12,9 kilomètres, il est souvent cité comme le plus long pont du monde sur des eaux couvertes de glace, conçu pour résister à la banquise saisonnière du détroit de Northumberland.",
+        "ja": "全長およそ12.9kmのこの橋は、しばしば「氷に覆われた海の上では世界最長の橋」と言われ、ノーサンバーランド海峡の季節的な氷に耐えるよう設計されている。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which North American country's national anthem is customarily performed in a version that blends both English and French verses at official events?",
+        "es": "El himno nacional de qué país norteamericano se interpreta habitualmente en una versión que mezcla estrofas en inglés y en francés en actos oficiales?",
+        "fr": "L'hymne national de quel pays nord-américain est-il habituellement interprété dans une version mêlant couplets anglais et français lors d'événements officiels ?",
+        "ja": "公式行事で英語とフランス語の歌詞を組み合わせた形で歌われるのが慣例になっている国歌は、北アメリカのどの国のものか?"
+      },
+      "o": [
+        {
+          "en": "Canada",
+          "es": "Canadá",
+          "fr": "Le Canada",
+          "ja": "カナダ"
+        },
+        {
+          "en": "Haiti",
+          "es": "Haití",
+          "fr": "Haïti",
+          "ja": "ハイチ"
+        },
+        {
+          "en": "The United States",
+          "es": "Estados Unidos",
+          "fr": "Les États-Unis",
+          "ja": "アメリカ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "\"O Canada\" was originally written entirely in French in 1880; an English version followed decades later, and today ceremonial performances often alternate between the two.",
+        "es": "«O Canada» se escribió originalmente por completo en francés en 1880; una versión en inglés llegó décadas después, y hoy las interpretaciones ceremoniales suelen alternar entre ambas.",
+        "fr": "« Ô Canada » fut à l'origine écrit entièrement en français en 1880 ; une version anglaise suivit des décennies plus tard, et les interprétations cérémonielles alternent aujourd'hui souvent entre les deux.",
+        "ja": "「オー・カナダ」は1880年、当初は全編フランス語で書かれた。英語版が続いたのは数十年後のことで、今日の式典での演奏は両方の言語を交互に用いることが多い。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "A 1944 treaty divides the shared waters of the Colorado and Rio Grande rivers between which two countries?",
+        "es": "Un tratado de 1944 reparte las aguas compartidas de los ríos Colorado y Bravo entre qué dos países?",
+        "fr": "Un traité de 1944 répartit les eaux partagées des fleuves Colorado et Rio Grande entre quels deux pays ?",
+        "ja": "1944年の条約は、コロラド川とリオグランデ川の共有水域をどの二国のあいだで分けているか?"
+      },
+      "o": [
+        {
+          "en": "Canada and the United States",
+          "es": "Canadá y Estados Unidos",
+          "fr": "Le Canada et les États-Unis",
+          "ja": "カナダとアメリカ"
+        },
+        {
+          "en": "The United States and Mexico",
+          "es": "Estados Unidos y México",
+          "fr": "Les États-Unis et le Mexique",
+          "ja": "アメリカとメキシコ"
+        },
+        {
+          "en": "Mexico and Guatemala",
+          "es": "México y Guatemala",
+          "fr": "Le Mexique et le Guatemala",
+          "ja": "メキシコとグアテマラ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The treaty guarantees Mexico a fixed annual share of Colorado River water and the US a share of certain Rio Grande tributaries originating in Mexico, an arrangement strained in dry years.",
+        "es": "El tratado garantiza a México una cuota anual fija de agua del río Colorado, y a EE. UU. una parte de ciertos afluentes del Bravo que nacen en México, un arreglo que se tensa en los años secos.",
+        "fr": "Le traité garantit au Mexique une part annuelle fixe de l'eau du fleuve Colorado, et aux États-Unis une part de certains affluents du Rio Grande prenant leur source au Mexique, un arrangement mis à rude épreuve les années sèches.",
+        "ja": "この条約はメキシコにコロラド川の水の年間一定量を、アメリカにはメキシコを水源とするリオグランデ川の一部支流の水を保証しているが、渇水の年にはこの取り決めがきしむことがある。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Which country's 1989 military intervention in Panama, \"Operation Just Cause,\" removed the country's leader, Manuel Noriega, from power?",
+        "es": "La intervención militar de 1989 en Panamá, «Operación Causa Justa», que derrocó al líder del país, Manuel Noriega, ¿fue de qué país?",
+        "fr": "L'intervention militaire de 1989 au Panama, « Opération Juste Cause », qui destitua le dirigeant du pays, Manuel Noriega, fut menée par quel pays ?",
+        "ja": "1989年、パナマの指導者マヌエル・ノリエガを権力の座から追った軍事介入「正義の大義作戦」を行ったのはどの国か?"
+      },
+      "o": [
+        {
+          "en": "Colombia",
+          "es": "Colombia",
+          "fr": "La Colombie",
+          "ja": "コロンビア"
+        },
+        {
+          "en": "The United Kingdom",
+          "es": "El Reino Unido",
+          "fr": "Le Royaume-Uni",
+          "ja": "イギリス"
+        },
+        {
+          "en": "The United States",
+          "es": "Estados Unidos",
+          "fr": "Les États-Unis",
+          "ja": "アメリカ"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Noriega, once a paid US intelligence asset, surrendered after taking refuge in the Vatican's diplomatic mission in Panama City and was later convicted on drug-trafficking charges in a US court.",
+        "es": "Noriega, en su día informante pagado de la inteligencia estadounidense, se rindió tras refugiarse en la misión diplomática del Vaticano en Ciudad de Panamá, y fue condenado después por narcotráfico en un tribunal de EE. UU.",
+        "fr": "Noriega, autrefois informateur rémunéré des services de renseignement américains, se rendit après s'être réfugié à la mission diplomatique du Vatican à Panama City, et fut plus tard condamné pour trafic de drogue par un tribunal américain.",
+        "ja": "かつてアメリカの情報機関から報酬を得ていたノリエガは、パナマシティのバチカン外交使節団に逃げ込んだのち投降し、のちにアメリカの法廷で麻薬密輸の罪により有罪判決を受けた。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The original ceremonial golden spike from the 1869 Promontory Summit ceremony is preserved today at which institution?",
+        "es": "El clavo de oro ceremonial original de la ceremonia de Promontory Summit de 1869 se conserva hoy en qué institución?",
+        "fr": "Le crampon doré cérémoniel original de la cérémonie de Promontory Summit de 1869 est aujourd'hui conservé dans quelle institution ?",
+        "ja": "1869年のプロモントリー・サミット式典で使われた本物の金の犬釘は、いまどの施設に保存されているか?"
+      },
+      "o": [
+        {
+          "en": "Stanford University's museum",
+          "es": "El museo de la Universidad de Stanford",
+          "fr": "Le musée de l'université Stanford",
+          "ja": "スタンフォード大学の博物館"
+        },
+        {
+          "en": "The Smithsonian Institution",
+          "es": "La Institución Smithsonian",
+          "fr": "La Smithsonian Institution",
+          "ja": "スミソニアン協会"
+        },
+        {
+          "en": "The Canadian Museum of History",
+          "es": "El Museo Canadiense de Historia",
+          "fr": "Le Musée canadien de l'histoire",
+          "ja": "カナダ歴史博物館"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The gold spike was pulled out again almost immediately after the ceremonial photographs were taken and replaced with an ordinary iron one for actual railroad use; the donor family had ties to Leland Stanford, the university's founder.",
+        "es": "El clavo de oro se retiró de nuevo casi inmediatamente después de las fotos ceremoniales y se sustituyó por uno de hierro corriente para el uso ferroviario real; la familia donante tenía vínculos con Leland Stanford, fundador de la universidad.",
+        "fr": "Le crampon doré fut retiré presque aussitôt après les photographies cérémonielles et remplacé par un crampon en fer ordinaire pour l'usage ferroviaire réel ; la famille donatrice avait des liens avec Leland Stanford, fondateur de l'université.",
+        "ja": "金の犬釘は式典の記念写真が撮られるとほぼ即座に抜き取られ、実際の鉄道用にはただの鉄釘に差し替えられた。寄贈した一族は大学創設者リーランド・スタンフォードと縁があった。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The Panama Railroad, when it opened in 1855, charged a one-way fare often cited as the highest per-mile passenger fare in railroad history — roughly how much, in gold dollars?",
+        "es": "El Ferrocarril de Panamá, al inaugurarse en 1855, cobraba un pasaje de ida a menudo citado como la tarifa por milla más alta de la historia ferroviaria: ¿unos cuántos dólares en oro?",
+        "fr": "Le chemin de fer de Panama, à son ouverture en 1855, facturait un aller simple souvent cité comme le tarif au mile le plus élevé de l'histoire ferroviaire — environ combien, en dollars-or ?",
+        "ja": "1855年に開通したパナマ鉄道は、鉄道史上もっとも高いマイル当たり運賃だったとしばしば言われる片道運賃を課していたが、金貨でおよそいくらだったか?"
+      },
+      "o": [
+        {
+          "en": "5 dollars",
+          "es": "5 dólares",
+          "fr": "5 dollars",
+          "ja": "5ドル"
+        },
+        {
+          "en": "25 dollars",
+          "es": "25 dólares",
+          "fr": "25 dollars",
+          "ja": "25ドル"
+        },
+        {
+          "en": "100 dollars",
+          "es": "100 dólares",
+          "fr": "100 dollars",
+          "ja": "100ドル"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Desperate gold-rush travelers paid it anyway rather than face weeks crossing the isthmus on foot and by canoe, or months sailing around Cape Horn.",
+        "es": "Los desesperados viajeros de la fiebre del oro lo pagaban igual antes que enfrentar semanas cruzando el istmo a pie y en canoa, o meses navegando alrededor del cabo de Hornos.",
+        "fr": "Les voyageurs de la ruée vers l'or, désespérés, le payaient tout de même plutôt que d'affronter des semaines à traverser l'isthme à pied et en canoë, ou des mois à naviguer autour du cap Horn.",
+        "ja": "ゴールドラッシュに向かう必死の旅人たちは、地峡を徒歩とカヌーで何週間もかけて渡るか、ホーン岬を何か月もかけて回る航海をするよりはと、それでもこの運賃を払った。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "In what became known as the \"Great Gauge Change\" of 1886, roughly how many kilometers of Southern US railroad track were converted from a wider gauge to standard gauge in about 36 hours?",
+        "es": "En lo que se conoció como el «Gran Cambio de Trocha» de 1886, ¿cuántos kilómetros de vía férrea del sur de EE. UU. se convirtieron de una trocha más ancha a la estándar en unas 36 horas?",
+        "fr": "Dans ce qu'on appela le « grand changement d'écartement » de 1886, combien de kilomètres de voies ferrées du sud des États-Unis furent convertis d'un écartement plus large à l'écartement standard en environ 36 heures ?",
+        "ja": "1886年、「大改軌」と呼ばれる出来事で、アメリカ南部の鉄道はおよそ36時間のうちに広軌から標準軌へ何km分改められたか?"
+      },
+      "o": [
+        {
+          "en": "1,300 km",
+          "es": "1300 km",
+          "fr": "1 300 km",
+          "ja": "1300km"
+        },
+        {
+          "en": "4,000 km",
+          "es": "4000 km",
+          "fr": "4 000 km",
+          "ja": "4000km"
+        },
+        {
+          "en": "13,000 km",
+          "es": "13 000 km",
+          "fr": "13 000 km",
+          "ja": "13000km"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Tens of thousands of workers moved one rail of each track inward by exactly three inches in a single coordinated weekend, instantly linking the South's rail network to the rest of the continent.",
+        "es": "Decenas de miles de trabajadores movieron un riel de cada vía exactamente 7,6 centímetros hacia dentro en un único fin de semana coordinado, uniendo al instante la red ferroviaria del Sur con el resto del continente.",
+        "fr": "Des dizaines de milliers d'ouvriers déplacèrent un rail de chaque voie de tout juste sept centimètres vers l'intérieur, en un seul week-end coordonné, reliant instantanément le réseau ferroviaire du Sud au reste du continent.",
+        "ja": "数万人の作業員が、綿密に調整された週末のわずかな間に、各線路の片方のレールをちょうど3インチだけ内側へ動かし、南部の鉄道網を大陸の他の路線へ一挙につないだ。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Historians generally describe the death toll of building the Panama Canal, across its French and American construction eras combined, as at least roughly how many workers?",
+        "es": "Los historiadores suelen describir el número de muertos en la construcción del Canal de Panamá, sumando las etapas francesa y estadounidense, como al menos unos cuántos trabajadores?",
+        "fr": "Les historiens décrivent généralement le nombre de morts de la construction du canal de Panama, sur ses périodes de chantier française et américaine combinées, comme étant d'au moins environ combien d'ouvriers ?",
+        "ja": "パナマ運河建設の死者数は、フランス期とアメリカ期を合わせて、歴史家たちにより少なくともおよそ何人と語られることが多いか?"
+      },
+      "o": [
+        {
+          "en": "25,000",
+          "es": "25 000",
+          "fr": "25 000",
+          "ja": "25000人"
+        },
+        {
+          "en": "2,500",
+          "es": "2500",
+          "fr": "2 500",
+          "ja": "2500人"
+        },
+        {
+          "en": "250,000",
+          "es": "250 000",
+          "fr": "250 000",
+          "ja": "250000人"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The true number was never precisely counted, particularly among Caribbean laborers during the disease-ridden French era of the 1880s, so historians generally describe the toll only as a rough, and probably conservative, estimate.",
+        "es": "El número real nunca se contó con precisión, sobre todo entre los trabajadores caribeños durante la etapa francesa de los años 1880, plagada de enfermedades, así que los historiadores lo describen solo como una estimación aproximada y probablemente conservadora.",
+        "fr": "Le nombre réel ne fut jamais compté avec précision, en particulier parmi les ouvriers caribéens durant la période française des années 1880, ravagée par la maladie, si bien que les historiens ne le décrivent que comme une estimation approximative, sans doute prudente.",
+        "ja": "正確な数はついに数えられておらず、とりわけ疫病の蔓延した1880年代のフランス期のカリブ海出身労働者についてはなおさらである。そのため歴史家たちは、この数字をあくまで控えめな概算としてしか語らない。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "Whose campaign against mosquito-borne disease made the American-era completion of the Panama Canal possible after French efforts had failed?",
+        "es": "La campaña de quién contra las enfermedades transmitidas por mosquitos hizo posible que la etapa estadounidense completara el Canal de Panamá tras el fracaso de los esfuerzos franceses?",
+        "fr": "La campagne de qui contre les maladies transmises par les moustiques rendit possible l'achèvement du canal de Panama par les Américains, après l'échec des efforts français ?",
+        "ja": "フランスの試みが失敗したあと、アメリカ期のパナマ運河完成を可能にした、蚊が媒介する病気との闘いを率いたのは誰か?"
+      },
+      "o": [
+        {
+          "en": "Walter Reed",
+          "es": "Walter Reed",
+          "fr": "Walter Reed",
+          "ja": "ウォルター・リード"
+        },
+        {
+          "en": "William Gorgas",
+          "es": "William Gorgas",
+          "fr": "William Gorgas",
+          "ja": "ウィリアム・ゴーガス"
+        },
+        {
+          "en": "Louis Pasteur",
+          "es": "Louis Pasteur",
+          "fr": "Louis Pasteur",
+          "ja": "ルイ・パスツール"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Gorgas, a US Army physician, applied lessons from earlier yellow fever control efforts in Havana to drain standing water and fumigate buildings across the Canal Zone, dramatically cutting disease deaths among workers.",
+        "es": "Gorgas, médico del ejército de EE. UU., aplicó lecciones de anteriores esfuerzos contra la fiebre amarilla en La Habana para drenar aguas estancadas y fumigar edificios en toda la Zona del Canal, reduciendo drásticamente las muertes por enfermedad entre los trabajadores.",
+        "fr": "Gorgas, médecin de l'armée américaine, appliqua les leçons tirées d'efforts antérieurs de lutte contre la fièvre jaune à La Havane pour assécher les eaux stagnantes et fumiger les bâtiments dans toute la zone du canal, réduisant radicalement les décès dus à la maladie chez les ouvriers.",
+        "ja": "アメリカ陸軍の医師ゴーガスは、以前ハバナで行われた黄熱病対策の教訓を運河地帯全域に適用し、たまり水を排水し建物を燻蒸することで、労働者の疫病による死者数を劇的に減らした。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The Alaska Highway, built during World War II to link the contiguous United States to Alaska through Canada, was completed start to finish in roughly how many months?",
+        "es": "La carretera de Alaska, construida durante la Segunda Guerra Mundial para unir el resto de EE. UU. con Alaska a través de Canadá, ¿se completó de principio a fin en unos cuántos meses?",
+        "fr": "La route de l'Alaska, construite pendant la Seconde Guerre mondiale pour relier les États-Unis continentaux à l'Alaska via le Canada, fut achevée de bout en bout en environ combien de mois ?",
+        "ja": "第二次世界大戦中、カナダを経由してアメリカ本土とアラスカを結ぶために建設されたアラスカ・ハイウェイは、着工から完成までおよそ何か月で仕上がったか?"
+      },
+      "o": [
+        {
+          "en": "3 months",
+          "es": "3 meses",
+          "fr": "3 mois",
+          "ja": "3か月"
+        },
+        {
+          "en": "20 months",
+          "es": "20 meses",
+          "fr": "20 mois",
+          "ja": "20か月"
+        },
+        {
+          "en": "8 months",
+          "es": "8 meses",
+          "fr": "8 mois",
+          "ja": "8か月"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The original 1942 route was a rough, often muddy pioneer road; a years-long project to properly pave and straighten it followed only after the war.",
+        "es": "La ruta original de 1942 era un camino pionero, tosco y a menudo embarrado; el proyecto, de años, para pavimentarla y enderezarla como es debido llegó solo tras la guerra.",
+        "fr": "La route d'origine de 1942 était une piste pionnière rudimentaire, souvent boueuse ; le chantier de plusieurs années visant à la paver et la redresser correctement ne suivit qu'après la guerre.",
+        "ja": "1942年当初の道は荒く、しばしばぬかるむ開拓道路にすぎなかった。きちんと舗装し線形を直す何年もかかる工事が行われたのは、戦後になってからである。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "What is the standard railway gauge, in millimeters, used on nearly all mainline track across the United States, Canada, and Mexico?",
+        "es": "¿Cuál es la trocha ferroviaria estándar, en milímetros, usada en casi toda la vía principal de EE. UU., Canadá y México?",
+        "fr": "Quel est l'écartement ferroviaire standard, en millimètres, utilisé sur presque toutes les voies principales des États-Unis, du Canada et du Mexique ?",
+        "ja": "アメリカ・カナダ・メキシコの幹線のほぼすべてで使われている標準軌の幅は、ミリメートルで言うといくらか?"
+      },
+      "o": [
+        {
+          "en": "1,435 mm",
+          "es": "1435 mm",
+          "fr": "1 435 mm",
+          "ja": "1435mm"
+        },
+        {
+          "en": "1,000 mm",
+          "es": "1000 mm",
+          "fr": "1 000 mm",
+          "ja": "1000mm"
+        },
+        {
+          "en": "1,676 mm",
+          "es": "1676 mm",
+          "fr": "1 676 mm",
+          "ja": "1676mm"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Often called \"standard gauge,\" this width traces back to early British colliery railways and became dominant across North America only after decades of competing gauges were phased out in the 19th century.",
+        "es": "A menudo llamada «trocha estándar», esta anchura se remonta a los primeros ferrocarriles mineros británicos y solo se impuso en América del Norte tras décadas de retirar trochas competidoras en el siglo XIX.",
+        "fr": "Souvent appelé « écartement standard », cet écartement remonte aux premiers chemins de fer miniers britanniques et ne s'imposa en Amérique du Nord qu'après des décennies d'élimination progressive d'écartements concurrents au XIXe siècle.",
+        "ja": "「標準軌」と呼ばれるこの幅は、イギリスの初期の炭鉱鉄道にまでさかのぼり、19世紀を通じて競合する複数の軌間が何十年もかけて淘汰されたのちに、ようやく北アメリカ全域で主流となった。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "At their narrowest point, the two Diomede Islands in the Bering Strait — one Russian, one American — sit roughly how many kilometers apart?",
+        "es": "En su punto más estrecho, las dos islas Diómedes del estrecho de Bering —una rusa, una estadounidense— están separadas por unos cuántos kilómetros?",
+        "fr": "À leur point le plus étroit, les deux îles Diomède du détroit de Béring — l'une russe, l'autre américaine — sont distantes d'environ combien de kilomètres ?",
+        "ja": "ベーリング海峡に浮かぶ、ロシア領と米国領の二つのダイオミード島は、最も狭い地点でおよそ何km離れているか?"
+      },
+      "o": [
+        {
+          "en": "40 kilometers",
+          "es": "40 kilómetros",
+          "fr": "40 kilomètres",
+          "ja": "40km"
+        },
+        {
+          "en": "4 kilometers",
+          "es": "4 kilómetros",
+          "fr": "4 kilomètres",
+          "ja": "4km"
+        },
+        {
+          "en": "400 kilometers",
+          "es": "400 kilómetros",
+          "fr": "400 kilomètres",
+          "ja": "400km"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "On a clear winter day, when the strait sometimes freezes over, it has occasionally been possible to walk between the two islands across the ice, though doing so unofficially crosses an international border.",
+        "es": "En un claro día de invierno, cuando el estrecho a veces se congela, en ocasiones ha sido posible caminar entre las dos islas sobre el hielo, aunque hacerlo cruza sin autorización una frontera internacional.",
+        "fr": "Par une claire journée d'hiver, quand le détroit gèle parfois, il a été occasionnellement possible de marcher entre les deux îles sur la glace, bien que cela franchisse alors une frontière internationale sans autorisation.",
+        "ja": "海峡が凍る冬の晴れた日には、氷の上を歩いて二つの島の間を行き来できることもあるが、それは非公式に国際国境を越える行為になる。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "Big Diomede (Russia) and Little Diomede (United States), separated by only a few kilometers, are also divided by which invisible line, making the time difference between them nearly a full day?",
+        "es": "La Diómedes Grande (Rusia) y la Diómedes Menor (EE. UU.), separadas por solo unos kilómetros, ¿también están divididas por qué línea invisible, que hace que la diferencia horaria entre ambas sea de casi un día entero?",
+        "fr": "La Grande Diomède (Russie) et la Petite Diomède (États-Unis), séparées par seulement quelques kilomètres, sont aussi divisées par quelle ligne invisible, rendant le décalage horaire entre elles de près d'une journée entière ?",
+        "ja": "わずか数kmしか離れていない大ダイオミード島(ロシア)と小ダイオミード島(アメリカ)を隔てているもう一つの見えない境界線は何で、両島の時差をほぼ丸一日にしているか?"
+      },
+      "o": [
+        {
+          "en": "The Tropic of Cancer",
+          "es": "El trópico de Cáncer",
+          "fr": "Le tropique du Cancer",
+          "ja": "北回帰線"
+        },
+        {
+          "en": "The Prime Meridian",
+          "es": "El meridiano de Greenwich",
+          "fr": "Le méridien de Greenwich",
+          "ja": "本初子午線"
+        },
+        {
+          "en": "The International Date Line",
+          "es": "La línea internacional de cambio de fecha",
+          "fr": "La ligne de changement de date internationale",
+          "ja": "日付変更線"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The two islands are sometimes nicknamed \"Tomorrow Island\" and \"Yesterday Isle\" because of this quirk, even though they are close enough to see each other across the water.",
+        "es": "A las dos islas a veces se las apoda «isla del Mañana» e «isla del Ayer» por esta curiosidad, aunque están lo bastante cerca como para verse una a otra al otro lado del agua.",
+        "fr": "Les deux îles sont parfois surnommées « l'île de Demain » et « l'île d'Hier » à cause de cette curiosité, bien qu'elles soient assez proches pour se voir l'une l'autre par-delà l'eau.",
+        "ja": "この奇妙な事情から、二つの島はときに「明日の島」「昨日の島」と呼ばれる。互いに水を隔てて姿が見えるほど近い距離にあるにもかかわらずである。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The Confederation Bridge, connecting Prince Edward Island to the Canadian mainland, is approximately how many kilometers long?",
+        "es": "El puente de la Confederación, que conecta la Isla del Príncipe Eduardo con el continente canadiense, ¿mide aproximadamente cuántos kilómetros?",
+        "fr": "Le pont de la Confédération, reliant l'Île-du-Prince-Édouard au continent canadien, mesure environ combien de kilomètres ?",
+        "ja": "プリンスエドワードアイランド州とカナダ本土を結ぶコンフェデレーション橋は、およそ何kmの長さか?"
+      },
+      "o": [
+        {
+          "en": "12.9 km",
+          "es": "12,9 km",
+          "fr": "12,9 km",
+          "ja": "12.9km"
+        },
+        {
+          "en": "3.5 km",
+          "es": "3,5 km",
+          "fr": "3,5 km",
+          "ja": "3.5km"
+        },
+        {
+          "en": "28 km",
+          "es": "28 km",
+          "fr": "28 km",
+          "ja": "28km"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "It is frequently cited as the longest bridge in the world over ice-covered water, a title tied to the seasonal pack ice that forms in the Northumberland Strait each winter.",
+        "es": "Se cita con frecuencia como el puente más largo del mundo sobre aguas cubiertas de hielo, un título ligado al hielo estacional que se forma cada invierno en el estrecho de Northumberland.",
+        "fr": "Il est fréquemment cité comme le plus long pont du monde sur des eaux couvertes de glace, un titre lié à la banquise saisonnière qui se forme chaque hiver dans le détroit de Northumberland.",
+        "ja": "しばしば「氷に覆われた水域では世界最長の橋」と言われ、その称号はノーサンバーランド海峡に毎冬できる季節的な流氷と結びついている。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "The French effort to build a Panama Canal in the 1880s, which ultimately went bankrupt, was led by an engineer famous for an earlier, successful canal project — which one?",
+        "es": "El intento francés de construir un Canal de Panamá en la década de 1880, que acabó en bancarrota, fue liderado por un ingeniero famoso por un proyecto de canal anterior y exitoso, ¿cuál?",
+        "fr": "La tentative française de construction d'un canal de Panama dans les années 1880, qui finit en faillite, fut menée par un ingénieur célèbre pour un précédent projet de canal réussi — lequel ?",
+        "ja": "1880年代にパナマ運河建設を試み、最終的に破綻したフランスの事業を率いたのは、以前に別の運河事業を成功させたことで知られる技師だが、それはどの運河か?"
+      },
+      "o": [
+        {
+          "en": "The Kiel Canal",
+          "es": "El Canal de Kiel",
+          "fr": "Le canal de Kiel",
+          "ja": "キール運河"
+        },
+        {
+          "en": "The Suez Canal",
+          "es": "El Canal de Suez",
+          "fr": "Le canal de Suez",
+          "ja": "スエズ運河"
+        },
+        {
+          "en": "The Erie Canal",
+          "es": "El Canal de Erie",
+          "fr": "Le canal Érié",
+          "ja": "エリー運河"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Ferdinand de Lesseps tried to repeat his Suez success with a sea-level canal design unsuited to Panama's terrain and disease environment, and the project's collapse triggered one of the largest financial scandals of 19th-century France.",
+        "es": "Ferdinand de Lesseps intentó repetir su éxito de Suez con un diseño de canal a nivel del mar poco adecuado al terreno y al entorno de enfermedades de Panamá, y el colapso del proyecto desató uno de los mayores escándalos financieros de la Francia del siglo XIX.",
+        "fr": "Ferdinand de Lesseps tenta de répéter son succès de Suez avec un canal à niveau de la mer inadapté au terrain et à l'environnement pathogène du Panama, et l'effondrement du projet déclencha l'un des plus grands scandales financiers de la France du XIXe siècle.",
+        "ja": "フェルディナン・ド・レセップスはスエズでの成功を再現しようと、パナマの地形と疫病環境には不向きな海面式運河の設計に挑んだが、事業は破綻し、19世紀フランス最大級の金融スキャンダルの一つを引き起こした。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Mexico's nationalization of foreign oil companies, a landmark event still marked by a national holiday, took place in which month and year?",
+        "es": "La nacionalización mexicana de las petroleras extranjeras, hito que aún se conmemora con un feriado nacional, ¿ocurrió en qué mes y año?",
+        "fr": "La nationalisation mexicaine des compagnies pétrolières étrangères, événement marquant encore commémoré par un jour férié national, eut lieu en quel mois et quelle année ?",
+        "ja": "いまも祝日として記念されている、メキシコによる外国石油会社の国有化は、何年の何月に行われたか?"
+      },
+      "o": [
+        {
+          "en": "January 1917",
+          "es": "Enero de 1917",
+          "fr": "Janvier 1917",
+          "ja": "1917年1月"
+        },
+        {
+          "en": "September 1929",
+          "es": "Septiembre de 1929",
+          "fr": "Septembre 1929",
+          "ja": "1929年9月"
+        },
+        {
+          "en": "March 1938",
+          "es": "Marzo de 1938",
+          "fr": "Mars 1938",
+          "ja": "1938年3月"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "President Lázaro Cárdenas's expropriation created the state oil company Pemex, and March 18 is still marked each year as \"Oil Expropriation Day.\"",
+        "es": "La expropiación del presidente Lázaro Cárdenas creó la petrolera estatal Pemex, y el 18 de marzo aún se conmemora cada año como el «Día de la Expropiación Petrolera».",
+        "fr": "L'expropriation du président Lázaro Cárdenas créa la compagnie pétrolière d'État Pemex, et le 18 mars est encore célébré chaque année comme le « jour de l'expropriation pétrolière ».",
+        "ja": "ラサロ・カルデナス大統領によるこの接収により国営石油会社ペメックスが誕生し、3月18日はいまも毎年「石油接収記念日」として記念されている。"
+      }
     }
   ],
   "items": {

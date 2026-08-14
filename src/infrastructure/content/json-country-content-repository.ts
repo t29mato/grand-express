@@ -19,6 +19,7 @@ const LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   europe: () => import("./europe.content.json").then((m) => m.default),
   northamerica: () => import("./northamerica.content.json").then((m) => m.default),
   southamerica: () => import("./southamerica.content.json").then((m) => m.default),
+  asia: () => import("./asia.content.json").then((m) => m.default),
   venezuela: () => import("./venezuela.content.json").then((m) => m.default),
   bolivia: () => import("./bolivia.content.json").then((m) => m.default),
   japan: () => import("./japan.content.json").then((m) => m.default),

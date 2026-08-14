@@ -58,6 +58,7 @@ const STYLE_LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   europe: () => import("../content/europe.content.json").then((m) => (m.default as { styles: unknown }).styles),
   northamerica: () => import("../content/northamerica.content.json").then((m) => (m.default as { styles: unknown }).styles),
   southamerica: () => import("../content/southamerica.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  asia: () => import("../content/asia.content.json").then((m) => (m.default as { styles: unknown }).styles),
   venezuela: () => import("../content/venezuela.content.json").then((m) => (m.default as { styles: unknown }).styles),
   bolivia: () => import("../content/bolivia.content.json").then((m) => (m.default as { styles: unknown }).styles),
   japan: () => import("../content/japan.content.json").then((m) => (m.default as { styles: unknown }).styles),

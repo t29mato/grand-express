@@ -104,6 +104,12 @@ const GENERIC = new Set([
  * わざと文面に結び付けている。
  */
 const ACCEPTED = [
+  { c: "asia", has: "typhoon", why: "typhoon という語がどの中国語から入ったかを訊く問題。綴りが問いの中身" },
+  // 語そのものが問いの中身になっているもの(訳すと問いが成立しない)。
+  { c: "northamerica", has: "loon", why: "ルーニーの名がアビ(loon)に由来する、という語源の問題" },
+  { c: "northamerica", has: "canoe", why: "canoe という語がどの先住民の言語から入ったかを訊く問題" },
+  { c: "europe", has: "krona", why: "アイスランドの króna をスウェーデンの krona・デンマークの krone と綴りで見分ける問題" },
+  { c: "europe", has: "krone", why: "同上" },
   // オーストラリア。大文字の Country という語そのものが問いの中身。
   // アボリジナル英語では土地・水・人・法をまとめて指す語で、訳すと問いが消える。
   { c: "australia", has: "「Country」", why: "大文字のCountryという語そのものを訊く問題" },

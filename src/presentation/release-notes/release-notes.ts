@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.43.0",
+    date: "2026-08-14",
+    title: t(
+      "Asia, and harder questions|Asia, y preguntas más difíciles|L'Asie, et des questions plus difficiles|アジアと、難しい問題",
+    ),
+    highlights: [
+      t(
+        "Asia completes the four continents: sixty-five towns across thirty-five countries, from Istanbul to Vladivostok and from Irkutsk to Java. The Silk Road was a net, not a road. Coaches change their bogies at Dostyk and at Naushki because the gauge changes at the border. Busan has no railway to the mainland at all. At Kanchanaburi the board says plainly that far more rōmusha died on the Burma Railway than Allied prisoners, and that their names were not kept.|Asia completa los cuatro continentes: sesenta y cinco pueblos en treinta y cinco países, de Estambul a Vladivostok y de Irkutsk a Java. La Ruta de la Seda era una red, no un camino. Los coches cambian de bogie en Dostyk y en Naushki porque el ancho cambia en la frontera. Busan no tiene ferrocarril alguno hacia el continente. En Kanchanaburi el tablero dice sin rodeos que murieron muchos más rōmusha que prisioneros aliados, y que no se guardaron sus nombres.|L'Asie complète les quatre continents : soixante-cinq villes dans trente-cinq pays, d'Istanbul à Vladivostok et d'Irkoutsk à Java. La route de la soie était un filet, pas une route. Les voitures changent de bogies à Dostyk et à Naouchki, car l'écartement change à la frontière. Busan n'a aucune voie ferrée vers le continent. À Kanchanaburi, le plateau dit clairement que bien plus de rōmusha sont morts sur la voie ferrée de Birmanie que de prisonniers alliés, et que leurs noms n'ont pas été conservés.|アジアが加わって、大陸が4枚そろいました。35か国65の町、イスタンブールからウラジオストク、イルクーツクからジャワまで。シルクロードは一本道ではなく網でした。ドスティクとナウシキでは、国境で軌間が変わるので客車の台車を履き替えます。釜山からは大陸へ向かう鉄路が一本もありません。カンチャナブリの項には、泰緬鉄道で亡くなったロームシャが連合軍捕虜よりはるかに多かったこと、その名前が残されなかったことを、そのまま書いてあります。",
+      ),
+      t(
+        "Quizzes were repeating for anyone who played a board more than once. The cause was not the number of questions but their spread: pick \"I know this place well\" and the game draws from the hardest tier, and some boards had almost nothing there — Europe had fifty questions and not one above difficulty six. Europe, South America and North America now carry a hundred or more each, with the new ones weighted to the hard end. The other boards follow.|Las preguntas se repetían para quien jugaba un tablero más de una vez. La causa no era el número sino su reparto: si eliges «conozco bien este lugar», el juego saca del nivel más difícil, y algunos tableros casi no tenían nada ahí — Europa tenía cincuenta preguntas y ninguna por encima de dificultad seis. Europa, Sudamérica y Norteamérica llevan ahora cien o más cada uno. Los demás vendrán después.|Les questions se répétaient pour qui jouait un plateau plus d'une fois. La cause n'était pas leur nombre mais leur répartition : si vous choisissez « je connais bien cet endroit », le jeu puise dans le niveau le plus difficile, et certains plateaux n'y avaient presque rien — l'Europe comptait cinquante questions et aucune au-dessus de la difficulté six. L'Europe, l'Amérique du Sud et l'Amérique du Nord en portent désormais cent ou plus chacune. Les autres suivront.|盤面を2回以上遊ぶとクイズが被る、という報せをいただきました。原因は問題の数ではなく、難易度の偏りでした。「その土地をよく知っている」を選ぶといちばん難しい層から出題されるのですが、そこがほとんど空の盤面があったのです。ヨーロッパは50問あって、難易度6を超えるものが1問もありませんでした。ヨーロッパ・南アメリカ・北アメリカを100問以上にし、足したぶんは難しい層に寄せました。ほかの盤面もこれから増やします。",
+      ),
+      t(
+        "Typing a player's name used to rebuild 235KB of map artwork on every keystroke, even on screens where none of it is visible. It does not any more.|Escribir el nombre de un jugador reconstruía 235KB de mapas en cada pulsación, incluso en pantallas donde no se ve ninguno. Ya no.|Saisir le nom d'un joueur reconstruisait 235 Ko de cartes à chaque frappe, même sur les écrans où rien de tout cela n'est visible. Ce n'est plus le cas.|旅人の名前を1文字打つたびに、235KBぶんの盤面の絵を組み立て直していました(その絵が1枚も見えていない画面でも)。やめました。",
+      ),
+    ],
+  },
+  {
     version: "0.42.0",
     date: "2026-08-14",
     title: t(

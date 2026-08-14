@@ -331,4 +331,15 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   escudo: { type: "gain-cash", amount: 380 },
   sacoleiro: { type: "extra-turn" },
 
+  // Asia
+  relay: { type: "extra-turn" },
+  magiccarpet: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  bogie: { type: "choose-exact-dice" },
+  caravanserairest: { type: "none" }, // 厄災の神(時刻表に無い列車)のward item(passive)
+  silkbolt: { type: "gain-cash", amount: 380 },
+  waybill: { type: "quiz-save" },
+  teabrick: { type: "roll-fixed-dice", diceCount: 2 },
+  sleeperticket: { type: "roll-fixed-dice", diceCount: 3 },
+  firman: { type: "repel-spirit" },
+
 };

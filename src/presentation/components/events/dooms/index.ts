@@ -202,6 +202,13 @@ import { SouthamericaCreciente } from "./southamerica-creciente";
 import { SouthamericaHuayco } from "./southamerica-huayco";
 import { SouthamericaTunchesilba } from "./southamerica-tunchesilba";
 import { SouthamericaZonda } from "./southamerica-zonda";
+import { AsiaSandstorm } from "./asia-sandstorm";
+import { AsiaMonsoonwash } from "./asia-monsoonwash";
+import { AsiaAvalanche } from "./asia-avalanche";
+import { AsiaRailbuckle } from "./asia-railbuckle";
+import { AsiaCustomsdelay } from "./asia-customsdelay";
+import { AsiaBazaarpickpocket } from "./asia-bazaarpickpocket";
+import { AsiaPowercut } from "./asia-powercut";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -416,6 +423,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "southamerica-huayco": SouthamericaHuayco,
   "southamerica-tunchesilba": SouthamericaTunchesilba,
   "southamerica-zonda": SouthamericaZonda,
+  "asia-sandstorm": AsiaSandstorm,
+  "asia-monsoonwash": AsiaMonsoonwash,
+  "asia-avalanche": AsiaAvalanche,
+  "asia-railbuckle": AsiaRailbuckle,
+  "asia-customsdelay": AsiaCustomsdelay,
+  "asia-bazaarpickpocket": AsiaBazaarpickpocket,
+  "asia-powercut": AsiaPowercut,
 };
 
 /** その国のその災難の絵。無ければ undefined。 */
