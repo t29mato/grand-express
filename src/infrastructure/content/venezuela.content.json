@@ -2620,6 +2620,1194 @@
         "fr": "La guerre fédérale dura environ cinq ans et tua une large part de la population par rapport à la taille du pays à l'époque, et son slogan « tierra y hombres libres » (terre et hommes libres) figure encore dans le folklore régional.",
         "ja": "連邦戦争はおよそ5年続き、当時の人口に対して大きな割合の犠牲者を出した。「土地と自由な人々」という標語はいまも地方の民間伝承に残る。"
       }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "Venezuela's Amazonas state, its southernmost point, still lies in which hemisphere?",
+        "es": "El estado Amazonas, el punto más al sur de Venezuela, ¿en qué hemisferio se encuentra todavía?",
+        "fr": "L'État d'Amazonas, le point le plus au sud du Venezuela, se trouve encore dans quel hémisphère ?",
+        "ja": "ベネズエラ最南端のアマソナス州は、それでもなお何半球にあるか?"
+      },
+      "o": [
+        {
+          "en": "The Southern Hemisphere",
+          "es": "El hemisferio sur",
+          "fr": "L'hémisphère sud",
+          "ja": "南半球"
+        },
+        {
+          "en": "The Northern Hemisphere",
+          "es": "El hemisferio norte",
+          "fr": "L'hémisphère nord",
+          "ja": "北半球"
+        },
+        {
+          "en": "It straddles the equator",
+          "es": "Está a caballo del ecuador",
+          "fr": "Il chevauche l'équateur",
+          "ja": "赤道をまたいでいる"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Even Venezuela's southernmost tip sits just north of the equator, so the entire country lies in the Northern Hemisphere despite feeling equatorial almost everywhere.",
+        "es": "Incluso la punta más austral de Venezuela queda justo al norte del ecuador, así que todo el país se ubica en el hemisferio norte pese a sentirse ecuatorial casi en todas partes.",
+        "fr": "Même la pointe la plus australe du Venezuela se trouve juste au nord de l'équateur, si bien que tout le pays se situe dans l'hémisphère nord, bien qu'il paraisse équatorial presque partout.",
+        "ja": "ベネズエラの最南端でさえ赤道のわずかに北にあり、国のほぼ全域が赤道直下のように感じられても、国全体は北半球に収まっている。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "Which country do the Andes mountains, which cover western Venezuela, continue into?",
+        "es": "¿A qué país continúan los Andes que cubren el oeste de Venezuela?",
+        "fr": "Dans quel pays se prolongent les Andes qui couvrent l'ouest du Venezuela ?",
+        "ja": "ベネズエラ西部を覆うアンデス山脈が続いていく国は?"
+      },
+      "o": [
+        {
+          "en": "Colombia",
+          "es": "Colombia",
+          "fr": "La Colombie",
+          "ja": "コロンビア"
+        },
+        {
+          "en": "Brazil",
+          "es": "Brasil",
+          "fr": "Le Brésil",
+          "ja": "ブラジル"
+        },
+        {
+          "en": "Guyana",
+          "es": "Guyana",
+          "fr": "Le Guyana",
+          "ja": "ガイアナ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The Venezuelan Andes are the northeastern tail of the same mountain chain that runs the length of South America, and they peter out into lower hills not far past the Colombian border.",
+        "es": "Los Andes venezolanos son la cola noreste de la misma cordillera que recorre toda Sudamérica, y se van apagando en colinas más bajas no muy lejos de la frontera con Colombia.",
+        "fr": "Les Andes vénézuéliennes sont la queue nord-est de la même chaîne qui parcourt toute l'Amérique du Sud, et elles s'amenuisent en collines plus basses peu après la frontière colombienne.",
+        "ja": "ベネズエラのアンデスは、南米大陸を貫く同じ山脈の北東の末端にあたり、コロンビア国境を過ぎてほど遠くないところで低い丘陵へと消えていく。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "\"Los Llanos\", the name of Venezuela's vast central grasslands, simply means what in Spanish?",
+        "es": "\"Los Llanos\", el nombre de las vastas llanuras centrales de Venezuela, ¿qué significa sencillamente en español?",
+        "fr": "« Los Llanos », le nom des vastes plaines centrales du Venezuela, signifie simplement quoi en espagnol ?",
+        "ja": "ベネズエラ中央の広大な平原「ロス・ジャノス」は、スペイン語で単に何を意味するか?"
+      },
+      "o": [
+        {
+          "en": "The plains",
+          "es": "Las llanuras",
+          "fr": "Les plaines",
+          "ja": "平原"
+        },
+        {
+          "en": "The forest",
+          "es": "El bosque",
+          "fr": "La forêt",
+          "ja": "森"
+        },
+        {
+          "en": "The valley",
+          "es": "El valle",
+          "fr": "La vallée",
+          "ja": "谷"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The name is about as plain as it sounds, and the region really is flat enough that a rider can see for kilometres in every direction without a single hill to break the view.",
+        "es": "El nombre es tan sencillo como suena, y la región es de verdad tan plana que un jinete puede ver kilómetros en cualquier dirección sin una sola colina que corte la vista.",
+        "fr": "Le nom est aussi simple qu'il en a l'air, et la région est vraiment assez plate pour qu'un cavalier voie à des kilomètres dans toutes les directions sans la moindre colline pour rompre la vue.",
+        "ja": "その名のとおり単純な意味で、この地域は実際に平坦であり、乗り手はどの方角を見ても何キロも視界を遮る丘一つない。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "\"Tepui\", the word for Venezuela's flat-topped table mountains, comes from which people's language?",
+        "es": "\"Tepui\", la palabra para las montañas de mesa de Venezuela, ¿de la lengua de qué pueblo proviene?",
+        "fr": "« Tepui », le mot désignant les montagnes-tables du Venezuela, vient de la langue de quel peuple ?",
+        "ja": "ベネズエラの卓状山を指す「テプイ」という語は、どの民族の言葉に由来するか?"
+      },
+      "o": [
+        {
+          "en": "The Pemón",
+          "es": "Los pemón",
+          "fr": "Les Pemóns",
+          "ja": "ペモン族"
+        },
+        {
+          "en": "The Wayuu",
+          "es": "Los wayuu",
+          "fr": "Les Wayuus",
+          "ja": "ワユー族"
+        },
+        {
+          "en": "The Yanomami",
+          "es": "Los yanomami",
+          "fr": "Les Yanomamis",
+          "ja": "ヤノマミ族"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "In the Pemón language of the Gran Sabana, tepui simply means \"house of the gods\" or \"mountain\", and dozens of these isolated plateaus rise out of the savanna in Venezuela's far south.",
+        "es": "En la lengua pemón de la Gran Sabana, tepuy significa sencillamente \"casa de los dioses\" o \"montaña\", y decenas de estas mesetas aisladas se alzan sobre la sabana en el extremo sur de Venezuela.",
+        "fr": "Dans la langue pemón de la Gran Sabana, tepui signifie simplement « maison des dieux » ou « montagne », et des dizaines de ces plateaux isolés se dressent au-dessus de la savane, dans l'extrême sud du Venezuela.",
+        "ja": "グランサバナのペモン語で「テプイ」は単に「神々の家」あるいは「山」を意味し、こうした孤立した台地が数十とベネズエラ最南部のサバンナから立ち上がっている。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "Venezuela's national flower, declared by decree in 1951, is a variety of which plant?",
+        "es": "La flor nacional de Venezuela, declarada por decreto en 1951, ¿es una variedad de qué planta?",
+        "fr": "La fleur nationale du Venezuela, déclarée par décret en 1951, est une variété de quelle plante ?",
+        "ja": "1951年の政令で定められたベネズエラの国花は、どの植物の品種か?"
+      },
+      "o": [
+        {
+          "en": "The rose",
+          "es": "La rosa",
+          "fr": "La rose",
+          "ja": "バラ"
+        },
+        {
+          "en": "The orchid",
+          "es": "La orquídea",
+          "fr": "L'orchidée",
+          "ja": "ラン"
+        },
+        {
+          "en": "The hibiscus",
+          "es": "El hibisco",
+          "fr": "L'hibiscus",
+          "ja": "ハイビスカス"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The flor de mayo, a pale purple orchid known scientifically as Cattleya mossiae, blooms across the country's cooler highlands and gave its name to the honour.",
+        "es": "La flor de mayo, una orquídea de color púrpura pálido conocida científicamente como Cattleya mossiae, florece en las tierras altas más frescas del país y dio su nombre a este honor.",
+        "fr": "La flor de mayo, une orchidée mauve pâle connue scientifiquement sous le nom de Cattleya mossiae, fleurit dans les hautes terres plus fraîches du pays et a donné son nom à cet honneur.",
+        "ja": "「五月の花」ことカトレア・モッシアエは薄紫の蘭で、国内の涼しい高地に咲き、その名がこの国花の呼び名にもなった。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "In which year did Venezuela sign its first declaration of independence from Spain?",
+        "es": "¿En qué año firmó Venezuela su primera declaración de independencia de España?",
+        "fr": "En quelle année le Venezuela a-t-il signé sa première déclaration d'indépendance de l'Espagne ?",
+        "ja": "ベネズエラが最初のスペインからの独立宣言に署名したのは何年か?"
+      },
+      "o": [
+        {
+          "en": "1811",
+          "es": "1811",
+          "fr": "1811",
+          "ja": "1811年"
+        },
+        {
+          "en": "1898",
+          "es": "1898",
+          "fr": "1898",
+          "ja": "1898年"
+        },
+        {
+          "en": "1776",
+          "es": "1776",
+          "fr": "1776",
+          "ja": "1776年"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The 1811 declaration created the short-lived First Republic, which collapsed within a year under royalist pressure and a devastating earthquake, so full independence took over a decade longer to secure.",
+        "es": "La declaración de 1811 creó la efímera Primera República, que cayó en menos de un año por la presión realista y un terremoto devastador, así que la independencia plena tardó más de una década en asegurarse.",
+        "fr": "La déclaration de 1811 créa l'éphémère Première République, qui s'effondra en moins d'un an sous la pression royaliste et un séisme dévastateur, si bien que l'indépendance complète mit plus d'une décennie à s'établir.",
+        "ja": "1811年の宣言は短命な第一共和国を生んだが、王党派の圧力と大地震により一年足らずで崩れ去った。完全な独立の確保には、そこからさらに十年余りを要した。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "Besides Colombia and Brazil, which other country shares a land border with Venezuela?",
+        "es": "Además de Colombia y Brasil, ¿qué otro país comparte frontera terrestre con Venezuela?",
+        "fr": "Outre la Colombie et le Brésil, quel autre pays partage une frontière terrestre avec le Venezuela ?",
+        "ja": "コロンビア・ブラジルのほかに、ベネズエラと陸上国境を接する国は?"
+      },
+      "o": [
+        {
+          "en": "Guyana",
+          "es": "Guyana",
+          "fr": "Le Guyana",
+          "ja": "ガイアナ"
+        },
+        {
+          "en": "Suriname",
+          "es": "Surinam",
+          "fr": "Le Suriname",
+          "ja": "スリナム"
+        },
+        {
+          "en": "Trinidad and Tobago",
+          "es": "Trinidad y Tobago",
+          "fr": "Trinité-et-Tobago",
+          "ja": "トリニダード・トバゴ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Venezuela's border with Guyana runs along the disputed Essequibo region to the east, while Trinidad lies just offshore across a narrow strait rather than sharing any land border at all.",
+        "es": "La frontera de Venezuela con Guyana corre por la disputada región del Esequibo al este, mientras que Trinidad queda justo mar adentro, al otro lado de un estrecho angosto, sin compartir frontera terrestre alguna.",
+        "fr": "La frontière du Venezuela avec le Guyana longe la région disputée de l'Essequibo à l'est, tandis que Trinité se trouve juste au large, de l'autre côté d'un étroit détroit, sans partager la moindre frontière terrestre.",
+        "ja": "ベネズエラとガイアナの国境は、東側の係争地エセキボ地域に沿って延びる。一方トリニダードは狭い海峡を挟んだ沖合にあり、陸上国境はまったく持たない。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "How many colours appear as horizontal stripes on Venezuela's flag?",
+        "es": "¿Cuántos colores aparecen como franjas horizontales en la bandera de Venezuela?",
+        "fr": "Combien de couleurs apparaissent en bandes horizontales sur le drapeau du Venezuela ?",
+        "ja": "ベネズエラの国旗に水平の帯として現れる色の数は?"
+      },
+      "o": [
+        {
+          "en": "Two",
+          "es": "Dos",
+          "fr": "Deux",
+          "ja": "二色"
+        },
+        {
+          "en": "Three",
+          "es": "Tres",
+          "fr": "Trois",
+          "ja": "三色"
+        },
+        {
+          "en": "Four",
+          "es": "Cuatro",
+          "fr": "Quatre",
+          "ja": "四色"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Yellow, blue and red run in three equal horizontal bands, a tricolour Venezuela shares in origin with Colombia and Ecuador, all three once part of the same independence-era republic.",
+        "es": "Amarillo, azul y rojo corren en tres franjas horizontales iguales, un tricolor que Venezuela comparte en origen con Colombia y Ecuador, los tres antiguamente parte de la misma república de la era independentista.",
+        "fr": "Jaune, bleu et rouge se déploient en trois bandes horizontales égales, un tricolore dont le Venezuela partage l'origine avec la Colombie et l'Équateur, les trois ayant jadis fait partie de la même république de l'ère indépendantiste.",
+        "ja": "黄・青・赤が等しい幅の三本の横帯として並ぶ。この三色旗はコロンビア・エクアドルとも起源を分け合い、三国はかつて独立期の同じ共和国の一部だった。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "Which large lake is often described as the largest lake in South America?",
+        "es": "¿Qué gran lago se describe a menudo como el mayor lago de Sudamérica?",
+        "fr": "Quel grand lac est souvent décrit comme le plus grand lac d'Amérique du Sud ?",
+        "ja": "南米最大の湖とよく言われる大きな湖は?"
+      },
+      "o": [
+        {
+          "en": "Lake Maracaibo",
+          "es": "El lago de Maracaibo",
+          "fr": "Le lac de Maracaibo",
+          "ja": "マラカイボ湖"
+        },
+        {
+          "en": "Lake Valencia",
+          "es": "El lago de Valencia",
+          "fr": "Le lac de Valencia",
+          "ja": "バレンシア湖"
+        },
+        {
+          "en": "Lake Titicaca",
+          "es": "El lago Titicaca",
+          "fr": "Le lac Titicaca",
+          "ja": "チチカカ湖"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Maracaibo is technically a brackish bay connected to the Caribbean rather than a fully closed freshwater lake, which is why some geographers argue over the title, but it is still routinely listed as South America's largest lake by area.",
+        "es": "El de Maracaibo es técnicamente una bahía salobre conectada al Caribe y no un lago dulce totalmente cerrado, por lo que algunos geógrafos discuten el título, pero de todos modos suele figurar como el mayor lago de Sudamérica por superficie.",
+        "fr": "Celui de Maracaibo est techniquement une baie saumâtre reliée aux Caraïbes plutôt qu'un lac d'eau douce totalement fermé, ce qui fait débat chez certains géographes, mais il figure quand même couramment comme le plus grand lac d'Amérique du Sud par sa superficie.",
+        "ja": "マラカイボ湖は厳密にはカリブ海とつながる汽水の入り江であり、完全に閉じた淡水湖ではないため地理学者のあいだで呼び方に議論もあるが、それでも面積では南米最大の湖として挙げられることが多い。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "Which is the largest island belonging to Venezuela?",
+        "es": "¿Cuál es la isla más grande que pertenece a Venezuela?",
+        "fr": "Quelle est la plus grande île appartenant au Venezuela ?",
+        "ja": "ベネズエラに属する最大の島は?"
+      },
+      "o": [
+        {
+          "en": "Isla de Margarita",
+          "es": "Isla de Margarita",
+          "fr": "L'île de Margarita",
+          "ja": "マルガリータ島"
+        },
+        {
+          "en": "Isla La Tortuga",
+          "es": "Isla La Tortuga",
+          "fr": "L'île La Tortuga",
+          "ja": "ラ・トルトゥガ島"
+        },
+        {
+          "en": "Isla de Coche",
+          "es": "Isla de Coche",
+          "fr": "L'île de Coche",
+          "ja": "コチェ島"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Margarita anchors Nueva Esparta, the only Venezuelan state made up entirely of islands, and its beaches and duty-free shopping now draw far more visitors each year than its smaller neighbouring islets.",
+        "es": "Margarita es el ancla de Nueva Esparta, el único estado venezolano formado enteramente por islas, y sus playas y comercio libre de impuestos atraen hoy a muchos más visitantes al año que sus islotes vecinos más pequeños.",
+        "fr": "Margarita ancre le Nueva Esparta, le seul État vénézuélien entièrement composé d'îles, et ses plages et son commerce hors taxes attirent aujourd'hui bien plus de visiteurs chaque année que ses petits îlots voisins.",
+        "ja": "マルガリータ島は、島だけで構成されるベネズエラ唯一の州ヌエバエスパルタの中心であり、そのビーチと免税店は近隣の小さな島々よりはるかに多くの観光客を毎年集めている。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "A cachapa, a popular Venezuelan street food, is a thick pancake made from what?",
+        "es": "Una cachapa, comida callejera popular en Venezuela, ¿es una tortita gruesa hecha de qué?",
+        "fr": "Une cachapa, mets de rue populaire au Venezuela, est une épaisse crêpe faite à base de quoi ?",
+        "ja": "ベネズエラで人気の屋台料理カチャパは、何から作る厚いパンケーキか?"
+      },
+      "o": [
+        {
+          "en": "Sweet fresh corn",
+          "es": "Maíz tierno dulce",
+          "fr": "Maïs tendre sucré",
+          "ja": "甘い生トウモロコシ"
+        },
+        {
+          "en": "Mashed plantain",
+          "es": "Puré de plátano",
+          "fr": "Purée de plantain",
+          "ja": "プランテンのすりつぶし"
+        },
+        {
+          "en": "Wheat flour",
+          "es": "Harina de trigo",
+          "fr": "Farine de blé",
+          "ja": "小麦粉"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Ground straight from the kernel rather than dried and reground like the corn in an arepa, cachapa batter is naturally sweet and is usually folded around a thick slab of soft white cheese while still hot off the griddle.",
+        "es": "Molida directamente del grano y no seca y vuelta a moler como el maíz de la arepa, la masa de cachapa es naturalmente dulce y suele doblarse alrededor de una gruesa loncha de queso blanco blando mientras aún está caliente del budare.",
+        "fr": "Moulue directement à partir du grain plutôt que séchée puis remoulue comme le maïs de l'arepa, la pâte de cachapa est naturellement sucrée et se replie généralement autour d'une épaisse tranche de fromage blanc tendre encore chaude, sortie du budare.",
+        "ja": "アレパのように乾燥させてから挽き直すのではなく、生の実から直に挽くため、カチャパの生地は自然な甘みがある。熱々のまま白い柔らかいチーズの厚切りを挟んで食べるのが一般的である。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "Tequeños, a staple at Venezuelan parties, are sticks of dough fried around what filling?",
+        "es": "Los tequeños, infaltables en las fiestas venezolanas, son palitos de masa fritos con qué relleno?",
+        "fr": "Les tequeños, incontournables des fêtes vénézuéliennes, sont des bâtonnets de pâte frits autour de quelle garniture ?",
+        "ja": "ベネズエラのパーティーに欠かせないテケーニョスは、何を詰めて揚げた生地の棒か?"
+      },
+      "o": [
+        {
+          "en": "White cheese",
+          "es": "Queso blanco",
+          "fr": "Fromage blanc",
+          "ja": "白いチーズ"
+        },
+        {
+          "en": "Ground beef",
+          "es": "Carne molida",
+          "fr": "Viande hachée",
+          "ja": "ひき肉"
+        },
+        {
+          "en": "Black beans",
+          "es": "Caraotas negras",
+          "fr": "Haricots noirs",
+          "ja": "黒豆"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "A stick of firm white cheese wrapped in dough and deep-fried until golden, tequeños are considered so essential to any gathering that a party without them is barely considered a party at all.",
+        "es": "Un palito de queso blanco firme envuelto en masa y frito hasta dorar, el tequeño se considera tan esencial en cualquier reunión que una fiesta sin ellos apenas se considera una fiesta.",
+        "fr": "Un bâtonnet de fromage blanc ferme enveloppé de pâte et frit jusqu'à dorure, le tequeño est jugé si essentiel à toute réunion qu'une fête sans lui n'en est presque pas une.",
+        "ja": "しっかりした白チーズの棒を生地で包み、きつね色になるまで揚げたテケーニョスは、どんな集まりにも欠かせないと考えられており、これが無いパーティーはほとんどパーティーとは呼べないとされる。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "Chicha venezolana, a sweet drink sold from carts on hot afternoons, is traditionally made from which grain?",
+        "es": "La chicha venezolana, bebida dulce vendida en carritos las tardes calurosas, se hace tradicionalmente de qué grano?",
+        "fr": "La chicha venezolana, boisson sucrée vendue sur des chariots les après-midis chauds, se prépare traditionnellement à base de quelle céréale ?",
+        "ja": "暑い午後に屋台で売られる甘い飲み物、チチャ・ベネソラーナは伝統的に何の穀物から作るか?"
+      },
+      "o": [
+        {
+          "en": "Rice",
+          "es": "Arroz",
+          "fr": "Riz",
+          "ja": "米"
+        },
+        {
+          "en": "Barley",
+          "es": "Cebada",
+          "fr": "Orge",
+          "ja": "大麦"
+        },
+        {
+          "en": "Oats",
+          "es": "Avena",
+          "fr": "Avoine",
+          "ja": "オーツ麦"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Rice is boiled down, blended with milk, sugar and vanilla, and served ice-cold over a dusting of cinnamon, and the drink is common enough that a chicha cart is a fixture outside almost any school gate.",
+        "es": "El arroz se cuece hasta ablandarse, se licúa con leche, azúcar y vainilla, y se sirve bien frío con un poco de canela por encima, y la bebida es tan común que un carrito de chicha es fijo casi frente a cualquier portón de escuela.",
+        "fr": "Le riz est cuit jusqu'à ramollir, mixé avec du lait, du sucre et de la vanille, puis servi bien frais saupoudré de cannelle, et la boisson est si courante qu'un chariot de chicha est presque un fixture devant n'importe quel portail d'école.",
+        "ja": "米を柔らかく煮てミルク・砂糖・バニラと混ぜ、シナモンを振ってよく冷やして出す。あまりに一般的な飲み物なので、どの学校の門前にもチチャの屋台がほぼ決まって出ている。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "The Gulf of Venezuela, at the entrance to Lake Maracaibo, opens onto which body of water?",
+        "es": "El golfo de Venezuela, a la entrada del lago de Maracaibo, ¿se abre a qué cuerpo de agua?",
+        "fr": "Le golfe du Venezuela, à l'entrée du lac de Maracaibo, s'ouvre sur quelle étendue d'eau ?",
+        "ja": "マラカイボ湖の入口にあるベネズエラ湾は、どの海域に開けているか?"
+      },
+      "o": [
+        {
+          "en": "The Pacific Ocean",
+          "es": "El océano Pacífico",
+          "fr": "L'océan Pacifique",
+          "ja": "太平洋"
+        },
+        {
+          "en": "The Caribbean Sea",
+          "es": "El mar Caribe",
+          "fr": "La mer des Caraïbes",
+          "ja": "カリブ海"
+        },
+        {
+          "en": "The Atlantic Ocean, directly",
+          "es": "El océano Atlántico, directamente",
+          "fr": "L'océan Atlantique, directement",
+          "ja": "大西洋(直接)"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Ships bound for the oil terminals of Lake Maracaibo cross the Gulf of Venezuela and then squeeze through the narrow Tablazo Strait before finally reaching open lake water.",
+        "es": "Los barcos con destino a las terminales petroleras del lago de Maracaibo cruzan el golfo de Venezuela y luego se cuelan por el estrecho canal de Tablazo antes de llegar por fin a la lámina de agua abierta del lago.",
+        "fr": "Les navires en route vers les terminaux pétroliers du lac de Maracaibo traversent le golfe du Venezuela puis se faufilent par l'étroit détroit de Tablazo avant d'atteindre enfin les eaux libres du lac.",
+        "ja": "マラカイボ湖の石油ターミナルへ向かう船は、ベネズエラ湾を渡ったのち、狭いタブラソ海峡を抜けて、ようやく開けた湖面にたどり着く。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "What animal is depicted running across Venezuela's coat of arms?",
+        "es": "¿Qué animal aparece corriendo en el escudo de armas de Venezuela?",
+        "fr": "Quel animal court sur les armoiries du Venezuela ?",
+        "ja": "ベネズエラの国章に描かれ、駆けている動物は?"
+      },
+      "o": [
+        {
+          "en": "A jaguar",
+          "es": "Un jaguar",
+          "fr": "Un jaguar",
+          "ja": "ジャガー"
+        },
+        {
+          "en": "A horse",
+          "es": "Un caballo",
+          "fr": "Un cheval",
+          "ja": "馬"
+        },
+        {
+          "en": "A capybara",
+          "es": "Un chigüire",
+          "fr": "Un capybara",
+          "ja": "カピバラ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "A single white horse gallops freely across the coat of arms, a widely understood symbol of liberty and independence, alongside sheaves of wheat and a cornucopia of fruit representing abundance.",
+        "es": "Un solo caballo blanco galopa libremente en el escudo de armas, símbolo ampliamente entendido de libertad e independencia, junto a espigas de trigo y un cuerno de la abundancia con frutas.",
+        "fr": "Un unique cheval blanc galope librement sur les armoiries, symbole largement compris de liberté et d'indépendance, aux côtés de gerbes de blé et d'une corne d'abondance chargée de fruits.",
+        "ja": "国章では一頭の白い馬が自由に駆けている。自由と独立を表す広く知られた象徴で、豊かさを表す小麦の束や果物の角笛とともに描かれる。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Reading from top to bottom, in what order do the colours run on Venezuela's flag?",
+        "es": "Leyendo de arriba abajo, ¿en qué orden van los colores en la bandera de Venezuela?",
+        "fr": "En lisant de haut en bas, dans quel ordre se succèdent les couleurs du drapeau du Venezuela ?",
+        "ja": "上から下へ読むと、ベネズエラの国旗の色はどの順で並ぶか?"
+      },
+      "o": [
+        {
+          "en": "Yellow, blue, red",
+          "es": "Amarillo, azul, rojo",
+          "fr": "Jaune, bleu, rouge",
+          "ja": "黄・青・赤"
+        },
+        {
+          "en": "Red, yellow, blue",
+          "es": "Rojo, amarillo, azul",
+          "fr": "Rouge, jaune, bleu",
+          "ja": "赤・黄・青"
+        },
+        {
+          "en": "Blue, red, yellow",
+          "es": "Azul, rojo, amarillo",
+          "fr": "Bleu, rouge, jaune",
+          "ja": "青・赤・黄"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The yellow band traditionally stands for the land's wealth, blue for the ocean that separated the colony from Spain, and red for the blood shed in the independence wars.",
+        "es": "La franja amarilla representa tradicionalmente la riqueza de la tierra, la azul el océano que separaba la colonia de España, y la roja la sangre derramada en las guerras de independencia.",
+        "fr": "La bande jaune symbolise traditionnellement la richesse de la terre, la bleue l'océan qui séparait la colonie de l'Espagne, et la rouge le sang versé lors des guerres d'indépendance.",
+        "ja": "黄の帯は伝統的に大地の富を、青は植民地とスペインを隔てた大洋を、赤は独立戦争で流された血を表すとされる。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "\"Vinotinto\", the affectionate nickname for Venezuela's national football team, refers to the colour of what?",
+        "es": "\"Vinotinto\", el apodo cariñoso de la selección de fútbol de Venezuela, ¿se refiere al color de qué?",
+        "fr": "« Vinotinto », le surnom affectueux de l'équipe nationale de football du Venezuela, fait référence à la couleur de quoi ?",
+        "ja": "ベネズエラのサッカー代表チームの愛称「ビノティント」は、何の色を指すか?"
+      },
+      "o": [
+        {
+          "en": "Their jerseys",
+          "es": "Sus camisetas",
+          "fr": "Leurs maillots",
+          "ja": "ユニフォーム"
+        },
+        {
+          "en": "The stadium seats",
+          "es": "Los asientos del estadio",
+          "fr": "Les sièges du stade",
+          "ja": "スタジアムの座席"
+        },
+        {
+          "en": "The team bus",
+          "es": "El autobús del equipo",
+          "fr": "Le bus de l'équipe",
+          "ja": "チームバス"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Vinotinto literally means \"wine-red\", the deep burgundy shade the team has worn since the 1930s, chosen at a time when baseball, not football, still commanded most of the country's sporting attention.",
+        "es": "Vinotinto significa literalmente \"vino tinto\", el tono burdeos profundo que el equipo viste desde los años treinta, elegido en una época en que el béisbol, no el fútbol, todavía acaparaba la mayor parte de la atención deportiva del país.",
+        "fr": "Vinotinto signifie littéralement « vin rouge », la teinte bordeaux profonde que l'équipe porte depuis les années 1930, choisie à une époque où le baseball, et non le football, captait encore l'essentiel de l'attention sportive du pays.",
+        "ja": "「ビノティント」は文字どおり「赤ワイン色」を意味し、代表チームが1930年代から着る深いえんじ色を指す。当時はまだサッカーではなく野球が国のスポーツ関心の大半を占めていた時代に選ばれた色である。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "The green anaconda, found in Venezuela's wetlands, is generally considered the world's heaviest what?",
+        "es": "La anaconda verde, presente en los humedales de Venezuela, se considera generalmente el más pesado del mundo entre los qué?",
+        "fr": "L'anaconda verte, présente dans les zones humides du Venezuela, est généralement considérée comme le plus lourd du monde parmi les quoi ?",
+        "ja": "ベネズエラの湿地に生息するオオアナコンダは、一般に世界で最も重い何とされているか?"
+      },
+      "o": [
+        {
+          "en": "Snake",
+          "es": "Serpiente",
+          "fr": "Serpent",
+          "ja": "ヘビ"
+        },
+        {
+          "en": "Fish",
+          "es": "Pez",
+          "fr": "Poisson",
+          "ja": "魚"
+        },
+        {
+          "en": "Amphibian",
+          "es": "Anfibio",
+          "fr": "Amphibien",
+          "ja": "両生類"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "A large female green anaconda can weigh well over 100 kilograms, and the species spends most of its life submerged in slow-moving rivers and flooded plains rather than on land.",
+        "es": "Una anaconda verde hembra grande puede pesar bien más de 100 kilogramos, y la especie pasa la mayor parte de su vida sumergida en ríos de corriente lenta y llanuras inundadas en vez de en tierra.",
+        "fr": "Une grande femelle anaconda verte peut peser bien plus de 100 kilogrammes, et l'espèce passe l'essentiel de sa vie submergée dans des rivières lentes et des plaines inondées plutôt que sur la terre ferme.",
+        "ja": "大型の雌のオオアナコンダは体重が100キロを優に超えることがあり、この種は陸上より流れの緩やかな川や増水した平原に浸かって過ごす時間のほうがずっと長い。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Papelón, a block of unrefined cane sugar used across Venezuelan cooking, is best described as a solid form of what?",
+        "es": "El papelón, un bloque de azúcar de caña sin refinar usado en la cocina venezolana, se describe mejor como una forma sólida de qué?",
+        "fr": "Le papelón, un pain de sucre de canne non raffiné utilisé dans la cuisine vénézuélienne, se décrit le mieux comme une forme solide de quoi ?",
+        "ja": "ベネズエラ料理で使われる、精製していないサトウキビの塊「パペロン」は、何を固めたものと言うのが一番近いか?"
+      },
+      "o": [
+        {
+          "en": "Unrefined whole cane sugar",
+          "es": "Azúcar de caña integral sin refinar",
+          "fr": "Sucre de canne complet non raffiné",
+          "ja": "精製していない粗糖"
+        },
+        {
+          "en": "Salted butter",
+          "es": "Mantequilla salada",
+          "fr": "Beurre salé",
+          "ja": "有塩バター"
+        },
+        {
+          "en": "Dried cassava flour",
+          "es": "Harina de yuca seca",
+          "fr": "Farine de manioc séchée",
+          "ja": "乾燥キャッサバ粉"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Boiled cane juice is poured into moulds and left to harden into a dense brown block, then grated or dissolved to sweeten everything from coffee to the popular chilled drink papelón con limón.",
+        "es": "El jugo de caña hervido se vierte en moldes y se deja endurecer hasta formar un bloque marrón denso, que luego se ralla o disuelve para endulzar desde el café hasta la popular bebida fría papelón con limón.",
+        "fr": "Le jus de canne bouilli est versé dans des moules et laissé durcir en un bloc brun dense, puis râpé ou dissous pour sucrer aussi bien le café que la populaire boisson glacée papelón con limón.",
+        "ja": "煮詰めたサトウキビの汁を型に流し込んで固め、濃い茶色の塊にする。それをすりおろすか溶かして、コーヒーから人気の冷たい飲み物「パペロン・コン・リモン」まで甘みをつける。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Guasacaca, a bright green sauce served alongside grilled meat in Venezuela, is based mainly on which fruit?",
+        "es": "La guasacaca, salsa verde brillante que acompaña la carne asada en Venezuela, ¿se basa principalmente en qué fruta?",
+        "fr": "La guasacaca, sauce vert vif servie avec la viande grillée au Venezuela, est-elle principalement à base de quel fruit ?",
+        "ja": "ベネズエラで焼いた肉に添えられる鮮やかな緑色のソース、グアサカカの主な材料は?"
+      },
+      "o": [
+        {
+          "en": "Avocado",
+          "es": "Aguacate",
+          "fr": "Avocat",
+          "ja": "アボカド"
+        },
+        {
+          "en": "Green mango",
+          "es": "Mango verde",
+          "fr": "Mangue verte",
+          "ja": "青いマンゴー"
+        },
+        {
+          "en": "Kiwi",
+          "es": "Kiwi",
+          "fr": "Kiwi",
+          "ja": "キウイ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Mashed avocado blended with vinegar, onion, garlic and coriander gives guasacaca a tang that plain guacamole doesn't have, and no parrilla, or backyard barbecue, feels complete without a bowl of it on the table.",
+        "es": "El aguacate machacado mezclado con vinagre, cebolla, ajo y cilantro le da a la guasacaca un toque ácido que el guacamole simple no tiene, y ninguna parrilla se siente completa sin un tazón de ella en la mesa.",
+        "fr": "L'avocat écrasé mélangé à du vinaigre, de l'oignon, de l'ail et de la coriandre donne à la guasacaca une pointe d'acidité que le guacamole simple n'a pas, et aucune parrilla, ce barbecue de jardin, ne semble complète sans un bol sur la table.",
+        "ja": "つぶしたアボカドに酢・玉ねぎ・にんにく・コリアンダーを混ぜたグアサカカは、普通のグアカモレにはない酸味がある。庭でのバーベキュー「パリージャ」に、これを盛った器がないと物足りないとされる。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "The Wayuu, an Indigenous people known for colourful woven bags, live mainly on a peninsula straddling Venezuela and which other country?",
+        "es": "Los wayuu, pueblo indígena conocido por sus coloridos bolsos tejidos, viven sobre todo en una península a caballo entre Venezuela y qué otro país?",
+        "fr": "Les Wayuus, peuple autochtone réputé pour ses sacs tissés colorés, vivent surtout sur une péninsule à cheval entre le Venezuela et quel autre pays ?",
+        "ja": "色鮮やかな織り物のバッグで知られる先住民ワユー族は、ベネズエラとどの国にまたがる半島に主に暮らしているか?"
+      },
+      "o": [
+        {
+          "en": "Colombia",
+          "es": "Colombia",
+          "fr": "La Colombie",
+          "ja": "コロンビア"
+        },
+        {
+          "en": "Guyana",
+          "es": "Guyana",
+          "fr": "Le Guyana",
+          "ja": "ガイアナ"
+        },
+        {
+          "en": "Brazil",
+          "es": "Brasil",
+          "fr": "Le Brésil",
+          "ja": "ブラジル"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The Guajira Peninsula, split between Zulia state and Colombia's own La Guajira department, is home to the largest Indigenous group in both countries, and the woven mochila bag has become one of Colombia and Venezuela's best-known crafts abroad.",
+        "es": "La península de la Guajira, dividida entre el estado Zulia y el propio departamento de La Guajira en Colombia, alberga al mayor pueblo indígena de ambos países, y el bolso mochila tejido se ha vuelto una de las artesanías más conocidas de Colombia y Venezuela en el exterior.",
+        "fr": "La péninsule de la Guajira, partagée entre l'État de Zulia et le département colombien de La Guajira, abrite le plus grand groupe autochtone des deux pays, et le sac tissé mochila est devenu l'un des artisanats les plus connus de Colombie et du Venezuela à l'étranger.",
+        "ja": "グアヒラ半島はスリア州とコロンビア側のラ・グアヒラ県にまたがり、両国で最大の先住民集団の故郷である。織り物のバッグ「モチラ」は、いまや国外でも知られるコロンビア・ベネズエラ双方を代表する工芸品の一つになっている。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Miguel Cabrera, a Venezuelan-born baseball star, won Major League Baseball's rare Triple Crown while playing for which team in 2012?",
+        "es": "Miguel Cabrera, estrella del béisbol nacida en Venezuela, ¿con qué equipo ganó la infrecuente Triple Corona de las Grandes Ligas en 2012?",
+        "fr": "Miguel Cabrera, star du baseball né au Venezuela, a remporté la rare Triple Couronne de la Ligue majeure avec quelle équipe en 2012 ?",
+        "ja": "ベネズエラ生まれの野球スター、ミゲル・カブレラが2012年、メジャーリーグの数少ないトリプルクラウンを達成したのはどのチームでのことか?"
+      },
+      "o": [
+        {
+          "en": "The Detroit Tigers",
+          "es": "Los Tigres de Detroit",
+          "fr": "Les Tigers de Détroit",
+          "ja": "デトロイト・タイガース"
+        },
+        {
+          "en": "The New York Yankees",
+          "es": "Los Yanquis de Nueva York",
+          "fr": "Les Yankees de New York",
+          "ja": "ニューヨーク・ヤンキース"
+        },
+        {
+          "en": "The Los Angeles Dodgers",
+          "es": "Los Dodgers de Los Ángeles",
+          "fr": "Les Dodgers de Los Angeles",
+          "ja": "ロサンゼルス・ドジャース"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Cabrera led the American League in batting average, home runs and runs batted in that season, the first player to achieve the feat since 1967, cementing his place among the greatest hitters the country has produced.",
+        "es": "Cabrera lideró la Liga Americana en promedio de bateo, jonrones y carreras impulsadas esa temporada, el primer jugador en lograrlo desde 1967, lo que lo consolidó entre los mejores bateadores que ha dado el país.",
+        "fr": "Cabrera domina cette saison-là la Ligue américaine en moyenne au bâton, coups de circuit et points produits, le premier joueur à réussir cet exploit depuis 1967, ce qui le consacre parmi les plus grands frappeurs jamais produits par le pays.",
+        "ja": "カブレラはこのシーズン、アメリカン・リーグの打率・本塁打・打点の三部門でトップに立った。1967年以来この快挙を達成した初めての選手であり、この国が生んだ最高の打者の一人としての地位を固めた。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Venezuela is currently divided into 23 states plus a Capital District. Which city sits inside that Capital District?",
+        "es": "Venezuela se divide actualmente en 23 estados más un Distrito Capital. ¿Qué ciudad queda dentro de ese Distrito Capital?",
+        "fr": "Le Venezuela se divise actuellement en 23 États plus un District capital. Quelle ville se trouve dans ce District capital ?",
+        "ja": "ベネズエラはいま23の州と首都地区に分かれている。この首都地区に含まれる都市は?"
+      },
+      "o": [
+        {
+          "en": "Caracas",
+          "es": "Caracas",
+          "fr": "Caracas",
+          "ja": "カラカス"
+        },
+        {
+          "en": "Maracaibo",
+          "es": "Maracaibo",
+          "fr": "Maracaibo",
+          "ja": "マラカイボ"
+        },
+        {
+          "en": "Valencia",
+          "es": "Valencia",
+          "fr": "Valencia",
+          "ja": "ヴァレンシア"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The Capital District covers only the historic core of Caracas, while the sprawling metropolitan area beyond it spills into neighbouring Miranda state, so the city's government is split across more than one administrative unit.",
+        "es": "El Distrito Capital abarca solo el núcleo histórico de Caracas, mientras que el área metropolitana en expansión más allá se extiende hacia el vecino estado Miranda, así que el gobierno de la ciudad queda repartido entre más de una unidad administrativa.",
+        "fr": "Le District capital ne couvre que le noyau historique de Caracas, tandis que l'aire métropolitaine en expansion au-delà déborde sur l'État voisin de Miranda, si bien que l'administration de la ville se répartit sur plus d'une entité.",
+        "ja": "首都地区はカラカスの歴史的な中心部だけを含み、そこから広がる大都市圏は隣のミランダ州にまではみ出している。そのため市の行政は一つの単位に収まらず複数にまたがっている。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "The harpy eagle, one of the world's largest and most powerful birds of prey, hunts which animals in Venezuela's forests?",
+        "es": "El águila harpía, una de las aves de presa más grandes y poderosas del mundo, ¿qué animales caza en los bosques de Venezuela?",
+        "fr": "Le harpie féroce, l'un des plus grands et plus puissants rapaces au monde, chasse quels animaux dans les forêts du Venezuela ?",
+        "ja": "世界最大級で最も力強い猛禽の一つハーピーイーグルは、ベネズエラの森で主に何を狩るか?"
+      },
+      "o": [
+        {
+          "en": "Monkeys and sloths",
+          "es": "Monos y perezosos",
+          "fr": "Singes et paresseux",
+          "ja": "サルとナマケモノ"
+        },
+        {
+          "en": "Fish only",
+          "es": "Solo peces",
+          "fr": "Uniquement des poissons",
+          "ja": "魚のみ"
+        },
+        {
+          "en": "Small rodents on the ground",
+          "es": "Pequeños roedores en el suelo",
+          "fr": "De petits rongeurs au sol",
+          "ja": "地上の小さなげっ歯類"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "With talons larger than a grizzly bear's claws, the harpy eagle snatches monkeys and sloths straight out of the rainforest canopy, and a female can weigh nearly twice as much as the male of the pair.",
+        "es": "Con garras más grandes que las de un oso grizzly, el águila harpía arrebata monos y perezosos directamente del dosel de la selva, y una hembra puede pesar casi el doble que el macho de la pareja.",
+        "fr": "Avec des serres plus grandes que les griffes d'un grizzly, le harpie féroce arrache singes et paresseux directement à la canopée de la forêt tropicale, et une femelle peut peser presque le double du mâle du couple.",
+        "ja": "グリズリーの爪より大きな鉤爪を持つハーピーイーグルは、熱帯雨林の樹冠からサルやナマケモノを直接さらう。雌は同じつがいの雄のほぼ二倍の体重になることもある。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "The Médanos de Coro, a field of shifting sand dunes protected as a national park, lies in which Venezuelan state?",
+        "es": "Los Médanos de Coro, un campo de dunas móviles protegido como parque nacional, ¿en qué estado venezolano se encuentra?",
+        "fr": "Les Médanos de Coro, un champ de dunes mouvantes protégé en tant que parc national, se trouve dans quel État vénézuélien ?",
+        "ja": "移動する砂丘の広がりで国立公園に指定されているメダノス・デ・コロがあるベネズエラの州は?"
+      },
+      "o": [
+        {
+          "en": "Falcón",
+          "es": "Falcón",
+          "fr": "Le Falcón",
+          "ja": "ファルコン州"
+        },
+        {
+          "en": "Bolívar",
+          "es": "Bolívar",
+          "fr": "Le Bolívar",
+          "ja": "ボリバル州"
+        },
+        {
+          "en": "Trujillo",
+          "es": "Trujillo",
+          "fr": "Le Trujillo",
+          "ja": "トルヒージョ州"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Wind funnelling between the Paraguaná Peninsula and the mainland piles sand into dunes that can shift several metres a year, an unusual desert-like landscape squeezed right up against the Caribbean coast.",
+        "es": "El viento que se canaliza entre la península de Paraguaná y tierra firme amontona arena en dunas que pueden moverse varios metros al año, un paisaje desértico insólito apretado justo contra la costa caribeña.",
+        "fr": "Le vent canalisé entre la péninsule de Paraguaná et le continent entasse le sable en dunes pouvant se déplacer de plusieurs mètres par an, un paysage désertique insolite serré contre la côte caraïbe.",
+        "ja": "パラグアナ半島と本土のあいだを吹き抜ける風が砂を積み上げ、年に数メートルも動く砂丘を作る。カリブ海岸のすぐ際に押し込まれた、珍しい砂漠のような景観である。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "\"Curiara\", the everyday Venezuelan word for the dugout canoes used on rivers and in the Orinoco Delta, refers to what kind of boat?",
+        "es": "\"Curiara\", la palabra venezolana cotidiana para las canoas de un solo tronco usadas en los ríos y el Delta del Orinoco, ¿a qué tipo de embarcación se refiere?",
+        "fr": "« Curiara », le mot vénézuélien courant pour les pirogues monoxyles utilisées sur les fleuves et dans le delta de l'Orénoque, désigne quel type d'embarcation ?",
+        "ja": "河川やオリノコ・デルタで使われる丸木舟を指すベネズエラの日常語「クリアラ」は、どんな舟を指すか?"
+      },
+      "o": [
+        {
+          "en": "A canoe hollowed from a single tree trunk",
+          "es": "Una canoa ahuecada de un solo tronco",
+          "fr": "Une pirogue creusée dans un tronc d'arbre unique",
+          "ja": "一本の丸太をくり抜いたカヌー"
+        },
+        {
+          "en": "A raft of tied bamboo poles",
+          "es": "Una balsa de cañas de bambú atadas",
+          "fr": "Un radeau de tiges de bambou attachées",
+          "ja": "竹の棒を束ねた筏"
+        },
+        {
+          "en": "An inflatable rubber boat",
+          "es": "Un bote inflable de goma",
+          "fr": "Un bateau gonflable en caoutchouc",
+          "ja": "ゴム製の空気ボート"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Carved and burned out of a single large trunk, a curiara can carry a family and a full day's catch through channels too shallow or too tangled with roots for any motorboat to manage.",
+        "es": "Tallada y quemada de un solo tronco grande, una curiara puede llevar a una familia y la pesca de todo un día por canales demasiado someros o enredados de raíces para que cualquier lancha a motor los transite.",
+        "fr": "Sculptée et brûlée à partir d'un unique tronc massif, une curiara peut transporter une famille et la pêche d'une journée entière à travers des chenaux trop peu profonds ou trop enchevêtrés de racines pour qu'un bateau à moteur s'y aventure.",
+        "ja": "大きな一本の丸太を刳り貫き、焼いて仕上げるクリアラは、モーターボートでは通れないほど浅く根の絡んだ水路でも、一家族と一日分の漁獲物を運ぶことができる。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "A golfeado, a sweet spiral pastry associated with Aragua state, is glazed with which ingredient?",
+        "es": "El golfeado, dulce en espiral asociado al estado Aragua, ¿se glasea con qué ingrediente?",
+        "fr": "Le golfeado, pâtisserie sucrée en spirale associée à l'État d'Aragua, est glacé avec quel ingrédient ?",
+        "ja": "アラグア州に結びつく渦巻き状の甘いパン、ゴルフェアドは何で照りをつけるか?"
+      },
+      "o": [
+        {
+          "en": "Papelón (unrefined cane sugar)",
+          "es": "Papelón (azúcar de caña sin refinar)",
+          "fr": "Papelón (sucre de canne non raffiné)",
+          "ja": "パペロン(未精製のサトウキビ糖)"
+        },
+        {
+          "en": "Honey and cinnamon only",
+          "es": "Solo miel y canela",
+          "fr": "Uniquement du miel et de la cannelle",
+          "ja": "蜂蜜とシナモンのみ"
+        },
+        {
+          "en": "Chocolate ganache",
+          "es": "Ganache de chocolate",
+          "fr": "Ganache au chocolat",
+          "ja": "チョコレートガナッシュ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The spiral of dough is baked with a mild white cheese folded inside and then soaked in a syrup made from melted papelón, so the finished bun turns a deep amber and sticks to the fingers.",
+        "es": "La espiral de masa se hornea con un queso blanco suave doblado en su interior y luego se baña en un almíbar hecho de papelón derretido, así que el bollo terminado se vuelve de un ámbar profundo y se pega a los dedos.",
+        "fr": "La spirale de pâte est cuite avec un fromage blanc doux replié à l'intérieur, puis trempée dans un sirop de papelón fondu, si bien que la brioche finie prend une teinte ambrée profonde et colle aux doigts.",
+        "ja": "渦巻き状の生地に癖のない白チーズを折り込んで焼き、溶かしたパペロンで作ったシロップに浸す。仕上がったパンは濃い琥珀色になり、指にべたつくほど甘い。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Venezuela's professional winter baseball league, still running today, was founded in which decade?",
+        "es": "La liga profesional de béisbol de invierno de Venezuela, que todavía funciona hoy, se fundó en qué década?",
+        "fr": "La ligue professionnelle de baseball d'hiver du Venezuela, toujours active aujourd'hui, a été fondée dans quelle décennie ?",
+        "ja": "いまも続くベネズエラのプロ野球ウインターリーグが創設されたのはいつの年代か?"
+      },
+      "o": [
+        {
+          "en": "The 1940s",
+          "es": "Los años 40",
+          "fr": "Les années 1940",
+          "ja": "1940年代"
+        },
+        {
+          "en": "The 1990s",
+          "es": "Los años 90",
+          "fr": "Les années 1990",
+          "ja": "1990年代"
+        },
+        {
+          "en": "The 1920s",
+          "es": "Los años 20",
+          "fr": "Les années 1920",
+          "ja": "1920年代"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The Liga Venezolana de Béisbol Profesional began play in 1945 and now runs every winter, giving Major League players from Venezuela and elsewhere a season to keep sharp before spring training starts.",
+        "es": "La Liga Venezolana de Béisbol Profesional comenzó a jugar en 1945 y hoy se disputa cada invierno, dando a jugadores de Grandes Ligas de Venezuela y de otros países una temporada para mantenerse en forma antes del entrenamiento de primavera.",
+        "fr": "La Liga Venezolana de Béisbol Profesional a débuté en 1945 et se dispute aujourd'hui chaque hiver, offrant aux joueurs de ligue majeure venus du Venezuela et d'ailleurs une saison pour rester affûtés avant l'entraînement de printemps.",
+        "ja": "ベネズエラ・プロ野球リーグ(LVBP)は1945年に始まり、いまも毎冬開かれている。ベネズエラをはじめとするメジャーリーガーたちが、春季キャンプの前に調子を保つための場になっている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "The Orinoco is often ranked as the world's third-largest river by which measure?",
+        "es": "El Orinoco suele figurar como el tercer río más grande del mundo según qué medida?",
+        "fr": "L'Orénoque est souvent classé troisième fleuve du monde selon quel critère ?",
+        "ja": "オリノコ川は、どのような基準でしばしば世界第3位の川に数えられるか?"
+      },
+      "o": [
+        {
+          "en": "Volume of water discharged",
+          "es": "Volumen de agua descargada",
+          "fr": "Volume d'eau déversé",
+          "ja": "流量(水量)"
+        },
+        {
+          "en": "Total length",
+          "es": "Longitud total",
+          "fr": "Longueur totale",
+          "ja": "全長"
+        },
+        {
+          "en": "Number of countries it flows through",
+          "es": "Número de países por los que pasa",
+          "fr": "Nombre de pays traversés",
+          "ja": "流域国の数"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Only the Amazon and the Congo pour more fresh water into the ocean each second, and the Orinoco alone accounts for roughly a fifth of all the freshwater discharge feeding the Caribbean Sea.",
+        "es": "Solo el Amazonas y el Congo vierten más agua dulce al océano cada segundo, y el Orinoco por sí solo aporta aproximadamente una quinta parte de toda la descarga de agua dulce que recibe el mar Caribe.",
+        "fr": "Seuls l'Amazone et le Congo déversent plus d'eau douce dans l'océan chaque seconde, et l'Orénoque à lui seul fournit environ un cinquième de tout le débit d'eau douce alimentant la mer des Caraïbes.",
+        "ja": "毎秒より多くの淡水を海へ注ぐのはアマゾン川とコンゴ川だけで、オリノコ川一本だけでカリブ海に流れ込む淡水のおよそ5分の1を占める。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "In 1498, Christopher Columbus became the first European to sight the South American mainland near which Venezuelan peninsula, which he named \"Tierra de Gracia\"?",
+        "es": "En 1498, Cristóbal Colón fue el primer europeo en avistar el continente sudamericano cerca de qué península venezolana, a la que llamó \"Tierra de Gracia\"?",
+        "fr": "En 1498, Christophe Colomb fut le premier Européen à apercevoir le continent sud-américain près de quelle péninsule vénézuélienne, qu'il baptisa « Tierra de Gracia » ?",
+        "ja": "1498年、コロンブスがヨーロッパ人として初めて南米大陸を目にしたのは、彼が「恵みの地」と名付けたベネズエラのどの半島の近くだったか?"
+      },
+      "o": [
+        {
+          "en": "The Paria Peninsula",
+          "es": "La península de Paria",
+          "fr": "La péninsule de Paria",
+          "ja": "パリア半島"
+        },
+        {
+          "en": "The Paraguaná Peninsula",
+          "es": "La península de Paraguaná",
+          "fr": "La péninsule de Paraguaná",
+          "ja": "パラグアナ半島"
+        },
+        {
+          "en": "The Araya Peninsula",
+          "es": "La península de Araya",
+          "fr": "La péninsule d'Araya",
+          "ja": "アラヤ半島"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Columbus was on his third voyage and initially assumed he had found another island, but the sheer volume of fresh water pouring from the Orinoco convinced him he had reached a continent instead.",
+        "es": "Colón iba en su tercer viaje y al principio supuso que había hallado otra isla, pero el enorme volumen de agua dulce que vertía el Orinoco lo convenció de que en realidad había llegado a un continente.",
+        "fr": "Colomb en était à son troisième voyage et supposa d'abord avoir trouvé une nouvelle île, mais l'énorme volume d'eau douce déversé par l'Orénoque le convainquit qu'il avait plutôt atteint un continent.",
+        "ja": "コロンブスは三度目の航海の途上で、当初はまた別の島を見つけたと思い込んでいたが、オリノコ川が注ぐ淡水のあまりの量に、これは大陸に行き着いたのだと確信するに至った。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "The Boca del Dragón, or \"Dragon's Mouth\", is the strait separating Venezuela's Paria Peninsula from which island?",
+        "es": "La Boca del Dragón es el estrecho que separa la península de Paria de Venezuela de qué isla?",
+        "fr": "La Boca del Dragón, ou « bouche du Dragon », est le détroit séparant la péninsule de Paria du Venezuela de quelle île ?",
+        "ja": "「ドラゴンの口」ボカ・デル・ドラゴンは、ベネズエラのパリア半島をどの島から隔てる海峡か?"
+      },
+      "o": [
+        {
+          "en": "Trinidad",
+          "es": "Trinidad",
+          "fr": "Trinité",
+          "ja": "トリニダード島"
+        },
+        {
+          "en": "Aruba",
+          "es": "Aruba",
+          "fr": "Aruba",
+          "ja": "アルバ島"
+        },
+        {
+          "en": "Margarita",
+          "es": "Margarita",
+          "fr": "Margarita",
+          "ja": "マルガリータ島"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Columbus gave the strait its dramatic name after his ships struggled against violent currents where the Orinoco's fresh water collides with the Atlantic tide, a passage still treated with caution by sailors today.",
+        "es": "Colón le dio al estrecho su nombre dramático después de que sus barcos lucharan contra corrientes violentas donde el agua dulce del Orinoco choca con la marea atlántica, un paso que los marinos aún tratan con cautela hoy.",
+        "fr": "Colomb donna au détroit son nom dramatique après que ses navires eurent lutté contre des courants violents là où l'eau douce de l'Orénoque heurte la marée atlantique, un passage que les marins traitent encore aujourd'hui avec prudence.",
+        "ja": "コロンブスがこの海峡に劇的な名を与えたのは、オリノコ川の淡水が大西洋の潮とぶつかる場所で、彼の船団が激しい海流に翻弄されたためである。この水路はいまも船乗りたちに用心深く扱われている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "In 1567, Spanish conquistador Diego de Losada founded the settlement that grew into which present-day city?",
+        "es": "En 1567, el conquistador español Diego de Losada fundó el asentamiento que se convirtió en qué ciudad actual?",
+        "fr": "En 1567, le conquistador espagnol Diego de Losada fonda l'établissement qui devint quelle ville actuelle ?",
+        "ja": "1567年、スペインの征服者ディエゴ・デ・ロサダが築いた集落は、のちにどの現在の都市になったか?"
+      },
+      "o": [
+        {
+          "en": "Caracas",
+          "es": "Caracas",
+          "fr": "Caracas",
+          "ja": "カラカス"
+        },
+        {
+          "en": "Maracaibo",
+          "es": "Maracaibo",
+          "fr": "Maracaibo",
+          "ja": "マラカイボ"
+        },
+        {
+          "en": "Barquisimeto",
+          "es": "Barquisimeto",
+          "fr": "Barquisimeto",
+          "ja": "バルキシメト"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Losada named the settlement Santiago de León de Caracas, choosing a valley the local Toromaima people had defended fiercely, and the shortened name Caracas is the only part of it still in everyday use.",
+        "es": "Losada llamó al asentamiento Santiago de León de Caracas, y eligió un valle que el pueblo local toromaima había defendido con fiereza, y el nombre abreviado Caracas es la única parte que se sigue usando a diario.",
+        "fr": "Losada nomma l'établissement Santiago de León de Caracas, choisissant une vallée que le peuple toromaima local avait farouchement défendue, et le nom abrégé Caracas est la seule partie encore utilisée au quotidien.",
+        "ja": "ロサダはこの集落を「サンティアゴ・デ・レオン・デ・カラカス」と名付けた。地元のトロマイマ族が激しく守り抜いていた谷を選んでの建設だった。いま日常的に使われているのは短縮形の「カラカス」だけである。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Venezuela's national anthem is known by which title, taken from its opening line?",
+        "es": "El himno nacional de Venezuela se conoce por qué título, tomado de su primera línea?",
+        "fr": "L'hymne national du Venezuela est connu sous quel titre, tiré de sa première ligne ?",
+        "ja": "ベネズエラの国歌は、その冒頭の一節から取られたどの題名で知られるか?"
+      },
+      "o": [
+        {
+          "en": "Gloria al Bravo Pueblo",
+          "es": "Gloria al Bravo Pueblo",
+          "fr": "Gloria al Bravo Pueblo",
+          "ja": "グロリア・アル・ブラボ・プエブロ"
+        },
+        {
+          "en": "Himno de Riego",
+          "es": "Himno de Riego",
+          "fr": "Himno de Riego",
+          "ja": "イムノ・デ・リエゴ"
+        },
+        {
+          "en": "Salve, Oh Patria",
+          "es": "Salve, Oh Patria",
+          "fr": "Salve, Oh Patria",
+          "ja": "サルベ・オ・パトリア"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "\"Glory to the brave people\" was already being sung as a patriotic march during the independence wars decades before it was formally adopted, which is part of why Venezuelans tend to know every verse by heart.",
+        "es": "\"Gloria al bravo pueblo\" ya se cantaba como marcha patriótica durante las guerras de independencia décadas antes de adoptarse formalmente, lo cual explica en parte por qué los venezolanos suelen saberse de memoria todas sus estrofas.",
+        "fr": "« Gloire au peuple brave » se chantait déjà comme marche patriotique pendant les guerres d'indépendance, des décennies avant son adoption formelle, ce qui explique en partie pourquoi les Vénézuéliens en connaissent généralement tous les couplets par cœur.",
+        "ja": "「勇敢な人民に栄光あれ」は、正式に採用されるずっと前、独立戦争のさなかからすでに愛国的な行進曲として歌われていた。ベネズエラ人がどの節もそらんじられることが多いのは、そのためでもある。"
+      }
     }
   ],
   "items": {

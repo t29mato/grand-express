@@ -5945,7 +5945,7 @@
         "en": "The alpine bird considered a mountain guardian in Japanese folklore, found only above the treeline and now a protected species, is the ___.",
         "es": "El ave alpina considerada guardiana de la montaña en el folclore japonés, que solo se encuentra por encima del límite del bosque y hoy es especie protegida, es el ___.",
         "fr": "L'oiseau alpin considéré comme le gardien de la montagne dans le folklore japonais, présent uniquement au-dessus de la limite forestière et aujourd'hui espèce protégée, est le ___.",
-        "ja": "日本の民話で山の守り神とされ、樹林限界より上でしか見られず、今は保護species種になっている高山の鳥は?"
+        "ja": "日本の民話で山の守り神とされ、樹林限界より上でしか見られず、今は保護種になっている高山の鳥は?"
       },
       "o": [
         {
@@ -6300,39 +6300,39 @@
       }
     },
     {
-      "difficulty": 2,
+      "difficulty": 7,
       "q": {
-        "en": "Place names like Rishiri, Rausu and Shari, borne by several Hokkaido peaks in the hundred, are largely derived from which language?",
-        "es": "Nombres como Rishiri, Rausu y Shari, que llevan varios picos de Hokkaido entre las cien, derivan sobre todo de qué idioma?",
-        "fr": "Des noms comme Rishiri, Rausu et Shari, portés par plusieurs sommets de Hokkaido parmi les cent, dérivent en grande partie de quelle langue ?",
-        "ja": "利尻・羅臼・斜里など、百名山のうち北海道の山々の名の多くは、どの言語に由来するとされるか?"
+        "en": "Several Hokkaido summits end in -nupuri — Niseko-Annupuri, Iwaonupuri. In Ainu, what does nupuri mean?",
+        "es": "Varias cumbres de Hokkaido terminan en -nupuri: Niseko-Annupuri, Iwaonupuri. En ainu, ¿qué significa nupuri?",
+        "fr": "Plusieurs sommets de Hokkaido se terminent en -nupuri : Niseko-Annupuri, Iwaonupuri. En aïnou, que signifie nupuri ?",
+        "ja": "北海道には「ニセコアンヌプリ」「イワオヌプリ」のように、末尾が「ヌプリ」で終わる山がいくつもある。アイヌ語で「ヌプリ」とは何を指すか?"
       },
       "o": [
         {
-          "en": "Ainu",
-          "es": "Ainu",
-          "fr": "Aïnou",
-          "ja": "アイヌ語"
+          "en": "A hot spring",
+          "es": "Una fuente termal",
+          "fr": "Une source chaude",
+          "ja": "温泉"
         },
         {
-          "en": "Portuguese",
-          "es": "Portugués",
-          "fr": "Portugais",
-          "ja": "ポルトガル語"
+          "en": "A mountain",
+          "es": "Una montaña",
+          "fr": "Une montagne",
+          "ja": "山"
         },
         {
-          "en": "Ryukyuan",
-          "es": "Ryukyuense",
-          "fr": "Ryūkyūen",
-          "ja": "琉球語"
+          "en": "A river mouth",
+          "es": "La desembocadura de un río",
+          "fr": "Une embouchure",
+          "ja": "川の河口"
         }
       ],
-      "a": 0,
+      "a": 1,
       "f": {
-        "en": "Hokkaido was home to the Ainu long before Japanese settlement expanded there in the Meiji era, and many of the island's place names, mountains included, were adapted from Ainu words into Japanese script, though the exact original meanings are often debated by scholars today.",
-        "es": "Hokkaido fue tierra ainu mucho antes de que la colonización japonesa se expandiera allí en la era Meiji, y muchos topónimos de la isla, montañas incluidas, se adaptaron de palabras ainu a la escritura japonesa, aunque los significados originales exactos suelen ser hoy objeto de debate académico.",
-        "fr": "Hokkaido était le pays des Aïnous bien avant que la colonisation japonaise ne s'y étende à l'ère Meiji, et de nombreux toponymes de l'île, montagnes comprises, furent adaptés de mots aïnous à l'écriture japonaise, bien que leur sens original exact soit souvent débattu par les chercheurs aujourd'hui.",
-        "ja": "北海道は明治期に日本からの入植が広がるはるか前からアイヌの土地であり、山を含む島内の多くの地名はアイヌ語の語を日本語の表記に当てはめたものである。ただし元の正確な意味については、今も研究者のあいだで異説が唱えられることが多い。"
+        "en": "Ainu place names describe the land plainly: nupuri is a mountain, nay and pet are streams, kotan a village. Read that way, Niseko-Annupuri is not one name but a sentence about where it stands. The Meiji-era surveyors wrote these sounds down in Japanese characters chosen for their pronunciation, which is why so many Hokkaido names look opaque in writing yet stay transparent in Ainu.",
+        "es": "Los topónimos ainu describen la tierra sin rodeos: nupuri es montaña, nay y pet son arroyos, kotan una aldea. Leído así, Niseko-Annupuri no es un nombre sino una frase sobre dónde se alza. Los topógrafos de la era Meiji anotaron estos sonidos con caracteres japoneses elegidos por su pronunciación, y por eso tantos nombres de Hokkaido resultan opacos escritos y siguen siendo transparentes en ainu.",
+        "fr": "Les toponymes aïnous décrivent le terrain sans détour : nupuri est une montagne, nay et pet des ruisseaux, kotan un village. Ainsi lu, Niseko-Annupuri n'est pas un nom mais une phrase sur l'endroit où il se dresse. Les arpenteurs de l'ère Meiji notèrent ces sons avec des caractères japonais choisis pour leur prononciation, d'où tant de noms de Hokkaido opaques à l'écrit et pourtant limpides en aïnou.",
+        "ja": "アイヌ語の地名は土地をそのまま言い表す。ヌプリは山、ナイやペッは沢、コタンは集落である。そう読むと「ニセコアンヌプリ」は一つの名前ではなく、その山がどこに立っているかを述べた一文になる。明治期の測量はこれらの音を、意味ではなく読みで選んだ漢字に写し取った。北海道の地名が字面では意味を取りにくいのに、アイヌ語では今も透けて見えるのはそのためである。"
       }
     },
     {
@@ -6549,6 +6549,2454 @@
         "es": "El aire frío y cargado de humedad que cruza el mar de Japón desde Siberia es lo que sepulta las laderas occidentales de picos como el Myoko-san y el Haku-san bajo algunas de las nevadas más intensas del mundo cada invierno.",
         "fr": "L'air froid et chargé d'humidité traversant la mer du Japon depuis la Sibérie est ce qui ensevelit les versants ouest de sommets comme le Myoko-san et le Haku-san sous certaines des chutes de neige les plus abondantes au monde chaque hiver.",
         "ja": "シベリアから日本海を渡ってくる冷たく湿った空気が、妙高山や白山のような山の西側斜面を毎冬、世界でも屈指の豪雪で埋める。同じ気象の仕組みが、この地域のスキー産業も支えている。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "Most of the hundred's high alpine peaks are officially climbable without special snow or ice gear mainly in which season?",
+        "es": "¿En qué estación son escalables oficialmente, sin equipo especial de nieve o hielo, la mayoría de las altas cumbres alpinas de las cien?",
+        "fr": "Durant quelle saison la plupart des hauts sommets alpins parmi les cent sont-ils officiellement praticables sans matériel spécial de neige ou de glace ?",
+        "ja": "百名山の高い山々の多くが、特別な雪山装備なしで公式に登れるのは主にどの季節か?"
+      },
+      "o": [
+        {
+          "en": "Summer",
+          "es": "Verano",
+          "fr": "L'été",
+          "ja": "夏"
+        },
+        {
+          "en": "Winter",
+          "es": "Invierno",
+          "fr": "L'hiver",
+          "ja": "冬"
+        },
+        {
+          "en": "Early spring",
+          "es": "Principios de primavera",
+          "fr": "Le début du printemps",
+          "ja": "早春"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The Japan Alps hold snow into June most years and see the first new snow again by October, which is why huts, ropeways and mountain buses across the hundred concentrate their operating season into just a few summer months.",
+        "es": "Los Alpes Japoneses retienen nieve hasta junio la mayoría de los años y reciben ya nieve nueva en octubre, así que refugios, teleféricos y autobuses de montaña de las cien concentran su temporada en solo unos pocos meses de verano.",
+        "fr": "Les Alpes japonaises retiennent la neige jusqu'en juin la plupart des années et reçoivent déjà de la neige fraîche dès octobre, si bien que refuges, téléphériques et bus de montagne des cent concentrent leur saison sur quelques mois d'été seulement.",
+        "ja": "日本アルプスは多くの年で6月まで雪が残り、早くも10月には新雪が降り始める。そのため百名山各地の山小屋・ロープウェイ・登山バスの営業期間は夏のわずか数か月に集中している。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "What does the Japanese word \"kozan,\" often paired with \"shokubutsu\" in the phrase for alpine flowers, literally mean?",
+        "es": "¿Qué significa literalmente la palabra japonesa «kozan», a menudo unida a «shokubutsu» en la expresión para las flores alpinas?",
+        "fr": "Que signifie littéralement le mot japonais « kozan », souvent associé à « shokubutsu » dans l'expression désignant les fleurs alpines ?",
+        "ja": "高山植物という言葉にも使われる「高山」という日本語は、文字どおり何を意味するか?"
+      },
+      "o": [
+        {
+          "en": "Hot spring",
+          "es": "Aguas termales",
+          "fr": "Source chaude",
+          "ja": "温泉"
+        },
+        {
+          "en": "High mountain",
+          "es": "Montaña alta",
+          "fr": "Haute montagne",
+          "ja": "高い山"
+        },
+        {
+          "en": "Old temple",
+          "es": "Templo antiguo",
+          "fr": "Vieux temple",
+          "ja": "古い寺"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Kozan simply combines the characters for \"high\" and \"mountain,\" and kozan shokubutsu, \"high-mountain plants,\" is the everyday term for the alpine flora found only above the treeline on peaks like these.",
+        "es": "Kozan simplemente combina los caracteres de «alto» y «montaña», y kozan shokubutsu, «plantas de alta montaña», es el término cotidiano para la flora alpina que solo crece por encima del límite del bosque en picos como estos.",
+        "fr": "Kozan combine simplement les caractères de « haut » et « montagne », et kozan shokubutsu, « plantes de haute montagne », est le terme courant pour la flore alpine que l'on trouve uniquement au-dessus de la limite forestière sur des sommets comme ceux-ci.",
+        "ja": "「高山」は「高い」と「山」という字を組み合わせただけの言葉で、「高山植物」はこうした山の樹林限界より上でしか見られない植物を指す日常的な呼び名である。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "What does \"tozan,\" the everyday Japanese word for this whole hobby, literally mean?",
+        "es": "¿Qué significa literalmente «tozan», la palabra japonesa cotidiana para toda esta afición?",
+        "fr": "Que signifie littéralement « tozan », le mot japonais courant pour toute cette activité ?",
+        "ja": "この趣味全体を指す日常的な日本語「登山」は、文字どおり何を意味するか?"
+      },
+      "o": [
+        {
+          "en": "A camping trip",
+          "es": "Una excursión de acampada",
+          "fr": "Un séjour de camping",
+          "ja": "キャンプ旅行"
+        },
+        {
+          "en": "A pilgrimage",
+          "es": "Una peregrinación",
+          "fr": "Un pèlerinage",
+          "ja": "巡礼"
+        },
+        {
+          "en": "Mountain climbing",
+          "es": "Escalar montañas",
+          "fr": "Grimper en montagne",
+          "ja": "山に登ること"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Tozan simply joins the characters for \"climb\" and \"mountain,\" and it covers everything from a gentle stroll up Tsukuba-san to a multi-day traverse of the Northern Alps.",
+        "es": "Tozan simplemente une los caracteres de «subir» y «montaña», y cubre desde un paseo tranquilo por el Tsukuba-san hasta una travesía de varios días por los Alpes Septentrionales.",
+        "fr": "Tozan associe simplement les caractères « grimper » et « montagne », et couvre aussi bien une balade tranquille sur le Tsukuba-san qu'une traversée de plusieurs jours des Alpes du Nord.",
+        "ja": "「登山」は「登る」と「山」という字を組み合わせただけの言葉で、筑波山への気軽な散策から北アルプスの数日がかりの縦走まで、すべてを含む。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "What is the Japanese word for a mountain pass, the low saddle a trail often crosses between two peaks?",
+        "es": "¿Cuál es la palabra japonesa para un puerto de montaña, la baja depresión que un sendero suele cruzar entre dos picos?",
+        "fr": "Quel est le mot japonais pour un col de montagne, la selle basse qu'un sentier traverse souvent entre deux sommets ?",
+        "ja": "二つの峰のあいだで登山道がよく越える、低くくぼんだ鞍部を指す日本語は?"
+      },
+      "o": [
+        {
+          "en": "Toge",
+          "es": "Toge",
+          "fr": "Tōge",
+          "ja": "峠"
+        },
+        {
+          "en": "Sawa",
+          "es": "Sawa",
+          "fr": "Sawa",
+          "ja": "沢"
+        },
+        {
+          "en": "One",
+          "es": "One",
+          "fr": "One",
+          "ja": "尾根"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "A toge marks the lowest, easiest crossing point of a ridge, which is why so many are named as historical trade or pilgrimage routes rather than as summits in their own right.",
+        "es": "Un toge marca el punto de cruce más bajo y fácil de una cresta, por lo que muchos llevan nombres de antiguas rutas comerciales o de peregrinaje, y no de cumbres propiamente dichas.",
+        "fr": "Un tōge marque le point de franchissement le plus bas et le plus facile d'une crête, ce qui explique que beaucoup portent des noms d'anciennes routes commerciales ou de pèlerinage plutôt que de sommets à part entière.",
+        "ja": "峠は稜線のもっとも低く越えやすい地点を指すため、多くはそれ自体が頂ではなく、古くからの交易路や参詣路の名として残っている。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "The great majority of the hundred's peaks, including Mount Fuji, rise on which of Japan's main islands?",
+        "es": "La gran mayoría de los picos de las cien, incluido el monte Fuji, se alzan en cuál de las islas principales de Japón?",
+        "fr": "La grande majorité des sommets parmi les cent, y compris le mont Fuji, s'élèvent sur laquelle des îles principales du Japon ?",
+        "ja": "富士山を含む百名山の大多数がそびえるのは、日本のどの主要な島か?"
+      },
+      "o": [
+        {
+          "en": "Shikoku",
+          "es": "Shikoku",
+          "fr": "Shikoku",
+          "ja": "四国"
+        },
+        {
+          "en": "Honshu",
+          "es": "Honshu",
+          "fr": "Honshū",
+          "ja": "本州"
+        },
+        {
+          "en": "Kyushu",
+          "es": "Kyushu",
+          "fr": "Kyūshū",
+          "ja": "九州"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Honshu is by far Japan's largest island and carries the bulk of the hundred, from Rausu-dake's neighbours in the far north down to the peaks overlooking the Kii Peninsula, while Hokkaido, Shikoku and Kyushu each contribute only a handful.",
+        "es": "Honshu es con diferencia la isla más grande de Japón y reúne el grueso de las cien, desde los vecinos del Rausu-dake en el extremo norte hasta los picos que dominan la península de Kii, mientras que Hokkaido, Shikoku y Kyushu aportan solo un puñado cada una.",
+        "fr": "Honshū est de loin la plus grande île du Japon et rassemble l'essentiel des cent, des voisins du Rausu-dake tout au nord jusqu'aux sommets dominant la péninsule de Kii, tandis que Hokkaido, Shikoku et Kyushu n'en apportent chacune qu'une poignée.",
+        "ja": "本州は日本最大の島で、百名山の大半を占める。北の羅臼岳の仲間たちから紀伊半島を望む山々まで広がり、北海道・四国・九州はそれぞれわずかな数しか占めていない。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "What is the Japanese word for a mountain ridge or ridgeline, the terrain hikers follow between summits?",
+        "es": "¿Cuál es la palabra japonesa para una cresta o línea de cumbres, el terreno que los excursionistas siguen entre picos?",
+        "fr": "Quel est le mot japonais pour une crête ou une ligne de crête, le terrain que les randonneurs suivent entre les sommets ?",
+        "ja": "登山者が峰と峰のあいだをたどる稜線、尾根を指す日本語は?"
+      },
+      "o": [
+        {
+          "en": "Kawa",
+          "es": "Kawa",
+          "fr": "Kawa",
+          "ja": "川"
+        },
+        {
+          "en": "Doro",
+          "es": "Doro",
+          "fr": "Doro",
+          "ja": "道路"
+        },
+        {
+          "en": "One",
+          "es": "One",
+          "fr": "One",
+          "ja": "尾根"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "An one connects peaks along the watershed, and many of the hundred are in fact reached by following one ridge after another rather than by a single direct path up one slope.",
+        "es": "Un one conecta picos a lo largo de la divisoria de aguas, y de hecho a muchas de las cien se llega siguiendo una cresta tras otra, en vez de por un solo camino directo por una ladera.",
+        "fr": "Un one relie les sommets le long de la ligne de partage des eaux, et l'on atteint en fait beaucoup des cent en suivant une crête après l'autre plutôt que par un unique chemin direct sur un versant.",
+        "ja": "尾根は分水嶺に沿って峰と峰を結ぶ地形で、百名山の多くは実際には一つの斜面を直登するのではなく、尾根を一つまた一つとたどって山頂に至る。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "In Japanese mountaineering, what does \"sawa\" generally refer to?",
+        "es": "En el montañismo japonés, ¿a qué se refiere generalmente «sawa»?",
+        "fr": "Dans l'alpinisme japonais, à quoi renvoie généralement « sawa » ?",
+        "ja": "日本の登山で「沢」とは一般に何を指すか?"
+      },
+      "o": [
+        {
+          "en": "A valley stream or gorge",
+          "es": "Un arroyo o barranco de valle",
+          "fr": "Un ruisseau ou un ravin de vallée",
+          "ja": "谷を流れる川や渓谷"
+        },
+        {
+          "en": "A staffed hut",
+          "es": "Un refugio con personal",
+          "fr": "Un refuge gardé",
+          "ja": "係員のいる山小屋"
+        },
+        {
+          "en": "A shrine gate",
+          "es": "Una puerta de santuario",
+          "fr": "Un portail de sanctuaire",
+          "ja": "神社の門"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Climbing directly up a sawa's streambed, called sawanobori, is its own discipline distinct from following a dry ridge trail, and many of the hundred's more technical approaches follow one before finally reaching the main ridge.",
+        "es": "Escalar directamente el lecho de un sawa, llamado sawanobori, es una disciplina propia distinta de seguir una cresta seca, y muchos de los accesos más técnicos a las cien siguen uno antes de alcanzar por fin la cresta principal.",
+        "fr": "Grimper directement le lit d'un sawa, appelé sawanobori, est une discipline à part, distincte du suivi d'une crête sèche, et beaucoup des accès les plus techniques parmi les cent en suivent un avant d'atteindre enfin la crête principale.",
+        "ja": "沢の川底を直接登ることは「沢登り」と呼ばれ、乾いた尾根道をたどる登山とは別の技術を要する。百名山でも技術的なルートの多くは、主稜線に出る前にまず沢をたどる。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "What is a \"kusariba,\" a feature found on many of the hundred's more technical routes?",
+        "es": "¿Qué es un «kusariba», un elemento presente en muchas de las rutas más técnicas de las cien?",
+        "fr": "Qu'est-ce qu'un « kusariba », élément présent sur nombre des itinéraires les plus techniques parmi les cent ?",
+        "ja": "百名山の技術的なルートの多くに見られる「鎖場」とは何か?"
+      },
+      "o": [
+        {
+          "en": "A rest platform with benches",
+          "es": "Una plataforma de descanso con bancos",
+          "fr": "Une plateforme de repos avec des bancs",
+          "ja": "ベンチのある休憩用の平地"
+        },
+        {
+          "en": "A section of rock fitted with a fixed chain to climb",
+          "es": "Un tramo de roca con una cadena fija para escalar",
+          "fr": "Une section rocheuse équipée d'une chaîne fixe pour grimper",
+          "ja": "登るための固定された鎖が架けられた岩場"
+        },
+        {
+          "en": "A shrine gate marking a summit",
+          "es": "Una puerta de santuario que marca una cima",
+          "fr": "Un portail de sanctuaire marquant un sommet",
+          "ja": "山頂を示す神社の門"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Kusariba let hikers without technical rock gear haul themselves up short, exposed rock steps by hand, and their condition is inspected and the chains replaced periodically by local volunteer groups or prefectural crews.",
+        "es": "Los kusariba permiten a los excursionistas sin equipo técnico de escalada izarse a pulso por tramos cortos y expuestos de roca, y su estado se inspecciona y las cadenas se reemplazan periódicamente por grupos de voluntarios locales o cuadrillas de la prefectura.",
+        "fr": "Les kusariba permettent aux randonneurs sans matériel technique de grimper à la force des bras de courts passages rocheux exposés, et leur état est inspecté et les chaînes remplacées périodiquement par des groupes de bénévoles locaux ou des équipes préfectorales.",
+        "ja": "鎖場があれば、技術的な登攀具を持たない登山者でも短く切り立った岩場を手で身体を引き上げて越えられる。状態は定期的に点検され、鎖は地元の有志団体や県のチームによって取り替えられる。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "What does \"higaeri tozan\" mean?",
+        "es": "¿Qué significa «higaeri tozan»?",
+        "fr": "Que signifie « higaeri tozan » ?",
+        "ja": "「日帰り登山」とはどういう意味か?"
+      },
+      "o": [
+        {
+          "en": "A fully guided group tour",
+          "es": "Un recorrido en grupo totalmente guiado",
+          "fr": "Un circuit de groupe entièrement guidé",
+          "ja": "案内人付きの団体ツアー"
+        },
+        {
+          "en": "A multi-day traverse",
+          "es": "Una travesía de varios días",
+          "fr": "Une traversée de plusieurs jours",
+          "ja": "複数日にわたる縦走"
+        },
+        {
+          "en": "A same-day hike with no overnight stay",
+          "es": "Una excursión en el mismo día, sin pernoctar",
+          "fr": "Une randonnée dans la même journée, sans nuitée",
+          "ja": "宿泊せず、その日のうちに戻る登山"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Peaks close enough to a city, like Tsukuba-san or Takao-san, are popular higaeri tozan destinations, while most of the hundred deeper in the Alps require at least one night at a mountain hut.",
+        "es": "Los picos suficientemente cerca de una ciudad, como el Tsukuba-san o el Takao-san, son destinos populares de higaeri tozan, mientras que la mayoría de las cien, más adentro en los Alpes, exigen al menos una noche en un refugio.",
+        "fr": "Les sommets assez proches d'une ville, comme le Tsukuba-san ou le Takao-san, sont des destinations prisées de higaeri tozan, tandis que la plupart des cent, plus reculés dans les Alpes, exigent au moins une nuit en refuge.",
+        "ja": "筑波山や高尾山のように都市から近い山は日帰り登山の人気の行き先だが、アルプス奥深くにある百名山の多くは少なくとも一泊、山小屋での宿泊を必要とする。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "What is \"koyo,\" the seasonal event many hikers time their autumn climbs around?",
+        "es": "¿Qué es el «koyo», el fenómeno estacional en torno al cual muchos excursionistas programan sus ascensiones de otoño?",
+        "fr": "Qu'est-ce que le « koyo », le phénomène saisonnier autour duquel de nombreux randonneurs programment leurs ascensions d'automne ?",
+        "ja": "多くの登山者が秋の登山の時期を合わせる、この季節の現象「紅葉」とは何か?"
+      },
+      "o": [
+        {
+          "en": "The turning of leaves to red and gold",
+          "es": "El cambio de las hojas a rojo y dorado",
+          "fr": "Le changement des feuilles au rouge et à l'or",
+          "ja": "木の葉が赤や金色に色づくこと"
+        },
+        {
+          "en": "The first snowfall of winter",
+          "es": "La primera nevada del invierno",
+          "fr": "La première chute de neige de l'hiver",
+          "ja": "冬の最初の降雪"
+        },
+        {
+          "en": "The rainy season in June",
+          "es": "La estación de lluvias de junio",
+          "fr": "La saison des pluies de juin",
+          "ja": "6月の梅雨"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Koyo begins first on the higher peaks in September, since colour change tracks falling temperature with elevation, and it then works its way down to the valleys and cities over the following weeks.",
+        "es": "El koyo empieza antes en los picos más altos, en septiembre, ya que el cambio de color sigue el descenso de la temperatura con la altitud, y luego va bajando hacia los valles y las ciudades en las semanas siguientes.",
+        "fr": "Le koyo commence d'abord sur les sommets les plus hauts, en septembre, le changement de couleur suivant la baisse de température avec l'altitude, avant de descendre vers les vallées et les villes au fil des semaines suivantes.",
+        "ja": "紅葉はまず9月に標高の高い山から始まる。色づきは標高が上がるほど気温が下がることに連れて進むためで、その後数週間かけて麓の谷や街へと下りていく。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "What is \"tsuyu,\" the June rainy season that often delays the opening of the Alps' summer huts?",
+        "es": "¿Qué es el «tsuyu», la estación lluviosa de junio que a menudo retrasa la apertura de los refugios de verano de los Alpes?",
+        "fr": "Qu'est-ce que le « tsuyu », la saison des pluies de juin qui retarde souvent l'ouverture des refuges d'été des Alpes ?",
+        "ja": "アルプスの夏山小屋の開設をしばしば遅らせる、6月の雨の季節「梅雨」とは何か?"
+      },
+      "o": [
+        {
+          "en": "A typhoon that strikes only once a year",
+          "es": "Un tifón que golpea solo una vez al año",
+          "fr": "Un typhon qui ne frappe qu'une fois par an",
+          "ja": "年に一度だけ襲う台風"
+        },
+        {
+          "en": "A weeks-long rainy season before summer",
+          "es": "Una estación lluviosa de varias semanas antes del verano",
+          "fr": "Une saison des pluies de plusieurs semaines avant l'été",
+          "ja": "夏の前に何週間も続く雨の季節"
+        },
+        {
+          "en": "A festival marking the start of climbing season",
+          "es": "Un festival que marca el inicio de la temporada de ascensión",
+          "fr": "Une fête marquant le début de la saison d'ascension",
+          "ja": "登山シーズンの始まりを祝う祭り"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Tsuyu brings weeks of overcast, humid weather across most of Japan before the clearer, hotter days of true summer arrive, and many huts wait until it ends before opening in earnest.",
+        "es": "El tsuyu trae semanas de tiempo nublado y húmedo en la mayor parte de Japón antes de que lleguen los días más despejados y calurosos del verdadero verano, y muchos refugios esperan a que termine para abrir de lleno.",
+        "fr": "Le tsuyu apporte des semaines de temps couvert et humide sur la majeure partie du Japon avant l'arrivée des jours plus clairs et plus chauds du véritable été, et de nombreux refuges attendent sa fin pour ouvrir pleinement.",
+        "ja": "梅雨は本格的な夏の晴れて暑い日々が来る前、日本の大部分に何週間も曇りがちで蒸し暑い天候をもたらす。多くの山小屋は梅雨が明けてから本格的に営業を始める。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "What is the general Japanese term for a national park, the protective status held by dozens of the hundred's ranges?",
+        "es": "¿Cuál es el término japonés general para un parque nacional, el estatus de protección que ostentan decenas de las cadenas de las cien?",
+        "fr": "Quel est le terme japonais général pour un parc national, le statut de protection que détiennent des dizaines de chaînes parmi les cent ?",
+        "ja": "百名山の数十座が指定を受けている保護の枠組み、国立公園を指す一般的な日本語は?"
+      },
+      "o": [
+        {
+          "en": "Kenritsu toshokan",
+          "es": "Kenritsu toshokan",
+          "fr": "Kenritsu toshokan",
+          "ja": "県立図書館"
+        },
+        {
+          "en": "Shiritsu byoin",
+          "es": "Shiritsu byoin",
+          "fr": "Shiritsu byōin",
+          "ja": "私立病院"
+        },
+        {
+          "en": "Kokuritsu koen",
+          "es": "Kokuritsu koen",
+          "fr": "Kokuritsu kōen",
+          "ja": "国立公園"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Kokuritsu koen, literally \"nationally established park,\" is designated and managed directly by the national government rather than a prefecture, and dozens of the hundred lie fully or partly inside one, from Daisetsuzan in the north to Kirishima in the south.",
+        "es": "Kokuritsu koen, literalmente «parque establecido a nivel nacional», es designado y gestionado directamente por el gobierno nacional y no por una prefectura, y decenas de las cien están total o parcialmente dentro de uno, desde el Daisetsuzan en el norte hasta el Kirishima en el sur.",
+        "fr": "Kokuritsu kōen, littéralement « parc établi au niveau national », est désigné et géré directement par le gouvernement national plutôt que par une préfecture, et des dizaines des cent se trouvent en tout ou partie dans l'un d'eux, du Daisetsuzan au nord jusqu'au Kirishima au sud.",
+        "ja": "「国立公園」は文字どおり国が設けた公園を意味し、都道府県ではなく国が直接指定・管理する。百名山のうち数十座が、北の大雪山から南の霧島まで、その全部または一部を国立公園の中に含んでいる。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "As a rough rule of thumb, how much water is an average hiker typically advised to carry per day on a summer climb among the hundred?",
+        "es": "Como regla general, ¿cuánta agua se aconseja habitualmente llevar por día a un excursionista medio en una ascensión de verano entre las cien?",
+        "fr": "En règle générale, quelle quantité d'eau est habituellement conseillée par jour à un randonneur moyen lors d'une ascension d'été parmi les cent ?",
+        "ja": "大まかな目安として、百名山の夏の登山で標準的な登山者が1日に持つべきとされる水の量は?"
+      },
+      "o": [
+        {
+          "en": "About 2 litres",
+          "es": "Unos 2 litros",
+          "fr": "Environ 2 litres",
+          "ja": "およそ2リットル"
+        },
+        {
+          "en": "About 200 millilitres",
+          "es": "Unos 200 mililitros",
+          "fr": "Environ 200 millilitres",
+          "ja": "およそ200ミリリットル"
+        },
+        {
+          "en": "About 20 litres",
+          "es": "Unos 20 litros",
+          "fr": "Environ 20 litres",
+          "ja": "およそ20リットル"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Guidebooks and hut staff commonly suggest roughly two litres per person for a full day on the trail, adjusted upward for hot weather or a longer route, since water sources thin out well before the treeline ends.",
+        "es": "Las guías y el personal de los refugios suelen sugerir unos dos litros por persona para un día completo en el sendero, ajustando al alza con calor o una ruta más larga, ya que las fuentes de agua escasean mucho antes de que termine el límite del bosque.",
+        "fr": "Les guides et le personnel des refuges suggèrent couramment environ deux litres par personne pour une journée complète sur le sentier, à revoir à la hausse par forte chaleur ou sur un itinéraire plus long, car les points d'eau se raréfient bien avant la limite forestière.",
+        "ja": "ガイドブックや山小屋のスタッフは、1日じゅう歩く行程なら1人およそ2リットルを目安にすすめることが多く、暑い日や長い行程ではさらに増やす。水場は樹林限界が終わるよりずっと手前で乏しくなるためである。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Roughly how much does air temperature typically fall for every 1,000 metres of elevation gained, a rule of thumb hikers use to guess conditions near a summit?",
+        "es": "¿Cuánto suele bajar aproximadamente la temperatura del aire por cada 1.000 metros de altitud ganados, una regla que usan los excursionistas para prever las condiciones cerca de la cima?",
+        "fr": "De combien la température de l'air baisse-t-elle généralement pour 1 000 mètres d'altitude gagnés, règle empirique utilisée par les randonneurs pour deviner les conditions près du sommet ?",
+        "ja": "標高が1000m上がるごとに気温はおよそ何度下がるとされ、登山者が山頂付近の状況を見積もる目安にしているか?"
+      },
+      "o": [
+        {
+          "en": "About 1°C",
+          "es": "Unos 1 °C",
+          "fr": "Environ 1 °C",
+          "ja": "およそ1度"
+        },
+        {
+          "en": "About 6°C",
+          "es": "Unos 6 °C",
+          "fr": "Environ 6 °C",
+          "ja": "およそ6度"
+        },
+        {
+          "en": "About 20°C",
+          "es": "Unos 20 °C",
+          "fr": "Environ 20 °C",
+          "ja": "およそ20度"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "This roughly six-degree drop per thousand metres is why a warm, sunny trailhead in the valley can still mean near-freezing wind at a 3,000-metre summit, and why extra layers are standard advice even in midsummer.",
+        "es": "Esta caída de unos seis grados por cada mil metros es la razón por la que un inicio de sendero cálido y soleado en el valle puede significar igualmente viento casi bajo cero en una cima de 3.000 metros, y por la que llevar capas extra es un consejo habitual incluso en pleno verano.",
+        "fr": "Cette baisse d'environ six degrés par millier de mètres explique qu'un départ de sentier chaud et ensoleillé dans la vallée puisse tout de même rimer avec un vent proche de zéro degré à un sommet de 3 000 mètres, d'où le conseil habituel d'emporter des couches supplémentaires même en plein été.",
+        "ja": "1000mごとにおよそ6度下がるこの目安があるからこそ、谷では暖かく晴れた登山口でも、標高3000mの山頂では氷点下近い風が吹くことがあり、真夏でも重ね着が定番の助言となっている。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Roughly above what elevation does the treeline typically sit in the Northern and Southern Alps, above which trees give way to alpine shrub and bare rock?",
+        "es": "¿Por encima de qué altitud se sitúa aproximadamente el límite del bosque en los Alpes Septentrionales y Meridionales, más allá de la cual los árboles dan paso a arbustos alpinos y roca desnuda?",
+        "fr": "Au-dessus de quelle altitude se situe environ la limite forestière dans les Alpes du Nord et du Sud, au-delà de laquelle les arbres cèdent la place aux arbustes alpins et à la roche nue ?",
+        "ja": "北アルプス・南アルプスで、樹林がハイマツなどの低木や裸地に取って代わられる樹林限界は、およそ標高何mより上にあるか?"
+      },
+      "o": [
+        {
+          "en": "About 4,500 metres",
+          "es": "Unos 4.500 metros",
+          "fr": "Environ 4 500 mètres",
+          "ja": "およそ4500m"
+        },
+        {
+          "en": "About 500 metres",
+          "es": "Unos 500 metros",
+          "fr": "Environ 500 mètres",
+          "ja": "およそ500m"
+        },
+        {
+          "en": "About 2,500 metres",
+          "es": "Unos 2.500 metros",
+          "fr": "Environ 2 500 mètres",
+          "ja": "およそ2500m"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Below this line, beech and conifer forest still shelters the trail from wind; above it, hikers are exposed to sun, wind and sudden weather changes with no cover at all, which is part of why huts near the treeline are especially valued as shelter.",
+        "es": "Por debajo de esta línea, el bosque de hayas y coníferas aún resguarda el sendero del viento; por encima, los excursionistas quedan expuestos al sol, al viento y a cambios repentinos de tiempo sin ningún resguardo, lo que en parte explica el valor especial de los refugios cercanos al límite del bosque.",
+        "fr": "En dessous de cette ligne, la forêt de hêtres et de conifères abrite encore le sentier du vent ; au-dessus, les randonneurs sont exposés au soleil, au vent et aux changements de temps soudains sans aucun abri, ce qui explique en partie la valeur particulière des refuges proches de la limite forestière.",
+        "ja": "この線より下ではブナ類や針葉樹の森が登山道を風から守るが、上に出ると登山者は日差しや風、急変する天候に何の遮るものもなくさらされる。樹林限界付近の山小屋が避難先として特に重宝されるのは、そのためでもある。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Who typically operates the staffed mountain huts (yamagoya) found across most of the hundred?",
+        "es": "¿Quién suele gestionar los refugios de montaña con personal (yamagoya) que hay en la mayoría de las cien?",
+        "fr": "Qui gère généralement les refuges de montagne gardés (yamagoya) présents sur la plupart des cent ?",
+        "ja": "百名山のほとんどにある、係員のいる山小屋(山小屋)を運営しているのは主に誰か?"
+      },
+      "o": [
+        {
+          "en": "Private operators, often family businesses",
+          "es": "Operadores privados, a menudo negocios familiares",
+          "fr": "Des exploitants privés, souvent des affaires familiales",
+          "ja": "多くが家族経営などの民間の事業者"
+        },
+        {
+          "en": "The national government",
+          "es": "El gobierno nacional",
+          "fr": "Le gouvernement national",
+          "ja": "国"
+        },
+        {
+          "en": "The Self-Defense Forces",
+          "es": "Las Fuerzas de Autodefensa",
+          "fr": "Les Forces d'autodéfense",
+          "ja": "自衛隊"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Most yamagoya are privately run, some by the same family for generations, and they set their own room rates and menus even though the land beneath them often sits inside a national park managed by the state.",
+        "es": "La mayoría de los yamagoya son de gestión privada, algunos por la misma familia durante generaciones, y fijan sus propias tarifas y menús aunque el terreno bajo ellos a menudo esté dentro de un parque nacional gestionado por el estado.",
+        "fr": "La plupart des yamagoya sont gérés à titre privé, parfois par la même famille depuis des générations, et fixent eux-mêmes leurs tarifs et leurs menus, même si le terrain sur lequel ils se trouvent se situe souvent dans un parc national géré par l'État.",
+        "ja": "山小屋の多くは民間の経営で、同じ一家が何世代も営んでいる例もある。建つ土地はしばしば国が管理する国立公園の内側にあるが、宿泊料や食事の内容は各小屋が独自に決めている。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "What form of payment do many remote mountain huts among the hundred still mainly expect, given their distance from any bank or card terminal?",
+        "es": "Dada su distancia de cualquier banco o terminal de tarjetas, ¿qué forma de pago siguen esperando principalmente muchos refugios remotos entre los cien?",
+        "fr": "Étant donné leur éloignement de toute banque ou terminal de carte, quel moyen de paiement de nombreux refuges isolés parmi les cent attendent-ils encore principalement ?",
+        "ja": "銀行やカード端末から遠く離れているため、百名山の遠隔地にある山小屋の多くが今も主に求める支払い方法は?"
+      },
+      "o": [
+        {
+          "en": "Cryptocurrency",
+          "es": "Criptomoneda",
+          "fr": "Une cryptomonnaie",
+          "ja": "暗号資産"
+        },
+        {
+          "en": "Cash",
+          "es": "Efectivo",
+          "fr": "Des espèces",
+          "ja": "現金"
+        },
+        {
+          "en": "Barter with food",
+          "es": "Trueque con comida",
+          "fr": "Le troc contre de la nourriture",
+          "ja": "食料での物々交換"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Card readers and mobile payment have spread to some larger, more accessible lodges in recent years, but plenty of smaller huts reachable only on foot still ask guests to bring exact cash for a room and meals.",
+        "es": "Los lectores de tarjeta y el pago móvil se han extendido en los últimos años a algunos albergues más grandes y accesibles, pero muchos refugios pequeños a los que solo se llega a pie todavía piden a los huéspedes traer el importe exacto en efectivo para la habitación y las comidas.",
+        "fr": "Les lecteurs de carte et le paiement mobile se sont répandus ces dernières années dans certains refuges plus grands et plus accessibles, mais de nombreux petits refuges accessibles uniquement à pied demandent encore aux hôtes d'apporter l'appoint en espèces pour la chambre et les repas.",
+        "ja": "近年はより大きく行きやすい山小屋の一部でカード読み取り機やスマホ決済が広がってきたが、徒歩でしか行けない小さな山小屋の多くは、今も宿泊費や食事代を現金でぴったり用意してくることを求めている。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "What is the Japanese term for the widely followed rule of carrying all of one's own trash back down from the hundred's trails, rather than leaving it behind?",
+        "es": "¿Cuál es el término japonés para la norma ampliamente seguida de bajar toda la propia basura de los senderos de las cien, en vez de dejarla?",
+        "fr": "Quel est le terme japonais pour la règle largement suivie consistant à redescendre tous ses propres déchets des sentiers des cent, plutôt que de les laisser sur place ?",
+        "ja": "百名山の登山道でごみを残さず、自分で持ち帰るという広く守られている決まりを指す日本語は?"
+      },
+      "o": [
+        {
+          "en": "Omiyage",
+          "es": "Omiyage",
+          "fr": "Omiyage",
+          "ja": "お土産"
+        },
+        {
+          "en": "Furoshiki",
+          "es": "Furoshiki",
+          "fr": "Furoshiki",
+          "ja": "風呂敷"
+        },
+        {
+          "en": "Mochikaeri",
+          "es": "Mochikaeri",
+          "fr": "Mochikaeri",
+          "ja": "持ち帰り"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Mochikaeri simply means \"take it back with you,\" and it is why bins are rare or absent even at busy trailheads like Fuji's fifth stations, where the responsibility for every wrapper and bottle is left to the hiker who brought it up.",
+        "es": "Mochikaeri significa simplemente «llévatelo de vuelta», y por eso los cubos de basura son raros o inexistentes incluso en inicios de sendero concurridos como las quintas estaciones del Fuji, donde la responsabilidad de cada envoltorio y botella recae en quien lo subió.",
+        "fr": "Mochikaeri signifie simplement « remporte-le avec toi », ce qui explique la rareté ou l'absence de poubelles même sur des départs de sentier fréquentés comme les cinquièmes stations du Fuji, où la responsabilité de chaque emballage et bouteille revient à qui l'a monté.",
+        "ja": "「持ち帰り」は文字どおり自分で持って帰るという意味で、富士山の五合目のような賑わう登山口でもごみ箱がほとんど、あるいはまったく無いのはそのためである。包み紙一つ、ボトル一本の責任も、それを持ち上げた登山者本人にある。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "In recent years, what practice have many of the hundred's most popular staffed huts increasingly required before a hiker can stay the night?",
+        "es": "En los últimos años, ¿qué práctica exigen cada vez más muchos de los refugios con personal más concurridos de las cien antes de que un excursionista pueda pasar la noche?",
+        "fr": "Ces dernières années, quelle pratique de nombreux refuges gardés parmi les plus fréquentés des cent exigent-ils de plus en plus avant qu'un randonneur puisse y passer la nuit ?",
+        "ja": "百名山のうち特に人気の高い有人小屋の多くは、近年、宿泊する前に何をますます求めるようになったか?"
+      },
+      "o": [
+        {
+          "en": "Advance reservation",
+          "es": "Reserva anticipada",
+          "fr": "Une réservation à l'avance",
+          "ja": "事前の予約"
+        },
+        {
+          "en": "A medical exam",
+          "es": "Un examen médico",
+          "fr": "Un examen médical",
+          "ja": "健康診断"
+        },
+        {
+          "en": "A written essay about the climb",
+          "es": "Un ensayo escrito sobre la ascensión",
+          "fr": "Une dissertation écrite sur l'ascension",
+          "ja": "登山についての作文"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Crowding on popular routes, especially since the hiking boom of the 2020s, has pushed many huts to cap the number of guests and require booking ahead, rather than the old first-come, first-served practice of simply showing up.",
+        "es": "La masificación en las rutas populares, sobre todo desde el auge del senderismo de los años 2020, ha llevado a muchos refugios a limitar el número de huéspedes y exigir reserva previa, en vez de la vieja práctica de llegar sin más por orden de llegada.",
+        "fr": "L'affluence sur les itinéraires populaires, surtout depuis l'engouement pour la randonnée des années 2020, a poussé de nombreux refuges à plafonner le nombre d'hôtes et à exiger une réservation préalable, plutôt que l'ancienne pratique consistant à simplement se présenter.",
+        "ja": "人気ルートの混雑は特に2020年代の登山ブーム以降強まり、多くの山小屋が宿泊人数に上限を設け、以前のようにふらりと訪れる方式ではなく、事前予約を求めるようになった。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Under the Japan Meteorological Agency's five-level volcanic alert scale, what does Level 1 mean for hikers on an active peak like Ontake-san?",
+        "es": "Según la escala de alerta volcánica de cinco niveles de la Agencia Meteorológica de Japón, ¿qué significa el Nivel 1 para los excursionistas en un pico activo como el Ontake-san?",
+        "fr": "Selon l'échelle d'alerte volcanique à cinq niveaux de l'Agence météorologique du Japon, que signifie le niveau 1 pour les randonneurs sur un sommet actif comme l'Ontake-san ?",
+        "ja": "気象庁の5段階の噴火警戒レベルにおいて、御嶽山のような活火山でレベル1は登山者にとって何を意味するか?"
+      },
+      "o": [
+        {
+          "en": "Immediate evacuation of nearby towns",
+          "es": "Evacuación inmediata de los pueblos cercanos",
+          "fr": "Évacuation immédiate des localités voisines",
+          "ja": "周辺の町の即時避難"
+        },
+        {
+          "en": "Normal conditions; the mountain is open",
+          "es": "Condiciones normales; la montaña está abierta",
+          "fr": "Conditions normales ; la montagne est ouverte",
+          "ja": "平常。登山は可能"
+        },
+        {
+          "en": "The summit is permanently closed",
+          "es": "La cima está cerrada permanentemente",
+          "fr": "Le sommet est fermé en permanence",
+          "ja": "山頂は恒久的に閉鎖"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The scale runs from Level 1, meaning normal activity and open access, up to Level 5, meaning evacuate, with intermediate levels restricting the crater area or the summit itself well before any eruption is confirmed to be underway.",
+        "es": "La escala va del Nivel 1, que significa actividad normal y acceso abierto, hasta el Nivel 5, que significa evacuar, con niveles intermedios que restringen la zona del cráter o la propia cima mucho antes de que se confirme una erupción en curso.",
+        "fr": "L'échelle va du niveau 1, signifiant activité normale et accès ouvert, jusqu'au niveau 5, signifiant évacuation, avec des niveaux intermédiaires restreignant la zone du cratère ou le sommet lui-même bien avant qu'une éruption ne soit confirmée en cours.",
+        "ja": "レベルは1(平常、立ち入り可能)から5(避難)まであり、途中の段階では、実際の噴火が確認されるずっと前から火口周辺や山頂そのものへの立ち入りが制限される。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "What is the Japanese term for the optional insurance many hikers buy in advance to cover the cost of a helicopter rescue among the hundred?",
+        "es": "¿Cuál es el término japonés para el seguro opcional que muchos excursionistas compran por adelantado para cubrir el coste de un rescate en helicóptero entre las cien?",
+        "fr": "Quel est le terme japonais pour l'assurance facultative que de nombreux randonneurs souscrivent à l'avance pour couvrir le coût d'un sauvetage en hélicoptère parmi les cent ?",
+        "ja": "百名山でのヘリコプター救助の費用に備え、多くの登山者があらかじめ加入しておく任意保険を指す日本語は?"
+      },
+      "o": [
+        {
+          "en": "Yama biraki",
+          "es": "Yama biraki",
+          "fr": "Yama biraki",
+          "ja": "山開き"
+        },
+        {
+          "en": "Yama hoshi",
+          "es": "Yama hoshi",
+          "fr": "Yama hoshi",
+          "ja": "山法師"
+        },
+        {
+          "en": "Yama hoken",
+          "es": "Yama hoken",
+          "fr": "Yama hoken",
+          "ja": "山岳保険"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Because a private helicopter rescue in Japan can run into the millions of yen and is not automatically covered by ordinary health insurance, many climbers buy yama hoken, sometimes for a single trip and sometimes as an annual membership.",
+        "es": "Como un rescate privado en helicóptero en Japón puede costar millones de yenes y no lo cubre automáticamente el seguro médico ordinario, muchos alpinistas compran yama hoken, a veces para un solo viaje y a veces como membresía anual.",
+        "fr": "Comme un sauvetage privé en hélicoptère au Japon peut coûter plusieurs millions de yens et n'est pas automatiquement couvert par l'assurance maladie ordinaire, de nombreux alpinistes souscrivent un yama hoken, parfois pour une seule sortie, parfois sous forme d'adhésion annuelle.",
+        "ja": "日本で民間ヘリコプターによる救助は費用が数百万円に及ぶこともあり、通常の健康保険では自動的に補償されないため、多くの登山者が山岳保険に加入する。一回の山行だけの契約もあれば、年会費制の場合もある。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "What is the Japanese term for the hiking-plan form that climbers are asked, and in some cases legally required, to submit before setting out on more demanding routes among the hundred?",
+        "es": "¿Cuál es el término japonés para el formulario de plan de ruta que se pide a los excursionistas, y en algunos casos exige la ley, presentar antes de emprender rutas más exigentes entre las cien?",
+        "fr": "Quel est le terme japonais pour le formulaire de plan de randonnée que les randonneurs sont invités, et dans certains cas légalement tenus, à déposer avant de s'engager sur des itinéraires plus exigeants parmi les cent ?",
+        "ja": "百名山のうちより厳しいルートに出発する前に、登山者が提出を求められ、場合によっては法律で義務づけられている登山計画書を指す日本語は?"
+      },
+      "o": [
+        {
+          "en": "Tozan todoke",
+          "es": "Tozan todoke",
+          "fr": "Tozan todoke",
+          "ja": "登山届"
+        },
+        {
+          "en": "Tozan bin",
+          "es": "Tozan bin",
+          "fr": "Tozan bin",
+          "ja": "登山便"
+        },
+        {
+          "en": "Tozan sha",
+          "es": "Tozan sha",
+          "fr": "Tozan sha",
+          "ja": "登山者"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "A tozan todoke lists the planned route, dates and emergency contacts, and several prefectures with especially dangerous winter peaks, including parts of the Northern Alps, have made filing one a legal requirement rather than just good practice.",
+        "es": "Un tozan todoke enumera la ruta prevista, las fechas y contactos de emergencia, y varias prefecturas con picos invernales especialmente peligrosos, incluidas partes de los Alpes Septentrionales, han hecho obligatorio por ley presentarlo, y no solo una buena práctica.",
+        "fr": "Un tozan todoke répertorie l'itinéraire prévu, les dates et les contacts d'urgence, et plusieurs préfectures dotées de sommets hivernaux particulièrement dangereux, dont certaines parties des Alpes du Nord, en ont fait une obligation légale et non une simple bonne pratique.",
+        "ja": "登山届には予定ルート・日程・緊急連絡先などを記す。北アルプスの一部を含む、特に冬の危険な山を抱えるいくつかの県では、これを単なる推奨ではなく法律上の義務としている。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "To limit environmental damage at high altitude, what kind of toilet have many mountain huts among the hundred installed in place of older pit or flush systems?",
+        "es": "Para limitar el daño ambiental en altitud, ¿qué tipo de inodoro han instalado muchos refugios de montaña entre los cien en lugar de los antiguos sistemas de fosa o cisterna?",
+        "fr": "Pour limiter les dégâts environnementaux en altitude, quel type de toilettes de nombreux refuges de montagne parmi les cent ont-ils installé à la place des anciens systèmes à fosse ou à chasse d'eau ?",
+        "ja": "高所での環境負荷を抑えるため、百名山の多くの山小屋が旧来の汲み取り式や水洗式に代えて導入した便所の方式は?"
+      },
+      "o": [
+        {
+          "en": "Toilets flushed with seawater",
+          "es": "Inodoros con descarga de agua de mar",
+          "fr": "Des toilettes à chasse d'eau de mer",
+          "ja": "海水で流すトイレ"
+        },
+        {
+          "en": "Compost (bio) toilets",
+          "es": "Inodoros de compostaje (bio)",
+          "fr": "Des toilettes à compost (bio)",
+          "ja": "バイオ式(堆肥化)トイレ"
+        },
+        {
+          "en": "No toilets at all",
+          "es": "Ningún inodoro en absoluto",
+          "fr": "Aucune toilette du tout",
+          "ja": "トイレを一切設置しない"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Compost toilets break down waste with microbes, sawdust or heat instead of flushing it into streams below, addressing a pollution problem that became especially visible on Mount Fuji before such systems were widely adopted there.",
+        "es": "Los inodoros de compostaje descomponen los residuos con microbios, serrín o calor en vez de arrastrarlos a los arroyos de abajo, abordando un problema de contaminación que se hizo especialmente visible en el monte Fuji antes de que allí se adoptaran ampliamente estos sistemas.",
+        "fr": "Les toilettes à compost décomposent les déchets à l'aide de micro-organismes, de sciure ou de chaleur au lieu de les évacuer vers les cours d'eau en contrebas, répondant à un problème de pollution devenu particulièrement visible sur le mont Fuji avant l'adoption généralisée de ces systèmes.",
+        "ja": "バイオトイレは微生物やおがくず、熱を使って排泄物を分解し、下の沢へ流し込まない仕組みで、こうした方式が広まる前は特に富士山で目立っていた汚染問題への対策となっている。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "What kind of Japanese subscription service do many hikers now carry a small transmitter for, allowing rescuers to locate them by helicopter if they go missing on the hundred's trails?",
+        "es": "¿Para qué tipo de servicio japonés de suscripción llevan ahora muchos excursionistas un pequeño transmisor, que permite a los rescatistas localizarlos en helicóptero si se pierden en los senderos de las cien?",
+        "fr": "Pour quel type de service d'abonnement japonais de nombreux randonneurs portent-ils désormais un petit émetteur, permettant aux secouristes de les localiser en hélicoptère s'ils disparaissent sur les sentiers des cent ?",
+        "ja": "遭難した際にヘリコプターで捜索隊が位置を特定できるよう、多くの登山者が携行するようになった小型発信機は、どのような日本のサービスに対応するものか?"
+      },
+      "o": [
+        {
+          "en": "A weather-forecast text alert service",
+          "es": "Un servicio de alertas de texto sobre el pronóstico del tiempo",
+          "fr": "Un service d'alertes texte sur les prévisions météo",
+          "ja": "天気予報のテキスト通知サービス"
+        },
+        {
+          "en": "A mountain hut loyalty points programme",
+          "es": "Un programa de puntos de fidelidad de refugios de montaña",
+          "fr": "Un programme de fidélité de refuges de montagne",
+          "ja": "山小屋のポイントカード制度"
+        },
+        {
+          "en": "A locator-beacon rescue subscription",
+          "es": "Una suscripción de rescate con baliza localizadora",
+          "fr": "Un abonnement de secours avec balise de localisation",
+          "ja": "発信機を使う位置特定型の捜索サービス"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Subscribers clip a small radio beacon to their pack, and if they are reported missing, a private network of receivers and search aircraft can narrow the search area far faster than relying on visual sweeps of the terrain alone.",
+        "es": "Los suscriptores enganchan una pequeña baliza de radio a la mochila, y si se les reporta como desaparecidos, una red privada de receptores y aviones de búsqueda puede acotar el área de búsqueda mucho más rápido que confiar solo en rastreos visuales del terreno.",
+        "fr": "Les abonnés fixent une petite balise radio à leur sac, et s'ils sont signalés disparus, un réseau privé de récepteurs et d'avions de recherche peut réduire la zone de recherche bien plus vite qu'un simple ratissage visuel du terrain.",
+        "ja": "加入者は小さな無線発信機をザックに付けておき、行方不明になった際には、民間の受信機網と捜索機のネットワークが地形を目視だけで捜すよりずっと早く捜索範囲を絞り込める。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "The traditional \"gome\" numbering seen on trail signs, dividing a climb from base to summit, splits most routes into how many stages?",
+        "es": "La numeración tradicional «gome» que se ve en las señales del sendero, que divide una ascensión de la base a la cima, divide la mayoría de las rutas en cuántas etapas?",
+        "fr": "La numérotation traditionnelle « gome » que l'on voit sur les panneaux de sentier, divisant une ascension de la base au sommet, répartit la plupart des itinéraires en combien d'étapes ?",
+        "ja": "登山道の標識に見られる、麓から山頂までの行程を区切る伝統的な「合目」表示は、多くのルートを何段階に分けているか?"
+      },
+      "o": [
+        {
+          "en": "Ten",
+          "es": "Diez",
+          "fr": "Dix",
+          "ja": "10"
+        },
+        {
+          "en": "Three",
+          "es": "Tres",
+          "fr": "Trois",
+          "ja": "3"
+        },
+        {
+          "en": "Fifty",
+          "es": "Cincuenta",
+          "fr": "Cinquante",
+          "ja": "50"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The system runs from the first station near the base to the tenth at the summit, and stations are not evenly spaced by distance or elevation, so the gap between two numbered stations can feel very different from one climb to the next.",
+        "es": "El sistema va desde la primera estación cerca de la base hasta la décima en la cima, y las estaciones no están espaciadas de manera uniforme por distancia o altitud, así que la distancia entre dos estaciones numeradas puede sentirse muy distinta de una ascensión a otra.",
+        "fr": "Le système va de la première station près de la base à la dixième au sommet, et les stations ne sont pas espacées uniformément par distance ou altitude, si bien que l'écart entre deux stations numérotées peut sembler très différent d'une ascension à l'autre.",
+        "ja": "この方式は麓に近い一合目から山頂の十合目まで続くが、各合目は距離や標高で均等に割られているわけではなく、番号同士の間隔は山によってかなり違って感じられることがある。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What is \"kokutei koen,\" the second-tier protected status held by some ranges among the hundred instead of full national park status?",
+        "es": "¿Qué es «kokutei koen», el estatus de protección de segundo nivel que ostentan algunas cadenas de las cien en lugar del estatus completo de parque nacional?",
+        "fr": "Qu'est-ce que le « kokutei kōen », le statut de protection de second rang que détiennent certaines chaînes parmi les cent au lieu du plein statut de parc national ?",
+        "ja": "百名山の山域のなかに、完全な国立公園ではなくこの第二の保護区分を持つものがある「国定公園」とは何か?"
+      },
+      "o": [
+        {
+          "en": "A private hunting reserve",
+          "es": "Una reserva de caza privada",
+          "fr": "Une réserve de chasse privée",
+          "ja": "私設の狩猟保護区"
+        },
+        {
+          "en": "A quasi-national park",
+          "es": "Un parque casi nacional",
+          "fr": "Un parc quasi national",
+          "ja": "準国立公園"
+        },
+        {
+          "en": "A UNESCO World Heritage buffer zone",
+          "es": "Una zona de amortiguamiento del Patrimonio Mundial de la UNESCO",
+          "fr": "Une zone tampon du patrimoine mondial de l'UNESCO",
+          "ja": "世界遺産の緩衝地帯"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "A kokutei koen meets standards similar to a full national park but is designated on the recommendation of prefectural authorities rather than chosen outright by the central government, a two-tier system unique to Japan's park law.",
+        "es": "Un kokutei koen cumple normas similares a las de un parque nacional pleno, pero se designa por recomendación de las autoridades prefecturales en vez de ser elegido directamente por el gobierno central, un sistema de dos niveles propio de la ley japonesa de parques.",
+        "fr": "Un kokutei kōen répond à des critères proches de ceux d'un parc national à part entière, mais il est désigné sur recommandation des autorités préfectorales plutôt que choisi directement par le gouvernement central, un système à deux niveaux propre à la loi japonaise sur les parcs.",
+        "ja": "国定公園は国立公園に近い基準を満たすが、国が直接選ぶのではなく、都道府県の申し出を受けて指定される。この二段構えの仕組みは日本の公園法に特有のものである。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Japan created a national public holiday dedicated specifically to mountains, first observed in 2016. What date does it fall on?",
+        "es": "Japón creó un día festivo nacional dedicado específicamente a las montañas, celebrado por primera vez en 2016. ¿En qué fecha cae?",
+        "fr": "Le Japon a créé un jour férié national dédié spécifiquement aux montagnes, célébré pour la première fois en 2016. À quelle date tombe-t-il ?",
+        "ja": "日本には山に特化した国民の祝日があり、2016年に初めて実施された。その日付はいつか?"
+      },
+      "o": [
+        {
+          "en": "November 23",
+          "es": "23 de noviembre",
+          "fr": "Le 23 novembre",
+          "ja": "11月23日"
+        },
+        {
+          "en": "January 1",
+          "es": "1 de enero",
+          "fr": "Le 1er janvier",
+          "ja": "1月1日"
+        },
+        {
+          "en": "August 11",
+          "es": "11 de agosto",
+          "fr": "Le 11 août",
+          "ja": "8月11日"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Yama no Hi, \"Mountain Day,\" became one of Japan's newest national holidays, giving the country a counterpart to its long-standing Marine Day and, fittingly for a mostly mountainous archipelago, one more excuse for a summer trailhead crowd.",
+        "es": "El Yama no Hi, «Día de la Montaña», se convirtió en uno de los festivos nacionales más recientes de Japón, dando al país un equivalente a su antiguo Día del Mar y, de forma apropiada para un archipiélago mayormente montañoso, una excusa más para aglomerar los inicios de sendero en verano.",
+        "fr": "Le Yama no Hi, « jour de la Montagne », est devenu l'un des plus récents jours fériés nationaux du Japon, donnant au pays un pendant à son ancien jour de la Mer et, à propos pour un archipel en grande partie montagneux, une raison de plus pour bondé les départs de sentier en été.",
+        "ja": "「山の日」は日本でも最も新しい国民の祝日の一つとなり、以前からある「海の日」に対応する形で設けられた。国土の大半が山地である日本にふさわしく、夏の登山口が一段と賑わう理由が一つ増えたことになる。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "A long-running manga and film titled \"Gaku\" follows volunteer members of what kind of team, active on peaks across the Japan Alps?",
+        "es": "Un manga y película de larga duración titulados «Gaku» sigue a miembros voluntarios de qué tipo de equipo, activo en picos de todos los Alpes Japoneses?",
+        "fr": "Un manga et un film au long cours intitulés « Gaku » suivent des membres bénévoles de quel type d'équipe, actif sur des sommets à travers les Alpes japonaises ?",
+        "ja": "長く続く漫画・映画『岳(ガク)』が描くのは、日本アルプス各地の山で活動する、どのような種類のチームのボランティア隊員たちか?"
+      },
+      "o": [
+        {
+          "en": "A volunteer mountain rescue team",
+          "es": "Un equipo voluntario de rescate en montaña",
+          "fr": "Une équipe bénévole de secours en montagne",
+          "ja": "山岳遭難救助のボランティア隊"
+        },
+        {
+          "en": "A competitive ski relay team",
+          "es": "Un equipo de relevos de esquí de competición",
+          "fr": "Une équipe de relais de ski de compétition",
+          "ja": "スキーの競技リレーチーム"
+        },
+        {
+          "en": "A team of professional mountain photographers",
+          "es": "Un equipo de fotógrafos de montaña profesionales",
+          "fr": "Une équipe de photographes de montagne professionnels",
+          "ja": "プロの山岳写真家チーム"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The story follows civilian volunteers who assist official rescue teams in the Northern Alps, and its popularity has been credited with raising public awareness of just how often ordinary hikers, not only professionals, get called on to help in an emergency.",
+        "es": "La historia sigue a voluntarios civiles que ayudan a los equipos oficiales de rescate en los Alpes Septentrionales, y se le atribuye haber aumentado la conciencia pública sobre lo a menudo que se recurre a excursionistas comunes, no solo a profesionales, para ayudar en una emergencia.",
+        "fr": "L'histoire suit des bénévoles civils qui secondent les équipes officielles de secours dans les Alpes du Nord, et sa popularité est créditée d'avoir sensibilisé le public à la fréquence à laquelle de simples randonneurs, et pas seulement des professionnels, sont sollicités pour aider en cas d'urgence.",
+        "ja": "物語は北アルプスで公式の救助隊を手伝う民間ボランティアたちを描く。その人気は、緊急時に助けを求められるのが専門家だけでなく普通の登山者も少なくないという事実への認知を広めたとされる。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "\"Nihon Sankei,\" the famous trio of Matsushima, Miyajima and Amanohashidate, is a list of Japan's most celebrated what, distinct from the three sacred mountains?",
+        "es": "«Nihon Sankei», el famoso trío de Matsushima, Miyajima y Amanohashidate, es una lista de los más célebres qué de Japón, distinta de las tres montañas sagradas?",
+        "fr": "Le « Nihon Sankei », le célèbre trio de Matsushima, Miyajima et Amanohashidate, est une liste des plus célèbres quoi du Japon, distincte des trois montagnes sacrées ?",
+        "ja": "松島・宮島・天橋立という有名な三つ組「日本三景」は、三霊山とは別に、日本を代表する何のリストか?"
+      },
+      "o": [
+        {
+          "en": "Hot spring towns",
+          "es": "Pueblos de aguas termales",
+          "fr": "Villes thermales",
+          "ja": "温泉町"
+        },
+        {
+          "en": "Scenic views",
+          "es": "Vistas panorámicas",
+          "fr": "Paysages",
+          "ja": "景勝地"
+        },
+        {
+          "en": "Castle towns",
+          "es": "Ciudades castillo",
+          "fr": "Villes-châteaux",
+          "ja": "城下町"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The two lists are easy to confuse since both group exactly three famous places under an old, oft-repeated title, but Nihon Sankei celebrates coastal and bay scenery, while the three sacred mountains, Fuji, Tate and Haku, are chosen for religious weight.",
+        "es": "Las dos listas son fáciles de confundir porque ambas agrupan exactamente tres lugares famosos bajo un título antiguo y muy repetido, pero el Nihon Sankei celebra paisajes costeros y de bahía, mientras que las tres montañas sagradas, Fuji, Tate y Haku, se eligen por su peso religioso.",
+        "fr": "Les deux listes sont faciles à confondre car toutes deux regroupent exactement trois lieux célèbres sous un vieux titre souvent répété, mais le Nihon Sankei célèbre des paysages côtiers et de baie, tandis que les trois montagnes sacrées, Fuji, Tate et Haku, sont choisies pour leur poids religieux.",
+        "ja": "どちらも古くからよく使われる題のもと、ちょうど三つの名所を並べる点が似ているため混同されやすいが、日本三景は海岸や入江の景観を称えるものであり、富士・立山・白山の三霊山は宗教的な重みによって選ばれている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Which of the following, home to the hundred's Asahi-dake and several neighbouring peaks, is Japan's largest national park by area?",
+        "es": "¿Cuál de los siguientes, sede del Asahi-dake y varios picos vecinos entre las cien, es el parque nacional más grande de Japón por superficie?",
+        "fr": "Lequel des suivants, qui abrite l'Asahi-dake et plusieurs sommets voisins parmi les cent, est le plus grand parc national du Japon par sa superficie ?",
+        "ja": "百名山の旭岳や周辺の山々を抱える国立公園のうち、面積で日本最大のものはどれか?"
+      },
+      "o": [
+        {
+          "en": "Aso-Kuju National Park",
+          "es": "El Parque Nacional Aso-Kuju",
+          "fr": "Le parc national d'Aso-Kuju",
+          "ja": "阿蘇くじゅう国立公園"
+        },
+        {
+          "en": "Fuji-Hakone-Izu National Park",
+          "es": "El Parque Nacional Fuji-Hakone-Izu",
+          "fr": "Le parc national de Fuji-Hakone-Izu",
+          "ja": "富士箱根伊豆国立公園"
+        },
+        {
+          "en": "Daisetsuzan National Park",
+          "es": "El Parque Nacional Daisetsuzan",
+          "fr": "Le parc national de Daisetsuzan",
+          "ja": "大雪山国立公園"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Daisetsuzan's high, roadless plateau in central Hokkaido is sometimes called the \"roof of Hokkaido,\" and its sheer size is part of why so much of the range still feels remote even though several of the hundred sit inside its boundary.",
+        "es": "La alta meseta sin carreteras del Daisetsuzan, en el centro de Hokkaido, se llama a veces el «tejado de Hokkaido», y su gran tamaño explica en parte por qué gran parte de la cordillera sigue pareciendo remota aunque varias de las cien estén dentro de sus límites.",
+        "fr": "Le haut plateau sans routes du Daisetsuzan, au centre de Hokkaido, est parfois appelé le « toit de Hokkaido », et sa grande taille explique en partie pourquoi une si grande part de la chaîne paraît encore reculée bien que plusieurs des cent se trouvent dans ses limites.",
+        "ja": "北海道中央部にある大雪山の道のない高原は「北海道の屋根」と呼ばれることもある。その広大さゆえに、百名山のいくつもがその範囲内にあってもなお、山域の多くは今も人里離れた印象を保っている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Nagano Prefecture, crossed by both the Northern and Central Alps, is home to more of the hundred's peaks, in whole or in part, than any other single prefecture. Roughly how many?",
+        "es": "La prefectura de Nagano, cruzada por los Alpes Septentrionales y Centrales, alberga, total o parcialmente, más picos de las cien que ninguna otra prefectura. ¿Aproximadamente cuántos?",
+        "fr": "La préfecture de Nagano, traversée par les Alpes du Nord et Centrales, abrite, en tout ou en partie, plus de sommets parmi les cent qu'aucune autre préfecture. Environ combien ?",
+        "ja": "北アルプスと中央アルプスの両方にまたがる長野県は、他のどの県よりも多くの百名山を全部または一部含んでいる。およそいくつか?"
+      },
+      "o": [
+        {
+          "en": "Around 30",
+          "es": "Alrededor de 30",
+          "fr": "Environ 30",
+          "ja": "およそ30座"
+        },
+        {
+          "en": "Around 3",
+          "es": "Alrededor de 3",
+          "fr": "Environ 3",
+          "ja": "およそ3座"
+        },
+        {
+          "en": "All 100",
+          "es": "Los 100",
+          "fr": "Les 100",
+          "ja": "100座すべて"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "No other prefecture comes close, since Nagano borders or contains stretches of the Northern, Central and part of the Southern Alps, giving it a claim to more of Fukada's hundred than any other single administrative region in Japan.",
+        "es": "Ninguna otra prefectura se le acerca, ya que Nagano bordea o contiene tramos de los Alpes Septentrionales, Centrales y parte de los Meridionales, lo que le da derecho a más picos del centenar de Fukada que cualquier otra región administrativa de Japón.",
+        "fr": "Aucune autre préfecture n'en approche, car Nagano borde ou renferme des tronçons des Alpes du Nord, Centrales et une partie des Alpes du Sud, ce qui lui vaut de compter plus de sommets du centenar de Fukada qu'aucune autre région administrative du Japon.",
+        "ja": "長野県は北アルプス・中央アルプスと南アルプスの一部にまたがるか隣接しているため、日本のどの行政区域よりも多く深田の百座を抱えることになり、他の県は遠く及ばない。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "The early 20th-century printmaker Yoshida Hiroshi is especially remembered for woodblock prints depicting what subject in the Japan Alps?",
+        "es": "El grabador de principios del siglo XX Yoshida Hiroshi es especialmente recordado por sus grabados en madera que representan qué tema en los Alpes Japoneses?",
+        "fr": "Le graveur du début du XXe siècle Yoshida Hiroshi est particulièrement connu pour ses estampes sur bois représentant quel sujet dans les Alpes japonaises ?",
+        "ja": "20世紀初頭の版画家・吉田博は、日本アルプスの何を描いた木版画で特に知られているか?"
+      },
+      "o": [
+        {
+          "en": "Its city train stations",
+          "es": "Sus estaciones de tren urbanas",
+          "fr": "Ses gares urbaines",
+          "ja": "都市の鉄道駅"
+        },
+        {
+          "en": "Its high peaks and alpine light",
+          "es": "Sus altas cumbres y la luz alpina",
+          "fr": "Ses hauts sommets et la lumière alpine",
+          "ja": "その高峰と高山の光"
+        },
+        {
+          "en": "Its coastal fishing villages",
+          "es": "Sus pueblos pesqueros costeros",
+          "fr": "Ses villages de pêcheurs côtiers",
+          "ja": "海沿いの漁村"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "An avid climber himself, Yoshida hauled painting gear up peaks including Yari-ga-take and the Hotaka range to study alpine light firsthand, and his prints remain some of the most recognisable images of the early Japan Alps mountaineering era.",
+        "es": "Alpinista él mismo apasionado, Yoshida cargó material de pintura hasta picos como el Yari-ga-take y la cordillera Hotaka para estudiar in situ la luz alpina, y sus grabados siguen siendo algunas de las imágenes más reconocibles de los primeros tiempos del montañismo en los Alpes Japoneses.",
+        "fr": "Alpiniste passionné lui-même, Yoshida a hissé son matériel de peinture sur des sommets comme le Yari-ga-take et le massif du Hotaka pour étudier la lumière alpine sur le vif, et ses estampes restent parmi les images les plus reconnaissables des débuts de l'alpinisme dans les Alpes japonaises.",
+        "ja": "自らも熱心な登山家だった吉田博は、槍ヶ岳や穂高連峰にまで絵の道具を担ぎ上げて高山の光を直接観察した。その版画は、日本アルプス登山黎明期を代表する図像として今も広く知られている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "On Mount Fuji, what do many climbers still do with a wooden pilgrim's staff (kongo-zue) as they pass each numbered station on the way up?",
+        "es": "En el monte Fuji, ¿qué siguen haciendo muchos escaladores con un bastón de peregrino de madera (kongo-zue) al pasar cada estación numerada en la subida?",
+        "fr": "Sur le mont Fuji, que font encore de nombreux grimpeurs avec un bâton de pèlerin en bois (kongo-zue) en passant chaque station numérotée à la montée ?",
+        "ja": "富士山で、多くの登山者が番号のついた合目を一つ通過するたびに、木の金剛杖に対して今も行うことは何か?"
+      },
+      "o": [
+        {
+          "en": "Leave it behind as an offering",
+          "es": "Dejarlo como ofrenda",
+          "fr": "Le laisser en offrande",
+          "ja": "供え物として置いていく"
+        },
+        {
+          "en": "Trade it for a new one",
+          "es": "Cambiarlo por uno nuevo",
+          "fr": "L'échanger contre un nouveau",
+          "ja": "新しいものと交換する"
+        },
+        {
+          "en": "Have it branded with a hot iron stamp",
+          "es": "Marcarlo con un sello de hierro candente",
+          "fr": "Le faire marquer d'un tampon au fer chaud",
+          "ja": "焼印を押してもらう"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Each brand costs a small fee and marks the station's name and elevation, so a staff carried all the way to the summit and back down comes home covered in scorched marks tracing the entire ten-station climb.",
+        "es": "Cada sello tiene un pequeño coste y marca el nombre y la altitud de la estación, así que un bastón llevado hasta la cima y de vuelta regresa cubierto de marcas quemadas que trazan toda la ascensión de diez estaciones.",
+        "fr": "Chaque tampon coûte une petite somme et indique le nom et l'altitude de la station, si bien qu'un bâton porté jusqu'au sommet et redescendu revient couvert de marques brûlées retraçant toute l'ascension en dix stations.",
+        "ja": "焼印一つにつきわずかな料金がかかり、その合目の名と標高が刻まれる。山頂まで担ぎ上げて持ち帰った杖は、十合目分の焦げた印でびっしりと埋まることになる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "In 1964, Kyuya Fukada's \"Nihon Hyakumeizan\" won which major Japanese literary prize?",
+        "es": "En 1964, «Nihon Hyakumeizan» de Kyuya Fukada ganó qué importante premio literario japonés?",
+        "fr": "En 1964, « Nihon Hyakumeizan » de Kyūya Fukada a remporté quel grand prix littéraire japonais ?",
+        "ja": "1964年、深田久弥の『日本百名山』は日本のどの大きな文学賞を受賞したか?"
+      },
+      "o": [
+        {
+          "en": "The Yomiuri Prize",
+          "es": "El Premio Yomiuri",
+          "fr": "Le prix Yomiuri",
+          "ja": "読売文学賞"
+        },
+        {
+          "en": "The Nobel Prize in Literature",
+          "es": "El Premio Nobel de Literatura",
+          "fr": "Le prix Nobel de littérature",
+          "ja": "ノーベル文学賞"
+        },
+        {
+          "en": "The Academy Award",
+          "es": "El Premio de la Academia",
+          "fr": "L'Oscar",
+          "ja": "アカデミー賞"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The Yomiuri Prize recognised the book in its essay and travel-writing category the same year it was published, an early sign that a lifelong personal project was about to become a defining work of Japanese mountain literature.",
+        "es": "El Premio Yomiuri reconoció el libro en su categoría de ensayo y literatura de viajes el mismo año de su publicación, una señal temprana de que un proyecto personal de toda una vida estaba a punto de convertirse en una obra definitoria de la literatura japonesa de montaña.",
+        "fr": "Le prix Yomiuri a récompensé le livre dans sa catégorie essai et récit de voyage l'année même de sa publication, signe précoce qu'un projet personnel de toute une vie allait devenir une œuvre fondatrice de la littérature de montagne japonaise.",
+        "ja": "読売文学賞は刊行と同じ年に、この本を随筆・紀行文の部門で表彰した。一人の登山家が生涯をかけた個人的な仕事が、日本の山岳文学を代表する一冊になろうとしていることを示す早い兆しだった。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Until the Meiji era, women were formally barred from climbing Mount Fuji. In roughly what year was that ban officially lifted?",
+        "es": "Hasta la era Meiji, a las mujeres se les prohibía formalmente escalar el monte Fuji. ¿En qué año se levantó oficialmente esa prohibición, aproximadamente?",
+        "fr": "Jusqu'à l'ère Meiji, les femmes étaient formellement interdites d'ascension du mont Fuji. Vers quelle année cette interdiction fut-elle officiellement levée ?",
+        "ja": "明治時代まで、女性は正式に富士山への登山を禁じられていた。その禁令がおよそ何年に正式に解かれたか?"
+      },
+      "o": [
+        {
+          "en": "1952",
+          "es": "1952",
+          "fr": "1952",
+          "ja": "1952年"
+        },
+        {
+          "en": "1872",
+          "es": "1872",
+          "fr": "1872",
+          "ja": "1872年"
+        },
+        {
+          "en": "1802",
+          "es": "1802",
+          "fr": "1802",
+          "ja": "1802年"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The ban, rooted in the idea that women's presence would offend the mountain's deity, fell alongside a wider set of Meiji reforms that opened many formerly restricted sacred sites, though a handful of unrelated peaks kept their own local restrictions far longer.",
+        "es": "La prohibición, arraigada en la idea de que la presencia de mujeres ofendería a la deidad de la montaña, cayó junto a un conjunto más amplio de reformas Meiji que abrieron muchos lugares sagrados antes restringidos, aunque un puñado de picos no relacionados mantuvo sus propias restricciones locales mucho más tiempo.",
+        "fr": "L'interdiction, fondée sur l'idée que la présence de femmes offenserait la divinité de la montagne, tomba avec un ensemble plus large de réformes de l'ère Meiji qui ouvrirent de nombreux lieux sacrés jusque-là restreints, bien qu'une poignée de sommets sans rapport ait conservé ses propres restrictions locales bien plus longtemps.",
+        "ja": "女性の存在が山の神を怒らせるという考えに根ざしたこの禁令は、それまで制限されていた多くの霊場を開いた明治期の広範な改革とともに廃止された。ただし無関係な一部の山では、独自の地元の制限がその後もずっと長く残った。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which legendary ascetic is traditionally credited as the founder of Shugendo and the first to open many of Japan's sacred peaks to religious climbing?",
+        "es": "¿Qué asceta legendario se considera tradicionalmente el fundador del shugendo y el primero en abrir muchas de las cumbres sagradas de Japón a la ascensión religiosa?",
+        "fr": "Quel ascète légendaire est traditionnellement crédité comme fondateur du shugendo et premier à avoir ouvert nombre des sommets sacrés du Japon à l'ascension religieuse ?",
+        "ja": "修験道の開祖とされ、日本の多くの霊山を信仰登山に開いた最初の人物と伝わる伝説的な行者は誰か?"
+      },
+      "o": [
+        {
+          "en": "Sen no Rikyu",
+          "es": "Sen no Rikyu",
+          "fr": "Sen no Rikyū",
+          "ja": "千利休"
+        },
+        {
+          "en": "Kobo Daishi",
+          "es": "Kobo Daishi",
+          "fr": "Kōbō Daishi",
+          "ja": "弘法大師"
+        },
+        {
+          "en": "En no Gyoja",
+          "es": "En no Gyoja",
+          "fr": "En no Gyōja",
+          "ja": "役行者(役小角)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Little about En no Gyoja's life is documented with certainty beyond a brief, unflattering mention in an 8th-century court chronicle, yet later Shugendo tradition credits him with opening peak after peak across Japan to ascetic training.",
+        "es": "Poco de la vida de En no Gyoja está documentado con certeza más allá de una breve y poco favorable mención en una crónica cortesana del siglo VIII, pero la tradición shugendo posterior le atribuye haber abierto cima tras cima en todo Japón al entrenamiento ascético.",
+        "fr": "On sait peu de choses avec certitude sur la vie d'En no Gyōja, hormis une brève mention peu flatteuse dans une chronique de cour du VIIIe siècle, mais la tradition shugendo ultérieure lui attribue l'ouverture, sommet après sommet, de tout le Japon à l'ascèse.",
+        "ja": "役行者の生涯について確かなことはほとんど分かっておらず、8世紀の宮廷の記録にわずかに、あまり好意的でない形で記されている程度である。それでも後の修験道の伝承は、日本各地の山を次々と修行の場として開いたのは彼だとする。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What is the popular name for the notoriously exposed, knife-edge ridge traverse linking Yari-ga-take and the Hotaka massif in the Northern Alps?",
+        "es": "¿Cuál es el nombre popular de la travesía de cresta afilada y muy expuesta que une el Yari-ga-take y el macizo Hotaka en los Alpes Septentrionales?",
+        "fr": "Quel est le nom populaire de la traversée de crête effilée et très exposée reliant le Yari-ga-take au massif du Hotaka dans les Alpes du Nord ?",
+        "ja": "北アルプスで槍ヶ岳と穂高連峰を結ぶ、切り立った刃のような露出度の高い縦走路の通称は?"
+      },
+      "o": [
+        {
+          "en": "The Dai-Kiretto",
+          "es": "El Dai-Kiretto",
+          "fr": "Le Dai-Kiretto",
+          "ja": "大キレット"
+        },
+        {
+          "en": "The Fuji Loop",
+          "es": "El bucle del Fuji",
+          "fr": "La boucle du Fuji",
+          "ja": "フジ・ループ"
+        },
+        {
+          "en": "The Golden Route",
+          "es": "La Ruta Dorada",
+          "fr": "La route dorée",
+          "ja": "ゴールデンルート"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Kiretto means \"a cut,\" and the Dai-Kiretto's deep notch between the two peaks, crossed on ladders and chains bolted to sheer rock, is routinely ranked among the most demanding non-technical stretches on any of the hundred.",
+        "es": "Kiretto significa «un corte», y la profunda muesca del Dai-Kiretto entre los dos picos, cruzada por escaleras y cadenas fijadas a roca vertical, se clasifica habitualmente entre los tramos no técnicos más exigentes de cualquiera de las cien.",
+        "fr": "Kiretto signifie « une entaille », et la profonde brèche du Dai-Kiretto entre les deux sommets, franchie par des échelles et des chaînes fixées à la roche à pic, est régulièrement classée parmi les tronçons non techniques les plus exigeants de l'ensemble des cent.",
+        "ja": "「切戸」を意味するキレットのうち、二つの峰のあいだに深く切れ込む大キレットは、垂直に近い岩に固定された梯子と鎖で越える。技術的な登攀具を使わない区間としては、百名山でも屈指の厳しさとされる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "In 1956, a Japanese Alpine Club expedition achieved a landmark first ascent of which Himalayan peak, a major moment in postwar Japanese mountaineering?",
+        "es": "En 1956, una expedición del Club Alpino Japonés logró la histórica primera ascensión de qué pico del Himalaya, un momento importante del montañismo japonés de posguerra?",
+        "fr": "En 1956, une expédition du Club alpin japonais a réalisé la première ascension historique de quel sommet himalayen, moment marquant de l'alpinisme japonais d'après-guerre ?",
+        "ja": "1956年、日本山岳会の遠征隊が初登頂を成し遂げ、戦後日本の登山史における大きな出来事となったヒマラヤの山はどれか?"
+      },
+      "o": [
+        {
+          "en": "Everest",
+          "es": "Everest",
+          "fr": "Everest",
+          "ja": "エベレスト"
+        },
+        {
+          "en": "Manaslu",
+          "es": "Manaslu",
+          "fr": "Manaslu",
+          "ja": "マナスル"
+        },
+        {
+          "en": "K2",
+          "es": "K2",
+          "fr": "K2",
+          "ja": "K2"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "News of the Manaslu summit reached a Japan still rebuilding after the war and was celebrated as a national triumph, and the club that organised it is the same body that still runs much of the hut and rescue network behind today's Hyakumeizan boom.",
+        "es": "La noticia de la cima del Manaslu llegó a un Japón que aún se reconstruía tras la guerra y se celebró como un triunfo nacional, y el club que la organizó es el mismo que hoy sigue gestionando buena parte de la red de refugios y rescate detrás del actual auge del Hyakumeizan.",
+        "fr": "La nouvelle du sommet du Manaslu parvint à un Japon encore en reconstruction après la guerre et fut célébrée comme un triomphe national, et le club qui l'organisa est le même organisme qui gère encore aujourd'hui une grande partie du réseau de refuges et de secours derrière l'actuel engouement pour le Hyakumeizan.",
+        "ja": "マナスル登頂の知らせは、戦後の復興途上にあった日本に届き、国民的な快挙として祝われた。この遠征を組織した山岳会は、今日の百名山ブームを支える山小屋網や遭難救助の多くを、今も担う同じ団体である。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Japan's \"Mountain Day\" holiday falls on August 11. What playful reason is commonly given for choosing that particular date?",
+        "es": "El festivo japonés «Día de la Montaña» cae el 11 de agosto. ¿Qué razón jocosa se suele dar para elegir esa fecha en concreto?",
+        "fr": "Le jour férié japonais du « jour de la Montagne » tombe le 11 août. Quelle raison espiègle est couramment avancée pour le choix de cette date précise ?",
+        "ja": "日本の祝日「山の日」は8月11日にあたる。この特定の日付が選ばれた理由として、よく語られる遊び心のある説明は何か?"
+      },
+      "o": [
+        {
+          "en": "It is the date the Japan Alpine Club was founded",
+          "es": "Es la fecha en que se fundó el Club Alpino Japonés",
+          "fr": "C'est la date de fondation du Club alpin japonais",
+          "ja": "日本山岳会が創立された日にあたるから"
+        },
+        {
+          "en": "It marks the exact anniversary of Mount Fuji's last eruption",
+          "es": "Marca el aniversario exacto de la última erupción del monte Fuji",
+          "fr": "Elle marque l'anniversaire exact de la dernière éruption du mont Fuji",
+          "ja": "富士山の最後の噴火とちょうど同じ日にあたるから"
+        },
+        {
+          "en": "The kanji for eight and eleven resemble a mountain and two trees",
+          "es": "Los caracteres de ocho y once se parecen a una montaña y dos árboles",
+          "fr": "Les caractères huit et onze ressemblent à une montagne et deux arbres",
+          "ja": "八と十一の字が、山と二本の木の形に見えるから"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The character for eight, hachi, is often drawn as two strokes splaying outward like a peak, while eleven can be read as two upright trunks standing side by side, a bit of kanji wordplay repeated in nearly every explainer about the holiday.",
+        "es": "El carácter de ocho, hachi, se dibuja a menudo con dos trazos que se abren hacia fuera como una cima, mientras que once puede leerse como dos troncos erguidos uno junto a otro, un juego de palabras con kanji repetido en casi todas las explicaciones sobre el festivo.",
+        "fr": "Le caractère de huit, hachi, est souvent tracé avec deux traits s'évasant comme un sommet, tandis que onze peut se lire comme deux troncs dressés côte à côte, un jeu de mots sur les kanji repris dans presque toutes les explications de ce jour férié.",
+        "ja": "「八」の字は末広がりの二画で山の形にも見え、「十一」は二本の幹が並んで立つ姿にも読める、というのがこの祝日についてほぼどの解説にも出てくる漢字の語呂合わせである。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "In 1934, Japan designated its very first group of national parks. Which of the hundred's ranges was included in that original group?",
+        "es": "En 1934, Japón designó su primer grupo de parques nacionales. ¿Qué cordillera de las cien se incluyó en ese grupo original?",
+        "fr": "En 1934, le Japon a désigné son tout premier groupe de parcs nationaux. Laquelle des chaînes parmi les cent figurait dans ce groupe initial ?",
+        "ja": "1934年、日本は最初の国立公園群を指定した。この最初の顔ぶれに含まれていた百名山の山域はどれか?"
+      },
+      "o": [
+        {
+          "en": "Kirishima",
+          "es": "Kirishima",
+          "fr": "Kirishima",
+          "ja": "霧島"
+        },
+        {
+          "en": "Yakushima",
+          "es": "Yakushima",
+          "fr": "Yakushima",
+          "ja": "屋久島"
+        },
+        {
+          "en": "Oze",
+          "es": "Oze",
+          "fr": "Oze",
+          "ja": "尾瀬"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Kirishima was gazetted as a national park in that first 1934 batch, decades before Oze became independent of Nikko National Park and long before Yakushima was separated out on its own, showing how unevenly Japan's protected areas grew over the 20th century.",
+        "es": "El Kirishima fue declarado parque nacional en ese primer lote de 1934, décadas antes de que el Oze se independizara del Parque Nacional Nikko y mucho antes de que el Yakushima se separara por su cuenta, mostrando lo desigual que fue el crecimiento de las áreas protegidas de Japón a lo largo del siglo XX.",
+        "fr": "Le Kirishima fut érigé en parc national dans ce premier lot de 1934, des décennies avant que l'Oze ne devienne indépendant du parc national de Nikko et bien avant que le Yakushima ne soit séparé à part entière, illustrant la croissance très inégale des espaces protégés du Japon au XXe siècle.",
+        "ja": "霧島は1934年の最初の指定でいち早く国立公園となった。尾瀬が日光国立公園から独立するのも、屋久島が単独の公園として分かれるのも、それよりずっと後のことで、日本の保護区域が20世紀を通じて実に不均等に広がってきたことがうかがえる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "In recent years, roughly how many mountain accident cases does Japan's National Police Agency report nationwide each year?",
+        "es": "En los últimos años, ¿aproximadamente cuántos casos de accidentes de montaña reporta cada año la Agencia Nacional de Policía de Japón en todo el país?",
+        "fr": "Ces dernières années, environ combien de cas d'accidents de montagne l'Agence nationale de police du Japon signale-t-elle chaque année à l'échelle nationale ?",
+        "ja": "近年、日本の警察庁が全国で毎年報告する山岳遭難の件数は、およそどれくらいか?"
+      },
+      "o": [
+        {
+          "en": "Around 30",
+          "es": "Alrededor de 30",
+          "fr": "Environ 30",
+          "ja": "およそ30件"
+        },
+        {
+          "en": "Around 3,000",
+          "es": "Alrededor de 3.000",
+          "fr": "Environ 3 000",
+          "ja": "およそ3000件"
+        },
+        {
+          "en": "Around 300,000",
+          "es": "Alrededor de 300.000",
+          "fr": "Environ 300 000",
+          "ja": "およそ30万件"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The figure has climbed to record levels in recent years alongside a broader hiking boom, and it covers everything from minor falls and getting lost to fatal accidents across the whole country, not only on the hundred's better-known peaks.",
+        "es": "La cifra ha subido a niveles récord en los últimos años junto con un auge más amplio del senderismo, y abarca desde caídas menores y extravíos hasta accidentes mortales en todo el país, no solo en los picos más conocidos de las cien.",
+        "fr": "Le chiffre a atteint des niveaux record ces dernières années, porté par un engouement plus large pour la randonnée, et il englobe tout, des chutes mineures aux personnes égarées jusqu'aux accidents mortels, dans tout le pays, pas seulement sur les sommets les plus connus des cent.",
+        "ja": "この件数は近年の登山ブームとともに過去最多の水準にまで増えている。軽い転倒や道迷いから死亡事故まで全国すべてを含む数字であり、百名山のうち有名な山だけに限った話ではない。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "According to Japanese police statistics, which age group makes up the largest share of mountain accident victims nationwide today?",
+        "es": "Según las estadísticas policiales japonesas, ¿qué grupo de edad representa hoy la mayor proporción de víctimas de accidentes de montaña en todo el país?",
+        "fr": "Selon les statistiques de la police japonaise, quelle tranche d'âge représente aujourd'hui la plus grande part des victimes d'accidents de montagne à l'échelle nationale ?",
+        "ja": "日本の警察の統計によれば、今日、全国の山岳遭難者のうち最も大きな割合を占める年齢層はどれか?"
+      },
+      "o": [
+        {
+          "en": "Hikers in their 20s",
+          "es": "Excursionistas de 20 años",
+          "fr": "Randonneurs dans la vingtaine",
+          "ja": "20代の登山者"
+        },
+        {
+          "en": "Teenagers",
+          "es": "Adolescentes",
+          "fr": "Les adolescents",
+          "ja": "10代"
+        },
+        {
+          "en": "Hikers in their 60s and older",
+          "es": "Excursionistas de 60 años o más",
+          "fr": "Randonneurs de 60 ans et plus",
+          "ja": "60代以上の登山者"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Japan's ageing population is reflected on its trails as much as anywhere else, and safety campaigns aimed at older hikers, who make up the largest single group among the injured and the missing, have become a regular feature of the hiking season.",
+        "es": "El envejecimiento de la población de Japón se refleja en sus senderos tanto como en cualquier otro lugar, y las campañas de seguridad dirigidas a los excursionistas mayores, que forman el grupo más numeroso entre los heridos y desaparecidos, se han convertido en algo habitual en la temporada de senderismo.",
+        "fr": "Le vieillissement de la population japonaise se reflète sur ses sentiers autant qu'ailleurs, et les campagnes de sécurité destinées aux randonneurs plus âgés, qui forment le groupe le plus nombreux parmi les blessés et les disparus, sont devenues un élément récurrent de la saison de randonnée.",
+        "ja": "日本の高齢化は登山道にもそのまま表れており、負傷者・行方不明者のなかで最も大きな一群を占める高齢の登山者に向けた安全キャンペーンは、今や登山シーズンの定番の光景になっている。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Published in 1894, Shiga Shigetaka's influential book \"Nihon Fukei Ron\" helped popularise appreciation of Japan's mountain scenery decades before Fukada's own book. What does its title mean?",
+        "es": "Publicado en 1894, el influyente libro de Shiga Shigetaka «Nihon Fukei Ron» ayudó a popularizar el aprecio por los paisajes montañosos de Japón décadas antes del libro de Fukada. ¿Qué significa su título?",
+        "fr": "Publié en 1894, l'influent livre de Shiga Shigetaka « Nihon Fukei Ron » contribua à populariser l'appréciation des paysages montagneux du Japon des décennies avant le livre de Fukada. Que signifie son titre ?",
+        "ja": "1894年に刊行された志賀重昂の『日本風景論』は、深田の本より数十年も前に、日本の山岳景観への関心を広めた影響力ある書物である。この題名はどういう意味か?"
+      },
+      "o": [
+        {
+          "en": "\"On the Landscape of Japan\"",
+          "es": "«Sobre el paisaje de Japón»",
+          "fr": "« Sur le paysage du Japon »",
+          "ja": "「日本の風景について」"
+        },
+        {
+          "en": "\"The Hundred Peaks of Japan\"",
+          "es": "«Los cien picos de Japón»",
+          "fr": "« Les cent sommets du Japon »",
+          "ja": "「日本の百峰」"
+        },
+        {
+          "en": "\"A Guide to Hot Springs\"",
+          "es": "«Guía de aguas termales»",
+          "fr": "« Guide des sources chaudes »",
+          "ja": "「温泉案内」"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Shiga's book argued for a distinctly Japanese appreciation of natural scenery grounded in the country's own geology and climate, and it directly influenced the generation of climbers, including Kojima Usui, who would go on to found the Japan Alpine Club in 1905.",
+        "es": "El libro de Shiga defendía una apreciación propiamente japonesa del paisaje natural, basada en la geología y el clima del propio país, e influyó directamente en la generación de alpinistas, incluido Kojima Usui, que más tarde fundaría el Club Alpino Japonés en 1905.",
+        "fr": "Le livre de Shiga plaidait pour une appréciation proprement japonaise du paysage naturel, ancrée dans la géologie et le climat propres au pays, et influença directement la génération d'alpinistes, dont Kojima Usui, qui allait fonder le Club alpin japonais en 1905.",
+        "ja": "志賀の本は、日本固有の地質や気候に根ざした日本独自の自然景観の見方を説いた。これは小島烏水をはじめ、後に1905年に日本山岳会を創立することになる世代の登山家たちに直接影響を与えた。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Kojima Usui, often called the \"father of modern Japanese mountaineering,\" is remembered as a founding figure of which organisation, established in 1905?",
+        "es": "Kojima Usui, a menudo llamado el «padre del montañismo japonés moderno», se recuerda como figura fundadora de qué organización, establecida en 1905?",
+        "fr": "Kojima Usui, souvent appelé le « père de l'alpinisme japonais moderne », est resté dans les mémoires comme une figure fondatrice de quelle organisation, créée en 1905 ?",
+        "ja": "しばしば「日本近代登山の父」と呼ばれる小島烏水は、1905年に設立されたどの団体の創立者の一人として記憶されているか?"
+      },
+      "o": [
+        {
+          "en": "The Japan Meteorological Agency",
+          "es": "La Agencia Meteorológica de Japón",
+          "fr": "L'Agence météorologique du Japon",
+          "ja": "気象庁"
+        },
+        {
+          "en": "The Japan Alpine Club",
+          "es": "El Club Alpino Japonés",
+          "fr": "Le Club alpin japonais",
+          "ja": "日本山岳会"
+        },
+        {
+          "en": "The Imperial Geographical Society",
+          "es": "La Sociedad Geográfica Imperial",
+          "fr": "La Société géographique impériale",
+          "ja": "帝国地理学会"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "A writer and bank employee by trade, Kojima helped rally a small circle of enthusiasts, inspired partly by Shiga Shigetaka's writing, into the club that decades later would still be running the rescue and hut network behind today's Hyakumeizan boom.",
+        "es": "Escritor y empleado de banco de profesión, Kojima ayudó a reunir a un pequeño círculo de entusiastas, inspirado en parte por los escritos de Shiga Shigetaka, en el club que décadas después seguiría gestionando la red de rescate y refugios detrás del actual auge del Hyakumeizan.",
+        "fr": "Écrivain et employé de banque de profession, Kojima aida à rassembler un petit cercle de passionnés, inspiré en partie par les écrits de Shiga Shigetaka, au sein du club qui, des décennies plus tard, gérerait toujours le réseau de secours et de refuges derrière l'actuel engouement pour le Hyakumeizan.",
+        "ja": "本業は作家であり銀行員でもあった小島は、志賀重昂の著作にも触発された少数の愛好家たちをまとめ上げ、その団体は何十年も後の今も、百名山ブームを支える遭難救助と山小屋のネットワークを担い続けている。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Decades after Fukada's original hundred, other mountaineers compiled an expanded companion list, \"Nihon Nihyaku-meizan,\" combining his peaks with a hundred more. How many peaks does it total?",
+        "es": "Décadas después del centenar original de Fukada, otros alpinistas compilaron una lista complementaria ampliada, «Nihon Nihyaku-meizan», que combina sus picos con cien más. ¿Cuántos picos suma en total?",
+        "fr": "Des décennies après le centenar original de Fukada, d'autres alpinistes ont compilé une liste complémentaire élargie, « Nihon Nihyaku-meizan », combinant ses sommets avec cent de plus. Combien de sommets totalise-t-elle ?",
+        "ja": "深田の百名山から数十年後、他の登山家たちが元の百座にさらに百座を加えた拡張版のリスト『日本二百名山』をまとめた。合計は何座か?"
+      },
+      "o": [
+        {
+          "en": "500",
+          "es": "500",
+          "fr": "500",
+          "ja": "500座"
+        },
+        {
+          "en": "150",
+          "es": "150",
+          "fr": "150",
+          "ja": "150座"
+        },
+        {
+          "en": "200",
+          "es": "200",
+          "fr": "200",
+          "ja": "200座"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The idea proved popular enough to be repeated again later with an even larger \"three hundred\" list, showing how much Fukada's original format, a personal ranking rather than an official one, became a template other writers were happy to reuse.",
+        "es": "La idea resultó tan popular que más tarde se repitió con una lista aún mayor de «trescientos», lo que muestra cuánto se convirtió el formato original de Fukada, un ranking personal y no oficial, en una plantilla que otros escritores reutilizaron con gusto.",
+        "fr": "L'idée s'est révélée assez populaire pour être reprise plus tard avec une liste encore plus large de « trois cents », montrant à quel point le format original de Fukada, un classement personnel plutôt qu'officiel, est devenu un modèle que d'autres auteurs ont volontiers réutilisé.",
+        "ja": "この試みは十分な人気を集め、のちにさらに大きな「三百名山」のリストとして繰り返されることになった。公式のものではなく一個人の選という深田のもとの形式が、他の書き手たちにも喜んで再利用される型になっていったことがうかがえる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "The 2014 eruption of one of the hundred killed 63 people, making it Japan's deadliest postwar volcanic disaster. Which mountain was it?",
+        "es": "La erupción de 2014 de una de las cien mató a 63 personas, convirtiéndose en el desastre volcánico más mortífero de la posguerra en Japón. ¿Qué montaña fue?",
+        "fr": "L'éruption de 2014 de l'un des cent a tué 63 personnes, devenant la catastrophe volcanique la plus meurtrière du Japon d'après-guerre. Quelle montagne était-ce ?",
+        "ja": "2014年の噴火で63人が命を落とし、日本の戦後で最も死者の多い火山災害となった百名山の山はどれか?"
+      },
+      "o": [
+        {
+          "en": "Ontake-san",
+          "es": "Ontake-san",
+          "fr": "Ontake-san",
+          "ja": "御嶽山"
+        },
+        {
+          "en": "Fuji-san",
+          "es": "Fuji-san",
+          "fr": "Fuji-san",
+          "ja": "富士山"
+        },
+        {
+          "en": "Aso-san",
+          "es": "Aso-san",
+          "fr": "Aso-san",
+          "ja": "阿蘇山"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Most of the victims were day hikers caught near the crater rim over the September lunch hour on a clear autumn Saturday, exactly the kind of popular, well-trodden route and timing that made the toll so high.",
+        "es": "La mayoría de las víctimas eran excursionistas de un día sorprendidos cerca del borde del cráter a la hora del almuerzo de septiembre, en un despejado sábado de otoño, justo el tipo de ruta popular y bien transitada y el momento que explican una cifra tan alta.",
+        "fr": "La plupart des victimes étaient des randonneurs à la journée surpris près du bord du cratère à l'heure du déjeuner de septembre, par un samedi d'automne dégagé, exactement le genre d'itinéraire populaire et fréquenté, et le moment, qui expliquent un bilan si lourd.",
+        "ja": "犠牲者の多くは、9月のよく晴れた土曜日、昼どきに火口縁付近にいた日帰りの登山者たちだった。人気があり歩き慣れたルートと、その時間帯だったことが、これほど多くの犠牲者を生んだ一因である。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "From 1965 until it was decommissioned in 1999 and replaced by satellites, a weather radar dome on which of the hundred helped Japan track approaching typhoons?",
+        "es": "Desde 1965 hasta que se retiró en 1999 y fue sustituido por satélites, ¿un radar meteorológico en cuál de las cien ayudó a Japón a seguir los tifones que se acercaban?",
+        "fr": "De 1965 jusqu'à son démantèlement en 1999, remplacé par des satellites, un radôme météorologique sur laquelle des cent aidait le Japon à suivre les typhons approchants ?",
+        "ja": "1965年から1999年に退役し人工衛星に置き換えられるまで、接近する台風の追跡に使われた気象レーダーがあった百名山の山はどれか?"
+      },
+      "o": [
+        {
+          "en": "Aso-san",
+          "es": "Aso-san",
+          "fr": "Aso-san",
+          "ja": "阿蘇山"
+        },
+        {
+          "en": "Fuji-san",
+          "es": "Fuji-san",
+          "fr": "Fuji-san",
+          "ja": "富士山"
+        },
+        {
+          "en": "Rishiri-dake",
+          "es": "Rishiri-dake",
+          "fr": "Rishiri-dake",
+          "ja": "利尻岳"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Built at huge cost and effort at the summit, the radar could spot typhoons far out over the Pacific long before they reached the coast, and its construction became famous enough in its own right to later be retold in a well-known television documentary.",
+        "es": "Construido a gran coste y esfuerzo en la cima, el radar podía detectar tifones muy adentro del Pacífico mucho antes de que llegaran a la costa, y su construcción se hizo lo bastante famosa por sí misma como para ser relatada más tarde en un conocido documental de televisión.",
+        "fr": "Construit au sommet à grand coût et grand effort, le radar pouvait repérer des typhons loin au large du Pacifique bien avant qu'ils n'atteignent la côte, et sa construction devint elle-même assez célèbre pour être racontée plus tard dans un documentaire télévisé bien connu.",
+        "ja": "山頂に多大な費用と労力をかけて建設されたこのレーダーは、台風が海岸に達するずっと前、太平洋のはるか沖合にある段階で捉えることができた。その建設の物語自体もよく知られ、のちに有名なテレビドキュメンタリーで取り上げられた。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "In what year was Kyuya Fukada, author of \"Nihon Hyakumeizan,\" born?",
+        "es": "¿En qué año nació Kyuya Fukada, autor de «Nihon Hyakumeizan»?",
+        "fr": "En quelle année est né Kyūya Fukada, auteur de « Nihon Hyakumeizan » ?",
+        "ja": "『日本百名山』の著者・深田久弥が生まれたのは何年か?"
+      },
+      "o": [
+        {
+          "en": "1883",
+          "es": "1883",
+          "fr": "1883",
+          "ja": "1883年"
+        },
+        {
+          "en": "1923",
+          "es": "1923",
+          "fr": "1923",
+          "ja": "1923年"
+        },
+        {
+          "en": "1903",
+          "es": "1903",
+          "fr": "1903",
+          "ja": "1903年"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Fukada was born in Daishoji, a castle town in what is now Ishikawa Prefecture, within sight of Haku-san, one of the three peaks he would later name among Japan's holiest mountains.",
+        "es": "Fukada nació en Daishoji, una ciudad castillo en lo que hoy es la prefectura de Ishikawa, a la vista del Haku-san, uno de los tres picos que más tarde nombraría entre las montañas más sagradas de Japón.",
+        "fr": "Fukada naquit à Daishoji, une ville-château dans ce qui est aujourd'hui la préfecture d'Ishikawa, à vue du Haku-san, l'un des trois sommets qu'il désignerait plus tard parmi les montagnes les plus sacrées du Japon.",
+        "ja": "深田は、現在の石川県にあたる城下町・大聖寺で生まれた。そこからは、のちに彼が日本三霊山の一つに数えることになる白山を望むことができる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "None of the hundred lie in Okinawa Prefecture. What is the southernmost prefecture that IS represented, home to Yakushima's Miyanoura-dake?",
+        "es": "Ninguna de las cien está en la prefectura de Okinawa. ¿Cuál es la prefectura más meridional que SÍ está representada, sede del Miyanoura-dake de Yakushima?",
+        "fr": "Aucun des cent ne se trouve dans la préfecture d'Okinawa. Quelle est la préfecture la plus méridionale qui EST représentée, abritant le Miyanoura-dake de Yakushima ?",
+        "ja": "百名山のなかに沖縄県の山は一つもない。屋久島の宮之浦岳を擁する、実際に含まれている最南端の県はどこか?"
+      },
+      "o": [
+        {
+          "en": "Kagoshima",
+          "es": "Kagoshima",
+          "fr": "Kagoshima",
+          "ja": "鹿児島県"
+        },
+        {
+          "en": "Miyazaki",
+          "es": "Miyazaki",
+          "fr": "Miyazaki",
+          "ja": "宮崎県"
+        },
+        {
+          "en": "Okinawa",
+          "es": "Okinawa",
+          "fr": "Okinawa",
+          "ja": "沖縄県"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Yakushima administratively belongs to Kagoshima Prefecture, and its Miyanoura-dake stands as the southernmost of Fukada's selections, well over a thousand kilometres from Rishiri-dake at the northern end of the list.",
+        "es": "Yakushima pertenece administrativamente a la prefectura de Kagoshima, y su Miyanoura-dake es la más meridional de las selecciones de Fukada, a más de mil kilómetros del Rishiri-dake, en el extremo norte de la lista.",
+        "fr": "Yakushima appartient administrativement à la préfecture de Kagoshima, et son Miyanoura-dake est la plus méridionale des sélections de Fukada, à plus de mille kilomètres du Rishiri-dake, à l'extrémité nord de la liste.",
+        "ja": "屋久島は行政上、鹿児島県に属しており、その宮之浦岳は深田の選んだ山々のなかで最も南にある。リストの北端に位置する利尻岳とは1000kmあまりも離れている。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "In 1971, Kyuya Fukada died of a stroke while descending which mountain, notably NOT one of his own hundred?",
+        "es": "En 1971, Kyuya Fukada murió de un ictus mientras descendía qué montaña, que curiosamente NO era una de sus propias cien?",
+        "fr": "En 1971, Kyūya Fukada mourut d'un accident vasculaire cérébral en redescendant quelle montagne, qui, notamment, n'était PAS l'une de ses propres cent ?",
+        "ja": "1971年、深田久弥は下山中に脳卒中で亡くなったが、それは彼自身の百名山には含まれていないどの山だったか?"
+      },
+      "o": [
+        {
+          "en": "Fuji-san",
+          "es": "Fuji-san",
+          "fr": "Fuji-san",
+          "ja": "富士山"
+        },
+        {
+          "en": "Kayagatake",
+          "es": "Kayagatake",
+          "fr": "Kayagatake",
+          "ja": "茅ヶ岳"
+        },
+        {
+          "en": "Yarigatake",
+          "es": "Yarigatake",
+          "fr": "Yarigatake",
+          "ja": "槍ヶ岳"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Kayagatake is sometimes nicknamed \"nise-Yatsugatake,\" or \"fake Yatsugatake,\" for its resemblance from the Kofu Basin to the real Yatsugatake range, a quiet, modest peak for the author of the hundred's own final climb.",
+        "es": "El Kayagatake a veces se apoda «nise-Yatsugatake», o «falso Yatsugatake», por su parecido, visto desde la cuenca de Kofu, con la cordillera real del Yatsugatake, una cima tranquila y modesta para la última ascensión del propio autor de las cien.",
+        "fr": "Le Kayagatake est parfois surnommé « nise-Yatsugatake », ou « faux Yatsugatake », en raison de sa ressemblance, vue depuis le bassin de Kofu, avec la véritable chaîne du Yatsugatake, un sommet discret et modeste pour la dernière ascension de l'auteur du centenar lui-même.",
+        "ja": "茅ヶ岳は、甲府盆地から眺めた姿が本物の八ヶ岳に似ていることから「にせ八ヶ岳」と呼ばれることもある。百名山の著者自身にとって最後の登山となったのは、そんな地味で目立たない山だった。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Before completing his famous book, Fukada had also climbed abroad, beyond Japan's own mountains, in which range?",
+        "es": "Antes de terminar su famoso libro, Fukada también había escalado en el extranjero, más allá de las propias montañas de Japón, ¿en qué cordillera?",
+        "fr": "Avant d'achever son célèbre livre, Fukada avait aussi grimpé à l'étranger, au-delà des montagnes du Japon, dans quelle chaîne ?",
+        "ja": "有名な本を書き上げる前、深田は日本国内の山を越えて海外でも登山をしていたが、それはどの山脈でのことか?"
+      },
+      "o": [
+        {
+          "en": "The Rockies",
+          "es": "Las Rocosas",
+          "fr": "Les Rocheuses",
+          "ja": "ロッキー山脈"
+        },
+        {
+          "en": "The Andes",
+          "es": "Los Andes",
+          "fr": "Les Andes",
+          "ja": "アンデス"
+        },
+        {
+          "en": "The Himalaya",
+          "es": "El Himalaya",
+          "fr": "L'Himalaya",
+          "ja": "ヒマラヤ"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Fukada took part in expedition-related travel to the Himalayan region later in his climbing life, experience that sits somewhat at odds with his popular image as purely a chronicler of small, modest, distinctly Japanese peaks.",
+        "es": "Fukada participó en viajes ligados a expediciones a la región del Himalaya en una etapa posterior de su vida como alpinista, una experiencia que contrasta algo con su imagen popular de mero cronista de picos pequeños, modestos y muy propios de Japón.",
+        "fr": "Fukada participa à des voyages liés à des expéditions dans la région himalayenne plus tard dans sa vie d'alpiniste, une expérience qui tranche quelque peu avec son image populaire de simple chroniqueur de sommets modestes et typiquement japonais.",
+        "ja": "深田は登山家としての後半生でヒマラヤ地域への遠征に関わる旅にも加わっている。小さく控えめで日本的な山々の記録者という一般的なイメージとは、いくぶん異なる一面である。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Mount Fuji was inscribed as a UNESCO World Heritage Site in 2013, but not in the category most people expect. Which category was it?",
+        "es": "El monte Fuji fue inscrito como Patrimonio de la Humanidad de la UNESCO en 2013, pero no en la categoría que la mayoría espera. ¿Cuál fue?",
+        "fr": "Le mont Fuji fut inscrit au patrimoine mondial de l'UNESCO en 2013, mais pas dans la catégorie à laquelle la plupart s'attendent. Laquelle était-ce ?",
+        "ja": "富士山は2013年にユネスコ世界遺産に登録されたが、多くの人が想像するのとは違う区分だった。それはどの区分か?"
+      },
+      "o": [
+        {
+          "en": "Cultural Heritage",
+          "es": "Patrimonio Cultural",
+          "fr": "Patrimoine culturel",
+          "ja": "文化遺産"
+        },
+        {
+          "en": "Natural Heritage",
+          "es": "Patrimonio Natural",
+          "fr": "Patrimoine naturel",
+          "ja": "自然遺産"
+        },
+        {
+          "en": "Intangible Heritage",
+          "es": "Patrimonio Inmaterial",
+          "fr": "Patrimoine immatériel",
+          "ja": "無形遺産"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "An earlier bid to list Fuji as Natural Heritage stalled, and it was ultimately inscribed as Cultural Heritage instead, recognised for its centuries of influence on Japanese art, literature and religious practice rather than for its geology alone.",
+        "es": "Un intento anterior de inscribir el Fuji como Patrimonio Natural se estancó, y finalmente fue inscrito como Patrimonio Cultural, reconocido por sus siglos de influencia en el arte, la literatura y la práctica religiosa japonesas, y no solo por su geología.",
+        "fr": "Une candidature antérieure visant à inscrire le Fuji au patrimoine naturel n'aboutit pas, et il fut finalement inscrit au patrimoine culturel, reconnu pour des siècles d'influence sur l'art, la littérature et la pratique religieuse japonais plutôt que pour sa seule géologie.",
+        "ja": "富士山を自然遺産として登録しようとした以前の試みは頓挫し、最終的には文化遺産として登録された。地質そのものよりも、日本の芸術・文学・信仰に何世紀にもわたって与えてきた影響が評価された。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "The origin of the \"go\" unit in the ten-station gogome system used on Fuji and other peaks is debated, but one popular theory ties it to a measure of what?",
+        "es": "El origen de la unidad «go» del sistema de diez estaciones gogome usado en el Fuji y otros picos se debate, pero una teoría popular lo relaciona con una medida de qué?",
+        "fr": "L'origine de l'unité « go » du système à dix stations gogome utilisé sur le Fuji et d'autres sommets est débattue, mais une théorie populaire la relie à une mesure de quoi ?",
+        "ja": "富士山などで使われる十合目制の「合」という単位の由来には諸説あるが、有力な説の一つはある物の分量に結びつけている。それは何か?"
+      },
+      "o": [
+        {
+          "en": "The weight of a climber's pack",
+          "es": "El peso de la mochila del escalador",
+          "fr": "Le poids du sac du grimpeur",
+          "ja": "登山者の荷物の重さ"
+        },
+        {
+          "en": "Lamp oil needed for a night climb",
+          "es": "El aceite de lámpara necesario para una ascensión nocturna",
+          "fr": "L'huile de lampe nécessaire à une ascension nocturne",
+          "ja": "夜間登山に必要な灯り用の油"
+        },
+        {
+          "en": "The number of shrines passed",
+          "es": "El número de santuarios que se pasan",
+          "fr": "Le nombre de sanctuaires traversés",
+          "ja": "通過した神社の数"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Under this theory, each go originally marked roughly how much lamp oil a night climber would burn to reach that point, an old measure of effort and time rather than of distance or elevation, and scholars still debate how literally to take it.",
+        "es": "Según esta teoría, cada go marcaba originalmente aproximadamente cuánto aceite de lámpara quemaría un escalador nocturno hasta llegar a ese punto, una vieja medida de esfuerzo y tiempo, no de distancia o altitud, y los estudiosos aún debaten cuán literalmente tomarla.",
+        "fr": "Selon cette théorie, chaque go marquait à l'origine à peu près la quantité d'huile de lampe qu'un grimpeur nocturne brûlerait pour atteindre ce point, une ancienne mesure d'effort et de temps plutôt que de distance ou d'altitude, et les chercheurs débattent encore de la façon dont il faut la prendre au pied de la lettre.",
+        "ja": "この説によれば、各合はもともと、夜間に登る人がその地点に着くまでに燃やすおよその灯油の量を表していたとされる。距離や標高ではなく労力と時間の古い単位であり、研究者のあいだでもどこまで文字どおり受け取るべきか議論が続いている。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "A later, even larger companion list, \"Nihon Sanbyaku-meizan,\" extended Fukada's format further still. How many peaks does it total?",
+        "es": "Una lista complementaria posterior, aún mayor, «Nihon Sanbyaku-meizan», amplió todavía más el formato de Fukada. ¿Cuántos picos suma en total?",
+        "fr": "Une liste complémentaire ultérieure, encore plus vaste, « Nihon Sanbyaku-meizan », a étendu plus loin encore le format de Fukada. Combien de sommets totalise-t-elle ?",
+        "ja": "深田の形式をさらに広げた後発の、より大きなリスト『日本三百名山』の合計は何座か?"
+      },
+      "o": [
+        {
+          "en": "1,000",
+          "es": "1.000",
+          "fr": "1 000",
+          "ja": "1000座"
+        },
+        {
+          "en": "120",
+          "es": "120",
+          "fr": "120",
+          "ja": "120座"
+        },
+        {
+          "en": "300",
+          "es": "300",
+          "fr": "300",
+          "ja": "300座"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Between the original hundred, the two-hundred list and this three-hundred list, Japanese hikers now have several overlapping but distinct checklists to work through, all descended in spirit from Fukada's single, personal selection.",
+        "es": "Entre el centenar original, la lista de doscientos y esta de trescientos, los excursionistas japoneses tienen ahora varias listas de verificación superpuestas pero distintas, todas descendientes en espíritu de la selección única y personal de Fukada.",
+        "fr": "Entre le centenar original, la liste de deux cents et cette liste de trois cents, les randonneurs japonais disposent désormais de plusieurs listes de contrôle qui se chevauchent mais restent distinctes, toutes héritières en esprit de la sélection unique et personnelle de Fukada.",
+        "ja": "元の百名山、二百名山、そしてこの三百名山と、日本の登山者には重なりつつも別個のチェックリストがいくつも存在するようになった。いずれも深田個人の選という発想を受け継いだものである。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Roughly what share of Fukada's hundred are peaks registered by the Japan Meteorological Agency as active volcanoes?",
+        "es": "¿Aproximadamente qué proporción de las cien de Fukada son picos registrados por la Agencia Meteorológica de Japón como volcanes activos?",
+        "fr": "Environ quelle proportion des cent de Fukada sont des sommets classés volcans actifs par l'Agence météorologique du Japon ?",
+        "ja": "深田の百名山のうち、気象庁が活火山として登録している山はおよそどれくらいの割合か?"
+      },
+      "o": [
+        {
+          "en": "Roughly a fifth",
+          "es": "Aproximadamente una quinta parte",
+          "fr": "Environ un cinquième",
+          "ja": "およそ5分の1"
+        },
+        {
+          "en": "Almost none",
+          "es": "Casi ninguno",
+          "fr": "Presque aucun",
+          "ja": "ほとんどない"
+        },
+        {
+          "en": "About half",
+          "es": "Aproximadamente la mitad",
+          "fr": "Environ la moitié",
+          "ja": "およそ半分"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "From Fuji-san and Asama-yama to Kirishima-yama and Rishiri-dake, roughly a fifth of the hundred sit on the agency's list of monitored active volcanoes, a reminder that this collection of \"famous mountains\" is not chosen by any single kind of geology.",
+        "es": "Del Fuji-san y el Asama-yama al Kirishima-yama y el Rishiri-dake, aproximadamente una quinta parte de las cien está en la lista de volcanes activos monitoreados por la agencia, un recordatorio de que esta colección de «montañas famosas» no se elige por un único tipo de geología.",
+        "fr": "Du Fuji-san et de l'Asama-yama au Kirishima-yama et au Rishiri-dake, environ un cinquième des cent figure sur la liste des volcans actifs surveillés par l'agence, un rappel que cette collection de « montagnes célèbres » n'est pas choisie selon un seul type de géologie.",
+        "ja": "富士山や浅間山から霧島山、利尻岳まで、百名山のおよそ5分の1が気象庁の観測対象となる活火山リストに載っている。この「名山」の集まりが、特定の地質だけで選ばれたわけではないことがうかがえる。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Inspired by Fukada's title and format, a different author later compiled \"Hana no Hyakumeizan,\" a companion list of a hundred mountains chosen for what?",
+        "es": "Inspirado en el título y formato de Fukada, otro autor compiló más tarde «Hana no Hyakumeizan», una lista complementaria de cien montañas elegidas por qué?",
+        "fr": "Inspiré par le titre et le format de Fukada, un autre auteur a compilé plus tard « Hana no Hyakumeizan », une liste complémentaire de cent montagnes choisies pour quoi ?",
+        "ja": "深田の題と形式に触発され、別の著者が後にまとめた『花の百名山』は、何を基準に選ばれた百座のリストか?"
+      },
+      "o": [
+        {
+          "en": "Their hot spring water quality",
+          "es": "La calidad de sus aguas termales",
+          "fr": "La qualité de leur eau thermale",
+          "ja": "その温泉の泉質"
+        },
+        {
+          "en": "Their distinctive wild flowers",
+          "es": "Sus flores silvestres distintivas",
+          "fr": "Leurs fleurs sauvages caractéristiques",
+          "ja": "その山ならではの野生の花"
+        },
+        {
+          "en": "Their ski slope conditions",
+          "es": "Las condiciones de sus pistas de esquí",
+          "fr": "Les conditions de leurs pistes de ski",
+          "ja": "そのスキー場のコンディション"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The list overlaps with Fukada's original in places but is organised entirely around each mountain's signature bloom, evidence of how far the simple format of a personally curated \"hundred\" spread beyond Fukada's own book.",
+        "es": "La lista se solapa en algunos puntos con la original de Fukada, pero está organizada enteramente en torno a la floración característica de cada montaña, prueba de hasta qué punto se extendió el sencillo formato de un «centenar» seleccionado personalmente más allá del propio libro de Fukada.",
+        "fr": "La liste recoupe par endroits l'originale de Fukada, mais s'organise entièrement autour de la floraison emblématique de chaque montagne, preuve de la diffusion du simple format d'un « centenar » choisi à titre personnel bien au-delà du livre de Fukada lui-même.",
+        "ja": "このリストは深田の元のリストと部分的に重なるが、それぞれの山を特徴づける花を軸にまとめられている。個人が選ぶ「百名山」という単純な形式が、深田自身の本を超えてどれほど広まったかを示す一例である。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What is the name of the Japan Alpine Club's long-running academic journal, published in some form since not long after its 1905 founding?",
+        "es": "¿Cómo se llama la longeva revista académica del Club Alpino Japonés, publicada de alguna forma desde poco después de su fundación en 1905?",
+        "fr": "Comment s'appelle la revue académique de longue date du Club alpin japonais, publiée sous une forme ou une autre depuis peu après sa fondation en 1905 ?",
+        "ja": "1905年の創立から間もなく、何らかの形で発行が続けられている日本山岳会の学術的な会報の名は?"
+      },
+      "o": [
+        {
+          "en": "Tozanka",
+          "es": "Tozanka",
+          "fr": "Tozanka",
+          "ja": "登山家"
+        },
+        {
+          "en": "Fujisan",
+          "es": "Fujisan",
+          "fr": "Fujisan",
+          "ja": "富士山"
+        },
+        {
+          "en": "Sangaku",
+          "es": "Sangaku",
+          "fr": "Sangaku",
+          "ja": "山岳"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Sangaku, simply meaning \"mountains,\" has carried expedition reports, route notes and essays for well over a century, making it one of the longer continuous records of Japanese mountaineering history in print.",
+        "es": "Sangaku, que simplemente significa «montañas», ha recogido informes de expediciones, notas de rutas y ensayos durante más de un siglo, lo que la convierte en uno de los registros impresos continuos más largos de la historia del montañismo japonés.",
+        "fr": "Sangaku, signifiant simplement « montagnes », a publié rapports d'expédition, notes d'itinéraires et essais pendant plus d'un siècle, ce qui en fait l'une des plus longues archives imprimées continues de l'histoire de l'alpinisme japonais.",
+        "ja": "単に「山」を意味する『山岳』は、一世紀以上にわたり遠征報告やルート記録、随筆を載せ続けてきた、日本の登山史における最も長く続く印刷記録の一つである。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Fukada is usually cited with the lifespan 1903 to 1971. Roughly how old was he at the time of his death?",
+        "es": "A Fukada se le suele citar con las fechas de vida 1903 a 1971. ¿Aproximadamente qué edad tenía al morir?",
+        "fr": "Fukada est généralement cité avec les dates 1903-1971. Quel âge avait-il environ au moment de sa mort ?",
+        "ja": "深田は生没年1903年から1971年としてよく紹介される。亡くなったときの年齢はおよそ何歳だったか?"
+      },
+      "o": [
+        {
+          "en": "Around 68",
+          "es": "Alrededor de 68",
+          "fr": "Environ 68 ans",
+          "ja": "およそ68歳"
+        },
+        {
+          "en": "Around 48",
+          "es": "Alrededor de 48",
+          "fr": "Environ 48 ans",
+          "ja": "およそ48歳"
+        },
+        {
+          "en": "Around 88",
+          "es": "Alrededor de 88",
+          "fr": "Environ 88 ans",
+          "ja": "およそ88歳"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "He died not long after most of the hundred he described had already become well known to readers, meaning he lived to see his personal, unofficial list begin its slow transformation into a nationwide climbing goal, though the biggest boom still lay decades ahead.",
+        "es": "Murió no mucho después de que la mayoría de las cien que describió ya fueran bien conocidas por los lectores, lo que significa que vivió para ver su lista personal y no oficial empezar su lenta transformación en un objetivo de ascensión nacional, aunque el mayor auge aún quedaba décadas por delante.",
+        "fr": "Il mourut peu après que la plupart des cent sommets qu'il décrivait furent déjà bien connus des lecteurs, ce qui signifie qu'il vécut assez pour voir sa liste personnelle et non officielle commencer sa lente transformation en objectif national d'ascension, bien que le plus grand engouement restât encore à des décennies de là.",
+        "ja": "彼が描いた百座の大半がすでに読者によく知られるようになってから間もなく世を去った。つまり彼は、自分の個人的で非公式なリストが全国的な登山目標へとゆっくり姿を変え始めるのを見届けたことになるが、最大のブームはまだ数十年先のことだった。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Mount Fuji's earlier bid for UNESCO Natural Heritage status stalled largely over concern about what?",
+        "es": "La candidatura anterior del monte Fuji para el estatus de Patrimonio Natural de la UNESCO se estancó en gran parte por la preocupación sobre qué?",
+        "fr": "La précédente candidature du mont Fuji au statut de patrimoine naturel de l'UNESCO échoua en grande partie à cause d'une préoccupation liée à quoi ?",
+        "ja": "富士山の以前のユネスコ自然遺産への申請が頓挫した主な理由となった懸念は何か?"
+      },
+      "o": [
+        {
+          "en": "A lack of any endemic species",
+          "es": "La falta de especies endémicas",
+          "fr": "L'absence totale d'espèce endémique",
+          "ja": "固有種がまったくいないこと"
+        },
+        {
+          "en": "Litter and waste management on the mountain",
+          "es": "La basura y la gestión de residuos en la montaña",
+          "fr": "Les déchets et leur gestion sur la montagne",
+          "ja": "山にあるごみと廃棄物の管理"
+        },
+        {
+          "en": "Its elevation being too low",
+          "es": "Que su altitud fuera demasiado baja",
+          "fr": "Une altitude jugée trop basse",
+          "ja": "標高が低すぎること"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Years of heavy visitor traffic had left conspicuous trash along the trails and at the summit, undermining the case for Natural Heritage status, and the mountain was ultimately inscribed instead as Cultural Heritage in 2013, valued for its influence on art and belief rather than its untouched condition.",
+        "es": "Años de intenso tráfico de visitantes habían dejado basura visible a lo largo de los senderos y en la cima, debilitando el caso para el estatus de Patrimonio Natural, y la montaña finalmente se inscribió en cambio como Patrimonio Cultural en 2013, valorada por su influencia en el arte y las creencias, no por su estado intacto.",
+        "fr": "Des années d'affluence importante avaient laissé des déchets visibles le long des sentiers et au sommet, fragilisant le dossier pour le statut de patrimoine naturel, et la montagne fut finalement inscrite au patrimoine culturel en 2013, valorisée pour son influence sur l'art et les croyances plutôt que pour son état intact.",
+        "ja": "何年にもわたる大勢の来訪者によって登山道や山頂には目立つごみが残され、自然遺産としての説得力を弱めていた。結局、山は2013年に文化遺産として登録され、手つかずの状態ではなく、芸術や信仰への影響が評価の中心となった。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Mount Fuji's 2013 UNESCO World Heritage listing carries an official subtitle describing it as a sacred place and a source of what?",
+        "es": "La inscripción del monte Fuji como Patrimonio de la Humanidad de la UNESCO en 2013 lleva un subtítulo oficial que lo describe como un lugar sagrado y fuente de qué?",
+        "fr": "L'inscription du mont Fuji au patrimoine mondial de l'UNESCO en 2013 porte un sous-titre officiel le décrivant comme un lieu sacré et une source de quoi ?",
+        "ja": "富士山の2013年のユネスコ世界遺産登録には、聖なる場所であり何の源であるかを記した正式な副題が付けられている。それは何か?"
+      },
+      "o": [
+        {
+          "en": "Military strategy",
+          "es": "Estrategia militar",
+          "fr": "Stratégie militaire",
+          "ja": "軍事戦略"
+        },
+        {
+          "en": "Mineral wealth",
+          "es": "Riqueza mineral",
+          "fr": "Richesse minérale",
+          "ja": "鉱物資源"
+        },
+        {
+          "en": "Artistic inspiration",
+          "es": "Inspiración artística",
+          "fr": "Inspiration artistique",
+          "ja": "芸術的な着想"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The full listing name, \"Fujisan, sacred place and source of artistic inspiration,\" reflects the mountain's centuries of influence on painting, poetry and pilgrimage rather than any claim about untouched wilderness.",
+        "es": "El nombre completo de la inscripción, «Fujisan, lugar sagrado y fuente de inspiración artística», refleja los siglos de influencia de la montaña en la pintura, la poesía y la peregrinación, y no ninguna afirmación sobre una naturaleza virgen.",
+        "fr": "Le nom complet de l'inscription, « Fujisan, lieu sacré et source d'inspiration artistique », reflète des siècles d'influence de la montagne sur la peinture, la poésie et le pèlerinage, et non une quelconque prétention à une nature intacte.",
+        "ja": "正式な登録名「富士山、信仰の対象と芸術の源泉」は、手つかずの自然という主張ではなく、絵画・詩歌・巡礼に何世紀にもわたって与えてきた影響を反映したものである。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "According to Japan's traditional Shugendo lineage, En no Gyoja, credited with founding the practice, is traditionally placed in roughly which century?",
+        "es": "Según el linaje tradicional shugendo de Japón, a En no Gyoja, al que se atribuye la fundación de la práctica, se le sitúa tradicionalmente en aproximadamente qué siglo?",
+        "fr": "Selon la lignée traditionnelle du shugendo japonais, En no Gyōja, à qui l'on attribue la fondation de la pratique, est traditionnellement situé vers quel siècle ?",
+        "ja": "日本の伝統的な修験道の系譜において、その開祖とされる役行者は、およそ何世紀の人物とされているか?"
+      },
+      "o": [
+        {
+          "en": "The 7th century",
+          "es": "El siglo VII",
+          "fr": "Le VIIe siècle",
+          "ja": "7世紀"
+        },
+        {
+          "en": "The 12th century",
+          "es": "El siglo XII",
+          "fr": "Le XIIe siècle",
+          "ja": "12世紀"
+        },
+        {
+          "en": "The 19th century",
+          "es": "El siglo XIX",
+          "fr": "Le XIXe siècle",
+          "ja": "19世紀"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The oldest surviving mention of him, in the 8th-century Shoku Nihongi chronicle, already treats him as a figure from a somewhat earlier generation, exiled for allegedly using sorcery to bewitch the people, a far cry from the venerated founder later Shugendo tradition would remember.",
+        "es": "La mención más antigua conservada de él, en la crónica del siglo VIII Shoku Nihongi, ya lo trata como una figura de una generación algo anterior, exiliado por presuntamente usar hechicería para embrujar al pueblo, muy lejos del fundador venerado que recordaría la tradición shugendo posterior.",
+        "fr": "La plus ancienne mention conservée de lui, dans la chronique du VIIIe siècle Shoku Nihongi, le traite déjà comme une figure d'une génération quelque peu antérieure, exilé pour avoir prétendument usé de sorcellerie pour ensorceler le peuple, bien loin du fondateur vénéré dont se souviendrait plus tard la tradition shugendo.",
+        "ja": "彼についての現存最古の記述である8世紀の『続日本紀』は、すでに彼を一世代ほど前の人物として扱い、妖術で民を惑わしたとして流罪になったと記す。後の修験道の伝承が敬うことになる開祖の姿とは、かなり異なる姿である。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The 2014 Ontake-san eruption caught scientists relatively off guard largely because it was what kind of eruption, which typically produces little warning seismicity?",
+        "es": "La erupción del Ontake-san de 2014 sorprendió relativamente a los científicos, en gran parte porque fue qué tipo de erupción, que suele producir poca sismicidad de aviso?",
+        "fr": "L'éruption de l'Ontake-san en 2014 a relativement pris de court les scientifiques, en grande partie parce qu'il s'agissait de quel type d'éruption, qui produit généralement peu de sismicité d'alerte ?",
+        "ja": "2014年の御嶽山の噴火が科学者にとって比較的不意打ちとなった大きな理由は、それが前兆となる地震活動をほとんど伴わない、どの種類の噴火だったからか?"
+      },
+      "o": [
+        {
+          "en": "A lava-fountain eruption visible for weeks",
+          "es": "Una erupción de fuente de lava visible durante semanas",
+          "fr": "Une éruption en fontaine de lave visible pendant des semaines",
+          "ja": "数週間にわたり見え続ける溶岩噴泉を伴う噴火"
+        },
+        {
+          "en": "A phreatic (steam-driven) eruption",
+          "es": "Una erupción freática (impulsada por vapor)",
+          "fr": "Une éruption phréatique (pilotée par la vapeur)",
+          "ja": "水蒸気噴火"
+        },
+        {
+          "en": "An eruption preceded by a full year of warnings",
+          "es": "Una erupción precedida por un año entero de avisos",
+          "fr": "Une éruption précédée d'une année entière d'alertes",
+          "ja": "1年前から警報が出ていた噴火"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "A phreatic eruption is driven by superheated groundwater flashing to steam rather than by fresh magma pushing upward, which means it can generate far less of the deep seismic activity that monitoring networks usually rely on for advance warning.",
+        "es": "Una erupción freática está impulsada por agua subterránea sobrecalentada que se convierte súbitamente en vapor, en vez de por magma nuevo que empuja hacia arriba, lo que significa que puede generar mucha menos actividad sísmica profunda de la que suelen depender las redes de monitoreo para dar aviso previo.",
+        "fr": "Une éruption phréatique est provoquée par des eaux souterraines surchauffées se vaporisant brusquement plutôt que par la remontée de magma frais, ce qui signifie qu'elle peut générer bien moins de la sismicité profonde dont les réseaux de surveillance dépendent habituellement pour donner l'alerte.",
+        "ja": "水蒸気噴火は新しいマグマが上昇して起こるのではなく、過熱した地下水が急激に蒸気へと変わることで起きる。そのため、監視網が通常頼りにする深部の地震活動がはるかに少なくなりがちである。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Before it became independent in 2012, Yakushima and its Miyanoura-dake were part of which combined national park, established under that joint name in 1964?",
+        "es": "Antes de independizarse en 2012, ¿de qué parque nacional combinado, establecido bajo ese nombre conjunto en 1964, formaban parte Yakushima y su Miyanoura-dake?",
+        "fr": "Avant de devenir indépendant en 2012, Yakushima et son Miyanoura-dake faisaient partie de quel parc national combiné, établi sous ce nom commun en 1964 ?",
+        "ja": "2012年に独立する前、屋久島とその宮之浦岳は、1964年にその名で発足した、どの複合国立公園の一部だったか?"
+      },
+      "o": [
+        {
+          "en": "Chubu-Sangaku National Park",
+          "es": "El Parque Nacional Chubu-Sangaku",
+          "fr": "Le parc national de Chubu-Sangaku",
+          "ja": "中部山岳国立公園"
+        },
+        {
+          "en": "Nikko National Park",
+          "es": "El Parque Nacional Nikko",
+          "fr": "Le parc national de Nikko",
+          "ja": "日光国立公園"
+        },
+        {
+          "en": "Kirishima-Yaku National Park",
+          "es": "El Parque Nacional Kirishima-Yaku",
+          "fr": "Le parc national de Kirishima-Yaku",
+          "ja": "霧島屋久国立公園"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The two areas share little beyond both being in Kagoshima's administrative reach, and the 2012 split into a standalone Yakushima National Park followed decades after the island's cedar forests had already drawn UNESCO's separate recognition in 1993.",
+        "es": "Las dos zonas comparten poco más que estar ambas bajo la jurisdicción administrativa de Kagoshima, y la separación de 2012 en un Parque Nacional Yakushima independiente llegó décadas después de que los bosques de cedros de la isla ya hubieran recibido el reconocimiento aparte de la UNESCO en 1993.",
+        "fr": "Les deux zones ont peu en commun hormis leur appartenance administrative à Kagoshima, et la scission de 2012 en un parc national de Yakushima autonome intervint des décennies après que les cédraies de l'île eurent déjà reçu la reconnaissance distincte de l'UNESCO en 1993.",
+        "ja": "この二つの地域は鹿児島県の行政区域にあるという以外、共通点はあまりない。2012年に独立した屋久島国立公園として分かれたのは、島の杉林がすでに1993年に別途ユネスコの評価を受けてから何十年も後のことだった。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "A kokutei koen, unlike a full kokuritsu koen, is formally designated on the recommendation of which level of government?",
+        "es": "A diferencia de un kokuritsu koen pleno, un kokutei koen se designa formalmente por recomendación de qué nivel de gobierno?",
+        "fr": "Contrairement à un kokuritsu kōen à part entière, un kokutei kōen est formellement désigné sur recommandation de quel échelon de gouvernement ?",
+        "ja": "完全な国立公園とは違い、国定公園はどの行政の段階からの申し出によって正式に指定されるか?"
+      },
+      "o": [
+        {
+          "en": "The prefectural government",
+          "es": "El gobierno prefectural",
+          "fr": "Le gouvernement préfectoral",
+          "ja": "都道府県"
+        },
+        {
+          "en": "The municipal (city or town) government",
+          "es": "El gobierno municipal (ciudad o pueblo)",
+          "fr": "Le gouvernement municipal (ville ou commune)",
+          "ja": "市区町村"
+        },
+        {
+          "en": "A private conservation charity",
+          "es": "Una organización benéfica privada de conservación",
+          "fr": "Une association caritative privée de conservation",
+          "ja": "民間の自然保護団体"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The central Ministry of the Environment still sets the underlying criteria and gives final approval, but a kokutei koen begins with a prefecture's own proposal, a bureaucratic distinction most hikers never notice while walking the same trail either way.",
+        "es": "El Ministerio de Medio Ambiente sigue fijando los criterios de fondo y da la aprobación final, pero un kokutei koen comienza con la propia propuesta de una prefectura, una distinción burocrática que la mayoría de los excursionistas nunca nota mientras camina por el mismo sendero de todos modos.",
+        "fr": "Le ministère central de l'Environnement continue de fixer les critères sous-jacents et donne l'approbation finale, mais un kokutei kōen commence par la proposition propre d'une préfecture, une distinction bureaucratique que la plupart des randonneurs ne remarquent jamais en marchant sur le même sentier de toute façon.",
+        "ja": "基準そのものや最終的な承認は中央の環境省が担うが、国定公園の指定はまず都道府県自身の申し出から始まる。どちらの公園であっても同じ登山道を歩く登山者の大半は、この行政上の違いに気づくことはない。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "Japan's official record for the highest instantaneous wind speed ever measured, recorded at the weather station on Mount Fuji's summit when a typhoon passed on 25 September 1966, is approximately what?",
+        "es": "El récord oficial de Japón de la mayor velocidad de viento instantánea jamás medida, registrado en la estación meteorológica de la cima del monte Fuji al paso de un tifón el 25 de septiembre de 1966, es aproximadamente cuál?",
+        "fr": "Le record officiel du Japon de la plus haute vitesse de vent instantanée jamais mesurée, enregistré à la station météo du sommet du mont Fuji lors du passage d'un typhon le 25 septembre 1966, est d'environ quoi ?",
+        "ja": "1966年9月25日に台風が通過した際、富士山頂の観測所で記録された、日本の観測史上の最大瞬間風速の公式記録はおよそいくらか?"
+      },
+      "o": [
+        {
+          "en": "31.0 metres per second",
+          "es": "31,0 metros por segundo",
+          "fr": "31,0 mètres par seconde",
+          "ja": "秒速31.0メートル"
+        },
+        {
+          "en": "91.0 metres per second",
+          "es": "91,0 metros por segundo",
+          "fr": "91,0 mètres par seconde",
+          "ja": "秒速91.0メートル"
+        },
+        {
+          "en": "151.0 metres per second",
+          "es": "151,0 metros por segundo",
+          "fr": "151,0 mètres par seconde",
+          "ja": "秒速151.0メートル"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The reading remains Japan's official all-time record decades later, a reminder of just how exposed the summit weather station once was, long before the later radar dome and its eventual replacement by satellite tracking.",
+        "es": "La lectura sigue siendo el récord absoluto oficial de Japón décadas después, un recordatorio de lo expuesta que estaba la estación meteorológica de la cima, mucho antes de la posterior cúpula de radar y su eventual sustitución por el seguimiento satelital.",
+        "fr": "Ce relevé demeure des décennies plus tard le record absolu officiel du Japon, rappel de l'exposition extrême de la station météo du sommet, bien avant le radôme ultérieur et son remplacement final par le suivi satellite.",
+        "ja": "この記録は数十年を経た今も日本の観測史上の公式な最高記録であり、のちの気象レーダーやさらにその後の人工衛星による観測に置き換わるずっと前、山頂の観測所がいかに風にさらされていたかを物語っている。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "The 2014 Ontake-san eruption, Japan's deadliest postwar volcanic disaster, killed how many people?",
+        "es": "La erupción del Ontake-san de 2014, el desastre volcánico más mortífero de la posguerra en Japón, mató a cuántas personas?",
+        "fr": "L'éruption de l'Ontake-san en 2014, la catastrophe volcanique la plus meurtrière du Japon d'après-guerre, a fait combien de morts ?",
+        "ja": "日本の戦後で最も死者の多い火山災害となった2014年の御嶽山の噴火では、何人が犠牲になったか?"
+      },
+      "o": [
+        {
+          "en": "630",
+          "es": "630",
+          "fr": "630",
+          "ja": "630人"
+        },
+        {
+          "en": "6",
+          "es": "6",
+          "fr": "6",
+          "ja": "6人"
+        },
+        {
+          "en": "63",
+          "es": "63",
+          "fr": "63",
+          "ja": "63人"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The figure combines those confirmed dead and those who remained missing and were later presumed dead, most of them day hikers caught in the open near the crater when the mountain erupted without warning.",
+        "es": "La cifra combina a los confirmados muertos y a los que quedaron desaparecidos y luego se presumieron muertos, la mayoría excursionistas de un día sorprendidos a la intemperie cerca del cráter cuando la montaña entró en erupción sin previo aviso.",
+        "fr": "Ce chiffre regroupe les morts confirmés et les personnes restées disparues, plus tard présumées mortes, pour la plupart des randonneurs à la journée surpris à découvert près du cratère lorsque la montagne entra en éruption sans avertissement.",
+        "ja": "この数字は死亡が確認された人数と、行方不明のまま後に死亡が推定された人数を合わせたものである。その多くは、山が前触れなく噴火した際、火口近くの遮るもののない場所にいた日帰りの登山者たちだった。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "Mount Fuji's serial UNESCO World Heritage listing is not just the summit alone but a set of separate component sites, including shrines and lakes. Roughly how many components make up the listing?",
+        "es": "La inscripción en serie del monte Fuji como Patrimonio de la Humanidad de la UNESCO no es solo la cima, sino un conjunto de sitios componentes separados, incluidos santuarios y lagos. ¿Cuántos componentes forman aproximadamente la inscripción?",
+        "fr": "L'inscription en série du mont Fuji au patrimoine mondial de l'UNESCO n'est pas seulement le sommet, mais un ensemble de sites composants distincts, dont des sanctuaires et des lacs. Combien de composants forment environ cette inscription ?",
+        "ja": "富士山のユネスコ世界遺産登録は山頂だけでなく、神社や湖を含む複数の別個の構成資産からなるシリアル・ノミネーションである。この登録を構成する資産はおよそいくつか?"
+      },
+      "o": [
+        {
+          "en": "25",
+          "es": "25",
+          "fr": "25",
+          "ja": "25件"
+        },
+        {
+          "en": "2",
+          "es": "2",
+          "fr": "2",
+          "ja": "2件"
+        },
+        {
+          "en": "250",
+          "es": "250",
+          "fr": "250",
+          "ja": "250件"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The listing bundles the mountain itself with a wide scatter of Sengen shrines, the Fuji Five Lakes, a lava-tube cave and other sites tied to centuries of pilgrimage and artistic depiction, rather than protecting a single continuous boundary.",
+        "es": "La inscripción reúne la montaña en sí con un amplio conjunto de santuarios Sengen, los cinco lagos Fuji, una cueva de tubo de lava y otros lugares ligados a siglos de peregrinación y representación artística, en vez de proteger un único límite continuo.",
+        "fr": "L'inscription réunit la montagne elle-même à un large éventail de sanctuaires Sengen, aux cinq lacs Fuji, à une grotte de tube de lave et à d'autres sites liés à des siècles de pèlerinage et de représentation artistique, plutôt que de protéger une seule limite continue.",
+        "ja": "この登録は、山そのものに加えて各地に散らばる浅間神社群、富士五湖、溶岩洞窟など、何世紀にもわたる巡礼や芸術表現に結びついた資産をまとめて含んでおり、単一の連続した境界を保護しているわけではない。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "Fukada judged mountains by dignity, history and individuality of form. In his own account, which of the three did he single out as mattering most?",
+        "es": "Fukada juzgaba las montañas por su dignidad, historia e individualidad de forma. En su propio relato, ¿cuál de las tres señaló como la más importante?",
+        "fr": "Fukada jugeait les montagnes selon leur dignité, leur histoire et l'individualité de leur forme. Dans son propre récit, laquelle des trois désignait-il comme la plus importante ?",
+        "ja": "深田は品格・歴史・個性という基準で山を選んだ。彼自身の記述では、この三つのうちどれを最も重んじるとしたか?"
+      },
+      "o": [
+        {
+          "en": "History",
+          "es": "Historia",
+          "fr": "L'histoire",
+          "ja": "歴史"
+        },
+        {
+          "en": "Dignity",
+          "es": "Dignidad",
+          "fr": "La dignité",
+          "ja": "品格"
+        },
+        {
+          "en": "Individuality of form",
+          "es": "La individualidad de la forma",
+          "fr": "L'individualité de la forme",
+          "ja": "個性"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Fukada described dignity, or hinkaku, an almost untranslatable sense of a mountain's bearing and presence, as the quality he weighed above the other two, which is one reason his choices can feel more personal and harder to argue with than a simple checklist of height or fame.",
+        "es": "Fukada describió la dignidad, o hinkaku, un sentido casi intraducible de la presencia y el porte de una montaña, como la cualidad que sopesaba por encima de las otras dos, una razón por la que sus elecciones pueden sentirse más personales y difíciles de rebatir que una simple lista de altura o fama.",
+        "fr": "Fukada décrivait la dignité, ou hinkaku, un sentiment presque intraduisible du maintien et de la présence d'une montagne, comme la qualité qu'il plaçait au-dessus des deux autres, une des raisons pour lesquelles ses choix peuvent sembler plus personnels et plus difficiles à contester qu'une simple liste fondée sur la hauteur ou la notoriété.",
+        "ja": "深田は、ほとんど翻訳しがたい山の風格や佇まいの感覚である「品格」を、他の二つより重く見た資質として述べている。これが、彼の選定が単なる標高や知名度の一覧よりも個人的で、異論を挟みにくく感じられる理由の一つでもある。"
       }
     }
   ],

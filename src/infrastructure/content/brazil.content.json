@@ -4003,7 +4003,7 @@
       }
     },
     {
-      "difficulty": 9,
+      "difficulty": 4,
       "q": {
         "en": "In Brazilian Portuguese, what does the word \"saudade\", often called untranslatable, describe?",
         "es": "En portugués brasileño, ¿qué describe la palabra «saudade», a menudo llamada intraducible?",
@@ -4039,7 +4039,7 @@
       }
     },
     {
-      "difficulty": 9,
+      "difficulty": 4,
       "q": {
         "en": "What kind of event began in Brazil in 1964, ushering in over two decades of military rule?",
         "es": "¿Qué tipo de suceso comenzó en Brasil en 1964, dando paso a más de dos décadas de gobierno militar?",
@@ -4108,6 +4108,2454 @@
         "es": "Las lenguas tupí-guaraníes estaban tan extendidas por la costa en la época de la colonización que una lengua franca basada en el tupí, llamada nheengatu, fue usada por los propios colonos y misioneros portugueses hasta bien entrado el siglo XVIII.",
         "fr": "Les langues tupi-guarani étaient si répandues sur la côte au moment de la colonisation qu'une langue véhiculaire fondée sur le tupi, appelée nheengatu, fut utilisée par les colons et missionnaires portugais eux-mêmes jusque bien avant dans le XVIIIe siècle.",
         "ja": "トゥピ・グアラニー語族は植民地化当時、沿岸部にあまりに広く分布していたため、トゥピ語をもとにした共通語ニェエンガトゥが、ポルトガル人の入植者や宣教師自身によって18世紀に入ってからも使われ続けた。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "What is the capital of Brazil?",
+        "es": "¿Cuál es la capital de Brasil?",
+        "fr": "Quelle est la capitale du Brésil ?",
+        "ja": "ブラジルの首都は?"
+      },
+      "o": [
+        {
+          "en": "Brasília",
+          "es": "Brasilia",
+          "fr": "Brasília",
+          "ja": "ブラジリア"
+        },
+        {
+          "en": "Rio de Janeiro",
+          "es": "Río de Janeiro",
+          "fr": "Rio de Janeiro",
+          "ja": "リオデジャネイロ"
+        },
+        {
+          "en": "São Paulo",
+          "es": "São Paulo",
+          "fr": "São Paulo",
+          "ja": "サンパウロ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Brasília has been the capital since 1960, but Rio de Janeiro held that role for nearly two centuries before that, and Salvador was Brazil's very first colonial capital, from 1549.",
+        "es": "Brasilia es la capital desde 1960, pero Río de Janeiro ocupó ese papel durante casi dos siglos antes, y Salvador fue la primerísima capital colonial de Brasil, desde 1549.",
+        "fr": "Brasília est la capitale depuis 1960, mais Rio de Janeiro a occupé ce rôle pendant près de deux siècles auparavant, et Salvador fut la toute première capitale coloniale du Brésil, dès 1549.",
+        "ja": "ブラジリアが首都になったのは1960年だが、それ以前の二百年近くはリオデジャネイロが首都であり、さらにさかのぼれば1549年からのサルバドールがブラジル最初の植民地首都だった。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "On which continent is Brazil located?",
+        "es": "¿En qué continente se encuentra Brasil?",
+        "fr": "Sur quel continent se trouve le Brésil ?",
+        "ja": "ブラジルがある大陸は?"
+      },
+      "o": [
+        {
+          "en": "Africa",
+          "es": "África",
+          "fr": "L'Afrique",
+          "ja": "アフリカ"
+        },
+        {
+          "en": "South America",
+          "es": "Sudamérica",
+          "fr": "L'Amérique du Sud",
+          "ja": "南アメリカ"
+        },
+        {
+          "en": "Asia",
+          "es": "Asia",
+          "fr": "L'Asie",
+          "ja": "アジア"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Brazil covers nearly half of South America's land area and is home to roughly half its people, more than every other country on the continent combined.",
+        "es": "Brasil cubre casi la mitad de la superficie de Sudamérica y alberga a cerca de la mitad de su población, más que todos los demás países del continente juntos.",
+        "fr": "Le Brésil couvre près de la moitié de la superficie de l'Amérique du Sud et abrite environ la moitié de sa population, davantage que tous les autres pays du continent réunis.",
+        "ja": "ブラジルは南アメリカの陸地面積のほぼ半分を占め、人口もおよそ半分を抱えている。これは大陸内の他のすべての国を合わせたのに匹敵する規模である。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "Which ocean does Brazil's long coastline face?",
+        "es": "¿Qué océano bordea la larga costa de Brasil?",
+        "fr": "Quel océan borde la longue côte du Brésil ?",
+        "ja": "ブラジルの長い海岸線が面する海は?"
+      },
+      "o": [
+        {
+          "en": "The Atlantic",
+          "es": "El Atlántico",
+          "fr": "L'Atlantique",
+          "ja": "大西洋"
+        },
+        {
+          "en": "The Indian Ocean",
+          "es": "El océano Índico",
+          "fr": "L'océan Indien",
+          "ja": "インド洋"
+        },
+        {
+          "en": "The Pacific",
+          "es": "El Pacífico",
+          "fr": "Le Pacifique",
+          "ja": "太平洋"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Brazil's coastline runs for roughly 7,500 kilometres along the Atlantic, one of the longest of any country, even though the country never touches the Pacific despite covering nearly half of South America.",
+        "es": "La costa brasileña se extiende unos 7.500 kilómetros a lo largo del Atlántico, una de las más largas de cualquier país, aunque el país nunca toca el Pacífico pese a cubrir casi la mitad de Sudamérica.",
+        "fr": "La côte brésilienne s'étend sur environ 7 500 kilomètres le long de l'Atlantique, l'une des plus longues au monde, alors même que le pays ne touche jamais le Pacifique malgré sa superficie couvrant près de la moitié de l'Amérique du Sud.",
+        "ja": "ブラジルの海岸線は大西洋沿いにおよそ7,500キロも続き、世界でも屈指の長さを誇るが、南米のほぼ半分を占める国でありながら太平洋には一切面していない。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "What is Brazil's largest city by population?",
+        "es": "¿Cuál es la ciudad más poblada de Brasil?",
+        "fr": "Quelle est la ville la plus peuplée du Brésil ?",
+        "ja": "ブラジルで人口最大の都市は?"
+      },
+      "o": [
+        {
+          "en": "São Paulo",
+          "es": "São Paulo",
+          "fr": "São Paulo",
+          "ja": "サンパウロ"
+        },
+        {
+          "en": "Rio de Janeiro",
+          "es": "Río de Janeiro",
+          "fr": "Rio de Janeiro",
+          "ja": "リオデジャネイロ"
+        },
+        {
+          "en": "Brasília",
+          "es": "Brasilia",
+          "fr": "Brasília",
+          "ja": "ブラジリア"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Greater São Paulo is one of the most populous urban areas in the Southern Hemisphere, with a metropolitan population larger than the entire country of Portugal, whose language it speaks.",
+        "es": "El área metropolitana de São Paulo es una de las más pobladas del hemisferio sur, con más habitantes que todo Portugal, cuyo idioma habla.",
+        "fr": "Le Grand São Paulo est l'une des zones urbaines les plus peuplées de l'hémisphère Sud, avec une population supérieure à celle du Portugal tout entier, dont elle parle la langue.",
+        "ja": "大サンパウロ圏は南半球でも屈指の人口を抱える都市圏で、その人口はポルトガル語の本家であるポルトガル一国の人口を上回る。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "What is the main music and dance style of Brazilian Carnival?",
+        "es": "¿Cuál es el estilo musical y de baile principal del Carnaval brasileño?",
+        "fr": "Quel est le style musical et de danse principal du Carnaval brésilien ?",
+        "ja": "ブラジルのカーニバルを彩る中心的な音楽・舞踊様式は?"
+      },
+      "o": [
+        {
+          "en": "Tango",
+          "es": "Tango",
+          "fr": "Tango",
+          "ja": "タンゴ"
+        },
+        {
+          "en": "Samba",
+          "es": "Samba",
+          "fr": "Samba",
+          "ja": "サンバ"
+        },
+        {
+          "en": "Salsa",
+          "es": "Salsa",
+          "fr": "Salsa",
+          "ja": "サルサ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Carnival falls in the weeks before Ash Wednesday and Lent, and beyond Rio's ticketed parades, samba is danced for free in street parties called blocos that fill entire neighbourhoods across the country.",
+        "es": "El Carnaval cae en las semanas previas al Miércoles de Ceniza y la Cuaresma, y más allá de los desfiles con entrada de Río, la samba se baila gratis en fiestas callejeras llamadas blocos que llenan barrios enteros por todo el país.",
+        "fr": "Le Carnaval tombe dans les semaines précédant le mercredi des Cendres et le Carême, et au-delà des défilés payants de Rio, la samba se danse gratuitement dans des fêtes de rue appelées blocos qui envahissent des quartiers entiers à travers le pays.",
+        "ja": "カーニバルは灰の水曜日と四旬節の直前の数週間に行われ、リオの有料パレードのほかにも、「ブロコ」と呼ばれる無料の路上パーティーで国じゅうの街区がサンバに沸く。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "Iguaçu Falls, one of South America's most famous waterfalls, straddles the border between Brazil and which country?",
+        "es": "Las cataratas de Iguazú, una de las más famosas de Sudamérica, se encuentran en la frontera entre Brasil y qué país?",
+        "fr": "Les chutes d'Iguaçu, l'une des plus célèbres d'Amérique du Sud, se trouvent à la frontière entre le Brésil et quel pays ?",
+        "ja": "南米屈指の名瀑イグアスの滝が、ブラジルとの国境をまたいで位置する国は?"
+      },
+      "o": [
+        {
+          "en": "Argentina",
+          "es": "Argentina",
+          "fr": "L'Argentine",
+          "ja": "アルゼンチン"
+        },
+        {
+          "en": "Peru",
+          "es": "Perú",
+          "fr": "Le Pérou",
+          "ja": "ペルー"
+        },
+        {
+          "en": "Colombia",
+          "es": "Colombia",
+          "fr": "La Colombie",
+          "ja": "コロンビア"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Locals half-joke that the Argentine side offers the more dramatic close-up views, drenched in spray, while the Brazilian side offers the wider panoramic sweep of all roughly 275 individual falls at once.",
+        "es": "Los locales bromean a medias con que el lado argentino ofrece las vistas más dramáticas de cerca, empapadas en rocío, mientras que el lado brasileño ofrece la panorámica más amplia de las cerca de 275 cataratas a la vez.",
+        "fr": "Les habitants plaisantent à moitié en disant que le côté argentin offre les vues rapprochées les plus spectaculaires, trempées d'embruns, tandis que le côté brésilien offre le panorama le plus large sur les quelque 275 chutes à la fois.",
+        "ja": "地元では半分冗談で、アルゼンチン側は水しぶきを浴びる間近の迫力ある眺めを、ブラジル側はおよそ275ある滝すべてを一望できる広いパノラマを持つと言われる。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "Rio de Janeiro's massive New Year's Eve fireworks display is held over which beach?",
+        "es": "¿Sobre qué playa se celebra el enorme espectáculo de fuegos artificiales de fin de año en Río de Janeiro?",
+        "fr": "Au-dessus de quelle plage se tient le gigantesque feu d'artifice du Nouvel An de Rio de Janeiro ?",
+        "ja": "リオデジャネイロの大晦日の大規模な花火大会が行われるビーチは?"
+      },
+      "o": [
+        {
+          "en": "Copacabana",
+          "es": "Copacabana",
+          "fr": "Copacabana",
+          "ja": "コパカバーナ"
+        },
+        {
+          "en": "Leblon",
+          "es": "Leblon",
+          "fr": "Leblon",
+          "ja": "レブロン"
+        },
+        {
+          "en": "Ipanema",
+          "es": "Ipanema",
+          "fr": "Ipanema",
+          "ja": "イパネマ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "On New Year's Eve, Cariocas traditionally dress in white for luck and wade into the surf at midnight, a custom tied to offerings for Iemanjá, the Afro-Brazilian deity of the sea.",
+        "es": "En Nochevieja, los cariocas visten tradicionalmente de blanco por suerte y entran al mar a medianoche, una costumbre ligada a las ofrendas a Iemanjá, la deidad afrobrasileña del mar.",
+        "fr": "Le soir du Nouvel An, les Cariocas s'habillent traditionnellement en blanc pour porter chance et entrent dans les vagues à minuit, une coutume liée aux offrandes à Iemanjá, la divinité afro-brésilienne de la mer.",
+        "ja": "大晦日、リオっ子たちは伝統的に幸運を願って白い服をまとい、真夜中に波打ち際へ入っていく。これはアフロ・ブラジル系の海の女神イエマンジャーへの供物にちなむ習わしである。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "On what date does Brazil celebrate its Independence Day?",
+        "es": "¿En qué fecha celebra Brasil su Día de la Independencia?",
+        "fr": "À quelle date le Brésil célèbre-t-il son Jour de l'Indépendance ?",
+        "ja": "ブラジルの独立記念日はいつか?"
+      },
+      "o": [
+        {
+          "en": "7 September",
+          "es": "7 de septiembre",
+          "fr": "7 septembre",
+          "ja": "9月7日"
+        },
+        {
+          "en": "4 July",
+          "es": "4 de julio",
+          "fr": "4 juillet",
+          "ja": "7月4日"
+        },
+        {
+          "en": "1 May",
+          "es": "1 de mayo",
+          "fr": "1er mai",
+          "ja": "5月1日"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Independence Day festivities culminate each year with a large military parade broadcast nationally from Brasília, a far more formal affair than the beach parties and street blocos that mark Brazil's other big holidays.",
+        "es": "Cada año, las celebraciones del Día de la Independencia culminan con un gran desfile militar transmitido a nivel nacional desde Brasilia, un acto mucho más formal que las fiestas de playa y los blocos callejeros de otras grandes fechas brasileñas.",
+        "fr": "Chaque année, les célébrations du Jour de l'Indépendance culminent avec un grand défilé militaire retransmis à l'échelle nationale depuis Brasília, un événement bien plus formel que les fêtes de plage et les blocos de rue des autres grandes fêtes brésiliennes.",
+        "ja": "独立記念日の祝いは毎年、ブラジリアから全国中継される大規模な軍事パレードで締めくくられる。これは、ブラジルの他の大きな祝日を彩るビーチパーティーや路上の「ブロコ」よりもずっと格式ばった行事である。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "What is the name of the coin unit that makes up one hundredth of Brazil's real?",
+        "es": "¿Cómo se llama la moneda que equivale a la centésima parte del real brasileño?",
+        "fr": "Comment s'appelle la pièce qui vaut un centième du real brésilien ?",
+        "ja": "ブラジルのレアルの100分の1にあたる硬貨の単位の名は?"
+      },
+      "o": [
+        {
+          "en": "Centavo",
+          "es": "Centavo",
+          "fr": "Centavo",
+          "ja": "センターボ"
+        },
+        {
+          "en": "Öre",
+          "es": "Öre",
+          "fr": "Öre",
+          "ja": "エーレ"
+        },
+        {
+          "en": "Kopek",
+          "es": "Kopek",
+          "fr": "Kopeck",
+          "ja": "コペイカ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Coins worth less than 5 centavos have all but disappeared from everyday circulation as inflation eroded their purchasing power, so cash registers usually round small totals to the nearest 5 or 10 centavos.",
+        "es": "Las monedas de menos de 5 centavos casi han desaparecido de la circulación cotidiana, ya que la inflación erosionó su poder adquisitivo, así que las cajas suelen redondear al múltiplo de 5 o 10 centavos más cercano.",
+        "fr": "Les pièces de moins de 5 centavos ont pratiquement disparu de la circulation quotidienne, l'inflation ayant érodé leur pouvoir d'achat, si bien que les caisses arrondissent généralement au multiple de 5 ou 10 centavos le plus proche.",
+        "ja": "5センターボ未満の硬貨は、インフレで購買力が失われ日常の流通からほぼ姿を消しており、レジでは小さな端数を5か10センターボ単位に丸めるのが普通になっている。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "What are the traditional home colours of the Brazilian men's national football team's kit?",
+        "es": "¿Cuáles son los colores tradicionales de la camiseta local de la selección masculina de fútbol de Brasil?",
+        "fr": "Quelles sont les couleurs traditionnelles du maillot domicile de l'équipe masculine de football du Brésil ?",
+        "ja": "ブラジル男子サッカー代表の伝統的なホームユニフォームの色は?"
+      },
+      "o": [
+        {
+          "en": "Yellow shirt, blue shorts",
+          "es": "Camiseta amarilla, pantalón azul",
+          "fr": "Maillot jaune, short bleu",
+          "ja": "黄色いシャツに青いショートパンツ"
+        },
+        {
+          "en": "Green shirt, yellow shorts",
+          "es": "Camiseta verde, pantalón amarillo",
+          "fr": "Maillot vert, short jaune",
+          "ja": "緑のシャツに黄色いショートパンツ"
+        },
+        {
+          "en": "Blue shirt, white shorts",
+          "es": "Camiseta azul, pantalón blanco",
+          "fr": "Maillot bleu, short blanc",
+          "ja": "青いシャツに白いショートパンツ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The now-iconic yellow shirt was only adopted in 1954, after the all-white kit worn in the crushing 1950 World Cup final loss to Uruguay was blamed for the defeat and dropped entirely.",
+        "es": "La ahora icónica camiseta amarilla se adoptó recién en 1954, después de que el uniforme totalmente blanco usado en la aplastante derrota de la final del Mundial de 1950 ante Uruguay fuera culpado de la derrota y descartado por completo.",
+        "fr": "Le maillot jaune aujourd'hui emblématique ne fut adopté qu'en 1954, après que la tenue entièrement blanche portée lors de la cuisante défaite en finale de la Coupe du monde 1950 face à l'Uruguay eut été jugée responsable et totalement abandonnée.",
+        "ja": "いまでは象徴的な黄色いシャツが採用されたのは1954年になってからで、それは1950年ワールドカップ決勝でウルグアイに喫した痛恨の敗戦の際に着ていた総白のユニフォームが敗因とされ、完全に廃止されたあとのことだった。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "Brazilian Carnival always falls in which two months of the year?",
+        "es": "¿En qué dos meses del año cae siempre el Carnaval brasileño?",
+        "fr": "En quels deux mois de l'année tombe toujours le Carnaval brésilien ?",
+        "ja": "ブラジルのカーニバルは毎年必ずどの二つの月に行われるか?"
+      },
+      "o": [
+        {
+          "en": "February and March",
+          "es": "Febrero y marzo",
+          "fr": "Février et mars",
+          "ja": "2月と3月"
+        },
+        {
+          "en": "June and July",
+          "es": "Junio y julio",
+          "fr": "Juin et juillet",
+          "ja": "6月と7月"
+        },
+        {
+          "en": "November and December",
+          "es": "Noviembre y diciembre",
+          "fr": "Novembre et décembre",
+          "ja": "11月と12月"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The date shifts each year because it is set relative to Ash Wednesday and Easter, unlike Brazil's other big street festivals such as the June \"Festas Juninas\", which fall on fixed dates every year.",
+        "es": "La fecha cambia cada año porque se fija en relación con el Miércoles de Ceniza y la Pascua, a diferencia de otras grandes fiestas callejeras brasileñas como las \"Festas Juninas\" de junio, que caen en fechas fijas cada año.",
+        "fr": "La date change chaque année car elle est fixée par rapport au mercredi des Cendres et à Pâques, contrairement à d'autres grandes fêtes de rue brésiliennes comme les \"Festas Juninas\" de juin, qui tombent à date fixe chaque année.",
+        "ja": "カーニバルの日付は灰の水曜日と復活祭を基準に決まるため毎年動く。これに対し、6月の「フェスタス・ジュニーナス」など他のブラジルの大きな祭りは、毎年決まった日付で行われる。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "Brazil is the world's fifth-largest country by land area. Which four countries are larger?",
+        "es": "Brasil es el quinto país más grande del mundo por superficie. ¿Qué cuatro países son más grandes?",
+        "fr": "Le Brésil est le cinquième plus grand pays du monde par sa superficie. Quels quatre pays sont plus vastes ?",
+        "ja": "ブラジルは面積で世界第5位の国である。ブラジルより広い4か国は?"
+      },
+      "o": [
+        {
+          "en": "Russia, Canada, China and the United States",
+          "es": "Rusia, Canadá, China y Estados Unidos",
+          "fr": "La Russie, le Canada, la Chine et les États-Unis",
+          "ja": "ロシア・カナダ・中国・アメリカ"
+        },
+        {
+          "en": "Russia, India, Australia and Argentina",
+          "es": "Rusia, India, Australia y Argentina",
+          "fr": "La Russie, l'Inde, l'Australie et l'Argentine",
+          "ja": "ロシア・インド・オーストラリア・アルゼンチン"
+        },
+        {
+          "en": "Canada, Mexico, Australia and China",
+          "es": "Canadá, México, Australia y China",
+          "fr": "Le Canada, le Mexique, l'Australie et la Chine",
+          "ja": "カナダ・メキシコ・オーストラリア・中国"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Brazil alone is larger than the 48 contiguous United States combined, and it is bigger than every country in Europe put together, including European Russia.",
+        "es": "Brasil por sí solo es más grande que los 48 estados contiguos de Estados Unidos juntos, y es más grande que todos los países de Europa combinados, incluida la Rusia europea.",
+        "fr": "Le Brésil, à lui seul, est plus vaste que les 48 États contigus des États-Unis réunis, et il est plus grand que tous les pays d'Europe combinés, Russie européenne comprise.",
+        "ja": "ブラジルはそれだけで、アメリカ本土48州を合わせたよりも広く、ヨーロッパのロシア部分を含めたヨーロッパ全土を合わせたよりも広い。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Brazil is officially divided into how many major geographic regions?",
+        "es": "¿En cuántas grandes regiones geográficas se divide oficialmente Brasil?",
+        "fr": "En combien de grandes régions géographiques le Brésil est-il officiellement divisé ?",
+        "ja": "ブラジルは公式にいくつの主要な地方に区分されているか?"
+      },
+      "o": [
+        {
+          "en": "Five",
+          "es": "Cinco",
+          "fr": "Cinq",
+          "ja": "5つ"
+        },
+        {
+          "en": "Nine",
+          "es": "Nueve",
+          "fr": "Neuf",
+          "ja": "9つ"
+        },
+        {
+          "en": "Three",
+          "es": "Tres",
+          "fr": "Trois",
+          "ja": "3つ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The five regions — North, Northeast, Centre-West, Southeast and South — group states together for statistics and planning purposes and don't correspond to any layer of elected government.",
+        "es": "Las cinco regiones —Norte, Nordeste, Centro-Oeste, Sudeste y Sur— agrupan estados con fines estadísticos y de planificación, y no corresponden a ningún nivel de gobierno electo.",
+        "fr": "Les cinq régions — Nord, Nordeste, Centre-Ouest, Sud-Est et Sud — regroupent des États à des fins statistiques et de planification, et ne correspondent à aucun niveau de gouvernement élu.",
+        "ja": "北部・北東部・中西部・南東部・南部の5地方は、統計や計画のために州をまとめた区分であり、選挙で選ばれる政府の階層とは対応していない。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Brazil is a founding member of which grouping of major emerging economies, alongside Russia, India and China?",
+        "es": "Junto con Rusia, India y China, ¿de qué agrupación de grandes economías emergentes es Brasil miembro fundador?",
+        "fr": "Aux côtés de la Russie, de l'Inde et de la Chine, le Brésil est membre fondateur de quel groupement de grandes économies émergentes ?",
+        "ja": "ロシア・インド・中国とともに、ブラジルが創設メンバーである新興大国のまとまりは?"
+      },
+      "o": [
+        {
+          "en": "OPEC",
+          "es": "OPEP",
+          "fr": "L'OPEP",
+          "ja": "OPEC(石油輸出国機構)"
+        },
+        {
+          "en": "BRICS",
+          "es": "BRICS",
+          "fr": "Les BRICS",
+          "ja": "BRICS"
+        },
+        {
+          "en": "The G7",
+          "es": "El G7",
+          "fr": "Le G7",
+          "ja": "G7"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The acronym began as \"BRIC\", coined in 2001 by an economist who grouped the countries purely as an investment forecast; the four governments did not hold their first joint summit, in Russia, until 2009.",
+        "es": "La sigla nació como «BRIC», acuñada en 2001 por un economista que agrupó a los países solo como pronóstico de inversión; los cuatro gobiernos no celebraron su primera cumbre conjunta, en Rusia, hasta 2009.",
+        "fr": "Le sigle est né sous la forme « BRIC », inventé en 2001 par un économiste qui avait regroupé ces pays uniquement à des fins de prévision d'investissement ; les quatre gouvernements n'ont tenu leur premier sommet conjoint, en Russie, qu'en 2009.",
+        "ja": "この略称はもともと「BRIC」として、2001年にある経済学者が投資予測のために4か国をまとめただけの分類として作った言葉で、4か国政府が実際に初めて首脳会議を開いたのは2009年、ロシアでのことだった。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Brazil has hosted the men's FIFA World Cup in which two years?",
+        "es": "¿En qué dos años ha sido Brasil sede del Mundial masculino de la FIFA?",
+        "fr": "En quelles deux années le Brésil a-t-il accueilli la Coupe du monde masculine de la FIFA ?",
+        "ja": "ブラジルが男子FIFAワールドカップを開催したのは、どの2つの年か?"
+      },
+      "o": [
+        {
+          "en": "1950 and 2014",
+          "es": "1950 y 2014",
+          "fr": "1950 et 2014",
+          "ja": "1950年と2014年"
+        },
+        {
+          "en": "1978 and 1994",
+          "es": "1978 y 1994",
+          "fr": "1978 et 1994",
+          "ja": "1978年と1994年"
+        },
+        {
+          "en": "1930 and 1966",
+          "es": "1930 y 1966",
+          "fr": "1930 et 1966",
+          "ja": "1930年と1966年"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The 1950 final, played before a world-record crowd of roughly 200,000 at the Maracanã, ended in a shock 2–1 loss to Uruguay that Brazilians still count among the most painful moments in the country's sporting history.",
+        "es": "La final de 1950, jugada ante una multitud récord de unas 200.000 personas en el Maracaná, terminó en una sorpresiva derrota 2-1 ante Uruguay que los brasileños aún cuentan entre los momentos más dolorosos de la historia deportiva del país.",
+        "fr": "La finale de 1950, disputée devant une foule record d'environ 200 000 personnes au Maracanã, se solda par une défaite surprise 2-1 face à l'Uruguay, encore comptée aujourd'hui parmi les moments les plus douloureux de l'histoire sportive du pays.",
+        "ja": "1950年の決勝は、マラカナンスタジアムに記録的な約20万人を集めながら、ウルグアイに2対1という衝撃の敗戦を喫した。ブラジルの人々はいまもこれを、自国のスポーツ史上もっとも痛切な出来事の一つに数える。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Brazil was the last country in the Americas to do what, in 1888?",
+        "es": "¿Qué hizo Brasil en 1888, siendo el último país de América en hacerlo?",
+        "fr": "Qu'a fait le Brésil en 1888, étant le dernier pays des Amériques à le faire ?",
+        "ja": "1888年、ブラジルはアメリカ大陸で最後に何をした国となったか?"
+      },
+      "o": [
+        {
+          "en": "Abolish slavery",
+          "es": "Abolir la esclavitud",
+          "fr": "Abolir l'esclavage",
+          "ja": "奴隷制を廃止した"
+        },
+        {
+          "en": "Grant women the vote",
+          "es": "Conceder el voto a las mujeres",
+          "fr": "Accorder le droit de vote aux femmes",
+          "ja": "女性に参政権を与えた"
+        },
+        {
+          "en": "End its monarchy",
+          "es": "Poner fin a su monarquía",
+          "fr": "Mettre fin à sa monarchie",
+          "ja": "王制を終わらせた"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Nearly five million enslaved Africans had been forcibly brought to Brazil by then, far more than to any other single country in the Americas, which is part of why abolition came so late and remained so bitterly contested.",
+        "es": "Para entonces habían sido llevados por la fuerza a Brasil casi cinco millones de africanos esclavizados, muchos más que a cualquier otro país de América, lo que en parte explica por qué la abolición llegó tan tarde y siguió siendo tan disputada.",
+        "fr": "Près de cinq millions d'Africains réduits en esclavage avaient alors été amenés de force au Brésil, bien plus que dans tout autre pays des Amériques, ce qui explique en partie pourquoi l'abolition intervint si tard et resta si vivement contestée.",
+        "ja": "それまでにブラジルへ強制的に連れてこられた奴隷にされたアフリカ人はおよそ500万人にのぼり、アメリカ大陸のどの一国よりも多かった。それが、廃止がこれほど遅れ、これほど激しく争われた理由の一つでもある。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "How many emperors did the Empire of Brazil have across its history, from 1822 to 1889?",
+        "es": "¿Cuántos emperadores tuvo el Imperio de Brasil a lo largo de su historia, de 1822 a 1889?",
+        "fr": "Combien d'empereurs l'Empire du Brésil a-t-il eus au cours de son histoire, de 1822 à 1889 ?",
+        "ja": "1822年から1889年までの帝政ブラジルの歴史で、皇帝は何人いたか?"
+      },
+      "o": [
+        {
+          "en": "Four",
+          "es": "Cuatro",
+          "fr": "Quatre",
+          "ja": "4人"
+        },
+        {
+          "en": "Two",
+          "es": "Dos",
+          "fr": "Deux",
+          "ja": "2人"
+        },
+        {
+          "en": "None, it was ruled by a regency council throughout",
+          "es": "Ninguno, lo gobernó siempre un consejo de regencia",
+          "fr": "Aucun, il fut toujours gouverné par un conseil de régence",
+          "ja": "一人もいない、常に摂政会議が統治した"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Pedro I abdicated in 1831 in favour of his five-year-old son, who could not formally take the throne until he was declared \"of age\" nine years later, in 1840, in a ceremony known as the Golpe da Maioridade.",
+        "es": "Pedro I abdicó en 1831 en favor de su hijo de cinco años, que no pudo asumir formalmente el trono hasta ser declarado «mayor de edad» nueve años después, en 1840, en una ceremonia llamada Golpe da Maioridade.",
+        "fr": "Pierre Ier abdiqua en 1831 en faveur de son fils de cinq ans, qui ne put monter officiellement sur le trône qu'après avoir été déclaré « majeur » neuf ans plus tard, en 1840, lors d'une cérémonie appelée Golpe da Maioridade.",
+        "ja": "ペドロ1世は1831年、当時5歳だった息子に譲位して退位したが、その息子が正式に即位できたのは9年後の1840年、「成年の一撃(ゴルペ・ダ・マイオリダーヂ)」と呼ばれる儀式で成年と宣言されてからだった。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "What is the highest mountain in Brazil?",
+        "es": "¿Cuál es la montaña más alta de Brasil?",
+        "fr": "Quelle est la plus haute montagne du Brésil ?",
+        "ja": "ブラジル最高峰の山は?"
+      },
+      "o": [
+        {
+          "en": "Pico da Neblina",
+          "es": "Pico da Neblina",
+          "fr": "Le Pico da Neblina",
+          "ja": "ピコ・ダ・ネブリナ"
+        },
+        {
+          "en": "Sugarloaf Mountain",
+          "es": "Pan de Azúcar",
+          "fr": "Le Pain de Sucre",
+          "ja": "シュガーローフ山"
+        },
+        {
+          "en": "Mount Roraima",
+          "es": "Monte Roraima",
+          "fr": "Le mont Roraima",
+          "ja": "ロライマ山"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Hidden deep in the Amazon near the Venezuelan border, Pico da Neblina (\"Peak of the Mist\") remained largely unmeasured until a Brazilian-American expedition reached its summit in 1965, and cloud cover so often hides it that satellite images rarely catch it clearly.",
+        "es": "Escondido en lo profundo de la Amazonía cerca de la frontera con Venezuela, el Pico da Neblina permaneció en gran parte sin medir hasta que una expedición brasileño-estadounidense alcanzó su cima en 1965, y las nubes lo cubren tan a menudo que las imágenes satelitales rara vez lo captan con claridad.",
+        "fr": "Caché au cœur de l'Amazonie près de la frontière vénézuélienne, le Pico da Neblina (« pic de la brume ») resta largement non mesuré jusqu'à ce qu'une expédition brésilo-américaine atteigne son sommet en 1965, et les nuages le voilent si souvent que les images satellite le captent rarement nettement.",
+        "ja": "ベネズエラ国境近くのアマゾン深部に隠れたピコ・ダ・ネブリナ(「霧の峰」の意)は、1965年にブラジル・アメリカ合同の探検隊が登頂するまでほとんど測量されていなかった。あまりに頻繁に雲に覆われるため、衛星画像にもくっきり写ることは稀である。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "How many official time zones does Brazil use today?",
+        "es": "¿Cuántos husos horarios oficiales usa Brasil hoy en día?",
+        "fr": "Combien de fuseaux horaires officiels le Brésil utilise-t-il aujourd'hui ?",
+        "ja": "現在ブラジルが用いている公式の標準時は、いくつあるか?"
+      },
+      "o": [
+        {
+          "en": "Three",
+          "es": "Tres",
+          "fr": "Trois",
+          "ja": "3つ"
+        },
+        {
+          "en": "Five",
+          "es": "Cinco",
+          "fr": "Cinq",
+          "ja": "5つ"
+        },
+        {
+          "en": "One",
+          "es": "Uno",
+          "fr": "Un seul",
+          "ja": "1つ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Brazil dropped daylight saving time nationwide in 2019 after energy officials found it no longer saved meaningful electricity. Today mainland Brazil and its islands still span three separate zones, from UTC−2 on Fernando de Noronha to UTC−5 in Acre and western Amazonas.",
+        "es": "Brasil eliminó el horario de verano en todo el país en 2019, después de que las autoridades energéticas concluyeran que ya no ahorraba electricidad de forma significativa. Hoy el Brasil continental y sus islas siguen abarcando tres husos distintos, de UTC−2 en Fernando de Noronha a UTC−5 en Acre y el oeste de Amazonas.",
+        "fr": "Le Brésil a supprimé l'heure d'été à l'échelle nationale en 2019, les autorités énergétiques ayant jugé qu'elle ne faisait plus d'économies d'électricité significatives. Aujourd'hui, le Brésil continental et ses îles couvrent encore trois fuseaux distincts, de UTC−2 à Fernando de Noronha à UTC−5 en Acre et dans l'ouest de l'Amazonas.",
+        "ja": "ブラジルは2019年、電力当局が「もはや目立った節電効果がない」と判断し、全国でサマータイムを廃止した。現在も本土と島嶼部合わせて標準時は3つに分かれており、フェルナンド・ジ・ノローニャ島のUTC−2から、アクレ州とアマゾナス州西部のUTC−5まで幅がある。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Brazil is the world's largest exporter of concentrate for which fruit drink?",
+        "es": "¿De qué zumo de fruta es Brasil el mayor exportador mundial de concentrado?",
+        "fr": "Le Brésil est le premier exportateur mondial de concentré pour quel jus de fruit ?",
+        "ja": "ブラジルが世界最大の濃縮果汁輸出国であるのは、何のジュースか?"
+      },
+      "o": [
+        {
+          "en": "Orange juice",
+          "es": "Zumo de naranja",
+          "fr": "Jus d'orange",
+          "ja": "オレンジジュース"
+        },
+        {
+          "en": "Grape juice",
+          "es": "Zumo de uva",
+          "fr": "Jus de raisin",
+          "ja": "ブドウジュース"
+        },
+        {
+          "en": "Apple juice",
+          "es": "Zumo de manzana",
+          "fr": "Jus de pomme",
+          "ja": "リンゴジュース"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Most of the crop is grown in São Paulo state, and roughly seven out of every ten glasses of orange juice traded across borders worldwide are estimated to have started out as Brazilian fruit.",
+        "es": "La mayor parte del cultivo se produce en el estado de São Paulo, y se estima que unos siete de cada diez vasos de zumo de naranja que se comercializan a nivel mundial provienen de fruta brasileña.",
+        "fr": "La majeure partie de la récolte est cultivée dans l'État de São Paulo, et on estime qu'environ sept verres de jus d'orange sur dix échangés à l'échelle mondiale proviennent à l'origine de fruits brésiliens.",
+        "ja": "栽培の大半はサンパウロ州で行われており、世界で国境を越えて取引されるオレンジジュースのおよそ10杯に7杯は、もとをたどればブラジル産の果実だと推定されている。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Who signed the Golden Law (Lei Áurea) that abolished slavery in Brazil in 1888?",
+        "es": "¿Quién firmó la Ley Áurea que abolió la esclavitud en Brasil en 1888?",
+        "fr": "Qui signa la Loi d'Or (Lei Áurea) qui abolit l'esclavage au Brésil en 1888 ?",
+        "ja": "1888年にブラジルで奴隷制を廃止した黄金法に署名したのは誰か?"
+      },
+      "o": [
+        {
+          "en": "President Deodoro da Fonseca",
+          "es": "El presidente Deodoro da Fonseca",
+          "fr": "Le président Deodoro da Fonseca",
+          "ja": "大統領デオドーロ・ダ・フォンセカ"
+        },
+        {
+          "en": "Princess Isabel",
+          "es": "La princesa Isabel",
+          "fr": "La princesse Isabelle",
+          "ja": "イザベル王女"
+        },
+        {
+          "en": "Emperor Pedro II",
+          "es": "El emperador Pedro II",
+          "fr": "L'empereur Pierre II",
+          "ja": "皇帝ペドロ2世"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "She signed the law as princess regent while her father, Emperor Pedro II, was travelling in Europe, and it offered no compensation to former slaveholders — a grievance that helped fuel the coup that toppled the monarchy the very next year.",
+        "es": "Firmó la ley como princesa regente mientras su padre, el emperador Pedro II, viajaba por Europa, y no ofrecía compensación a los antiguos esclavistas, un agravio que ayudó a alimentar el golpe que derrocó a la monarquía al año siguiente.",
+        "fr": "Elle signa la loi en tant que princesse régente pendant que son père, l'empereur Pierre II, voyageait en Europe, et celle-ci n'offrait aucune compensation aux anciens propriétaires d'esclaves — un grief qui alimenta le coup d'État renversant la monarchie l'année suivante.",
+        "ja": "彼女は父帝ペドロ2世がヨーロッパを旅行中に、摂政王女としてこの法律に署名した。旧奴隷所有者への補償は一切なく、これが翌年に王制を倒すクーデターの一因となる不満を招いた。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Which Brazilian city hosts a street Carnival that Guinness World Records has at times recognised as the largest in the world by attendance?",
+        "es": "¿Qué ciudad brasileña celebra un Carnaval callejero que Guinness World Records ha reconocido en ocasiones como el más grande del mundo por asistencia?",
+        "fr": "Quelle ville brésilienne accueille un Carnaval de rue que le Guinness World Records a parfois reconnu comme le plus grand au monde par affluence ?",
+        "ja": "路上カーニバルが動員数で世界最大とギネス世界記録に認定されたこともある、ブラジルの都市は?"
+      },
+      "o": [
+        {
+          "en": "Salvador",
+          "es": "Salvador",
+          "fr": "Salvador",
+          "ja": "サルバドール"
+        },
+        {
+          "en": "Fortaleza",
+          "es": "Fortaleza",
+          "fr": "Fortaleza",
+          "ja": "フォルタレーザ"
+        },
+        {
+          "en": "Recife",
+          "es": "Recife",
+          "fr": "Recife",
+          "ja": "ヘシフィ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Unlike Rio's ticketed Sambadrome parade, Salvador's Carnival happens mostly for free in the streets, following massive sound-truck stages called trios elétricos that can each draw crowds of well over a hundred thousand people behind them.",
+        "es": "A diferencia del desfile con entrada del Sambódromo de Río, el Carnaval de Salvador se celebra sobre todo gratis en las calles, siguiendo enormes escenarios rodantes llamados trios elétricos que pueden arrastrar multitudes de bastante más de cien mil personas.",
+        "fr": "Contrairement au défilé payant du Sambódromo de Rio, le Carnaval de Salvador se déroule surtout gratuitement dans les rues, à la suite d'immenses scènes mobiles appelées trios elétricos qui peuvent chacune entraîner des foules de bien plus de cent mille personnes.",
+        "ja": "リオの有料パレード、サンボードロモとは異なり、サルバドールのカーニバルは主に無料の街頭で行われ、「トリオ・エレトリコ」と呼ばれる巨大な移動式ステージのトラックの後ろに、時に十数万人を超える群衆が連なって歩く。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "The golden lion tamarin, a small monkey with an orange mane, survives in only a shrinking sliver of which Brazilian biome?",
+        "es": "El tamarino león dorado, un pequeño mono de melena anaranjada, sobrevive solo en una franja cada vez más pequeña de qué bioma brasileño?",
+        "fr": "Le tamarin lion doré, un petit singe à la crinière orange, ne survit que dans une frange en constant rétrécissement de quel biome brésilien ?",
+        "ja": "オレンジ色のたてがみを持つ小型のサル、コモンリスザル……ではなくキンライオンタマリンが、縮小し続けるわずかな一角でのみ生き延びている、ブラジルの生態系は?"
+      },
+      "o": [
+        {
+          "en": "The Atlantic Forest (Mata Atlântica)",
+          "es": "La Mata Atlántica",
+          "fr": "La forêt atlantique (Mata Atlântica)",
+          "ja": "大西洋岸森林(マタ・アトランチカ)"
+        },
+        {
+          "en": "The Pantanal wetlands",
+          "es": "Los humedales del Pantanal",
+          "fr": "Les zones humides du Pantanal",
+          "ja": "パンタナール湿地"
+        },
+        {
+          "en": "The Amazon rainforest",
+          "es": "La selva amazónica",
+          "fr": "La forêt amazonienne",
+          "ja": "アマゾンの熱帯雨林"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Habitat loss and the pet trade pushed the wild population down to a few hundred animals by the 1970s; captive breeding and reintroduction programmes have since brought numbers back up into the thousands.",
+        "es": "La pérdida de hábitat y el comercio de mascotas redujeron la población silvestre a unos pocos cientos de ejemplares en los años setenta; los programas de cría en cautiverio y reintroducción han elevado la cifra desde entonces a varios miles.",
+        "fr": "La perte d'habitat et le commerce d'animaux de compagnie ont fait chuter la population sauvage à quelques centaines d'individus dans les années 1970 ; des programmes d'élevage en captivité et de réintroduction ont depuis fait remonter ce nombre à plusieurs milliers.",
+        "ja": "生息地の破壊とペット取引により、1970年代には野生の個体数がわずか数百頭まで落ち込んだが、その後の飼育下繁殖と野生復帰事業によって、いまでは数千頭まで回復している。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "What is the traditional bitter herbal tea, sipped through a metal straw from a shared gourd, especially popular in southern Brazil?",
+        "es": "¿Cuál es la infusión de hierba amarga tradicional, que se bebe con una bombilla metálica de una calabaza compartida, especialmente popular en el sur de Brasil?",
+        "fr": "Quelle est l'infusion amère traditionnelle, sirotée à la paille métallique dans une calebasse partagée, particulièrement populaire dans le sud du Brésil ?",
+        "ja": "金属製のストローで、みなで一つの器から回し飲みする、ブラジル南部で特に人気の伝統的な苦い薬草茶は?"
+      },
+      "o": [
+        {
+          "en": "Chimarrão (mate tea)",
+          "es": "Chimarrão (mate)",
+          "fr": "Chimarrão (maté)",
+          "ja": "シマロン(マテ茶)"
+        },
+        {
+          "en": "Genmaicha",
+          "es": "Té genmaicha",
+          "fr": "Genmaicha",
+          "ja": "玄米茶"
+        },
+        {
+          "en": "Chai",
+          "es": "Chai",
+          "fr": "Chaï",
+          "ja": "チャイ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The custom of passing a single gourd from person to person around a circle draws on Indigenous Guaraní practice from before European contact, and it remains such a fixture of daily life in Rio Grande do Sul that thermos flasks of hot water are sold at petrol stations and even football stadiums.",
+        "es": "La costumbre de pasar una sola calabaza de mano en mano en círculo se remonta a la práctica indígena guaraní anterior al contacto europeo, y sigue tan arraigada en la vida cotidiana de Rio Grande do Sul que se venden termos de agua caliente en gasolineras e incluso en estadios de fútbol.",
+        "fr": "La coutume de faire circuler une seule calebasse de main en main en cercle remonte à une pratique autochtone guaranie antérieure au contact européen, et elle demeure si ancrée dans le quotidien du Rio Grande do Sul que des thermos d'eau chaude se vendent dans les stations-service et même dans les stades de football.",
+        "ja": "一つの器を輪になって順に回し飲みするこの習わしは、ヨーロッパ人との接触以前からの先住民グアラニーの慣習に由来し、いまもヒオグランデ・ド・スル州の日常に深く根付いている。ガソリンスタンドやサッカースタジアムでさえ、お湯の入った魔法瓶が売られているほどである。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Pão de queijo, a chewy cheese bread eaten across Brazil, gets its stretchy texture from flour made of which root?",
+        "es": "El pão de queijo, un pan de queso elástico que se come en todo Brasil, obtiene su textura de una harina hecha de qué raíz?",
+        "fr": "Le pão de queijo, ce pain au fromage moelleux consommé dans tout le Brésil, doit sa texture élastique à une farine faite à partir de quelle racine ?",
+        "ja": "ブラジル各地で食べられるもちもちのチーズパン、パン・ジ・ケイジョの伸びる食感のもとになっている、根菜から作られる粉は?"
+      },
+      "o": [
+        {
+          "en": "Cassava (manioc)",
+          "es": "Yuca (mandioca)",
+          "fr": "Manioc",
+          "ja": "キャッサバ(マニオク)"
+        },
+        {
+          "en": "Wheat",
+          "es": "Trigo",
+          "fr": "Blé",
+          "ja": "小麦"
+        },
+        {
+          "en": "Potato",
+          "es": "Papa",
+          "fr": "Pomme de terre",
+          "ja": "じゃがいも"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The starch, called polvilho, is naturally gluten-free, and the recipe traces back to Minas Gerais plantation kitchens, where enslaved cooks are said to have first baked it using scraps too coarse for their masters' table.",
+        "es": "El almidón, llamado polvilho, no tiene gluten de forma natural, y la receta se remonta a las cocinas de las haciendas de Minas Gerais, donde se dice que cocineras esclavizadas lo horneaban por primera vez con sobras demasiado bastas para la mesa de sus amos.",
+        "fr": "Cet amidon, appelé polvilho, est naturellement sans gluten, et la recette remonterait aux cuisines des plantations du Minas Gerais, où des cuisinières réduites en esclavage l'auraient préparé les premières avec des restes trop grossiers pour la table de leurs maîtres.",
+        "ja": "「ポルヴィーリョ」と呼ばれるこのでんぷんはもともとグルテンを含まず、そのレシピはミナス・ジェライス州の農園の台所にさかのぼる。奴隷にされた料理人たちが、主人の食卓には粗すぎる屑を使って最初に焼いたと伝えられている。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "What is the name for the pass-by-your-table, all-you-can-eat style of serving grilled meats at a Brazilian steakhouse?",
+        "es": "¿Cómo se llama el estilo de servicio de carnes a la parrilla en una churrascaría brasileña, donde los camareros pasan mesa por mesa sin límite?",
+        "fr": "Comment s'appelle le style de service des viandes grillées dans une churrascaria brésilienne, où les serveurs passent de table en table à volonté ?",
+        "ja": "ブラジルのシュラスカリアで、給仕人が各テーブルを回って肉を切り分ける食べ放題方式の名は?"
+      },
+      "o": [
+        {
+          "en": "Rodízio",
+          "es": "Rodízio",
+          "fr": "Rodízio",
+          "ja": "ホジージオ"
+        },
+        {
+          "en": "Tapas",
+          "es": "Tapas",
+          "fr": "Tapas",
+          "ja": "タパス"
+        },
+        {
+          "en": "Mezze",
+          "es": "Mezze",
+          "fr": "Mezzé",
+          "ja": "メゼ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Waiters carry skewers table to table and carve portions to order, and diners signal when they've had enough by flipping a small disc from green to red — a system that spread from southern Brazil's churrascarias to steakhouses worldwide.",
+        "es": "Los camareros llevan las brochetas mesa por mesa y cortan las porciones al gusto, y los comensales indican cuándo han comido suficiente girando un disco pequeño de verde a rojo, un sistema que se extendió de las churrascarías del sur de Brasil a las parrillas de todo el mundo.",
+        "fr": "Les serveurs apportent les brochettes de table en table et découpent les portions à la demande, et les convives signalent qu'ils en ont assez en retournant un petit disque du vert au rouge — un système qui s'est répandu des churrascarias du sud du Brésil aux grillades du monde entier.",
+        "ja": "給仕人は串を手にテーブルを回り、その場で肉を切り分けていく。客は小さな円盤を緑から赤にひっくり返してもう十分だと合図する。この仕組みはブラジル南部のシュラスカリアから世界中のステーキハウスへと広まった。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Beach volleyball, later an Olympic sport, is widely credited as having been popularised in the 1940s on the beaches of which Brazilian city?",
+        "es": "El voleibol de playa, más tarde deporte olímpico, se atribuye ampliamente a haberse popularizado en los años cuarenta en las playas de qué ciudad brasileña?",
+        "fr": "Le beach-volley, plus tard sport olympique, est largement crédité d'avoir été popularisé dans les années 1940 sur les plages de quelle ville brésilienne ?",
+        "ja": "のちにオリンピック種目となるビーチバレーが、1940年代にどのブラジルの都市の浜辺で広まったとされているか?"
+      },
+      "o": [
+        {
+          "en": "Rio de Janeiro",
+          "es": "Río de Janeiro",
+          "fr": "Rio de Janeiro",
+          "ja": "リオデジャネイロ"
+        },
+        {
+          "en": "Salvador",
+          "es": "Salvador",
+          "fr": "Salvador",
+          "ja": "サルバドール"
+        },
+        {
+          "en": "Recife",
+          "es": "Recife",
+          "fr": "Recife",
+          "ja": "ヘシフィ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Players first adapted the indoor game to the sand at Copacabana and Ipanema simply because there wasn't always room for a full court, and Brazil has since won more Olympic beach volleyball medals than any other country.",
+        "es": "Los jugadores adaptaron por primera vez el juego de pista cubierta a la arena de Copacabana e Ipanema simplemente porque no siempre había sitio para una cancha completa, y Brasil ha ganado desde entonces más medallas olímpicas de vóley playa que cualquier otro país.",
+        "fr": "Les joueurs adaptèrent d'abord le jeu en salle au sable de Copacabana et d'Ipanema, faute de place pour un terrain complet, et le Brésil a depuis remporté plus de médailles olympiques de beach-volley que tout autre pays.",
+        "ja": "プレーヤーたちが室内競技をコパカバーナやイパネマの砂浜に適応させたのは、単にフルコートを確保できる場所が常にあるわけではなかったからで、ブラジルはそれ以来オリンピックのビーチバレーでどの国よりも多くのメダルを獲得している。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "In Amazonian folklore, the boto, a pink river dolphin, is said to transform at night into what, to seduce people at riverside parties?",
+        "es": "Según el folclore amazónico, ¿en qué se dice que se transforma de noche el boto, un delfín rosado de río, para seducir a la gente en las fiestas ribereñas?",
+        "fr": "Selon le folklore amazonien, en quoi le boto, un dauphin rose de rivière, se transformerait-il la nuit pour séduire les gens lors de fêtes au bord de l'eau ?",
+        "ja": "アマゾンの伝承では、ピンク色の川イルカ「ボト」は夜になると何に姿を変え、川辺の宴で人を誘惑すると言われるか?"
+      },
+      "o": [
+        {
+          "en": "A silver-haired old woman",
+          "es": "Una anciana de cabello plateado",
+          "fr": "Une vieille femme aux cheveux argentés",
+          "ja": "銀髪の老婆"
+        },
+        {
+          "en": "A handsome man in a white suit",
+          "es": "Un hombre apuesto vestido de blanco",
+          "fr": "Un bel homme en costume blanc",
+          "ja": "白い服を着た美男子"
+        },
+        {
+          "en": "A singing mermaid",
+          "es": "Una sirena cantora",
+          "fr": "Une sirène chanteuse",
+          "ja": "歌うマーメイド"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The legend is often invoked, half-jokingly, to explain unaccounted-for pregnancies in riverside communities, and the real animal is one of the few freshwater dolphin species left on Earth, with a flexible neck that lets it turn its head to hunt among flooded tree roots.",
+        "es": "La leyenda se invoca a menudo, medio en broma, para explicar embarazos sin padre conocido en las comunidades ribereñas, y el animal real es una de las pocas especies de delfín de agua dulce que quedan en el planeta, con un cuello flexible que le permite girar la cabeza para cazar entre raíces inundadas.",
+        "fr": "La légende est souvent invoquée, à moitié pour plaisanter, pour expliquer des grossesses inexpliquées dans les communautés riveraines, et l'animal réel est l'une des rares espèces de dauphins d'eau douce restant sur Terre, doté d'un cou flexible lui permettant de tourner la tête pour chasser parmi les racines inondées.",
+        "ja": "この伝説は、川辺の共同体で説明のつかない妊娠を半ば冗談めかして説明するのに使われることが多い。実在のボトは地球上に残る数少ない淡水イルカの一種で、首が柔軟に動くため、水没した木の根の間で獲物を狩る際に頭を回すことができる。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Brazilian jiu-jitsu, now practised worldwide, was developed in the early 20th century primarily by which family, adapting techniques learned from a travelling Japanese judoka?",
+        "es": "El jiu-jitsu brasileño, hoy practicado en todo el mundo, fue desarrollado a comienzos del siglo XX principalmente por qué familia, adaptando técnicas aprendidas de un judoka japonés itinerante?",
+        "fr": "Le jiu-jitsu brésilien, aujourd'hui pratiqué dans le monde entier, fut développé au début du XXe siècle principalement par quelle famille, en adaptant des techniques apprises d'un judoka japonais itinérant ?",
+        "ja": "いまや世界中で行われているブラジリアン柔術を、20世紀初頭に主に生み出した一族は?各地を巡っていた日本人柔道家から学んだ技を土台にしている。"
+      },
+      "o": [
+        {
+          "en": "The Santos family",
+          "es": "La familia Santos",
+          "fr": "La famille Santos",
+          "ja": "サントス家"
+        },
+        {
+          "en": "The Gracie family",
+          "es": "La familia Gracie",
+          "fr": "La famille Gracie",
+          "ja": "グレイシー家"
+        },
+        {
+          "en": "The Silva family",
+          "es": "La familia Silva",
+          "fr": "La famille Silva",
+          "ja": "シウバ家"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Judo champion Mitsuyo Maeda, on tour in Brazil, is said to have taught the techniques to Carlos Gracie around 1917, and the family then reworked them to emphasise ground fighting and leverage, letting smaller practitioners overcome bigger, stronger opponents.",
+        "es": "Se dice que el campeón de judo Mitsuyo Maeda, de gira por Brasil, enseñó las técnicas a Carlos Gracie hacia 1917, y la familia las reelaboró para enfatizar el combate en el suelo y la palanca, permitiendo que practicantes más pequeños vencieran a rivales más grandes y fuertes.",
+        "fr": "Le champion de judo Mitsuyo Maeda, alors en tournée au Brésil, aurait enseigné ces techniques à Carlos Gracie vers 1917, et la famille les retravailla ensuite pour privilégier le combat au sol et le levier, permettant à des pratiquants plus petits de vaincre des adversaires plus grands et plus forts.",
+        "ja": "各地を巡業していた柔道の王者、前田光世が1917年頃カルロス・グレイシーにその技を教えたとされる。一族はそれを寝技と関節技を重視する形に作り替え、体の小さな者でも大きく強い相手を制せるようにした。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Brazil was a pioneer of cars able to run on any blend of petrol and which alternative fuel, refined from sugarcane?",
+        "es": "Brasil fue pionero en autos capaces de funcionar con cualquier mezcla de gasolina y qué combustible alternativo, refinado a partir de la caña de azúcar?",
+        "fr": "Le Brésil fut pionnier des voitures capables de rouler avec n'importe quel mélange d'essence et de quel carburant alternatif, raffiné à partir de la canne à sucre ?",
+        "ja": "ブラジルは、ガソリンとサトウキビから精製されるどんな代替燃料を、どんな配合でも使える自動車の先駆けとなったか?"
+      },
+      "o": [
+        {
+          "en": "Biodiesel",
+          "es": "Biodiésel",
+          "fr": "Biodiesel",
+          "ja": "バイオディーゼル"
+        },
+        {
+          "en": "Ethanol",
+          "es": "Etanol",
+          "fr": "Éthanol",
+          "ja": "エタノール"
+        },
+        {
+          "en": "Hydrogen",
+          "es": "Hidrógeno",
+          "fr": "Hydrogène",
+          "ja": "水素"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Brazil began mass-producing ethanol-only cars after the 1970s oil shocks, and the first mainstream \"flex-fuel\" cars able to run on either fuel in any proportion arrived on Brazilian roads in 2003, reshaping the market within a few years.",
+        "es": "Brasil comenzó a producir en masa autos exclusivamente de etanol tras las crisis del petróleo de los años setenta, y los primeros autos «flex-fuel» convencionales, capaces de usar cualquiera de los dos combustibles en cualquier proporción, llegaron a las carreteras brasileñas en 2003, transformando el mercado en pocos años.",
+        "fr": "Le Brésil commença à produire en masse des voitures fonctionnant uniquement à l'éthanol après les chocs pétroliers des années 1970, et les premières voitures « flex-fuel » grand public, capables de fonctionner avec l'un ou l'autre carburant dans n'importe quelle proportion, arrivèrent sur les routes brésiliennes en 2003, transformant le marché en quelques années.",
+        "ja": "ブラジルは1970年代のオイルショックのあと、エタノールのみで走る車の量産を始めた。ガソリンとエタノールをどんな比率でも使える主流の「フレックス燃料車」がブラジルの道路に登場したのは2003年で、数年のうちに市場のあり方を変えた。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Forró, an accordion-driven dance music from Brazil's Northeast, is traditionally most associated with which June festival season?",
+        "es": "El forró, música de baile con acordeón del nordeste de Brasil, se asocia tradicionalmente sobre todo con qué temporada de fiestas de junio?",
+        "fr": "Le forró, musique de danse à l'accordéon du Nordeste brésilien, est traditionnellement le plus associé à quelle saison de fêtes de juin ?",
+        "ja": "アコーディオンを主役にしたブラジル北東部の舞踊音楽フォホーが、伝統的に強く結びついている6月の祭りの季節は?"
+      },
+      "o": [
+        {
+          "en": "Réveillon (New Year)",
+          "es": "Réveillon (Año Nuevo)",
+          "fr": "Le Réveillon (Nouvel An)",
+          "ja": "レヴェイヨン(年越し)"
+        },
+        {
+          "en": "Festas Juninas",
+          "es": "Festas Juninas",
+          "fr": "Les Festas Juninas",
+          "ja": "フェスタス・ジュニーナス"
+        },
+        {
+          "en": "Carnival",
+          "es": "Carnaval",
+          "fr": "Le Carnaval",
+          "ja": "カーニバル"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The festivals honour Saints Anthony, John and Peter with bonfires, square dancing and corn-based dishes, and some etymologists trace the word \"forró\" to English-speaking railway workers' phrase \"for all\", inviting everyone to the dance — though the theory is disputed and unproven.",
+        "es": "Las fiestas honran a los santos Antonio, Juan y Pedro con hogueras, baile en cuadrillas y platos a base de maíz, y algunos etimólogos remontan la palabra «forró» a la frase inglesa «for all» de trabajadores ferroviarios angloparlantes, invitando a todos al baile, aunque la teoría es discutida y no está probada.",
+        "fr": "Les fêtes honorent les saints Antoine, Jean et Pierre par des feux de joie, des danses en carré et des plats à base de maïs, et certains étymologistes font remonter le mot « forró » à l'expression anglaise « for all » de cheminots anglophones invitant tout le monde à danser — bien que la théorie soit contestée et non prouvée.",
+        "ja": "この祭りは聖アントニオ・聖ヨハネ・聖ペトロを、たき火や四角形に組む踊り、トウモロコシ料理でたたえる。一部の語源研究者は「フォホー」という語を、英語話者の鉄道労働者が誰もを踊りに誘った「for all(みんなのために)」という言い回しに求めるが、これは異論も多く証明されてはいない。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Axé, an upbeat pop genre blending Afro-Brazilian rhythms with Caribbean and electronic sounds, emerged in the 1980s primarily from which city?",
+        "es": "El axé, un género pop animado que mezcla ritmos afrobrasileños con sonidos caribeños y electrónicos, surgió en los años ochenta principalmente en qué ciudad?",
+        "fr": "L'axé, genre pop entraînant mêlant rythmes afro-brésiliens et sonorités caribéennes et électroniques, est né dans les années 1980 principalement dans quelle ville ?",
+        "ja": "アフロ・ブラジル系のリズムにカリブと電子音楽の要素を混ぜた陽気なポップジャンル、アシェーが1980年代に主に生まれた都市は?"
+      },
+      "o": [
+        {
+          "en": "Curitiba",
+          "es": "Curitiba",
+          "fr": "Curitiba",
+          "ja": "クリチバ"
+        },
+        {
+          "en": "Salvador",
+          "es": "Salvador",
+          "fr": "Salvador",
+          "ja": "サルバドール"
+        },
+        {
+          "en": "Porto Alegre",
+          "es": "Porto Alegre",
+          "fr": "Porto Alegre",
+          "ja": "ポルトアレグレ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The genre grew directly out of Salvador's street Carnival sound-truck circuit, and its name comes from the Candomblé concept of axé, a vital force or spiritual energy believed to flow through people, objects and rituals.",
+        "es": "El género surgió directamente del circuito de camiones-escenario del Carnaval callejero de Salvador, y su nombre proviene del concepto del candomblé de axé, una fuerza vital o energía espiritual que se cree fluye por las personas, los objetos y los rituales.",
+        "fr": "Le genre est né directement du circuit des chars-scènes du Carnaval de rue de Salvador, et son nom vient du concept candomblé d'axé, une force vitale ou énergie spirituelle censée traverser les personnes, les objets et les rituels.",
+        "ja": "このジャンルはサルバドールの路上カーニバルにおける移動式ステージの文化から直接生まれた。名前はカンドンブレの概念「アシェー」に由来し、人・物・儀礼を流れると信じられる生命力・霊的エネルギーを意味する。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Heitor Villa-Lobos, Brazil's most celebrated classical composer, wrote a famous series of works blending Bach's counterpoint with Brazilian folk elements, titled what?",
+        "es": "Heitor Villa-Lobos, el compositor clásico brasileño más célebre, escribió una famosa serie de obras que mezclan el contrapunto de Bach con elementos folclóricos brasileños, titulada cómo?",
+        "fr": "Heitor Villa-Lobos, le compositeur classique brésilien le plus célèbre, écrivit une célèbre série d'œuvres mêlant le contrepoint de Bach à des éléments du folklore brésilien, intitulée comment ?",
+        "ja": "ブラジルでもっとも名高いクラシック作曲家エイトル・ヴィラ=ロボスが、バッハの対位法とブラジルの民俗音楽の要素を融合させて書いた有名な作品群の名は?"
+      },
+      "o": [
+        {
+          "en": "Sinfonia Tropical",
+          "es": "Sinfonia Tropical",
+          "fr": "Sinfonia Tropical",
+          "ja": "シンフォニア・トロピカル"
+        },
+        {
+          "en": "Bachianas Brasileiras",
+          "es": "Bachianas Brasileiras",
+          "fr": "Bachianas Brasileiras",
+          "ja": "バキアーナス・ブラジレイラス"
+        },
+        {
+          "en": "Cantigas Populares",
+          "es": "Cantigas Populares",
+          "fr": "Cantigas Populares",
+          "ja": "カンチガス・ポプラーレス"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Villa-Lobos composed prolifically — by some counts over a thousand works — and also served as Brazil's director of music education in the 1930s, organising mass choral events where thousands of schoolchildren sang together at once.",
+        "es": "Villa-Lobos compuso prolíficamente —según algunos cálculos, más de mil obras— y también fue director de educación musical de Brasil en los años treinta, organizando eventos corales masivos en los que miles de escolares cantaban juntos.",
+        "fr": "Villa-Lobos composa de manière prolifique — plus d'un millier d'œuvres selon certains décomptes — et fut également directeur de l'éducation musicale du Brésil dans les années 1930, organisant des événements choraux de masse où des milliers d'écoliers chantaient ensemble.",
+        "ja": "ヴィラ=ロボスは驚くほど多作で、一説には千曲を超える作品を残したとされる。1930年代にはブラジルの音楽教育局長も務め、何千人もの生徒がいっせいに歌う大規模な合唱行事を組織した。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Getúlio Vargas, who ruled Brazil on and off for nearly twenty years, named his 1937–1945 dictatorship using a term meaning \"New State\". What was it called?",
+        "es": "Getúlio Vargas, que gobernó Brasil de forma intermitente durante casi veinte años, dio a su dictadura de 1937-1945 un nombre que significa «Estado Nuevo». ¿Cómo se llamaba?",
+        "fr": "Getúlio Vargas, qui gouverna le Brésil par intermittence pendant près de vingt ans, donna à sa dictature de 1937-1945 un nom signifiant « État nouveau ». Comment s'appelait-elle ?",
+        "ja": "20年近くにわたり断続的にブラジルを統治したジェトゥリオ・ヴァルガスが、1937〜1945年の独裁体制に付けた「新国家」を意味する名は?"
+      },
+      "o": [
+        {
+          "en": "Nova República",
+          "es": "Nova República",
+          "fr": "Nova República",
+          "ja": "ノヴァ・レプブリカ"
+        },
+        {
+          "en": "Estado Novo",
+          "es": "Estado Novo",
+          "fr": "Estado Novo",
+          "ja": "エスタード・ノヴォ"
+        },
+        {
+          "en": "Novo Mundo",
+          "es": "Novo Mundo",
+          "fr": "Novo Mundo",
+          "ja": "ノヴォ・ムンド"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Vargas later returned to power as an elected president in 1951, but as a corruption scandal closed in on his government in 1954 he shot himself, leaving behind a letter blaming domestic and foreign enemies for his fall.",
+        "es": "Vargas volvió al poder más tarde como presidente electo en 1951, pero cuando un escándalo de corrupción acorraló a su gobierno en 1954 se disparó, dejando una carta que culpaba a enemigos internos y externos de su caída.",
+        "fr": "Vargas revint plus tard au pouvoir en tant que président élu en 1951, mais alors qu'un scandale de corruption cernait son gouvernement en 1954, il se donna la mort, laissant une lettre imputant sa chute à des ennemis intérieurs et extérieurs.",
+        "ja": "ヴァルガスはのちの1951年、選挙で選ばれた大統領として政権に復帰したが、1954年に汚職疑惑が政権に迫るなか自ら命を絶ち、内外の敵に自分の失脚の責任を負わせる遺書を残した。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Brazil was the only South American country to send ground troops to fight in Europe during the Second World War. To which country did it deploy its Expeditionary Force?",
+        "es": "Brasil fue el único país sudamericano en enviar tropas terrestres a combatir en Europa durante la Segunda Guerra Mundial. ¿A qué país desplegó su Fuerza Expedicionaria?",
+        "fr": "Le Brésil fut le seul pays sud-américain à envoyer des troupes terrestres combattre en Europe pendant la Seconde Guerre mondiale. Dans quel pays déploya-t-il son corps expéditionnaire ?",
+        "ja": "第二次世界大戦中、南米で唯一ヨーロッパへ地上部隊を送り込んだブラジルが、遠征軍を派遣した国は?"
+      },
+      "o": [
+        {
+          "en": "France",
+          "es": "Francia",
+          "fr": "La France",
+          "ja": "フランス"
+        },
+        {
+          "en": "Italy",
+          "es": "Italia",
+          "fr": "L'Italie",
+          "ja": "イタリア"
+        },
+        {
+          "en": "Germany",
+          "es": "Alemania",
+          "fr": "L'Allemagne",
+          "ja": "ドイツ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The roughly 25,000-strong force fought alongside Allied troops in the Italian campaign from 1944, and its soldiers' nickname, \"Cobras Fumantes\" (\"Smoking Snakes\"), mocked a sceptic who had said Brazil would send troops \"when snakes smoke\".",
+        "es": "La fuerza, de unos 25.000 efectivos, luchó junto a las tropas aliadas en la campaña de Italia desde 1944, y el apodo de sus soldados, «Cobras Fumantes» («Serpientes Fumantes»), se burlaba de un escéptico que había dicho que Brasil enviaría tropas «cuando las serpientes fumen».",
+        "fr": "Cette force d'environ 25 000 hommes combattit aux côtés des troupes alliées lors de la campagne d'Italie à partir de 1944, et le surnom de ses soldats, « Cobras Fumantes » (« Serpents fumeurs »), se moquait d'un sceptique qui avait dit que le Brésil enverrait des troupes « quand les serpents fumeraient ».",
+        "ja": "およそ2万5千人からなるこの部隊は1944年からイタリア戦線で連合軍とともに戦った。兵士たちの愛称「コブラス・フマンチス(煙を吐く蛇)」は、ブラジルが派兵するのは「蛇が煙草を吸う日だ」と皮肉った懐疑派をあざ笑うものだった。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "The Cerrado, a vast tropical savanna covering roughly a fifth of Brazil, is considered the most biologically diverse example on Earth of what kind of biome?",
+        "es": "El Cerrado, una vasta sabana tropical que cubre aproximadamente una quinta parte de Brasil, se considera el ejemplo con mayor diversidad biológica del planeta de qué tipo de bioma?",
+        "fr": "Le Cerrado, une vaste savane tropicale couvrant environ un cinquième du Brésil, est considéré comme l'exemple le plus riche en biodiversité au monde de quel type de biome ?",
+        "ja": "ブラジルの国土のおよそ5分の1を覆う広大な熱帯サバンナ、セラードが、地球上でその種の生態系として最も生物多様性に富むとされているのは、何の一種としてか?"
+      },
+      "o": [
+        {
+          "en": "Desert",
+          "es": "Desierto",
+          "fr": "Désert",
+          "ja": "砂漠"
+        },
+        {
+          "en": "Savanna",
+          "es": "Sabana",
+          "fr": "Savane",
+          "ja": "サバンナ"
+        },
+        {
+          "en": "Tundra",
+          "es": "Tundra",
+          "fr": "Toundra",
+          "ja": "ツンドラ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Less protected and less internationally famous than the Amazon, the Cerrado has lost roughly half its native vegetation to soy and cattle farming, even though it also feeds the headwaters of several of the country's major river basins, earning it the nickname \"Brazil's water tank\".",
+        "es": "Menos protegido y menos famoso internacionalmente que la Amazonía, el Cerrado ha perdido cerca de la mitad de su vegetación nativa por la soja y la ganadería, aunque también alimenta las cabeceras de varias de las principales cuencas fluviales del país, lo que le vale el apodo de «caja de agua de Brasil».",
+        "fr": "Moins protégé et moins célèbre à l'international que l'Amazonie, le Cerrado a perdu environ la moitié de sa végétation native au profit du soja et de l'élevage bovin, bien qu'il alimente aussi les sources de plusieurs des principaux bassins fluviaux du pays, ce qui lui vaut le surnom de « château d'eau du Brésil ».",
+        "ja": "アマゾンほど保護も国際的な知名度もないセラードは、大豆栽培と牧畜によって原生植生のおよそ半分を失ってきたが、同時に国内の主要な河川流域のいくつかの水源も担っており、「ブラジルの給水塔」の異名を持つ。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "In the 1530s, Portugal divided the coast of Brazil into strips of land granted to nobles to develop at their own expense and risk. What were these grants called?",
+        "es": "En la década de 1530, Portugal dividió la costa de Brasil en franjas de tierra concedidas a nobles para que las desarrollaran por su cuenta y riesgo. ¿Cómo se llamaban estas concesiones?",
+        "fr": "Dans les années 1530, le Portugal divisa la côte du Brésil en bandes de terre concédées à des nobles, à charge pour eux de les développer à leurs frais et à leurs risques. Comment appelait-on ces concessions ?",
+        "ja": "1530年代、ポルトガルはブラジルの海岸を、貴族に自己資金と自己責任で開発させるための細長い区画に分けて与えた。この制度は何と呼ばれたか?"
+      },
+      "o": [
+        {
+          "en": "Royal fiefdoms",
+          "es": "Feudos reales",
+          "fr": "Fiefs royaux",
+          "ja": "王室封土"
+        },
+        {
+          "en": "Hereditary captaincies",
+          "es": "Capitanías hereditarias",
+          "fr": "Capitaineries héréditaires",
+          "ja": "世襲カピタニア(領地)"
+        },
+        {
+          "en": "Trading concessions",
+          "es": "Concesiones comerciales",
+          "fr": "Concessions commerciales",
+          "ja": "通商特許権"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Most of the fifteen original captaincies failed within a generation, undone by Indigenous resistance, poor administration or plain neglect by grantees who never left Portugal, and the crown eventually took direct control, appointing a governor-general based in Salvador in 1549.",
+        "es": "La mayoría de las quince capitanías originales fracasaron en una generación, hundidas por la resistencia indígena, la mala administración o el simple abandono de titulares que nunca salieron de Portugal, y la corona acabó tomando el control directo, nombrando a un gobernador general con sede en Salvador en 1549.",
+        "fr": "La plupart des quinze capitaineries d'origine échouèrent en une génération, minées par la résistance autochtone, une mauvaise administration ou la simple négligence de titulaires qui ne quittèrent jamais le Portugal, et la couronne finit par en prendre le contrôle direct, nommant un gouverneur général basé à Salvador en 1549.",
+        "ja": "最初に設けられた15のカピタニアの大半は、先住民の抵抗や行政の不手際、あるいは一度もポルトガルを離れなかった領主たちの放置によって、一世代のうちに立ち行かなくなった。王室は最終的に直接統治に乗り出し、1549年にサルバドールを拠点とする総督を任命した。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "In Brazil, voting in national elections is compulsory for citizens aged 18 to 70. For which two age groups is voting instead optional?",
+        "es": "En Brasil, votar en las elecciones nacionales es obligatorio para los ciudadanos de 18 a 70 años. ¿Para qué dos grupos de edad es opcional?",
+        "fr": "Au Brésil, le vote aux élections nationales est obligatoire pour les citoyens âgés de 18 à 70 ans. Pour quels deux groupes d'âge le vote est-il facultatif ?",
+        "ja": "ブラジルでは18歳から70歳までの国民に国政選挙での投票が義務づけられている。任意とされているのはどの二つの年齢層か?"
+      },
+      "o": [
+        {
+          "en": "16–17 and over 60",
+          "es": "16-17 y mayores de 60",
+          "fr": "16-17 ans et plus de 60 ans",
+          "ja": "16〜17歳と60歳超"
+        },
+        {
+          "en": "16–17 and over 70",
+          "es": "16-17 y mayores de 70",
+          "fr": "16-17 ans et plus de 70 ans",
+          "ja": "16〜17歳と70歳超"
+        },
+        {
+          "en": "21–25 and over 65",
+          "es": "21-25 y mayores de 65",
+          "fr": "21-25 ans et plus de 65 ans",
+          "ja": "21〜25歳と65歳超"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Brazil is one of the few democracies where 16-year-olds can vote at all, and turnout for those it is compulsory for is enforced with small fines for anyone who fails to vote or file a formal excuse — modest enough to work more as a nudge than a real deterrent.",
+        "es": "Brasil es una de las pocas democracias donde los jóvenes de 16 años ya pueden votar, y la participación de quienes tienen la obligación se hace cumplir con pequeñas multas para quien no vota ni presenta una excusa formal, lo bastante modestas como para funcionar más como un empujón que como una disuasión real.",
+        "fr": "Le Brésil est l'une des rares démocraties où les jeunes de 16 ans peuvent déjà voter, et la participation de ceux pour qui elle est obligatoire est assurée par de petites amendes pour quiconque ne vote pas ni ne dépose d'excuse officielle — assez modestes pour agir davantage comme une incitation que comme une réelle dissuasion.",
+        "ja": "ブラジルは16歳から投票できる数少ない民主主義国の一つである。義務投票の対象者には、投票せず正式な欠席届も出さない場合に少額の罰金が科されるが、その額は実質的な抑止力というより軽い後押し程度にとどまる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Brazil's highest court, the Supremo Tribunal Federal, is made up of how many justices?",
+        "es": "¿Cuántos jueces integran el Supremo Tribunal Federal, el tribunal más alto de Brasil?",
+        "fr": "Combien de juges composent le Supremo Tribunal Federal, la plus haute cour du Brésil ?",
+        "ja": "ブラジルの最高裁判所、連邦最高裁判所(STF)を構成する判事は何人か?"
+      },
+      "o": [
+        {
+          "en": "Seven",
+          "es": "Siete",
+          "fr": "Sept",
+          "ja": "7人"
+        },
+        {
+          "en": "Eleven",
+          "es": "Once",
+          "fr": "Onze",
+          "ja": "11人"
+        },
+        {
+          "en": "Fifteen",
+          "es": "Quince",
+          "fr": "Quinze",
+          "ja": "15人"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Justices are nominated by the president and confirmed by the Senate, and mandatory retirement at age 75 means that a single two-term president can, over eight years, end up naming a majority of the court.",
+        "es": "Los jueces son nominados por el presidente y confirmados por el Senado, y la jubilación obligatoria a los 75 años significa que un solo presidente con dos mandatos puede, en ocho años, terminar nombrando a la mayoría del tribunal.",
+        "fr": "Les juges sont nommés par le président et confirmés par le Sénat, et le départ obligatoire à la retraite à 75 ans signifie qu'un seul président réélu peut, en huit ans, finir par nommer la majorité de la cour.",
+        "ja": "判事は大統領が指名し上院が承認する。75歳での定年制のため、二期8年務める大統領一人だけで、裁判所の過半数を任命し終えてしまうこともありうる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "The Brazilian Congress building in Brasília is famous for two dome-like structures side by side — one bowl facing up, one facing down. Which chamber does the upward-facing bowl represent?",
+        "es": "El edificio del Congreso brasileño en Brasilia es famoso por dos estructuras en forma de cúpula, una junto a la otra: un cuenco hacia arriba y otro hacia abajo. ¿Qué cámara representa el cuenco hacia arriba?",
+        "fr": "Le bâtiment du Congrès brésilien à Brasília est célèbre pour ses deux structures en forme de dôme côte à côte — l'une en forme de bol tourné vers le haut, l'autre vers le bas. Quelle chambre représente le bol tourné vers le haut ?",
+        "ja": "ブラジリアの国会議事堂は、上向きの椀形と下向きの椀形が並ぶ二つのドームで知られる。上向きの椀が表すのはどちらの議院か?"
+      },
+      "o": [
+        {
+          "en": "The Supreme Court",
+          "es": "La Corte Suprema",
+          "fr": "La Cour suprême",
+          "ja": "最高裁判所"
+        },
+        {
+          "en": "The Chamber of Deputies",
+          "es": "La Cámara de Diputados",
+          "fr": "La Chambre des députés",
+          "ja": "下院(代議院)"
+        },
+        {
+          "en": "The Senate",
+          "es": "El Senado",
+          "fr": "Le Sénat",
+          "ja": "上院(元老院)"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Architect Oscar Niemeyer designed the upturned bowl, open to the sky, to symbolise the lower house's openness to the people, while the inverted dome housing the Senate is popularly said to represent a more closed, deliberative chamber.",
+        "es": "El arquitecto Oscar Niemeyer diseñó el cuenco hacia arriba, abierto al cielo, para simbolizar la apertura de la cámara baja al pueblo, mientras que la cúpula invertida que alberga el Senado se dice popularmente que representa una cámara más cerrada y deliberativa.",
+        "fr": "L'architecte Oscar Niemeyer conçut le bol tourné vers le haut, ouvert sur le ciel, pour symboliser l'ouverture de la chambre basse au peuple, tandis que le dôme inversé abritant le Sénat représenterait, dit-on, une chambre plus fermée et délibérative.",
+        "ja": "建築家オスカー・ニーマイヤーは、空に向かって開いた上向きの椀で下院が民衆に開かれていることを表現したとされ、上院を収める逆さのドームは、より閉じた審議の場を表すとよく語られる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Harvesting Brazil nuts, gathered from the wild rather than farmed, is protected by a Brazilian law that forbids what regarding the towering trees that produce them?",
+        "es": "La recolección de la nuez de Brasil, obtenida silvestre y no cultivada, está protegida por una ley brasileña que prohíbe qué respecto a los enormes árboles que la producen?",
+        "fr": "La récolte des noix du Brésil, cueillies à l'état sauvage plutôt que cultivées, est protégée par une loi brésilienne qui interdit quoi concernant les arbres imposants qui les produisent ?",
+        "ja": "栽培ではなく野生から採取されるブラジルナッツの採集は、ある法律によって守られている。それを実らせる高木について禁じられているのは何か?"
+      },
+      "o": [
+        {
+          "en": "Exporting the nuts unshelled",
+          "es": "Exportar las nueces sin cáscara",
+          "fr": "Exporter les noix non décortiquées",
+          "ja": "殻付きのままの輸出"
+        },
+        {
+          "en": "Cutting them down, even on private land",
+          "es": "Talarlos, incluso en tierras privadas",
+          "fr": "Les abattre, même sur un terrain privé",
+          "ja": "私有地であっても伐採すること"
+        },
+        {
+          "en": "Harvesting them before October",
+          "es": "Cosecharlas antes de octubre",
+          "fr": "Les récolter avant octobre",
+          "ja": "10月前の採集"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The trees can live for over 500 years and only bear fruit reliably in undisturbed old-growth forest, which makes Brazil nuts an unusual case of a rainforest product whose economic value gives local communities a direct incentive to keep the forest standing rather than clear it.",
+        "es": "Los árboles pueden vivir más de 500 años y solo dan fruto de forma fiable en bosque primario sin perturbar, lo que convierte a la nuez de Brasil en un caso poco común de un producto de la selva cuyo valor económico da a las comunidades locales un incentivo directo para mantener el bosque en pie en vez de talarlo.",
+        "fr": "Les arbres peuvent vivre plus de 500 ans et ne fructifient de façon fiable que dans une forêt primaire non perturbée, ce qui fait de la noix du Brésil un cas rare de produit forestier dont la valeur économique incite directement les communautés locales à préserver la forêt plutôt qu'à la défricher.",
+        "ja": "この木は500年を超えて生きることもあり、手つかずの原生林でなければ確実に実をつけない。そのためブラジルナッツは、森林を伐採するより残しておくほうが地元の共同体にとって経済的に得になる、熱帯雨林の産物として珍しい例となっている。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "In everyday Brazilian speech, the pronoun \"você\" has largely replaced which more formal, verb-conjugating pronoun still standard in European Portuguese?",
+        "es": "En el habla cotidiana brasileña, el pronombre «você» ha reemplazado en gran medida a qué pronombre más formal, que exige conjugación verbal y sigue siendo estándar en el portugués europeo?",
+        "fr": "Dans le parler quotidien brésilien, le pronom « você » a largement remplacé quel pronom plus formel, exigeant une conjugaison verbale propre, resté standard en portugais européen ?",
+        "ja": "日常のブラジル・ポルトガル語で、「ヴォセー」がほとんど置き換えてしまった、ヨーロッパのポルトガル語ではいまも標準的な、独自の動詞活用を持つより丁寧な人称代名詞は?"
+      },
+      "o": [
+        {
+          "en": "Vós",
+          "es": "Vós",
+          "fr": "Vós",
+          "ja": "ヴォス"
+        },
+        {
+          "en": "Tu",
+          "es": "Tu",
+          "fr": "Tu",
+          "ja": "トゥ"
+        },
+        {
+          "en": "Ele",
+          "es": "Ele",
+          "fr": "Ele",
+          "ja": "エレ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "A handful of Brazilian regions, notably parts of the South and the Northeast, kept using \"tu\" all along, though most speakers there pair it with the simpler \"você\" verb forms rather than the fuller conjugations still used in Portugal.",
+        "es": "Un puñado de regiones brasileñas, sobre todo partes del Sur y del Nordeste, siguieron usando «tu» todo el tiempo, aunque la mayoría de sus hablantes lo combinan con las formas verbales más simples de «você» en vez de las conjugaciones completas que aún se usan en Portugal.",
+        "fr": "Une poignée de régions brésiliennes, notamment certaines parties du Sud et du Nordeste, ont continué d'utiliser « tu » sans interruption, bien que la plupart des locuteurs l'associent aux formes verbales simplifiées de « você » plutôt qu'aux conjugaisons complètes encore utilisées au Portugal.",
+        "ja": "ブラジルの一部地域、特に南部や北東部の一部では「トゥ」が使われ続けてきたが、そこでも多くの話者は、ポルトガルでいまも使われる完全な活用形ではなく、より簡略化された「ヴォセー」の動詞形と組み合わせて使っている。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "The 1984 mass protest movement demanding an immediate return to direct presidential elections, drawing crowds in the millions, was known by what slogan?",
+        "es": "El movimiento de protesta masiva de 1984 que exigía el retorno inmediato a elecciones presidenciales directas, con multitudes de millones, se conocía con qué consigna?",
+        "fr": "Le mouvement de protestation de masse de 1984 réclamant un retour immédiat aux élections présidentielles directes, rassemblant des millions de personnes, était connu sous quel slogan ?",
+        "ja": "1984年、直接大統領選挙の即時実施を求め数百万人を動員した大衆抗議運動が掲げたスローガンは?"
+      },
+      "o": [
+        {
+          "en": "Fora Collor (\"Collor out\")",
+          "es": "Fora Collor («Collor fuera»)",
+          "fr": "Fora Collor (« Collor dehors »)",
+          "ja": "「フォーラ・コロール(コロールは出て行け)」"
+        },
+        {
+          "en": "Diretas Já (\"Direct elections now\")",
+          "es": "Diretas Já («Elecciones directas ya»)",
+          "fr": "Diretas Já (« Élections directes maintenant »)",
+          "ja": "「ジレータス・ジャー(いますぐ直接選挙を)」"
+        },
+        {
+          "en": "Passe Livre (\"Free fare\")",
+          "es": "Passe Livre («Pasaje libre»)",
+          "fr": "Passe Livre (« Passe gratuit »)",
+          "ja": "「パッセ・リヴリ(無料乗車券を)」"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Congress narrowly rejected the constitutional amendment the movement was pushing for, and the military regime handed power instead to an indirectly elected civilian president in 1985 — direct presidential elections did not actually return to Brazil until 1989.",
+        "es": "El Congreso rechazó por poco la enmienda constitucional que impulsaba el movimiento, y el régimen militar entregó el poder en su lugar a un presidente civil elegido indirectamente en 1985; las elecciones presidenciales directas no volvieron a Brasil hasta 1989.",
+        "fr": "Le Congrès rejeta de justesse l'amendement constitutionnel réclamé par le mouvement, et le régime militaire transmit plutôt le pouvoir à un président civil élu indirectement en 1985 — les élections présidentielles directes ne revinrent au Brésil qu'en 1989.",
+        "ja": "議会はこの運動が求めた憲法修正案をわずかの差で否決し、軍事政権は1985年、間接選挙で選ばれた文民大統領へと権力を譲った。直接大統領選挙がブラジルに実際に戻ったのは1989年になってからだった。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Libras, Brazil's officially recognised sign language since a 2002 law, is linguistically closest to which country's sign language, rather than to spoken Portuguese?",
+        "es": "Libras, la lengua de señas oficialmente reconocida en Brasil desde una ley de 2002, es lingüísticamente más cercana a la lengua de señas de qué país, en lugar del portugués hablado?",
+        "fr": "La Libras, langue des signes officiellement reconnue au Brésil depuis une loi de 2002, est linguistiquement la plus proche de la langue des signes de quel pays, plutôt que du portugais parlé ?",
+        "ja": "2002年の法律でブラジルの公用手話として認められたリブラスが、話し言葉のポルトガル語よりもむしろ言語的に近いとされる、他国の手話は?"
+      },
+      "o": [
+        {
+          "en": "American Sign Language",
+          "es": "La lengua de señas estadounidense",
+          "fr": "La langue des signes américaine",
+          "ja": "アメリカ手話"
+        },
+        {
+          "en": "French Sign Language",
+          "es": "La lengua de señas francesa",
+          "fr": "La langue des signes française",
+          "ja": "フランス手話"
+        },
+        {
+          "en": "Portuguese Sign Language",
+          "es": "La lengua de señas portuguesa",
+          "fr": "La langue des signes portugaise",
+          "ja": "ポルトガル手話"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Like most sign languages, Libras developed independently of the spoken language around it, and its roots trace largely to French Sign Language, brought to Brazil by a deaf French teacher who founded the country's first school for deaf students in Rio in 1857.",
+        "es": "Como la mayoría de las lenguas de señas, Libras se desarrolló de forma independiente de la lengua hablada a su alrededor, y sus raíces se remontan en gran parte a la lengua de señas francesa, traída a Brasil por un profesor sordo francés que fundó en Río, en 1857, la primera escuela del país para estudiantes sordos.",
+        "fr": "Comme la plupart des langues des signes, la Libras s'est développée indépendamment de la langue parlée environnante, et ses racines remontent en grande partie à la langue des signes française, apportée au Brésil par un enseignant sourd français qui fonda à Rio, en 1857, la première école du pays pour élèves sourds.",
+        "ja": "多くの手話がそうであるように、リブラスも周囲の話し言葉とは独立して発展した。その源流の多くはフランス手話にさかのぼり、1857年にリオで国内初の聾学校を開いたフランス人の聾者教師によってブラジルにもたらされた。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "A 2009 spelling reform, the Acordo Ortográfico, aimed to unify written Portuguese across Brazil, Portugal and other Lusophone countries. What did it mainly remove from Brazilian spelling?",
+        "es": "Una reforma ortográfica de 2009, el Acordo Ortográfico, buscaba unificar el portugués escrito entre Brasil, Portugal y otros países lusófonos. ¿Qué eliminó principalmente de la ortografía brasileña?",
+        "fr": "Une réforme orthographique de 2009, l'Acordo Ortográfico, visait à unifier le portugais écrit entre le Brésil, le Portugal et d'autres pays lusophones. Qu'a-t-elle principalement supprimé de l'orthographe brésilienne ?",
+        "ja": "2009年の正書法協定は、ブラジル・ポルトガル・その他のポルトガル語圏諸国にまたがる表記を統一しようとするものだった。ブラジル側の表記から主に取り除かれたものは?"
+      },
+      "o": [
+        {
+          "en": "All accent marks",
+          "es": "Todos los acentos",
+          "fr": "Tous les accents",
+          "ja": "すべてのアクセント記号"
+        },
+        {
+          "en": "The letter \"ç\"",
+          "es": "La letra «ç»",
+          "fr": "La lettre « ç »",
+          "ja": "文字「ç」"
+        },
+        {
+          "en": "The diaeresis mark (trema) over certain letters",
+          "es": "La diéresis (trema) sobre ciertas letras",
+          "fr": "Le tréma sur certaines lettres",
+          "ja": "一部の文字の上に付くトレマ(分音記号)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The reform proved unpopular and was resisted for years, especially in Portugal, since it mostly asked Portugal to drop silent consonants that Brazilian spelling had already lacked — effectively bringing European spelling closer to the Brazilian standard rather than the other way around.",
+        "es": "La reforma resultó impopular y se resistió durante años, sobre todo en Portugal, ya que sobre todo pedía a Portugal eliminar consonantes mudas que la ortografía brasileña ya no tenía, acercando de hecho la ortografía europea al estándar brasileño y no al revés.",
+        "fr": "La réforme s'avéra impopulaire et fut contestée pendant des années, surtout au Portugal, car elle demandait surtout au Portugal de supprimer des consonnes muettes que l'orthographe brésilienne avait déjà abandonnées — rapprochant en réalité l'orthographe européenne du standard brésilien plutôt que l'inverse.",
+        "ja": "この改革は不人気で、特にポルトガルで何年も抵抗にあった。というのも、主にポルトガル側に、ブラジル表記ではすでに使われていなかった黙字の子音を落とすよう求めるもので、実質的にはヨーロッパ側の表記をブラジル側の基準に近づける改革だったからである。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "In the mid-2000s, Petrobras confirmed a major offshore oil discovery trapped beneath a thick layer of what, far out in the Atlantic?",
+        "es": "A mediados de la década de 2000, Petrobras confirmó un importante descubrimiento de petróleo mar adentro, atrapado bajo una gruesa capa de qué, muy lejos en el Atlántico?",
+        "fr": "Au milieu des années 2000, Petrobras confirma une importante découverte de pétrole offshore, piégé sous une épaisse couche de quoi, loin au large dans l'Atlantique ?",
+        "ja": "2000年代半ば、ペトロブラスは大西洋沖はるか沖合で、何の分厚い層の下に閉じ込められた大規模な石油の発見を確認したか?"
+      },
+      "o": [
+        {
+          "en": "Basalt",
+          "es": "Basalto",
+          "fr": "Basalte",
+          "ja": "玄武岩"
+        },
+        {
+          "en": "Ice",
+          "es": "Hielo",
+          "fr": "Glace",
+          "ja": "氷"
+        },
+        {
+          "en": "Salt",
+          "es": "Sal",
+          "fr": "Sel",
+          "ja": "塩"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The so-called \"pre-salt\" reserves lie several kilometres under the seabed, below a salt layer long assumed to make drilling too difficult to be worthwhile, and their development turned Brazil from a marginal oil importer into a major crude exporter within about a decade.",
+        "es": "Las llamadas reservas «presal» se encuentran varios kilómetros bajo el lecho marino, debajo de una capa de sal que durante mucho tiempo se supuso haría la perforación demasiado difícil como para valer la pena, y su desarrollo convirtió a Brasil, en cosa de una década, de importador marginal de petróleo en gran exportador de crudo.",
+        "fr": "Les réserves dites « pré-sel » se trouvent à plusieurs kilomètres sous le fond marin, sous une couche de sel longtemps jugée trop difficile à forer pour en valoir la peine, et leur exploitation a transformé le Brésil, en une décennie environ, d'importateur marginal de pétrole en grand exportateur de brut.",
+        "ja": "「プレサル(塩下層)」と呼ばれるこの油田は、掘削は割に合わないほど困難だと長らく考えられてきた塩の層の下、海底からさらに数キロの深さにある。その開発により、ブラジルはおよそ10年ほどで、わずかな石油輸入国から主要な原油輸出国へと変貌した。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What was the name of Brazil's currency immediately before the real, introduced in 1993 and swiftly replaced within about a year?",
+        "es": "¿Cómo se llamaba la moneda de Brasil justo antes del real, introducida en 1993 y sustituida rápidamente al cabo de un año?",
+        "fr": "Comment s'appelait la monnaie du Brésil juste avant le real, introduite en 1993 et rapidement remplacée en l'espace d'environ un an ?",
+        "ja": "1993年に導入され、わずか1年ほどで置き換えられた、レアルの直前のブラジルの通貨の名は?"
+      },
+      "o": [
+        {
+          "en": "Cruzado Novo",
+          "es": "Cruzado Novo",
+          "fr": "Cruzado Novo",
+          "ja": "クルザード・ノーヴォ"
+        },
+        {
+          "en": "Cruzeiro Novo",
+          "es": "Cruzeiro Novo",
+          "fr": "Cruzeiro Novo",
+          "ja": "クルゼイロ・ノーヴォ"
+        },
+        {
+          "en": "Cruzeiro Real",
+          "es": "Cruzeiro Real",
+          "fr": "Cruzeiro Real",
+          "ja": "クルゼイロ・レアル"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "It was the shortest-lived of all Brazil's 20th-century currencies, lasting barely a year before being replaced by the real as the final step of a broader stabilisation plan aimed at ending chronic hyperinflation.",
+        "es": "Fue la moneda de vida más corta de todas las del Brasil del siglo XX, apenas un año, antes de ser reemplazada por el real como paso final de un plan de estabilización más amplio destinado a acabar con la hiperinflación crónica.",
+        "fr": "Ce fut la monnaie brésilienne du XXe siècle la plus éphémère, à peine un an, avant d'être remplacée par le real comme étape finale d'un plan de stabilisation plus large visant à mettre fin à l'hyperinflation chronique.",
+        "ja": "これはブラジルの20世紀の通貨の中でもっとも短命で、わずか1年ほどでレアルに置き換えられた。これは慢性的なハイパーインフレを終わらせるための、より大きな安定化計画の最終段階だった。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "During the military dictatorship, a 1968 decree known as Institutional Act Number Five (AI-5) did what?",
+        "es": "Durante la dictadura militar, ¿qué hizo un decreto de 1968 conocido como Acta Institucional Número Cinco (AI-5)?",
+        "fr": "Sous la dictature militaire, qu'a fait un décret de 1968 connu sous le nom d'Acte Institutionnel Numéro Cinq (AI-5) ?",
+        "ja": "軍事政権下、1968年に出された「制度法5号(AI-5)」と呼ばれる布告が行ったことは?"
+      },
+      "o": [
+        {
+          "en": "Abolished the death penalty nationwide",
+          "es": "Abolió la pena de muerte en todo el país",
+          "fr": "Abolit la peine de mort dans tout le pays",
+          "ja": "全国で死刑を廃止した"
+        },
+        {
+          "en": "Restored direct presidential elections early",
+          "es": "Restauró anticipadamente las elecciones presidenciales directas",
+          "fr": "Rétablit par anticipation les élections présidentielles directes",
+          "ja": "直接大統領選挙を前倒しで復活させた"
+        },
+        {
+          "en": "Suspended constitutional rights and closed Congress",
+          "es": "Suspendió los derechos constitucionales y cerró el Congreso",
+          "fr": "Suspendit les droits constitutionnels et ferma le Congrès",
+          "ja": "憲法上の権利を停止し議会を閉鎖した"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Issued after a congressman's speech angered the military leadership, AI-5 gave the president power to rule by decree, suspend habeas corpus and shut down Congress, and it remained in force for a decade, marking the dictatorship's most severe period of censorship and repression.",
+        "es": "Emitida tras un discurso de un diputado que enfureció al mando militar, AI-5 dio al presidente poder para gobernar por decreto, suspender el habeas corpus y cerrar el Congreso, y permaneció vigente durante una década, marcando el período de censura y represión más severo de la dictadura.",
+        "fr": "Émis après qu'un discours d'un député eut irrité le commandement militaire, l'AI-5 donna au président le pouvoir de gouverner par décret, de suspendre l'habeas corpus et de fermer le Congrès, et resta en vigueur pendant une décennie, marquant la période de censure et de répression la plus sévère de la dictature.",
+        "ja": "ある国会議員の演説が軍指導部を激怒させたことを受けて出されたAI-5は、大統領に布告による統治権、人身保護令状の停止権、議会閉鎖権を与えた。この布告は10年にわたり効力を持ち続け、独裁政権下でもっとも厳しい検閲と弾圧の時期を画すこととなった。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "The Caatinga, a semi-arid scrubland biome covering much of Brazil's Northeastern interior, is unusual among Brazil's biomes because of what?",
+        "es": "La Caatinga, un bioma de matorral semiárido que cubre buena parte del interior del nordeste de Brasil, es inusual entre los biomas brasileños por qué motivo?",
+        "fr": "La Caatinga, un biome de savane arbustive semi-aride couvrant une grande partie de l'intérieur du Nordeste brésilien, est inhabituel parmi les biomes du Brésil pour quelle raison ?",
+        "ja": "ブラジル北東部の内陸の大半を覆う半乾燥の低木地帯カアチンガが、ブラジルの生態系の中で異例とされる理由は?"
+      },
+      "o": [
+        {
+          "en": "It was created artificially by centuries of farming",
+          "es": "Fue creada artificialmente por siglos de agricultura",
+          "fr": "Il a été créé artificiellement par des siècles d'agriculture",
+          "ja": "何世紀もの農耕によって人為的に作られたから"
+        },
+        {
+          "en": "It lies almost entirely underwater during the wet season",
+          "es": "Queda casi totalmente bajo el agua en la temporada de lluvias",
+          "fr": "Il est presque entièrement submergé pendant la saison des pluies",
+          "ja": "雨季にはほぼ全体が水没するから"
+        },
+        {
+          "en": "It exists nowhere else on Earth outside Brazil",
+          "es": "No existe en ningún otro lugar del planeta fuera de Brasil",
+          "fr": "Il n'existe nulle part ailleurs sur Terre en dehors du Brésil",
+          "ja": "ブラジル以外の地球上どこにも存在しないから"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The name comes from a Tupi phrase meaning \"white forest\", describing how the scrub's drought-adapted trees look leafless and bone-white for much of the dry season before flushing green within days of the first rain.",
+        "es": "El nombre viene de una frase tupí que significa «bosque blanco», que describe cómo los árboles del matorral, adaptados a la sequía, se ven sin hojas y blanquecinos gran parte de la estación seca, antes de reverdecer a los pocos días de la primera lluvia.",
+        "fr": "Le nom vient d'une expression tupi signifiant « forêt blanche », décrivant comment les arbres du maquis, adaptés à la sécheresse, paraissent sans feuilles et blanchâtres une grande partie de la saison sèche, avant de reverdir en quelques jours après la première pluie.",
+        "ja": "「カアチンガ」という名はトゥピ語で「白い森」を意味する言葉に由来し、乾燥に適応したこの低木林が乾季の大半は葉を落として骨のように白く見え、最初の雨が降ってから数日のうちに緑を取り戻す様子を表している。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "The cuíca, a small friction drum central to samba percussion, produces its distinctive high-pitched squeal, likened to laughing or talking, by rubbing what against the inside of its drumhead?",
+        "es": "El cuíca, un pequeño tambor de fricción central en la percusión de samba, produce su característico chillido agudo, comparado con una risa o un habla, al frotar qué contra el interior de su parche?",
+        "fr": "Le cuíca, petit tambour à friction essentiel de la percussion samba, produit son cri aigu caractéristique, comparé à un rire ou à une voix, en frottant quoi contre l'intérieur de sa peau ?",
+        "ja": "サンバの打楽器隊の要である小型の摩擦太鼓クイーカは、笑い声や話し声にたとえられる特徴的な甲高い音を、革の内側に取り付けた何をこすることで出すか?"
+      },
+      "o": [
+        {
+          "en": "A bow made of horsehair",
+          "es": "Un arco de crin de caballo",
+          "fr": "Un archet en crin de cheval",
+          "ja": "馬の毛でできた弓"
+        },
+        {
+          "en": "A metal coin",
+          "es": "Una moneda de metal",
+          "fr": "Une pièce de monnaie",
+          "ja": "金属製のコイン"
+        },
+        {
+          "en": "A wet stick fixed to the drumhead's underside",
+          "es": "Un palito húmedo fijado al interior del parche",
+          "fr": "Un bâtonnet humide fixé sous la peau",
+          "ja": "革の裏に固定された濡れた棒"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The player's other hand presses on the drumhead's outer surface to bend the pitch while the stick is rubbed, and the instrument is thought to descend from similar friction drums used in Central African ritual, adapted in Brazil for Carnival's percussion sections.",
+        "es": "La otra mano del intérprete presiona la superficie exterior del parche para modular el tono mientras se frota el palito, y se cree que el instrumento desciende de tambores de fricción similares usados en rituales centroafricanos, adaptados en Brasil para las secciones de percusión del Carnaval.",
+        "fr": "L'autre main du musicien presse la surface extérieure de la peau pour moduler la hauteur pendant que le bâtonnet est frotté, et l'instrument descendrait de tambours à friction similaires utilisés dans les rituels d'Afrique centrale, adaptés au Brésil pour les sections de percussion du Carnaval.",
+        "ja": "奏者はもう片方の手で革の外側を押さえて音程を変えながら棒をこする。この楽器は中央アフリカの儀礼で使われていた似た構造の摩擦太鼓に由来するとされ、ブラジルではカーニバルの打楽器隊向けに作り替えられた。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Rio's top samba schools compete each year in the elite \"Grupo Especial\". What happens to the school that finishes last in that group?",
+        "es": "Las mejores escuelas de samba de Río compiten cada año en el «Grupo Especial» de élite. ¿Qué le ocurre a la escuela que queda última en ese grupo?",
+        "fr": "Les meilleures écoles de samba de Rio s'affrontent chaque année dans le « Grupo Especial » d'élite. Que se passe-t-il pour l'école arrivée dernière de ce groupe ?",
+        "ja": "リオの一流サンバ学校が毎年競う最上位グループ「グルーポ・エスペシアル」で最下位になった学校に起こることは?"
+      },
+      "o": [
+        {
+          "en": "It automatically wins the next year's theme selection",
+          "es": "Gana automáticamente la selección del tema del año siguiente",
+          "fr": "Elle remporte automatiquement le choix du thème de l'année suivante",
+          "ja": "翌年のテーマ選定を自動的に獲得する"
+        },
+        {
+          "en": "It is banned from Carnival for five years",
+          "es": "Queda vetada del Carnaval durante cinco años",
+          "fr": "Elle est bannie du Carnaval pendant cinq ans",
+          "ja": "5年間カーニバルへの出場を禁じられる"
+        },
+        {
+          "en": "It is relegated to a lower division for the following year",
+          "es": "Desciende a una división inferior para el año siguiente",
+          "fr": "Elle est reléguée dans une division inférieure l'année suivante",
+          "ja": "翌年、下位のディビジョンに降格される"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The system mirrors football league relegation, and a single misstep during the parade — a float breaking down, a flag-bearer stumbling — can cost a school enough points to be dropped, which is why judges' scoring criteria are argued over as fiercely as any championship result.",
+        "es": "El sistema es similar al descenso de las ligas de fútbol, y un solo tropiezo durante el desfile —una carroza que se avería, un portaestandarte que tropieza— puede costarle a una escuela los puntos suficientes para descender, por lo que los criterios de puntuación de los jueces se discuten con tanta pasión como cualquier resultado de campeonato.",
+        "fr": "Le système ressemble à la relégation des ligues de football, et un seul faux pas pendant le défilé — un char en panne, un porte-drapeau qui trébuche — peut coûter à une école assez de points pour être reléguée, ce qui explique pourquoi les critères de notation des juges sont autant contestés que n'importe quel résultat de championnat.",
+        "ja": "この仕組みはサッカーリーグの降格制度に似ており、パレード中のたった一つの失敗——山車の故障や旗持ちのつまずき——だけでも降格に足る減点となりかねない。そのため審査員の採点基準は、どんな選手権の結果にも劣らぬ激しさで議論の的になる。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Everyday Brazilian Portuguese words like \"moleque\" (kid), \"caçula\" (youngest child) and \"cafuné\" (affectionate head-stroking) entered the language from which African language family, brought by enslaved people?",
+        "es": "Palabras cotidianas del portugués brasileño como «moleque» (niño), «caçula» (hijo menor) y «cafuné» (caricia cariñosa en la cabeza) entraron en el idioma desde qué familia lingüística africana, traída por personas esclavizadas?",
+        "fr": "Des mots courants du portugais brésilien comme « moleque » (gamin), « caçula » (benjamin) et « cafuné » (caresse affectueuse sur la tête) sont entrés dans la langue depuis quelle famille de langues africaines, apportée par des personnes réduites en esclavage ?",
+        "ja": "「モレッキ(子ども)」「カスラ(末っ子)」「カフネー(愛情を込めて頭をなでること)」といった日常のブラジル・ポルトガル語の単語は、奴隷にされた人々が持ち込んだどのアフリカの言語族から取り入れられたか?"
+      },
+      "o": [
+        {
+          "en": "Mandarin",
+          "es": "Mandarín",
+          "fr": "Le mandarin",
+          "ja": "北京語(官話)"
+        },
+        {
+          "en": "Arabic",
+          "es": "Árabe",
+          "fr": "L'arabe",
+          "ja": "アラビア語"
+        },
+        {
+          "en": "Bantu languages",
+          "es": "Lenguas bantúes",
+          "fr": "Les langues bantoues",
+          "ja": "バントゥー諸語"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Linguists count several hundred Bantu-derived words in everyday Brazilian Portuguese, far more than survive in European Portuguese, a legacy of the millions of enslaved Bantu-speaking Central Africans forcibly brought to Brazil over three centuries.",
+        "es": "Los lingüistas cuentan varios cientos de palabras de origen bantú en el portugués brasileño cotidiano, muchas más de las que sobreviven en el portugués europeo, un legado de los millones de africanos centrales de habla bantú traídos por la fuerza a Brasil durante tres siglos.",
+        "fr": "Les linguistes recensent plusieurs centaines de mots d'origine bantoue dans le portugais brésilien courant, bien plus que ce qui subsiste en portugais européen, un héritage des millions d'Africains centraux bantouphones amenés de force au Brésil sur trois siècles.",
+        "ja": "言語学者によれば、日常のブラジル・ポルトガル語にはバントゥー語由来の単語が数百語も残っており、ヨーロッパのポルトガル語に残る数をはるかに上回る。これは三世紀にわたり何百万人ものバントゥー語系中央アフリカ人が強制的にブラジルへ連れてこられた歴史の遺産である。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Cangaceiro bandits of Brazil's Northeastern backlands in the early 20th century were known for wearing broad leather hats decorated with what?",
+        "es": "Los bandidos cangaceiros del sertón nordestino brasileño de principios del siglo XX eran conocidos por llevar sombreros de cuero de ala ancha decorados con qué?",
+        "fr": "Les bandits cangaceiros de l'arrière-pays nordestin brésilien du début du XXe siècle étaient connus pour porter de larges chapeaux de cuir ornés de quoi ?",
+        "ja": "20世紀初頭、ブラジル北東部の奥地で活動した盗賊カンガセイロたちが、幅広の革帽子を飾り立てていたことで知られる装飾品は?"
+      },
+      "o": [
+        {
+          "en": "Painted family crests",
+          "es": "Escudos familiares pintados",
+          "fr": "Des blasons familiaux peints",
+          "ja": "彩色された家紋"
+        },
+        {
+          "en": "Peacock feathers",
+          "es": "Plumas de pavo real",
+          "fr": "Des plumes de paon",
+          "ja": "クジャクの羽根"
+        },
+        {
+          "en": "Metal stars, medals and coins",
+          "es": "Estrellas, medallas y monedas de metal",
+          "fr": "Des étoiles, médailles et pièces en métal",
+          "ja": "金属製の星や勲章、硬貨"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The hats, worn with tightly tailored leather clothing meant to protect against thorny scrub, became so iconic that the style is now sold as folk-craft souvenirs across the Northeast — a strange afterlife for what began as bandit gear meant to intimidate.",
+        "es": "Los sombreros, usados con ropa de cuero muy ajustada pensada para proteger contra la maleza espinosa, se volvieron tan icónicos que el estilo hoy se vende como recuerdo artesanal por todo el Nordeste, un extraño destino final para lo que comenzó como equipo de bandidos pensado para intimidar.",
+        "fr": "Ces chapeaux, portés avec des vêtements de cuir ajustés destinés à protéger des broussailles épineuses, devinrent si emblématiques que ce style est aujourd'hui vendu comme souvenir artisanal dans tout le Nordeste — un étrange destin pour ce qui commença comme un équipement de bandits destiné à intimider.",
+        "ja": "棘だらけの藪から身を守るための体に密着した革の衣装とともに身につけられたこの帽子は、あまりに象徴的になり、いまでは北東部各地で民芸品の土産として売られている。もとは相手を威圧するための盗賊の装束だったものの、奇妙な後日談である。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The Portuguese words \"abacaxi\" (pineapple), \"mandioca\" (cassava) and \"piranha\" all entered the language from which Indigenous Brazilian language family?",
+        "es": "Las palabras portuguesas «abacaxi» (piña), «mandioca» y «piranha» entraron todas en el idioma desde qué familia lingüística indígena brasileña?",
+        "fr": "Les mots portugais « abacaxi » (ananas), « mandioca » (manioc) et « piranha » sont tous entrés dans la langue depuis quelle famille de langues autochtones brésiliennes ?",
+        "ja": "ポルトガル語の「アバカシ(パイナップル)」「マンジオカ(キャッサバ)」「ピラニア」は、いずれもどの先住民言語族からブラジル・ポルトガル語に取り入れられたか?"
+      },
+      "o": [
+        {
+          "en": "Aymara",
+          "es": "Aimara",
+          "fr": "L'aymara",
+          "ja": "アイマラ語族"
+        },
+        {
+          "en": "Quechua",
+          "es": "Quechua",
+          "fr": "Le quechua",
+          "ja": "ケチュア語族"
+        },
+        {
+          "en": "Tupi",
+          "es": "Tupí",
+          "fr": "Le tupi",
+          "ja": "トゥピ語族"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Tupi speakers had named plants and animals unfamiliar to the Portuguese so precisely that colonists simply borrowed the words wholesale rather than inventing new ones, and hundreds of such Tupi loanwords remain everyday vocabulary in Brazilian Portuguese today.",
+        "es": "Los hablantes de tupí habían nombrado plantas y animales desconocidos para los portugueses con tal precisión que los colonos simplemente tomaron prestadas las palabras en vez de inventar otras nuevas, y cientos de esos préstamos tupíes siguen siendo vocabulario cotidiano en el portugués brasileño de hoy.",
+        "fr": "Les locuteurs tupi avaient nommé des plantes et animaux inconnus des Portugais avec une telle précision que les colons empruntèrent simplement les mots plutôt que d'en inventer de nouveaux, et des centaines de ces emprunts tupis restent aujourd'hui du vocabulaire courant en portugais brésilien.",
+        "ja": "トゥピ語の話者たちは、ポルトガル人にとって未知の動植物にあまりに的確な名を付けていたため、入植者たちは新語を作るのではなく、そのままその言葉を借用した。こうしたトゥピ語由来の借用語は何百語も、いまも日常のブラジル・ポルトガル語の語彙として残っている。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Marechal Cândido Rondon, who charted vast stretches of the Amazon while laying telegraph lines in the early 1900s, founded a pioneering government agency for what purpose?",
+        "es": "El mariscal Cândido Rondon, que cartografió vastas extensiones de la Amazonía mientras tendía líneas telegráficas a comienzos del siglo XX, fundó una pionera agencia gubernamental con qué propósito?",
+        "fr": "Le maréchal Cândido Rondon, qui cartographia de vastes étendues de l'Amazonie tout en posant des lignes télégraphiques au début des années 1900, fonda une agence gouvernementale pionnière dans quel but ?",
+        "ja": "20世紀初頭、電信線の敷設と並行してアマゾンの広大な地域を測量した陸軍元帥カンジド・ロンドンが、先駆的な政府機関を創設した目的は?"
+      },
+      "o": [
+        {
+          "en": "Mapping ocean currents",
+          "es": "Cartografiar las corrientes oceánicas",
+          "fr": "Cartographier les courants océaniques",
+          "ja": "海流の測量"
+        },
+        {
+          "en": "Regulating the rubber trade",
+          "es": "Regular el comercio del caucho",
+          "fr": "Réguler le commerce du caoutchouc",
+          "ja": "ゴム貿易の規制"
+        },
+        {
+          "en": "Protecting Indigenous peoples' rights and lands",
+          "es": "Proteger los derechos y las tierras de los pueblos indígenas",
+          "fr": "Protéger les droits et les terres des peuples autochtones",
+          "ja": "先住民の権利と土地の保護"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Rondon adopted the motto \"Die if necessary, but never kill\" for his expeditions' dealings with Indigenous groups, an unusually restrained policy for its era, and the state of Rondônia, carved out of the western Amazon in 1981, was later named in his honour.",
+        "es": "Rondon adoptó el lema «Morir si es necesario, pero nunca matar» para el trato de sus expediciones con los pueblos indígenas, una política inusualmente moderada para su época, y el estado de Rondônia, creado en la Amazonía occidental en 1981, fue nombrado más tarde en su honor.",
+        "fr": "Rondon adopta la devise « Mourir si nécessaire, mais ne jamais tuer » pour les relations de ses expéditions avec les peuples autochtones, une politique inhabituellement mesurée pour son époque, et l'État de Rondônia, créé dans l'Amazonie occidentale en 1981, fut plus tard nommé en son honneur.",
+        "ja": "ロンドンは自らの探検隊が先住民と接する際の指針として「必要なら死ね、しかし決して殺すな」という標語を掲げた。これは当時としては異例なほど抑制の効いた方針だった。1981年に西アマゾンから分離して生まれたロンドニア州は、のちに彼の名にちなんで名付けられた。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Frevo, a fast, athletic Carnival dance from Pernambuco recognised by UNESCO, is traditionally performed while holding what small prop?",
+        "es": "El frevo, un baile de Carnaval rápido y atlético de Pernambuco reconocido por la UNESCO, se baila tradicionalmente sosteniendo qué pequeño objeto?",
+        "fr": "Le frevo, danse de Carnaval rapide et athlétique de Pernambuco reconnue par l'UNESCO, se danse traditionnellement en tenant quel petit accessoire ?",
+        "ja": "ユネスコに認定されたペルナンブコ州の速く運動量の多いカーニバルの舞踊フレーヴォで、伝統的に手に持ちながら踊る小道具は?"
+      },
+      "o": [
+        {
+          "en": "A pair of wooden clappers",
+          "es": "Un par de castañuelas de madera",
+          "fr": "Une paire de claquettes en bois",
+          "ja": "木製の拍子木"
+        },
+        {
+          "en": "A long silk ribbon",
+          "es": "Una larga cinta de seda",
+          "fr": "Un long ruban de soie",
+          "ja": "長い絹のリボン"
+        },
+        {
+          "en": "A colourful folding umbrella",
+          "es": "Una colorida sombrilla plegable",
+          "fr": "Un parapluie pliant coloré",
+          "ja": "色鮮やかな折りたたみ傘"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Dancers use the umbrella's spring-loaded ribs both for balance during frevo's near-acrobatic low kicks and splits and for a flourish at sudden musical stops, and the dance's name comes from \"ferver\" (to boil), describing how the fast brass-band music seems to make crowds bubble over with movement.",
+        "es": "Los bailarines usan las varillas elásticas de la sombrilla tanto para equilibrarse durante las patadas bajas y aperturas casi acrobáticas del frevo como para un floreo en las paradas musicales repentinas, y el nombre del baile viene de «ferver» (hervir), que describe cómo la rápida música de banda de metales parece hacer que las multitudes hierva en movimiento.",
+        "fr": "Les danseurs utilisent les baleines élastiques du parapluie à la fois pour l'équilibre lors des coups de pied bas et écarts quasi acrobatiques du frevo et pour une fioriture lors des arrêts musicaux soudains, et le nom de la danse vient de « ferver » (bouillir), décrivant comment la musique rapide de fanfare semble faire bouillonner les foules de mouvement.",
+        "ja": "踊り手は傘のばね仕掛けの骨を、フレーヴォ特有のほぼアクロバティックな低い蹴りや開脚での体のバランス取りにも、音楽が突然止まる瞬間の見せ場にも使う。この踊りの名は「沸く」を意味する「フェルヴェル」に由来し、速いブラスバンドの音楽が群衆を沸き立たせるさまを表している。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The words \"Ordem e Progresso\" (\"Order and Progress\") on Brazil's flag were inspired by the motto of which 19th-century philosophical movement?",
+        "es": "Las palabras «Ordem e Progresso» («Orden y Progreso») en la bandera de Brasil se inspiraron en el lema de qué movimiento filosófico del siglo XIX?",
+        "fr": "Les mots « Ordem e Progresso » (« Ordre et Progrès ») sur le drapeau du Brésil s'inspirèrent de la devise de quel mouvement philosophique du XIXe siècle ?",
+        "ja": "ブラジル国旗に記された「オルデン・イ・プログレッソ(秩序と進歩)」の言葉が着想を得た、19世紀の哲学運動の標語は?"
+      },
+      "o": [
+        {
+          "en": "Existentialism",
+          "es": "Existencialismo",
+          "fr": "L'existentialisme",
+          "ja": "実存主義"
+        },
+        {
+          "en": "Utilitarianism",
+          "es": "Utilitarismo",
+          "fr": "L'utilitarisme",
+          "ja": "功利主義"
+        },
+        {
+          "en": "Positivism",
+          "es": "Positivismo",
+          "fr": "Le positivisme",
+          "ja": "実証主義"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The phrase paraphrases positivist philosopher Auguste Comte's fuller motto, \"Love as a principle, order as a basis, progress as a goal\", and positivist military officers were influential among the young republicans who deposed the emperor in 1889 and designed the new flag within days.",
+        "es": "La frase parafrasea el lema más completo del filósofo positivista Auguste Comte, «El amor por principio, el orden por base, el progreso por meta», y oficiales militares positivistas fueron influyentes entre los jóvenes republicanos que depusieron al emperador en 1889 y diseñaron la nueva bandera en cuestión de días.",
+        "fr": "La phrase paraphrase la devise plus complète du philosophe positiviste Auguste Comte, « L'amour pour principe, l'ordre pour base, le progrès pour but », et des officiers militaires positivistes furent influents parmi les jeunes républicains qui déposèrent l'empereur en 1889 et conçurent le nouveau drapeau en quelques jours à peine.",
+        "ja": "この標語は、実証主義の哲学者オーギュスト・コントによる、より長い標語「愛を原理とし、秩序を基礎とし、進歩を目的とする」を言い換えたものである。実証主義に傾倒した軍人たちは、1889年に皇帝を退位させ、わずか数日で新しい国旗を作り上げた若き共和派の中で大きな影響力を持っていた。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "To describe an action in progress (\"I am doing\"), Brazilian Portuguese typically uses a gerund (\"estou fazendo\"). Which construction does European Portuguese favour instead?",
+        "es": "Para describir una acción en curso («estoy haciendo»), el portugués brasileño usa típicamente un gerundio («estou fazendo»). ¿Qué construcción prefiere en cambio el portugués europeo?",
+        "fr": "Pour décrire une action en cours (« je suis en train de faire »), le portugais brésilien utilise généralement un gérondif (« estou fazendo »). Quelle construction le portugais européen privilégie-t-il à la place ?",
+        "ja": "進行中の動作(「〜している」)を表すのに、ブラジル・ポルトガル語は動名詞形(「エストウ・ファゼンド」)を使うのが普通である。ヨーロッパのポルトガル語がその代わりに好む構文は?"
+      },
+      "o": [
+        {
+          "en": "The subjunctive mood throughout",
+          "es": "El modo subjuntivo en todo momento",
+          "fr": "Le mode subjonctif systématiquement",
+          "ja": "一貫した接続法"
+        },
+        {
+          "en": "A doubled verb (\"faço-faço\")",
+          "es": "Un verbo duplicado («faço-faço»)",
+          "fr": "Un verbe redoublé (« faço-faço »)",
+          "ja": "動詞の重複(「ファソー・ファソー」)"
+        },
+        {
+          "en": "\"Estar a\" plus the infinitive (\"estou a fazer\")",
+          "es": "«Estar a» más el infinitivo («estou a fazer»)",
+          "fr": "« Estar a » suivi de l'infinitif (« estou a fazer »)",
+          "ja": "「エスタール・ア」に不定詞を続ける形(「エストウ・ア・ファゼル」)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The difference is one of the quickest ways Portuguese speakers place each other's accents, alongside vocabulary splits like Brazilian \"trem\" versus Portuguese \"comboio\" for \"train\", and Brazilian \"ônibus\" versus Portuguese \"autocarro\" for \"bus\".",
+        "es": "La diferencia es una de las formas más rápidas en que los hablantes de portugués reconocen el acento del otro, junto con divisiones de vocabulario como «trem» brasileño frente a «comboio» portugués para «tren», y «ônibus» brasileño frente a «autocarro» portugués para «autobús».",
+        "fr": "Cette différence est l'un des moyens les plus rapides pour les lusophones de repérer l'accent de l'autre, aux côtés de divergences de vocabulaire comme « trem » brésilien contre « comboio » portugais pour « train », et « ônibus » brésilien contre « autocarro » portugais pour « bus ».",
+        "ja": "この違いは、ポルトガル語話者どうしが互いの訛りをすぐに聞き分ける手がかりの一つで、「電車」を意味するブラジルの「トレン」とポルトガルの「コンボイオ」、「バス」を意味するブラジルの「オニブス」とポルトガルの「アウトカーホ」といった語彙の違いとも並ぶ。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The Kuarup, an elaborate multi-day funerary ceremony honouring the recently dead of several different peoples together, is practised by Indigenous communities of which Brazilian region?",
+        "es": "El kuarup, una elaborada ceremonia fúnebre de varios días que honra en conjunto a los fallecidos recientes de varios pueblos distintos, la practican comunidades indígenas de qué región de Brasil?",
+        "fr": "Le Kuarup, cérémonie funéraire élaborée de plusieurs jours honorant ensemble les morts récents de plusieurs peuples différents, est pratiqué par des communautés autochtones de quelle région du Brésil ?",
+        "ja": "複数の異なる民族の死者を合同で追悼する、数日がかりの精緻な葬送儀礼クアルップが、ブラジルのどの地域の先住民共同体によって行われているか?"
+      },
+      "o": [
+        {
+          "en": "Coastal Bahia",
+          "es": "La costa de Bahía",
+          "fr": "La côte de Bahia",
+          "ja": "バイーア州沿岸部"
+        },
+        {
+          "en": "The Pantanal wetlands",
+          "es": "Los humedales del Pantanal",
+          "fr": "Les zones humides du Pantanal",
+          "ja": "パンタナール湿地"
+        },
+        {
+          "en": "The Xingu River basin",
+          "es": "La cuenca del río Xingu",
+          "fr": "Le bassin du fleuve Xingu",
+          "ja": "シングー川流域"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The ceremony, which can draw together more than a dozen different Xingu peoples who otherwise rarely gather, involves carving tree trunks to represent the honoured dead, and anthropologist brothers Orlando and Cláudio Villas-Bôas helped bring the Xingu peoples together into a shared protected territory in 1961.",
+        "es": "La ceremonia, que puede reunir a más de una docena de pueblos distintos del Xingu que de otro modo rara vez se juntan, incluye tallar troncos de árbol para representar a los difuntos honrados, y los hermanos antropólogos Orlando y Cláudio Villas-Bôas ayudaron a reunir a los pueblos del Xingu en un territorio protegido compartido en 1961.",
+        "fr": "Cette cérémonie, qui peut réunir plus d'une douzaine de peuples xinguanos différents se rassemblant rarement autrement, consiste à sculpter des troncs d'arbres pour représenter les défunts honorés, et les frères anthropologues Orlando et Cláudio Villas-Bôas contribuèrent à rassembler les peuples du Xingu au sein d'un territoire protégé commun en 1961.",
+        "ja": "この儀礼は、普段はめったに一堂に会さないシングー地域の十を超える民族が集うこともあり、敬われる死者を表す木の幹を彫ることを伴う。人類学者の兄弟オルランド・ヴィラス=ボアスとクラウジオ・ヴィラス=ボアスは1961年、シングーの諸民族をまとめて共有の保護区にする働きかけに携わった。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Brazil's environmental agencies officially recognise how many major terrestrial biomes within the country?",
+        "es": "¿Cuántos grandes biomas terrestres reconocen oficialmente las agencias ambientales de Brasil dentro del país?",
+        "fr": "Combien de grands biomes terrestres les agences environnementales du Brésil reconnaissent-elles officiellement dans le pays ?",
+        "ja": "ブラジルの環境当局が国内で公式に認定している主要な陸上生態系(バイオーム)はいくつあるか?"
+      },
+      "o": [
+        {
+          "en": "Nine",
+          "es": "Nueve",
+          "fr": "Neuf",
+          "ja": "9つ"
+        },
+        {
+          "en": "Four",
+          "es": "Cuatro",
+          "fr": "Quatre",
+          "ja": "4つ"
+        },
+        {
+          "en": "Six",
+          "es": "Seis",
+          "fr": "Six",
+          "ja": "6つ"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The six — Amazônia, Cerrado, Mata Atlântica, Caatinga, Pampa and Pantanal — span everything from dense rainforest to temperate grassland near the Uruguayan border, and while the Amazon and Cerrado are by far the largest by area, the Pampa, confined to a sliver of Rio Grande do Sul, is the smallest and least protected of the six.",
+        "es": "Los seis —Amazônia, Cerrado, Mata Atlântica, Caatinga, Pampa y Pantanal— abarcan desde la densa selva tropical hasta la pradera templada cerca de la frontera uruguaya, y aunque la Amazônia y el Cerrado son con diferencia los más grandes en superficie, el Pampa, confinado a una franja de Rio Grande do Sul, es el más pequeño y menos protegido de los seis.",
+        "fr": "Les six — Amazônia, Cerrado, Mata Atlântica, Caatinga, Pampa et Pantanal — vont de la forêt tropicale dense à la prairie tempérée près de la frontière uruguayenne, et si l'Amazonie et le Cerrado sont de loin les plus vastes en superficie, le Pampa, confiné à une frange du Rio Grande do Sul, est le plus petit et le moins protégé des six.",
+        "ja": "アマゾニア・セラード・マタ・アトランチカ・カアチンガ・パンパ・パンタナールの6つは、密林からウルグアイ国境近くの温帯草原まで多岐にわたる。アマゾンとセラードが面積では圧倒的に大きい一方、ヒオグランデ・ド・スル州のごく一部に限られるパンパは、6つの中でもっとも小さく保護も手薄である。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "The 1835 Malê Revolt in Salvador, one of the largest urban slave rebellions in the Americas, was organised largely by enslaved and freed Africans practising which faith, many of them literate in Arabic script?",
+        "es": "La Revuelta de los Malês de 1835 en Salvador, una de las mayores rebeliones urbanas de esclavos en América, fue organizada en gran parte por africanos esclavizados y libertos que practicaban qué fe, muchos alfabetizados en escritura árabe?",
+        "fr": "La révolte malê de 1835 à Salvador, l'une des plus grandes révoltes urbaines d'esclaves des Amériques, fut organisée en grande partie par des Africains réduits en esclavage et affranchis pratiquant quelle foi, beaucoup lettrés en écriture arabe ?",
+        "ja": "アメリカ大陸最大級の都市部での奴隷反乱の一つ、1835年サルバドールのマレー蜂起を主に組織したのは、多くがアラビア文字の読み書きができた、どの信仰を実践する奴隷にされた人々と解放された人々だったか?"
+      },
+      "o": [
+        {
+          "en": "Anglican Christianity",
+          "es": "El cristianismo anglicano",
+          "fr": "Le christianisme anglican",
+          "ja": "英国国教会"
+        },
+        {
+          "en": "Judaism",
+          "es": "El judaísmo",
+          "fr": "Le judaïsme",
+          "ja": "ユダヤ教"
+        },
+        {
+          "en": "Islam",
+          "es": "El islam",
+          "fr": "L'islam",
+          "ja": "イスラム教"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "\"Malê\", a term likely derived from a Yoruba word for Muslim, denoted the mostly Hausa and Yoruba rebels who used Arabic-script amulets and messages to coordinate the uprising, and the resulting crackdown included some of the harshest anti-literacy and anti-assembly measures imposed on Black residents anywhere in 19th-century Brazil.",
+        "es": "«Malê», término probablemente derivado de una palabra yoruba para musulmán, designaba a los rebeldes, en su mayoría hausa y yoruba, que usaron amuletos y mensajes en escritura árabe para coordinar el levantamiento, y la represión resultante incluyó algunas de las medidas antialfabetización y antirreunión más duras impuestas a residentes negros en cualquier parte del Brasil del siglo XIX.",
+        "fr": "« Malê », terme probablement dérivé d'un mot yoruba désignant les musulmans, désignait les rebelles, majoritairement haoussas et yorubas, qui utilisaient amulettes et messages en écriture arabe pour coordonner le soulèvement, et la répression qui suivit compta parmi les mesures anti-alphabétisation et anti-rassemblement les plus dures imposées à des résidents noirs dans tout le Brésil du XIXe siècle.",
+        "ja": "「マレー」という語はヨルバ語でムスリムを指す言葉に由来するとされ、多くがハウサ人とヨルバ人からなる反乱者たちを指した。彼らはアラビア文字で書かれたお守りや連絡文を使って蜂起を調整した。この蜂起後の弾圧は、19世紀ブラジルで黒人住民に課された識字禁止や集会禁止の措置の中でも最も厳しいものの一つとなった。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "The same 2009 spelling reform that dropped the trema also formally added which three letters back into the official Portuguese alphabet, after they had long been used informally in loanwords and abbreviations?",
+        "es": "La misma reforma ortográfica de 2009 que eliminó la trema también añadió formalmente qué tres letras de nuevo al alfabeto portugués oficial, tras haber sido usadas informalmente durante mucho tiempo en préstamos y abreviaturas?",
+        "fr": "La même réforme orthographique de 2009 qui a supprimé le tréma a également réintégré formellement quelles trois lettres dans l'alphabet portugais officiel, après qu'elles eurent longtemps été utilisées de façon informelle dans les emprunts et abréviations ?",
+        "ja": "トレマを廃止したのと同じ2009年の正書法改革が、借用語や略語で長らく非公式に使われてきたのち、ポルトガル語の公式アルファベットに正式に復活させた3つの文字は?"
+      },
+      "o": [
+        {
+          "en": "Q, X and Z",
+          "es": "Q, X y Z",
+          "fr": "Q, X et Z",
+          "ja": "Q・X・Z"
+        },
+        {
+          "en": "Ç, Ñ and Ü",
+          "es": "Ç, Ñ y Ü",
+          "fr": "Ç, Ñ et Ü",
+          "ja": "Ç・Ñ・Ü"
+        },
+        {
+          "en": "K, W and Y",
+          "es": "K, W e Y",
+          "fr": "K, W et Y",
+          "ja": "K・W・Y"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Brazilian schoolchildren before the reform were technically taught a 23-letter alphabet, even though \"k\", \"w\" and \"y\" already appeared constantly in brand names, foreign words and abbreviations like \"km\" and \"watt\", so the change mostly formalised a practice that had existed in daily life for decades.",
+        "es": "Antes de la reforma, a los escolares brasileños se les enseñaba técnicamente un alfabeto de 23 letras, aunque «k», «w» e «y» ya aparecían constantemente en marcas, palabras extranjeras y abreviaturas como «km» y «watt», así que el cambio en gran parte formalizó una práctica que existía en la vida diaria desde hacía décadas.",
+        "fr": "Avant la réforme, les écoliers brésiliens apprenaient techniquement un alphabet de 23 lettres, alors même que « k », « w » et « y » apparaissaient déjà constamment dans les marques, mots étrangers et abréviations comme « km » et « watt » ; le changement a donc surtout formalisé une pratique existant dans la vie quotidienne depuis des décennies.",
+        "ja": "改革以前、ブラジルの児童は形式上23文字のアルファベットを習っていたが、実際には「k」「w」「y」はブランド名や外来語、「km」や「watt」のような略語にすでに絶えず登場していた。この変更は、何十年も日常生活に存在していた慣行を、単に公式に認めたに過ぎない。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "The 1922 Semana de Arte Moderna (Modern Art Week), a landmark exhibition and performance series that launched Brazilian artistic Modernism, was held in which city, to mark the centennial of independence?",
+        "es": "La Semana de Arte Moderna de 1922, una serie de exposiciones y actuaciones histórica que lanzó el modernismo artístico brasileño, se celebró en qué ciudad, para conmemorar el centenario de la independencia?",
+        "fr": "La Semana de Arte Moderna de 1922, série d'expositions et de représentations marquante ayant lancé le modernisme artistique brésilien, s'est tenue dans quelle ville, pour marquer le centenaire de l'indépendance ?",
+        "ja": "ブラジルの芸術的モダニズムの幕開けとなった画期的な展示・上演のシリーズ、1922年の「近代芸術週間」が、独立百周年を記念して開催された都市は?"
+      },
+      "o": [
+        {
+          "en": "Rio de Janeiro",
+          "es": "Río de Janeiro",
+          "fr": "Rio de Janeiro",
+          "ja": "リオデジャネイロ"
+        },
+        {
+          "en": "Salvador",
+          "es": "Salvador",
+          "fr": "Salvador",
+          "ja": "サルバドール"
+        },
+        {
+          "en": "São Paulo",
+          "es": "São Paulo",
+          "fr": "São Paulo",
+          "ja": "サンパウロ"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Held at the Municipal Theatre, the week's avant-garde poetry readings and paintings — including early work by Tarsila do Amaral — scandalised much of the conservative press at the time, and the movement's central idea was later distilled in Oswald de Andrade's 1928 \"Manifesto Antropófago\", which proposed that Brazilian culture should \"devour\" foreign influences and remake them into something new.",
+        "es": "Celebrada en el Teatro Municipal, las lecturas de poesía y las pinturas de vanguardia de esa semana —incluida obra temprana de Tarsila do Amaral— escandalizaron a buena parte de la prensa conservadora de la época, y la idea central del movimiento se destiló más tarde en el «Manifiesto Antropófago» de Oswald de Andrade, de 1928, que proponía que la cultura brasileña «devorara» las influencias extranjeras y las rehiciera en algo nuevo.",
+        "fr": "Tenue au Théâtre municipal, les lectures de poésie et les tableaux avant-gardistes de la semaine — dont des œuvres de jeunesse de Tarsila do Amaral — scandalisèrent une grande partie de la presse conservatrice de l'époque, et l'idée centrale du mouvement fut résumée plus tard dans le « Manifeste anthropophage » d'Oswald de Andrade, en 1928, qui proposait que la culture brésilienne « dévore » les influences étrangères pour les refaçonner en quelque chose de nouveau.",
+        "ja": "市立劇場で開かれたこの週の前衛的な詩の朗読や絵画——タルシラ・ド・アマラルの初期作品も含む——は、当時の保守的な報道界の多くを騒然とさせた。この運動の核心にある発想は、のちの1928年、オズワルド・ジ・アンドラーヂの『食人宣言』において、ブラジル文化は外国の影響を「食らい」新しい何かへ作り替えるべきだという形に凝縮された。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "Rio de Janeiro's 1904 \"Revolta da Vacina\" (Vaccine Revolt) was a violent public uprising against what public health measure?",
+        "es": "La «Revolta da Vacina» (Revuelta de la Vacuna) de 1904 en Río de Janeiro fue un violento levantamiento popular contra qué medida de salud pública?",
+        "fr": "La « Revolta da Vacina » (Révolte du vaccin) de 1904 à Rio de Janeiro fut un soulèvement populaire violent contre quelle mesure de santé publique ?",
+        "ja": "1904年のリオデジャネイロの「ワクチン反乱」は、どんな公衆衛生上の措置に対する暴力的な民衆蜂起だったか?"
+      },
+      "o": [
+        {
+          "en": "Compulsory quarantine camps",
+          "es": "Campos de cuarentena obligatoria",
+          "fr": "Des camps de quarantaine obligatoire",
+          "ja": "強制隔離キャンプ"
+        },
+        {
+          "en": "A ban on street vendors",
+          "es": "Una prohibición de vendedores callejeros",
+          "fr": "Une interdiction des vendeurs de rue",
+          "ja": "露天商の禁止"
+        },
+        {
+          "en": "Mandatory smallpox vaccination",
+          "es": "La vacunación obligatoria contra la viruela",
+          "fr": "La vaccination antivariolique obligatoire",
+          "ja": "天然痘の強制予防接種"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The revolt broke out days after mandatory vaccination was decreed as part of sanitation reformer Oswaldo Cruz's aggressive campaign against epidemic disease, and it fed on wider resentment over the same reforms' slum demolitions in central Rio, though the vaccination law was suspended within days.",
+        "es": "La revuelta estalló días después de que se decretara la vacunación obligatoria como parte de la agresiva campaña del reformista sanitario Oswaldo Cruz contra las enfermedades epidémicas, y se alimentó de un resentimiento más amplio por las demoliciones de barrios pobres en el centro de Río que traían las mismas reformas, aunque la ley de vacunación se suspendió a los pocos días.",
+        "fr": "La révolte éclata quelques jours après que la vaccination obligatoire eut été décrétée dans le cadre de la campagne agressive du réformateur sanitaire Oswaldo Cruz contre les maladies épidémiques, et elle se nourrit d'un ressentiment plus large face aux démolitions de bidonvilles au centre de Rio menées par ces mêmes réformes, bien que la loi sur la vaccination fût suspendue au bout de quelques jours.",
+        "ja": "この反乱は、衛生改革者オズワルド・クルスによる伝染病対策の積極的な政策の一環として強制予防接種が布告された数日後に勃発した。同じ改革が進めていたリオ中心部のスラム取り壊しへの広範な不満もこれをあおったが、予防接種法は数日のうちに停止された。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "Cinema Novo, the 1960s Brazilian film movement associated with director Glauber Rocha, was summed up by the slogan \"a camera in the hand and an idea in the...\" what?",
+        "es": "El Cinema Novo, el movimiento cinematográfico brasileño de los años sesenta asociado al director Glauber Rocha, se resumía con el eslogan «una cámara en la mano y una idea en la...» qué?",
+        "fr": "Le Cinema Novo, mouvement cinématographique brésilien des années 1960 associé au réalisateur Glauber Rocha, se résumait par le slogan « une caméra à la main et une idée dans la... » quoi ?",
+        "ja": "映画監督グラウベル・ローシャに結びつくブラジルの1960年代の映画運動シネマ・ノーヴォを要約した標語、「手にカメラを、そして頭に……」に続く言葉は?"
+      },
+      "o": [
+        {
+          "en": "Heart",
+          "es": "Corazón",
+          "fr": "Cœur",
+          "ja": "心"
+        },
+        {
+          "en": "Pocket",
+          "es": "Bolsillo",
+          "fr": "Poche",
+          "ja": "懐"
+        },
+        {
+          "en": "Head",
+          "es": "Cabeza",
+          "fr": "Tête",
+          "ja": "考え"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The movement prized low-budget, socially critical filmmaking over the polished style of mainstream cinema, drawing partly on Italian neorealism, and Rocha's 1964 film \"Black God, White Devil\", shot largely in the drought-stricken sertão, is often cited as one of its defining works.",
+        "es": "El movimiento privilegiaba el cine de bajo presupuesto y crítica social frente al estilo pulido del cine convencional, inspirándose en parte en el neorrealismo italiano, y la película de Rocha de 1964 «Dios negro, diablo blanco», rodada en gran parte en el sertón azotado por la sequía, suele citarse como una de sus obras definitorias.",
+        "fr": "Le mouvement privilégiait un cinéma à petit budget et socialement critique plutôt que le style léché du cinéma dominant, s'inspirant en partie du néoréalisme italien, et le film de Rocha de 1964 « Dieu noir, diable blanc », tourné en grande partie dans le sertão frappé par la sécheresse, est souvent cité comme l'une de ses œuvres phares.",
+        "ja": "この運動は、主流映画の洗練された作風よりも低予算で社会批評性の強い映画作りを重んじ、イタリアのネオレアリズモにも一部影響を受けた。ローシャが1964年に発表し、干ばつに苦しむセルタンで大部分が撮影された『黒い神と白い悪魔』は、この運動を代表する作品としてしばしば挙げられる。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "Rubber tapper and environmental activist Chico Mendes, assassinated in Acre in 1988, is credited with pioneering which conservation model that lets local communities sustainably harvest forest products instead of clearing the land?",
+        "es": "Al recolector de caucho y activista ambiental Chico Mendes, asesinado en Acre en 1988, se le atribuye ser pionero de qué modelo de conservación que permite a las comunidades locales aprovechar de forma sostenible los productos del bosque en vez de talarlo?",
+        "fr": "Le saigneur d'hévéas et militant écologiste Chico Mendes, assassiné en Acre en 1988, est crédité d'avoir été le pionnier de quel modèle de conservation permettant aux communautés locales d'exploiter durablement les produits forestiers au lieu de défricher les terres ?",
+        "ja": "1988年にアクレ州で暗殺されたゴム採取者・環境活動家シコ・メンデスが先駆けとなったとされる、地元の共同体が土地を伐採する代わりに森林資源を持続的に採取できるようにする保全のしくみは?"
+      },
+      "o": [
+        {
+          "en": "Eco-lodges",
+          "es": "Ecoalojamientos",
+          "fr": "Des éco-lodges",
+          "ja": "エコロッジ"
+        },
+        {
+          "en": "Carbon offset farms",
+          "es": "Granjas de compensación de carbono",
+          "fr": "Des fermes de compensation carbone",
+          "ja": "カーボンオフセット農場"
+        },
+        {
+          "en": "Extractive reserves",
+          "es": "Reservas extractivistas",
+          "fr": "Des réserves extractivistes",
+          "ja": "エクストラティビスト保護区"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Mendes organised non-violent human blockades, called \"empates\", to stop cattle ranchers from clearing forest where rubber tappers worked, and his murder by a rancher's son drew international attention that helped push Brazil to create its first extractive reserves within about a year of his death.",
+        "es": "Mendes organizó bloqueos humanos no violentos, llamados «empates», para impedir que los ganaderos talaran el bosque donde trabajaban los recolectores de caucho, y su asesinato a manos del hijo de un ganadero atrajo la atención internacional que ayudó a impulsar a Brasil a crear sus primeras reservas extractivistas al cabo de aproximadamente un año de su muerte.",
+        "fr": "Mendes organisa des blocages humains non violents, appelés « empates », pour empêcher les éleveurs de bétail de défricher la forêt où travaillaient les saigneurs d'hévéas, et son meurtre par le fils d'un éleveur attira une attention internationale qui contribua à pousser le Brésil à créer ses premières réserves extractivistes environ un an après sa mort.",
+        "ja": "メンデスは、ゴム採取者が働く森を牧場主たちが伐採するのを阻むため、「エンパーチ」と呼ばれる非暴力の人間の鎖による封鎖を組織した。牧場主の息子による彼の殺害は国際的な注目を集め、その死からおよそ1年のうちに、ブラジルが最初のエクストラティビスト保護区を創設する後押しとなった。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Among the languages of the Iberian Peninsula, saudade's closest linguistic relative — both words are usually traced to the same Latin root for \"solitude\" — is found in which other language?",
+        "es": "Entre las lenguas de la península ibérica, el pariente lingüístico más cercano de saudade —ambas palabras suelen remontarse a la misma raíz latina de «soledad»— se encuentra en qué otro idioma?",
+        "fr": "Parmi les langues de la péninsule Ibérique, le plus proche parent linguistique de saudade — les deux mots remontent généralement à la même racine latine signifiant « solitude » — se trouve dans quelle autre langue ?",
+        "ja": "イベリア半島の諸言語の中で、サウダージにもっとも近い縁を持つとされる語——両方ともラテン語で「孤独」を意味する同じ語根にさかのぼるとされる——が見られるのは、他のどの言語か?"
+      },
+      "o": [
+        {
+          "en": "Basque",
+          "es": "Euskera",
+          "fr": "Le basque",
+          "ja": "バスク語"
+        },
+        {
+          "en": "Catalan",
+          "es": "Catalán",
+          "fr": "Le catalan",
+          "ja": "カタルーニャ語"
+        },
+        {
+          "en": "Galician (\"morriña\")",
+          "es": "Gallego («morriña»)",
+          "fr": "Le galicien (« morriña »)",
+          "ja": "ガリシア語(「モリーニャ」)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Morriña leans more narrowly toward homesickness for a place, while saudade covers a fuller range from grief to the almost pleasurable anticipation of a reunion, which is part of why Brazilian songwriters and poets have leaned on saudade as a near-technical term rather than a plain synonym for sadness.",
+        "es": "La morriña se inclina de forma más estrecha hacia la nostalgia por un lugar, mientras que saudade cubre un rango más amplio, desde el duelo hasta la anticipación casi placentera de un reencuentro, lo que explica en parte por qué compositores y poetas brasileños han recurrido a saudade como un término casi técnico y no como un simple sinónimo de tristeza.",
+        "fr": "La morriña penche plus étroitement vers la nostalgie d'un lieu, tandis que saudade couvre un éventail plus large, du deuil à l'anticipation presque agréable d'des retrouvailles, ce qui explique en partie pourquoi les auteurs-compositeurs et poètes brésiliens se sont appuyés sur saudade comme un terme quasi technique plutôt qu'un simple synonyme de tristesse.",
+        "ja": "モリーニャはある土地への郷愁により狭く傾いた語であるのに対し、サウダージは悲嘆から再会をほとんど楽しみに待つような感覚まで、より幅広い範囲を覆う。これが、ブラジルの作詞家や詩人たちが「サウダージ」を単なる悲しみの同義語としてではなく、ほぼ専門用語のように用いてきた理由の一端でもある。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "During Brazil's 1964–1985 military dictatorship, presidents were not chosen by ordinary voters. By what mechanism were they instead selected?",
+        "es": "Durante la dictadura militar brasileña de 1964-1985, los presidentes no eran elegidos por los votantes comunes. ¿Por qué mecanismo se los elegía en cambio?",
+        "fr": "Pendant la dictature militaire brésilienne de 1964-1985, les présidents n'étaient pas choisis par les électeurs ordinaires. Par quel mécanisme étaient-ils désignés à la place ?",
+        "ja": "1964〜1985年の軍政期のブラジルでは、大統領は一般有権者の投票では選ばれなかった。代わりに用いられた選出のしくみは?"
+      },
+      "o": [
+        {
+          "en": "A lottery drawn among senior generals",
+          "es": "Un sorteo entre generales de alto rango",
+          "fr": "Un tirage au sort parmi les généraux de haut rang",
+          "ja": "上級将軍の中からのくじ引き"
+        },
+        {
+          "en": "An indirect vote by an Electoral College of Congress members and appointed delegates",
+          "es": "Un voto indirecto de un Colegio Electoral de congresistas y delegados designados",
+          "fr": "Un vote indirect d'un Collège électoral de parlementaires et de délégués nommés",
+          "ja": "議会議員と任命された代議員からなる選挙人団による間接投票"
+        },
+        {
+          "en": "A referendum held once every ten years",
+          "es": "Un referéndum celebrado cada diez años",
+          "fr": "Un référendum organisé tous les dix ans",
+          "ja": "10年に一度の国民投票"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Even this indirect system was largely a formality, since the military's chosen candidate typically ran unopposed, which is part of why the 1984 Diretas Já movement demanded direct elections instead — and why the 1985 handover to a civilian president still had to go through the same Electoral College one final time.",
+        "es": "Incluso este sistema indirecto era en gran medida una formalidad, ya que el candidato elegido por los militares solía presentarse sin oposición, lo que explica en parte por qué el movimiento Diretas Já de 1984 exigía elecciones directas en su lugar, y por qué el traspaso de 1985 a un presidente civil tuvo que pasar aún una última vez por el mismo Colegio Electoral.",
+        "fr": "Même ce système indirect n'était guère qu'une formalité, le candidat choisi par les militaires se présentant généralement sans opposition, ce qui explique en partie pourquoi le mouvement Diretas Já de 1984 réclamait des élections directes à la place — et pourquoi la passation de 1985 à un président civil dut encore passer une dernière fois par ce même Collège électoral.",
+        "ja": "この間接的な仕組みでさえほぼ形式にすぎず、軍が選んだ候補者はたいてい対立候補なしで当選した。これが1984年の「ジレータス・ジャー」運動が直接選挙を求めた理由の一端であり、1985年に文民大統領へ政権が移った際もなお、同じ選挙人団による選出を最後にもう一度経なければならなかった理由でもある。"
       }
     }
   ],

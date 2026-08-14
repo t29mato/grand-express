@@ -3411,6 +3411,2454 @@
         "fr": "Le rouge uni marquait la souveraineté marocaine depuis au moins le XVIIe siècle sous la dynastie alaouite, bien avant l'ajout de l'étoile verte en 1915, si bien que le fond du drapeau est plus ancien que l'emblème qui y figure.",
         "ja": "無地の赤は少なくとも17世紀のアラウィー朝の時代からモロッコの主権を示す色であり、1915年に緑の星が加えられるよりずっと前からのもので、旗の地色はその上に置かれた紋章よりも古い。"
       }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "What ocean lies along Morocco's western coast?",
+        "es": "¿Qué océano bordea la costa occidental de Marruecos?",
+        "fr": "Quel océan borde la côte ouest du Maroc ?",
+        "ja": "モロッコの西岸に面する大洋は?"
+      },
+      "o": [
+        {
+          "en": "The Pacific Ocean",
+          "es": "El océano Pacífico",
+          "fr": "L'océan Pacifique",
+          "ja": "太平洋"
+        },
+        {
+          "en": "The Indian Ocean",
+          "es": "El océano Índico",
+          "fr": "L'océan Indien",
+          "ja": "インド洋"
+        },
+        {
+          "en": "The Atlantic Ocean",
+          "es": "El océano Atlántico",
+          "fr": "L'océan Atlantique",
+          "ja": "大西洋"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Morocco is unusual among African countries in facing two different seas at once, with the Atlantic running the length of its western coast and the Mediterranean along a shorter stretch in the north.",
+        "es": "Marruecos es un caso poco común entre los países africanos por dar a dos mares distintos a la vez, con el Atlántico a lo largo de toda su costa occidental y el Mediterráneo en un tramo más corto al norte.",
+        "fr": "Le Maroc est un cas rare parmi les pays africains en donnant sur deux mers différentes à la fois, l'Atlantique longeant toute sa côte ouest et la Méditerranée un tronçon plus court au nord.",
+        "ja": "モロッコはアフリカの国としては珍しく、西岸を貫く大西洋と、北部の短い区間に面する地中海という二つの海に同時に接している。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "Which sea lies along Morocco's northern coast?",
+        "es": "¿Qué mar bordea la costa norte de Marruecos?",
+        "fr": "Quelle mer borde la côte nord du Maroc ?",
+        "ja": "モロッコの北岸に面する海は?"
+      },
+      "o": [
+        {
+          "en": "The Mediterranean Sea",
+          "es": "El mar Mediterráneo",
+          "fr": "La mer Méditerranée",
+          "ja": "地中海"
+        },
+        {
+          "en": "The Red Sea",
+          "es": "El mar Rojo",
+          "fr": "La mer Rouge",
+          "ja": "紅海"
+        },
+        {
+          "en": "The Black Sea",
+          "es": "El mar Negro",
+          "fr": "La mer Noire",
+          "ja": "黒海"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Morocco's Mediterranean coast runs from the Strait of Gibraltar east to the Algerian border, a shorter but historically pivotal stretch that has drawn Phoenician, Spanish and French interest for centuries.",
+        "es": "La costa mediterránea de Marruecos va del estrecho de Gibraltar hasta la frontera argelina, un tramo más corto pero históricamente clave que atrajo el interés fenicio, español y francés durante siglos.",
+        "fr": "La côte méditerranéenne du Maroc va du détroit de Gibraltar jusqu'à la frontière algérienne, un tronçon plus court mais historiquement décisif qui a attiré l'intérêt phénicien, espagnol et français pendant des siècles.",
+        "ja": "モロッコの地中海岸はジブラルタル海峡からアルジェリア国境まで続き、短いながらも歴史的に重要な区間で、フェニキア人・スペイン・フランスの関心を何世紀も引きつけてきた。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "Which country shares Morocco's long eastern land border?",
+        "es": "¿Qué país comparte la larga frontera terrestre oriental de Marruecos?",
+        "fr": "Quel pays partage la longue frontière terrestre orientale du Maroc ?",
+        "ja": "モロッコの長い東側の陸上国境を接する国は?"
+      },
+      "o": [
+        {
+          "en": "Tunisia",
+          "es": "Túnez",
+          "fr": "La Tunisie",
+          "ja": "チュニジア"
+        },
+        {
+          "en": "Libya",
+          "es": "Libia",
+          "fr": "La Libye",
+          "ja": "リビア"
+        },
+        {
+          "en": "Algeria",
+          "es": "Argelia",
+          "fr": "L'Algérie",
+          "ja": "アルジェリア"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The Morocco-Algeria border runs for well over 1,500 kilometres through desert and mountains, and its main official crossings have been closed since 1994, so almost no legal traffic crosses it directly today.",
+        "es": "La frontera entre Marruecos y Argelia se extiende más de 1.500 km por desierto y montaña, y sus principales pasos oficiales llevan cerrados desde 1994, por lo que casi no cruza tráfico legal directo hoy.",
+        "fr": "La frontière maroco-algérienne s'étend sur plus de 1 500 km à travers désert et montagnes, et ses principaux postes officiels sont fermés depuis 1994, si bien que presque aucun trafic légal ne la traverse directement aujourd'hui.",
+        "ja": "モロッコとアルジェリアの国境は砂漠と山地を1500キロメートル以上にわたって走るが、主要な公式検問所は1994年から閉鎖されており、いまはほとんど合法的な往来がない。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "What is the predominant religion in Morocco?",
+        "es": "¿Cuál es la religión predominante en Marruecos?",
+        "fr": "Quelle est la religion prédominante au Maroc ?",
+        "ja": "モロッコで多数を占める宗教は?"
+      },
+      "o": [
+        {
+          "en": "Christianity",
+          "es": "El cristianismo",
+          "fr": "Le christianisme",
+          "ja": "キリスト教"
+        },
+        {
+          "en": "Buddhism",
+          "es": "El budismo",
+          "fr": "Le bouddhisme",
+          "ja": "仏教"
+        },
+        {
+          "en": "Islam",
+          "es": "El islam",
+          "fr": "L'islam",
+          "ja": "イスラム教"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The overwhelming majority of Moroccans are Sunni Muslims, and the country's small but historically deep-rooted Jewish community, once numbering in the hundreds of thousands, has shrunk to only a few thousand since the mid-20th century.",
+        "es": "La inmensa mayoría de los marroquíes son musulmanes sunitas, y la pequeña pero históricamente arraigada comunidad judía del país, que llegó a sumar cientos de miles de personas, se ha reducido a solo unos pocos miles desde mediados del siglo XX.",
+        "fr": "L'immense majorité des Marocains sont musulmans sunnites, et la petite communauté juive du pays, historiquement bien enracinée et qui comptait autrefois des centaines de milliers de membres, s'est réduite à quelques milliers seulement depuis le milieu du XXe siècle.",
+        "ja": "モロッコ人の圧倒的多数はスンニ派のムスリムであり、かつて数十万人を数えた歴史あるユダヤ教徒の共同体は、20世紀半ば以降わずか数千人にまで減っている。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "What is the most widely followed spectator sport in Morocco?",
+        "es": "¿Cuál es el deporte de espectadores más seguido en Marruecos?",
+        "fr": "Quel est le sport spectacle le plus suivi au Maroc ?",
+        "ja": "モロッコで最も観戦されているスポーツは?"
+      },
+      "o": [
+        {
+          "en": "Cricket",
+          "es": "El críquet",
+          "fr": "Le cricket",
+          "ja": "クリケット"
+        },
+        {
+          "en": "Baseball",
+          "es": "El béisbol",
+          "fr": "Le baseball",
+          "ja": "野球"
+        },
+        {
+          "en": "Football (soccer)",
+          "es": "El fútbol",
+          "fr": "Le football",
+          "ja": "サッカー"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Football draws by far the biggest crowds and television audiences in Morocco, and cafés across the country fill up for national team matches in a way no other sport comes close to matching.",
+        "es": "El fútbol atrae con diferencia al mayor público y audiencia televisiva de Marruecos, y los cafés de todo el país se llenan para los partidos de la selección nacional como ningún otro deporte logra igualar.",
+        "fr": "Le football attire de loin le plus grand public et la plus grande audience télévisée au Maroc, et les cafés du pays se remplissent pour les matchs de l'équipe nationale comme aucun autre sport n'en approche.",
+        "ja": "サッカーはモロッコで群を抜いて多くの観客とテレビ視聴者を集めるスポーツで、代表戦のたびに国じゅうのカフェが満員になる様子は他のどの競技にも見られない。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "In which direction is Arabic script, used for most writing in Morocco, read?",
+        "es": "¿En qué dirección se lee la escritura árabe, usada para la mayoría de los textos en Marruecos?",
+        "fr": "Dans quel sens se lit l'écriture arabe, utilisée pour la plupart des textes au Maroc ?",
+        "ja": "モロッコで多くの文章に使われるアラビア文字は、どちらの向きに読むか?"
+      },
+      "o": [
+        {
+          "en": "Left to right",
+          "es": "De izquierda a derecha",
+          "fr": "De gauche à droite",
+          "ja": "左から右"
+        },
+        {
+          "en": "Top to bottom",
+          "es": "De arriba abajo",
+          "fr": "De haut en bas",
+          "ja": "上から下"
+        },
+        {
+          "en": "Right to left",
+          "es": "De derecha a izquierda",
+          "fr": "De droite à gauche",
+          "ja": "右から左"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Arabic is written and read from right to left, which is why books, newspapers and even the spines of novels in Morocco open the opposite way from what readers of Latin-script languages expect.",
+        "es": "El árabe se escribe y se lee de derecha a izquierda, por lo que libros, periódicos e incluso los lomos de las novelas en Marruecos se abren al revés de lo que esperaría un lector de lenguas en alfabeto latino.",
+        "fr": "L'arabe s'écrit et se lit de droite à gauche, ce qui fait que livres, journaux et même le dos des romans au Maroc s'ouvrent dans le sens inverse de ce qu'attend un lecteur de langues à alphabet latin.",
+        "ja": "アラビア語は右から左へ書かれ読まれるため、モロッコの本や新聞、小説の背表紙さえもラテン文字の言語の読者が想像するのとは逆向きに開く。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "What are Morocco's traditional pointed, backless leather slippers, often dyed bright yellow, called?",
+        "es": "¿Cómo se llaman las babuchas tradicionales de cuero, puntiagudas y sin talón, a menudo teñidas de amarillo vivo?",
+        "fr": "Comment s'appellent les babouches traditionnelles en cuir, pointues et sans talon, souvent teintes en jaune vif ?",
+        "ja": "しばしば鮮やかな黄色に染められる、先のとがったかかとのない伝統的な革のスリッパの名は?"
+      },
+      "o": [
+        {
+          "en": "Babouches",
+          "es": "Babuchas",
+          "fr": "Babouches",
+          "ja": "バブーシュ"
+        },
+        {
+          "en": "Clogs",
+          "es": "Zuecos",
+          "fr": "Sabots",
+          "ja": "木靴"
+        },
+        {
+          "en": "Espadrilles",
+          "es": "Alpargatas",
+          "fr": "Espadrilles",
+          "ja": "エスパドリーユ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Babouches are worn barefoot with the heel left loose, a design suited to slipping on and off quickly before entering homes and mosques, and leather workers in Fez and Marrakech turn out thousands of pairs by hand.",
+        "es": "Las babuchas se llevan descalzas con el talón suelto, un diseño pensado para ponérselas y quitárselas rápido antes de entrar en casas y mezquitas, y los curtidores de Fez y Marrakech producen miles de pares a mano.",
+        "fr": "Les babouches se portent pieds nus, le talon laissé libre, un design pensé pour se chausser et se déchausser vite avant d'entrer dans les maisons et les mosquées, et les artisans de Fès et Marrakech en façonnent des milliers de paires à la main.",
+        "ja": "バブーシュは素足のままかかとを浮かせて履くもので、家やモスクに入る前にすばやく脱ぎ履きできるよう作られており、フェズやマラケシュの革職人が手作業で何千足も仕上げている。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "Who has reigned as King of Morocco since 1999?",
+        "es": "¿Quién reina como rey de Marruecos desde 1999?",
+        "fr": "Qui règne comme roi du Maroc depuis 1999 ?",
+        "ja": "1999年以来モロッコ国王を務めているのは誰か?"
+      },
+      "o": [
+        {
+          "en": "Hassan II",
+          "es": "Hasan II",
+          "fr": "Hassan II",
+          "ja": "ハッサン2世"
+        },
+        {
+          "en": "Mohammed V",
+          "es": "Mohamed V",
+          "fr": "Mohammed V",
+          "ja": "ムハンマド5世"
+        },
+        {
+          "en": "Mohammed VI",
+          "es": "Mohamed VI",
+          "fr": "Mohammed VI",
+          "ja": "ムハンマド6世"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Mohammed VI succeeded his father Hassan II in 1999 and has since overseen reforms to the family code and the 2011 constitution, while the monarchy itself has kept extensive powers over religion, the military and appointing the prime minister.",
+        "es": "Mohamed VI sucedió a su padre Hasán II en 1999 y desde entonces ha supervisado reformas al código de familia y la constitución de 2011, aunque la monarquía ha mantenido amplios poderes sobre religión, ejército y nombramiento del primer ministro.",
+        "fr": "Mohammed VI a succédé à son père Hassan II en 1999 et a depuis supervisé des réformes du code de la famille et la constitution de 2011, la monarchie ayant conservé de vastes pouvoirs sur la religion, l'armée et la nomination du premier ministre.",
+        "ja": "ムハンマド6世は1999年に父ハッサン2世の跡を継ぎ、以来、家族法の改正や2011年憲法の制定を主導してきたが、王制自体は宗教・軍・首相任命をめぐる広範な権限を保持し続けている。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "What is the name of the complex spice blend, sometimes mixing dozens of ingredients, that is a Moroccan specialty?",
+        "es": "¿Cómo se llama la compleja mezcla de especias, a veces con decenas de ingredientes, que es una especialidad marroquí?",
+        "fr": "Comment s'appelle le mélange d'épices complexe, parfois avec des dizaines d'ingrédients, qui est une spécialité marocaine ?",
+        "ja": "時には何十種類もの材料を混ぜる、モロッコ特産の複雑な香辛料のブレンドの名は?"
+      },
+      "o": [
+        {
+          "en": "Garam masala",
+          "es": "Garam masala",
+          "fr": "Garam masala",
+          "ja": "ガラムマサラ"
+        },
+        {
+          "en": "Curry powder",
+          "es": "Curry en polvo",
+          "fr": "Poudre de curry",
+          "ja": "カレー粉"
+        },
+        {
+          "en": "Ras el hanout",
+          "es": "Ras el hanout",
+          "fr": "Ras el hanout",
+          "ja": "ラス・エル・ハヌート"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Ras el hanout means roughly \"top of the shop,\" a name spice merchants gave their own signature house blend, which traditionally could include anything from cinnamon and cumin to rosebuds and, in older recipes, small amounts of aphrodisiac ingredients.",
+        "es": "Ras el hanout significa más o menos «lo mejor de la tienda», un nombre que los especieros daban a su mezcla propia, que tradicionalmente podía incluir desde canela y comino hasta pétalos de rosa y, en recetas más antiguas, pequeñas cantidades de ingredientes afrodisíacos.",
+        "fr": "Ras el hanout signifie à peu près « le haut de la boutique », un nom que les épiciers donnaient à leur mélange maison, qui pouvait traditionnellement inclure de la cannelle et du cumin jusqu'à des boutons de rose et, dans d'anciennes recettes, de petites quantités d'ingrédients aphrodisiaques.",
+        "ja": "「店の最上のもの」を意味するラス・エル・ハヌートは、香辛料商人がそれぞれの店だけの調合に与えた名で、伝統的にはシナモンやクミンからバラのつぼみ、さらに古いレシピでは少量の催淫成分まで含みうるものだった。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "What is Moroccan mint tea affectionately nicknamed, poking fun at how often it is served?",
+        "es": "¿Cómo se apoda cariñosamente el té de menta marroquí, en broma por lo a menudo que se sirve?",
+        "fr": "Comment surnomme-t-on affectueusement le thé à la menthe marocain, en plaisantant sur la fréquence à laquelle il est servi ?",
+        "ja": "どれだけ頻繁に出されるかをからかって、モロッコのミントティーに親しみを込めて付けられたあだ名は?"
+      },
+      "o": [
+        {
+          "en": "Desert coffee",
+          "es": "Café del desierto",
+          "fr": "Café du désert",
+          "ja": "砂漠のコーヒー"
+        },
+        {
+          "en": "Moroccan whisky",
+          "es": "Whisky marroquí",
+          "fr": "Whisky marocain",
+          "ja": "モロッコのウイスキー"
+        },
+        {
+          "en": "Berber cola",
+          "es": "Cola bereber",
+          "fr": "Cola berbère",
+          "ja": "ベルベルのコーラ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Sweet mint tea, poured from a height to raise a foam on top, is offered to guests so routinely and in such quantity throughout the day that Moroccans jokingly call it \"whisky marocain,\" a wink at a drink that plays no such role in a country where alcohol is largely absent from daily life.",
+        "es": "El té de menta dulce, servido desde cierta altura para levantar espuma, se ofrece a los invitados con tanta frecuencia y cantidad a lo largo del día que los marroquíes lo llaman en broma «whisky marocain», un guiño a una bebida que no juega ese papel en un país donde el alcohol está en gran medida ausente de la vida cotidiana.",
+        "fr": "Le thé à la menthe sucré, versé de haut pour faire mousser, est offert aux invités si souvent et en telle quantité tout au long de la journée que les Marocains l'appellent en plaisantant « whisky marocain », un clin d'œil à une boisson qui ne joue pas ce rôle dans un pays où l'alcool est largement absent du quotidien.",
+        "ja": "高い位置から注いで表面に泡を立てる甘いミントティーは、一日じゅう客に何度もふるまわれるため、モロッコの人々は冗談まじりに「モロッコのウイスキー」と呼ぶ。酒がふだんの生活にほとんど登場しない国での、洒落たあだ名である。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "What is Morocco's official long-form name?",
+        "es": "¿Cuál es el nombre oficial completo de Marruecos?",
+        "fr": "Quel est le nom officiel complet du Maroc ?",
+        "ja": "モロッコの正式な国名は?"
+      },
+      "o": [
+        {
+          "en": "The Kingdom of Morocco",
+          "es": "El Reino de Marruecos",
+          "fr": "Le Royaume du Maroc",
+          "ja": "モロッコ王国"
+        },
+        {
+          "en": "The Republic of Morocco",
+          "es": "La República de Marruecos",
+          "fr": "La République du Maroc",
+          "ja": "モロッコ共和国"
+        },
+        {
+          "en": "The Sultanate of Morocco",
+          "es": "El Sultanato de Marruecos",
+          "fr": "Le Sultanat du Maroc",
+          "ja": "モロッコ・スルタン国"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Morocco has been formally styled a kingdom since the sultanate was renamed at independence in 1956, and it remains one of the few monarchies left in Africa, alongside a handful of small states such as Eswatini and Lesotho.",
+        "es": "Marruecos se denomina oficialmente reino desde que el sultanato pasó a llamarse así al independizarse en 1956, y sigue siendo una de las pocas monarquías que quedan en África, junto a un puñado de pequeños estados como Esuatini y Lesoto.",
+        "fr": "Le Maroc est officiellement un royaume depuis que le sultanat a été rebaptisé ainsi à l'indépendance en 1956, et il reste l'une des rares monarchies subsistant en Afrique, aux côtés d'une poignée de petits États comme l'Eswatini et le Lesotho.",
+        "ja": "モロッコは1956年の独立にあたりスルタン国から改称されて以来、正式に王国を名乗っており、エスワティニやレソトなどごく一部の小国と並び、アフリカに残る数少ない君主国のひとつである。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "What is the sequinned wool blanket traditionally draped over a Moroccan bride during her wedding called?",
+        "es": "¿Cómo se llama la manta de lana con lentejuelas que tradicionalmente se coloca sobre la novia marroquí en su boda?",
+        "fr": "Comment s'appelle la couverture de laine ornée de sequins traditionnellement drapée sur la mariée marocaine lors de son mariage ?",
+        "ja": "モロッコの花嫁が婚礼の際に伝統的にまとうスパンコール飾りの毛織のブランケットの名は?"
+      },
+      "o": [
+        {
+          "en": "The kilim",
+          "es": "El kilim",
+          "fr": "Le kilim",
+          "ja": "キリム"
+        },
+        {
+          "en": "The abaya",
+          "es": "La abaya",
+          "fr": "L'abaya",
+          "ja": "アバヤ"
+        },
+        {
+          "en": "The handira",
+          "es": "La handira",
+          "fr": "La handira",
+          "ja": "ハンディーラ"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "A handira is hand-woven by Amazigh women, mainly in the Middle Atlas, from wool decorated with hundreds of small flat metal sequins that catch candlelight during the wedding procession, and older, well-worn ones are now prized by collectors as much as new ones.",
+        "es": "La handira la tejen a mano mujeres amaziges, sobre todo en el Atlas Medio, con lana adornada con cientos de pequeñas lentejuelas metálicas planas que captan la luz de las velas durante la procesión nupcial.",
+        "fr": "La handira est tissée à la main par des femmes amazighes, surtout dans le Moyen Atlas, avec de la laine ornée de centaines de petits sequins métalliques plats qui accrochent la lumière des bougies pendant le cortège nuptial.",
+        "ja": "ハンディーラは主に中部アトラスのアマジグ人女性が手織りするもので、羊毛に何百枚もの平たい金属のスパンコールを縫い付け、婚礼の行列で蝋燭の光を受けてきらめく。古びて使い込まれたものほど収集家に珍重されることも多い。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "What is the name shared by both the conical clay cooking pot and the slow-simmered stew cooked inside it?",
+        "es": "¿Qué nombre comparten la olla cónica de barro y el guiso a fuego lento que se cocina dentro?",
+        "fr": "Quel nom partagent à la fois le plat conique en terre cuite et le ragoût mijoté qu'on y cuisine ?",
+        "ja": "円錐形の素焼きの鍋と、その中でじっくり煮込む料理が共有する名は?"
+      },
+      "o": [
+        {
+          "en": "Tagine",
+          "es": "Tajín",
+          "fr": "Tajine",
+          "ja": "タジン"
+        },
+        {
+          "en": "Couscoussier",
+          "es": "Cuscusera",
+          "fr": "Couscoussier",
+          "ja": "クスクス鍋"
+        },
+        {
+          "en": "Pastilla",
+          "es": "Pastela",
+          "fr": "Pastilla",
+          "ja": "パスティヤ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "A tagine's tall, pointed lid traps rising steam and drips it back down onto the meat and vegetables below, letting the dish cook for hours over low heat without needing much added liquid, which suited a cuisine that developed where water was often scarce.",
+        "es": "La tapa alta y puntiaguda del tajín atrapa el vapor que sube y lo devuelve goteando sobre la carne y las verduras de abajo, dejando cocer el plato horas a fuego lento sin necesitar mucho líquido añadido.",
+        "fr": "Le couvercle haut et pointu du tajine emprisonne la vapeur qui monte et la fait retomber en gouttes sur la viande et les légumes en dessous, laissant le plat mijoter des heures à feu doux sans grand besoin de liquide ajouté.",
+        "ja": "タジンの高くとがった蓋は立ちのぼる蒸気を閉じ込め、下の肉や野菜へと滴らせて戻すため、水分をほとんど足さなくても何時間も弱火でじっくり火が通る。水が乏しいことの多い土地で育った料理らしい仕組みである。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "What is the traditional communal steam bathhouse, found in nearly every Moroccan neighbourhood, called?",
+        "es": "¿Cómo se llama el baño de vapor comunitario tradicional que hay en casi todos los barrios marroquíes?",
+        "fr": "Comment s'appelle le bain de vapeur communautaire traditionnel présent dans presque tous les quartiers marocains ?",
+        "ja": "モロッコのほぼどの街区にもある、伝統的な共同蒸し風呂の名は?"
+      },
+      "o": [
+        {
+          "en": "The medersa",
+          "es": "La medersa",
+          "fr": "La médersa",
+          "ja": "マドラサ"
+        },
+        {
+          "en": "The kasbah",
+          "es": "La kasba",
+          "fr": "La kasbah",
+          "ja": "カスバ"
+        },
+        {
+          "en": "The hammam",
+          "es": "El hamam",
+          "fr": "Le hammam",
+          "ja": "ハマム"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "A neighbourhood hammam is heated by a wood- or gas-fired furnace behind the wall and is used separately by men and women at different hours of the day, with scrubbing, black soap and a rough exfoliating mitt as much a part of the ritual as the heat itself.",
+        "es": "Un hamam de barrio se calienta con un horno de leña o gas detrás del muro y lo usan por separado hombres y mujeres en distintas horas del día, con el jabón negro y el guante exfoliante formando parte del ritual tanto como el calor.",
+        "fr": "Un hammam de quartier est chauffé par un four à bois ou au gaz derrière le mur et est utilisé séparément par les hommes et les femmes à des heures différentes de la journée, le savon noir et le gant exfoliant faisant autant partie du rituel que la chaleur elle-même.",
+        "ja": "街区のハマムは壁の裏にある薪や、ガスで焚く炉で温められ、男女は一日のうち異なる時間帯に分かれて利用する。黒石鹸とざらついた垢すり手袋は、熱そのものと同じくらい儀式に欠かせない要素である。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Before chicken became the common choice, what meat traditionally filled Morocco's sweet-and-savoury pastilla pie?",
+        "es": "Antes de que el pollo se volviera la opción habitual, ¿qué carne rellenaba tradicionalmente la pastela marroquí, dulce y salada a la vez?",
+        "fr": "Avant que le poulet ne devienne le choix courant, quelle viande garnissait traditionnellement la pastilla marocaine, sucrée-salée ?",
+        "ja": "鶏肉が一般的になる前、モロッコの甘辛いパイ「パスティヤ」に伝統的に使われていた肉は?"
+      },
+      "o": [
+        {
+          "en": "Beef",
+          "es": "Ternera",
+          "fr": "Bœuf",
+          "ja": "牛肉"
+        },
+        {
+          "en": "Lamb",
+          "es": "Cordero",
+          "fr": "Agneau",
+          "ja": "羊肉"
+        },
+        {
+          "en": "Pigeon",
+          "es": "Paloma",
+          "fr": "Pigeon",
+          "ja": "ハト肉"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Pastilla was originally built around slow-cooked pigeon meat wrapped in layers of paper-thin dough and dusted with cinnamon and sugar, a combination that still strikes first-time diners as an odd pairing of dessert and main course in one dish.",
+        "es": "La pastela se construía originalmente con carne de paloma cocida a fuego lento, envuelta en capas de masa fina como el papel y espolvoreada con canela y azúcar, una combinación que a quien la prueba por primera vez le sigue pareciendo una rara mezcla de postre y plato principal.",
+        "fr": "La pastilla s'articulait à l'origine autour de viande de pigeon mijotée, enveloppée de couches de pâte fine comme du papier et saupoudrée de cannelle et de sucre, une combinaison qui surprend encore les premiers dégustateurs comme un curieux mélange de dessert et de plat principal.",
+        "ja": "パスティヤはもともと、じっくり煮込んだハトの肉を紙のように薄い生地で幾重にも包み、シナモンと砂糖をふりかけて作られていた。デザートと主菜が一皿に同居したような組み合わせは、初めて食べる人にはいまも奇妙に映る。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Which coastal city hosts the Gnawa World Music Festival each June, drawing crowds for its trance-inducing rhythms?",
+        "es": "¿Qué ciudad costera acoge cada junio el Festival Mundial de Música Gnawa, que atrae multitudes con sus ritmos trance?",
+        "fr": "Quelle ville côtière accueille chaque juin le Festival mondial des musiques Gnaoua, attirant les foules pour ses rythmes envoûtants ?",
+        "ja": "毎年6月、トランス状態を誘うリズムで人々を集めるグナワ・ワールドミュージック・フェスティバルを開催する沿岸都市は?"
+      },
+      "o": [
+        {
+          "en": "Agadir",
+          "es": "Agadir",
+          "fr": "Agadir",
+          "ja": "アガディール"
+        },
+        {
+          "en": "Tangier",
+          "es": "Tánger",
+          "fr": "Tanger",
+          "ja": "タンジェ"
+        },
+        {
+          "en": "Essaouira",
+          "es": "Essaouira",
+          "fr": "Essaouira",
+          "ja": "エッサウィラ"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Essaouira's ramparts and squares fill for several days each summer with Gnawa musicians playing the guembri, a spiritual and musical tradition rooted in the practices of enslaved West Africans brought to Morocco centuries ago, now paired on festival lineups with jazz and rock acts from abroad.",
+        "es": "Las murallas y plazas de Essaouira se llenan varios días cada verano de músicos gnawa tocando el guembri, una tradición espiritual y musical arraigada en las prácticas de africanos occidentales esclavizados traídos a Marruecos siglos atrás.",
+        "fr": "Les remparts et places d'Essaouira se remplissent plusieurs jours chaque été de musiciens gnaoua jouant du guembri, une tradition spirituelle et musicale enracinée dans les pratiques d'Africains de l'Ouest réduits en esclavage et amenés au Maroc il y a des siècles.",
+        "ja": "エッサウィラの城壁と広場は毎夏数日間、グンブリを奏でるグナワの音楽家たちで埋め尽くされる。これは何世紀も前にモロッコへ連れてこられた西アフリカ出身の被奴隷化された人々の慣習に根差した、精神性と音楽が結びついた伝統である。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "What is a Sufi lodge built around the tomb of a venerated saint, common across Morocco, called?",
+        "es": "¿Cómo se llama una logia sufí construida en torno a la tumba de un santo venerado, común en todo Marruecos?",
+        "fr": "Comment appelle-t-on une confrérie soufie bâtie autour de la tombe d'un saint vénéré, courante dans tout le Maroc ?",
+        "ja": "崇敬される聖者の墓を中心に築かれる、モロッコ各地にあるスーフィーの修道場の名は?"
+      },
+      "o": [
+        {
+          "en": "A medersa",
+          "es": "Una medersa",
+          "fr": "Une médersa",
+          "ja": "マドラサ"
+        },
+        {
+          "en": "A fondouk",
+          "es": "Un fondaco",
+          "fr": "Un foundouk",
+          "ja": "フォンドゥーク"
+        },
+        {
+          "en": "A zawiya",
+          "es": "Una zauia",
+          "fr": "Une zaouïa",
+          "ja": "ザーウィヤ"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "A zawiya combines a shrine, a place of prayer and often a Sufi brotherhood's headquarters, and pilgrims still travel to well-known ones to ask the buried saint for intercession, a practice some stricter religious reformers have long criticised as bordering on saint worship.",
+        "es": "Una zauia combina un santuario, un lugar de oración y a menudo la sede de una cofradía sufí, y los peregrinos aún viajan a las más conocidas para pedir la intercesión del santo enterrado.",
+        "fr": "Une zaouïa combine un sanctuaire, un lieu de prière et souvent le siège d'une confrérie soufie, et des pèlerins se rendent encore dans les plus connues pour demander l'intercession du saint qui y est enterré.",
+        "ja": "ザーウィヤは聖廟と礼拝所、しばしばスーフィー教団の本拠を兼ねる施設で、いまも巡礼者は名の知れたザーウィヤを訪れ、そこに眠る聖者への取りなしを願う。より厳格な改革派の宗教家からは、聖者崇拝に近いと長く批判されてきた慣習でもある。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What is the abbreviation of Morocco's national railway operator, which runs the Al Boraq high-speed line?",
+        "es": "¿Cuál es la abreviatura del operador ferroviario nacional de Marruecos, que gestiona la línea de alta velocidad Al Boraq?",
+        "fr": "Quel est le sigle de l'opérateur ferroviaire national du Maroc, qui exploite la ligne à grande vitesse Al Boraq ?",
+        "ja": "高速鉄道アル・ブラークを運行する、モロッコの国有鉄道会社の略称は?"
+      },
+      "o": [
+        {
+          "en": "SNCF",
+          "es": "SNCF",
+          "fr": "SNCF",
+          "ja": "SNCF"
+        },
+        {
+          "en": "RENFE",
+          "es": "RENFE",
+          "fr": "RENFE",
+          "ja": "RENFE"
+        },
+        {
+          "en": "ONCF",
+          "es": "ONCF",
+          "fr": "ONCF",
+          "ja": "ONCF"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "ONCF, the Office National des Chemins de Fer, has run Morocco's railways since 1963 and has steadily extended electrified double track along the busy Casablanca-Rabat-Tangier corridor well beyond what the original French-built network covered.",
+        "es": "ONCF, la Office National des Chemins de Fer, gestiona los ferrocarriles marroquíes desde 1963 y ha ido ampliando la vía doble electrificada por el concurrido corredor Casablanca-Rabat-Tánger mucho más allá de lo que cubría la red original construida por Francia.",
+        "fr": "L'ONCF, Office national des chemins de fer, gère les chemins de fer marocains depuis 1963 et a progressivement étendu la voie double électrifiée sur le corridor très fréquenté Casablanca-Rabat-Tanger, bien au-delà de ce que couvrait le réseau d'origine construit par la France.",
+        "ja": "ONCF(国鉄庁)は1963年以来モロッコの鉄道を運営しており、カサブランカ・ラバト・タンジェを結ぶ幹線に沿って電化複線を着実に延ばし、フランスが敷いた元の路線網をはるかに超える規模に育て上げてきた。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What is the covered section of a souk that traditionally sells fine goods like silk, jewellery and spices called?",
+        "es": "¿Cómo se llama la sección cubierta de un zoco donde tradicionalmente se venden productos finos como seda, joyas y especias?",
+        "fr": "Comment appelle-t-on la section couverte d'un souk où l'on vend traditionnellement des produits fins comme la soie, les bijoux et les épices ?",
+        "ja": "絹や宝飾品、香辛料といった高級品を伝統的に扱う、スークの屋根付きの一角の名は?"
+      },
+      "o": [
+        {
+          "en": "The mellah",
+          "es": "El mellah",
+          "fr": "Le mellah",
+          "ja": "メラー"
+        },
+        {
+          "en": "The riad",
+          "es": "El riad",
+          "fr": "Le riad",
+          "ja": "リヤド"
+        },
+        {
+          "en": "The kissaria",
+          "es": "La kissaria",
+          "fr": "La kissaria",
+          "ja": "キサリア"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "A kissaria is typically gated and lockable at night, unlike the open lanes of the wider souk, since the goods sold inside — once mainly imported silk and fine cloth — were valuable enough to need extra protection.",
+        "es": "Una kissaria suele tener puertas que se cierran de noche, a diferencia de los callejones abiertos del zoco más amplio, ya que los productos vendidos dentro, antaño sobre todo seda importada y telas finas, valían lo suficiente como para necesitar protección extra.",
+        "fr": "Une kissaria est généralement dotée de portes que l'on ferme la nuit, contrairement aux ruelles ouvertes du souk plus large, car les marchandises vendues à l'intérieur — autrefois surtout de la soie importée et des tissus fins — valaient assez cher pour nécessiter une protection supplémentaire.",
+        "ja": "キサリアは広いスークの開けた通路と違って夜間は門を閉じて施錠できるようになっている。中で売られる品、かつては主に輸入絹や上質の布地は、余分な警備が要るほど高価だったためである。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What is a merchant's inn built around a courtyard, once used to lodge traders and stable their animals in old Moroccan medinas, called?",
+        "es": "¿Cómo se llama la posada de mercaderes construida en torno a un patio, usada antaño para alojar comerciantes y sus animales en las viejas medinas marroquíes?",
+        "fr": "Comment appelle-t-on l'auberge de marchands bâtie autour d'une cour, jadis utilisée pour loger les commerçants et leurs bêtes dans les vieilles médinas marocaines ?",
+        "ja": "商人とその家畜を宿泊させるために使われた、中庭を囲んで建てられるモロッコの旧市街の隊商宿の名は?"
+      },
+      "o": [
+        {
+          "en": "A fondouk",
+          "es": "Un fondaco",
+          "fr": "Un foundouk",
+          "ja": "フォンドゥーク"
+        },
+        {
+          "en": "A hammam",
+          "es": "Un hamam",
+          "fr": "Un hammam",
+          "ja": "ハマム"
+        },
+        {
+          "en": "A zellige",
+          "es": "Un zellige",
+          "fr": "Un zellige",
+          "ja": "ゼリージュ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Fondouks, also spelled funduqs, stabled pack animals on the ground floor while merchants slept and stored goods in rooms above, and many surviving ones in Fez and Marrakech have since been repurposed as artisan workshops now that long-distance camel caravans no longer arrive.",
+        "es": "Los fondaco, también escritos funduq, alojaban a las bestias de carga en la planta baja mientras los mercaderes dormían y guardaban mercancías en las habitaciones de arriba, y muchos de los que sobreviven en Fez y Marrakech se han reconvertido en talleres artesanos.",
+        "fr": "Les foundouks, aussi orthographiés funduq, abritaient les bêtes de somme au rez-de-chaussée tandis que les marchands dormaient et stockaient leurs marchandises dans les chambres à l'étage, et beaucoup de ceux qui subsistent à Fès et Marrakech ont depuis été reconvertis en ateliers d'artisans.",
+        "ja": "フォンドゥークは階下に荷役動物をつなぎ、上階の部屋に商人が寝泊まりし荷を保管する造りで、長距離のラクダ隊商がもう来なくなったいま、フェズやマラケシュに残るものの多くは職人の工房に転用されている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "The Marinid dynasty, ruling roughly from the 13th to 15th centuries, is especially known for building which ornate type of Quranic school, decorated with carved cedar and stucco?",
+        "es": "La dinastía merinida, que gobernó aproximadamente del siglo XIII al XV, es especialmente conocida por construir qué tipo de escuela coránica ornamentada, decorada con madera de cedro tallada y estuco?",
+        "fr": "La dynastie mérinide, qui régna à peu près du XIIIe au XVe siècle, est particulièrement connue pour avoir bâti quel type d'école coranique ornée, décorée de cèdre sculpté et de stuc ?",
+        "ja": "おおよそ13〜15世紀に統治したマリーン朝が特によく知られている、彫刻を施した杉材と漆喰で飾られた華麗なイスラム学院の種類は?"
+      },
+      "o": [
+        {
+          "en": "Kasbahs",
+          "es": "Kasbas",
+          "fr": "Kasbahs",
+          "ja": "カスバ"
+        },
+        {
+          "en": "Medersas",
+          "es": "Medersas",
+          "fr": "Médersas",
+          "ja": "マドラサ"
+        },
+        {
+          "en": "Riads",
+          "es": "Riads",
+          "fr": "Riads",
+          "ja": "リヤド"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Marinid medersas housed students studying Islamic law and the Quran in small cells arranged around a central courtyard, and their carved wood and zellige-covered walls are considered among the high points of Moroccan architectural craftsmanship.",
+        "es": "Las medersas merinidas alojaban a estudiantes de derecho islámico y el Corán en pequeñas celdas dispuestas alrededor de un patio central, y sus muros de madera tallada y zellige se consideran entre los puntos más altos de la artesanía arquitectónica marroquí.",
+        "fr": "Les médersas mérinides logeaient les étudiants en droit islamique et en Coran dans de petites cellules disposées autour d'une cour centrale, et leurs murs de bois sculpté et de zellige comptent parmi les sommets de l'artisanat architectural marocain.",
+        "ja": "マリーン朝のマドラサはイスラム法学とコーランを学ぶ学生たちを中庭を囲む小部屋に住まわせる造りで、彫刻を施した木材とゼリージュで覆われた壁は、モロッコの建築工芸の頂点のひとつとされる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "In what year did Amazigh, written in the Tifinagh alphabet, become an official script recognised for road signs and schooling alongside Arabic script?",
+        "es": "¿En qué año se convirtió el tifinagh, el alfabeto amazige, en escritura oficial reconocida para señales de tráfico y enseñanza junto al árabe?",
+        "fr": "En quelle année le tifinagh, l'alphabet amazighe, est-il devenu une écriture officielle reconnue pour la signalisation routière et l'enseignement aux côtés de l'arabe ?",
+        "ja": "アマジグ語の文字ティフィナグが、道路標識や学校教育でアラビア文字と並んで公式な文字として認められたのは何年か?"
+      },
+      "o": [
+        {
+          "en": "1975",
+          "es": "1975",
+          "fr": "1975",
+          "ja": "1975年"
+        },
+        {
+          "en": "2011",
+          "es": "2011",
+          "fr": "2011",
+          "ja": "2011年"
+        },
+        {
+          "en": "1999",
+          "es": "1999",
+          "fr": "1999",
+          "ja": "1999年"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Tifinagh, an ancient script once used mainly by Tuareg communities further south, was formally chosen over the Latin or Arabic alphabets for writing Amazigh in Morocco in 2003, and its symbols now appear on street signs and government buildings nationwide following the 2011 constitutional recognition of the language.",
+        "es": "El tifinagh, una escritura antigua usada sobre todo por comunidades tuareg más al sur, se eligió formalmente en 2003 frente al alfabeto latino o árabe para escribir el amazige en Marruecos, y sus símbolos aparecen hoy en señales y edificios oficiales de todo el país.",
+        "fr": "Le tifinagh, une écriture ancienne autrefois utilisée surtout par les communautés touarègues plus au sud, fut formellement choisi en 2003 face aux alphabets latin ou arabe pour écrire l'amazighe au Maroc, et ses symboles figurent aujourd'hui sur les panneaux et bâtiments officiels du pays.",
+        "ja": "かつて主に南方のトゥアレグの人々が用いていた古い文字ティフィナグは、2003年、モロッコでアマジグ語を書き表す文字としてラテン文字やアラビア文字を退けて正式に選ばれ、その記号はいまや国じゅうの標識や官公庁の建物に見られる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which variety of Amazigh is spoken mainly in the Souss valley and Anti-Atlas region around Agadir?",
+        "es": "¿Qué variedad del amazige se habla principalmente en el valle del Souss y la región del Anti-Atlas, en torno a Agadir?",
+        "fr": "Quelle variété d'amazighe est parlée principalement dans la vallée du Souss et la région de l'Anti-Atlas, autour d'Agadir ?",
+        "ja": "アガディール周辺のスース渓谷とアンチ・アトラス地方で主に話されるアマジグ語の系統は?"
+      },
+      "o": [
+        {
+          "en": "Tarifit",
+          "es": "Tarifit",
+          "fr": "Tarifit",
+          "ja": "タリフィート"
+        },
+        {
+          "en": "Tamazight",
+          "es": "Tamazight",
+          "fr": "Tamazight",
+          "ja": "タマジクト"
+        },
+        {
+          "en": "Tashelhit",
+          "es": "Tachelhit",
+          "fr": "Tachelhit",
+          "ja": "タシルハイト"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Tashelhit, sometimes called Soussia, is the Amazigh variety with the largest number of speakers in Morocco, and it has its own long literary tradition written in Arabic script that predates the modern push to use Tifinagh instead.",
+        "es": "El tachelhit, a veces llamado soussia, es la variedad amazige con más hablantes en Marruecos, y tiene una larga tradición literaria propia escrita en alfabeto árabe, anterior al impulso moderno por usar el tifinagh.",
+        "fr": "Le tachelhit, parfois appelé soussia, est la variété amazighe comptant le plus de locuteurs au Maroc, et possède sa propre longue tradition littéraire écrite en alphabet arabe, antérieure à l'élan moderne en faveur du tifinagh.",
+        "ja": "時にスーシアとも呼ばれるタシルハイトは、モロッコで最も話者数の多いアマジグ語系統であり、いまのティフィナグ推進より前から続く、アラビア文字で書かれた独自の長い文学的伝統を持つ。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which variety of Amazigh is spoken mainly in the mountainous Rif region of northern Morocco?",
+        "es": "¿Qué variedad del amazige se habla principalmente en la región montañosa del Rif, en el norte de Marruecos?",
+        "fr": "Quelle variété d'amazighe est parlée principalement dans la région montagneuse du Rif, au nord du Maroc ?",
+        "ja": "モロッコ北部の山がちなリーフ地方で主に話されるアマジグ語の系統は?"
+      },
+      "o": [
+        {
+          "en": "Tashelhit",
+          "es": "Tachelhit",
+          "fr": "Tachelhit",
+          "ja": "タシルハイト"
+        },
+        {
+          "en": "Tarifit",
+          "es": "Tarifit",
+          "fr": "Tarifit",
+          "ja": "タリフィート"
+        },
+        {
+          "en": "Hassaniya",
+          "es": "Hasania",
+          "fr": "Hassaniya",
+          "ja": "ハッサニーヤ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Tarifit speakers, concentrated around Al Hoceima and Nador, historically had less access to Arabic-medium schooling than other regions, which left the Rif with one of the country's highest rates of people who speak only Amazigh and no Arabic.",
+        "es": "Los hablantes de tarifit, concentrados en torno a Alhucemas y Nador, tuvieron históricamente menos acceso a la escolarización en árabe que otras regiones, lo que dejó al Rif con una de las tasas más altas del país de personas que solo hablan amazige.",
+        "fr": "Les locuteurs du tarifit, concentrés autour d'Al Hoceïma et Nador, ont historiquement eu moins accès à une scolarisation en arabe que d'autres régions, ce qui a laissé au Rif l'un des taux les plus élevés du pays de personnes ne parlant qu'amazighe.",
+        "ja": "アル・ホセイマとナドール周辺に集中するタリフィート話者は、他の地方に比べて歴史的にアラビア語での就学機会が乏しく、そのためリーフ地方はアラビア語を話さずアマジグ語のみを話す人の割合が国内でも高い地域として残った。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Central Atlas Tamazight, one of Morocco's three main Amazigh varieties, is spoken mainly around which mountain range?",
+        "es": "El tamazight del Atlas Central, una de las tres principales variedades amazige de Marruecos, ¿se habla principalmente en torno a qué cordillera?",
+        "fr": "Le tamazight de l'Atlas central, l'une des trois principales variétés amazighes du Maroc, est parlé principalement autour de quelle chaîne de montagnes ?",
+        "ja": "モロッコの主要な三つのアマジグ語系統のひとつ、中部アトラス・タマジクトが主に話されるのはどの山脈の周辺か?"
+      },
+      "o": [
+        {
+          "en": "The Rif Mountains",
+          "es": "Las montañas del Rif",
+          "fr": "Les montagnes du Rif",
+          "ja": "リーフ山脈"
+        },
+        {
+          "en": "The Middle Atlas",
+          "es": "El Atlas Medio",
+          "fr": "Le Moyen Atlas",
+          "ja": "中部アトラス山脈"
+        },
+        {
+          "en": "The Anti-Atlas",
+          "es": "El Anti-Atlas",
+          "fr": "L'Anti-Atlas",
+          "ja": "アンチ・アトラス山脈"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Central Atlas Tamazight speakers are concentrated in the Middle Atlas around towns like Khenifra and Azrou, and confusingly the same word, Tamazight, is also used more broadly by many Moroccans as a general term covering all three Amazigh varieties together.",
+        "es": "Los hablantes de tamazight del Atlas Central se concentran en el Atlas Medio, en torno a localidades como Khenifra y Azrou, y, para confundir un poco más, la misma palabra, tamazight, también la usan muchos marroquíes en sentido amplio para las tres variedades amazige juntas.",
+        "fr": "Les locuteurs du tamazight de l'Atlas central sont concentrés dans le Moyen Atlas autour de localités comme Khénifra et Azrou, et, pour ajouter à la confusion, le même mot, tamazight, est aussi employé plus largement par beaucoup de Marocains comme terme général couvrant les trois variétés amazighes.",
+        "ja": "中部アトラス・タマジクトの話者はハニフラやアズルーといった町を中心に中部アトラス山脈に集まっている。ややこしいことに、同じ「タマジクト」という語は、モロッコの多くの人々によって三系統すべてをまとめて指す総称としても使われる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Darija, the everyday spoken Arabic of Morocco, differs from which more formal register used in news broadcasts and official writing?",
+        "es": "El darija, el árabe hablado cotidiano de Marruecos, se diferencia de qué registro más formal, usado en los noticieros y la escritura oficial?",
+        "fr": "Le darija, l'arabe parlé au quotidien au Maroc, se distingue de quel registre plus formel, utilisé dans les journaux télévisés et l'écrit officiel ?",
+        "ja": "モロッコの日常会話で話されるアラビア語ダリージャが区別される、ニュース放送や公文書で使われるより格式ばった言葉は?"
+      },
+      "o": [
+        {
+          "en": "Hassaniya",
+          "es": "Hasania",
+          "fr": "Hassaniya",
+          "ja": "ハッサニーヤ"
+        },
+        {
+          "en": "Modern Standard Arabic (Fusha)",
+          "es": "El árabe estándar moderno (fusha)",
+          "fr": "L'arabe standard moderne (fusha)",
+          "ja": "現代標準アラビア語(フスハー)"
+        },
+        {
+          "en": "Tamazight",
+          "es": "Tamazight",
+          "fr": "Tamazight",
+          "ja": "タマジクト"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Darija borrows heavily from French, Spanish and Amazigh vocabulary and is rarely written down in formal contexts, so most Moroccans grow up effectively bilingual within Arabic itself, speaking one register at home and reading another in newspapers and textbooks.",
+        "es": "El darija toma mucho vocabulario del francés, el español y el amazige y rara vez se escribe en contextos formales, así que la mayoría de los marroquíes crecen siendo en la práctica bilingües dentro del propio árabe.",
+        "fr": "Le darija emprunte beaucoup de vocabulaire au français, à l'espagnol et à l'amazighe et s'écrit rarement dans des contextes formels, si bien que la plupart des Marocains grandissent de fait bilingues au sein même de l'arabe.",
+        "ja": "ダリージャはフランス語・スペイン語・アマジグ語から語彙を多く借用しており、あらたまった場面ではめったに文字で書かれない。そのため多くのモロッコ人は、アラビア語という一つの言語の中で実質的にバイリンガルとして育ち、家では一つの言葉を話し、新聞や教科書では別の言葉を読むことになる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Besides the High Atlas and Middle Atlas, what is the name of the third, more southerly range in Morocco's Atlas system?",
+        "es": "Además del Alto Atlas y el Atlas Medio, ¿cómo se llama la tercera cordillera, más al sur, del sistema del Atlas marroquí?",
+        "fr": "Outre le Haut Atlas et le Moyen Atlas, comment s'appelle la troisième chaîne, plus au sud, du système atlasique marocain ?",
+        "ja": "ハイアトラス、中部アトラスに加えて、モロッコのアトラス山系を構成するより南の第三の山脈の名は?"
+      },
+      "o": [
+        {
+          "en": "The Anti-Atlas",
+          "es": "El Anti-Atlas",
+          "fr": "L'Anti-Atlas",
+          "ja": "アンチ・アトラス山脈"
+        },
+        {
+          "en": "The Carpathians",
+          "es": "Los Cárpatos",
+          "fr": "Les Carpates",
+          "ja": "カルパティア山脈"
+        },
+        {
+          "en": "The Rif",
+          "es": "El Rif",
+          "fr": "Le Rif",
+          "ja": "リーフ山脈"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The Anti-Atlas runs roughly parallel to the High Atlas but further south toward the Sahara, and it is lower and older, with some of its rock dated to the Precambrian, long before the younger High Atlas was folded upward.",
+        "es": "El Anti-Atlas corre aproximadamente paralelo al Alto Atlas pero más al sur, hacia el Sáhara, y es más bajo y antiguo, con parte de su roca datada en el Precámbrico, mucho antes de que se plegara el más joven Alto Atlas.",
+        "fr": "L'Anti-Atlas court à peu près parallèlement au Haut Atlas mais plus au sud, vers le Sahara, et il est plus bas et plus ancien, une partie de sa roche datant du Précambrien, bien avant le plissement du Haut Atlas, plus jeune.",
+        "ja": "アンチ・アトラス山脈はハイアトラスとほぼ並行しながらもさらに南、サハラに近い側を走り、標高は低く、より古い。岩盤の一部は先カンブリア時代にまでさかのぼり、若いハイアトラスが隆起するよりずっと前からのものである。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What typically happens to rivers such as the Draa as they flow south from the Atlas Mountains toward the Sahara?",
+        "es": "¿Qué suele ocurrir a ríos como el Draa al fluir hacia el sur desde el Atlas hacia el Sáhara?",
+        "fr": "Que se passe-t-il généralement pour des rivières comme le Draa en s'écoulant vers le sud, de l'Atlas vers le Sahara ?",
+        "ja": "ドラア川のような川がアトラス山脈から南のサハラへ向かって流れるとき、一般に何が起こるか?"
+      },
+      "o": [
+        {
+          "en": "They widen into large permanent lakes",
+          "es": "Se ensanchan hasta formar grandes lagos permanentes",
+          "fr": "Elles s'élargissent en grands lacs permanents",
+          "ja": "大きな恒久的な湖に広がる"
+        },
+        {
+          "en": "They dry up and vanish into the sand before reaching the sea",
+          "es": "Se secan y desaparecen en la arena antes de llegar al mar",
+          "fr": "Elles s'assèchent et disparaissent dans le sable avant d'atteindre la mer",
+          "ja": "海に達する前に涸れて砂に消える"
+        },
+        {
+          "en": "They freeze over for part of the year",
+          "es": "Se congelan durante parte del año",
+          "fr": "Elles gèlent une partie de l'année",
+          "ja": "一年の一部が結氷する"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Most rivers draining the Atlas Mountains southward lose so much water to evaporation and absorption by the desert floor that they run dry long before reaching the Atlantic, only occasionally flowing all the way to the coast after unusually heavy rains far upstream.",
+        "es": "La mayoría de los ríos que drenan el Atlas hacia el sur pierden tanta agua por evaporación y absorción en el suelo desértico que se secan mucho antes de llegar al Atlántico, y solo ocasionalmente fluyen hasta la costa tras lluvias inusualmente fuertes aguas arriba.",
+        "fr": "La plupart des rivières drainant l'Atlas vers le sud perdent tant d'eau par évaporation et absorption dans le sol désertique qu'elles s'assèchent bien avant d'atteindre l'Atlantique, ne coulant qu'occasionnellement jusqu'à la côte après des pluies inhabituellement fortes en amont.",
+        "ja": "アトラス山脈から南へ流れる川の多くは、蒸発と砂漠の地表への吸収で水を失いすぎるため、大西洋にたどり着くはるか手前で涸れてしまい、上流で異常な大雨があったときだけまれに海まで達する。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What is the name for the gently sloping underground channels, dug by hand, that carry groundwater from the mountains to oasis fields without it evaporating along the way?",
+        "es": "¿Cómo se llaman los canales subterráneos, de suave pendiente y excavados a mano, que llevan agua subterránea de las montañas a los campos del oasis sin que se evapore por el camino?",
+        "fr": "Comment appelle-t-on les canaux souterrains à faible pente, creusés à la main, qui amènent l'eau souterraine des montagnes aux champs de l'oasis sans qu'elle s'évapore en chemin?",
+        "ja": "山地からオアシスの畑まで、途中で蒸発させることなく地下水を運ぶ、手掘りで緩やかな傾斜をつけたトンネル状の水路の名は?"
+      },
+      "o": [
+        {
+          "en": "A khettara",
+          "es": "Una jatara",
+          "fr": "Une khettara",
+          "ja": "ハッターラ"
+        },
+        {
+          "en": "A reservoir dam",
+          "es": "Una presa embalse",
+          "fr": "Un barrage réservoir",
+          "ja": "貯水ダム"
+        },
+        {
+          "en": "An aqueduct bridge",
+          "es": "Un puente acueducto",
+          "fr": "Un pont-aqueduc",
+          "ja": "水道橋"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "A khettara taps a water table at the base of the mountains and slopes gently downhill underground for kilometres, with vertical shafts dug at intervals along its length purely to remove excavated soil and let workers climb in for maintenance.",
+        "es": "Una jatara capta la capa freática al pie de las montañas y desciende suavemente bajo tierra durante kilómetros, con pozos verticales cavados a intervalos solo para sacar la tierra excavada y dejar bajar a los trabajadores para el mantenimiento.",
+        "fr": "Une khettara capte la nappe phréatique au pied des montagnes et descend en pente douce sous terre sur des kilomètres, avec des puits verticaux creusés à intervalles uniquement pour évacuer la terre excavée et permettre aux ouvriers d'y descendre pour l'entretien.",
+        "ja": "ハッターラは山のふもとの地下水位を捉え、地中を数キロにわたって緩やかに下っていく水路で、掘り出した土を運び出し保守作業員が降りるためだけに、一定間隔で縦穴が掘られている。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Unlike a kasbah, which is the fortified residence of a single ruling family, what term describes an entire fortified village housing many families?",
+        "es": "A diferencia de una kasba, la residencia fortificada de una sola familia gobernante, ¿qué término describe todo un pueblo fortificado que alberga a muchas familias?",
+        "fr": "Contrairement à une kasbah, résidence fortifiée d'une seule famille dirigeante, quel terme désigne tout un village fortifié abritant de nombreuses familles ?",
+        "ja": "一つの支配家族の要塞化された邸宅であるカスバとは違い、多くの家族が住む要塞化された村全体を指す語は?"
+      },
+      "o": [
+        {
+          "en": "A ksar",
+          "es": "Un ksar",
+          "fr": "Un ksar",
+          "ja": "クサル"
+        },
+        {
+          "en": "A medina",
+          "es": "Una medina",
+          "fr": "Une médina",
+          "ja": "メディナ"
+        },
+        {
+          "en": "A riad",
+          "es": "Un riad",
+          "fr": "Un riad",
+          "ja": "リヤド"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "A ksar is typically ringed by a single defensive wall enclosing a whole cluster of family houses, granaries and a mosque, whereas a kasbah is more like a single fortified household — a distinction easy to blur since both often use the same reddish rammed-earth construction.",
+        "es": "Un ksar suele estar rodeado por una única muralla defensiva que encierra todo un conjunto de casas familiares, graneros y una mezquita, mientras que una kasba se parece más a un solo hogar fortificado.",
+        "fr": "Un ksar est généralement ceint d'un unique mur défensif englobant tout un ensemble de maisons familiales, de greniers et une mosquée, tandis qu'une kasbah ressemble davantage à un seul foyer fortifié.",
+        "ja": "クサルは通常ひとつの防壁で囲まれ、その中に幾つもの家族の住まいや穀物倉、モスクをまとめて抱え込む集落全体を指すのに対し、カスバはむしろ一軒の要塞化された邸宅に近い。どちらも同じ赤みがかった版築土で造られることが多く、区別があいまいになりやすい。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Morocco's high-speed train line, which entered service in 2018, is named after what — a mythical winged steed from Islamic tradition?",
+        "es": "La línea de tren de alta velocidad de Marruecos, inaugurada en 2018, ¿lleva el nombre de qué corcel alado mítico de la tradición islámica?",
+        "fr": "La ligne de train à grande vitesse du Maroc, mise en service en 2018, porte le nom de quelle monture ailée mythique de la tradition islamique ?",
+        "ja": "2018年に開業したモロッコの高速鉄道は、イスラム伝承に登場する伝説の翼を持つ乗り物にちなんで何と名付けられているか?"
+      },
+      "o": [
+        {
+          "en": "Al Boraq",
+          "es": "Al Boraq",
+          "fr": "Al Boraq",
+          "ja": "アル・ブラーク"
+        },
+        {
+          "en": "Al Simorgh",
+          "es": "Al Simorgh",
+          "fr": "Al Simorgh",
+          "ja": "アル・シームルグ"
+        },
+        {
+          "en": "Al Rakhsh",
+          "es": "Al Rakhsh",
+          "fr": "Al Rakhsh",
+          "ja": "アル・ラフシュ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Al Boraq takes its name from Buraq, the swift winged creature said in Islamic tradition to have carried the Prophet Muhammad on his night journey, a name chosen to evoke speed for a train that cut the Tangier-Casablanca trip roughly in half.",
+        "es": "Al Boraq toma su nombre de Buraq, la veloz criatura alada que, según la tradición islámica, llevó al profeta Mahoma en su viaje nocturno, un nombre elegido para evocar velocidad en un tren que redujo el trayecto Tánger-Casablanca casi a la mitad.",
+        "fr": "Al Boraq tire son nom de Bouraq, la créature ailée rapide qui, selon la tradition islamique, porta le prophète Mahomet lors de son voyage nocturne, un nom choisi pour évoquer la vitesse d'un train qui a réduit le trajet Tanger-Casablanca de près de moitié.",
+        "ja": "アル・ブラークという名は、イスラム伝承で預言者ムハンマドを夜の旅へと運んだとされる俊足の翼ある生き物ブラークに由来する。タンジェ・カサブランカ間の所要時間をほぼ半分に縮めた列車にふさわしく、速さを連想させる名として選ばれた。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Al Boraq's high-speed trains were built using technology licensed mainly from which country's rail industry?",
+        "es": "Los trenes de alta velocidad de Al Boraq se construyeron con tecnología cedida principalmente por la industria ferroviaria de qué país?",
+        "fr": "Les trains à grande vitesse d'Al Boraq ont été construits avec une technologie concédée principalement par l'industrie ferroviaire de quel pays ?",
+        "ja": "アル・ブラークの高速列車は、主にどの国の鉄道産業からの技術供与で作られたか?"
+      },
+      "o": [
+        {
+          "en": "Japan",
+          "es": "Japón",
+          "fr": "Le Japon",
+          "ja": "日本"
+        },
+        {
+          "en": "Germany",
+          "es": "Alemania",
+          "fr": "L'Allemagne",
+          "ja": "ドイツ"
+        },
+        {
+          "en": "France",
+          "es": "Francia",
+          "fr": "La France",
+          "ja": "フランス"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The Al Boraq trainsets are a version of the French TGV Duplex, built by the French manufacturer Alstom, reflecting the deep and long-standing rail ties between Morocco and France that go back to the original protectorate-era network.",
+        "es": "Los trenes de Al Boraq son una versión del TGV Duplex francés, construidos por el fabricante francés Alstom, lo que refleja los profundos y antiguos lazos ferroviarios entre Marruecos y Francia, que se remontan a la red original de la época del protectorado.",
+        "fr": "Les rames d'Al Boraq sont une version du TGV Duplex français, construites par le constructeur français Alstom, reflétant les liens ferroviaires profonds et anciens entre le Maroc et la France, remontant au réseau d'origine de l'époque du protectorat.",
+        "ja": "アル・ブラークの車両はフランスのアルストム社が製造したTGVデュプレックスの派生型であり、保護領時代の元の鉄道網にまでさかのぼる、モロッコとフランスの深く長い鉄道の結びつきを物語っている。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What track gauge does Morocco's rail network use, the same width found across most of Europe?",
+        "es": "¿Qué ancho de vía usa la red ferroviaria de Marruecos, el mismo que se encuentra en la mayor parte de Europa?",
+        "fr": "Quel écartement de voie utilise le réseau ferroviaire marocain, le même que dans la majeure partie de l'Europe ?",
+        "ja": "モロッコの鉄道網が使う軌間は、ヨーロッパの大半で見られるのと同じどの幅か?"
+      },
+      "o": [
+        {
+          "en": "Metre gauge (1.000 m)",
+          "es": "Vía métrica (1,000 m)",
+          "fr": "Voie métrique (1,000 m)",
+          "ja": "メーターゲージ(1.000メートル)"
+        },
+        {
+          "en": "Standard gauge (1.435 m)",
+          "es": "Vía estándar (1,435 m)",
+          "fr": "Écartement standard (1,435 m)",
+          "ja": "標準軌(1.435メートル)"
+        },
+        {
+          "en": "Broad gauge (1.676 m)",
+          "es": "Vía ancha (1,676 m)",
+          "fr": "Écartement large (1,676 m)",
+          "ja": "広軌(1.676メートル)"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Morocco adopted standard gauge from the very first lines built under the French protectorate, which lets its rolling stock and track-laying expertise connect smoothly with the European standard-gauge world, unlike some other African rail networks built to narrower gauges.",
+        "es": "Marruecos adoptó la vía estándar desde las primerísimas líneas construidas bajo el protectorado francés, lo que permite que su material rodante y su experiencia en tendido de vías conecten sin problemas con el mundo de vía estándar europeo.",
+        "fr": "Le Maroc a adopté l'écartement standard dès les toutes premières lignes construites sous le protectorat français, ce qui permet à son matériel roulant et à son savoir-faire de pose de voies de se raccorder aisément au monde de l'écartement standard européen.",
+        "ja": "モロッコはフランス保護領下で最初に敷かれた路線からすでに標準軌を採用しており、そのため車両や敷設の技術はヨーロッパの標準軌の世界と難なくつながる。より狭い軌間で造られた他のアフリカの鉄道網とは事情が異なる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which city served as the administrative capital of the separate Spanish protectorate in northern Morocco, distinct from the much larger French zone?",
+        "es": "¿Qué ciudad sirvió como capital administrativa del protectorado español, separado, en el norte de Marruecos, distinto de la zona francesa mucho más grande?",
+        "fr": "Quelle ville servit de capitale administrative du protectorat espagnol séparé, dans le nord du Maroc, distinct de la zone française bien plus vaste ?",
+        "ja": "フランス領よりもはるかに小さい、モロッコ北部の別個のスペイン保護領の行政上の中心地となった都市は?"
+      },
+      "o": [
+        {
+          "en": "Tangier",
+          "es": "Tánger",
+          "fr": "Tanger",
+          "ja": "タンジェ"
+        },
+        {
+          "en": "Melilla",
+          "es": "Melilla",
+          "fr": "Melillia",
+          "ja": "メリリャ"
+        },
+        {
+          "en": "Tetouan",
+          "es": "Tetuán",
+          "fr": "Tétouan",
+          "ja": "テトゥアン"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Tetouan served as the capital of the Spanish protectorate from 1912 to 1956, hosting the Spanish High Commissioner's administration, while Tangier just up the coast was carved out separately as an internationally administered zone answering to neither Spain nor France.",
+        "es": "Tetuán fue la capital del protectorado español de 1912 a 1956, sede de la administración del Alto Comisionado español, mientras que Tánger, un poco más al norte en la costa, se recortó por separado como zona administrada internacionalmente.",
+        "fr": "Tétouan fut la capitale du protectorat espagnol de 1912 à 1956, siège de l'administration du Haut-Commissaire espagnol, tandis que Tanger, un peu plus au nord sur la côte, fut découpée à part comme zone administrée internationalement.",
+        "ja": "テトゥアンは1912年から1956年までスペイン保護領の首都として、スペインの高等弁務官による行政の本拠地を務めた。一方すぐ北のタンジェは、スペインにもフランスにも属さない国際管理地区として別枠で切り分けられていた。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Unlike a tagine, which is cooked on a stovetop, how is Marrakesh's tanjia traditionally cooked?",
+        "es": "A diferencia del tajín, que se cocina en el fuego de la cocina, ¿cómo se cocina tradicionalmente la tanjía de Marrakech?",
+        "fr": "Contrairement au tajine, cuit sur une cuisinière, comment cuit-on traditionnellement la tanjia de Marrakech ?",
+        "ja": "コンロの上で調理されるタジンと違って、マラケシュのタンジーヤは伝統的にどのように調理されるか?"
+      },
+      "o": [
+        {
+          "en": "Grilled directly over an open flame",
+          "es": "A la parrilla, directamente sobre fuego abierto",
+          "fr": "Grillée directement sur une flamme nue",
+          "ja": "直火の上で直接あぶって焼く"
+        },
+        {
+          "en": "Buried in the hot embers of a public bathhouse furnace for hours",
+          "es": "Enterrada horas en las brasas calientes del horno de un baño público",
+          "fr": "Enfouie des heures dans les braises chaudes du four d'un bain public",
+          "ja": "公衆浴場の炉の熱い灰の中に何時間も埋めて焼く"
+        },
+        {
+          "en": "Steamed over boiling water in a stacked pot",
+          "es": "Al vapor sobre agua hirviendo en una olla apilada",
+          "fr": "Cuite à la vapeur sur de l'eau bouillante dans une marmite empilée",
+          "ja": "重ねた鍋で沸騰した湯の蒸気で蒸す"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "A tanjia — meat, spices and preserved lemon sealed inside a tall urn-shaped clay jar — is traditionally dropped off by men at the neighbourhood hammam furnace on their way to work and left to cook slowly for hours in the residual embers, making it a popular bachelor's dish since it needs no woman to tend it at home.",
+        "es": "La tanjía —carne, especias y limón en conserva selladas dentro de una jarra de barro alta con forma de urna— se deja tradicionalmente en el horno del hamam del barrio de camino al trabajo y se cuece a fuego lento horas en las brasas residuales.",
+        "fr": "La tanjia — viande, épices et citron confit scellés dans une jarre haute en forme d'urne — est traditionnellement déposée par les hommes au four du hammam du quartier en allant travailler, puis laissée cuire lentement des heures dans les braises résiduelles.",
+        "ja": "タンジーヤ(肉と香辛料、塩漬けレモンを壺形の背高な素焼きの容器に密封したもの)は、伝統的に男たちが出勤の途中で街区のハマムの炉に預け、余熱の灰の中で何時間もじっくり火を通してもらう。家で世話をする女性がいなくても作れるため、独身男性に人気の料理となってきた。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What thin, delicate pastry dough — distinct from the thicker wrapper used for samosas — is used to make Moroccan briouats?",
+        "es": "¿Qué masa fina y delicada, distinta del envoltorio más grueso usado en las samosas, se usa para hacer las briouats marroquíes?",
+        "fr": "Quelle pâte fine et délicate — différente de l'enveloppe plus épaisse utilisée pour les samosas — sert à préparer les briouats marocains ?",
+        "ja": "サモサに使われる厚めの皮とは違う、モロッコのブリワットに使われる薄く繊細な生地の名は?"
+      },
+      "o": [
+        {
+          "en": "Phyllo dough",
+          "es": "Masa filo",
+          "fr": "Pâte filo",
+          "ja": "フィロ生地"
+        },
+        {
+          "en": "Warqa dough",
+          "es": "Masa warqa",
+          "fr": "Pâte warqa",
+          "ja": "ワルカ生地"
+        },
+        {
+          "en": "Puff pastry",
+          "es": "Hojaldre",
+          "fr": "Pâte feuilletée",
+          "ja": "パイ生地"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Warqa, meaning \"leaf\" or \"paper,\" is stretched and cooked on a hot inverted pan into sheets so thin they turn translucent, then folded around sweet almond paste or savoury fillings and fried into small triangular or cigar-shaped briouats.",
+        "es": "Warqa, que significa «hoja» o «papel», se estira y cuece sobre una sartén invertida caliente hasta formar láminas tan finas que se vuelven translúcidas, y luego se dobla en torno a pasta de almendra dulce o rellenos salados y se fríe.",
+        "fr": "Le warqa, qui signifie « feuille » ou « papier », est étiré et cuit sur une plaque chaude retournée jusqu'à former des feuilles si fines qu'elles deviennent translucides, puis replié autour de pâte d'amande sucrée ou de garnitures salées et frit.",
+        "ja": "「葉」や「紙」を意味するワルカは、熱く伏せた鉄板の上で薄く広げて焼かれ、透けて見えるほど薄いシート状になる。これを甘いアーモンドペーストや惣菜系の具のまわりに折りたたみ、揚げて三角や葉巻形のブリワットに仕上げる。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Al Boraq's dedicated high-speed track runs only between which two cities, with the rest of the Tangier-Marrakesh journey covered on upgraded conventional rail?",
+        "es": "La vía dedicada de alta velocidad de Al Boraq solo corre entre qué dos ciudades, y el resto del trayecto Tánger-Marrakech se hace en vía convencional mejorada?",
+        "fr": "La voie dédiée à grande vitesse d'Al Boraq ne relie que quelles deux villes, le reste du trajet Tanger-Marrakech se faisant sur une voie classique modernisée ?",
+        "ja": "アル・ブラークの専用高速線路が結んでいるのは二つの都市の間だけで、タンジェ・マラケシュ間の残りの区間は改良された在来線を走る。その二都市とは?"
+      },
+      "o": [
+        {
+          "en": "Tangier and Kenitra",
+          "es": "Tánger y Kenitra",
+          "fr": "Tanger et Kénitra",
+          "ja": "タンジェとケニトラ"
+        },
+        {
+          "en": "Tangier and Casablanca",
+          "es": "Tánger y Casablanca",
+          "fr": "Tanger et Casablanca",
+          "ja": "タンジェとカサブランカ"
+        },
+        {
+          "en": "Tangier and Rabat",
+          "es": "Tánger y Rabat",
+          "fr": "Tanger et Rabat",
+          "ja": "タンジェとラバト"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The purpose-built high-speed line covers roughly 200 kilometres between Tangier and Kenitra, after which Al Boraq trains slow down and continue on the existing electrified line through Rabat and Casablanca to Marrakesh, a hybrid approach that kept costs far below building high-speed track the whole way.",
+        "es": "La línea de alta velocidad, construida a propósito, cubre unos 200 km entre Tánger y Kenitra, tras lo cual los trenes Al Boraq reducen la velocidad y siguen por la línea electrificada existente hasta Marrakech, un enfoque híbrido que mantuvo los costes muy por debajo de construir vía de alta velocidad todo el trayecto.",
+        "fr": "La ligne à grande vitesse, construite spécialement, couvre environ 200 km entre Tanger et Kénitra, après quoi les trains Al Boraq ralentissent et poursuivent sur la ligne électrifiée existante jusqu'à Marrakech, une approche hybride qui a maintenu les coûts bien en deçà d'une voie à grande vitesse sur tout le trajet.",
+        "ja": "専用に建設された高速線はタンジェとケニトラの間およそ200キロメートルをカバーし、そこから先アル・ブラークは減速して既存の電化在来線に乗り入れ、ラバトとカサブランカを経てマラケシュまで走る。全区間を高速線にするよりはるかに費用を抑えられる折衷案である。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What top speed does Al Boraq reach on its dedicated track, making it the fastest train in Africa?",
+        "es": "¿Qué velocidad máxima alcanza Al Boraq en su vía dedicada, lo que lo convierte en el tren más rápido de África?",
+        "fr": "Quelle vitesse maximale atteint Al Boraq sur sa voie dédiée, en faisant le train le plus rapide d'Afrique ?",
+        "ja": "専用線上でアル・ブラークが達する最高速度は、アフリカ最速の列車たらしめている値としていくつか?"
+      },
+      "o": [
+        {
+          "en": "220 km/h",
+          "es": "220 km/h",
+          "fr": "220 km/h",
+          "ja": "時速220キロ"
+        },
+        {
+          "en": "450 km/h",
+          "es": "450 km/h",
+          "fr": "450 km/h",
+          "ja": "時速450キロ"
+        },
+        {
+          "en": "320 km/h",
+          "es": "320 km/h",
+          "fr": "320 km/h",
+          "ja": "時速320キロ"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "At 320 km/h, Al Boraq matches the cruising speed of many European TGV services and remains, as of the mid-2020s, the only true high-speed rail line running anywhere on the African continent.",
+        "es": "A 320 km/h, Al Boraq iguala la velocidad de crucero de muchos servicios TGV europeos y sigue siendo, a mediados de la década de 2020, la única línea de alta velocidad real en funcionamiento en todo el continente africano.",
+        "fr": "À 320 km/h, Al Boraq égale la vitesse de croisière de nombreux services TGV européens et reste, au milieu des années 2020, la seule véritable ligne à grande vitesse en service sur tout le continent africain.",
+        "ja": "時速320キロというアル・ブラークの速度は、多くのヨーロッパのTGV路線の巡航速度に並び、2020年代半ばの時点でアフリカ大陸で稼働する唯一の本格的な高速鉄道路線であり続けている。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Hubert Lyautey, France's first Resident-General over the Moroccan protectorate, ordered new French colonial districts to be built how, relative to the historic medinas?",
+        "es": "Hubert Lyautey, primer residente general francés del protectorado marroquí, ¿cómo ordenó que se construyeran los nuevos barrios coloniales franceses respecto a las medinas históricas?",
+        "fr": "Hubert Lyautey, premier Résident général français du protectorat marocain, a ordonné que les nouveaux quartiers coloniaux français soient bâtis comment, par rapport aux médinas historiques ?",
+        "ja": "モロッコ保護領の初代フランス統監であったユベール・リヨテは、新しいフランス人居住区を歴史的な旧市街(メディナ)に対してどのように建設するよう命じたか?"
+      },
+      "o": [
+        {
+          "en": "Built alongside them as separate new towns, leaving the medinas largely intact",
+          "es": "Construidos junto a ellas como nuevas ciudades separadas, dejando las medinas en gran parte intactas",
+          "fr": "Bâtis à côté d'elles comme de nouvelles villes séparées, laissant les médinas largement intactes",
+          "ja": "旧市街の隣に別の新市街として建て、旧市街はほぼ手つかずのまま残した"
+        },
+        {
+          "en": "Built by demolishing large sections of the medinas to make way",
+          "es": "Construidos derribando grandes secciones de las medinas para abrir paso",
+          "fr": "Bâtis en démolissant de grandes sections des médinas pour faire place",
+          "ja": "旧市街の大部分を取り壊して道を空けさせた"
+        },
+        {
+          "en": "Built underground, beneath the existing medinas",
+          "es": "Construidos bajo tierra, debajo de las medinas existentes",
+          "fr": "Bâtis en sous-sol, sous les médinas existantes",
+          "ja": "既存の旧市街の地下に建てさせた"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Lyautey, influenced by ideas that colonial rule should preserve local heritage rather than erase it, had planners lay out modern \"villes nouvelles\" with wide boulevards next to, rather than inside, cities like Fez and Marrakesh, which is a large part of why their old medinas survive so intact today.",
+        "es": "Lyautey, influido por la idea de que el dominio colonial debía preservar el patrimonio local en vez de borrarlo, hizo que los urbanistas trazaran modernas «villes nouvelles» con amplios bulevares junto a ciudades como Fez y Marrakech, no dentro de ellas.",
+        "fr": "Lyautey, influencé par l'idée que la domination coloniale devait préserver le patrimoine local plutôt que l'effacer, fit tracer par les urbanistes de modernes « villes nouvelles » aux larges boulevards à côté de villes comme Fès et Marrakech, plutôt qu'à l'intérieur.",
+        "ja": "植民地支配は現地の遺産を消し去るのではなく残すべきだという考えに影響されたリヨテは、都市計画家たちに、フェズやマラケシュのような町の内部ではなく、その隣に広い並木道を持つ近代的な「新市街(ヴィル・ヌーヴェル)」を配置させた。いまも旧市街がこれほど手つかずのまま残っている大きな理由である。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What is the name of the eight-pointed star motif, echoed in the green star on Morocco's flag, that appears throughout zellige tilework?",
+        "es": "¿Cómo se llama el motivo de estrella de ocho puntas, reflejado en la estrella verde de la bandera de Marruecos, que aparece por todo el zellige?",
+        "fr": "Comment appelle-t-on le motif d'étoile à huit branches, repris par l'étoile verte du drapeau marocain, qui apparaît partout dans le zellige ?",
+        "ja": "モロッコ国旗の緑の星にも通じる、ゼリージュのタイル装飾全体に現れる八芒星の文様の名は?"
+      },
+      "o": [
+        {
+          "en": "Khatim Sulayman (Seal of Solomon)",
+          "es": "Jatim Sulaymán (Sello de Salomón)",
+          "fr": "Khatim Sulayman (sceau de Salomon)",
+          "ja": "ハーティム・スライマーン(ソロモンの印)"
+        },
+        {
+          "en": "Rub el Hizb",
+          "es": "Rub el Hizb",
+          "fr": "Rub el Hizb",
+          "ja": "ルブ・エル・ヒズブ"
+        },
+        {
+          "en": "Eye of Ra",
+          "es": "Ojo de Ra",
+          "fr": "Œil de Rê",
+          "ja": "ラーの目"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Though named for the biblical and Quranic King Solomon, the eight-pointed Khatim Sulayman star is built from pure geometry — two overlapping squares — and appears so often in Islamic art across the Mediterranean that its use long predates and extends well beyond Morocco alone.",
+        "es": "Aunque lleva el nombre del rey Salomón bíblico y coránico, la estrella de ocho puntas Jatim Sulaymán se construye con pura geometría —dos cuadrados superpuestos— y aparece tan a menudo en el arte islámico de todo el Mediterráneo que su uso es muy anterior y va mucho más allá de Marruecos.",
+        "fr": "Bien que nommée d'après le roi Salomon biblique et coranique, l'étoile à huit branches Khatim Sulayman est construite à partir de pure géométrie — deux carrés superposés — et apparaît si souvent dans l'art islamique autour de la Méditerranée que son usage précède largement le Maroc et s'étend bien au-delà.",
+        "ja": "聖書やコーランの王ソロモンにちなんで名付けられているものの、八芒星ハーティム・スライマーンは二つの正方形を重ねただけの純粋な幾何学から生まれており、地中海一帯のイスラム美術に頻繁に現れるほど、モロッコよりずっと古くから、その外側でも使われ続けてきた図案である。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Marrakesh was founded around 1070 by which dynasty, whose ruler Yusuf ibn Tashfin established it as a capital?",
+        "es": "Marrakech fue fundada hacia 1070 por qué dinastía, cuyo gobernante Yusuf ibn Tashfín la estableció como capital?",
+        "fr": "Marrakech fut fondée vers 1070 par quelle dynastie, dont le souverain Youssef ibn Tachfine en fit une capitale ?",
+        "ja": "1070年ごろ、支配者ユースフ・イブン・ターシュフィーンによって首都として築かれた、マラケシュを建設した王朝は?"
+      },
+      "o": [
+        {
+          "en": "The Almohad dynasty",
+          "es": "La dinastía almohade",
+          "fr": "La dynastie almohade",
+          "ja": "ムワッヒド朝"
+        },
+        {
+          "en": "The Almoravid dynasty",
+          "es": "La dinastía almorávide",
+          "fr": "La dynastie almoravide",
+          "ja": "ムラービト朝"
+        },
+        {
+          "en": "The Marinid dynasty",
+          "es": "La dinastía merinida",
+          "fr": "La dynastie mérinide",
+          "ja": "マリーン朝"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The Almoravids, a reform movement that grew out of Sanhaja Amazigh nomads of the western Sahara region, founded Marrakesh as a military camp before it grew into a capital, and their empire briefly stretched all the way north into Muslim Spain.",
+        "es": "Los almorávides, un movimiento reformista surgido de nómadas amaziges sanhaya, fundaron Marrakech como campamento militar antes de que creciera hasta ser capital, y su imperio se extendió brevemente hasta el norte, a la España musulmana.",
+        "fr": "Les Almoravides, mouvement réformiste issu de nomades amazighs sanhadja, fondèrent Marrakech comme camp militaire avant qu'elle ne devienne une capitale, et leur empire s'étendit brièvement vers le nord jusqu'à l'Espagne musulmane.",
+        "ja": "サンハージャ系アマジグの遊牧民から興った改革運動であるムラービト朝は、当初は軍営地として築いたマラケシュをのちに首都へと発展させ、その版図は一時、北はイスラム支配下のスペインにまで及んだ。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "The elaborately decorated tombs of which 16th-17th century Moroccan dynasty were deliberately sealed off and forgotten until they were rediscovered in 1917?",
+        "es": "Las tumbas ricamente decoradas de qué dinastía marroquí de los siglos XVI-XVII fueron selladas deliberadamente y olvidadas hasta ser redescubiertas en 1917?",
+        "fr": "Les tombeaux richement décorés de quelle dynastie marocaine des XVIe-XVIIe siècles furent délibérément murés et oubliés jusqu'à leur redécouverte en 1917 ?",
+        "ja": "16〜17世紀のあるモロッコの王朝の豪華に装飾された墓所は、意図的に封じられ忘れ去られていたが、1917年に再発見された。その王朝とは?"
+      },
+      "o": [
+        {
+          "en": "The Idrisid dynasty",
+          "es": "La dinastía idrisí",
+          "fr": "La dynastie idrisside",
+          "ja": "イドリース朝"
+        },
+        {
+          "en": "The Saadian dynasty",
+          "es": "La dinastía saadí",
+          "fr": "La dynastie saadienne",
+          "ja": "サアド朝"
+        },
+        {
+          "en": "The Wattasid dynasty",
+          "es": "La dinastía uatasí",
+          "fr": "La dynastie wattasside",
+          "ja": "ワッタース朝"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Sultan Moulay Ismail, who overthrew the Saadians, is said to have walled up the entrance to their necropolis in Marrakesh rather than destroy the tombs outright, and it took a French aerial survey and excavation in 1917 to reopen a site whose marble columns had been quietly rotting behind a blank wall for over two centuries.",
+        "es": "Se dice que el sultán Muley Ismail, que derrocó a los saadíes, tapió la entrada a su necrópolis en Marrakech en vez de destruir las tumbas directamente, y hizo falta un levantamiento aéreo y una excavación francesa en 1917 para reabrir un sitio cuyas columnas de mármol se pudrían en silencio tras un muro ciego.",
+        "fr": "On raconte que le sultan Moulay Ismaïl, qui renversa les Saadiens, fit murer l'entrée de leur nécropole à Marrakech plutôt que de détruire les tombeaux, et il fallut un relevé aérien et une fouille française en 1917 pour rouvrir un site dont les colonnes de marbre pourrissaient en silence derrière un mur aveugle depuis plus de deux siècles.",
+        "ja": "サアド朝を打倒したスルタン、ムーレイ・イスマイルは、その墓所そのものを壊すのではなく入口を壁で塗り込めたとされ、フランスによる1917年の航空測量と発掘まで、二百年以上にわたって大理石の柱がただの壁の裏でひっそりと朽ちていくままになっていた。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Morocco's first Islamic state, founded around 789 CE, was established by the Idrisid dynasty, whose founder Idris I was a refugee fleeing which empire?",
+        "es": "El primer estado islámico de Marruecos, fundado hacia el 789 d.C., fue establecido por la dinastía idrisí, cuyo fundador Idris I huía como refugiado de qué imperio?",
+        "fr": "Le premier État islamique du Maroc, fondé vers 789 apr. J.-C., fut établi par la dynastie idrisside, dont le fondateur Idris Ier fuyait en tant que réfugié quel empire ?",
+        "ja": "789年ごろに建てられたモロッコ最初のイスラム国家を興したイドリース朝の創始者イドリース1世は、どの帝国から逃れてきた亡命者だったか?"
+      },
+      "o": [
+        {
+          "en": "The Byzantine Empire",
+          "es": "El Imperio bizantino",
+          "fr": "L'Empire byzantin",
+          "ja": "ビザンツ帝国"
+        },
+        {
+          "en": "The Abbasid Caliphate",
+          "es": "El califato abasí",
+          "fr": "Le califat abbasside",
+          "ja": "アッバース朝カリフ国"
+        },
+        {
+          "en": "The Umayyad Caliphate of Córdoba",
+          "es": "El califato omeya de Córdoba",
+          "fr": "Le califat omeyyade de Cordoue",
+          "ja": "コルドバ・ウマイヤ朝"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Idris I, a great-grandson of the Prophet Muhammad's cousin Ali, fled west after Abbasid forces crushed a revolt he had joined near Mecca, eventually reaching Morocco, where local Amazigh tribes accepted him as a religious and political leader.",
+        "es": "Idris I, bisnieto de Alí, primo del profeta Mahoma, huyó hacia el oeste tras que las fuerzas abasíes aplastaran una revuelta a la que se había unido cerca de La Meca, y acabó llegando a Marruecos, donde tribus amaziges locales lo aceptaron como líder religioso y político.",
+        "fr": "Idris Ier, arrière-petit-fils d'Ali, cousin du prophète Mahomet, fuit vers l'ouest après que les forces abbassides eurent écrasé une révolte à laquelle il avait pris part près de La Mecque, et finit par atteindre le Maroc, où des tribus amazighes locales l'acceptèrent comme chef religieux et politique.",
+        "ja": "預言者ムハンマドのいとこアリーの曾孫にあたるイドリース1世は、メッカ近郊で加わった反乱をアッバース朝軍に鎮圧されたのち西へ逃れ、やがてモロッコに達すると、現地のアマジグ諸部族が彼を宗教的・政治的指導者として受け入れた。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What was the name of Sultan Moulay Ismail's elite standing army, composed largely of enslaved and free Black soldiers trained from a young age?",
+        "es": "¿Cómo se llamaba el ejército permanente de élite del sultán Muley Ismail, formado en gran parte por soldados negros esclavizados y libres entrenados desde jóvenes?",
+        "fr": "Comment s'appelait l'armée permanente d'élite du sultan Moulay Ismaïl, composée en grande partie de soldats noirs, esclaves et libres, entraînés dès leur jeune âge ?",
+        "ja": "若いうちから訓練された、奴隷身分と自由身分の黒人兵士を中心に構成された、スルタン、ムーレイ・イスマイルの精鋭常備軍の名は?"
+      },
+      "o": [
+        {
+          "en": "The Abid al-Bukhari",
+          "es": "Los Abid al-Bujari",
+          "fr": "Les Abid al-Bokhari",
+          "ja": "アビード・アル=ブハーリー"
+        },
+        {
+          "en": "The Janissaries",
+          "es": "Los jenízaros",
+          "fr": "Les janissaires",
+          "ja": "イェニチェリ"
+        },
+        {
+          "en": "The Almogavars",
+          "es": "Los almogávares",
+          "fr": "Les almogavres",
+          "ja": "アルモガバル"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Named after the copy of a hadith collection by the scholar al-Bukhari that soldiers reportedly swore loyalty on, the Abid al-Bukhari numbered in the tens of thousands at their peak and formed the backbone of Moulay Ismail's power, garrisoned in fortified camps across the kingdom to enforce his rule.",
+        "es": "Llamado así por la copia de una colección de hadices del erudito al-Bujari sobre la que se dice que los soldados juraban lealtad, los Abid al-Bujari llegaron a sumar decenas de miles en su apogeo y formaron la columna vertebral del poder de Muley Ismail.",
+        "fr": "Nommé d'après la copie d'un recueil de hadiths du savant al-Bokhari sur laquelle les soldats auraient prêté serment de loyauté, les Abid al-Bokhari comptèrent des dizaines de milliers d'hommes à leur apogée et formèrent l'ossature du pouvoir de Moulay Ismaïl.",
+        "ja": "学者アル=ブハーリーによるハディース集の写本に忠誠を誓ったとされることから名付けられたアビード・アル=ブハーリーは、最盛期には数万人を数え、ムーレイ・イスマイルの権力を支える中核となり、王国各地の要塞化された駐屯地に配置されて統治を支えた。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "The Alaouite dynasty, which still rules Morocco today, is generally credited with unifying the country after which Alaouite ruler captured Fez in 1666?",
+        "es": "A la dinastía alauita, que aún gobierna Marruecos hoy, se le atribuye generalmente la unificación del país tras que qué gobernante alauita tomara Fez en 1666?",
+        "fr": "La dynastie alaouite, qui règne encore aujourd'hui sur le Maroc, doit généralement son unification du pays à quel souverain alaouite ayant pris Fès en 1666 ?",
+        "ja": "いまもモロッコを統治するアラウィー朝が国を統一したとされるのは、1666年にフェズを攻略した誰の代のことか?"
+      },
+      "o": [
+        {
+          "en": "Moulay Ismail",
+          "es": "Muley Ismail",
+          "fr": "Moulay Ismaïl",
+          "ja": "ムーレイ・イスマイル"
+        },
+        {
+          "en": "Moulay Rashid",
+          "es": "Muley Rashid",
+          "fr": "Moulay Rachid",
+          "ja": "ムーレイ・ラシード"
+        },
+        {
+          "en": "Moulay Hassan",
+          "es": "Muley Hasán",
+          "fr": "Moulay Hassan",
+          "ja": "ムーレイ・ハッサン"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Moulay Rashid spent years subduing rival local rulers before taking Fez in 1666, and it was only after his death that his younger brother Moulay Ismail — better remembered today for his long reign and building projects — inherited a kingdom already unified.",
+        "es": "Muley Rashid pasó años sometiendo a gobernantes locales rivales antes de tomar Fez en 1666, y solo tras su muerte su hermano menor, Muley Ismail —hoy más recordado por su largo reinado y sus obras—, heredó un reino ya unificado.",
+        "fr": "Moulay Rachid passa des années à soumettre des chefs locaux rivaux avant de prendre Fès en 1666, et ce n'est qu'après sa mort que son jeune frère Moulay Ismaïl — aujourd'hui davantage retenu pour son long règne et ses constructions — hérita d'un royaume déjà unifié.",
+        "ja": "ムーレイ・ラシードは各地の対抗勢力を服属させるのに何年もかけたのち、1666年にフェズを攻略した。彼の死後になって初めて、長い治世と数々の建設事業でいまでは知られる弟のムーレイ・イスマイルが、すでに統一された王国を受け継ぐことになった。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Roughly ten metres taller than the Great Pyramid of Giza, the minaret of Casablanca's Hassan II Mosque held what record when it was completed in 1993?",
+        "es": "Unos diez metros más alto que la Gran Pirámide de Guiza, ¿qué récord ostentaba el minarete de la mezquita Hassan II de Casablanca al completarse en 1993?",
+        "fr": "Environ dix mètres de plus que la grande pyramide de Gizeh, quel record détenait le minaret de la mosquée Hassan II de Casablanca à son achèvement en 1993 ?",
+        "ja": "ギザの大ピラミッドよりおよそ10メートル高い、1993年完成のカサブランカのハッサン2世モスクの尖塔が保持していた記録は?"
+      },
+      "o": [
+        {
+          "en": "Tallest minaret in the world",
+          "es": "El minarete más alto del mundo",
+          "fr": "Le plus haut minaret du monde",
+          "ja": "世界で最も高い尖塔(ミナレット)"
+        },
+        {
+          "en": "Tallest building in Africa",
+          "es": "El edificio más alto de África",
+          "fr": "Le plus haut bâtiment d'Afrique",
+          "ja": "アフリカで最も高い建物"
+        },
+        {
+          "en": "Tallest lighthouse in the world",
+          "es": "El faro más alto del mundo",
+          "fr": "Le plus haut phare du monde",
+          "ja": "世界で最も高い灯台"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "At about 210 metres, the minaret held the title of the world's tallest minaret for years after opening, and its position directly over reclaimed land at the water's edge means its foundations had to be engineered to cope with the sea itself.",
+        "es": "Con unos 210 metros, el minarete ostentó el título de minarete más alto del mundo durante años tras su apertura, y su posición justo sobre terreno ganado al mar en la orilla obligó a diseñar cimientos capaces de resistir el propio mar.",
+        "fr": "Avec environ 210 mètres, le minaret détint le titre de plus haut minaret du monde pendant des années après son ouverture, et sa position juste au-dessus de terres gagnées sur la mer a exigé des fondations conçues pour résister à la mer elle-même.",
+        "ja": "高さおよそ210メートルのこの尖塔は、開場後何年ものあいだ世界最高のミナレットの座を保持していた。水際の埋立地の真上に建つため、基礎は海そのものに耐えられるよう設計する必要があった。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What is the name for the indigo-dyed turban and veil traditionally worn by Saharan nomads such as the Amazigh of southern Morocco, whose dye is said to rub off and stain the skin blue?",
+        "es": "¿Cómo se llama el turbante y velo teñido de índigo que llevan tradicionalmente los nómadas saharianos, como los amaziges del sur de Marruecos, cuyo tinte se dice que mancha la piel de azul?",
+        "fr": "Comment appelle-t-on le turban-voile teint à l'indigo traditionnellement porté par les nomades sahariens, comme les Amazighs du sud du Maroc, dont la teinture est dite tacher la peau de bleu ?",
+        "ja": "南モロッコのアマジグなどサハラの遊牧民が伝統的に身につける、藍で染めたターバン兼ベールの名は。その染料は肌に色移りして青く染めるとも言われる。"
+      },
+      "o": [
+        {
+          "en": "The tagelmust",
+          "es": "El tagelmust",
+          "fr": "Le tagelmoust",
+          "ja": "タゲルムスト"
+        },
+        {
+          "en": "The keffiyeh",
+          "es": "El kufiyyah",
+          "fr": "Le keffieh",
+          "ja": "クーフィーヤ"
+        },
+        {
+          "en": "The fez cap",
+          "es": "El tarbush",
+          "fr": "Le tarbouche",
+          "ja": "フェズ帽"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The tagelmust is wound around the head and lower face, leaving only a narrow slit for the eyes as protection against sun and blowing sand, and the men who wear it, rather than the women, are traditionally the ones who keep their faces veiled.",
+        "es": "El tagelmust se enrolla en torno a la cabeza y la parte baja de la cara, dejando solo una rendija estrecha para los ojos como protección contra el sol y la arena, y son tradicionalmente los hombres, no las mujeres, quienes llevan el rostro cubierto.",
+        "fr": "Le tagelmoust s'enroule autour de la tête et du bas du visage, ne laissant qu'une fente étroite pour les yeux en protection contre le soleil et le sable, et ce sont traditionnellement les hommes, plutôt que les femmes, qui gardent le visage voilé.",
+        "ja": "タゲルムストは頭と顔の下半分に巻き付け、日差しと吹きつける砂から守るため目のための細い隙間だけを残す。伝統的に顔を覆うのは女性ではなく男性のほうである。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What was the name of the medieval trans-Saharan trading hub, near present-day Rissani, that funnelled gold and salt across the desert for centuries before falling into ruin?",
+        "es": "¿Cómo se llamaba el centro comercial transahariano medieval, cerca de la actual Rissani, que canalizó oro y sal a través del desierto durante siglos antes de caer en ruinas?",
+        "fr": "Comment s'appelait le centre commercial transsaharien médiéval, près de l'actuelle Rissani, qui achemina de l'or et du sel à travers le désert pendant des siècles avant de tomber en ruine ?",
+        "ja": "現在のリサニ近郊にあり、何世紀にもわたって金と塩をサハラ砂漠越しに取り次いだ中世の交易拠点で、のちに廃墟となったものの名は?"
+      },
+      "o": [
+        {
+          "en": "Timbuktu",
+          "es": "Tombuctú",
+          "fr": "Tombouctou",
+          "ja": "トンブクトゥ"
+        },
+        {
+          "en": "Sijilmasa",
+          "es": "Sijilmasa",
+          "fr": "Sijilmassa",
+          "ja": "シジルマサ"
+        },
+        {
+          "en": "Chinguetti",
+          "es": "Chinguetti",
+          "fr": "Chinguetti",
+          "ja": "シンゲッティ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Sijilmasa grew wealthy for centuries as the northern terminus of caravan routes carrying West African gold north and Saharan salt south, until repeated raids and shifting trade routes left it largely abandoned by the 15th century, its site now marked mostly by scattered ruins.",
+        "es": "Sijilmasa se enriqueció durante siglos como término norte de las rutas de caravanas que llevaban oro de África occidental hacia el norte y sal sahariana hacia el sur, hasta que asaltos repetidos y el desplazamiento de las rutas comerciales la dejaron en gran parte abandonada hacia el siglo XV.",
+        "fr": "Sijilmassa s'enrichit pendant des siècles comme terminus nord des routes caravanières acheminant l'or ouest-africain vers le nord et le sel saharien vers le sud, jusqu'à ce que raids répétés et déplacement des routes commerciales la laissent largement abandonnée dès le XVe siècle.",
+        "ja": "シジルマサは、西アフリカの金を北へ、サハラの塩を南へ運ぶ隊商路の北の終着点として何世紀にもわたって栄えたが、たび重なる襲撃と交易路の変化により15世紀までにはほぼ放棄され、いまはおおむね散在する廃墟だけが跡を示している。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Al Boraq was inaugurated in November 2018 by King Mohammed VI alongside which visiting foreign head of state?",
+        "es": "Al Boraq fue inaugurado en noviembre de 2018 por el rey Mohamed VI junto a qué jefe de Estado extranjero de visita?",
+        "fr": "Al Boraq fut inauguré en novembre 2018 par le roi Mohammed VI aux côtés de quel chef d'État étranger en visite ?",
+        "ja": "アル・ブラークは2018年11月、国王ムハンマド6世とどの外国の元首の同席のもとで開業式典が行われたか?"
+      },
+      "o": [
+        {
+          "en": "German Chancellor Angela Merkel",
+          "es": "La canciller alemana Angela Merkel",
+          "fr": "La chancelière allemande Angela Merkel",
+          "ja": "ドイツのアンゲラ・メルケル首相"
+        },
+        {
+          "en": "French President Emmanuel Macron",
+          "es": "El presidente francés Emmanuel Macron",
+          "fr": "Le président français Emmanuel Macron",
+          "ja": "フランスのエマニュエル・マクロン大統領"
+        },
+        {
+          "en": "Spanish King Felipe VI",
+          "es": "El rey español Felipe VI",
+          "fr": "Le roi d'Espagne Felipe VI",
+          "ja": "スペインのフェリペ6世国王"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Emmanuel Macron travelled to Tangier for the joint inauguration, a symbolic nod to the French financing, engineering and Alstom-built trainsets behind the project, and the two leaders rode the inaugural run together to Rabat.",
+        "es": "Emmanuel Macron viajó a Tánger para la inauguración conjunta, un gesto simbólico hacia la financiación, ingeniería y los trenes de Alstom franceses detrás del proyecto, y ambos líderes viajaron juntos en el primer trayecto hasta Rabat.",
+        "fr": "Emmanuel Macron se rendit à Tanger pour l'inauguration conjointe, un clin d'œil symbolique au financement, à l'ingénierie et aux rames Alstom françaises derrière le projet, et les deux dirigeants effectuèrent ensemble le trajet inaugural jusqu'à Rabat.",
+        "ja": "エマニュエル・マクロンはこの合同式典のためタンジェを訪れた。プロジェクトを支えたフランスの資金・技術とアルストム製車両への象徴的な謝意でもあり、両首脳はそろって開業初列車でラバトまで乗車した。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Which royal institute, founded in 2001, was created to standardise and promote the teaching of Amazigh a full decade before the language gained official constitutional status?",
+        "es": "¿Qué instituto real, fundado en 2001, se creó para estandarizar y promover la enseñanza del amazige, una década entera antes de que la lengua obtuviera estatus constitucional oficial?",
+        "fr": "Quel institut royal, fondé en 2001, fut créé pour normaliser et promouvoir l'enseignement de l'amazighe, une décennie entière avant que la langue n'obtienne un statut constitutionnel officiel ?",
+        "ja": "アマジグ語が憲法上の公用語という地位を得るちょうど10年前の2001年に、その標準化と教育普及のために設立された王立機関は?"
+      },
+      "o": [
+        {
+          "en": "The Royal Institute of Amazigh Culture (IRCAM)",
+          "es": "El Instituto Real de la Cultura Amazige (IRCAM)",
+          "fr": "L'Institut royal de la culture amazighe (IRCAM)",
+          "ja": "王立アマジグ文化研究所(IRCAM)"
+        },
+        {
+          "en": "The Moroccan Academy of Sciences",
+          "es": "La Academia Marroquí de Ciencias",
+          "fr": "L'Académie marocaine des sciences",
+          "ja": "モロッコ科学アカデミー"
+        },
+        {
+          "en": "The National Library of the Kingdom",
+          "es": "La Biblioteca Nacional del Reino",
+          "fr": "La Bibliothèque nationale du Royaume",
+          "ja": "王国国立図書館"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "IRCAM was tasked with settling questions activists had debated for years, from choosing Tifinagh as the official script to producing the first standardised Amazigh textbooks, well before the 2011 constitution made the language's official status a matter of law rather than policy.",
+        "es": "El IRCAM se encargó de resolver cuestiones que los activistas llevaban años debatiendo, desde elegir el tifinagh como escritura oficial hasta producir los primeros libros de texto estandarizados en amazige.",
+        "fr": "L'IRCAM fut chargé de trancher des questions débattues depuis des années par les militants, du choix du tifinagh comme écriture officielle à la production des premiers manuels amazighes standardisés.",
+        "ja": "IRCAMは、公式文字にティフィナグを選ぶことから最初の標準化されたアマジグ語教科書の作成まで、活動家たちが何年も議論してきた課題を2011年の憲法改正より前に片づける役目を担った。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "IRCAM's standardised Neo-Tifinagh alphabet, now used in Moroccan schools, is generally described as having how many letters?",
+        "es": "El alfabeto neotifinagh estandarizado por el IRCAM, usado hoy en las escuelas marroquíes, se describe generalmente con cuántas letras?",
+        "fr": "L'alphabet néo-tifinagh standardisé par l'IRCAM, utilisé aujourd'hui dans les écoles marocaines, est généralement décrit comme comptant combien de lettres ?",
+        "ja": "IRCAMが標準化し、いまモロッコの学校で使われるネオ・ティフィナグ文字は、一般に何文字とされるか?"
+      },
+      "o": [
+        {
+          "en": "22 letters",
+          "es": "22 letras",
+          "fr": "22 lettres",
+          "ja": "22文字"
+        },
+        {
+          "en": "33 letters",
+          "es": "33 letras",
+          "fr": "33 lettres",
+          "ja": "33文字"
+        },
+        {
+          "en": "48 letters",
+          "es": "48 letras",
+          "fr": "48 lettres",
+          "ja": "48文字"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The standardised set brings together 27 consonants, two semi-vowels and four vowels, unifying regional variants of the ancient script that had drifted apart over centuries of use mainly by Tuareg communities further south.",
+        "es": "El conjunto estandarizado reúne 27 consonantes, dos semivocales y cuatro vocales, unificando variantes regionales de la antigua escritura que se habían distanciado tras siglos de uso, sobre todo por comunidades tuareg más al sur.",
+        "fr": "L'ensemble standardisé réunit 27 consonnes, deux semi-voyelles et quatre voyelles, unifiant des variantes régionales de l'écriture ancienne qui s'étaient éloignées après des siècles d'usage, surtout par les communautés touarègues plus au sud.",
+        "ja": "標準化された文字体系は子音27・半母音2・母音4を合わせたもので、主に南方のトゥアレグの人々が何世紀も使ううちに枝分かれしていたこの古い文字の地域差を一本化したものである。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "What is the longest river in Morocco, whose lower reaches beyond Zagora run dry for most of the year?",
+        "es": "¿Cuál es el río más largo de Marruecos, cuyo tramo bajo más allá de Zagora se seca la mayor parte del año?",
+        "fr": "Quel est le plus long fleuve du Maroc, dont le cours inférieur au-delà de Zagora s'assèche la majeure partie de l'année ?",
+        "ja": "ザゴラより下流の区間が一年の大半で涸れている、モロッコで最も長い川は?"
+      },
+      "o": [
+        {
+          "en": "The Oued Sebou",
+          "es": "El río Sebú",
+          "fr": "L'oued Sebou",
+          "ja": "セブー川"
+        },
+        {
+          "en": "The Oued Moulouya",
+          "es": "El río Muluya",
+          "fr": "L'oued Moulouya",
+          "ja": "ムールーヤ川"
+        },
+        {
+          "en": "The Oued Draa",
+          "es": "El río Draa",
+          "fr": "L'oued Draa",
+          "ja": "ドラア川"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "At roughly 1,100 kilometres, the Draa is Morocco's longest river by far, rising in the High Atlas and threading through palm oases before its lower course, dammed near Ouarzazate, only reaches the Atlantic in exceptionally wet years.",
+        "es": "Con unos 1.100 km, el Draa es con diferencia el río más largo de Marruecos, nace en el Alto Atlas y atraviesa oasis de palmeras antes de que su curso bajo, represado cerca de Uarzazate, solo llegue al Atlántico en años excepcionalmente lluviosos.",
+        "fr": "Avec environ 1 100 km, le Draa est de loin le plus long fleuve du Maroc, prenant sa source dans le Haut Atlas et traversant des oasis de palmiers avant que son cours inférieur, endigué près d'Ouarzazate, n'atteigne l'Atlantique que les années exceptionnellement pluvieuses.",
+        "ja": "全長およそ1100キロメートルのドラア川はモロッコで断トツに長い川で、ハイアトラス山脈に源を発しナツメヤシのオアシスを縫うように流れるが、ワルザザート近郊でダムに堰き止められた下流部が大西洋まで達するのは、例外的に雨の多い年だけである。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "A khettara's underground channel is dug with an extremely gentle, carefully calculated slope, far gentler than the slope of the desert surface above it. What does this shallow gradient chiefly balance?",
+        "es": "El canal subterráneo de una jatara se excava con una pendiente extremadamente suave y calculada con precisión, mucho más suave que la pendiente de la superficie desértica de arriba. ¿Qué equilibra principalmente este desnivel tan leve?",
+        "fr": "Le canal souterrain d'une khettara est creusé avec une pente extrêmement douce et calculée avec précision, bien plus douce que la pente de la surface désertique au-dessus. Que cette faible déclivité équilibre-t-elle principalement ?",
+        "ja": "ハッターラの地下水路は、上にある砂漠地表の傾斜よりもはるかに緩やかな、綿密に計算された勾配で掘られる。この緩い勾配は主に何を両立させるためのものか?"
+      },
+      "o": [
+        {
+          "en": "Keeping the flow slow enough not to erode the earthen tunnel, yet steady enough to reach the fields by gravity alone",
+          "es": "Mantener el flujo lo bastante lento para no erosionar el túnel de tierra, pero constante para llegar a los campos solo por gravedad",
+          "fr": "Maintenir un débit assez lent pour ne pas éroder le tunnel de terre, mais assez régulier pour atteindre les champs par la seule gravité",
+          "ja": "土のトンネルを削らない程度に流れを緩やかにしつつ、重力だけで畑まで確実に届く程度の勢いは保つこと"
+        },
+        {
+          "en": "Aligning the tunnel's direction exactly toward Mecca",
+          "es": "Alinear la dirección del túnel exactamente hacia La Meca",
+          "fr": "Aligner la direction du tunnel exactement vers La Mecque",
+          "ja": "トンネルの向きをメッカの方角に正確に合わせること"
+        },
+        {
+          "en": "Making floodwater drain away as fast as possible during storms",
+          "es": "Hacer que el agua de las tormentas se drene lo más rápido posible",
+          "fr": "Faire évacuer l'eau des orages le plus vite possible",
+          "ja": "嵐のときに雨水をできるだけ速く排水すること"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Because the tunnel's slope is shallower than the ground surface's, the khettara ends up buried ever deeper below the surface as it runs back toward the mountains, and shallower where it finally daylights near the oasis fields — which is why the vertical maintenance shafts along its length get dramatically deeper toward the upstream end.",
+        "es": "Como la pendiente del túnel es más suave que la de la superficie, la jatara acaba enterrada cada vez más honda bajo tierra según se aleja hacia las montañas, y más superficial donde por fin aflora cerca de los campos del oasis.",
+        "fr": "Comme la pente du tunnel est plus douce que celle de la surface, la khettara finit enfouie toujours plus profondément sous terre à mesure qu'elle remonte vers les montagnes, et plus superficielle là où elle affleure enfin près des champs de l'oasis.",
+        "ja": "トンネルの勾配が地表の傾斜より緩いため、ハッターラは山側へさかのぼるほど地下深くに埋もれ、最終的にオアシスの畑の近くで顔を出す地点では浅くなる。保守用の縦穴が水源側に近づくほど劇的に深くなっているのはそのためである。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The Chellah, a walled necropolis in Rabat built atop Roman ruins, served as a royal burial ground for which medieval dynasty?",
+        "es": "El Chellah, una necrópolis amurallada en Rabat construida sobre ruinas romanas, ¿sirvió de cementerio real de qué dinastía medieval?",
+        "fr": "Le Chellah, nécropole fortifiée de Rabat bâtie sur des ruines romaines, servit de cimetière royal à quelle dynastie médiévale ?",
+        "ja": "ローマの遺跡の上に築かれたラバトの城壁に囲まれた墓所シェラは、どの中世王朝の王族の埋葬地として使われたか?"
+      },
+      "o": [
+        {
+          "en": "The Almohad dynasty",
+          "es": "La dinastía almohade",
+          "fr": "La dynastie almohade",
+          "ja": "ムワッヒド朝"
+        },
+        {
+          "en": "The Marinid dynasty",
+          "es": "La dinastía merinida",
+          "fr": "La dynastie mérinide",
+          "ja": "マリーン朝"
+        },
+        {
+          "en": "The Saadian dynasty",
+          "es": "La dinastía saadí",
+          "fr": "La dynastie saadienne",
+          "ja": "サアド朝"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The Marinids built minarets, a mosque and royal tombs within the Chellah's walls in the 14th century, choosing a site already layered with the Roman town of Sala Colonia beneath it, and storks now nest each spring on the ruined minaret rather than any human resident.",
+        "es": "Los merinidas construyeron minaretes, una mezquita y tumbas reales dentro de los muros del Chellah en el siglo XIV, eligiendo un lugar ya superpuesto sobre la ciudad romana de Sala Colonia. Hoy anidan cigüeñas cada primavera en el minarete en ruinas.",
+        "fr": "Les Mérinides bâtirent minarets, mosquée et tombeaux royaux dans l'enceinte du Chellah au XIVe siècle, choisissant un site déjà superposé à la ville romaine de Sala Colonia. Des cigognes nichent aujourd'hui chaque printemps sur le minaret en ruine.",
+        "ja": "マリーン朝は14世紀、下にローマ時代の町サラ・コロニアの遺構が積み重なるこの地を選び、シェラの城壁内に尖塔やモスク、王家の墓所を築いた。いまでは崩れた尖塔に毎春コウノトリが巣を作るばかりである。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The French protectorate built Morocco's mainline railway to standard gauge, while the separate Spanish protectorate in the north built its own line, including one linking Ceuta and Tetouan. What made the two networks physically unable to connect?",
+        "es": "El protectorado francés construyó el ferrocarril principal de Marruecos con vía estándar, mientras que el protectorado español, separado, en el norte construyó su propia línea, incluida una entre Ceuta y Tetuán. ¿Qué impedía físicamente conectar ambas redes?",
+        "fr": "Le protectorat français construisit la ligne principale du Maroc à écartement standard, tandis que le protectorat espagnol séparé au nord bâtit sa propre ligne, dont une reliant Ceuta et Tétouan. Qu'est-ce qui empêchait physiquement de relier les deux réseaux ?",
+        "ja": "フランス保護領はモロッコの幹線鉄道を標準軌で敷いたが、北部の別のスペイン保護領はセウタとテトゥアンを結ぶ路線を含む独自の鉄道を建設した。この二つの鉄道網が物理的につながらなかった理由は?"
+      },
+      "o": [
+        {
+          "en": "They ran on entirely incompatible electric current systems",
+          "es": "Funcionaban con sistemas de corriente eléctrica totalmente incompatibles",
+          "fr": "Ils fonctionnaient avec des systèmes de courant électrique totalement incompatibles",
+          "ja": "まったく異なる電化方式で走っていたから"
+        },
+        {
+          "en": "Trains on the two networks ran on opposite sides of the track",
+          "es": "Los trenes de ambas redes circulaban por lados opuestos de la vía",
+          "fr": "Les trains des deux réseaux circulaient des côtés opposés de la voie",
+          "ja": "二つの鉄道網で列車が逆の側を走行していたから"
+        },
+        {
+          "en": "The Spanish zone's line was built to a different, narrower track gauge",
+          "es": "La línea de la zona española se construyó con un ancho de vía distinto y más estrecho",
+          "fr": "La ligne de la zone espagnole fut construite à un écartement différent, plus étroit",
+          "ja": "スペイン領の路線が幅の異なる、より狭い軌間で建設されていたから"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Two colonial administrations laying track without coordinating left Morocco with railways that could never simply be joined end to end, a mismatch that outlasted the protectorates themselves and meant unifying the network after independence required rebuilding rather than merely connecting a missing link.",
+        "es": "Dos administraciones coloniales tendiendo vías sin coordinarse dejaron a Marruecos con ferrocarriles que nunca podrían simplemente unirse extremo con extremo, un desajuste que sobrevivió a los propios protectorados.",
+        "fr": "Deux administrations coloniales posant des voies sans se coordonner laissèrent au Maroc des chemins de fer qui ne purent jamais simplement se rejoindre bout à bout, un décalage qui survécut aux protectorats eux-mêmes.",
+        "ja": "二つの植民地行政が連携せず線路を敷いたことで、モロッコには端と端をつなぐだけでは済まない鉄道網が残った。この不整合は保護領そのものが終わったあとも尾を引き、独立後の鉄道統合は単なる連結ではなく敷き直しを要することになった。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "Besides its towering minaret, what unusual architectural feature does the prayer hall of Casablanca's Hassan II Mosque have, allowing it to open to the sky?",
+        "es": "Además de su alto minarete, ¿qué elemento arquitectónico insólito tiene la sala de oración de la mezquita Hassan II de Casablanca, que le permite abrirse al cielo?",
+        "fr": "Outre son minaret imposant, quel élément architectural insolite possède la salle de prière de la mosquée Hassan II de Casablanca, lui permettant de s'ouvrir au ciel ?",
+        "ja": "カサブランカのハッサン2世モスクの礼拝堂は、高い尖塔のほかに空へ向かって開くことができるどんな珍しい建築上の仕掛けを持つか?"
+      },
+      "o": [
+        {
+          "en": "A retractable roof that slides open in under five minutes",
+          "es": "Un techo retráctil que se abre en menos de cinco minutos",
+          "fr": "Un toit rétractable qui s'ouvre en moins de cinq minutes",
+          "ja": "5分足らずで開く可動式の屋根"
+        },
+        {
+          "en": "A rotating floor that turns to always face Mecca",
+          "es": "Un suelo giratorio que rota para orientarse siempre hacia La Meca",
+          "fr": "Un sol tournant orienté en permanence vers La Mecque",
+          "ja": "常にメッカの方角を向くよう回転する床"
+        },
+        {
+          "en": "A hot-air balloon tethered above the courtyard for ventilation",
+          "es": "Un globo aerostático amarrado sobre el patio para ventilación",
+          "fr": "Une montgolfière amarrée au-dessus de la cour pour la ventilation",
+          "ja": "換気のため中庭の上に係留された熱気球"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The 65-metre-square prayer hall's roof can slide open on rails, an engineering feat built into a structure designed to hold 25,000 worshippers inside, with room for tens of thousands more in the courtyard when the roof is open on clear nights.",
+        "es": "El techo de la sala de oración, de 65 metros de lado, puede abrirse deslizándose sobre raíles, una hazaña de ingeniería incorporada a una estructura pensada para 25.000 fieles dentro, con sitio para decenas de miles más en el patio cuando el techo está abierto en noches despejadas.",
+        "fr": "Le toit de la salle de prière, de 65 mètres de côté, peut coulisser sur des rails, une prouesse d'ingénierie intégrée à une structure conçue pour 25 000 fidèles à l'intérieur, avec de la place pour des dizaines de milliers d'autres dans la cour lorsque le toit est ouvert par temps clair.",
+        "ja": "一辺65メートルの礼拝堂の屋根はレールの上を滑らせて開くことができ、内部だけで2万5000人の礼拝者を収容するよう設計された構造にこの仕掛けが組み込まれている。晴れた夜に屋根を開けば、中庭にはさらに数万人分の余地が生まれる。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "What popular nickname, referring to the density of fortified strongholds along it, is given to the valley road running roughly from Ouarzazate toward Tinghir?",
+        "es": "¿Qué apodo popular, en referencia a la densidad de fortalezas a lo largo de ella, recibe la carretera del valle que va aproximadamente de Uarzazate hacia Tinghir?",
+        "fr": "Quel surnom populaire, faisant référence à la densité de forteresses qui la jalonnent, porte la route de vallée allant à peu près d'Ouarzazate vers Tinghir ?",
+        "ja": "ワルザザートからティンギールへとおおむね延びる渓谷道路が、沿道に建つ要塞の密度にちなんで呼ばれる通称は?"
+      },
+      "o": [
+        {
+          "en": "The Silk Road of Morocco",
+          "es": "La Ruta de la Seda de Marruecos",
+          "fr": "La Route de la soie du Maroc",
+          "ja": "モロッコのシルクロード"
+        },
+        {
+          "en": "The Road of a Thousand Kasbahs",
+          "es": "La Ruta de las Mil Kasbas",
+          "fr": "La Route des mille kasbahs",
+          "ja": "千のカスバの道"
+        },
+        {
+          "en": "The Avenue of the Sultans",
+          "es": "La Avenida de los Sultanes",
+          "fr": "L'Avenue des sultans",
+          "ja": "スルタン大通り"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The route, threading through the Skoura palmery and the Dades and Todra valleys, earned its nickname long before tourism gave it a marketing purpose, since fortified kasbahs genuinely cluster along it more densely than almost anywhere else in Morocco.",
+        "es": "La ruta, que atraviesa el palmeral de Skoura y los valles del Dades y el Todra, ganó su apodo mucho antes de que el turismo le diera un propósito de marketing, ya que las kasbas fortificadas se agrupan a lo largo de ella con más densidad que casi en ningún otro lugar de Marruecos.",
+        "fr": "La route, traversant la palmeraie de Skoura et les vallées du Dadès et du Todra, gagna son surnom bien avant que le tourisme ne lui donne une visée marketing, les kasbahs fortifiées s'y regroupant réellement plus densément que presque partout ailleurs au Maroc.",
+        "ja": "スコウラのナツメヤシ園やダデス・トドラ両渓谷を貫くこの道は、観光の宣伝文句になるよりずっと前からこの通称で呼ばれてきた。実際に要塞化されたカスバが、モロッコの他のどこよりも密に沿道に建ち並んでいるからである。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "What is the meaning of \"El Badi,\" the name of Ahmad al-Mansur's lavish 16th-century Saadian palace in Marrakesh, much of whose marble and gold was later stripped by Moulay Ismail?",
+        "es": "¿Qué significa «El Badi», el nombre del suntuoso palacio saadí del siglo XVI de Ahmad al-Mansur en Marrakech, gran parte de cuyo mármol y oro fue despojado después por Muley Ismail?",
+        "fr": "Que signifie « El Badi », nom du somptueux palais saadien du XVIe siècle d'Ahmad al-Mansour à Marrakech, dont marbre et or furent en grande partie dépouillés plus tard par Moulay Ismaïl ?",
+        "ja": "マラケシュにある16世紀のサアド朝の宮殿、アフマド・アル=マンスールが築いたものの大理石と金の多くをのちにムーレイ・イスマイルが剥ぎ取った「エル・バディ宮殿」の名は、何を意味するか?"
+      },
+      "o": [
+        {
+          "en": "\"The Eternal\"",
+          "es": "«El Eterno»",
+          "fr": "« L'Éternel »",
+          "ja": "「永遠なるもの」"
+        },
+        {
+          "en": "\"The Incomparable\"",
+          "es": "«El Incomparable»",
+          "fr": "« L'Incomparable »",
+          "ja": "「並ぶものなき者」"
+        },
+        {
+          "en": "\"The Beloved\"",
+          "es": "«El Amado»",
+          "fr": "« Le Bien-Aimé »",
+          "ja": "「愛されし者」"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "\"El Badi\" is one of the ninety-nine traditional names for God in Islam, meaning roughly \"the incomparable\" or \"the marvel,\" a boastful choice of name for a palace whose gold-trimmed courtyards were funded largely by sugar exports and a ransom paid after a famous Moroccan military victory.",
+        "es": "«El Badi» es uno de los noventa y nueve nombres tradicionales de Dios en el islam, y significa aproximadamente «el incomparable» o «la maravilla», un nombre presuntuoso para un palacio cuyos patios bordeados de oro se financiaron en gran parte con exportaciones de azúcar.",
+        "fr": "« El Badi » est l'un des quatre-vingt-dix-neuf noms traditionnels de Dieu en islam, signifiant à peu près « l'incomparable » ou « la merveille », un nom présomptueux pour un palais dont les cours bordées d'or furent financées en grande partie par les exportations de sucre.",
+        "ja": "「エル・バディ」はイスラムの神の99の美称のひとつで、おおよそ「並ぶものなき者」「驚異」を意味する。金縁の中庭が主に砂糖の輸出とある有名な戦勝後に得た身代金で賄われた宮殿にふさわしい、いささか大仰な名である。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "In 1912, which treaty formally established the French protectorate over Morocco, ending the country's period as a fully independent sultanate?",
+        "es": "En 1912, ¿qué tratado estableció formalmente el protectorado francés sobre Marruecos, poniendo fin al periodo del país como sultanato plenamente independiente?",
+        "fr": "En 1912, quel traité établit formellement le protectorat français sur le Maroc, mettant fin à la période du pays comme sultanat pleinement indépendant ?",
+        "ja": "1912年、モロッコを完全な独立国のスルタン国としての時代から終わらせ、フランス保護領を正式に定めた条約は?"
+      },
+      "o": [
+        {
+          "en": "The Treaty of Fez",
+          "es": "El Tratado de Fez",
+          "fr": "Le traité de Fès",
+          "ja": "フェズ条約"
+        },
+        {
+          "en": "The Treaty of Algeciras",
+          "es": "El Tratado de Algeciras",
+          "fr": "Le traité d'Algésiras",
+          "ja": "アルヘシラス条約"
+        },
+        {
+          "en": "The Treaty of Tangier",
+          "es": "El Tratado de Tánger",
+          "fr": "Le traité de Tanger",
+          "ja": "タンジェ条約"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Sultan Abd al-Hafid signed the Treaty of Fez under pressure after French troops had already occupied the city to put down a revolt, and the treaty's signing itself triggered further unrest that briefly cost him control of his own capital.",
+        "es": "El sultán Abd al-Hafid firmó el Tratado de Fez bajo presión, después de que tropas francesas ya hubieran ocupado la ciudad para sofocar una revuelta, y la propia firma del tratado desató más disturbios que le costaron brevemente el control de su propia capital.",
+        "fr": "Le sultan Abd al-Hafid signa le traité de Fès sous la contrainte, après que des troupes françaises eurent déjà occupé la ville pour réprimer une révolte, et la signature même du traité déclencha de nouveaux troubles qui lui firent brièvement perdre le contrôle de sa propre capitale.",
+        "ja": "スルタン、アブド・アル=ハフィードは、反乱を鎮めるためすでにフェズを占領していたフランス軍の圧力のもとフェズ条約に署名したが、その署名自体がさらなる騒乱を引き起こし、彼は一時、自らの首都の統制すら失うことになった。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "Idris I, founder of Morocco's first Islamic dynasty, was a descendant of the Prophet Muhammad through which relative, Ali's son and the Prophet's grandson?",
+        "es": "Idris I, fundador de la primera dinastía islámica de Marruecos, descendía del profeta Mahoma a través de qué pariente, hijo de Alí y nieto del Profeta?",
+        "fr": "Idris Ier, fondateur de la première dynastie islamique du Maroc, descendait du prophète Mahomet par quel parent, fils d'Ali et petit-fils du Prophète ?",
+        "ja": "モロッコ最初のイスラム王朝の創始者イドリース1世は、アリーの息子で預言者の孫にあたる誰を通じて預言者ムハンマドの子孫にあたるか?"
+      },
+      "o": [
+        {
+          "en": "Hussein ibn Ali",
+          "es": "Husáin ibn Alí",
+          "fr": "Hussein ibn Ali",
+          "ja": "フサイン・イブン・アリー"
+        },
+        {
+          "en": "Zayd ibn Ali",
+          "es": "Zayd ibn Alí",
+          "fr": "Zayd ibn Ali",
+          "ja": "ザイド・イブン・アリー"
+        },
+        {
+          "en": "Hassan ibn Ali",
+          "es": "Hasán ibn Alí",
+          "fr": "Hassan ibn Ali",
+          "ja": "ハサン・イブン・アリー"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Idris I's lineage back to Hassan ibn Ali, the Prophet's elder grandson, is what gave the Idrisids — and by extension the sharifian claim later adopted by the Saadian and Alaouite dynasties — their religious legitimacy in the eyes of many Moroccan Muslims.",
+        "es": "El linaje de Idris I hasta Hasán ibn Alí, el nieto mayor del Profeta, es lo que dio a los idrisíes —y por extensión a la pretensión jerifiana adoptada después por las dinastías saadí y alauita— su legitimidad religiosa ante muchos musulmanes marroquíes.",
+        "fr": "La lignée d'Idris Ier remontant à Hassan ibn Ali, le petit-fils aîné du Prophète, est ce qui donna aux Idrissides — et par extension à la revendication chérifienne adoptée plus tard par les dynasties saadienne et alaouite — leur légitimité religieuse aux yeux de nombreux musulmans marocains.",
+        "ja": "預言者の年長の孫であるハサン・イブン・アリーにまでさかのぼるイドリース1世の血統こそが、イドリース朝、さらにはのちにサアド朝やアラウィー朝が受け継ぐことになる「シャリーフ(預言者の子孫)」としての正統性を、多くのモロッコのムスリムの目に与えるものだった。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "What is the traditional long, fitted, often richly embroidered dress worn by Moroccan women for weddings and celebrations, distinct from the men's djellaba?",
+        "es": "¿Cómo se llama el vestido tradicional, largo y ajustado, a menudo ricamente bordado, que llevan las marroquíes en bodas y celebraciones, distinto de la chilaba masculina?",
+        "fr": "Comment appelle-t-on la robe traditionnelle longue et ajustée, souvent richement brodée, portée par les Marocaines pour les mariages et fêtes, distincte de la djellaba masculine ?",
+        "ja": "婚礼や祝いの席でモロッコの女性が着る、長く体に沿った、しばしば豪華な刺繍を施された伝統衣装で、男性のジェラバとは異なるものの名は?"
+      },
+      "o": [
+        {
+          "en": "The kaftan",
+          "es": "El caftán",
+          "fr": "Le caftan",
+          "ja": "カフタン"
+        },
+        {
+          "en": "The sari",
+          "es": "El sari",
+          "fr": "Le sari",
+          "ja": "サリー"
+        },
+        {
+          "en": "The kimono",
+          "es": "El kimono",
+          "fr": "Le kimono",
+          "ja": "着物"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The Moroccan kaftan, closed with elaborate braided silk buttons called sfifa, has become a fashion export in its own right, with designers in Fez and Rabat reworking centuries-old patterns into pieces sold well beyond North Africa.",
+        "es": "El caftán marroquí, cerrado con elaborados botones de seda trenzada llamados sfifa, se ha convertido en una exportación de moda por derecho propio, con diseñadores en Fez y Rabat reinventando patrones centenarios.",
+        "fr": "Le caftan marocain, fermé par des boutons de soie tressée élaborés appelés sfifa, est devenu une exportation de mode à part entière, des créateurs à Fès et à Rabat retravaillant des motifs séculaires.",
+        "ja": "組紐飾りの絹ボタン「スフィファ」で留めるモロッコのカフタンは、それ自体がファッションの輸出品となっており、フェズやラバトのデザイナーたちが何世紀も続く文様を作り直し、北アフリカの外でも売られている。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Beyond decoration, the large silver jewelry traditionally worn by rural Amazigh women in Morocco also served mainly what practical purpose?",
+        "es": "Además de decoración, ¿qué finalidad práctica cumplían principalmente las grandes joyas de plata que tradicionalmente llevaban las mujeres amaziges rurales de Marruecos?",
+        "fr": "Au-delà de la décoration, à quelle fin pratique servaient principalement les grands bijoux en argent traditionnellement portés par les femmes amazighes rurales du Maroc ?",
+        "ja": "装飾のほかに、モロッコの農村部のアマジグ人女性が伝統的に身につけた大ぶりの銀装身具が主に果たしていた実用的な役割は?"
+      },
+      "o": [
+        {
+          "en": "A portable store of the family's wealth",
+          "es": "Una reserva portátil de la riqueza familiar",
+          "fr": "Une réserve portable de la richesse familiale",
+          "ja": "一家の財産を持ち運べる形で蓄える手段"
+        },
+        {
+          "en": "A way to signal one's job or trade",
+          "es": "Una forma de señalar el oficio propio",
+          "fr": "Un moyen de signaler son métier",
+          "ja": "自分の職業を示す手段"
+        },
+        {
+          "en": "Protection against sunburn",
+          "es": "Protección contra las quemaduras solares",
+          "fr": "Une protection contre les coups de soleil",
+          "ja": "日焼けを防ぐ手段"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "In communities without banks, a woman's necklaces, brooches and anklets doubled as a household's savings account worn on the body, and their weight in silver could be melted down or sold in hard times, which is one reason pieces were often made deliberately heavy.",
+        "es": "En comunidades sin bancos, los collares, broches y ajorcas de una mujer hacían las veces de cuenta de ahorros familiar llevada puesta, y su peso en plata podía fundirse o venderse en tiempos difíciles.",
+        "fr": "Dans des communautés sans banques, les colliers, broches et bracelets de cheville d'une femme faisaient office de compte d'épargne familial porté sur le corps, et leur poids en argent pouvait être fondu ou vendu en période difficile.",
+        "ja": "銀行のない共同体では、女性の首飾りやブローチ、足輪は身につけたまま持ち歩ける一家の貯金箱の役目も兼ねており、いざというときには溶かすか売ることができた。あえて重く作られることが多かった理由のひとつでもある。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What is the name of Morocco's oldest modern public university, founded in Rabat in 1957 and named after the country's first post-independence king?",
+        "es": "¿Cómo se llama la universidad pública moderna más antigua de Marruecos, fundada en Rabat en 1957 y nombrada en honor al primer rey del país tras la independencia?",
+        "fr": "Comment s'appelle la plus ancienne université publique moderne du Maroc, fondée à Rabat en 1957 et nommée d'après le premier roi du pays après l'indépendance ?",
+        "ja": "1957年にラバトで設立され、独立後最初の国王にちなんで名付けられた、モロッコ最古の近代的な公立大学の名は?"
+      },
+      "o": [
+        {
+          "en": "Al Akhawayn University",
+          "es": "Universidad Al Akhawayn",
+          "fr": "Université Al Akhawayn",
+          "ja": "アル・アハワイン大学"
+        },
+        {
+          "en": "Mohammed V University",
+          "es": "Universidad Mohamed V",
+          "fr": "Université Mohammed V",
+          "ja": "ムハンマド5世大学"
+        },
+        {
+          "en": "Hassan II University",
+          "es": "Universidad Hasán II",
+          "fr": "Université Hassan II",
+          "ja": "ハッサン2世大学"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Mohammed V University was founded the year after independence and named for the sultan who had just returned from exile, and it remains one of the country's largest public universities, distinct from the private, English-language Al Akhawayn University founded much later in Ifrane.",
+        "es": "La Universidad Mohamed V se fundó el año después de la independencia, en honor al sultán recién regresado del exilio, y sigue siendo una de las mayores universidades públicas del país.",
+        "fr": "L'université Mohammed V fut fondée l'année suivant l'indépendance, du nom du sultan tout juste revenu d'exil, et reste l'une des plus grandes universités publiques du pays.",
+        "ja": "ムハンマド5世大学は独立の翌年、亡命から帰還したばかりのスルタンにちなんで設立され、いまも国内屈指の規模を誇る公立大学であり続けている。イフレンにはるかのちに設立された私立の英語教育校アル・アハワイン大学とは別の大学である。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Morocco's currency, the dirham, is subdivided into 100 of which smaller unit?",
+        "es": "El dirham, la moneda de Marruecos, se subdivide en 100 unidades de cuál más pequeña?",
+        "fr": "Le dirham, la monnaie du Maroc, se subdivise en 100 unités de laquelle, plus petite ?",
+        "ja": "モロッコの通貨ディルハムは、より小さい何という単位100個分に分かれるか?"
+      },
+      "o": [
+        {
+          "en": "Piastre",
+          "es": "Piastra",
+          "fr": "Piastre",
+          "ja": "ピアストル"
+        },
+        {
+          "en": "Fils",
+          "es": "Fils",
+          "fr": "Fils",
+          "ja": "フィルス"
+        },
+        {
+          "en": "Centime",
+          "es": "Céntimo",
+          "fr": "Centime",
+          "ja": "サンチーム"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The centime, still often called by its old name \"franc\" in everyday speech left over from the protectorate era, is rarely seen in cash today since coins that small have little purchasing power, but prices in markets are still sometimes quoted in old francs out of habit.",
+        "es": "El céntimo, aún llamado a menudo por su antiguo nombre «franco» en el habla cotidiana, herencia de la época del protectorado, rara vez se ve en efectivo hoy, ya que monedas tan pequeñas tienen poco poder adquisitivo.",
+        "fr": "Le centime, encore souvent appelé par son ancien nom de « franc » dans le langage courant, héritage de l'époque du protectorat, se voit rarement en espèces aujourd'hui, les pièces aussi petites ayant peu de pouvoir d'achat.",
+        "ja": "サンチームは保護領時代の名残でいまも日常会話では古い呼び名「フラン」と呼ばれることが多いが、これほど小さな硬貨は購買力に乏しいため現金としてはめったに見られない。それでも市場では習慣で価格が旧フラン建てで言われることがある。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What is the traditional Moroccan custom, common in rural Amazigh villages, in which neighbours take turns providing free collective labour for tasks like harvest or house-building called?",
+        "es": "¿Cómo se llama la costumbre tradicional marroquí, habitual en pueblos amaziges rurales, en la que los vecinos se turnan para aportar trabajo colectivo gratuito en tareas como la cosecha o la construcción de casas?",
+        "fr": "Comment appelle-t-on la coutume traditionnelle marocaine, courante dans les villages amazighs ruraux, où les voisins se relaient pour fournir un travail collectif gratuit lors de tâches comme la moisson ou la construction de maisons ?",
+        "ja": "農村部のアマジグ人の村でよく見られる、収穫や家の建築といった作業のために近隣住民が交代で無償の共同労働を提供する伝統的な慣習の名は?"
+      },
+      "o": [
+        {
+          "en": "Twiza",
+          "es": "Tuiza",
+          "fr": "Twiza",
+          "ja": "トゥイザ"
+        },
+        {
+          "en": "Souk",
+          "es": "Zoco",
+          "fr": "Souk",
+          "ja": "スーク"
+        },
+        {
+          "en": "Zawiya",
+          "es": "Zauia",
+          "fr": "Zaouïa",
+          "ja": "ザーウィヤ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Twiza works on a simple principle of reciprocity: a family that receives free help with, say, roofing their house is expected to return the favour whenever a neighbour later calls on the same custom, and the practice has also been adapted by NGOs to organise volunteer environmental projects.",
+        "es": "La tuiza funciona con un principio sencillo de reciprocidad: se espera que una familia que recibe ayuda gratuita para techar su casa devuelva el favor cuando un vecino recurra después a la misma costumbre.",
+        "fr": "La twiza fonctionne sur un principe simple de réciprocité : une famille qui reçoit une aide gratuite pour, disons, la toiture de sa maison est censée rendre la pareille lorsqu'un voisin fera plus tard appel à la même coutume.",
+        "ja": "トゥイザは単純な互恵の原理で成り立っている。例えば屋根葺きを無償で手伝ってもらった家族は、のちに近隣の誰かが同じ慣習を頼ってきたときに恩を返すことが期待される。近年では非政府組織が環境保全のボランティア活動を組織する際にもこの慣習が応用されている。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What is the term for the large ceremonial courtyard or parade ground found in front of Morocco's royal palaces, used for public gatherings and troop reviews?",
+        "es": "¿Cómo se llama el gran patio ceremonial o explanada frente a los palacios reales de Marruecos, usado para actos públicos y revistas de tropas?",
+        "fr": "Comment appelle-t-on la vaste cour cérémonielle ou place d'armes devant les palais royaux du Maroc, utilisée pour les rassemblements publics et les revues de troupes ?",
+        "ja": "モロッコの王宮の前に設けられ、公的な集会や閲兵に使われる広大な儀礼用の広場の名は?"
+      },
+      "o": [
+        {
+          "en": "The mechouar",
+          "es": "El mechouar",
+          "fr": "Le méchouar",
+          "ja": "メシュアール"
+        },
+        {
+          "en": "The riad",
+          "es": "El riad",
+          "fr": "Le riad",
+          "ja": "リヤド"
+        },
+        {
+          "en": "The ksar",
+          "es": "El ksar",
+          "fr": "Le ksar",
+          "ja": "クサル"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "A mechouar historically doubled as the space where the sultan held public audiences and received petitioners, and several Moroccan cities, including Rabat, Marrakesh and Tangier, still have one fronting their royal palace today.",
+        "es": "Un mechouar hacía históricamente también de espacio donde el sultán celebraba audiencias públicas y recibía peticiones, y varias ciudades marroquíes, entre ellas Rabat, Marrakech y Tánger, aún tienen uno frente a su palacio real.",
+        "fr": "Un méchouar servait historiquement aussi d'espace où le sultan tenait des audiences publiques et recevait les pétitionnaires, et plusieurs villes marocaines, dont Rabat, Marrakech et Tanger, en ont encore un devant leur palais royal.",
+        "ja": "メシュアールは歴史的に、スルタンが公の謁見を行い陳情を受け付ける場でもあった。ラバトやマラケシュ、タンジェをはじめとするモロッコの複数の町では、いまも王宮の前にこの広場が残っている。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "The Almohad dynasty, which built the Koutoubia, the Giralda and the Hassan Tower, arose as a religious reform movement among which Amazigh tribal confederation of the High Atlas?",
+        "es": "La dinastía almohade, que construyó la Koutoubia, la Giralda y la Torre Hassan, surgió como movimiento de reforma religiosa entre qué confederación tribal amazige del Alto Atlas?",
+        "fr": "La dynastie almohade, qui bâtit la Koutoubia, la Giralda et la tour Hassan, naquit comme mouvement de réforme religieuse au sein de quelle confédération tribale amazighe du Haut Atlas ?",
+        "ja": "クトゥビア・ヒラルダ塔・ハッサンの塔を築いたムワッヒド朝は、ハイアトラスのどのアマジグ部族連合のもとで宗教改革運動として興ったか?"
+      },
+      "o": [
+        {
+          "en": "The Sanhaja confederation",
+          "es": "La confederación sanhaya",
+          "fr": "La confédération sanhadja",
+          "ja": "サンハージャ連合"
+        },
+        {
+          "en": "The Zenata confederation",
+          "es": "La confederación zenata",
+          "fr": "La confédération zénète",
+          "ja": "ゼナータ連合"
+        },
+        {
+          "en": "The Masmuda confederation",
+          "es": "La confederación masmuda",
+          "fr": "La confédération masmouda",
+          "ja": "マスムーダ連合"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The movement was founded by Ibn Tumart, a religious reformer who declared himself the Mahdi among Masmuda tribes in the mountains near present-day Tinmel, and it was his successors who then overthrew the Almoravids — themselves risen from Sanhaja nomads a century earlier.",
+        "es": "El movimiento lo fundó Ibn Tumart, un reformador religioso que se proclamó el Mahdi entre las tribus masmuda de las montañas cerca de la actual Tinmel, y fueron sus sucesores quienes derrocaron después a los almorávides.",
+        "fr": "Le mouvement fut fondé par Ibn Toumert, un réformateur religieux qui se proclama le Mahdi parmi les tribus masmouda des montagnes près de l'actuelle Tinmel, et ce sont ses successeurs qui renversèrent ensuite les Almoravides.",
+        "ja": "この運動は、現在のティンメル近郊の山地でマスムーダ諸部族のあいだで自らをマフディー(救世主)と称した宗教改革者イブン・トゥーマルトが興したものであり、その後継者たちが、一世紀前にサンハージャの遊牧民から興ったムラービト朝を打倒することになった。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Ibn Battuta, the medieval traveller born in Tangier whose journeys are estimated to have covered even more distance than Marco Polo's, trained and worked professionally as what?",
+        "es": "Ibn Battuta, el viajero medieval nacido en Tánger cuyos viajes se calcula que cubrieron aún más distancia que los de Marco Polo, se formó y trabajó profesionalmente como qué?",
+        "fr": "Ibn Battûta, le voyageur médiéval né à Tanger dont les voyages sont estimés avoir couvert encore plus de distance que ceux de Marco Polo, se forma et exerça professionnellement en tant que quoi ?",
+        "ja": "マルコ・ポーロよりもさらに長い距離を旅したと推定される、タンジェ生まれの中世の旅行家イブン・バットゥータは、専門職として何の訓練を受け働いていたか?"
+      },
+      "o": [
+        {
+          "en": "A ship's navigator",
+          "es": "Navegante de barco",
+          "fr": "Navigateur de navire",
+          "ja": "船の航海士"
+        },
+        {
+          "en": "An Islamic legal scholar and judge",
+          "es": "Erudito y juez de derecho islámico",
+          "fr": "Érudit et juge en droit islamique",
+          "ja": "イスラム法学者・裁判官"
+        },
+        {
+          "en": "A court physician",
+          "es": "Médico de corte",
+          "fr": "Médecin de cour",
+          "ja": "宮廷医"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Trained in Islamic law in Tangier before setting out on what was meant to be a single pilgrimage to Mecca in 1325, Ibn Battuta kept extending his travels for nearly three decades across Africa, Asia and Europe, periodically finding paid work along the way as a qadi, or judge, in cities that needed one.",
+        "es": "Formado en derecho islámico en Tánger antes de partir en lo que iba a ser una única peregrinación a La Meca en 1325, Ibn Battuta fue prolongando sus viajes durante casi tres décadas por África, Asia y Europa, encontrando de vez en cuando trabajo remunerado como cadí, o juez.",
+        "fr": "Formé au droit islamique à Tanger avant de partir pour ce qui devait être un simple pèlerinage à La Mecque en 1325, Ibn Battûta prolongea ses voyages pendant près de trois décennies à travers l'Afrique, l'Asie et l'Europe, trouvant parfois du travail rémunéré comme qadi, ou juge.",
+        "ja": "1325年、単なるメッカ巡礼のつもりでタンジェを発つ前にイスラム法を学んでいたイブン・バットゥータは、その後アフリカ・アジア・ヨーロッパを巡る旅を三十年近くも延ばし続け、旅の途中でしばしば裁判官(カーディー)としての職を得て報酬を得ていた。"
+      }
     }
   ],
   "items": {

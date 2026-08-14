@@ -2704,37 +2704,37 @@
     {
       "difficulty": 5,
       "q": {
-        "en": "What is the region beyond Neptune called, where Pluto and countless icy bodies orbit?",
-        "es": "¿Cómo se llama la región más allá de Neptuno donde orbitan Plutón e innumerables cuerpos helados?",
-        "fr": "Comment appelle-t-on la région au-delà de Neptune où orbitent Pluton et d'innombrables corps glacés ?",
-        "ja": "海王星の外側で冥王星や無数の氷天体が周回する領域を何と呼ぶか?"
+        "en": "In which year did astronomers finally confirm, by direct observation, that a whole population of small icy worlds really does orbit beyond Neptune?",
+        "es": "¿En qué año confirmaron por fin los astrónomos, mediante observación directa, que toda una población de pequeños mundos helados orbita realmente más allá de Neptuno?",
+        "fr": "En quelle année les astronomes ont-ils enfin confirmé, par observation directe, que toute une population de petits mondes glacés orbite réellement au-delà de Neptune ?",
+        "ja": "天文学者たちが実際の観測によって、氷でできた小天体の一群が本当に太陽系の外縁を巡っていることをついに確かめたのは何年か?"
       },
       "o": [
         {
-          "en": "The Asteroid Belt",
-          "es": "El cinturón de asteroides",
-          "fr": "La ceinture d'astéroïdes",
-          "ja": "小惑星帯"
+          "en": "1958",
+          "es": "1958",
+          "fr": "1958",
+          "ja": "1958年"
         },
         {
-          "en": "The Oort Cloud",
-          "es": "La Nube de Oort",
-          "fr": "Le Nuage de Oort",
-          "ja": "オールトの雲"
+          "en": "1975",
+          "es": "1975",
+          "fr": "1975",
+          "ja": "1975年"
         },
         {
-          "en": "The Kuiper Belt",
-          "es": "El cinturón de Kuiper",
-          "fr": "La ceinture de Kuiper",
-          "ja": "カイパーベルト"
+          "en": "1992",
+          "es": "1992",
+          "fr": "1992",
+          "ja": "1992年"
         }
       ],
       "a": 2,
       "f": {
-        "en": "The Kuiper Belt was only confirmed to exist in 1992, decades after Pluto's 1930 discovery had already hinted something like it might be out there.",
-        "es": "La existencia del cinturón de Kuiper solo se confirmó en 1992, décadas después de que el descubrimiento de Plutón en 1930 ya insinuara que podía haber algo así.",
-        "fr": "L'existence de la ceinture de Kuiper ne fut confirmée qu'en 1992, des décennies après que la découverte de Pluton en 1930 eut déjà laissé entrevoir qu'il pourrait exister quelque chose de semblable.",
-        "ja": "カイパーベルトの存在が確認されたのは1992年になってからで、1930年の冥王星発見によってその存在が示唆されてから数十年が経っていた。"
+        "en": "The confirmed find, given the catalogue designation 1992 QB1, came decades after Pluto's own 1930 discovery had already hinted that something like it might be out there, and after several astronomers had argued on theoretical grounds alone that such a population should exist. Thousands more such worlds have since been catalogued in the same region.",
+        "es": "El hallazgo confirmado, con la designación de catálogo 1992 QB1, llegó décadas después de que el propio descubrimiento de Plutón en 1930 ya insinuara que podía haber algo así, y tras años en que varios astrónomos habían defendido solo con argumentos teóricos que debía existir esa población. Desde entonces se han catalogado miles de mundos más en esa misma región.",
+        "fr": "La découverte confirmée, portant la désignation de catalogue 1992 QB1, est survenue des décennies après que la propre découverte de Pluton en 1930 eut déjà laissé entrevoir qu'il pourrait exister quelque chose de semblable, et après que plusieurs astronomes eurent longtemps défendu, sur la seule base de la théorie, qu'une telle population devait exister. Des milliers d'autres mondes de ce genre ont depuis été catalogués dans la même région.",
+        "ja": "1992 QB1というカタログ番号を与えられたこの確認された発見は、1930年の冥王星発見によってその存在がすでに示唆されてから数十年後のことだった。それまで何人もの天文学者が理論上の議論だけを頼りに、そうした一群が存在するはずだと主張していた。その後、同じ領域でさらに何千もの天体が目録に加えられている。"
       }
     },
     {
@@ -3136,37 +3136,37 @@
     {
       "difficulty": 8,
       "q": {
-        "en": "What is the vast, mostly theoretical shell of icy bodies thought to surround the whole Solar System called?",
-        "es": "¿Cómo se llama la vasta y en gran parte teórica capa de cuerpos helados que se cree rodea todo el Sistema Solar?",
-        "fr": "Comment appelle-t-on la vaste coquille, en grande partie théorique, de corps glacés censée entourer tout le Système solaire ?",
-        "ja": "太陽系全体を取り巻くと考えられる、大部分が理論上の氷天体の殻を何と呼ぶか?"
+        "en": "Some astronomers divide the distant, comet-supplying shell beyond the Kuiper Belt into two parts, adding a closer, flatter, denser region proposed in 1981 by astronomer Jack Hills and often called what?",
+        "es": "¿Algunos astrónomos dividen la lejana capa proveedora de cometas más allá del cinturón de Kuiper en dos partes, añadiendo una región más cercana, plana y densa propuesta en 1981 por el astrónomo Jack Hills, a menudo llamada cómo?",
+        "fr": "Certains astronomes divisent la lointaine coquille pourvoyeuse de comètes au-delà de la ceinture de Kuiper en deux parties, en ajoutant une région plus proche, plus plate et plus dense, proposée en 1981 par l'astronome Jack Hills, souvent appelée comment ?",
+        "ja": "カイパーベルトの外側に広がる、彗星を送り出す遠い殻を二つに分け、天文学者ジャック・ヒルズが1981年に提唱した、より近く平たく密度の高い領域を加えて考える天文学者もいるが、それは何と呼ばれるか?"
       },
       "o": [
         {
-          "en": "The Kuiper Belt",
-          "es": "El cinturón de Kuiper",
-          "fr": "La ceinture de Kuiper",
-          "ja": "カイパーベルト"
+          "en": "The Kuiper transition zone",
+          "es": "La zona de transición de Kuiper",
+          "fr": "La zone de transition de Kuiper",
+          "ja": "カイパー遷移帯"
         },
         {
-          "en": "The Asteroid Belt",
-          "es": "El cinturón de asteroides",
-          "fr": "La ceinture d'astéroïdes",
-          "ja": "小惑星帯"
+          "en": "The cometary halo",
+          "es": "El halo cometario",
+          "fr": "Le halo cométaire",
+          "ja": "彗星ハロー"
         },
         {
-          "en": "The Oort Cloud",
-          "es": "La Nube de Oort",
-          "fr": "Le Nuage de Oort",
-          "ja": "オールトの雲"
+          "en": "The inner Oort Cloud, or Hills Cloud",
+          "es": "La Nube de Oort interior, o Nube de Hills",
+          "fr": "Le Nuage de Oort interne, ou Nuage de Hills",
+          "ja": "内オールトの雲(ヒルズ雲)"
         }
       ],
       "a": 2,
       "f": {
-        "en": "No object in the Oort Cloud has ever been directly observed — its existence is inferred mainly from the long, looping orbits of certain comets.",
-        "es": "Ningún objeto de la Nube de Oort se ha observado jamás directamente: su existencia se infiere sobre todo de las órbitas largas y curvas de ciertos cometas.",
-        "fr": "Aucun objet du Nuage de Oort n'a jamais été observé directement : son existence est déduite surtout des orbites longues et en boucle de certaines comètes.",
-        "ja": "オールトの雲の天体は、これまで一つも直接観測されたことがない。その存在は主に、いくつかの彗星が描く長く弧を描く軌道から推測されている。"
+        "en": "Hills proposed that this denser, disk-shaped inner region might act as a reservoir, occasionally getting stirred up and sending fresh comets outward into the classic spherical outer cloud that Jan Oort had described three decades earlier. Like the rest of the region, no object within it has ever actually been observed directly; its existence remains a working model rather than a confirmed fact.",
+        "es": "Hills propuso que esta región interior más densa y en forma de disco podría actuar como un depósito, agitándose de vez en cuando y enviando cometas nuevos hacia la clásica nube exterior esférica que Jan Oort había descrito tres décadas antes. Como el resto de la región, ningún objeto en su interior ha sido observado jamás directamente; su existencia sigue siendo un modelo de trabajo y no un hecho confirmado.",
+        "fr": "Hills proposa que cette région interne plus dense, en forme de disque, pourrait servir de réservoir, se trouvant parfois perturbée et envoyant de nouvelles comètes vers le nuage extérieur sphérique classique que Jan Oort avait décrit trois décennies plus tôt. Comme le reste de la région, aucun objet en son sein n'a jamais été observé directement ; son existence reste un modèle de travail plutôt qu'un fait confirmé.",
+        "ja": "ヒルズは、この密度の高い円盤状の内側の領域が一種の貯蔵庫のように働き、時おりかき乱されては、三十年前にヤン・オールトが描いた球形の古典的な外側の雲へ新しい彗星を送り出しているのではないかと提唱した。この領域の他の部分と同じく、その内部の天体が直接観測されたことは一度もなく、存在はいまも確かめられた事実ではなく作業上の仮説にとどまっている。"
       }
     },
     {
@@ -3316,10 +3316,10 @@
     {
       "difficulty": 10,
       "q": {
-        "en": "Which dwarf planet is named after an Inuit goddess of the sea?",
-        "es": "¿Qué planeta enano recibe el nombre de una diosa inuit del mar?",
-        "fr": "Quelle planète naine porte le nom d'une déesse inuite de la mer ?",
-        "ja": "イヌイットの海の女神にちなんで名付けられた準惑星はどれか?"
+        "en": "Which distant trans-Neptunian object is named after an Inuit goddess of the sea?",
+        "es": "¿Qué lejano objeto transneptuniano recibe el nombre de una diosa inuit del mar?",
+        "fr": "Quel lointain objet transneptunien porte le nom d'une déesse inuite de la mer ?",
+        "ja": "イヌイットの海の女神にちなんで名付けられた、遠く離れた太陽系外縁天体はどれか?"
       },
       "o": [
         {
@@ -3347,6 +3347,2490 @@
         "es": "En la tradición inuit, se dice que Sedna gobierna las criaturas del mar profundo, un nombre apropiado para un mundo que pasa la mayor parte de su órbita de 11.400 años en el frío profundo mucho más allá de Neptuno.",
         "fr": "Dans la tradition inuite, Sedna est dite régner sur les créatures des profondeurs marines, un nom bien choisi pour un monde qui passe l'essentiel de son orbite de 11 400 ans dans le froid profond bien au-delà de Neptune.",
         "ja": "イヌイットの伝承では、セドナは深海の生き物たちを統べるとされる。海王星のはるか外側の深い寒さの中で、11,400年周期の軌道のほとんどを過ごす天体にふさわしい名である。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "What do we call a chunk of rock and ice that grows a glowing tail as it nears the Sun?",
+        "es": "¿Cómo llamamos a un trozo de roca y hielo que desarrolla una cola brillante al acercarse al Sol?",
+        "fr": "Comment appelle-t-on un morceau de roche et de glace qui développe une queue lumineuse en s'approchant du Soleil ?",
+        "ja": "太陽に近づくと光る尾ができる、岩と氷のかたまりを何と呼ぶか?"
+      },
+      "o": [
+        {
+          "en": "A comet",
+          "es": "Un cometa",
+          "fr": "Une comète",
+          "ja": "彗星"
+        },
+        {
+          "en": "An asteroid",
+          "es": "Un asteroide",
+          "fr": "Un astéroïde",
+          "ja": "小惑星"
+        },
+        {
+          "en": "A satellite",
+          "es": "Un satélite",
+          "fr": "Un satellite",
+          "ja": "人工衛星"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Comets are made of ice, dust and rock, and as they near the Sun, sunlight vaporizes their surface into a glowing tail that always points away from the Sun. That tail can stretch for millions of kilometers, far longer than the comet's own frozen core.",
+        "es": "Los cometas están hechos de hielo, polvo y roca, y al acercarse al Sol, la luz solar vaporiza su superficie formando una cola brillante que siempre apunta en dirección opuesta al Sol. Esa cola puede extenderse por millones de kilómetros, mucho más que el propio núcleo helado del cometa.",
+        "fr": "Les comètes sont faites de glace, de poussière et de roche, et en s'approchant du Soleil, la lumière solaire vaporise leur surface en une queue lumineuse qui pointe toujours à l'opposé du Soleil. Cette queue peut s'étirer sur des millions de kilomètres, bien plus loin que le noyau gelé de la comète lui-même.",
+        "ja": "彗星は氷と塵と岩石でできており、太陽に近づくと表面が太陽光で気化して、つねに太陽と反対側を向く光る尾ができる。その尾は彗星本体の凍った核よりはるかに長く、数百万kmにも伸びることがある。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "Which force keeps every planet orbiting the Sun instead of flying off into space?",
+        "es": "¿Qué fuerza mantiene a cada planeta orbitando el Sol en vez de salir volando hacia el espacio?",
+        "fr": "Quelle force maintient chaque planète en orbite autour du Soleil au lieu de s'envoler dans l'espace ?",
+        "ja": "すべての惑星を太陽の周りに留め、宇宙へ飛び去らせない力は何か?"
+      },
+      "o": [
+        {
+          "en": "Magnetism",
+          "es": "El magnetismo",
+          "fr": "Le magnétisme",
+          "ja": "磁力"
+        },
+        {
+          "en": "Gravity",
+          "es": "La gravedad",
+          "fr": "La gravité",
+          "ja": "重力"
+        },
+        {
+          "en": "Wind",
+          "es": "El viento",
+          "fr": "Le vent",
+          "ja": "風"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The Sun's gravity constantly pulls each planet toward it, while the planet's own forward motion keeps it from ever falling in, the same balance that keeps a satellite circling Earth. Without gravity, every planet would simply travel off in a straight line forever.",
+        "es": "La gravedad del Sol tira constantemente de cada planeta hacia él, mientras que el propio movimiento hacia adelante del planeta evita que caiga, el mismo equilibrio que mantiene a un satélite girando alrededor de la Tierra. Sin gravedad, cada planeta simplemente saldría disparado en línea recta para siempre.",
+        "fr": "La gravité du Soleil attire constamment chaque planète vers lui, tandis que le mouvement propre de la planète l'empêche d'y tomber, le même équilibre qui maintient un satellite en orbite autour de la Terre. Sans gravité, chaque planète partirait simplement en ligne droite pour toujours.",
+        "ja": "太陽の重力はつねに惑星を引き寄せているが、惑星自身の前向きの動きのおかげで太陽に落ち込むことはない。これは人工衛星が地球を回り続けるのと同じ釣り合いである。重力が無ければ、惑星はただ直線を描いて永遠に飛び去ってしまう。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "What do we call a small, rocky object that orbits the Sun but is too small to be counted as a planet?",
+        "es": "¿Cómo llamamos a un objeto pequeño y rocoso que orbita el Sol pero es demasiado pequeño para contar como planeta?",
+        "fr": "Comment appelle-t-on un petit objet rocheux qui orbite le Soleil mais qui est trop petit pour être compté comme une planète ?",
+        "ja": "太陽を回っているが小さすぎて惑星に数えられない、岩でできた天体を何と呼ぶか?"
+      },
+      "o": [
+        {
+          "en": "A galaxy",
+          "es": "Una galaxia",
+          "fr": "Une galaxie",
+          "ja": "銀河"
+        },
+        {
+          "en": "A nebula",
+          "es": "Una nebulosa",
+          "fr": "Une nébuleuse",
+          "ja": "星雲"
+        },
+        {
+          "en": "An asteroid",
+          "es": "Un asteroide",
+          "fr": "Un astéroïde",
+          "ja": "小惑星"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Millions of asteroids exist, most too small to ever be pulled into a round shape, orbiting mainly in the belt between Mars and Jupiter. A handful, like Vesta and Ceres, are large enough to be studied almost like tiny worlds of their own.",
+        "es": "Existen millones de asteroides, la mayoría demasiado pequeños para adoptar alguna vez una forma redonda, que orbitan sobre todo en el cinturón entre Marte y Júpiter. Un puñado, como Vesta y Ceres, son lo bastante grandes como para estudiarse casi como pequeños mundos propios.",
+        "fr": "Il existe des millions d'astéroïdes, la plupart trop petits pour jamais prendre une forme ronde, orbitant surtout dans la ceinture entre Mars et Jupiter. Une poignée, comme Vesta et Cérès, sont assez grands pour être étudiés presque comme de petits mondes à part entière.",
+        "ja": "小惑星は数百万個存在するが、そのほとんどは自らの重力で丸くなるには小さすぎ、主に火星と木星の間の帯を回っている。ベスタやケレスのようにひとにぎりだけは十分大きく、ほとんど小さな一つの世界として調べられている。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "Which gas makes up most of the Sun's mass, and which it fuses into helium at its core?",
+        "es": "¿Qué gas compone la mayor parte de la masa del Sol, y que este funde en helio en su núcleo?",
+        "fr": "Quel gaz compose l'essentiel de la masse du Soleil, et que celui-ci fusionne en hélium dans son noyau ?",
+        "ja": "太陽の質量の大半を占め、中心核でヘリウムに変えられていくガスはどれか?"
+      },
+      "o": [
+        {
+          "en": "Hydrogen",
+          "es": "Hidrógeno",
+          "fr": "Hydrogène",
+          "ja": "水素"
+        },
+        {
+          "en": "Oxygen",
+          "es": "Oxígeno",
+          "fr": "Oxygène",
+          "ja": "酸素"
+        },
+        {
+          "en": "Nitrogen",
+          "es": "Nitrógeno",
+          "fr": "Azote",
+          "ja": "窒素"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The Sun is roughly three-quarters hydrogen by mass, and fusing it into helium at its core is what produces the light and heat that reach every planet. This fusion reaction has been running steadily for about 4.6 billion years.",
+        "es": "El Sol es aproximadamente tres cuartas partes hidrógeno en masa, y fundirlo en helio en su núcleo es lo que produce la luz y el calor que llegan a cada planeta. Esta reacción de fusión lleva funcionando de forma constante unos 4.600 millones de años.",
+        "fr": "Le Soleil est composé aux trois quarts environ d'hydrogène en masse, et sa fusion en hélium dans le noyau produit la lumière et la chaleur qui atteignent chaque planète. Cette réaction de fusion tourne sans interruption depuis environ 4,6 milliards d'années.",
+        "ja": "太陽は質量のおよそ四分の三が水素で、中心核でそれをヘリウムに変える核融合が、あらゆる惑星に届く光と熱を生んでいる。この核融合反応はおよそ46億年ものあいだ絶えず続いている。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "What do we call the slightly stretched, oval-shaped path a planet follows around the Sun?",
+        "es": "¿Cómo llamamos a la trayectoria ligeramente alargada y ovalada que sigue un planeta alrededor del Sol?",
+        "fr": "Comment appelle-t-on la trajectoire légèrement étirée et ovale que suit une planète autour du Soleil ?",
+        "ja": "惑星が太陽の周りを描く、わずかに引き伸ばされた卵形の軌道を何と呼ぶか?"
+      },
+      "o": [
+        {
+          "en": "A spiral",
+          "es": "Una espiral",
+          "fr": "Une spirale",
+          "ja": "螺旋"
+        },
+        {
+          "en": "An ellipse",
+          "es": "Una elipse",
+          "fr": "Une ellipse",
+          "ja": "楕円"
+        },
+        {
+          "en": "A triangle",
+          "es": "Un triángulo",
+          "fr": "Un triangle",
+          "ja": "三角形"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Every planet's orbit is a slightly stretched circle called an ellipse rather than a perfect circle, a shape first worked out by Johannes Kepler in the early 1600s. Earth's own orbit happens to be nearly circular compared to some of the icier bodies farther out.",
+        "es": "La órbita de cada planeta es un círculo ligeramente alargado llamado elipse en vez de un círculo perfecto, una forma que Johannes Kepler dedujo por primera vez a principios del siglo XVII. La órbita de la Tierra resulta ser casi circular en comparación con algunos de los cuerpos más helados más alejados.",
+        "fr": "L'orbite de chaque planète est un cercle légèrement étiré appelé ellipse plutôt qu'un cercle parfait, une forme que Johannes Kepler a établie pour la première fois au début du XVIIe siècle. L'orbite de la Terre elle-même se trouve être presque circulaire comparée à celle de certains corps plus glacés situés plus loin.",
+        "ja": "惑星の軌道はどれも完全な円ではなく、わずかに引き伸ばされた円「楕円」を描く。この形は17世紀初めにヨハネス・ケプラーが初めて解き明かした。地球自身の軌道は、もっと外側にある氷天体のいくつかと比べればほぼ円に近い。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "What do we call a category created in 2006 to describe round worlds, like Pluto and Ceres, that share their orbit with other objects rather than dominating it?",
+        "es": "¿Cómo llamamos a la categoría creada en 2006 para describir mundos redondos, como Plutón y Ceres, que comparten su órbita con otros objetos en lugar de dominarla?",
+        "fr": "Comment appelle-t-on la catégorie créée en 2006 pour décrire des mondes ronds, comme Pluton et Cérès, qui partagent leur orbite avec d'autres objets au lieu de la dominer ?",
+        "ja": "冥王星やケレスのように丸い形をしていながら、軌道を独占せず他の天体と分け合っている世界を指すために2006年に作られた分類を何と呼ぶか?"
+      },
+      "o": [
+        {
+          "en": "A rogue planet",
+          "es": "Un planeta errante",
+          "fr": "Une planète errante",
+          "ja": "浮遊惑星"
+        },
+        {
+          "en": "A binary planet",
+          "es": "Un planeta binario",
+          "fr": "Une planète binaire",
+          "ja": "連星惑星"
+        },
+        {
+          "en": "A dwarf planet",
+          "es": "Un planeta enano",
+          "fr": "Une planète naine",
+          "ja": "準惑星"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The category describes worlds round enough to be pulled into a ball by their own gravity but not massive enough to have cleared their orbital neighborhood of other bodies. Several are recognized today, and astronomers suspect many more are still waiting to be confirmed.",
+        "es": "La categoría describe mundos lo bastante redondos como para haber sido moldeados en forma de bola por su propia gravedad, pero no lo bastante masivos como para haber despejado su vecindad orbital de otros cuerpos. Hoy se reconocen varios, y los astrónomos sospechan que hay muchos más por confirmar.",
+        "fr": "La catégorie décrit des mondes assez ronds pour avoir été façonnés en boule par leur propre gravité, mais pas assez massifs pour avoir nettoyé leur voisinage orbital d'autres corps. Plusieurs sont reconnus aujourd'hui, et les astronomes soupçonnent qu'il en existe bien d'autres encore à confirmer.",
+        "ja": "この分類は、自らの重力で球形になるほど丸いが、軌道の周辺から他の天体を一掃するほどの質量は無い世界を指す。今日いくつか認められているが、天文学者はまだ確認されていないものがさらに多くあると見ている。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "What is the name for the scientific study of stars, planets and the rest of space?",
+        "es": "¿Cómo se llama el estudio científico de las estrellas, los planetas y el resto del espacio?",
+        "fr": "Comment appelle-t-on l'étude scientifique des étoiles, des planètes et du reste de l'espace ?",
+        "ja": "星や惑星をはじめ宇宙全体を扱う学問を何と呼ぶか?"
+      },
+      "o": [
+        {
+          "en": "Astronomy",
+          "es": "Astronomía",
+          "fr": "Astronomie",
+          "ja": "天文学"
+        },
+        {
+          "en": "Biology",
+          "es": "Biología",
+          "fr": "Biologie",
+          "ja": "生物学"
+        },
+        {
+          "en": "Geology",
+          "es": "Geología",
+          "fr": "Géologie",
+          "ja": "地質学"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Astronomy is one of humanity's oldest sciences, with people across the world tracking the movements of the Sun, Moon and stars long before telescopes ever existed. Today it also covers the study of spacecraft and the worlds they visit.",
+        "es": "La astronomía es una de las ciencias más antiguas de la humanidad, con pueblos de todo el mundo siguiendo los movimientos del Sol, la Luna y las estrellas mucho antes de que existieran los telescopios. Hoy también abarca el estudio de las naves espaciales y los mundos que visitan.",
+        "fr": "L'astronomie est l'une des plus anciennes sciences de l'humanité, des peuples du monde entier suivant les mouvements du Soleil, de la Lune et des étoiles bien avant l'existence des télescopes. Elle englobe aujourd'hui aussi l'étude des engins spatiaux et des mondes qu'ils visitent.",
+        "ja": "天文学は人類最古の学問の一つで、望遠鏡が生まれるはるか以前から世界中の人々が太陽・月・星々の動きを追ってきた。今日では探査機やそれが訪れる世界の研究も含んでいる。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "Which is closer to Earth: the Moon, or the nearest star beyond the Sun?",
+        "es": "¿Qué está más cerca de la Tierra: la Luna, o la estrella más cercana más allá del Sol?",
+        "fr": "Qu'est-ce qui est le plus proche de la Terre : la Lune, ou l'étoile la plus proche au-delà du Soleil ?",
+        "ja": "地球により近いのはどちらか。月か、それとも太陽以外でいちばん近い恒星か?"
+      },
+      "o": [
+        {
+          "en": "The nearest star",
+          "es": "La estrella más cercana",
+          "fr": "L'étoile la plus proche",
+          "ja": "太陽以外の最も近い恒星"
+        },
+        {
+          "en": "The Moon",
+          "es": "La Luna",
+          "fr": "La Lune",
+          "ja": "月"
+        },
+        {
+          "en": "They are about the same distance",
+          "es": "Están casi a la misma distancia",
+          "fr": "Elles sont à peu près à la même distance",
+          "ja": "ほぼ同じ距離"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The Moon sits only about 384,000 km away, a trip that took Apollo astronauts roughly three days. The nearest star beyond the Sun is so far that even light, the fastest thing there is, takes more than four years to arrive.",
+        "es": "La Luna está a solo unos 384.000 km, un viaje que a los astronautas del Apolo les tomó unos tres días. La estrella más cercana más allá del Sol está tan lejos que incluso la luz, lo más rápido que existe, tarda más de cuatro años en llegar.",
+        "fr": "La Lune se trouve à seulement environ 384 000 km, un trajet que les astronautes d'Apollo ont mis environ trois jours à parcourir. L'étoile la plus proche au-delà du Soleil est si lointaine que même la lumière, la chose la plus rapide qui soit, met plus de quatre ans à l'atteindre.",
+        "ja": "月までの距離はわずか約38万4千kmで、アポロの宇宙飛行士はおよそ三日で着いた。太陽以外でいちばん近い恒星ははるかに遠く、いちばん速いはずの光でさえ届くのに四年以上かかる。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "Which travels fastest through the vacuum of space: light, sound, or a jet plane?",
+        "es": "¿Qué viaja más rápido por el vacío del espacio: la luz, el sonido o un avión a reacción?",
+        "fr": "Qu'est-ce qui voyage le plus vite dans le vide de l'espace : la lumière, le son ou un avion à réaction ?",
+        "ja": "真空の宇宙空間をいちばん速く進むのはどれか。光か、音か、それともジェット機か?"
+      },
+      "o": [
+        {
+          "en": "Sound",
+          "es": "El sonido",
+          "fr": "Le son",
+          "ja": "音"
+        },
+        {
+          "en": "A jet plane",
+          "es": "Un avión a reacción",
+          "fr": "Un avion à réaction",
+          "ja": "ジェット機"
+        },
+        {
+          "en": "Light",
+          "es": "La luz",
+          "fr": "La lumière",
+          "ja": "光"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Light crosses the vacuum of space at about 300,000 km per second, fast enough to reach Earth from the Sun in roughly 8 minutes. Sound, by contrast, cannot travel through a vacuum at all, since it needs air or some other medium to move through.",
+        "es": "La luz cruza el vacío del espacio a unos 300.000 km por segundo, lo bastante rápido como para llegar del Sol a la Tierra en unos 8 minutos. El sonido, en cambio, no puede viajar por el vacío en absoluto, ya que necesita aire u otro medio para desplazarse.",
+        "fr": "La lumière traverse le vide de l'espace à environ 300 000 km par seconde, assez vite pour atteindre la Terre depuis le Soleil en environ 8 minutes. Le son, en revanche, ne peut pas du tout se déplacer dans le vide, car il a besoin d'air ou d'un autre milieu pour se propager.",
+        "ja": "光は真空の宇宙空間をおよそ秒速30万kmで進み、太陽から地球までおよそ8分で届くほど速い。一方、音は空気など何かの媒質が無ければ進めないため、真空の中ではまったく伝わらない。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "What do we call the layer of gases that can surround a planet?",
+        "es": "¿Cómo llamamos a la capa de gases que puede rodear a un planeta?",
+        "fr": "Comment appelle-t-on la couche de gaz qui peut entourer une planète ?",
+        "ja": "惑星を取り巻くことのある気体の層を何と呼ぶか?"
+      },
+      "o": [
+        {
+          "en": "An atmosphere",
+          "es": "Una atmósfera",
+          "fr": "Une atmosphère",
+          "ja": "大気"
+        },
+        {
+          "en": "A crust",
+          "es": "Una corteza",
+          "fr": "Une croûte",
+          "ja": "地殻"
+        },
+        {
+          "en": "A mantle",
+          "es": "Un manto",
+          "fr": "Un manteau",
+          "ja": "マントル"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Not every planet has a thick atmosphere — Mercury has almost none, while Venus's is so dense it would crush anything landing on the surface. An atmosphere can trap heat, carry weather, and shield a surface from small impacts.",
+        "es": "No todos los planetas tienen una atmósfera densa: Mercurio apenas tiene, mientras que la de Venus es tan densa que aplastaría cualquier cosa que aterrizara en la superficie. Una atmósfera puede retener calor, generar clima y proteger una superficie de pequeños impactos.",
+        "fr": "Toutes les planètes n'ont pas une atmosphère épaisse : Mercure n'en a presque pas, tandis que celle de Vénus est si dense qu'elle écraserait tout ce qui se poserait à sa surface. Une atmosphère peut retenir la chaleur, porter des phénomènes météorologiques et protéger une surface des petits impacts.",
+        "ja": "どの惑星にも厚い大気があるわけではない。水星にはほとんど無いが、金星の大気は濃すぎて着陸したものを押しつぶしてしまうほどである。大気は熱を閉じ込め、天候を生み、小さな衝突から地表を守ることもある。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "Roughly how long does it take Earth to complete one full spin on its own axis?",
+        "es": "¿Cuánto tarda aproximadamente la Tierra en completar una vuelta entera sobre su propio eje?",
+        "fr": "Combien de temps la Terre met-elle environ à effectuer un tour complet sur son propre axe ?",
+        "ja": "地球が自分の軸のまわりを一回転するのにおよそどれくらいかかるか?"
+      },
+      "o": [
+        {
+          "en": "About 24 minutes",
+          "es": "Unos 24 minutos",
+          "fr": "Environ 24 minutes",
+          "ja": "約24分"
+        },
+        {
+          "en": "About 24 hours",
+          "es": "Unas 24 horas",
+          "fr": "Environ 24 heures",
+          "ja": "約24時間"
+        },
+        {
+          "en": "About 24 days",
+          "es": "Unos 24 días",
+          "fr": "Environ 24 jours",
+          "ja": "約24日"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "This single spin is what we call a day, and it's also why the Sun appears to rise in the east and set in the west, even though it is Earth itself doing the turning. Other planets spin at very different speeds, from Jupiter's swift 10 hours to Venus's sluggish 243 days.",
+        "es": "Esta vuelta es lo que llamamos un día, y también por eso el Sol parece salir por el este y ponerse por el oeste, aunque es la propia Tierra la que gira. Otros planetas giran a velocidades muy distintas, desde las veloces 10 horas de Júpiter hasta los lentísimos 243 días de Venus.",
+        "fr": "Ce tour est ce que nous appelons un jour, et c'est aussi pourquoi le Soleil semble se lever à l'est et se coucher à l'ouest, alors que c'est la Terre elle-même qui tourne. D'autres planètes tournent à des vitesses très différentes, des 10 heures rapides de Jupiter aux 243 jours interminables de Vénus.",
+        "ja": "この一回転が「一日」と呼ばれるものであり、実際に回っているのは地球自身なのに、太陽が東から昇り西に沈むように見える理由でもある。他の惑星の自転速度はさまざまで、木星のわずか10時間から金星の243日という遅さまで幅がある。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Which agency launched the Apollo program that landed astronauts on the Moon?",
+        "es": "¿Qué agencia lanzó el programa Apolo que llevó astronautas a la Luna?",
+        "fr": "Quelle agence a lancé le programme Apollo qui a posé des astronautes sur la Lune ?",
+        "ja": "月に宇宙飛行士を送ったアポロ計画を実施した機関はどれか?"
+      },
+      "o": [
+        {
+          "en": "ESA",
+          "es": "ESA",
+          "fr": "ESA",
+          "ja": "ESA"
+        },
+        {
+          "en": "JAXA",
+          "es": "JAXA",
+          "fr": "JAXA",
+          "ja": "JAXA"
+        },
+        {
+          "en": "NASA",
+          "es": "NASA",
+          "fr": "NASA",
+          "ja": "NASA"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "NASA, the USA's space agency, was founded in 1958, largely in response to the shock of the Soviet Union's Sputnik launch the year before. Its Apollo program landed twelve astronauts on the Moon between 1969 and 1972.",
+        "es": "La NASA, la agencia espacial de Estados Unidos, se fundó en 1958, en gran parte como respuesta al impacto del lanzamiento soviético del Sputnik el año anterior. Su programa Apolo llevó a doce astronautas a la Luna entre 1969 y 1972.",
+        "fr": "La NASA, l'agence spatiale des États-Unis, a été fondée en 1958, en grande partie en réaction au choc du lancement soviétique de Spoutnik l'année précédente. Son programme Apollo a posé douze astronautes sur la Lune entre 1969 et 1972.",
+        "ja": "アメリカの宇宙機関NASAは1958年に設立された。前年のソ連によるスプートニク打ち上げの衝撃を受けての設立だった。そのアポロ計画では1969年から1972年のあいだに12人の宇宙飛行士を月に送った。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Which country's space program launched the Sputnik and Vostok missions?",
+        "es": "¿El programa espacial de qué país lanzó las misiones Sputnik y Vostok?",
+        "fr": "Le programme spatial de quel pays a lancé les missions Spoutnik et Vostok ?",
+        "ja": "スプートニクとヴォストークの計画を実施したのはどの国の宇宙開発計画か?"
+      },
+      "o": [
+        {
+          "en": "The Soviet Union",
+          "es": "La Unión Soviética",
+          "fr": "L'Union soviétique",
+          "ja": "ソ連"
+        },
+        {
+          "en": "The United States",
+          "es": "Estados Unidos",
+          "fr": "Les États-Unis",
+          "ja": "アメリカ"
+        },
+        {
+          "en": "Japan",
+          "es": "Japón",
+          "fr": "Le Japon",
+          "ja": "日本"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The Soviet space program achieved a string of early firsts — first satellite, first animal in orbit, first human in space, first woman in space — before its successor, Russia's Roscosmos, took over. Many launches still lift off from the same site in Kazakhstan today.",
+        "es": "El programa espacial soviético logró una serie de primeros hitos: primer satélite, primer animal en órbita, primer humano en el espacio, primera mujer en el espacio, antes de que su sucesora, la Roscosmos rusa, tomara el relevo. Muchos lanzamientos aún despegan hoy desde el mismo lugar en Kazajistán.",
+        "fr": "Le programme spatial soviétique a enchaîné les premières: premier satellite, premier animal en orbite, premier humain dans l'espace, première femme dans l'espace, avant que sa succession, la Roscosmos russe, ne prenne le relais. De nombreux lancements décollent encore aujourd'hui du même site, au Kazakhstan.",
+        "ja": "ソ連の宇宙開発計画は、最初の人工衛星・最初の軌道上の動物・最初の宇宙飛行士・最初の女性宇宙飛行士と、初期の記録を次々と打ち立てた。その後を継いだのがロシアのロスコスモスである。多くの打ち上げは今もカザフスタンの同じ基地から行われている。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Which Japanese space agency is responsible for missions like Hayabusa?",
+        "es": "¿Qué agencia espacial japonesa es responsable de misiones como Hayabusa?",
+        "fr": "Quelle agence spatiale japonaise est responsable de missions comme Hayabusa ?",
+        "ja": "はやぶさのような計画を担っている日本の宇宙機関はどれか?"
+      },
+      "o": [
+        {
+          "en": "ESA",
+          "es": "ESA",
+          "fr": "ESA",
+          "ja": "ESA"
+        },
+        {
+          "en": "JAXA",
+          "es": "JAXA",
+          "fr": "JAXA",
+          "ja": "JAXA"
+        },
+        {
+          "en": "ISRO",
+          "es": "ISRO",
+          "fr": "ISRO",
+          "ja": "ISRO"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "JAXA, the Japan Aerospace Exploration Agency, was formed in 2003 by merging three older Japanese space organizations into one. Its Hayabusa missions were the first in the world to bring samples back to Earth from an asteroid.",
+        "es": "JAXA, la Agencia de Exploración Aeroespacial de Japón, se formó en 2003 al fusionar tres antiguas organizaciones espaciales japonesas en una sola. Sus misiones Hayabusa fueron las primeras del mundo en traer a la Tierra muestras tomadas de un asteroide.",
+        "fr": "JAXA, l'agence japonaise d'exploration aérospatiale, a été formée en 2003 par la fusion de trois anciennes organisations spatiales japonaises en une seule. Ses missions Hayabusa furent les premières au monde à rapporter sur Terre des échantillons prélevés sur un astéroïde.",
+        "ja": "JAXA(宇宙航空研究開発機構)は2003年、日本の三つの宇宙関連組織が統合されて生まれた。そのはやぶさ計画は、小惑星から試料を地球へ持ち帰った世界初の例となった。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What did Japan's Hayabusa spacecraft famously bring back to Earth for the first time, in 2010?",
+        "es": "¿Qué trajo famosamente a la Tierra por primera vez la sonda japonesa Hayabusa, en 2010?",
+        "fr": "Qu'est-ce que la sonde japonaise Hayabusa a célèbrement rapporté sur Terre pour la première fois, en 2010 ?",
+        "ja": "2010年、日本の探査機はやぶさが世界で初めて地球に持ち帰ったことで知られるものは何か?"
+      },
+      "o": [
+        {
+          "en": "Samples collected from a comet's tail",
+          "es": "Muestras recogidas de la cola de un cometa",
+          "fr": "Des échantillons prélevés dans la queue d'une comète",
+          "ja": "彗星の尾から採取した試料"
+        },
+        {
+          "en": "Rock samples from the far side of the Moon",
+          "es": "Muestras de roca de la cara oculta de la Luna",
+          "fr": "Des échantillons de roche de la face cachée de la Lune",
+          "ja": "月の裏側の岩石試料"
+        },
+        {
+          "en": "Samples collected from an asteroid",
+          "es": "Muestras recogidas de un asteroide",
+          "fr": "Des échantillons prélevés sur un astéroïde",
+          "ja": "小惑星から採取した試料"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Hayabusa touched down briefly on the asteroid Itokawa and, despite a badly damaged spacecraft and years of setbacks, returned tiny grains of asteroid dust to Earth in 2010. Its successor, Hayabusa2, later brought back samples from a different asteroid, Ryugu, in 2020.",
+        "es": "Hayabusa se posó brevemente en el asteroide Itokawa y, pese a graves daños en la nave y años de contratiempos, devolvió a la Tierra diminutos granos de polvo de asteroide en 2010. Su sucesora, Hayabusa2, trajo más tarde muestras de otro asteroide, Ryugu, en 2020.",
+        "fr": "Hayabusa s'est brièvement posée sur l'astéroïde Itokawa et, malgré un engin gravement endommagé et des années de contretemps, a rapporté sur Terre de minuscules grains de poussière d'astéroïde en 2010. Sa suite, Hayabusa2, a plus tard rapporté des échantillons d'un autre astéroïde, Ryugu, en 2020.",
+        "ja": "はやぶさは小惑星イトカワに短時間着地し、機体が大きく損傷して幾多の困難に見舞われながらも、2010年に小惑星の塵のわずかな粒を地球へ持ち帰った。後継機のはやぶさ2は2020年、別の小惑星リュウグウの試料を持ち帰った。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Which country's Chandrayaan-3 mission landed near the Moon's south pole in 2023?",
+        "es": "¿La misión Chandrayaan-3 de qué país aterrizó cerca del polo sur de la Luna en 2023?",
+        "fr": "La mission Chandrayaan-3 de quel pays s'est-elle posée près du pôle sud de la Lune en 2023 ?",
+        "ja": "2023年、月の南極付近に着陸したチャンドラヤーン3号を送ったのはどの国か?"
+      },
+      "o": [
+        {
+          "en": "India",
+          "es": "India",
+          "fr": "L'Inde",
+          "ja": "インド"
+        },
+        {
+          "en": "China",
+          "es": "China",
+          "fr": "La Chine",
+          "ja": "中国"
+        },
+        {
+          "en": "Israel",
+          "es": "Israel",
+          "fr": "Israël",
+          "ja": "イスラエル"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "India's ISRO became the fourth country to achieve a soft Moon landing, and the first to land specifically near the lunar south pole, a region of interest because its shadowed craters may hold water ice. The landing came just days after a similar Russian mission, Luna 25, crashed while attempting the same feat.",
+        "es": "La ISRO de India se convirtió en el cuarto país en lograr un alunizaje suave, y el primero en aterrizar específicamente cerca del polo sur lunar, una región de interés porque sus cráteres en sombra podrían contener hielo de agua. El aterrizaje llegó apenas días después de que una misión rusa similar, Luna 25, se estrellara al intentar la misma hazaña.",
+        "fr": "L'ISRO indienne est devenue le quatrième pays à réussir un alunissage en douceur, et le premier à se poser précisément près du pôle sud lunaire, une région intéressante car ses cratères ombragés pourraient receler de la glace d'eau. L'atterrissage est survenu quelques jours à peine après qu'une mission russe similaire, Luna 25, se soit écrasée en tentant le même exploit.",
+        "ja": "インドのISROは軟着陸を成功させた四番目の国となり、月の南極付近を狙って着陸した初めての国でもある。この地域は影に隠れたクレーターに水の氷がある可能性があり注目されていた。この着陸はロシアの同様の計画ルナ25号が同じ挑戦に失敗し墜落したわずか数日後のことだった。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Which country's Chang'e 4 mission achieved the first-ever landing on the Moon's far side, in 2019?",
+        "es": "¿La misión Chang'e 4 de qué país logró el primer alunizaje de la historia en la cara oculta de la Luna, en 2019?",
+        "fr": "La mission Chang'e 4 de quel pays a réussi le tout premier atterrissage sur la face cachée de la Lune, en 2019 ?",
+        "ja": "2019年、月の裏側への史上初の着陸を成し遂げた嫦娥4号を送ったのはどの国か?"
+      },
+      "o": [
+        {
+          "en": "The United States",
+          "es": "Estados Unidos",
+          "fr": "Les États-Unis",
+          "ja": "アメリカ"
+        },
+        {
+          "en": "China",
+          "es": "China",
+          "fr": "La Chine",
+          "ja": "中国"
+        },
+        {
+          "en": "India",
+          "es": "India",
+          "fr": "L'Inde",
+          "ja": "インド"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Because the Moon's far side never faces Earth directly, Chang'e 4 needed a relay satellite parked beyond the Moon to send its signals home. China's Chang'e program is named after a goddess said in legend to live on the Moon.",
+        "es": "Como la cara oculta de la Luna nunca mira directamente a la Tierra, la Chang'e 4 necesitó un satélite de retransmisión situado más allá de la Luna para enviar sus señales a casa. El programa Chang'e de China lleva el nombre de una diosa que, según la leyenda, vive en la Luna.",
+        "fr": "Comme la face cachée de la Lune ne fait jamais directement face à la Terre, Chang'e 4 a eu besoin d'un satellite relais placé au-delà de la Lune pour renvoyer ses signaux. Le programme chinois Chang'e porte le nom d'une déesse censée, selon la légende, vivre sur la Lune.",
+        "ja": "月の裏側は決して地球の方を向かないため、嫦娥4号は信号を送るために月の向こう側に中継衛星を置く必要があった。中国の嫦娥計画の名は、伝説で月に住むとされる女神にちなむ。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Which spacecraft carried the first crewed mission to orbit the Moon, at Christmas in 1968, without landing?",
+        "es": "¿Qué nave llevó la primera misión tripulada en orbitar la Luna, en Navidad de 1968, sin aterrizar?",
+        "fr": "Quel engin a transporté la première mission habitée à orbiter la Lune, à Noël 1968, sans y atterrir ?",
+        "ja": "1968年のクリスマス、着陸はせずに月を周回した最初の有人ミッションはどれか?"
+      },
+      "o": [
+        {
+          "en": "Apollo 11",
+          "es": "Apolo 11",
+          "fr": "Apollo 11",
+          "ja": "アポロ11号"
+        },
+        {
+          "en": "Apollo 13",
+          "es": "Apolo 13",
+          "fr": "Apollo 13",
+          "ja": "アポロ13号"
+        },
+        {
+          "en": "Apollo 8",
+          "es": "Apolo 8",
+          "fr": "Apollo 8",
+          "ja": "アポロ8号"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Apollo 8's crew were the first humans ever to leave Earth's orbit, circling the Moon ten times and reading from the Book of Genesis in a live broadcast watched around the world. It was also the mission that produced the famous \"Earthrise\" photograph.",
+        "es": "La tripulación del Apolo 8 fue la primera en abandonar la órbita terrestre, dando diez vueltas a la Luna y leyendo el libro del Génesis en una transmisión en vivo vista en todo el mundo. También fue la misión que produjo la famosa fotografía «Earthrise» (salida de la Tierra).",
+        "fr": "L'équipage d'Apollo 8 fut le premier à quitter l'orbite terrestre, faisant dix fois le tour de la Lune et lisant le livre de la Genèse lors d'une émission en direct suivie dans le monde entier. C'est aussi cette mission qui produisit la célèbre photographie « Earthrise » (lever de Terre).",
+        "ja": "アポロ8号の乗組員は、地球の軌道を離れた人類最初の飛行士となった。月を十周しながら創世記を朗読する様子が世界中に生中継された。有名な「地球の出」の写真を撮ったのもこのミッションである。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Which Apollo mission famously survived an oxygen tank explosion on the way to the Moon in 1970?",
+        "es": "¿Qué misión Apolo sobrevivió famosamente a la explosión de un tanque de oxígeno camino a la Luna en 1970?",
+        "fr": "Quelle mission Apollo a célèbrement survécu à l'explosion d'un réservoir d'oxygène en route vers la Lune en 1970 ?",
+        "ja": "1970年、月へ向かう途中の酸素タンク爆発を切り抜けたことで知られるアポロのミッションはどれか?"
+      },
+      "o": [
+        {
+          "en": "Apollo 13",
+          "es": "Apolo 13",
+          "fr": "Apollo 13",
+          "ja": "アポロ13号"
+        },
+        {
+          "en": "Apollo 11",
+          "es": "Apolo 11",
+          "fr": "Apollo 11",
+          "ja": "アポロ11号"
+        },
+        {
+          "en": "Apollo 1",
+          "es": "Apolo 1",
+          "fr": "Apollo 1",
+          "ja": "アポロ1号"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Apollo 13's crew never landed on the Moon, looping around it instead and using its lunar module as an improvised lifeboat to limp back to Earth. The mission became known as a \"successful failure\" for bringing the astronauts home safely despite the crisis.",
+        "es": "La tripulación del Apolo 13 nunca alunizó; en su lugar, rodeó la Luna y usó su módulo lunar como bote salvavidas improvisado para volver renqueando a la Tierra. La misión pasó a conocerse como un «fracaso exitoso» por traer a los astronautas de vuelta sanos y salvos pese a la crisis.",
+        "fr": "L'équipage d'Apollo 13 n'a jamais atterri sur la Lune, en faisant plutôt le tour et en utilisant son module lunaire comme canot de sauvetage improvisé pour regagner péniblement la Terre. La mission est devenue connue comme un « échec réussi » pour avoir ramené les astronautes sains et saufs malgré la crise.",
+        "ja": "アポロ13号の乗組員は月に着陸することなく月を回り込み、月着陸船を急ごしらえの救命艇として使って地球へなんとか戻った。この危機にもかかわらず飛行士を無事に生還させたことから、「成功した失敗」として知られるようになった。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Which was the first spacecraft to land softly on the Moon's surface, in 1966?",
+        "es": "¿Qué nave fue la primera en aterrizar suavemente en la superficie lunar, en 1966?",
+        "fr": "Quel engin fut le premier à se poser en douceur sur la surface lunaire, en 1966 ?",
+        "ja": "1966年、月面への軟着陸を初めて成功させた探査機はどれか?"
+      },
+      "o": [
+        {
+          "en": "Apollo 11",
+          "es": "Apolo 11",
+          "fr": "Apollo 11",
+          "ja": "アポロ11号"
+        },
+        {
+          "en": "Luna 9",
+          "es": "Luna 9",
+          "fr": "Luna 9",
+          "ja": "ルナ9号"
+        },
+        {
+          "en": "Surveyor 1",
+          "es": "Surveyor 1",
+          "fr": "Surveyor 1",
+          "ja": "サーベイヤー1号"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The Soviet Union's Luna 9 beat both the USA's Surveyor 1 and the crewed Apollo landings by years, proving for the first time that a spacecraft's legs would not simply sink into the lunar dust. It transmitted the first photographs ever taken from the surface of another world.",
+        "es": "La Luna 9 soviética se adelantó por años tanto a la estadounidense Surveyor 1 como a los alunizajes tripulados del Apolo, demostrando por primera vez que las patas de una nave no se hundirían simplemente en el polvo lunar. Transmitió las primeras fotografías jamás tomadas desde la superficie de otro mundo.",
+        "fr": "La soviétique Luna 9 a devancé de plusieurs années à la fois l'américaine Surveyor 1 et les atterrissages habités d'Apollo, prouvant pour la première fois que les pieds d'un engin ne s'enfonceraient pas simplement dans la poussière lunaire. Elle a transmis les toutes premières photographies prises depuis la surface d'un autre monde.",
+        "ja": "ソ連のルナ9号は、アメリカのサーベイヤー1号や有人のアポロ着陸より何年も先んじて成功した。探査機の脚が月の砂に沈み込んでしまわないことを初めて証明した機体である。ほかの世界の地表から撮られた史上初の写真を送ってきた。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Which was the first spacecraft to fly past another planet and send back close-up data, visiting Venus in 1962?",
+        "es": "¿Qué nave fue la primera en sobrevolar otro planeta y enviar datos de cerca, visitando Venus en 1962?",
+        "fr": "Quel engin fut le premier à survoler une autre planète et à en renvoyer des données rapprochées, en visitant Vénus en 1962 ?",
+        "ja": "1962年に金星を訪れ、他の惑星をフライバイして接近データを初めて送り返した探査機はどれか?"
+      },
+      "o": [
+        {
+          "en": "Voyager 1",
+          "es": "Voyager 1",
+          "fr": "Voyager 1",
+          "ja": "ボイジャー1号"
+        },
+        {
+          "en": "Sputnik 1",
+          "es": "Sputnik 1",
+          "fr": "Spoutnik 1",
+          "ja": "スプートニク1号"
+        },
+        {
+          "en": "Mariner 2",
+          "es": "Mariner 2",
+          "fr": "Mariner 2",
+          "ja": "マリナー2号"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Mariner 2's flyby of Venus confirmed for the first time that the planet's surface was scorchingly hot, ending earlier hopes that it might be a lush, swampy world. The mission took only about four months to reach Venus after launch.",
+        "es": "El sobrevuelo de Venus de la Mariner 2 confirmó por primera vez que la superficie del planeta era abrasadoramente caliente, acabando con esperanzas anteriores de que fuera un mundo pantanoso y exuberante. La misión tardó solo unos cuatro meses en llegar a Venus tras el lanzamiento.",
+        "fr": "Le survol de Vénus par Mariner 2 a confirmé pour la première fois que la surface de la planète était brûlante, mettant fin aux espoirs qu'elle puisse être un monde luxuriant et marécageux. La mission n'a mis qu'environ quatre mois à atteindre Vénus après son lancement.",
+        "ja": "マリナー2号の金星フライバイは、金星の表面が焼けつくように熱いことを初めて確かめ、緑豊かな沼地の世界かもしれないという以前の期待を終わらせた。打ち上げから金星到達までわずか約4か月しかかからなかった。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Which Soviet space probe became the first spacecraft to successfully soft-land on another planet, touching down on Venus in 1970?",
+        "es": "¿Qué sonda soviética se convirtió en la primera nave en alunizar —o «venusizar»— con éxito en otro planeta, al posarse en Venus en 1970?",
+        "fr": "Quelle sonde soviétique est devenue le premier engin à se poser avec succès en douceur sur une autre planète, en touchant Vénus en 1970 ?",
+        "ja": "1970年に金星へ軟着陸を成功させ、他の惑星に初めて軟着陸したソ連の探査機はどれか?"
+      },
+      "o": [
+        {
+          "en": "Venera 7",
+          "es": "Venera 7",
+          "fr": "Venera 7",
+          "ja": "ベネラ7号"
+        },
+        {
+          "en": "Venera 13",
+          "es": "Venera 13",
+          "fr": "Venera 13",
+          "ja": "ベネラ13号"
+        },
+        {
+          "en": "Mariner 2",
+          "es": "Mariner 2",
+          "fr": "Mariner 2",
+          "ja": "マリナー2号"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Venera 7 survived barely 23 minutes on Venus's crushing, scorching surface before its instruments failed, a testament to how hostile the planet's roughly 90-atmosphere pressure and 465°C heat really are. A later probe in the same series, Venera 13, went on to send back the first color photographs from the Venusian surface, in 1982.",
+        "es": "La Venera 7 sobrevivió apenas 23 minutos en la superficie abrasadora y aplastante de Venus antes de que sus instrumentos fallaran, un testimonio de lo hostil que es realmente la presión de unas 90 atmósferas y el calor de 465°C del planeta. Una sonda posterior de la misma serie, la Venera 13, llegó a enviar las primeras fotografías en color de la superficie venusina, en 1982.",
+        "fr": "Venera 7 n'a survécu qu'à peine 23 minutes sur la surface écrasante et brûlante de Vénus avant que ses instruments ne tombent en panne, preuve de l'hostilité réelle d'une pression d'environ 90 atmosphères et d'une chaleur de 465°C. Une sonde ultérieure de la même série, Venera 13, a par la suite renvoyé les toutes premières photographies en couleur de la surface vénusienne, en 1982.",
+        "ja": "ベネラ7号は金星の押しつぶすような熱い表面で、機器が壊れるまでわずか23分しか持ちこたえられなかった。金星の約90気圧・465℃という環境がいかに過酷かを物語っている。同じ系列の後継機ベネラ13号は1982年、金星表面からの初めてのカラー写真を送り返した。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "What is a Lagrange point?",
+        "es": "¿Qué es un punto de Lagrange?",
+        "fr": "Qu'est-ce qu'un point de Lagrange ?",
+        "ja": "ラグランジュ点とは何か?"
+      },
+      "o": [
+        {
+          "en": "A crater found only on gas giants",
+          "es": "Un cráter que solo se encuentra en los gigantes gaseosos",
+          "fr": "Un cratère que l'on ne trouve que sur les géantes gazeuses",
+          "ja": "ガス惑星だけに見られるクレーター"
+        },
+        {
+          "en": "A spot where the gravity of two large bodies balances so a small object can stay roughly fixed there",
+          "es": "Un lugar donde la gravedad de dos cuerpos grandes se equilibra, de modo que un objeto pequeño puede permanecer casi fijo allí",
+          "fr": "Un endroit où la gravité de deux gros corps s'équilibre, permettant à un petit objet d'y rester à peu près fixe",
+          "ja": "二つの大きな天体の重力が釣り合い、小さな天体がほぼ固定された位置にとどまれる場所"
+        },
+        {
+          "en": "The exact point where a comet's tail begins to form",
+          "es": "El punto exacto donde empieza a formarse la cola de un cometa",
+          "fr": "Le point exact où la queue d'une comète commence à se former",
+          "ja": "彗星の尾が形成され始める正確な地点"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Each pair of bodies, such as the Sun and Earth, has five of these points, and spacecraft are often parked at them to save fuel. The James Webb Space Telescope, for example, orbits around the Sun-Earth Lagrange point roughly 1.5 million km beyond Earth, always on the night side.",
+        "es": "Cada par de cuerpos, como el Sol y la Tierra, tiene cinco de estos puntos, y las naves espaciales suelen estacionarse allí para ahorrar combustible. El telescopio espacial James Webb, por ejemplo, orbita alrededor del punto de Lagrange Sol-Tierra, a unos 1,5 millones de km más allá de la Tierra, siempre en el lado nocturno.",
+        "fr": "Chaque paire de corps, comme le Soleil et la Terre, possède cinq de ces points, et les engins spatiaux y sont souvent stationnés pour économiser du carburant. Le télescope spatial James Webb, par exemple, orbite autour du point de Lagrange Soleil-Terre, à environ 1,5 million de km au-delà de la Terre, toujours du côté nocturne.",
+        "ja": "太陽と地球のような組み合わせにはそれぞれ五つのこの点があり、探査機は燃料を節約するためによくここに配置される。たとえばジェイムズ・ウェッブ宇宙望遠鏡は、地球のおよそ150万km先、つねに夜側にある太陽・地球のラグランジュ点の周りを回っている。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "What are asteroids that cluster near a planet's Lagrange points, sharing its orbit around the Sun, commonly called?",
+        "es": "¿Cómo se llaman comúnmente los asteroides que se agrupan cerca de los puntos de Lagrange de un planeta, compartiendo su órbita alrededor del Sol?",
+        "fr": "Comment appelle-t-on communément les astéroïdes qui se regroupent près des points de Lagrange d'une planète, partageant son orbite autour du Soleil ?",
+        "ja": "惑星のラグランジュ点付近に集まり、その惑星と同じ軌道を太陽の周りで共有する小惑星群を一般に何と呼ぶか?"
+      },
+      "o": [
+        {
+          "en": "Centaurs",
+          "es": "Centauros",
+          "fr": "Centaures",
+          "ja": "ケンタウルス族"
+        },
+        {
+          "en": "Plutinos",
+          "es": "Plutinos",
+          "fr": "Plutinos",
+          "ja": "プルーティノ"
+        },
+        {
+          "en": "Trojans",
+          "es": "Troyanos",
+          "fr": "Troyens",
+          "ja": "トロヤ群"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Jupiter has by far the largest known population of these companions, with thousands discovered clustered roughly 60 degrees ahead of and behind the planet in its orbit. Smaller groups have since been confirmed around several other planets too, including Earth and Neptune.",
+        "es": "Júpiter tiene, con diferencia, la mayor población conocida de estos compañeros, con miles descubiertos agrupados a unos 60 grados por delante y por detrás del planeta en su órbita. Desde entonces se han confirmado grupos más pequeños alrededor de varios otros planetas, incluidos la Tierra y Neptuno.",
+        "fr": "Jupiter possède de loin la plus grande population connue de ces compagnons, avec des milliers découverts regroupés à environ 60 degrés en avant et en arrière de la planète sur son orbite. De plus petits groupes ont depuis été confirmés autour de plusieurs autres planètes, dont la Terre et Neptune.",
+        "ja": "木星はこうした仲間の天体をとりわけ多く従えており、軌道上でおよそ60度前後に何千個も密集して発見されている。その後、地球や海王星を含む他のいくつかの惑星でも、より小規模な集団が確認されている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Neptune's \"Great Dark Spot,\" a huge storm spotted by Voyager 2 in 1989, was found by the Hubble Space Telescope a few years later to have done what?",
+        "es": "La «Gran Mancha Oscura» de Neptuno, una gigantesca tormenta vista por la Voyager 2 en 1989, ¿qué había hecho, según descubrió unos años después el telescopio espacial Hubble?",
+        "fr": "La « Grande Tache sombre » de Neptune, une énorme tempête repérée par Voyager 2 en 1989, avait fait quoi quelques années plus tard, d'après le télescope spatial Hubble ?",
+        "ja": "1989年にボイジャー2号が見つけた海王星の「大暗斑」という巨大な嵐について、数年後にハッブル宇宙望遠鏡が発見したのはどんなことか?"
+      },
+      "o": [
+        {
+          "en": "It had vanished entirely",
+          "es": "Había desaparecido por completo",
+          "fr": "Elle avait complètement disparu",
+          "ja": "完全に消えていた"
+        },
+        {
+          "en": "It had grown even larger",
+          "es": "Se había hecho aún más grande",
+          "fr": "Elle était devenue encore plus grande",
+          "ja": "さらに大きくなっていた"
+        },
+        {
+          "en": "It had split into three separate storms",
+          "es": "Se había dividido en tres tormentas separadas",
+          "fr": "Elle s'était divisée en trois tempêtes distinctes",
+          "ja": "三つの別々の嵐に分裂していた"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Unlike Jupiter's long-lived Great Red Spot, Neptune's storm systems seem to appear and dissolve over just a few years, and the original Great Dark Spot was gone by the time Hubble looked for it in 1994. A new dark storm later appeared in a different part of the planet, showing that Neptune's atmosphere keeps generating fresh ones.",
+        "es": "A diferencia de la longeva Gran Mancha Roja de Júpiter, los sistemas de tormentas de Neptuno parecen aparecer y disolverse en apenas unos años, y la Gran Mancha Oscura original ya había desaparecido cuando el Hubble la buscó en 1994. Más tarde apareció una nueva tormenta oscura en otra parte del planeta, mostrando que la atmósfera de Neptuno sigue generando otras nuevas.",
+        "fr": "Contrairement à la Grande Tache rouge de Jupiter, qui perdure, les systèmes de tempêtes de Neptune semblent apparaître et se dissoudre en quelques années seulement, et la Grande Tache sombre originale avait disparu quand Hubble l'a cherchée en 1994. Une nouvelle tache sombre est apparue plus tard ailleurs sur la planète, montrant que l'atmosphère de Neptune continue d'en produire de nouvelles.",
+        "ja": "木星の大赤斑が長く生き続けるのとは違い、海王星の嵐はわずか数年で現れては消えるらしく、1994年にハッブルが探したときには元の大暗斑はすでに消えていた。その後、惑星の別の場所に新たな暗斑が現れ、海王星の大気がいまも新しい嵐を生み出し続けていることを示した。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What is the name for the imaginary boundary in a young solar system beyond which water and other volatile compounds freeze into solid ice rather than remaining gas?",
+        "es": "¿Cómo se llama el límite imaginario en un sistema solar joven más allá del cual el agua y otros compuestos volátiles se congelan en hielo sólido en vez de permanecer como gas?",
+        "fr": "Comment appelle-t-on la limite imaginaire dans un jeune système solaire au-delà de laquelle l'eau et d'autres composés volatils gèlent en glace solide plutôt que de rester à l'état gazeux ?",
+        "ja": "若い恒星系で、水などの揮発性物質が気体のままでいられず固体の氷になる境目を何と呼ぶか?"
+      },
+      "o": [
+        {
+          "en": "The Roche limit",
+          "es": "El límite de Roche",
+          "fr": "La limite de Roche",
+          "ja": "ロシュ限界"
+        },
+        {
+          "en": "The frost line",
+          "es": "La línea de escarcha",
+          "fr": "La ligne de gel",
+          "ja": "雪線(スノーライン)"
+        },
+        {
+          "en": "The event horizon",
+          "es": "El horizonte de sucesos",
+          "fr": "L'horizon des événements",
+          "ja": "事象の地平面"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Rocky planets like Earth and Mars formed inside this line, where it was too warm for ice grains to survive as solids, while the gas and ice giants formed beyond it, where far more icy material was available to build large planets. The frost line's exact location shifts over a star's lifetime as the star brightens and cools.",
+        "es": "Los planetas rocosos como la Tierra y Marte se formaron dentro de esta línea, donde hacía demasiado calor para que los granos de hielo sobrevivieran como sólidos, mientras que los gigantes gaseosos y helados se formaron más allá, donde había mucho más material helado disponible para construir planetas grandes. La ubicación exacta de la línea de escarcha cambia a lo largo de la vida de una estrella, a medida que esta se calienta y se enfría.",
+        "fr": "Les planètes rocheuses comme la Terre et Mars se sont formées à l'intérieur de cette ligne, où il faisait trop chaud pour que les grains de glace survivent à l'état solide, tandis que les géantes gazeuses et de glace se sont formées au-delà, où bien plus de matière glacée était disponible pour bâtir de grandes planètes. L'emplacement exact de la ligne de gel évolue au cours de la vie d'une étoile, à mesure que celle-ci se réchauffe puis se refroidit.",
+        "ja": "地球や火星のような岩石惑星はこの境目の内側で生まれた。氷の粒が固体のまま残るには暖かすぎる場所である。一方、ガス惑星や氷惑星はその外側で生まれ、大きな惑星を作るための氷の材料がはるかに豊富にあった。雪線の位置は、恒星が明るくなったり冷えたりするにつれて、その一生の間に移り変わっていく。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Which Soviet mission carried the dog Laika, the first animal to orbit Earth, in 1957?",
+        "es": "¿Qué misión soviética llevó a la perra Laika, el primer animal en orbitar la Tierra, en 1957?",
+        "fr": "Quelle mission soviétique a transporté la chienne Laïka, premier animal à orbiter la Terre, en 1957 ?",
+        "ja": "1957年、地球を周回した最初の動物である犬のライカを乗せたソ連のミッションはどれか?"
+      },
+      "o": [
+        {
+          "en": "Sputnik 1",
+          "es": "Sputnik 1",
+          "fr": "Spoutnik 1",
+          "ja": "スプートニク1号"
+        },
+        {
+          "en": "Vostok 2",
+          "es": "Vostok 2",
+          "fr": "Vostok 2",
+          "ja": "ヴォストーク2号"
+        },
+        {
+          "en": "Sputnik 2",
+          "es": "Sputnik 2",
+          "fr": "Spoutnik 2",
+          "ja": "スプートニク2号"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Sputnik 2 launched just a month after Sputnik 1, rushed together to mark the 40th anniversary of the Russian Revolution, and had no way to bring Laika safely back down. Her flight helped convince engineers that a living creature really could survive the trip into orbit.",
+        "es": "La Sputnik 2 se lanzó apenas un mes después de la Sputnik 1, preparada a toda prisa para conmemorar el 40 aniversario de la Revolución Rusa, y no tenía forma de devolver a Laika sana y salva. Su vuelo ayudó a convencer a los ingenieros de que una criatura viva podía sobrevivir realmente al viaje a la órbita.",
+        "fr": "Spoutnik 2 fut lancée à peine un mois après Spoutnik 1, préparée à la hâte pour marquer le 40e anniversaire de la Révolution russe, et n'avait aucun moyen de ramener Laïka saine et sauve. Son vol a aidé à convaincre les ingénieurs qu'une créature vivante pouvait vraiment survivre au voyage jusqu'en orbite.",
+        "ja": "スプートニク2号はスプートニク1号のわずか一か月後、ロシア革命40周年に合わせて急ごしらえで打ち上げられ、ライカを無事に帰還させる手段は無かった。その飛行は、生き物が本当に軌道までの旅を生き延びられることをエンジニアたちに確信させる助けとなった。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Which joint 1975 mission saw an American Apollo capsule dock with a Soviet Soyuz capsule in orbit, with astronauts and cosmonauts shaking hands through the open hatch?",
+        "es": "¿Qué misión conjunta de 1975 hizo que una cápsula estadounidense Apolo se acoplara en órbita con una cápsula soviética Soyuz, con astronautas y cosmonautas dándose la mano por la escotilla abierta?",
+        "fr": "Quelle mission conjointe de 1975 a vu une capsule américaine Apollo s'arrimer en orbite à une capsule soviétique Soyouz, astronautes et cosmonautes se serrant la main par l'écoutille ouverte ?",
+        "ja": "1975年、アメリカのアポロ宇宙船とソ連のソユーズ宇宙船が軌道上でドッキングし、開いたハッチ越しに宇宙飛行士たちが握手を交わした共同ミッションはどれか?"
+      },
+      "o": [
+        {
+          "en": "The Apollo-Soyuz Test Project",
+          "es": "El Proyecto de Prueba Apolo-Soyuz",
+          "fr": "Le Projet d'essai Apollo-Soyouz",
+          "ja": "アポロ・ソユーズテスト計画"
+        },
+        {
+          "en": "The Shuttle-Mir Program",
+          "es": "El Programa Shuttle-Mir",
+          "fr": "Le Programme Navette-Mir",
+          "ja": "シャトル・ミール計画"
+        },
+        {
+          "en": "The International Space Station's first assembly flight",
+          "es": "El primer vuelo de ensamblaje de la Estación Espacial Internacional",
+          "fr": "Le premier vol d'assemblage de la Station spatiale internationale",
+          "ja": "国際宇宙ステーションの最初の組み立て飛行"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The docking came at the height of Cold War tensions but was framed by both sides as a symbol of détente between the two superpowers' space programs. Nearly 20 years passed before American and Russian spacecraft docked together in orbit again.",
+        "es": "El acoplamiento llegó en pleno apogeo de las tensiones de la Guerra Fría, pero ambas partes lo presentaron como un símbolo de distensión entre los programas espaciales de las dos superpotencias. Pasaron casi 20 años antes de que naves estadounidenses y rusas volvieran a acoplarse juntas en órbita.",
+        "fr": "L'arrimage est survenu au plus fort des tensions de la Guerre froide, mais les deux camps l'ont présenté comme un symbole de détente entre les programmes spatiaux des deux superpuissances. Près de 20 ans se sont écoulés avant qu'un engin américain et un engin russe ne s'arriment de nouveau ensemble en orbite.",
+        "ja": "このドッキングは冷戦の緊張が最も高まっていた時期に行われたが、両陣営はこれを二つの超大国の宇宙計画の緊張緩和の象徴として扱った。アメリカとロシアの宇宙船が軌道上で再びドッキングするまでには、それからおよそ20年を要した。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Which Soviet-then-Russian space station, continuously crewed for years at a time, was deliberately deorbited into the Pacific Ocean in 2001?",
+        "es": "¿Qué estación espacial soviética y luego rusa, tripulada de forma continua durante años, fue desorbitada deliberadamente hacia el océano Pacífico en 2001?",
+        "fr": "Quelle station spatiale soviétique puis russe, habitée en continu pendant des années, fut délibérément désorbitée dans l'océan Pacifique en 2001 ?",
+        "ja": "何年も続けて有人だったソ連(のちロシア)の宇宙ステーションで、2001年に意図的に太平洋へ落とされたのはどれか?"
+      },
+      "o": [
+        {
+          "en": "Skylab",
+          "es": "Skylab",
+          "fr": "Skylab",
+          "ja": "スカイラブ"
+        },
+        {
+          "en": "Mir",
+          "es": "Mir",
+          "fr": "Mir",
+          "ja": "ミール"
+        },
+        {
+          "en": "Salyut 1",
+          "es": "Salyut 1",
+          "fr": "Saliout 1",
+          "ja": "サリュート1号"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Mir remained in orbit for 15 years, far longer than its planned five, hosting crews from a dozen countries including a long-running series of joint missions with NASA's Space Shuttle. Debris that survived the fiery reentry splashed down in a remote stretch of ocean nicknamed the \"spacecraft graveyard.\"",
+        "es": "Mir permaneció en órbita 15 años, mucho más que los cinco previstos, y albergó a tripulaciones de una docena de países, incluida una larga serie de misiones conjuntas con el transbordador espacial de la NASA. Los restos que sobrevivieron a la reentrada ardiente cayeron en un tramo remoto del océano apodado el «cementerio de naves espaciales».",
+        "fr": "Mir est restée en orbite 15 ans, bien plus longtemps que les cinq années prévues, accueillant des équipages d'une douzaine de pays, dont une longue série de missions conjointes avec la navette spatiale de la NASA. Les débris ayant survécu à la rentrée enflammée sont retombés dans une zone reculée de l'océan surnommée le « cimetière des engins spatiaux ».",
+        "ja": "ミールは予定していた5年をはるかに超え、15年間も軌道上にとどまり、12か国もの乗組員を迎え入れた。NASAのスペースシャトルとの共同ミッションが長く続いたこともあった。燃え尽きずに残った破片は「宇宙船の墓場」と呼ばれる海の辺境に落下した。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which American space station fell back to Earth uncontrolled in 1979, scattering debris across the Indian Ocean and part of Australia?",
+        "es": "¿Qué estación espacial estadounidense cayó de nuevo a la Tierra de forma incontrolada en 1979, esparciendo restos por el océano Índico y parte de Australia?",
+        "fr": "Quelle station spatiale américaine est retombée sur Terre de façon incontrôlée en 1979, éparpillant des débris dans l'océan Indien et sur une partie de l'Australie ?",
+        "ja": "1979年、制御されないまま地球へ落下し、インド洋とオーストラリアの一部に破片をまき散らしたアメリカの宇宙ステーションはどれか?"
+      },
+      "o": [
+        {
+          "en": "Mir",
+          "es": "Mir",
+          "fr": "Mir",
+          "ja": "ミール"
+        },
+        {
+          "en": "The International Space Station",
+          "es": "La Estación Espacial Internacional",
+          "fr": "La Station spatiale internationale",
+          "ja": "国際宇宙ステーション"
+        },
+        {
+          "en": "Skylab",
+          "es": "Skylab",
+          "fr": "Skylab",
+          "ja": "スカイラブ"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Skylab, launched in 1973, was the USA's first space station, but funding delays meant no shuttle was ready to boost it into a higher, safer orbit before its own orbit decayed. Some Australian towns issued good-humored littering fines to NASA afterward, mostly as a publicity stunt.",
+        "es": "Skylab, lanzada en 1973, fue la primera estación espacial de Estados Unidos, pero los retrasos de financiación hicieron que ningún transbordador estuviera listo para elevarla a una órbita más alta y segura antes de que su propia órbita decayera. Algunas localidades australianas le impusieron después a la NASA multas por «tirar basura», sobre todo como golpe publicitario y con buen humor.",
+        "fr": "Skylab, lancée en 1973, fut la première station spatiale des États-Unis, mais des retards de financement firent qu'aucune navette n'était prête à la hisser sur une orbite plus haute et plus sûre avant que sa propre orbite ne se dégrade. Certaines villes australiennes ont ensuite infligé à la NASA, avec humour, des amendes pour dépôt de déchets, surtout à titre de coup publicitaire.",
+        "ja": "1973年に打ち上げられたスカイラブはアメリカ初の宇宙ステーションだったが、予算の遅れでシャトルの準備が間に合わず、軌道が落ちる前により高く安全な軌道へ持ち上げることができなかった。その後、オーストラリアのいくつかの町がNASAに冗談交じりの「ゴミ捨て罰金」を科したが、主に話題作りが目的だった。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Since 1998, the International Space Station has been continuously assembled and crewed through cooperation mainly between which two countries' space agencies?",
+        "es": "¿Desde 1998, la Estación Espacial Internacional se ha ensamblado y tripulado de forma continua gracias a la cooperación principalmente entre las agencias espaciales de qué dos países?",
+        "fr": "Depuis 1998, la Station spatiale internationale est assemblée et habitée en continu grâce à la coopération principalement entre les agences spatiales de quels deux pays ?",
+        "ja": "1998年以降、国際宇宙ステーションが継続的に組み立てられ有人で運用されてきたのは、主にどの二か国の宇宙機関の協力によるものか?"
+      },
+      "o": [
+        {
+          "en": "The United States and Russia",
+          "es": "Estados Unidos y Rusia",
+          "fr": "Les États-Unis et la Russie",
+          "ja": "アメリカとロシア"
+        },
+        {
+          "en": "China and India",
+          "es": "China e India",
+          "fr": "La Chine et l'Inde",
+          "ja": "中国とインド"
+        },
+        {
+          "en": "Japan and the United Kingdom",
+          "es": "Japón y el Reino Unido",
+          "fr": "Le Japon et le Royaume-Uni",
+          "ja": "日本とイギリス"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "NASA and Roscosmos lead the ISS partnership, joined by the European, Japanese and Canadian space agencies, each contributing modules or funding to the orbiting laboratory. It has been continuously occupied by rotating crews since November 2000, one of the longest unbroken human presences off Earth.",
+        "es": "La NASA y la Roscosmos lideran la asociación de la EEI, junto con las agencias espaciales europea, japonesa y canadiense, cada una aportando módulos o financiación al laboratorio orbital. Ha estado ocupada de forma continua por tripulaciones rotativas desde noviembre de 2000, una de las presencias humanas ininterrumpidas más largas fuera de la Tierra.",
+        "fr": "La NASA et Roscosmos dirigent le partenariat de l'ISS, rejointes par les agences spatiales européenne, japonaise et canadienne, chacune apportant des modules ou un financement au laboratoire en orbite. Elle est occupée en continu par des équipages qui se relaient depuis novembre 2000, l'une des plus longues présences humaines ininterrompues hors de la Terre.",
+        "ja": "国際宇宙ステーションはNASAとロスコスモスが中心となり、欧州・日本・カナダの宇宙機関も加わって、それぞれモジュールや資金を提供している軌道上の実験施設である。2000年11月から交代の乗組員によって絶えず有人状態が続いており、地球外での人類の連続滞在としては最長級である。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Giovanni Cassini, whose name is carried by both a Saturn probe and a gap in Saturn's rings, discovered how many of Saturn's moons in the late 1600s?",
+        "es": "Giovanni Cassini, cuyo nombre lleva tanto una sonda de Saturno como una brecha en sus anillos, ¿cuántas lunas de Saturno descubrió a finales del siglo XVII?",
+        "fr": "Giovanni Cassini, dont le nom est porté à la fois par une sonde de Saturne et par une division dans ses anneaux, a découvert combien de lunes de Saturne à la fin du XVIIe siècle ?",
+        "ja": "土星探査機と土星の環の隙間の両方に名を残すジョヴァンニ・カッシーニは、17世紀後半に土星の衛星をいくつ発見したか?"
+      },
+      "o": [
+        {
+          "en": "One",
+          "es": "Una",
+          "fr": "Une",
+          "ja": "一つ"
+        },
+        {
+          "en": "Four",
+          "es": "Cuatro",
+          "fr": "Quatre",
+          "ja": "四つ"
+        },
+        {
+          "en": "Eight",
+          "es": "Ocho",
+          "fr": "Huit",
+          "ja": "八つ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Cassini found Iapetus, Rhea, Tethys and Dione between 1671 and 1684, using telescopes he helped design at the Paris Observatory. Two of them, Tethys and Dione, don't have their own stop on this board, but Iapetus and Rhea do, both discovered roughly a decade after Titan itself.",
+        "es": "Cassini halló Jápeto, Rea, Tetis y Dione entre 1671 y 1684, usando telescopios que ayudó a diseñar en el Observatorio de París. Dos de ellas, Tetis y Dione, no tienen parada propia en este tablero, pero Jápeto y Rea sí, ambas descubiertas cerca de una década después que el propio Titán.",
+        "fr": "Cassini découvrit Japet, Rhéa, Téthys et Dioné entre 1671 et 1684, à l'aide de télescopes qu'il contribua à concevoir à l'Observatoire de Paris. Deux d'entre elles, Téthys et Dioné, n'ont pas leur propre étape sur ce plateau, mais Japet et Rhéa si, toutes deux découvertes environ une décennie après Titan lui-même.",
+        "ja": "カッシーニは1671年から1684年にかけて、パリ天文台で自ら設計に携わった望遠鏡を使い、イアペトゥス・レア・テティス・ディオネを発見した。このうちテティスとディオネはこの盤面に駅を持たないが、イアペトゥスとレアにはある。どちらもタイタンの発見からおよそ十年後の発見だった。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What do astronomers call small, icy Solar System bodies that behave partway between an asteroid and a comet, typically orbiting between Jupiter and Neptune?",
+        "es": "¿Cómo llaman los astrónomos a los pequeños cuerpos helados del Sistema Solar que se comportan a medio camino entre un asteroide y un cometa, y que suelen orbitar entre Júpiter y Neptuno?",
+        "fr": "Comment les astronomes appellent-ils les petits corps glacés du Système solaire qui se comportent à mi-chemin entre un astéroïde et une comète, orbitant généralement entre Jupiter et Neptune ?",
+        "ja": "木星と海王星のあいだを公転し、小惑星と彗星の中間のようなふるまいをする小さな氷の天体を天文学者は何と呼ぶか?"
+      },
+      "o": [
+        {
+          "en": "Trojans",
+          "es": "Troyanos",
+          "fr": "Troyens",
+          "ja": "トロヤ群"
+        },
+        {
+          "en": "Plutinos",
+          "es": "Plutinos",
+          "fr": "Plutinos",
+          "ja": "プルーティノ"
+        },
+        {
+          "en": "Centaurs",
+          "es": "Centauros",
+          "fr": "Centaures",
+          "ja": "ケンタウルス族"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Named after the mythological creatures that were part horse and part human, these objects are thought to be Kuiper Belt objects nudged inward by the giant planets' gravity onto unstable, temporary orbits. Chiron, the first one discovered in 1977, was originally classified as an unusually distant asteroid before its comet-like behavior was noticed.",
+        "es": "Llamados así por las criaturas mitológicas mitad caballo, mitad humano, se cree que estos objetos son cuerpos del cinturón de Kuiper empujados hacia dentro por la gravedad de los planetas gigantes hacia órbitas inestables y temporales. Quirón, el primero descubierto en 1977, se clasificó originalmente como un asteroide inusualmente lejano antes de notarse su comportamiento cometario.",
+        "fr": "Nommés d'après les créatures mythologiques mi-cheval mi-humain, ces objets sont censés être des corps de la ceinture de Kuiper poussés vers l'intérieur par la gravité des géantes sur des orbites instables et temporaires. Chiron, le premier découvert en 1977, fut d'abord classé comme un astéroïde inhabituellement lointain avant que son comportement cométaire ne soit remarqué.",
+        "ja": "半人半馬の神話の生き物にちなんで名付けられたこの天体は、巨大惑星の重力に押し出されて不安定で一時的な軌道に入ったカイパーベルト天体だと考えられている。1977年に最初に見つかったキロンは、当初は珍しく遠い小惑星として分類されていたが、後に彗星のようなふるまいが気づかれた。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "The Voyager probes' Golden Records carry recorded greetings in how many different Earth languages?",
+        "es": "¿Los Discos de Oro de las sondas Voyager llevan saludos grabados en cuántos idiomas terrestres distintos?",
+        "fr": "Les Disques d'or des sondes Voyager portent des salutations enregistrées dans combien de langues terrestres différentes ?",
+        "ja": "ボイジャー探査機のゴールデンレコードには、地球のいくつの異なる言語で挨拶が録音されているか?"
+      },
+      "o": [
+        {
+          "en": "55",
+          "es": "55",
+          "fr": "55",
+          "ja": "55"
+        },
+        {
+          "en": "12",
+          "es": "12",
+          "fr": "12",
+          "ja": "12"
+        },
+        {
+          "en": "About 200",
+          "es": "Unos 200",
+          "fr": "Environ 200",
+          "ja": "約200"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Each Golden Record carries greetings recorded in 55 different languages, along with music, natural sounds and diagrams meant to explain who sent it and from where. A cartridge and needle are attached to the record's cover, along with symbolic instructions for how to play it.",
+        "es": "Cada Disco de Oro lleva saludos grabados en 55 idiomas distintos, además de música, sonidos naturales y diagramas destinados a explicar quién lo envió y desde dónde. Una cápsula y una aguja van adheridas a la cubierta del disco, junto con instrucciones simbólicas sobre cómo reproducirlo.",
+        "fr": "Chaque Disque d'or porte des salutations enregistrées dans 55 langues différentes, accompagnées de musique, de sons naturels et de schémas destinés à expliquer qui l'a envoyé et d'où. Une cartouche et une aiguille sont fixées à la pochette du disque, avec des instructions symboliques sur la façon de le lire.",
+        "ja": "それぞれのゴールデンレコードには55の異なる言語で挨拶が録音されているほか、音楽や自然の音、送り主とその場所を説明するための図も収められている。カートリッジと針がレコードのカバーに取り付けられており、再生方法を示す象徴的な説明図も添えられている。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which spacecraft first carried a plaque showing a man, a woman and a diagram of the Solar System, designed to explain humanity to whoever might one day find it?",
+        "es": "¿Qué nave llevó por primera vez una placa con la figura de un hombre, una mujer y un diagrama del Sistema Solar, diseñada para explicar a la humanidad a quien pudiera encontrarla algún día?",
+        "fr": "Quel engin a le premier porté une plaque montrant un homme, une femme et un diagramme du Système solaire, conçue pour expliquer l'humanité à qui pourrait un jour la trouver ?",
+        "ja": "男女の姿と太陽系の図を描き、いつか見つけた誰かに人類を説明するために作られた銘板を最初に積んだ探査機はどれか?"
+      },
+      "o": [
+        {
+          "en": "Voyager 1",
+          "es": "Voyager 1",
+          "fr": "Voyager 1",
+          "ja": "ボイジャー1号"
+        },
+        {
+          "en": "Pioneer 10",
+          "es": "Pioneer 10",
+          "fr": "Pioneer 10",
+          "ja": "パイオニア10号"
+        },
+        {
+          "en": "New Horizons",
+          "es": "New Horizons",
+          "fr": "New Horizons",
+          "ja": "ニューホライズンズ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The Pioneer plaque, attached to Pioneer 10 and its twin Pioneer 11, was designed by Carl Sagan and Frank Drake and drawn by artist Linda Salzman Sagan, years before the Voyager probes carried their own more elaborate Golden Records. Pioneer 10 also became the first spacecraft to cross the asteroid belt and fly past Jupiter.",
+        "es": "La placa Pioneer, colocada en la Pioneer 10 y su gemela la Pioneer 11, fue diseñada por Carl Sagan y Frank Drake y dibujada por la artista Linda Salzman Sagan, años antes de que las sondas Voyager llevaran sus propios Discos de Oro, más elaborados. La Pioneer 10 también se convirtió en la primera nave en cruzar el cinturón de asteroides y sobrevolar Júpiter.",
+        "fr": "La plaque Pioneer, fixée sur Pioneer 10 et sa jumelle Pioneer 11, fut conçue par Carl Sagan et Frank Drake et dessinée par l'artiste Linda Salzman Sagan, des années avant que les sondes Voyager n'emportent leurs propres Disques d'or, plus élaborés. Pioneer 10 devint aussi le premier engin à traverser la ceinture d'astéroïdes et à survoler Jupiter.",
+        "ja": "パイオニア銘板は、パイオニア10号とその双子であるパイオニア11号に取り付けられたもので、カール・セーガンとフランク・ドレイクが設計し、画家リンダ・ザルツマン・セーガンが描いた。より手の込んだゴールデンレコードをボイジャー探査機が積むより何年も前のことである。パイオニア10号は小惑星帯を横断し木星をフライバイした最初の探査機にもなった。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "The European probe that landed on Titan in 2005 was named after the astronomer who first discovered Titan itself, how many years earlier?",
+        "es": "La sonda europea que aterrizó en Titán en 2005 lleva el nombre del astrónomo que descubrió el propio Titán, ¿cuántos años antes?",
+        "fr": "La sonde européenne qui s'est posée sur Titan en 2005 porte le nom de l'astronome qui a découvert Titan lui-même, combien d'années plus tôt ?",
+        "ja": "2005年にタイタンへ着陸したヨーロッパの探査機は、タイタン自身を発見した天文学者の名にちなんでいるが、それは何年前のことか?"
+      },
+      "o": [
+        {
+          "en": "About 100 years earlier, in 1905",
+          "es": "Unos 100 años antes, en 1905",
+          "fr": "Environ 100 ans plus tôt, en 1905",
+          "ja": "約100年前、1905年"
+        },
+        {
+          "en": "About 20 years earlier, in 1985",
+          "es": "Unos 20 años antes, en 1985",
+          "fr": "Environ 20 ans plus tôt, en 1985",
+          "ja": "約20年前、1985年"
+        },
+        {
+          "en": "About 350 years earlier, in 1655",
+          "es": "Unos 350 años antes, en 1655",
+          "fr": "Environ 350 ans plus tôt, en 1655",
+          "ja": "約350年前、1655年"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Christiaan Huygens spotted Titan in 1655 using a telescope of his own design, making it the first moon ever found around a planet other than Jupiter. It would be three and a half centuries before a spacecraft bearing his name actually touched down on the world he had first glimpsed as a distant point of light.",
+        "es": "Christiaan Huygens avistó Titán en 1655 usando un telescopio de su propio diseño, siendo así la primera luna hallada alrededor de un planeta que no fuera Júpiter. Pasarían tres siglos y medio antes de que una nave con su nombre se posara realmente en el mundo que él había vislumbrado como un punto de luz lejano.",
+        "fr": "Christiaan Huygens repéra Titan en 1655 à l'aide d'un télescope de sa propre conception, faisant de lui la première lune jamais trouvée autour d'une planète autre que Jupiter. Il faudrait trois siècles et demi avant qu'un engin portant son nom ne se pose réellement sur le monde qu'il avait d'abord aperçu comme un lointain point de lumière.",
+        "ja": "クリスティアーン・ホイヘンスは1655年、自ら設計した望遠鏡でタイタンを見つけた。木星以外の惑星で初めて発見された衛星である。彼の名を冠した探査機が、かつて遠い光の点として垣間見たその世界に実際に降り立つまでには、三世紀半もの歳月がかかった。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "How did the Cassini spacecraft's mission at Saturn come to an end in 2017?",
+        "es": "¿Cómo terminó en 2017 la misión de la nave Cassini en Saturno?",
+        "fr": "Comment la mission de la sonde Cassini à Saturne s'est-elle terminée en 2017 ?",
+        "ja": "カッシーニ探査機の土星ミッションは2017年、どのように終わったか?"
+      },
+      "o": [
+        {
+          "en": "It was deliberately steered into Saturn's atmosphere and burned up",
+          "es": "Fue dirigida deliberadamente hacia la atmósfera de Saturno y se quemó",
+          "fr": "Elle fut délibérément dirigée dans l'atmosphère de Saturne, où elle se consuma",
+          "ja": "意図的に土星の大気圏へ突入させられ燃え尽きた"
+        },
+        {
+          "en": "It ran out of fuel and drifted silently off into deep space",
+          "es": "Se quedó sin combustible y se alejó en silencio hacia el espacio profundo",
+          "fr": "Elle tomba en panne de carburant et dériva silencieusement dans l'espace profond",
+          "ja": "燃料が尽き、静かに深宇宙へと漂い去った"
+        },
+        {
+          "en": "It crash-landed on the surface of Titan",
+          "es": "Se estrelló en la superficie de Titán",
+          "fr": "Elle s'est écrasée à la surface de Titan",
+          "ja": "タイタンの表面に墜落した"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Mission planners called this deliberate plunge the \"Grand Finale,\" choosing to destroy the spacecraft rather than risk it someday drifting into and contaminating a potentially habitable moon like Enceladus or Titan. Cassini kept sending data back for as long as its antenna could still point at Earth during the fall.",
+        "es": "Los responsables de la misión llamaron a esta caída deliberada el «Gran Final», y prefirieron destruir la nave antes que arriesgarse a que algún día derivara y contaminara una luna potencialmente habitable como Encélado o Titán. La Cassini siguió enviando datos mientras su antena pudo seguir apuntando a la Tierra durante la caída.",
+        "fr": "Les responsables de la mission ont appelé cette chute délibérée le « Grand Final », préférant détruire l'engin plutôt que de risquer qu'il ne dérive un jour vers une lune potentiellement habitable comme Encelade ou Titan et ne la contamine. Cassini a continué à renvoyer des données tant que son antenne pouvait encore pointer vers la Terre pendant la chute.",
+        "ja": "ミッション責任者たちはこの意図的な突入を「グランドフィナーレ」と呼んだ。いつかエンケラドスやタイタンのような生命の可能性がある衛星に漂着し汚染してしまう危険を冒すより、探査機を破壊することを選んだのである。カッシーニは落下中もアンテナが地球を向いている限りデータを送り続けた。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Physicist Eugene Parker predicted the existence of what phenomenon in 1958, decades before the spacecraft named after him confirmed it up close?",
+        "es": "¿El físico Eugene Parker predijo en 1958 la existencia de qué fenómeno, décadas antes de que la nave que lleva su nombre lo confirmara de cerca?",
+        "fr": "Le physicien Eugene Parker a prédit en 1958 l'existence de quel phénomène, des décennies avant que la sonde portant son nom ne le confirme de près ?",
+        "ja": "物理学者ユージン・パーカーが1958年に存在を予言し、彼の名を冠した探査機が何十年も後に間近で確かめることになった現象は何か?"
+      },
+      "o": [
+        {
+          "en": "Dark matter",
+          "es": "La materia oscura",
+          "fr": "La matière noire",
+          "ja": "暗黒物質"
+        },
+        {
+          "en": "The solar wind",
+          "es": "El viento solar",
+          "fr": "Le vent solaire",
+          "ja": "太陽風"
+        },
+        {
+          "en": "The cosmic microwave background",
+          "es": "El fondo cósmico de microondas",
+          "fr": "Le fond diffus cosmologique",
+          "ja": "宇宙マイクロ波背景放射"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Parker theorized that the Sun constantly sheds a stream of charged particles into space, an idea many scientists doubted until Mariner 2 detected it directly in 1962. The Parker Solar Probe, launched in 2018, was the first NASA mission ever named after a living scientist.",
+        "es": "Parker teorizó que el Sol expulsa constantemente un flujo de partículas cargadas al espacio, una idea que muchos científicos dudaban hasta que la Mariner 2 lo detectó directamente en 1962. La Parker Solar Probe, lanzada en 2018, fue la primera misión de la NASA en llevar el nombre de un científico vivo.",
+        "fr": "Parker théorisa que le Soleil rejette constamment un flux de particules chargées dans l'espace, une idée que beaucoup de scientifiques mirent en doute jusqu'à ce que Mariner 2 le détecte directement en 1962. La sonde Parker, lancée en 2018, fut la première mission de la NASA jamais nommée d'après un scientifique encore vivant.",
+        "ja": "パーカーは、太陽がつねに荷電粒子の流れを宇宙へ放出していると理論づけたが、多くの科学者はマリナー2号が1962年に直接検出するまで疑っていた。2018年に打ち上げられたパーカー・ソーラー・プローブは、存命の科学者の名を冠したNASA初のミッションだった。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "The sudden jump in surrounding particle density recorded by each Voyager probe as it crossed the heliopause was detected by which kind of onboard instrument?",
+        "es": "El repentino salto en la densidad de partículas circundantes registrado por cada sonda Voyager al cruzar la heliopausa, ¿qué tipo de instrumento a bordo lo detectó?",
+        "fr": "Le bond soudain de la densité de particules environnantes enregistré par chaque sonde Voyager en franchissant l'héliopause a été détecté par quel type d'instrument embarqué ?",
+        "ja": "それぞれのボイジャー探査機が太陽圏界面を越えたときに記録された、周囲の粒子密度の急上昇はどんな搭載機器によって検出されたか?"
+      },
+      "o": [
+        {
+          "en": "A camera",
+          "es": "Una cámara",
+          "fr": "Une caméra",
+          "ja": "カメラ"
+        },
+        {
+          "en": "A magnetic compass",
+          "es": "Una brújula magnética",
+          "fr": "Une boussole magnétique",
+          "ja": "磁気コンパス"
+        },
+        {
+          "en": "A plasma wave instrument",
+          "es": "Un instrumento de ondas de plasma",
+          "fr": "Un instrument d'ondes plasma",
+          "ja": "プラズマ波観測装置"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Because the density of charged particles rises sharply once a probe leaves the Sun's bubble, mission scientists could confirm both crossings even after each Voyager's cameras had long since been switched off to save power. Voyager 1's crossing in 2012 came six years before Voyager 2's in 2018.",
+        "es": "Como la densidad de partículas cargadas aumenta bruscamente en cuanto una sonda deja la burbuja del Sol, los científicos de la misión pudieron confirmar ambos cruces incluso después de que las cámaras de cada Voyager llevaran mucho tiempo apagadas para ahorrar energía. El cruce de la Voyager 1 en 2012 llegó seis años antes que el de la Voyager 2 en 2018.",
+        "fr": "Comme la densité de particules chargées grimpe fortement dès qu'une sonde quitte la bulle du Soleil, les scientifiques de la mission ont pu confirmer les deux franchissements même après que les caméras de chaque Voyager eurent été éteintes depuis longtemps pour économiser l'énergie. Le franchissement de Voyager 1 en 2012 est survenu six ans avant celui de Voyager 2 en 2018.",
+        "ja": "探査機が太陽の泡から出ると荷電粒子の密度が急に跳ね上がるため、ミッションの科学者たちは、電力を節約するためにカメラがとうに切られたあとでも両機の通過を確認できた。ボイジャー1号の通過は2012年で、2号の2018年より6年早かった。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which of Jupiter's Galilean moons are locked into a repeating rhythm in which Ganymede completes one orbit for every two of Europa's and four of Io's?",
+        "es": "¿Cuáles de las lunas galileanas de Júpiter están ligadas en un ritmo repetido en el que Ganímedes completa una órbita por cada dos de Europa y cuatro de Ío?",
+        "fr": "Lesquelles des lunes galiléennes de Jupiter sont verrouillées dans un rythme répété où Ganymède accomplit une orbite pour deux d'Europe et quatre d'Io ?",
+        "ja": "木星のガリレオ衛星のうち、ガニメデが一周する間にエウロパが二周、イオが四周するという繰り返しのリズムに縛られているのはどれか?"
+      },
+      "o": [
+        {
+          "en": "Io, Europa and Ganymede",
+          "es": "Ío, Europa y Ganímedes",
+          "fr": "Io, Europe et Ganymède",
+          "ja": "イオ・エウロパ・ガニメデ"
+        },
+        {
+          "en": "Europa, Ganymede and Callisto",
+          "es": "Europa, Ganímedes y Calisto",
+          "fr": "Europe, Ganymède et Callisto",
+          "ja": "エウロパ・ガニメデ・カリスト"
+        },
+        {
+          "en": "Io, Ganymede and Callisto",
+          "es": "Ío, Ganímedes y Calisto",
+          "fr": "Io, Ganymède et Callisto",
+          "ja": "イオ・ガニメデ・カリスト"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "This exact 1:2:4 pattern, called the Laplace resonance, means the three moons repeatedly line up in the same relative positions, and the resulting gravitational tugging keeps their interiors flexing and heating even today. Callisto orbits too far out to be locked into the same rhythm.",
+        "es": "Este patrón exacto de 1:2:4, llamado resonancia de Laplace, hace que las tres lunas se alineen repetidamente en las mismas posiciones relativas, y el consiguiente tirón gravitatorio mantiene sus interiores flexionándose y calentándose incluso hoy. Calisto orbita demasiado lejos como para quedar atrapada en el mismo ritmo.",
+        "fr": "Ce schéma exact de 1:2:4, appelé résonance de Laplace, fait que les trois lunes s'alignent à répétition dans les mêmes positions relatives, et la traction gravitationnelle qui en résulte maintient leurs intérieurs en flexion et en chauffe encore aujourd'hui. Callisto orbite trop loin pour être verrouillée dans le même rythme.",
+        "ja": "この正確な1:2:4のパターンはラプラス共鳴と呼ばれ、三つの衛星は繰り返し同じ相対位置に並ぶ。その結果生じる重力のこね合いが、今日もなお内部を撓ませ熱し続けている。カリストは軌道が遠すぎて、この同じリズムには縛られていない。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Pluto and Neptune's orbits actually cross on paper, yet the two have never collided because Pluto completes exactly two orbits for every how many of Neptune's?",
+        "es": "¿Las órbitas de Plutón y Neptuno se cruzan sobre el papel, pero nunca han chocado porque Plutón completa exactamente dos órbitas por cada cuántas de Neptuno?",
+        "fr": "Les orbites de Pluton et de Neptune se croisent en théorie, pourtant elles ne sont jamais entrées en collision car Pluton accomplit exactement deux orbites pour combien de celles de Neptune ?",
+        "ja": "冥王星と海王星の軌道は紙の上では交差しているのに、二つがぶつかったことはない。冥王星が二周する間に海王星は何周するからか?"
+      },
+      "o": [
+        {
+          "en": "Five",
+          "es": "Cinco",
+          "fr": "Cinq",
+          "ja": "五周"
+        },
+        {
+          "en": "Three",
+          "es": "Tres",
+          "fr": "Trois",
+          "ja": "三周"
+        },
+        {
+          "en": "Two",
+          "es": "Dos",
+          "fr": "Deux",
+          "ja": "二周"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "This 2:3 resonance means that whenever Pluto's path brings it closer to the Sun than Neptune, Neptune itself is always somewhere else in its orbit at the time, so a collision never actually happens. Astronomers now call any object that shares this same rhythm with Neptune a \"plutino.\"",
+        "es": "Esta resonancia de 2:3 hace que, cada vez que la trayectoria de Plutón lo acerca al Sol más que Neptuno, este último esté siempre en otra parte de su órbita en ese momento, así que la colisión nunca llega a producirse. Los astrónomos llaman ahora «plutino» a cualquier objeto que comparta este mismo ritmo con Neptuno.",
+        "fr": "Cette résonance 2:3 fait qu'à chaque fois que la trajectoire de Pluton la rapproche du Soleil plus que Neptune, Neptune elle-même se trouve toujours ailleurs sur son orbite à ce moment-là, si bien qu'une collision ne se produit jamais réellement. Les astronomes appellent aujourd'hui « plutino » tout objet partageant ce même rythme avec Neptune.",
+        "ja": "この2:3の共鳴のおかげで、冥王星の軌道が太陽に海王星より近づくたびに、そのとき海王星は必ず軌道上の別の場所にいるため、衝突は実際には起こらない。天文学者は今日、海王星とこの同じリズムを共有する天体を「プルーティノ」と呼んでいる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What is the name for the region of the asteroid belt where visible gaps appear because objects there fall into orbital resonances with Jupiter and get nudged out of place over time?",
+        "es": "¿Cómo se llama la zona del cinturón de asteroides donde aparecen huecos visibles porque los objetos allí caen en resonancias orbitales con Júpiter y con el tiempo se ven desplazados?",
+        "fr": "Comment appelle-t-on la région de la ceinture d'astéroïdes où apparaissent des lacunes visibles, car les objets qui s'y trouvent tombent en résonance orbitale avec Jupiter et sont peu à peu déplacés ?",
+        "ja": "小惑星帯の中で、木星との軌道共鳴に陥った天体が時間とともに押し出され、目に見える隙間ができる場所を何と呼ぶか?"
+      },
+      "o": [
+        {
+          "en": "Roche zones",
+          "es": "Zonas de Roche",
+          "fr": "Zones de Roche",
+          "ja": "ロシュ帯"
+        },
+        {
+          "en": "Lagrange voids",
+          "es": "Vacíos de Lagrange",
+          "fr": "Vides de Lagrange",
+          "ja": "ラグランジュの空隙"
+        },
+        {
+          "en": "Kirkwood gaps",
+          "es": "Huecos de Kirkwood",
+          "fr": "Lacunes de Kirkwood",
+          "ja": "カークウッドの空隙"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Named after the American astronomer who first explained them in the 1860s, these gaps show up clearly when asteroid orbits are plotted by distance from the Sun, at spots where an asteroid's orbital period would be a simple fraction of Jupiter's. Repeated tugs from Jupiter at those spots gradually nudge asteroids into new orbits, emptying the gap over millions of years.",
+        "es": "Llamados así por el astrónomo estadounidense que los explicó por primera vez en la década de 1860, estos huecos se ven claramente al representar las órbitas de los asteroides según su distancia al Sol, en los puntos donde el período orbital de un asteroide sería una fracción simple del de Júpiter. Los tirones repetidos de Júpiter en esos puntos desplazan gradualmente a los asteroides hacia nuevas órbitas, vaciando el hueco a lo largo de millones de años.",
+        "fr": "Nommées d'après l'astronome américain qui les a expliquées pour la première fois dans les années 1860, ces lacunes apparaissent clairement quand on représente les orbites d'astéroïdes selon leur distance au Soleil, aux endroits où la période orbitale d'un astéroïde serait une fraction simple de celle de Jupiter. Des tractions répétées de Jupiter à ces endroits déplacent peu à peu les astéroïdes vers de nouvelles orbites, vidant la lacune sur des millions d'années.",
+        "ja": "1860年代にこれを初めて説明したアメリカの天文学者にちなんで名付けられたこの隙間は、小惑星の軌道を太陽からの距離で並べたとき、その公転周期が木星の周期の単純な分数にあたる場所にはっきりと現れる。その場所では木星による引っ張りが繰り返され、小惑星を少しずつ新しい軌道へ押し出し、何百万年もかけて隙間を空にしていく。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What is the \"Roche limit\"?",
+        "es": "¿Qué es el «límite de Roche»?",
+        "fr": "Qu'est-ce que la « limite de Roche » ?",
+        "ja": "「ロシュ限界」とは何か?"
+      },
+      "o": [
+        {
+          "en": "The distance within which a large body's tidal forces would pull a smaller body apart",
+          "es": "La distancia dentro de la cual las fuerzas de marea de un cuerpo grande desgarrarían a uno más pequeño",
+          "fr": "La distance en deçà de laquelle les forces de marée d'un gros corps disloqueraient un corps plus petit",
+          "ja": "大きな天体の潮汐力が小さな天体を引き裂いてしまう距離"
+        },
+        {
+          "en": "The distance beyond which a planet's atmosphere escapes into space",
+          "es": "La distancia más allá de la cual la atmósfera de un planeta escapa al espacio",
+          "fr": "La distance au-delà de laquelle l'atmosphère d'une planète s'échappe dans l'espace",
+          "ja": "惑星の大気が宇宙へ逃げ出してしまう距離"
+        },
+        {
+          "en": "The point where two planets' orbits cross each other",
+          "es": "El punto donde se cruzan las órbitas de dos planetas",
+          "fr": "Le point où les orbites de deux planètes se croisent",
+          "ja": "二つの惑星の軌道が交差する点"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "A moon that strays inside a planet's Roche limit risks being stretched and shredded by the difference in gravity across its own body, one reason Saturn's rings sit so close to the planet — they may be debris from a moon, or leftover material, that never managed to clump together within that zone. The exact distance depends on how rigid or fluid the smaller body is.",
+        "es": "Una luna que se adentra en el límite de Roche de un planeta corre el riesgo de estirarse y desgarrarse por la diferencia de gravedad a lo largo de su propio cuerpo, una de las razones por las que los anillos de Saturno están tan cerca del planeta: podrían ser restos de una luna, o material sobrante, que nunca logró aglutinarse dentro de esa zona. La distancia exacta depende de lo rígido o fluido que sea el cuerpo menor.",
+        "fr": "Une lune qui s'aventure à l'intérieur de la limite de Roche d'une planète risque d'être étirée et déchiquetée par la différence de gravité à travers son propre corps, l'une des raisons pour lesquelles les anneaux de Saturne se trouvent si près de la planète — ils pourraient être des débris d'une lune, ou de la matière résiduelle, qui n'a jamais réussi à s'agglomérer dans cette zone. La distance exacte dépend de la rigidité ou de la fluidité du plus petit corps.",
+        "ja": "惑星のロシュ限界の内側に迷い込んだ衛星は、その体にかかる重力の差によって引き伸ばされ引き裂かれる危険がある。土星の環が惑星のすぐそばにあるのもこのためで、この範囲内でついに一つにまとまれなかった衛星の破片、あるいは残りかすかもしれない。正確な距離は、小さいほうの天体がどれだけ硬いか、あるいは流体的かによって変わる。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Nearly every surface feature on Venus — mountains, craters, plains — is named after what, following a rule set by the IAU?",
+        "es": "¿Casi todos los accidentes de la superficie de Venus —montañas, cráteres, llanuras— llevan el nombre de qué, según una regla fijada por la UAI?",
+        "fr": "Presque tous les reliefs de la surface de Vénus — montagnes, cratères, plaines — portent le nom de quoi, selon une règle fixée par l'UAI ?",
+        "ja": "金星の地形――山・クレーター・平原のほぼすべて――は、IAUの定めた規則によって何にちなんで名付けられているか?"
+      },
+      "o": [
+        {
+          "en": "Roman emperors",
+          "es": "Emperadores romanos",
+          "fr": "Des empereurs romains",
+          "ja": "ローマ皇帝"
+        },
+        {
+          "en": "Women, real or mythological",
+          "es": "Mujeres, reales o mitológicas",
+          "fr": "Des femmes, réelles ou mythologiques",
+          "ja": "実在または神話の女性"
+        },
+        {
+          "en": "Constellations",
+          "es": "Constelaciones",
+          "fr": "Des constellations",
+          "ja": "星座"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "This naming convention makes Venus unique among the planets, with terrain named after everyone from ancient goddesses to real historical women, while only a small handful of older feature names were grandfathered in as exceptions before the rule was adopted. Sappho and Cleopatra both have craters named for them there.",
+        "es": "Esta convención de nombres hace que Venus sea único entre los planetas, con terrenos nombrados por todo tipo de mujeres, desde antiguas diosas hasta mujeres reales de la historia, aunque un pequeño puñado de nombres más antiguos se mantuvo como excepción antes de adoptarse la regla. Safo y Cleopatra tienen ambas cráteres con su nombre allí.",
+        "fr": "Cette convention de nommage rend Vénus unique parmi les planètes, avec des reliefs nommés d'après toutes sortes de femmes, des déesses antiques aux femmes réelles de l'histoire, seule une poignée de noms plus anciens ayant été conservés comme exceptions avant l'adoption de la règle. Sappho et Cléopâtre ont chacune un cratère qui porte leur nom là-bas.",
+        "ja": "この命名規則によって金星は他の惑星と一線を画しており、地形には古代の女神から実在した歴史上の女性まで、あらゆる女性の名が付けられている。この規則が定められる前からあった古い地名は、ごく一部だけが例外として残された。サッフォーやクレオパトラにも、それぞれ金星のクレーターが名付けられている。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Almost all of Neptune's moons are named after minor deities and creatures from Greek and Roman mythology connected to which theme?",
+        "es": "¿Casi todas las lunas de Neptuno llevan el nombre de deidades y criaturas menores de la mitología griega y romana relacionadas con qué tema?",
+        "fr": "Presque toutes les lunes de Neptune portent le nom de divinités et créatures mineures de la mythologie gréco-romaine liées à quel thème ?",
+        "ja": "海王星の衛星のほとんどは、ギリシャ・ローマ神話に登場する何にまつわる小さな神や生き物にちなんで名付けられているか?"
+      },
+      "o": [
+        {
+          "en": "The sky",
+          "es": "El cielo",
+          "fr": "Le ciel",
+          "ja": "空"
+        },
+        {
+          "en": "The underworld",
+          "es": "El inframundo",
+          "fr": "Les enfers",
+          "ja": "冥界"
+        },
+        {
+          "en": "The sea",
+          "es": "El mar",
+          "fr": "La mer",
+          "ja": "海"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Because Neptune itself is the Roman god of the sea, its moons carry on the theme with names like Triton (a sea god), Nereid (a sea nymph) and Proteus (a shape-shifting sea god), a tradition that has continued for every moon found since. Triton is the only one large enough to be round; the rest are small, irregular bodies discovered mostly by spacecraft or modern telescopes.",
+        "es": "Como Neptuno es el dios romano del mar, sus lunas continúan el tema con nombres como Tritón (un dios del mar), Nereida (una ninfa del mar) y Proteo (un dios marino cambiaformas), una tradición que ha continuado con cada luna hallada desde entonces. Tritón es la única lo bastante grande como para ser redonda; el resto son cuerpos pequeños e irregulares descubiertos sobre todo por naves espaciales o telescopios modernos.",
+        "fr": "Comme Neptune est le dieu romain de la mer, ses lunes poursuivent le thème avec des noms comme Triton (un dieu marin), Néréide (une nymphe marine) et Protée (un dieu marin changeant de forme), une tradition maintenue pour chaque lune découverte depuis. Triton est la seule assez grande pour être ronde ; les autres sont de petits corps irréguliers découverts surtout par des sondes ou des télescopes modernes.",
+        "ja": "海王星自身がローマ神話の海の神であることから、その衛星もトリトン(海の神)、ネレイド(海のニンフ)、プロテウス(姿を変える海の神)など海にまつわる名を受け継いでおり、その後見つかった衛星にもこの伝統が続いている。丸い形をしているのはトリトンだけで、残りは探査機や現代の望遠鏡で見つかった小さくいびつな天体である。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Uranus's discoverer, William Herschel, originally wanted to name his new planet after which living monarch?",
+        "es": "El descubridor de Urano, William Herschel, ¿quiso originalmente ponerle a su nuevo planeta el nombre de qué monarca vivo?",
+        "fr": "Le découvreur d'Uranus, William Herschel, voulait à l'origine nommer sa nouvelle planète en l'honneur de quel monarque alors vivant ?",
+        "ja": "天王星の発見者ウィリアム・ハーシェルは、当初、当時存命だったどの君主にちなんで新しい惑星を名付けたかったか?"
+      },
+      "o": [
+        {
+          "en": "King George III of Britain",
+          "es": "El rey Jorge III de Gran Bretaña",
+          "fr": "Le roi George III de Grande-Bretagne",
+          "ja": "イギリス王ジョージ3世"
+        },
+        {
+          "en": "King Louis XVI of France",
+          "es": "El rey Luis XVI de Francia",
+          "fr": "Le roi Louis XVI de France",
+          "ja": "フランス王ルイ16世"
+        },
+        {
+          "en": "Tsar Paul I of Russia",
+          "es": "El zar Pablo I de Rusia",
+          "fr": "Le tsar Paul Ier de Russie",
+          "ja": "ロシア皇帝パーヴェル1世"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Herschel proposed calling it \"Georgium Sidus\" (George's Star) to honor his royal patron, and the name stuck in Britain for decades even as astronomers elsewhere favored \"Uranus,\" the name eventually adopted worldwide. The mythological name follows the pattern of the father of Saturn, continuing the family line one generation further back.",
+        "es": "Herschel propuso llamarlo «Georgium Sidus» (la Estrella de Jorge) en honor a su mecenas real, y el nombre se mantuvo en Gran Bretaña durante décadas incluso mientras astrónomos de otros lugares preferían «Urano», el nombre finalmente adoptado en todo el mundo. El nombre mitológico sigue el patrón del padre de Saturno, prolongando el linaje familiar una generación más atrás.",
+        "fr": "Herschel proposa de l'appeler « Georgium Sidus » (l'Étoile de George) en l'honneur de son mécène royal, et le nom persista en Grande-Bretagne pendant des décennies, même si les astronomes d'ailleurs préféraient « Uranus », le nom finalement adopté dans le monde entier. Le nom mythologique suit le schéma du père de Saturne, prolongeant la lignée familiale d'une génération supplémentaire.",
+        "ja": "ハーシェルは王室の後ろ盾に敬意を表し「ゲオルギウム・シドゥス(ジョージの星)」と呼ぶことを提案し、この名はイギリスで何十年も使われ続けた。一方、他の国の天文学者たちは、最終的に世界中で採用される「天王星(ウラヌス)」という名を好んだ。この神話の名は土星の父にあたる神から取られており、一族の系譜をさらに一世代さかのぼるものである。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "When Neptune was finally observed in 1846, following mathematical predictions from Urbain Le Verrier, who actually spotted it first through a telescope?",
+        "es": "Cuando Neptuno se observó por fin en 1846, tras las predicciones matemáticas de Urbain Le Verrier, ¿quién lo avistó realmente primero con un telescopio?",
+        "fr": "Quand Neptune fut enfin observée en 1846, à la suite des prédictions mathématiques d'Urbain Le Verrier, qui l'a réellement repérée le premier au télescope ?",
+        "ja": "1846年、ユルバン・ルヴェリエの数式による予測を受けて海王星がついに観測されたとき、望遠鏡で実際に最初に見つけたのは誰か?"
+      },
+      "o": [
+        {
+          "en": "Le Verrier himself, in Paris",
+          "es": "El propio Le Verrier, en París",
+          "fr": "Le Verrier lui-même, à Paris",
+          "ja": "パリのルヴェリエ自身"
+        },
+        {
+          "en": "Johann Galle, in Berlin",
+          "es": "Johann Galle, en Berlín",
+          "fr": "Johann Galle, à Berlin",
+          "ja": "ベルリンのヨハン・ガレ"
+        },
+        {
+          "en": "John Couch Adams, in Cambridge",
+          "es": "John Couch Adams, en Cambridge",
+          "fr": "John Couch Adams, à Cambridge",
+          "ja": "ケンブリッジのジョン・クーチ・アダムズ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Galle found the planet within about one degree of Le Verrier's predicted position on the very first night he looked, an almost unbelievable success for pure mathematics. Le Verrier had briefly hoped to name the new planet after himself before the mythological name Neptune was adopted instead.",
+        "es": "Galle halló el planeta a menos de un grado de la posición predicha por Le Verrier la primera noche misma en que lo buscó, un éxito casi increíble para las matemáticas puras. Le Verrier había esperado brevemente ponerle su propio nombre al nuevo planeta antes de que se adoptara en su lugar el nombre mitológico Neptuno.",
+        "fr": "Galle trouva la planète à environ un degré de la position prédite par Le Verrier dès la toute première nuit où il l'a cherchée, un succès presque incroyable pour les mathématiques pures. Le Verrier avait brièvement espéré donner son propre nom à la nouvelle planète avant que le nom mythologique de Neptune ne soit adopté à la place.",
+        "ja": "ガレは探し始めたその晩のうちに、ルヴェリエの予測位置からわずか1度以内の場所で惑星を見つけた。純粋な数学の成果としてはほとんど信じがたい的中である。ルヴェリエは一時、新惑星に自分の名を付けたいと望んでいたが、代わりに神話にちなむ「海王星」の名が採用された。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "When Ceres was first discovered in 1801, how was it originally classified?",
+        "es": "Cuando Ceres se descubrió por primera vez en 1801, ¿cómo se clasificó originalmente?",
+        "fr": "Quand Cérès fut découverte pour la première fois en 1801, comment fut-elle classée à l'origine ?",
+        "ja": "1801年にケレスが初めて発見されたとき、当初はどのように分類されていたか?"
+      },
+      "o": [
+        {
+          "en": "As a comet",
+          "es": "Como un cometa",
+          "fr": "Comme une comète",
+          "ja": "彗星"
+        },
+        {
+          "en": "As a star",
+          "es": "Como una estrella",
+          "fr": "Comme une étoile",
+          "ja": "恒星"
+        },
+        {
+          "en": "As a planet",
+          "es": "Como un planeta",
+          "fr": "Comme une planète",
+          "ja": "惑星"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "For nearly 50 years after its discovery, Ceres was counted as a full planet alongside the others, until astronomers found more and more similarly small bodies orbiting nearby and began grouping them together as \"asteroids\" instead. In 2006, Ceres's status shifted once again, this time to dwarf planet, echoing the very same reclassification debate that later caught Pluto.",
+        "es": "Durante casi 50 años tras su descubrimiento, Ceres se contó como un planeta de pleno derecho junto a los demás, hasta que los astrónomos hallaron cada vez más cuerpos pequeños similares orbitando cerca y empezaron a agruparlos como «asteroides». En 2006, el estatus de Ceres volvió a cambiar, esta vez a planeta enano, haciéndose eco del mismísimo debate de reclasificación que atraparía después a Plutón.",
+        "fr": "Pendant près de 50 ans après sa découverte, Cérès fut comptée comme une planète à part entière aux côtés des autres, jusqu'à ce que les astronomes trouvent de plus en plus de petits corps similaires orbitant à proximité et commencent à les regrouper sous le nom d'« astéroïdes ». En 2006, le statut de Cérès a de nouveau changé, cette fois en planète naine, faisant écho au débat de reclassement qui rattraperait plus tard Pluton.",
+        "ja": "発見から50年近くのあいだ、ケレスは他の惑星と並ぶ立派な惑星として数えられていた。しかし天文学者が近くを回る同じように小さな天体を次々と見つけ、それらをまとめて「小惑星」と呼ぶようになると状況は変わった。2006年、ケレスの分類は再び変わり、今度は準惑星となった。これはのちに冥王星を巻き込む再分類論争とまさに同じ議論を先取りしたものだった。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Which of Mars's two small moons was imagined in fiction, complete with a rough orbital period, more than a century before its real discovery in 1877?",
+        "es": "¿Cuál de las dos pequeñas lunas de Marte se imaginó en la ficción, con un período orbital aproximado incluido, más de un siglo antes de su descubrimiento real en 1877?",
+        "fr": "Laquelle des deux petites lunes de Mars fut imaginée dans une œuvre de fiction, période orbitale approximative comprise, plus d'un siècle avant sa découverte réelle en 1877 ?",
+        "ja": "火星の二つの小さな衛星のうち、1877年の実際の発見より一世紀以上も前に、おおよその公転周期まで含めて小説の中で想像されていたのはどちらか?"
+      },
+      "o": [
+        {
+          "en": "Phobos, in Jonathan Swift's \"Gulliver's Travels\"",
+          "es": "Fobos, en «Los viajes de Gulliver» de Jonathan Swift",
+          "fr": "Phobos, dans « Les Voyages de Gulliver » de Jonathan Swift",
+          "ja": "フォボス、ジョナサン・スウィフト『ガリヴァー旅行記』の中で"
+        },
+        {
+          "en": "Deimos, in a novel by Jules Verne",
+          "es": "Deimos, en una novela de Julio Verne",
+          "fr": "Déimos, dans un roman de Jules Verne",
+          "ja": "ダイモス、ジュール・ヴェルヌの小説の中で"
+        },
+        {
+          "en": "Neither moon was ever predicted in fiction",
+          "es": "Ninguna de las dos lunas se predijo jamás en la ficción",
+          "fr": "Aucune des deux lunes n'a jamais été prédite dans la fiction",
+          "ja": "どちらの衛星も小説で予言されたことはない"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "In \"Gulliver's Travels\" (1726), Swift's astronomers on the floating island of Laputa describe two moons of Mars with orbital details eerily close to the real Phobos and Deimos, discovered by Asaph Hall a century and a half later. It's usually put down to a lucky guess based on the pattern of moon counts already known for Earth, Jupiter and Saturn, rather than any real foreknowledge.",
+        "es": "En «Los viajes de Gulliver» (1726), los astrónomos de Swift en la isla flotante de Laputa describen dos lunas de Marte con detalles orbitales asombrosamente cercanos a los reales Fobos y Deimos, descubiertos por Asaph Hall siglo y medio después. Suele atribuirse a una conjetura afortunada basada en el patrón de número de lunas ya conocido para la Tierra, Júpiter y Saturno, más que a un conocimiento real anticipado.",
+        "fr": "Dans « Les Voyages de Gulliver » (1726), les astronomes de Swift sur l'île flottante de Laputa décrivent deux lunes de Mars avec des détails orbitaux étrangement proches des véritables Phobos et Déimos, découvertes par Asaph Hall un siècle et demi plus tard. On l'attribue généralement à une supposition chanceuse fondée sur le nombre de lunes déjà connu pour la Terre, Jupiter et Saturne, plutôt qu'à une réelle prescience.",
+        "ja": "スウィフトの『ガリヴァー旅行記』(1726年)では、空飛ぶ島ラピュタの天文学者たちが火星の二つの衛星について語っており、その軌道の詳細は、一世紀半後にアサフ・ホールが発見した実際のフォボスとダイモスに不気味なほど近い。これは本当の先見ではなく、当時すでに知られていた地球・木星・土星の衛星数の並びから運よく言い当てたものだとされることが多い。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which astronomer discovered Saturn's moon Mimas in 1789, more than a century before spacecraft ever photographed its distinctive crater?",
+        "es": "¿Qué astrónomo descubrió la luna Mimas de Saturno en 1789, más de un siglo antes de que una nave fotografiara jamás su distintivo cráter?",
+        "fr": "Quel astronome a découvert la lune de Saturne Mimas en 1789, plus d'un siècle avant qu'un engin spatial ne photographie jamais son cratère si particulier ?",
+        "ja": "1789年、探査機がその特徴的なクレーターを撮影する一世紀以上も前に土星の衛星ミマスを発見した天文学者は誰か?"
+      },
+      "o": [
+        {
+          "en": "Christiaan Huygens",
+          "es": "Christiaan Huygens",
+          "fr": "Christiaan Huygens",
+          "ja": "クリスティアーン・ホイヘンス"
+        },
+        {
+          "en": "William Herschel",
+          "es": "William Herschel",
+          "fr": "William Herschel",
+          "ja": "ウィリアム・ハーシェル"
+        },
+        {
+          "en": "Giovanni Cassini",
+          "es": "Giovanni Cassini",
+          "fr": "Giovanni Cassini",
+          "ja": "ジョヴァンニ・カッシーニ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Herschel spotted Mimas and its neighbor Enceladus using an enormous 40-foot telescope he built himself, then the largest in the world. It would be almost two centuries before Voyager 1's flyby revealed the giant crater that gives the moon its striking, distinctive look.",
+        "es": "Herschel avistó Mimas y su vecina Encélado usando un enorme telescopio de 40 pies que él mismo construyó, entonces el más grande del mundo. Pasarían casi dos siglos antes de que el sobrevuelo de la Voyager 1 revelara el enorme cráter que le da a la luna su aspecto tan llamativo y distintivo.",
+        "fr": "Herschel repéra Mimas et sa voisine Encelade à l'aide d'un immense télescope de 40 pieds qu'il avait lui-même construit, alors le plus grand du monde. Il faudrait attendre près de deux siècles pour que le survol de Voyager 1 révèle l'immense cratère qui donne à la lune son allure si frappante et si particulière.",
+        "ja": "ハーシェルは自らが建造した当時世界最大の40フィート望遠鏡を使って、ミマスとその隣のエンケラドスを見つけた。この衛星に強烈な特徴を与える巨大クレーターが、ボイジャー1号のフライバイによって明らかになるまでには、ほぼ二世紀を要した。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Uranus's moons Miranda and Ariel were both discovered in 1948 by which astronomer, the same person the Kuiper Belt is later named after?",
+        "es": "¿Las lunas de Urano Miranda y Ariel fueron descubiertas ambas en 1948 por qué astrónomo, la misma persona por la que luego se nombró el cinturón de Kuiper?",
+        "fr": "Les lunes d'Uranus Miranda et Ariel furent toutes deux découvertes en 1948 par quel astronome, la même personne dont la ceinture de Kuiper porte plus tard le nom ?",
+        "ja": "天王星の衛星ミランダとアリエルは1948年、のちにカイパーベルトの名の由来ともなる天文学者によって発見されたが、それは誰か?"
+      },
+      "o": [
+        {
+          "en": "Clyde Tombaugh",
+          "es": "Clyde Tombaugh",
+          "fr": "Clyde Tombaugh",
+          "ja": "クライド・トンボー"
+        },
+        {
+          "en": "Percival Lowell",
+          "es": "Percival Lowell",
+          "fr": "Percival Lowell",
+          "ja": "パーシヴァル・ローウェル"
+        },
+        {
+          "en": "Gerard Kuiper",
+          "es": "Gerard Kuiper",
+          "fr": "Gerard Kuiper",
+          "ja": "ジェラルド・カイパー"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Kuiper made the discovery using the 82-inch telescope at McDonald Observatory in Texas, decades before he proposed the belt of icy bodies beyond Neptune that would eventually carry his name. Miranda, the smaller and closer of the two, would not be seen up close until Voyager 2's flyby nearly 40 years later.",
+        "es": "Kuiper hizo el descubrimiento con el telescopio de 82 pulgadas del Observatorio McDonald en Texas, décadas antes de proponer el cinturón de cuerpos helados más allá de Neptuno que acabaría llevando su nombre. Miranda, la más pequeña y cercana de las dos, no se vería de cerca hasta el sobrevuelo de la Voyager 2 casi 40 años después.",
+        "fr": "Kuiper fit cette découverte avec le télescope de 82 pouces de l'observatoire McDonald au Texas, des décennies avant de proposer la ceinture de corps glacés au-delà de Neptune qui finirait par porter son nom. Miranda, la plus petite et la plus proche des deux, ne serait vue de près qu'au survol de Voyager 2 près de 40 ans plus tard.",
+        "ja": "カイパーはテキサスのマクドナルド天文台にある口径82インチの望遠鏡でこの発見をした。これは、のちに自分の名を冠することになる海王星以遠の氷天体の帯を提唱する何十年も前のことである。二つのうち小さく近いミランダが間近から見られたのは、ほぼ40年後のボイジャー2号のフライバイのときだった。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Neptune's large moon Triton was discovered how soon after Neptune itself, in 1846?",
+        "es": "¿Con cuánta rapidez se descubrió la gran luna de Neptuno, Tritón, tras el propio Neptuno, en 1846?",
+        "fr": "En 1846, la grande lune de Neptune, Triton, fut découverte combien de temps après Neptune elle-même ?",
+        "ja": "海王星の大きな衛星トリトンは、1846年の海王星自身の発見から、どれくらいの早さで見つかったか?"
+      },
+      "o": [
+        {
+          "en": "About 17 days later",
+          "es": "Unos 17 días después",
+          "fr": "Environ 17 jours plus tard",
+          "ja": "約17日後"
+        },
+        {
+          "en": "About 5 years later",
+          "es": "Unos 5 años después",
+          "fr": "Environ 5 ans plus tard",
+          "ja": "約5年後"
+        },
+        {
+          "en": "About 50 years later",
+          "es": "Unos 50 años después",
+          "fr": "Environ 50 ans plus tard",
+          "ja": "約50年後"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "British astronomer William Lassell spotted Triton with a homemade telescope barely more than two weeks after Neptune's own discovery was announced, an extraordinarily fast follow-up for the era. Its backwards orbit around Neptune wasn't fully understood as a sign of capture from the Kuiper Belt until more than a century later.",
+        "es": "El astrónomo británico William Lassell avistó Tritón con un telescopio casero apenas dos semanas después de anunciarse el propio descubrimiento de Neptuno, un seguimiento extraordinariamente rápido para la época. Su órbita retrógrada alrededor de Neptuno no se entendió del todo como señal de haber sido capturada del cinturón de Kuiper hasta más de un siglo después.",
+        "fr": "L'astronome britannique William Lassell repéra Triton avec un télescope artisanal à peine plus de deux semaines après l'annonce de la découverte de Neptune elle-même, un suivi extraordinairement rapide pour l'époque. Son orbite rétrograde autour de Neptune ne fut pleinement comprise comme signe d'une capture depuis la ceinture de Kuiper que plus d'un siècle plus tard.",
+        "ja": "イギリスの天文学者ウィリアム・ラッセルは、海王星自身の発見が発表されてからわずか二週間あまりのうちに、自作の望遠鏡でトリトンを見つけた。当時としては驚くほど素早い追跡だった。海王星を逆向きに回るその軌道が、カイパーベルトから捕獲された証だと十分に理解されるまでには、それから一世紀以上を要した。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Pluto's moon Charon was discovered in 1978 after astronomer James Christy noticed what?",
+        "es": "¿La luna de Plutón, Caronte, se descubrió en 1978 después de que el astrónomo James Christy notara qué?",
+        "fr": "La lune de Pluton, Charon, fut découverte en 1978 après que l'astronome James Christy eut remarqué quoi ?",
+        "ja": "冥王星の衛星カロンは1978年、天文学者ジェイムズ・クリスティが何に気づいたことで発見されたか?"
+      },
+      "o": [
+        {
+          "en": "A dip in Pluto's brightness during a solar eclipse",
+          "es": "Una caída en el brillo de Plutón durante un eclipse solar",
+          "fr": "Une baisse de la luminosité de Pluton lors d'une éclipse solaire",
+          "ja": "日食の際に冥王星の明るさが落ちること"
+        },
+        {
+          "en": "A strange bump appearing periodically on photographic images of Pluto",
+          "es": "Un extraño bulto que aparecía periódicamente en las imágenes fotográficas de Plutón",
+          "fr": "Une étrange bosse apparaissant périodiquement sur les images photographiques de Pluton",
+          "ja": "冥王星の写真画像に周期的に現れる奇妙な出っ張り"
+        },
+        {
+          "en": "Radio signals bouncing off an unseen companion object",
+          "es": "Señales de radio rebotando en un objeto compañero invisible",
+          "fr": "Des signaux radio rebondissant sur un objet compagnon invisible",
+          "ja": "見えない伴天体に反射する電波信号"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The bump turned out to be Charon itself, so close to Pluto and so similar in brightness that it had gone unnoticed on blurrier images for nearly half a century after Pluto's own 1930 discovery. Christy's finding also let astronomers calculate Pluto's mass accurately for the first time, since it could now be measured from Charon's orbit.",
+        "es": "El bulto resultó ser el propio Caronte, tan cerca de Plutón y de brillo tan similar que había pasado inadvertido en imágenes más borrosas durante casi medio siglo tras el descubrimiento de Plutón en 1930. El hallazgo de Christy también permitió a los astrónomos calcular con precisión la masa de Plutón por primera vez, ya que ahora podía medirse a partir de la órbita de Caronte.",
+        "fr": "La bosse s'est révélée être Charon lui-même, si proche de Pluton et d'une luminosité si semblable qu'il était passé inaperçu sur des images plus floues pendant près d'un demi-siècle après la découverte de Pluton en 1930. La trouvaille de Christy a aussi permis aux astronomes de calculer pour la première fois la masse de Pluton avec précision, puisqu'elle pouvait désormais se mesurer à partir de l'orbite de Charon.",
+        "ja": "その出っ張りの正体はカロンそのものだった。冥王星に近すぎ、明るさもよく似ていたため、1930年の冥王星発見からほぼ半世紀ものあいだ、粗い画像では気づかれずにいた。クリスティのこの発見によって、天文学者は初めて冥王星の質量を正確に計算できるようになった。カロンの軌道から測定できるようになったからである。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Before it received its official name, the dwarf planet Eris was nicknamed what by the team that discovered it in 2005?",
+        "es": "Antes de recibir su nombre oficial, ¿cómo apodó al planeta enano Eris el equipo que lo descubrió en 2005?",
+        "fr": "Avant de recevoir son nom officiel, la planète naine Éris fut surnommée comment par l'équipe qui l'a découverte en 2005 ?",
+        "ja": "正式な名前がつく前、2005年にエリスを発見したチームはこの準惑星を何と呼んでいたか?"
+      },
+      "o": [
+        {
+          "en": "\"Nibiru\"",
+          "es": "«Nibiru»",
+          "fr": "« Nibiru »",
+          "ja": "「ニビル」"
+        },
+        {
+          "en": "\"Gaia\"",
+          "es": "«Gaia»",
+          "fr": "« Gaïa »",
+          "ja": "「ガイア」"
+        },
+        {
+          "en": "\"Xena\"",
+          "es": "«Xena»",
+          "fr": "« Xena »",
+          "ja": "「ゼナ」"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Discoverer Mike Brown's team used the informal nickname, borrowed from a television warrior character, while the object awaited an official name from the International Astronomical Union. Its eventual name, Eris, the Greek goddess of strife and discord, was chosen fittingly given the very discord its discovery caused among astronomers debating what a \"planet\" really is.",
+        "es": "El equipo del descubridor Mike Brown usó el apodo informal, tomado de un personaje guerrero de televisión, mientras el objeto esperaba un nombre oficial de la Unión Astronómica Internacional. Su nombre definitivo, Eris, la diosa griega de la discordia, se eligió con acierto dada la propia discordia que causó su descubrimiento entre los astrónomos que debatían qué era realmente un «planeta».",
+        "fr": "L'équipe du découvreur Mike Brown a utilisé ce surnom informel, emprunté à un personnage guerrier de télévision, en attendant que l'objet reçoive un nom officiel de l'Union astronomique internationale. Son nom définitif, Éris, déesse grecque de la discorde, fut choisi à juste titre étant donné la discorde même que sa découverte causa parmi les astronomes débattant de ce qu'est vraiment une « planète ».",
+        "ja": "発見者マイク・ブラウンのチームは、テレビの戦士キャラクターにちなんだこの非公式のあだ名を、国際天文学連合による正式な命名を待つあいだ使っていた。最終的な名前エリスは、争いと不和を司るギリシャの女神である。「惑星」とは本当は何かをめぐって天文学者たちのあいだに巻き起こした不和を思えば、実にふさわしい名である。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Sedna's extremely distant, elongated orbit was first identified in 2003 by a team led by which astronomer, also known for later finding Eris?",
+        "es": "¿La órbita extremadamente lejana y alargada de Sedna fue identificada por primera vez en 2003 por un equipo liderado por qué astrónomo, también conocido por hallar más tarde a Eris?",
+        "fr": "L'orbite extrêmement lointaine et allongée de Sedna fut identifiée pour la première fois en 2003 par une équipe dirigée par quel astronome, également connu pour avoir plus tard découvert Éris ?",
+        "ja": "セドナのきわめて遠く細長い軌道は2003年、のちにエリスを発見したことでも知られる誰が率いるチームによって初めて特定されたか?"
+      },
+      "o": [
+        {
+          "en": "Mike Brown",
+          "es": "Mike Brown",
+          "fr": "Mike Brown",
+          "ja": "マイク・ブラウン"
+        },
+        {
+          "en": "Clyde Tombaugh",
+          "es": "Clyde Tombaugh",
+          "fr": "Clyde Tombaugh",
+          "ja": "クライド・トンボー"
+        },
+        {
+          "en": "Gerard Kuiper",
+          "es": "Gerard Kuiper",
+          "fr": "Gerard Kuiper",
+          "ja": "ジェラルド・カイパー"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Brown, working with Chad Trujillo and David Rabinowitz, spotted Sedna using a wide-field telescope survey designed to sweep large areas of sky for faint, slow-moving objects. Sedna's discovery came two years before the same team's discovery of Eris helped trigger the 2006 debate over Pluto's status.",
+        "es": "Brown, junto con Chad Trujillo y David Rabinowitz, avistó Sedna usando un rastreo de telescopio de campo amplio diseñado para barrer grandes áreas del cielo en busca de objetos tenues y de movimiento lento. El descubrimiento de Sedna llegó dos años antes de que el hallazgo de Eris por el mismo equipo ayudara a desencadenar el debate de 2006 sobre el estatus de Plutón.",
+        "fr": "Brown, en collaboration avec Chad Trujillo et David Rabinowitz, repéra Sedna à l'aide d'un relevé télescopique à grand champ conçu pour balayer de vastes zones du ciel à la recherche d'objets faibles et se déplaçant lentement. La découverte de Sedna eut lieu deux ans avant que la découverte d'Éris par la même équipe n'aide à déclencher le débat de 2006 sur le statut de Pluton.",
+        "ja": "ブラウンはチャド・トルヒーヨ、デイヴィッド・ラビノウィッツとともに、暗く動きの遅い天体を求めて空の広い範囲を掃くように設計された広視野望遠鏡の観測でセドナを見つけた。セドナの発見は、同じチームによるエリスの発見が2006年の冥王星の地位をめぐる論争の引き金の一つとなる二年前のことだった。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What is the collective name for comets that take longer than about 200 years to complete one orbit, thought to originate in the distant Oort Cloud rather than the nearer Kuiper Belt?",
+        "es": "¿Cómo se llama en conjunto a los cometas que tardan más de unos 200 años en completar una órbita, que se cree originados en la lejana Nube de Oort y no en el más cercano cinturón de Kuiper?",
+        "fr": "Comment appelle-t-on collectivement les comètes qui mettent plus de 200 ans environ à accomplir une orbite, censées provenir du lointain Nuage de Oort plutôt que de la ceinture de Kuiper, plus proche ?",
+        "ja": "一周するのに約200年以上かかり、近いカイパーベルトではなく遠いオールトの雲を起源とすると考えられる彗星をまとめて何と呼ぶか?"
+      },
+      "o": [
+        {
+          "en": "Short-period comets",
+          "es": "Cometas de corto período",
+          "fr": "Comètes à courte période",
+          "ja": "短周期彗星"
+        },
+        {
+          "en": "Long-period comets",
+          "es": "Cometas de largo período",
+          "fr": "Comètes à longue période",
+          "ja": "長周期彗星"
+        },
+        {
+          "en": "Sungrazing comets",
+          "es": "Cometas rasantes al Sol",
+          "fr": "Comètes rasantes",
+          "ja": "サングレーザー彗星"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Long-period comets can arrive from any direction and any angle relative to the Sun's disk, unlike Kuiper Belt comets, which mostly orbit in roughly the same flat plane as the planets. Halley's Comet, with its 76-year period, actually counts as short-period despite feeling anything but short on a human timescale.",
+        "es": "Los cometas de largo período pueden llegar desde cualquier dirección y ángulo respecto al disco del Sol, a diferencia de los cometas del cinturón de Kuiper, que orbitan sobre todo en más o menos el mismo plano que los planetas. El cometa Halley, con su período de 76 años, en realidad cuenta como de corto período, aunque no se sienta nada corto en una escala de tiempo humana.",
+        "fr": "Les comètes à longue période peuvent arriver de n'importe quelle direction et sous n'importe quel angle par rapport au disque du Soleil, contrairement aux comètes de la ceinture de Kuiper, qui orbitent surtout à peu près dans le même plan que les planètes. La comète de Halley, avec sa période de 76 ans, compte en réalité parmi les comètes à courte période, même si cela ne paraît pas court du tout à l'échelle d'une vie humaine.",
+        "ja": "長周期彗星は、太陽系の平面とほぼ同じ面を回るカイパーベルトの彗星とは違い、あらゆる方向・あらゆる角度からやって来ることがある。76年周期のハレー彗星は、人の一生の尺度ではまったく短く感じられないものの、実際には短周期彗星に分類される。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "The Oort Cloud is named after which Dutch astronomer, who proposed its existence in 1950 to explain where long-period comets come from?",
+        "es": "¿La Nube de Oort recibe su nombre de qué astrónomo neerlandés, que propuso su existencia en 1950 para explicar de dónde vienen los cometas de largo período?",
+        "fr": "Le Nuage de Oort porte le nom de quel astronome néerlandais, qui a proposé son existence en 1950 pour expliquer d'où viennent les comètes à longue période ?",
+        "ja": "オールトの雲は、長周期彗星がどこから来るのかを説明するために1950年にその存在を提唱した、どのオランダの天文学者にちなんで名付けられているか?"
+      },
+      "o": [
+        {
+          "en": "Gerard Kuiper",
+          "es": "Gerard Kuiper",
+          "fr": "Gerard Kuiper",
+          "ja": "ジェラルド・カイパー"
+        },
+        {
+          "en": "Christiaan Huygens",
+          "es": "Christiaan Huygens",
+          "fr": "Christiaan Huygens",
+          "ja": "クリスティアーン・ホイヘンス"
+        },
+        {
+          "en": "Jan Oort",
+          "es": "Jan Oort",
+          "fr": "Jan Oort",
+          "ja": "ヤン・オールト"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Oort noticed that long-period comets arrive from every direction in the sky with orbits stretching enormously far out, and reasoned that a vast, roughly spherical reservoir of icy bodies must surround the entire Solar System to supply them. No object within the cloud itself has ever actually been observed directly.",
+        "es": "Oort notó que los cometas de largo período llegan de todas las direcciones del cielo con órbitas que se extienden enormemente lejos, y razonó que un vasto reservorio, más o menos esférico, de cuerpos helados debía rodear todo el Sistema Solar para suministrarlos. Ningún objeto dentro de la propia nube ha sido observado jamás de forma directa.",
+        "fr": "Oort remarqua que les comètes à longue période arrivent de toutes les directions du ciel avec des orbites s'étirant énormément loin, et en déduisit qu'un vaste réservoir, à peu près sphérique, de corps glacés devait entourer tout le Système solaire pour les alimenter. Aucun objet à l'intérieur du nuage lui-même n'a jamais été observé directement.",
+        "ja": "オールトは、長周期彗星が空のあらゆる方向から、途方もなく遠くまで伸びる軌道でやって来ることに気づき、それらを供給するには太陽系全体を取り巻く広大でほぼ球形の氷天体の貯蔵庫があるはずだと考えた。この雲の中の天体そのものは、これまで一つも直接観測されたことがない。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "The Kuiper Belt is sometimes also called the \"Edgeworth-Kuiper Belt,\" acknowledging which astronomer who proposed a similar idea years before Gerard Kuiper?",
+        "es": "¿El cinturón de Kuiper a veces también se llama «cinturón de Edgeworth-Kuiper», reconociendo a qué astrónomo que propuso una idea similar años antes que Gerard Kuiper?",
+        "fr": "La ceinture de Kuiper est parfois aussi appelée « ceinture d'Edgeworth-Kuiper », en reconnaissance de quel astronome ayant proposé une idée similaire des années avant Gerard Kuiper ?",
+        "ja": "カイパーベルトは「エッジワース・カイパーベルト」とも呼ばれることがあるが、これはジェラルド・カイパーより何年も前に似た着想を示していたどの天文学者を称えたものか?"
+      },
+      "o": [
+        {
+          "en": "Kenneth Edgeworth",
+          "es": "Kenneth Edgeworth",
+          "fr": "Kenneth Edgeworth",
+          "ja": "ケネス・エッジワース"
+        },
+        {
+          "en": "John Herschel",
+          "es": "John Herschel",
+          "fr": "John Herschel",
+          "ja": "ジョン・ハーシェル"
+        },
+        {
+          "en": "Urbain Le Verrier",
+          "es": "Urbain Le Verrier",
+          "fr": "Urbain Le Verrier",
+          "ja": "ユルバン・ルヴェリエ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Irish astronomer Kenneth Edgeworth suggested in the 1940s that a disk of small icy bodies might lie beyond Neptune, several years before Kuiper made a related proposal that ended up more widely credited when the belt was actually confirmed in 1992. Neither astronomer lived to see the belt's existence proven.",
+        "es": "El astrónomo irlandés Kenneth Edgeworth sugirió en la década de 1940 que un disco de pequeños cuerpos helados podría hallarse más allá de Neptuno, varios años antes de que Kuiper hiciera una propuesta relacionada que acabó recibiendo más reconocimiento cuando el cinturón se confirmó realmente en 1992. Ninguno de los dos astrónomos vivió para ver probada la existencia del cinturón.",
+        "fr": "L'astronome irlandais Kenneth Edgeworth suggéra dans les années 1940 qu'un disque de petits corps glacés pourrait se trouver au-delà de Neptune, plusieurs années avant que Kuiper ne fasse une proposition apparentée, finalement plus largement créditée quand la ceinture fut réellement confirmée en 1992. Aucun des deux astronomes n'a vécu assez longtemps pour voir l'existence de la ceinture prouvée.",
+        "ja": "アイルランドの天文学者ケネス・エッジワースは1940年代、海王星の外側に小さな氷天体の円盤があるかもしれないと示唆した。これはカイパーが関連する提案をする何年も前のことだったが、1992年に実際にベルトが確認された際、より広くカイパーの名が評価されることになった。どちらの天文学者も、ベルトの存在が証明されるのを見届けることはできなかった。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Which European mission became the first to land a probe on the surface of a comet, touching down on comet 67P/Churyumov–Gerasimenko in 2014?",
+        "es": "¿Qué misión europea se convirtió en la primera en posar una sonda en la superficie de un cometa, al aterrizar en el cometa 67P/Churyumov-Gerasimenko en 2014?",
+        "fr": "Quelle mission européenne devint la première à poser une sonde sur la surface d'une comète, en se posant sur la comète 67P/Tchourioumov-Guérassimenko en 2014 ?",
+        "ja": "2014年、彗星67P/チュリュモフ・ゲラシメンコの表面に着陸機を降ろし、彗星への着陸を世界で初めて成功させたヨーロッパのミッションはどれか?"
+      },
+      "o": [
+        {
+          "en": "Voyager's Ranger probe",
+          "es": "La sonda Ranger de la Voyager",
+          "fr": "La sonde Ranger de Voyager",
+          "ja": "ボイジャーのレンジャー・プローブ"
+        },
+        {
+          "en": "Rosetta's Philae lander",
+          "es": "El módulo de aterrizaje Philae de la Rosetta",
+          "fr": "L'atterrisseur Philæ de Rosetta",
+          "ja": "ロゼッタのフィラエ着陸機"
+        },
+        {
+          "en": "Cassini's Huygens probe",
+          "es": "La sonda Huygens de la Cassini",
+          "fr": "La sonde Huygens de Cassini",
+          "ja": "カッシーニのホイヘンス・プローブ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Philae's landing didn't go entirely to plan — its anchoring harpoons failed to fire, and it bounced before settling in a shadowed spot that starved its solar panels of light. Still, it managed to send back the first images and data ever collected from a comet's own surface before its battery ran out.",
+        "es": "El aterrizaje de Philae no salió del todo según lo previsto: sus arpones de anclaje no dispararon y rebotó antes de asentarse en un lugar en sombra que privó de luz a sus paneles solares. Aun así, logró enviar las primeras imágenes y datos jamás recogidos de la propia superficie de un cometa antes de que se le agotara la batería.",
+        "fr": "L'atterrissage de Philæ ne s'est pas entièrement déroulé comme prévu — ses harpons d'ancrage n'ont pas tiré, et il a rebondi avant de se stabiliser dans un endroit ombragé qui a privé ses panneaux solaires de lumière. Il a néanmoins réussi à renvoyer les toutes premières images et données jamais recueillies à la surface même d'une comète avant que sa batterie ne s'épuise.",
+        "ja": "フィラエの着陸は思惑どおりにはいかなかった。固定用のもりが発射されず、機体は跳ねてから日陰の場所に落ち着いてしまい、太陽電池パネルが十分な光を得られなかった。それでもバッテリーが尽きる前に、彗星自身の表面から史上初めて集められた画像とデータを送り返すことに成功した。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Asteroids sharing Jupiter's orbit at its leading Lagrange point are traditionally named after Greek heroes from the Trojan War, while those at the trailing point are named after which side instead?",
+        "es": "¿Los asteroides que comparten la órbita de Júpiter en su punto de Lagrange delantero llevan tradicionalmente nombres de héroes griegos de la guerra de Troya, mientras que los del punto trasero llevan nombres de qué bando en cambio?",
+        "fr": "Les astéroïdes partageant l'orbite de Jupiter à son point de Lagrange avant portent traditionnellement le nom de héros grecs de la guerre de Troie, tandis que ceux du point arrière portent le nom de quel camp à la place ?",
+        "ja": "木星軌道の先行側のラグランジュ点を共有する小惑星は伝統的にトロイア戦争のギリシャ側の英雄にちなんで名付けられるが、後方側の小惑星はどちらの陣営にちなんで名付けられるか?"
+      },
+      "o": [
+        {
+          "en": "The Persian side",
+          "es": "El bando persa",
+          "fr": "Le camp perse",
+          "ja": "ペルシャ側"
+        },
+        {
+          "en": "The Roman side",
+          "es": "El bando romano",
+          "fr": "Le camp romain",
+          "ja": "ローマ側"
+        },
+        {
+          "en": "The Trojan side",
+          "es": "El bando troyano",
+          "fr": "Le camp troyen",
+          "ja": "トロイア側"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Asteroids clustered about 60 degrees ahead of Jupiter are named after Greek heroes, while those trailing 60 degrees behind are named after Trojan heroes, together giving the whole population its nickname of \"Trojan asteroids.\" A few asteroids named before this rule was fully settled sit in the \"wrong\" camp, and are jokingly called spies.",
+        "es": "Los asteroides agrupados unos 60 grados por delante de Júpiter llevan nombres de héroes griegos, mientras que los que van 60 grados por detrás llevan nombres de héroes troyanos, dando así a toda la población su apodo de «asteroides troyanos». Unos pocos asteroides nombrados antes de fijarse del todo esta regla están en el bando «equivocado», y se les llama en broma espías.",
+        "fr": "Les astéroïdes regroupés à environ 60 degrés en avant de Jupiter portent des noms de héros grecs, tandis que ceux qui traînent à 60 degrés en arrière portent des noms de héros troyens, donnant ainsi à toute cette population son surnom d'« astéroïdes troyens ». Quelques astéroïdes nommés avant que cette règle ne soit pleinement établie se trouvent dans le « mauvais » camp, et sont surnommés par plaisanterie des espions.",
+        "ja": "木星のおよそ60度前方に集まる小惑星はギリシャの英雄にちなみ、60度後方に集まる小惑星はトロイアの英雄にちなんで名付けられ、この一群全体が「トロヤ群小惑星」と呼ばれるようになった。この規則が定まる前に名付けられたごく一部の小惑星は「間違った」陣営に紛れ込んでおり、冗談で「スパイ」と呼ばれている。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The four moons Galileo discovered in 1610 were originally named after his aristocratic patron, using what name, before \"Galilean moons\" became the standard term?",
+        "es": "Las cuatro lunas que Galileo descubrió en 1610 llevaron originalmente el nombre de su mecenas aristocrático, ¿con qué nombre, antes de que «lunas galileanas» se convirtiera en el término estándar?",
+        "fr": "Les quatre lunes découvertes par Galilée en 1610 furent d'abord nommées en l'honneur de son mécène aristocratique, sous quel nom, avant que « lunes galiléennes » ne devienne le terme standard ?",
+        "ja": "1610年にガリレオが発見した四つの衛星は、当初、彼の貴族の後援者にちなんで何と呼ばれていたか。「ガリレオ衛星」が一般的な呼び名になる前のことである。"
+      },
+      "o": [
+        {
+          "en": "The Medicean Stars",
+          "es": "Las Estrellas Mediceas",
+          "fr": "Les Astres médicéens",
+          "ja": "メディチ家の星"
+        },
+        {
+          "en": "The Tuscan Planets",
+          "es": "Los Planetas Toscanos",
+          "fr": "Les Planètes toscanes",
+          "ja": "トスカーナの惑星"
+        },
+        {
+          "en": "Jove's Attendants",
+          "es": "Los Acompañantes de Júpiter",
+          "fr": "Les Suivants de Jupiter",
+          "ja": "木星の従者たち"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Galileo named them in honor of his patron, Cosimo II de' Medici, hoping the tribute would help secure funding and prestige. The moons' now-familiar individual names — Io, Europa, Ganymede and Callisto — were actually proposed not by Galileo but by his rival Simon Marius, who also claimed to have spotted them independently around the same time.",
+        "es": "Galileo las nombró en honor a su mecenas, Cosme II de Médici, esperando que el homenaje le ayudara a asegurar financiación y prestigio. Los nombres individuales hoy tan familiares de las lunas —Ío, Europa, Ganímedes y Calisto— en realidad no los propuso Galileo, sino su rival Simon Marius, que también afirmó haberlas avistado de forma independiente por las mismas fechas.",
+        "fr": "Galilée les nomma en l'honneur de son mécène, Côme II de Médicis, espérant que cet hommage l'aiderait à s'assurer financement et prestige. Les noms individuels aujourd'hui si familiers des lunes — Io, Europe, Ganymède et Callisto — furent en réalité proposés non par Galilée mais par son rival Simon Marius, qui prétendit lui aussi les avoir repérées indépendamment à peu près à la même époque.",
+        "ja": "ガリレオは後援者コジモ2世・デ・メディチに敬意を表してこの名を付けた。この献辞が資金と名声の確保に役立つことを期待してのことだった。今日よく知られているイオ・エウロパ・ガニメデ・カリストという個々の名は、実はガリレオではなく、ほぼ同じ頃に独立して発見したと主張したライバルのシモン・マリウスが提案したものである。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "The German astronomer who claimed to have spotted Jupiter's four largest moons around the same time as Galileo, and whose suggested names for them are the ones still used today, was who?",
+        "es": "El astrónomo alemán que afirmó haber avistado las cuatro lunas mayores de Júpiter por las mismas fechas que Galileo, y cuyos nombres sugeridos para ellas son los que todavía se usan hoy, ¿quién fue?",
+        "fr": "L'astronome allemand qui prétendit avoir repéré les quatre plus grandes lunes de Jupiter à peu près en même temps que Galilée, et dont les noms suggérés sont encore utilisés aujourd'hui, était qui ?",
+        "ja": "木星の四大衛星をガリレオとほぼ同じ頃に見つけたと主張し、その提案した名が今日も使われているドイツの天文学者は誰か?"
+      },
+      "o": [
+        {
+          "en": "Johannes Kepler",
+          "es": "Johannes Kepler",
+          "fr": "Johannes Kepler",
+          "ja": "ヨハネス・ケプラー"
+        },
+        {
+          "en": "Simon Marius",
+          "es": "Simon Marius",
+          "fr": "Simon Marius",
+          "ja": "シモン・マリウス"
+        },
+        {
+          "en": "Tycho Brahe",
+          "es": "Tycho Brahe",
+          "fr": "Tycho Brahé",
+          "ja": "ティコ・ブラーエ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Marius published his observations shortly after Galileo but was accused of copying them, a priority dispute that dragged on for centuries until later analysis suggested Marius may genuinely have observed the moons independently, just slightly later. The mythological names he used — suggested to him by Johannes Kepler — won out over Galileo's own tribute to the Medici family, and it is Marius's set of names that astronomers still use today.",
+        "es": "Marius publicó sus observaciones poco después que Galileo, pero fue acusado de copiarlas, una disputa de prioridad que se prolongó durante siglos hasta que análisis posteriores sugirieron que Marius pudo haber observado las lunas de forma realmente independiente, solo un poco más tarde. Los nombres mitológicos que usó —sugeridos por Johannes Kepler— se impusieron sobre el propio homenaje de Galileo a los Médici, y es el conjunto de nombres de Marius el que los astrónomos siguen usando hoy.",
+        "fr": "Marius publia ses observations peu après Galilée mais fut accusé de les avoir copiées, un différend de priorité qui traîna pendant des siècles jusqu'à ce que des analyses ultérieures suggèrent que Marius avait peut-être vraiment observé les lunes de façon indépendante, juste un peu plus tard. Les noms mythologiques qu'il utilisa — suggérés par Johannes Kepler — l'emportèrent sur l'hommage de Galilée à la famille Médicis, et ce sont les noms de Marius que les astronomes utilisent encore aujourd'hui.",
+        "ja": "マリウスはガリレオのすぐあとに観測を発表したが、盗用したと非難され、この優先権をめぐる論争は何世紀も続いた。のちの分析では、マリウスは本当に独立して、ただ少し遅れて衛星を観測していた可能性が示唆されている。彼が用いた神話にちなむ名――ヨハネス・ケプラーが提案したもの――は、ガリレオによるメディチ家への献辞に取って代わり、今日天文学者が使っているのはマリウスの命名のほうである。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Which planet's slightly irregular orbit, unexplainable by Newtonian gravity alone, was finally accounted for in 1915 by Einstein's general theory of relativity?",
+        "es": "¿La órbita ligeramente irregular de qué planeta, inexplicable solo con la gravedad newtoniana, fue por fin explicada en 1915 por la teoría general de la relatividad de Einstein?",
+        "fr": "L'orbite légèrement irrégulière de quelle planète, inexplicable par la seule gravité newtonienne, fut enfin expliquée en 1915 par la théorie de la relativité générale d'Einstein ?",
+        "ja": "ニュートン力学だけでは説明しきれないわずかな軌道のずれを抱え、それが1915年のアインシュタインの一般相対性理論によってついに説明された惑星はどれか?"
+      },
+      "o": [
+        {
+          "en": "Venus",
+          "es": "Venus",
+          "fr": "Vénus",
+          "ja": "金星"
+        },
+        {
+          "en": "Neptune",
+          "es": "Neptuno",
+          "fr": "Neptune",
+          "ja": "海王星"
+        },
+        {
+          "en": "Mercury",
+          "es": "Mercurio",
+          "fr": "Mercure",
+          "ja": "水星"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Mercury's closest point to the Sun (its perihelion) shifts very slightly with each orbit, a wobble too large to be explained fully by the gravitational tug of the other planets alone under Newton's laws. Einstein's theory accounted for the remaining discrepancy almost exactly, making it one of the earliest real-world confirmations of general relativity.",
+        "es": "El punto más cercano al Sol de Mercurio (su perihelio) se desplaza muy ligeramente con cada órbita, un bamboleo demasiado grande como para explicarse por completo solo con el tirón gravitatorio de los demás planetas según las leyes de Newton. La teoría de Einstein explicó la discrepancia restante casi con exactitud, convirtiéndose en una de las primeras confirmaciones reales de la relatividad general.",
+        "fr": "Le point le plus proche du Soleil de Mercure (son périhélie) se déplace très légèrement à chaque orbite, une oscillation trop importante pour s'expliquer entièrement par la seule traction gravitationnelle des autres planètes selon les lois de Newton. La théorie d'Einstein a rendu compte de l'écart restant presque exactement, en faisant l'une des toutes premières confirmations concrètes de la relativité générale.",
+        "ja": "水星が太陽にいちばん近づく点(近日点)は、一周ごとにごくわずかにずれていく。この揺れは、ニュートンの法則に基づく他の惑星の重力だけではすべて説明しきれないほど大きかった。アインシュタインの理論は残されたずれをほぼ正確に説明し、一般相対性理論が現実の観測で確かめられた最初期の例の一つとなった。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The \"Titius-Bode law,\" a numerical pattern that roughly predicted the spacing of the planets, correctly hinted that something should orbit between Mars and Jupiter well before what was found there?",
+        "es": "¿La «ley de Titius-Bode», un patrón numérico que predecía aproximadamente el espaciado de los planetas, insinuó correctamente que algo debía orbitar entre Marte y Júpiter mucho antes de que se hallara qué allí?",
+        "fr": "La « loi de Titius-Bode », un schéma numérique prédisant approximativement l'espacement des planètes, a correctement laissé entendre que quelque chose devait orbiter entre Mars et Jupiter bien avant qu'on n'y trouve quoi ?",
+        "ja": "惑星どうしの間隔をおおよそ予測する数式「ティティウス・ボーデの法則」は、火星と木星の間に何かが公転しているはずだと早くから正しく示唆していたが、実際にそこで見つかったのは何だったか?"
+      },
+      "o": [
+        {
+          "en": "The asteroid belt (starting with Ceres)",
+          "es": "El cinturón de asteroides (comenzando por Ceres)",
+          "fr": "La ceinture d'astéroïdes (à commencer par Cérès)",
+          "ja": "小惑星帯(ケレスを皮切りに)"
+        },
+        {
+          "en": "Halley's Comet",
+          "es": "El cometa Halley",
+          "fr": "La comète de Halley",
+          "ja": "ハレー彗星"
+        },
+        {
+          "en": "Pluto",
+          "es": "Plutón",
+          "fr": "Pluton",
+          "ja": "冥王星"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The pattern, popularized in the 1770s, predicted a gap-filling body at roughly the distance where Ceres was found in 1801, which encouraged astronomers to go looking there in the first place. The law later failed for Neptune's actual distance, and today most astronomers consider it a numerical coincidence rather than a real physical law.",
+        "es": "El patrón, popularizado en la década de 1770, predijo un cuerpo que llenaría el hueco a más o menos la distancia donde se halló Ceres en 1801, lo que animó a los astrónomos a buscar allí en primer lugar. La ley falló más tarde para la distancia real de Neptuno, y hoy la mayoría de los astrónomos la consideran una coincidencia numérica más que una ley física real.",
+        "fr": "Ce schéma, popularisé dans les années 1770, prédisait un corps comblant le vide à peu près à la distance où Cérès fut trouvée en 1801, ce qui encouragea justement les astronomes à chercher là. La loi échoua ensuite pour la distance réelle de Neptune, et aujourd'hui la plupart des astronomes la considèrent comme une coïncidence numérique plutôt qu'une véritable loi physique.",
+        "ja": "1770年代に広まったこの法則は、1801年にケレスが見つかったのとほぼ同じ距離に隙間を埋める天体があるはずだと予測し、そもそも天文学者たちがそこを探すきっかけとなった。しかしこの法則は海王星の実際の距離では成り立たず、今日ではほとんどの天文学者が本物の物理法則ではなく数字上の偶然だと見なしている。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "New Horizons carries a small canister containing some of the ashes of whom, launched toward Pluto in 2006?",
+        "es": "¿La New Horizons lleva una pequeña cápsula con parte de las cenizas de quién, lanzada hacia Plutón en 2006?",
+        "fr": "New Horizons transporte une petite capsule contenant une partie des cendres de qui, lancée vers Pluton en 2006 ?",
+        "ja": "2006年に冥王星へ向けて打ち上げられたニューホライズンズは、誰かの遺灰の一部を収めた小さな容器を積んでいるが、それは誰の遺灰か?"
+      },
+      "o": [
+        {
+          "en": "Percival Lowell, who predicted Pluto's existence",
+          "es": "Percival Lowell, quien predijo la existencia de Plutón",
+          "fr": "Percival Lowell, qui prédit l'existence de Pluton",
+          "ja": "冥王星の存在を予言したパーシヴァル・ローウェル"
+        },
+        {
+          "en": "Clyde Tombaugh, who discovered Pluto in 1930",
+          "es": "Clyde Tombaugh, quien descubrió Plutón en 1930",
+          "fr": "Clyde Tombaugh, qui découvrit Pluton en 1930",
+          "ja": "1930年に冥王星を発見したクライド・トンボー"
+        },
+        {
+          "en": "Venetia Burney, who named Pluto",
+          "es": "Venetia Burney, quien nombró a Plutón",
+          "fr": "Venetia Burney, qui nomma Pluton",
+          "ja": "冥王星を名付けたヴェネチア・バーニー"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Tombaugh died in 1997, nearly a decade before the mission he never got to see launched, but the small container of his ashes travelled past the world he discovered and, along with the spacecraft, is now heading out into the Kuiper Belt and beyond. The canister is inscribed with a dedication describing him as an \"American,\" among other identifying details for whoever might one day find the spacecraft.",
+        "es": "Tombaugh murió en 1997, casi una década antes de que se lanzara la misión que nunca llegó a ver, pero el pequeño contenedor con sus cenizas viajó más allá del mundo que descubrió y, junto con la nave, se dirige ahora hacia el cinturón de Kuiper y más allá. La cápsula lleva grabada una dedicatoria que lo describe como «estadounidense», entre otros datos de identificación para quien pudiera hallar la nave algún día.",
+        "fr": "Tombaugh mourut en 1997, près d'une décennie avant le lancement de la mission qu'il ne verra jamais, mais la petite capsule contenant ses cendres a dépassé le monde qu'il a découvert et, avec la sonde, se dirige maintenant vers la ceinture de Kuiper et au-delà. La capsule porte gravée une dédicace le décrivant comme « américain », parmi d'autres détails d'identification pour qui pourrait un jour trouver l'engin.",
+        "ja": "トンボーは1997年に亡くなり、自分が見ることのなかったこのミッションの打ち上げからおよそ十年前のことだった。しかし彼の遺灰を収めた小さな容器は、自ら発見した世界のそばを通り過ぎ、探査機とともに今もカイパーベルトのさらに先へと向かっている。容器には、いつか探査機を見つけるかもしれない誰かのために、彼を「アメリカ人」と記す献辞などが刻まれている。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Who proposed the name \"Pluto\" for the newly discovered ninth planet in 1930?",
+        "es": "¿Quién propuso el nombre «Plutón» para el recién descubierto noveno planeta en 1930?",
+        "fr": "Qui proposa le nom « Pluton » pour la neuvième planète nouvellement découverte en 1930 ?",
+        "ja": "1930年、発見されたばかりの九番目の惑星に「プルート(冥王星)」という名を提案したのは誰か?"
+      },
+      "o": [
+        {
+          "en": "Astronomer Percival Lowell, shortly before his death",
+          "es": "El astrónomo Percival Lowell, poco antes de morir",
+          "fr": "L'astronome Percival Lowell, peu avant sa mort",
+          "ja": "死の直前の天文学者パーシヴァル・ローウェル"
+        },
+        {
+          "en": "A vote among the discovery team at Lowell Observatory",
+          "es": "Una votación del equipo descubridor en el Observatorio Lowell",
+          "fr": "Un vote de l'équipe de découverte à l'observatoire Lowell",
+          "ja": "ローウェル天文台の発見チームによる投票"
+        },
+        {
+          "en": "An 11-year-old British schoolgirl named Venetia Burney",
+          "es": "Una escolar británica de 11 años llamada Venetia Burney",
+          "fr": "Une écolière britannique de 11 ans nommée Venetia Burney",
+          "ja": "11歳のイギリスの少女ヴェネチア・バーニー"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Venetia Burney suggested the name to her grandfather over breakfast, reasoning that a cold, dark world deserved to be named for the Roman god of the underworld; he passed the suggestion along to Lowell Observatory, and it won out over other proposals. She lived long enough to see Pluto both named a planet and reclassified as a dwarf planet decades later.",
+        "es": "Venetia Burney le sugirió el nombre a su abuelo durante el desayuno, razonando que un mundo frío y oscuro merecía llevar el nombre del dios romano del inframundo; él trasladó la sugerencia al Observatorio Lowell, y se impuso sobre otras propuestas. Vivió lo suficiente para ver a Plutón nombrado planeta y, décadas después, reclasificado como planeta enano.",
+        "fr": "Venetia Burney suggéra le nom à son grand-père au petit déjeuner, estimant qu'un monde froid et sombre méritait le nom du dieu romain des enfers ; il transmit la suggestion à l'observatoire Lowell, qui l'emporta sur d'autres propositions. Elle vécut assez longtemps pour voir Pluton à la fois nommée planète, puis reclassée en planète naine des décennies plus tard.",
+        "ja": "ヴェネチア・バーニーは朝食の席で祖父にこの名を提案した。冷たく暗い世界にはローマ神話の冥界の神の名がふさわしいと考えたのである。祖父はこの提案をローウェル天文台に伝え、他の候補を退けて採用された。彼女はその後、冥王星が惑星と呼ばれるのも、何十年もあとに準惑星と再分類されるのも、両方を見届けるまで生きた。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The three formal criteria in the IAU's 2006 definition of \"planet\" require a body to orbit the Sun, be rounded by its own gravity, and do what else?",
+        "es": "Los tres criterios formales de la definición de «planeta» de la UAI de 2006 exigen que un cuerpo orbite el Sol, sea redondeado por su propia gravedad, y además ¿qué?",
+        "fr": "Les trois critères formels de la définition de « planète » de l'UAI en 2006 exigent qu'un corps orbite autour du Soleil, soit arrondi par sa propre gravité, et fasse quoi d'autre ?",
+        "ja": "2006年のIAUによる「惑星」の定義に含まれる三つの正式な基準は、太陽を公転すること、自らの重力で丸くなっていることに加え、さらに何を求めているか?"
+      },
+      "o": [
+        {
+          "en": "Have cleared the neighborhood around its orbit of other debris",
+          "es": "Haber despejado la vecindad de su órbita de otros restos",
+          "fr": "Avoir nettoyé le voisinage de son orbite d'autres débris",
+          "ja": "軌道の周辺から他の天体を一掃していること"
+        },
+        {
+          "en": "Have at least one moon",
+          "es": "Tener al menos una luna",
+          "fr": "Avoir au moins une lune",
+          "ja": "少なくとも一つの衛星を持つこと"
+        },
+        {
+          "en": "Have a solid, rocky surface",
+          "es": "Tener una superficie sólida y rocosa",
+          "fr": "Avoir une surface solide et rocheuse",
+          "ja": "固い岩石の表面を持つこと"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "It is this third criterion that Pluto and Ceres both fail, since each shares its orbital region with countless other bodies rather than dominating it gravitationally, unlike a true planet like Earth or Jupiter. The definition remains controversial among some planetary scientists, who argue that \"clearing the neighborhood\" is poorly suited to worlds far from the Sun, where clearing simply takes far longer regardless of size.",
+        "es": "Es este tercer criterio el que no cumplen ni Plutón ni Ceres, ya que cada uno comparte su región orbital con innumerables otros cuerpos en vez de dominarla gravitacionalmente, a diferencia de un planeta de verdad como la Tierra o Júpiter. La definición sigue siendo controvertida entre algunos científicos planetarios, que sostienen que «despejar la vecindad» encaja mal con mundos lejos del Sol, donde despejarla simplemente lleva mucho más tiempo sin importar el tamaño.",
+        "fr": "C'est ce troisième critère que ni Pluton ni Cérès ne remplissent, chacune partageant sa région orbitale avec d'innombrables autres corps au lieu de la dominer gravitationnellement, contrairement à une vraie planète comme la Terre ou Jupiter. La définition reste controversée chez certains scientifiques planétaires, qui estiment que « nettoyer le voisinage » convient mal aux mondes éloignés du Soleil, où nettoyer prend simplement bien plus longtemps quelle que soit la taille.",
+        "ja": "冥王星もケレスも満たせないのがこの三つ目の基準である。地球や木星のような本物の惑星と違い、どちらも自分の軌道領域を重力で支配せず、無数の他の天体とその場を分け合っているからである。この定義は今も一部の惑星科学者のあいだで議論があり、太陽から遠い世界では大きさに関係なく一掃にはるかに長い時間がかかるため、「近傍の一掃」という基準はふさわしくないという主張もある。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "Precise measurement of the astronomical unit — the average Earth-Sun distance — was first achieved to high accuracy in the 1960s using what method?",
+        "es": "¿La medición precisa de la unidad astronómica —la distancia media Tierra-Sol— se logró por primera vez con gran precisión en la década de 1960 usando qué método?",
+        "fr": "La mesure précise de l'unité astronomique — la distance moyenne Terre-Soleil — fut réalisée pour la première fois avec une grande précision dans les années 1960 grâce à quelle méthode ?",
+        "ja": "地球と太陽の平均距離である天文単位を、1960年代に初めて高精度で測定できたのはどんな手法によるものか?"
+      },
+      "o": [
+        {
+          "en": "Timing eclipses of Jupiter's moons",
+          "es": "Cronometrando eclipses de las lunas de Júpiter",
+          "fr": "En chronométrant les éclipses des lunes de Jupiter",
+          "ja": "木星の衛星の食を計測する方法"
+        },
+        {
+          "en": "Bouncing radar signals off Venus",
+          "es": "Rebotando señales de radar en Venus",
+          "fr": "En faisant rebondir des signaux radar sur Vénus",
+          "ja": "金星にレーダー信号を反射させる方法"
+        },
+        {
+          "en": "Measuring the parallax of nearby stars",
+          "es": "Midiendo el paralaje de estrellas cercanas",
+          "fr": "En mesurant la parallaxe d'étoiles proches",
+          "ja": "近くの恒星の視差を測る方法"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "By timing how long radar pulses took to bounce off Venus and return, astronomers could calculate the distance between Earth and Venus directly, then calibrate the whole scale of the Solar System far more precisely than centuries of geometric methods had allowed. This radar-ranging technique refined the astronomical unit's value to within a few kilometers.",
+        "es": "Al cronometrar cuánto tardaban los pulsos de radar en rebotar en Venus y regresar, los astrónomos pudieron calcular directamente la distancia entre la Tierra y Venus, y luego calibrar toda la escala del Sistema Solar con mucha más precisión de la que habían permitido siglos de métodos geométricos. Esta técnica de radar refinó el valor de la unidad astronómica hasta unos pocos kilómetros de margen.",
+        "fr": "En chronométrant le temps mis par les impulsions radar pour rebondir sur Vénus et revenir, les astronomes purent calculer directement la distance entre la Terre et Vénus, puis calibrer toute l'échelle du Système solaire bien plus précisément que ce que des siècles de méthodes géométriques avaient permis. Cette technique de télémétrie radar affina la valeur de l'unité astronomique à quelques kilomètres près.",
+        "ja": "レーダーパルスが金星に反射して戻ってくるまでの時間を計ることで、天文学者は地球と金星の距離を直接計算し、それをもとに太陽系全体の縮尺を、何世紀もの幾何学的手法よりはるかに正確に較正できるようになった。このレーダー測距の技術によって、天文単位の値は数kmの誤差内にまで絞り込まれた。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Astronomers sometimes describe a slow, roughly 900-year gravitational tug-of-war between Jupiter and Saturn, whose orbital periods are close to but not exactly a 5:2 ratio, using what name?",
+        "es": "¿Los astrónomos a veces describen un lento tira y afloja gravitatorio de unos 900 años entre Júpiter y Saturno, cuyos períodos orbitales son cercanos pero no exactamente una proporción de 5:2, con qué nombre?",
+        "fr": "Les astronomes décrivent parfois un lent tiraillement gravitationnel d'environ 900 ans entre Jupiter et Saturne, dont les périodes orbitales sont proches, sans l'être exactement, d'un rapport de 5:2, sous quel nom ?",
+        "ja": "木星と土星の公転周期は5:2に近いが完全には一致せず、そのため約900年周期でゆっくりと続く重力の綱引きを天文学者は何と呼ぶことがあるか?"
+      },
+      "o": [
+        {
+          "en": "The Grand Tour",
+          "es": "El Gran Recorrido",
+          "fr": "Le Grand Tour",
+          "ja": "グランドツアー"
+        },
+        {
+          "en": "The Galilean Wobble",
+          "es": "El Bamboleo Galileano",
+          "fr": "Le Vacillement galiléen",
+          "ja": "ガリレオの揺らぎ"
+        },
+        {
+          "en": "The Great Inequality",
+          "es": "La Gran Desigualdad",
+          "fr": "La Grande Inégalité",
+          "ja": "大不等式"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "This slow cycle of Jupiter gradually speeding up and Saturn gradually slowing down, then reversing, puzzled astronomers for over a century until Pierre-Simon Laplace worked out the underlying celestial mechanics in the 1780s. It was one of the first triumphs of using gravity alone to explain a wobble that had, at first, looked like a real error in Newton's theory.",
+        "es": "Este lento ciclo en el que Júpiter se acelera gradualmente y Saturno se frena gradualmente, para luego invertirse, desconcertó a los astrónomos durante más de un siglo hasta que Pierre-Simon Laplace resolvió la mecánica celeste subyacente en la década de 1780. Fue uno de los primeros triunfos al usar solo la gravedad para explicar un bamboleo que, al principio, parecía un error real en la teoría de Newton.",
+        "fr": "Ce lent cycle où Jupiter accélère progressivement tandis que Saturne ralentit progressivement, avant que le mouvement ne s'inverse, a laissé perplexes les astronomes pendant plus d'un siècle, jusqu'à ce que Pierre-Simon Laplace en élucide la mécanique céleste sous-jacente dans les années 1780. Ce fut l'un des premiers triomphes de l'usage de la seule gravité pour expliquer un vacillement qui, au départ, semblait être une vraie erreur dans la théorie de Newton.",
+        "ja": "木星が少しずつ速くなり、土星が少しずつ遅くなって、また逆転するというこのゆるやかな周期は、1780年代にピエール=シモン・ラプラスがその背後にある天体力学を解き明かすまで、一世紀以上にわたって天文学者を悩ませた。当初はニュートン理論の本物の誤りのように見えたこの揺らぎを、重力だけで説明しきった初期の勝利の一つである。"
       }
     }
   ],

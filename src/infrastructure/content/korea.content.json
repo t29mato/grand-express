@@ -3551,6 +3551,2346 @@
         "fr": "Fondé en 1860, en partie en réaction à la diffusion du « savoir occidental », ses adeptes menèrent une importante révolte paysanne en 1894, finalement écrasée, mais ses enseignements égalitaires influencèrent des mouvements réformistes durant des décennies.",
         "ja": "1860年、西洋の「洋学」の広まりへの反発もあって興ったこの運動の信徒は、1894年に大規模な農民蜂起を起こしたが、最終的に鎮圧された。その平等主義的な教えは、その後何十年も改革運動に影響を与え続けた。"
       }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "What is South Korea's national flower, said to bloom continuously through the summer?",
+        "es": "¿Cuál es la flor nacional de Corea del Sur, que se dice florece sin parar durante el verano?",
+        "fr": "Quelle est la fleur nationale de la Corée du Sud, censée fleurir sans relâche tout l'été ?",
+        "ja": "夏じゅう咲き続けるとされる、韓国の国花は?"
+      },
+      "o": [
+        {
+          "en": "Cherry blossom",
+          "es": "Flor de cerezo",
+          "fr": "Fleur de cerisier",
+          "ja": "桜"
+        },
+        {
+          "en": "Lotus",
+          "es": "Loto",
+          "fr": "Lotus",
+          "ja": "蓮"
+        },
+        {
+          "en": "Rose of Sharon (mugunghwa)",
+          "es": "Rosa de Sarón (mugunghwa)",
+          "fr": "Rose de Sharon (mugunghwa)",
+          "ja": "むくげ(無窮花)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The name mugunghwa literally means \"the flower that never withers\", and it appears in the country's national anthem as well as on official government emblems.",
+        "es": "El nombre mugunghwa significa literalmente «la flor que nunca se marchita», y aparece en el himno nacional además de en los emblemas oficiales del gobierno.",
+        "fr": "Le nom mugunghwa signifie littéralement « la fleur qui ne fane jamais », et il figure dans l'hymne national ainsi que sur les emblèmes officiels du gouvernement.",
+        "ja": "「無窮花(むくげ)」という名は文字どおり「決して枯れない花」を意味し、国歌の歌詞にも登場し、政府の公式紋章にも使われている。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "What is South Korea's second-largest city, a major port on the southeast coast?",
+        "es": "¿Cuál es la segunda ciudad más grande de Corea del Sur, un importante puerto en la costa sureste?",
+        "fr": "Quelle est la deuxième plus grande ville de Corée du Sud, un port majeur sur la côte sud-est ?",
+        "ja": "韓国第2の都市で、南東岸の大きな港町はどこか?"
+      },
+      "o": [
+        {
+          "en": "Incheon",
+          "es": "Incheon",
+          "fr": "Incheon",
+          "ja": "仁川"
+        },
+        {
+          "en": "Daegu",
+          "es": "Daegu",
+          "fr": "Daegu",
+          "ja": "大邱"
+        },
+        {
+          "en": "Busan",
+          "es": "Busan",
+          "fr": "Busan",
+          "ja": "釜山"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Busan holds the country's busiest container port and is the finishing point of the Gyeongbu rail and expressway lines that begin in Seoul, some 325km to the north.",
+        "es": "Busan alberga el puerto de contenedores más activo del país y es el punto final de las líneas ferroviaria y de autopista Gyeongbu que comienzan en Seúl, a unos 325 km al norte.",
+        "fr": "Busan abrite le port à conteneurs le plus actif du pays et marque le terminus de la ligne ferroviaire et de l'autoroute Gyeongbu qui partent de Séoul, à quelque 325 km au nord.",
+        "ja": "釜山は国内最大のコンテナ港を持ち、北へおよそ325kmのソウルから始まる京釜線(鉄道・高速道路)の終着点でもある。"
+      }
+    },
+    {
+      "difficulty": 1,
+      "q": {
+        "en": "Which martial art, involving high kicks and now an Olympic sport, originated in Korea?",
+        "es": "¿Qué arte marcial, con patadas altas y hoy deporte olímpico, se originó en Corea?",
+        "fr": "Quel art martial, aux coups de pied hauts et aujourd'hui sport olympique, est originaire de Corée ?",
+        "ja": "高い蹴り技を特徴とし、いまはオリンピック種目にもなっている、韓国発祥の武道は?"
+      },
+      "o": [
+        {
+          "en": "Judo",
+          "es": "Judo",
+          "fr": "Judo",
+          "ja": "柔道"
+        },
+        {
+          "en": "Kung fu",
+          "es": "Kung fu",
+          "fr": "Kung-fu",
+          "ja": "カンフー"
+        },
+        {
+          "en": "Taekwondo",
+          "es": "Taekwondo",
+          "fr": "Taekwondo",
+          "ja": "テコンドー"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Taekwondo became a full medal sport at the Sydney 2000 Olympics, and its name combines tae (kick), kwon (fist) and do (the way), reflecting techniques developed and standardised in Korea after the Second World War.",
+        "es": "El taekwondo se convirtió en deporte olímpico con medallas en Sídney 2000, y su nombre combina tae (patada), kwon (puño) y do (el camino).",
+        "fr": "Le taekwondo devint un sport olympique à médailles à Sydney en 2000, et son nom combine tae (coup de pied), kwon (poing) et do (la voie).",
+        "ja": "テコンドーはシドニー2000大会で正式な金メダル種目になった。名前は跆(蹴り)・拳(拳)・道(道)を組み合わせたもので、第二次大戦後の韓国で体系化された技を反映している。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "What is the staple grain eaten at nearly every Korean meal?",
+        "es": "¿Cuál es el cereal básico que se come en casi toda comida coreana?",
+        "fr": "Quelle est la céréale de base consommée à presque chaque repas coréen ?",
+        "ja": "ほぼすべての食事に添えられる主食の穀物は?"
+      },
+      "o": [
+        {
+          "en": "Wheat",
+          "es": "Trigo",
+          "fr": "Blé",
+          "ja": "小麦"
+        },
+        {
+          "en": "Barley",
+          "es": "Cebada",
+          "fr": "Orge",
+          "ja": "大麦"
+        },
+        {
+          "en": "Rice",
+          "es": "Arroz",
+          "fr": "Riz",
+          "ja": "米"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "A bowl of steamed short-grain rice is set at nearly every meal alongside soup and side dishes, and rice paddies still cover much of the country's flatter farmland.",
+        "es": "Un cuenco de arroz de grano corto al vapor se sirve en casi toda comida junto con sopa y guarniciones, y los arrozales aún cubren buena parte de las tierras de cultivo llanas del país.",
+        "fr": "Un bol de riz à grain court cuit à la vapeur accompagne presque chaque repas, avec une soupe et des accompagnements, et les rizières couvrent encore une bonne part des terres agricoles plates du pays.",
+        "ja": "蒸した短粒米の茶碗が、スープやおかずと並んでほぼすべての食事に添えられる。水田はいまも国内の平坦な農地の多くを占めている。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "On how many sides is the Korean Peninsula bordered by water?",
+        "es": "¿Por cuántos lados está bordeada la península coreana por el agua?",
+        "fr": "Sur combien de côtés la péninsule coréenne est-elle bordée par l'eau ?",
+        "ja": "朝鮮半島は何方向を海に囲まれているか?"
+      },
+      "o": [
+        {
+          "en": "Two",
+          "es": "Dos",
+          "fr": "Deux",
+          "ja": "2方向"
+        },
+        {
+          "en": "All four",
+          "es": "Los cuatro",
+          "fr": "Les quatre",
+          "ja": "4方向すべて"
+        },
+        {
+          "en": "Three",
+          "es": "Tres",
+          "fr": "Trois",
+          "ja": "3方向"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The peninsula is bounded by the Yellow Sea to the west, the East Sea (Sea of Japan) to the east, and the Korea Strait to the south, with only its northern edge attached to the Asian mainland.",
+        "es": "La península limita con el mar Amarillo al oeste, el mar del Este (mar de Japón) al este y el estrecho de Corea al sur, y solo su borde norte está unido al continente asiático.",
+        "fr": "La péninsule est bordée par la mer Jaune à l'ouest, la mer de l'Est (mer du Japon) à l'est et le détroit de Corée au sud, seul son bord nord restant rattaché au continent asiatique.",
+        "ja": "半島は西を黄海、東を東海(日本海)、南を朝鮮海峡に囲まれ、北の縁だけがアジア大陸と地続きになっている。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "What is the traditional Korean rice cake soup eaten to mark the new year, one bowl per year of age gained?",
+        "es": "¿Cuál es la sopa tradicional coreana de pastel de arroz que se toma para celebrar el año nuevo, un cuenco por cada año de edad ganado?",
+        "fr": "Quelle est la soupe traditionnelle coréenne de gâteau de riz consommée pour marquer le nouvel an, un bol par année d'âge gagnée ?",
+        "ja": "正月に食べる伝統の餅入りスープで、一杯食べるごとに歳をひとつ重ねるとされるものは?"
+      },
+      "o": [
+        {
+          "en": "Bibimbap",
+          "es": "Bibimbap",
+          "fr": "Bibimbap",
+          "ja": "ビビンバ"
+        },
+        {
+          "en": "Japchae",
+          "es": "Japchae",
+          "fr": "Japchae",
+          "ja": "チャプチェ"
+        },
+        {
+          "en": "Tteokguk",
+          "es": "Tteokguk",
+          "fr": "Tteokguk",
+          "ja": "トック(お雑煮)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The soup's thin oval rice-cake slices are said to resemble old coins, symbolising wealth, and their white colour was traditionally read as a wish for a clean start to the year.",
+        "es": "Se dice que las finas rodajas ovaladas de pastel de arroz de la sopa recuerdan a monedas antiguas, símbolo de riqueza, y su color blanco se leía tradicionalmente como un deseo de empezar el año limpio.",
+        "fr": "Les fines tranches ovales de gâteau de riz de la soupe rappelleraient d'anciennes pièces de monnaie, symbole de richesse, et leur couleur blanche exprimait traditionnellement le vœu d'un départ pur pour l'année.",
+        "ja": "薄い楕円形の餅切りは古銭に似せて富を願うものとされ、その白さは新しい年を清らかに始める願いを込めているとも言われる。"
+      }
+    },
+    {
+      "difficulty": 2,
+      "q": {
+        "en": "What is the spicy, fermented red chilli paste central to much of Korean cooking?",
+        "es": "¿Cuál es la pasta roja de chile fermentada y picante, esencial en buena parte de la cocina coreana?",
+        "fr": "Quelle est la pâte de piment rouge fermentée et pimentée, essentielle à une bonne part de la cuisine coréenne ?",
+        "ja": "韓国料理の多くに使われる、発酵させた辛い赤唐辛子ペーストは?"
+      },
+      "o": [
+        {
+          "en": "Doenjang",
+          "es": "Doenjang",
+          "fr": "Doenjang",
+          "ja": "テンジャン(味噌)"
+        },
+        {
+          "en": "Gochujang",
+          "es": "Gochujang",
+          "fr": "Gochujang",
+          "ja": "コチュジャン"
+        },
+        {
+          "en": "Ssamjang",
+          "es": "Ssamjang",
+          "fr": "Ssamjang",
+          "ja": "サムジャン"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Traditionally fermented for months or years in earthenware jars set out in the sun, gochujang is made from chilli powder, glutinous rice, fermented soybeans and salt.",
+        "es": "Fermentado tradicionalmente durante meses o años en tinajas de barro puestas al sol, el gochujang se hace con chile en polvo, arroz glutinoso, soja fermentada y sal.",
+        "fr": "Traditionnellement fermenté pendant des mois ou des années dans des jarres en terre cuite exposées au soleil, le gochujang est fait de piment en poudre, de riz gluant, de soja fermenté et de sel.",
+        "ja": "素焼きの甕を日なたに並べて何か月、何年も発酵させて作る。唐辛子粉ともち米、発酵大豆、塩が原料である。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "What is the double-headed hourglass-shaped drum central to Korean traditional and folk music?",
+        "es": "¿Cuál es el tambor de doble parche y forma de reloj de arena, central en la música tradicional y folclórica coreana?",
+        "fr": "Quel est le tambour à deux peaux en forme de sablier, central dans la musique traditionnelle et folklorique coréenne ?",
+        "ja": "韓国の伝統音楽・民俗音楽で中心的な、両面を持つ砂時計形の太鼓は?"
+      },
+      "o": [
+        {
+          "en": "Gayageum",
+          "es": "Gayageum",
+          "fr": "Gayageum",
+          "ja": "伽耶琴"
+        },
+        {
+          "en": "Piri",
+          "es": "Piri",
+          "fr": "Piri",
+          "ja": "篳篥(ピリ)"
+        },
+        {
+          "en": "Janggu",
+          "es": "Janggu",
+          "fr": "Janggu",
+          "ja": "チャンゴ"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Its two heads are struck with different implements — a stick on one side, a bare hand or thin switch on the other — so a single drummer can produce two distinct tones at once.",
+        "es": "Sus dos parches se golpean con implementos distintos: un palo por un lado, la mano desnuda o una vara fina por el otro, así que un solo tamborilero puede producir dos tonos distintos a la vez.",
+        "fr": "Ses deux peaux se frappent avec des instruments différents — une baguette d'un côté, la main nue ou une fine baguette souple de l'autre — si bien qu'un seul joueur peut produire deux tons distincts à la fois.",
+        "ja": "両面をそれぞれ違う道具で打つ楽器で、片面はばち、もう片面は素手か細い鞭状の棒を使う。一人の奏者が同時に二つの異なる音色を出せる。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "What is the communal autumn event in which households traditionally make a whole winter's supply of kimchi together?",
+        "es": "¿Cuál es el evento comunitario de otoño en que los hogares preparan tradicionalmente juntos la provisión de kimchi de todo un invierno?",
+        "fr": "Quel est l'événement communautaire d'automne où les foyers préparent traditionnellement ensemble toute la provision de kimchi de l'hiver ?",
+        "ja": "各家庭が冬じゅう分のキムチをまとめて漬ける、秋の共同作業の行事は?"
+      },
+      "o": [
+        {
+          "en": "Chuseok",
+          "es": "Chuseok",
+          "fr": "Chuseok",
+          "ja": "秋夕(チュソク)"
+        },
+        {
+          "en": "Kimjang",
+          "es": "Kimjang",
+          "fr": "Kimjang",
+          "ja": "キムジャン"
+        },
+        {
+          "en": "Daeboreum",
+          "es": "Daeboreum",
+          "fr": "Daeboreum",
+          "ja": "大保름(テボルム)"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Neighbours traditionally trade labour, each household's turn coming in exchange for helping others, and the custom was added to UNESCO's Intangible Cultural Heritage list in 2013.",
+        "es": "Los vecinos tradicionalmente intercambian mano de obra, y la costumbre se sumó a la lista de Patrimonio Cultural Inmaterial de la UNESCO en 2013.",
+        "fr": "Les voisins échangent traditionnellement de la main-d'œuvre, et la coutume fut ajoutée à la liste du patrimoine culturel immatériel de l'UNESCO en 2013.",
+        "ja": "近所どうし労力を貸し借りするのが習わしで、この慣習は2013年にユネスコ無形文化遺産に登録された。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "Which large citrus fruit is a specialty grown mainly on Jeju Island?",
+        "es": "¿Qué cítrico grande es una especialidad cultivada sobre todo en la isla de Jeju?",
+        "fr": "Quel grand agrume est une spécialité cultivée surtout sur l'île de Jeju ?",
+        "ja": "主に済州島で栽培される特産の柑橘類は?"
+      },
+      "o": [
+        {
+          "en": "Grapefruit",
+          "es": "Toronja",
+          "fr": "Pamplemousse",
+          "ja": "グレープフルーツ"
+        },
+        {
+          "en": "Tangerine (gyul)",
+          "es": "Mandarina (gyul)",
+          "fr": "Mandarine (gyul)",
+          "ja": "みかん(橘・귤)"
+        },
+        {
+          "en": "Pomelo",
+          "es": "Pomelo",
+          "fr": "Pomelo",
+          "ja": "文旦"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Jeju's volcanic soil and mild winters make it one of the only parts of Korea where citrus ripens outdoors, and the fruit became such a symbol of the island that a giant sculpture of one stands at its main airport.",
+        "es": "El suelo volcánico y los inviernos suaves de Jeju la convierten en una de las pocas zonas de Corea donde los cítricos maduran al aire libre.",
+        "fr": "Le sol volcanique et les hivers doux de Jeju en font l'une des seules régions de Corée où les agrumes mûrissent en extérieur.",
+        "ja": "済州の火山質の土壌と温暖な冬のおかげで、韓国の中でも柑橘が屋外で実る数少ない土地になっている。島の象徴となり、主要空港には巨大なみかんの像まで立つ。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "Which 16th-century Korean admiral is remembered for repeatedly defeating a numerically superior Japanese fleet without losing a single ship?",
+        "es": "¿Qué almirante coreano del siglo XVI es recordado por derrotar repetidamente a una flota japonesa numéricamente superior sin perder un solo barco?",
+        "fr": "Quel amiral coréen du XVIe siècle est resté célèbre pour avoir vaincu à plusieurs reprises une flotte japonaise numériquement supérieure sans perdre un seul navire ?",
+        "ja": "数で勝る日本の艦隊を繰り返し破りながら、自軍の船を一隻も失わなかったとされる16世紀の朝鮮の将軍は?"
+      },
+      "o": [
+        {
+          "en": "Gang Gam-chan",
+          "es": "Gang Gam-chan",
+          "fr": "Gang Gam-chan",
+          "ja": "姜邯賛(カン・ガムチャン)"
+        },
+        {
+          "en": "Kim Yu-sin",
+          "es": "Kim Yu-sin",
+          "fr": "Kim Yu-sin",
+          "ja": "金庾信(キム・ユシン)"
+        },
+        {
+          "en": "Yi Sun-sin",
+          "es": "Yi Sun-sin",
+          "fr": "Yi Sun-sin",
+          "ja": "李舜臣(イ・スンシン)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Admiral Yi commanded during the Japanese invasions of 1592–98 and is credited with pioneering the use of armoured \"turtle ships\", though no complete original blueprint survives and modern replicas are based on later written accounts.",
+        "es": "El almirante Yi comandó durante las invasiones japonesas de 1592-98 y se le atribuye el uso pionero de los blindados «barcos tortuga», aunque no sobrevive ningún plano original completo.",
+        "fr": "L'amiral Yi commanda durant les invasions japonaises de 1592-1598 et est crédité de l'usage pionnier des « bateaux tortues » blindés, bien qu'aucun plan original complet n'ait survécu.",
+        "ja": "李舜臣は1592〜98年の日本による侵攻の際に指揮を執り、装甲を施した「亀甲船」を先駆けて用いたとされる。ただし完全な原設計図は現存せず、現存する復元船は後世の文献記録をもとにしている。"
+      }
+    },
+    {
+      "difficulty": 3,
+      "q": {
+        "en": "What is the clear, distilled Korean spirit traditionally made from rice, now often from other starches like wheat or sweet potato?",
+        "es": "¿Cuál es el destilado coreano transparente, hecho tradicionalmente de arroz y hoy a menudo de otros almidones como trigo o batata?",
+        "fr": "Quel est le spiritueux coréen transparent, fait traditionnellement de riz et aujourd'hui souvent d'autres féculents comme le blé ou la patate douce ?",
+        "ja": "米から造られ、いまでは小麦やさつまいもなど他の原料も使われる、透明な韓国の蒸留酒は?"
+      },
+      "o": [
+        {
+          "en": "Makgeolli",
+          "es": "Makgeolli",
+          "fr": "Makgeolli",
+          "ja": "マッコリ"
+        },
+        {
+          "en": "Soju",
+          "es": "Soju",
+          "fr": "Soju",
+          "ja": "焼酎(ソジュ)"
+        },
+        {
+          "en": "Sikhye",
+          "es": "Sikhye",
+          "fr": "Sikhye",
+          "ja": "シッケ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Modern mass-market soju is typically diluted to around 16–20% alcohol, far weaker than the traditionally distilled version, and it has for years topped global rankings of best-selling liquor brands by volume, almost entirely on domestic sales.",
+        "es": "El soju moderno de gran consumo suele diluirse a entre un 16% y un 20% de alcohol, mucho más débil que la versión tradicionalmente destilada.",
+        "fr": "Le soju moderne de grande consommation est généralement dilué autour de 16 à 20 % d'alcool, bien plus faible que la version traditionnellement distillée.",
+        "ja": "現代の量産焼酎はアルコール度数16〜20%程度に薄められており、本来の蒸留酒よりずっと弱い。それでもほぼ国内消費だけで、世界の蒸留酒販売量ランキングの上位を長年占め続けている。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "In which direction does Korea's cherry blossom bloom travel each spring?",
+        "es": "¿En qué dirección avanza cada primavera la floración de los cerezos en Corea?",
+        "fr": "Dans quelle direction progresse chaque printemps la floraison des cerisiers en Corée ?",
+        "ja": "韓国の桜前線は毎年どちらの方角へ進むか?"
+      },
+      "o": [
+        {
+          "en": "East to west",
+          "es": "De este a oeste",
+          "fr": "D'est en ouest",
+          "ja": "東から西"
+        },
+        {
+          "en": "South to north",
+          "es": "De sur a norte",
+          "fr": "Du sud au nord",
+          "ja": "南から北"
+        },
+        {
+          "en": "North to south",
+          "es": "De norte a sur",
+          "fr": "Du nord au sud",
+          "ja": "北から南"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The blossom opens first on the southern island of Jeju and the south coast, then climbs the peninsula over a couple of weeks as spring warmth spreads northward.",
+        "es": "La flor se abre primero en la isla sureña de Jeju y la costa sur, y luego sube por la península a lo largo de un par de semanas.",
+        "fr": "La floraison s'ouvre d'abord sur l'île méridionale de Jeju et la côte sud, puis remonte la péninsule sur une quinzaine de jours.",
+        "ja": "花はまず南の済州島と南岸で開き、その後およそ2週間かけて春の暖かさとともに半島を北上する。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "What is the Korean style of grilling meat, often pork belly, at the diner's own table?",
+        "es": "¿Cuál es el estilo coreano de asar carne, a menudo panceta de cerdo, en la propia mesa del comensal?",
+        "fr": "Quel est le style coréen de grillade de viande, souvent de la poitrine de porc, à la table même du convive ?",
+        "ja": "客が自分の卓上で肉(よく豚バラ)を焼くスタイルの韓国料理は?"
+      },
+      "o": [
+        {
+          "en": "Bulgogi only",
+          "es": "Solo bulgogi",
+          "fr": "Seulement le bulgogi",
+          "ja": "プルゴギのみ"
+        },
+        {
+          "en": "Tabletop gogigui (e.g. samgyeopsal)",
+          "es": "Gogigui de mesa (p. ej. samgyeopsal)",
+          "fr": "Le gogigui de table (ex. samgyeopsal)",
+          "ja": "卓上焼肉(サムギョプサルなど)"
+        },
+        {
+          "en": "Jeongol only",
+          "es": "Solo jeongol",
+          "fr": "Seulement le jeongol",
+          "ja": "チョンゴルのみ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Samgyeopsal, thick-cut unmarinated pork belly, is grilled at the table and wrapped in lettuce with garlic and ssamjang paste, a format so associated with after-work socialising that its name alone can imply an invitation to drink.",
+        "es": "El samgyeopsal, panceta de cerdo cortada gruesa y sin marinar, se asa en la mesa y se envuelve en lechuga con ajo y pasta ssamjang.",
+        "fr": "Le samgyeopsal, poitrine de porc épaisse et non marinée, est grillé à table et enveloppé dans de la laitue avec de l'ail et de la pâte ssamjang.",
+        "ja": "サムギョプサルは厚切りで下味を付けない豚バラ肉を卓上で焼き、ニンニクやサムジャンと一緒にサンチュで包んで食べる。仕事帰りの付き合いの定番で、その名前だけで「飲みに行こう」の誘いを意味することもある。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "What administrative status does Seoul hold, distinct from South Korea's ordinary provinces?",
+        "es": "¿Qué estatus administrativo tiene Seúl, distinto de las provincias ordinarias de Corea del Sur?",
+        "fr": "Quel statut administratif détient Séoul, distinct des provinces ordinaires de la Corée du Sud ?",
+        "ja": "韓国の普通の道とは違う、ソウルが持つ行政上の地位は?"
+      },
+      "o": [
+        {
+          "en": "Autonomous region",
+          "es": "Región autónoma",
+          "fr": "Région autonome",
+          "ja": "自治区"
+        },
+        {
+          "en": "Special city",
+          "es": "Ciudad especial",
+          "fr": "Ville spéciale",
+          "ja": "特別市"
+        },
+        {
+          "en": "Free trade zone",
+          "es": "Zona franca",
+          "fr": "Zone franche",
+          "ja": "自由貿易区"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Seoul is South Korea's only \"special city\" (teukbyeolsi), a category above the six \"metropolitan cities\" that include Busan and Incheon, reporting directly to the central government rather than through a province.",
+        "es": "Seúl es la única «ciudad especial» (teukbyeolsi) de Corea del Sur, una categoría por encima de las seis «ciudades metropolitanas».",
+        "fr": "Séoul est la seule « ville spéciale » (teukbyeolsi) de Corée du Sud, une catégorie au-dessus des six « villes métropolitaines ».",
+        "ja": "ソウルは韓国で唯一の「特別市」で、釜山や仁川を含む6つの「広域市」よりさらに上の区分にあたり、道を介さず中央政府に直属する。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "What are the traditional Korean ancestral memorial rites, held on death anniversaries and major holidays?",
+        "es": "¿Cuáles son los ritos tradicionales coreanos de memoria a los antepasados, celebrados en los aniversarios de defunción y grandes fiestas?",
+        "fr": "Quels sont les rites traditionnels coréens de mémoire des ancêtres, célébrés aux anniversaires de décès et aux grandes fêtes ?",
+        "ja": "命日や大きな祝日に行われる、先祖を祀る伝統儀礼は?"
+      },
+      "o": [
+        {
+          "en": "Pansori",
+          "es": "Pansori",
+          "fr": "Pansori",
+          "ja": "パンソリ"
+        },
+        {
+          "en": "Jesa",
+          "es": "Jesa",
+          "fr": "Jesa",
+          "ja": "祭祀(チェサ)"
+        },
+        {
+          "en": "Gut",
+          "es": "Gut",
+          "fr": "Gut",
+          "ja": "クッ"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "A table is laid with set dishes in a prescribed arrangement, and the eldest son's household has traditionally borne responsibility for hosting the rite, a duty that has become a recurring source of domestic debate as families grow smaller.",
+        "es": "Se prepara una mesa con platos fijos en una disposición prescrita, y el hogar del hijo mayor ha llevado tradicionalmente la responsabilidad de organizar el rito.",
+        "fr": "Une table est dressée avec des plats fixes selon une disposition prescrite, et le foyer du fils aîné a traditionnellement porté la responsabilité d'organiser le rite.",
+        "ja": "決まった配置で決まった料理を供える台を用意し、長男の家がその儀式を執り行う務めを伝統的に負ってきた。家族が小さくなるにつれ、この務めをめぐる家庭内の議論も繰り返し起きている。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "What are the Korean playing cards, decorated with flower-and-month designs, used in the popular game go-stop?",
+        "es": "¿Cuáles son las cartas de juego coreanas, decoradas con motivos de flores y meses, usadas en el popular juego go-stop?",
+        "fr": "Quelles sont les cartes à jouer coréennes, ornées de motifs de fleurs et de mois, utilisées dans le jeu populaire go-stop?",
+        "ja": "花と月の模様が描かれ、人気のゴーストップ(花札遊び)に使われる韓国のカードは?"
+      },
+      "o": [
+        {
+          "en": "Janggi pieces",
+          "es": "Fichas de janggi",
+          "fr": "Pièces de janggi",
+          "ja": "将棋(チャンギ)の駒"
+        },
+        {
+          "en": "Yutnori sticks",
+          "es": "Palos de yutnori",
+          "fr": "Bâtonnets de yunnori",
+          "ja": "尹櫂(ユンノリ)の棒"
+        },
+        {
+          "en": "Hwatu",
+          "es": "Hwatu",
+          "fr": "Hwatu",
+          "ja": "花闘(ファトゥ)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Adapted from a Japanese card set in the late nineteenth century, the 48-card deck is divided into twelve suits of four cards each, one suit per month, and is played everywhere from holiday family gatherings to long train journeys.",
+        "es": "Adaptado de una baraja japonesa a finales del siglo XIX, el mazo de 48 cartas se divide en doce palos de cuatro cartas cada uno, uno por mes.",
+        "fr": "Adapté d'un jeu de cartes japonais à la fin du XIXe siècle, le jeu de 48 cartes se divise en douze familles de quatre cartes chacune, une par mois.",
+        "ja": "19世紀末に日本のカード札を土台に取り入れられたもので、48枚を月ごとに4枚ずつ12組に分ける。祝いの席の家族団らんから長距離列車の中まで、至る所で遊ばれている。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "In Korean drinking etiquette, which way should a younger person turn their head when drinking in front of an elder?",
+        "es": "En la etiqueta coreana para beber, ¿hacia dónde debe girar la cabeza una persona más joven al beber delante de un mayor?",
+        "fr": "Dans l'étiquette coréenne de la boisson, de quel côté un plus jeune doit-il tourner la tête en buvant devant un aîné ?",
+        "ja": "韓国の飲酒の作法で、目上の人の前で飲むとき、年下の人はどちらを向くとされるか?"
+      },
+      "o": [
+        {
+          "en": "Face the elder directly",
+          "es": "De frente al mayor",
+          "fr": "Face à l'aîné",
+          "ja": "目上の人に正面を向ける"
+        },
+        {
+          "en": "Turn away, to the side",
+          "es": "Girarse hacia un lado",
+          "fr": "Se détourner, sur le côté",
+          "ja": "顔と体を横へそらす"
+        },
+        {
+          "en": "Look down at the table",
+          "es": "Mirar hacia la mesa",
+          "fr": "Regarder la table",
+          "ja": "卓のほうを見下ろす"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Turning the head and body slightly away, cup held out of the elder's sight, is a small gesture of deference that visitors are often coached through the first time they drink with Korean colleagues or in-laws.",
+        "es": "Girar ligeramente la cabeza y el cuerpo, con la copa fuera de la vista del mayor, es un pequeño gesto de deferencia.",
+        "fr": "Tourner légèrement la tête et le corps, verre hors de la vue de l'aîné, est un petit geste de déférence.",
+        "ja": "少し顔と体を横へそらし、杯を目上の人の視界の外に置くのは、敬意を示すささやかな作法で、韓国の同僚や義理の家族と初めて酒を飲む外国人はよくこの作法を教わる。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "What is the traditional Korean wrestling sport in which two competitors grip a fabric belt (satba) around the waist and thigh?",
+        "es": "¿Cuál es el deporte tradicional coreano de lucha en que dos competidores se agarran a un cinturón de tela (satba) en la cintura y el muslo?",
+        "fr": "Quel est le sport de lutte traditionnel coréen où deux adversaires s'agrippent à une ceinture de tissu (satba) à la taille et à la cuisse ?",
+        "ja": "二人の力士が腰と太ももに巻いた帯(サッパ)を掴み合う、伝統的な韓国の相撲は?"
+      },
+      "o": [
+        {
+          "en": "Taekkyeon",
+          "es": "Taekkyeon",
+          "fr": "Taekkyeon",
+          "ja": "テッキョン"
+        },
+        {
+          "en": "Gakjeo",
+          "es": "Gakjeo",
+          "fr": "Gakjeo",
+          "ja": "角觝(カクジョ)"
+        },
+        {
+          "en": "Ssireum",
+          "es": "Ssireum",
+          "fr": "Ssireum",
+          "ja": "シルム"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Bouts are traditionally held in a circular sand pit, and the winner of the top regional tournament once received a live ox, a prize dating back to the sport's roots as a farm-village harvest contest.",
+        "es": "Los combates se celebran tradicionalmente en un foso circular de arena, y el ganador del torneo regional más importante recibía antaño un buey vivo.",
+        "fr": "Les combats se tiennent traditionnellement dans une fosse de sable circulaire, et le vainqueur du principal tournoi régional recevait autrefois un bœuf vivant.",
+        "ja": "試合は伝統的に円形の砂の土俵で行われ、かつて地方の頂点を決める大会の優勝者には生きた牛が贈られた。農村の収穫祝いの余興だった名残の賞品である。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "What is the Korean dessert of finely shaved ice topped with sweet red beans, fruit and condensed milk?",
+        "es": "¿Cuál es el postre coreano de hielo finamente raspado cubierto con judías rojas dulces, fruta y leche condensada?",
+        "fr": "Quel est le dessert coréen de glace pilée finement, garnie de haricots rouges sucrés, de fruits et de lait concentré ?",
+        "ja": "甘く煮た小豆と果物、練乳をかけたかき氷の韓国のデザートは?"
+      },
+      "o": [
+        {
+          "en": "Hotteok",
+          "es": "Hotteok",
+          "fr": "Hotteok",
+          "ja": "ホットク"
+        },
+        {
+          "en": "Patbingsu",
+          "es": "Patbingsu",
+          "fr": "Patbingsu",
+          "ja": "パッピンス"
+        },
+        {
+          "en": "Yakgwa",
+          "es": "Yakgwa",
+          "fr": "Yakgwa",
+          "ja": "薬菓(ヤックァ)"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Modern versions can be topped with almost anything from mango to cheesecake pieces, but the name literally combines pat (red bean) and bingsu (shaved ice), pointing back to the dish's simpler origins.",
+        "es": "Las versiones modernas pueden llevar casi cualquier cobertura, desde mango hasta trozos de tarta de queso, pero el nombre combina literalmente pat (judía roja) y bingsu (hielo raspado).",
+        "fr": "Les versions modernes peuvent être garnies de presque tout, de la mangue à des morceaux de cheesecake, mais le nom combine littéralement pat (haricot rouge) et bingsu (glace pilée).",
+        "ja": "現代版はマンゴーからチーズケーキまで何でも載せるが、名前自体は「パッ(小豆)」と「ピンス(かき氷)」を組み合わせただけで、もとはずっと簡素な菓子だった。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "What is the ceremony held on a Korean baby's first birthday, in which the child is set before objects said to predict their future?",
+        "es": "¿Cuál es la ceremonia del primer cumpleaños de un bebé coreano, en la que se coloca al niño ante objetos que se dice predicen su futuro?",
+        "fr": "Quelle est la cérémonie du premier anniversaire d'un bébé coréen, où l'enfant est placé devant des objets censés prédire son avenir ?",
+        "ja": "赤子の前に将来を占うとされる品々を並べる、韓国の一歳の誕生祝いは?"
+      },
+      "o": [
+        {
+          "en": "Baek-il",
+          "es": "Baek-il",
+          "fr": "Baek-il",
+          "ja": "百日(ペギル)"
+        },
+        {
+          "en": "Doljanchi",
+          "es": "Doljanchi",
+          "fr": "Doljanchi",
+          "ja": "돌잔치(トルジャンチ)"
+        },
+        {
+          "en": "Hwangap",
+          "es": "Hwangap",
+          "fr": "Hwangap",
+          "ja": "還甲(ファンガプ)"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "In the object-grabbing ritual called doljabi, a thread might predict long life, money a rich future, and a microphone or stethoscope a career in entertainment or medicine — categories updated over the generations.",
+        "es": "En el ritual de agarrar objetos llamado doljabi, un hilo podría predecir larga vida, dinero un futuro próspero, y un micrófono o estetoscopio una carrera en el espectáculo o la medicina.",
+        "fr": "Dans le rituel d'objets à saisir appelé doljabi, un fil pourrait prédire une longue vie, de l'argent un avenir prospère, et un micro ou un stéthoscope une carrière dans le divertissement ou la médecine.",
+        "ja": "「トルジャビ」と呼ばれる品選びの儀式では、糸を取れば長寿、お金を取れば裕福な将来、マイクや聴診器を取れば芸能や医療の道、というように、世代とともに品目も更新されている。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "What is the general term for a traditional Korean house, with wooden framing and a tiled or thatched roof?",
+        "es": "¿Cuál es el término general para una casa tradicional coreana, con estructura de madera y techo de teja o paja?",
+        "fr": "Quel est le terme général pour une maison traditionnelle coréenne, à charpente de bois et toit de tuiles ou de chaume ?",
+        "ja": "木造の骨組みに瓦や茅葺きの屋根を持つ、伝統的な韓国家屋を指す言葉は?"
+      },
+      "o": [
+        {
+          "en": "Hanbok",
+          "es": "Hanbok",
+          "fr": "Hanbok",
+          "ja": "韓服(ハンボク)"
+        },
+        {
+          "en": "Hangeul",
+          "es": "Hangeul",
+          "fr": "Hangeul",
+          "ja": "ハングル"
+        },
+        {
+          "en": "Hanok",
+          "es": "Hanok",
+          "fr": "Hanok",
+          "ja": "韓屋(ハノク)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Preserved neighbourhoods like Seoul's Bukchon and the village at Jeonju cluster hundreds of hanok together, many now converted into guesthouses, cafés and craft workshops for visitors.",
+        "es": "Barrios conservados como Bukchon en Seúl y el pueblo de Jeonju agrupan cientos de hanok, muchos hoy convertidos en pensiones, cafés y talleres artesanales.",
+        "fr": "Des quartiers préservés comme Bukchon à Séoul et le village de Jeonju regroupent des centaines de hanok, beaucoup aujourd'hui transformés en pensions, cafés et ateliers d'artisanat.",
+        "ja": "ソウルの北村や全州の韓屋村のような保存地区には数百軒の韓屋が集まり、その多くはいまでは宿や喫茶店、工房に姿を変えて観光客を迎えている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What is the traditional Korean bowed string instrument, played upright with two strings, sometimes called Korea's answer to the fiddle?",
+        "es": "¿Cuál es el instrumento tradicional coreano de cuerda frotada, tocado en vertical con dos cuerdas, a veces llamado el equivalente coreano del violín?",
+        "fr": "Quel est l'instrument traditionnel coréen à cordes frottées, joué à la verticale avec deux cordes, parfois appelé l'équivalent coréen du violon ?",
+        "ja": "直立に構え2本の弦を弓でこする、韓国のヴァイオリンとも言われる伝統楽器は?"
+      },
+      "o": [
+        {
+          "en": "Daegeum",
+          "es": "Daegeum",
+          "fr": "Daegeum",
+          "ja": "大笒(テグム)"
+        },
+        {
+          "en": "Ajaeng",
+          "es": "Ajaeng",
+          "fr": "Ajaeng",
+          "ja": "牙箏(アジェン)"
+        },
+        {
+          "en": "Haegeum",
+          "es": "Haegeum",
+          "fr": "Haegeum",
+          "ja": "奚琴(ヘグム)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Unlike a violin, the haegeum has no fingerboard to press strings against, so the player's left hand controls pitch purely by adjusting string tension in mid-air, producing its characteristically bendy, vocal-like tone.",
+        "es": "A diferencia de un violín, el haegeum no tiene diapasón contra el que presionar las cuerdas, así que la mano izquierda del intérprete controla el tono ajustando la tensión de la cuerda en el aire.",
+        "fr": "Contrairement à un violon, le haegeum n'a pas de touche contre laquelle presser les cordes, si bien que la main gauche de l'interprète règle la hauteur en ajustant la tension de la corde en l'air.",
+        "ja": "ヴァイオリンと違い奚琴には指板が無く、弦を押さえつける場所が無い。奏者の左手は空中で弦の張りを変えるだけで音程を作り、そのため独特の、声のようにしなる音色になる。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What were the Confucian academies of the Joseon era, where scholars studied and held rites honouring past sages?",
+        "es": "¿Cuáles eran las academias confucianas de la era Joseon, donde los eruditos estudiaban y celebraban ritos en honor a sabios pasados?",
+        "fr": "Quelles étaient les académies confucéennes de l'ère Joseon, où les lettrés étudiaient et célébraient des rites en l'honneur des sages passés ?",
+        "ja": "朝鮮時代、学者が学び先賢を祀る祭祀も行った民間の儒学の学舎は?"
+      },
+      "o": [
+        {
+          "en": "Seowon",
+          "es": "Seowon",
+          "fr": "Seowon",
+          "ja": "書院(ソウォン)"
+        },
+        {
+          "en": "Hyanggyo",
+          "es": "Hyanggyo",
+          "fr": "Hyanggyo",
+          "ja": "郷校(ヒャンギョ)"
+        },
+        {
+          "en": "Gukjagam",
+          "es": "Gukjagam",
+          "fr": "Gukjagam",
+          "ja": "国子監(グッチャガム)"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Nine seowon spread across the country were jointly inscribed as a UNESCO World Heritage site in 2019, chosen to represent how the private academy system spread and adapted over four centuries.",
+        "es": "Nueve seowon repartidos por el país fueron inscritos conjuntamente como Patrimonio Mundial de la UNESCO en 2019.",
+        "fr": "Neuf seowon répartis dans le pays furent inscrits conjointement au patrimoine mondial de l'UNESCO en 2019.",
+        "ja": "全国に散らばる九つの書院が2019年、まとめてユネスコ世界遺産に登録された。私設の学舎という仕組みが四世紀にわたってどう広がり形を変えたかを代表する選定である。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What is the fermented soybean paste, milder and less spicy than gochujang, used as the base of stews like doenjang-jjigae?",
+        "es": "¿Cuál es la pasta de soja fermentada, más suave y menos picante que el gochujang, usada como base de guisos como el doenjang-jjigae?",
+        "fr": "Quelle est la pâte de soja fermentée, plus douce et moins pimentée que le gochujang, utilisée comme base de ragoûts comme le doenjang-jjigae ?",
+        "ja": "コチュジャンより穏やかで辛くない、テンジャンチゲなどの鍋料理の基本になる発酵大豆ペーストは?"
+      },
+      "o": [
+        {
+          "en": "Cheonggukjang",
+          "es": "Cheonggukjang",
+          "fr": "Cheonggukjang",
+          "ja": "清麹醤(チョングッチャン)"
+        },
+        {
+          "en": "Doenjang",
+          "es": "Doenjang",
+          "fr": "Doenjang",
+          "ja": "テンジャン(味噌)"
+        },
+        {
+          "en": "Yeonguhoe",
+          "es": "Yeonguhoe",
+          "fr": "Yeonguhoe",
+          "ja": "軟魚膾(ヨヌェフェ)"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Doenjang is traditionally the solid residue left over after brewing ganjang (soy sauce) from fermented soybean blocks called meju, meaning the two condiments have historically come from the very same batch.",
+        "es": "Tradicionalmente, el doenjang es el residuo sólido que queda tras elaborar ganjang (salsa de soja) a partir de bloques de soja fermentada llamados meju.",
+        "fr": "Traditionnellement, le doenjang est le résidu solide laissé après la préparation du ganjang (sauce soja) à partir de blocs de soja fermenté appelés meju.",
+        "ja": "テンジャンは伝統的に、発酵させた大豆の塊「メジュ」からカンジャン(醤油)を仕込んだあとに残る固形分で、この二つの調味料はもともと同じ仕込みから生まれる。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What is Korea's traditional archery style, using a short reflex bow and known for its thumb-release technique?",
+        "es": "¿Cuál es el estilo tradicional coreano de tiro con arco, con un arco corto reflejo y conocido por su técnica de liberación con el pulgar?",
+        "fr": "Quel est le style traditionnel coréen de tir à l'arc, à l'arc court réflexe, connu pour sa technique de lâcher au pouce ?",
+        "ja": "短い複合弓を使い、親指で弦を放す技法で知られる韓国の伝統弓術は?"
+      },
+      "o": [
+        {
+          "en": "Gungdo",
+          "es": "Gungdo",
+          "fr": "Gungdo",
+          "ja": "弓道(グンド)"
+        },
+        {
+          "en": "Kendo",
+          "es": "Kendo",
+          "fr": "Kendo",
+          "ja": "剣道"
+        },
+        {
+          "en": "Hapkido",
+          "es": "Hapkido",
+          "fr": "Hapkido",
+          "ja": "合気道"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The short, sharply recurved bow can send an arrow well over 100m, and modern Korean archers, trained partly in this tradition, have dominated Olympic archery medal tables for decades.",
+        "es": "El arco corto, muy recurvado, puede lanzar una flecha bastante más allá de 100 m, y los arqueros coreanos modernos, entrenados en parte en esta tradición, han dominado los medalleros olímpicos de tiro con arco durante décadas.",
+        "fr": "L'arc court, très recourbé, peut envoyer une flèche bien au-delà de 100 m, et les archers coréens modernes, formés en partie dans cette tradition, dominent les tableaux de médailles olympiques de tir à l'arc depuis des décennies.",
+        "ja": "強く反り返った短い弓は矢を100mを優に超えて飛ばせる。この伝統に部分的に鍛えられた現代韓国の射手たちは、何十年もオリンピックのアーチェリーでメダルを独占し続けている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What special administrative status does Jeju Island hold, distinct from South Korea's mainland provinces?",
+        "es": "¿Qué estatus administrativo especial tiene la isla de Jeju, distinto de las provincias continentales de Corea del Sur?",
+        "fr": "Quel statut administratif spécial détient l'île de Jeju, distinct des provinces continentales de la Corée du Sud ?",
+        "ja": "韓国本土の道とは違う、済州島が持つ特別な行政上の地位は?"
+      },
+      "o": [
+        {
+          "en": "Special Self-Governing Province",
+          "es": "Provincia Autónoma Especial",
+          "fr": "Province autonome spéciale",
+          "ja": "特別自治道"
+        },
+        {
+          "en": "Federal territory",
+          "es": "Territorio federal",
+          "fr": "Territoire fédéral",
+          "ja": "連邦直轄地"
+        },
+        {
+          "en": "Free economic city",
+          "es": "Ciudad económica libre",
+          "fr": "Ville économique libre",
+          "ja": "自由経済都市"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Granted in 2006, the status gives Jeju's provincial government more autonomy than ordinary provinces over matters like tourism policy and, since 2002, visa-free entry rules for many foreign visitors.",
+        "es": "Concedido en 2006, este estatus da al gobierno provincial de Jeju más autonomía que las provincias ordinarias en asuntos como la política turística.",
+        "fr": "Accordé en 2006, ce statut donne au gouvernement provincial de Jeju plus d'autonomie que les provinces ordinaires sur des questions comme la politique touristique.",
+        "ja": "2006年に与えられたこの地位により、済州の道庁は観光政策などの面で普通の道より大きな自治権を持ち、2002年以来、多くの外国人訪問者向けの査証免除の運用も担っている。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What is the fermented skate dish, notorious for its strong ammonia smell, associated above all with Jeolla-region cooking?",
+        "es": "¿Cuál es el plato de raya fermentada, famoso por su fuerte olor a amoníaco, asociado sobre todo a la cocina de la región de Jeolla?",
+        "fr": "Quel est le plat de raie fermentée, réputé pour sa forte odeur d'ammoniac, associé avant tout à la cuisine de la région du Jeolla ?",
+        "ja": "強いアンモニア臭で知られ、何より全羅道の料理と結びつけられる発酵させたエイの料理は?"
+      },
+      "o": [
+        {
+          "en": "Hongeo",
+          "es": "Hongeo",
+          "fr": "Hongeo",
+          "ja": "洪魚(ホンオ)"
+        },
+        {
+          "en": "Godeungeo-jorim",
+          "es": "Godeungeo-jorim",
+          "fr": "Godeungeo-jorim",
+          "ja": "고등어조림(サバの煮付け)"
+        },
+        {
+          "en": "Agujjim",
+          "es": "Agujjim",
+          "fr": "Agujjim",
+          "ja": "アンコウチム"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The skate is left to ferment without refrigeration, sometimes for weeks, and the process breaks down urea in its flesh into ammonia, producing a smell strong enough that first-timers are often warned before trying it at a wedding or funeral feast, where it is a traditional dish.",
+        "es": "La raya se deja fermentar sin refrigeración, a veces durante semanas, y el proceso descompone la urea de su carne en amoníaco.",
+        "fr": "La raie est laissée à fermenter sans réfrigération, parfois pendant des semaines, et le processus décompose l'urée de sa chair en ammoniac.",
+        "ja": "冷蔵せずに時に数週間かけて発酵させ、その過程で肉中の尿素がアンモニアに分解される。初めて食べる人にはあらかじめ覚悟を促されるほどの匂いだが、婚礼や法事の膳に伝統的に出される一皿でもある。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What was the late-Joseon intellectual movement that pushed for practical, evidence-based reforms in agriculture, economics and administration?",
+        "es": "¿Cuál fue el movimiento intelectual de finales de Joseon que impulsó reformas prácticas y basadas en evidencia en agricultura, economía y administración?",
+        "fr": "Quel fut le mouvement intellectuel de la fin de Joseon prônant des réformes pratiques et fondées sur des faits en agriculture, économie et administration ?",
+        "ja": "農業・経済・行政での実証的で実用重視の改革を唱えた、朝鮮後期の知識人の思潮は?"
+      },
+      "o": [
+        {
+          "en": "Seohak",
+          "es": "Seohak",
+          "fr": "Seohak",
+          "ja": "西学(ソハク)"
+        },
+        {
+          "en": "Silhak",
+          "es": "Silhak",
+          "fr": "Silhak",
+          "ja": "実学(シルハク)"
+        },
+        {
+          "en": "Yugyo",
+          "es": "Yugyo",
+          "fr": "Yugyo",
+          "ja": "儒教(ユギョ)"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Silhak scholars questioned the rigid, text-focused Confucian orthodoxy of their day and pushed instead for land reform and technical study, ideas that had little direct impact on Joseon policy at the time but were rediscovered as a symbol of homegrown modernisation later.",
+        "es": "Los eruditos silhak cuestionaron la rígida ortodoxia confuciana centrada en textos de su época y en su lugar impulsaron la reforma agraria y el estudio técnico.",
+        "fr": "Les lettrés silhak remirent en question l'orthodoxie confucéenne rigide et centrée sur les textes de leur époque et prônèrent plutôt la réforme agraire et l'étude technique.",
+        "ja": "実学の学者たちは、当時の書物偏重の硬直した儒教正統派に疑問を投げかけ、代わりに土地改革や実用の学問を説いた。当時の朝鮮の政策への直接の影響は乏しかったが、後年、自前の近代化の象徴として再評価された。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What were the Joseon-era diplomatic missions sent periodically to the Tokugawa shogunate in Japan, roughly a dozen times between 1607 and 1811?",
+        "es": "¿Cuáles fueron las misiones diplomáticas de la era Joseon enviadas periódicamente al sogunato Tokugawa en Japón, una docena de veces entre 1607 y 1811?",
+        "fr": "Quelles furent les missions diplomatiques de l'ère Joseon envoyées périodiquement au shogunat Tokugawa au Japon, une douzaine de fois entre 1607 et 1811 ?",
+        "ja": "1607年から1811年まで、およそ12回にわたり徳川幕府へ送られた朝鮮時代の使節団は?"
+      },
+      "o": [
+        {
+          "en": "Joseon tongsinsa",
+          "es": "Joseon tongsinsa",
+          "fr": "Joseon tongsinsa",
+          "ja": "朝鮮通信使"
+        },
+        {
+          "en": "Yeonhaengsa",
+          "es": "Yeonhaengsa",
+          "fr": "Yeonhaengsa",
+          "ja": "燕行使"
+        },
+        {
+          "en": "Gyeonhusa",
+          "es": "Gyeonhusa",
+          "fr": "Gyeonhusa",
+          "ja": "遣後使"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Processions of several hundred people could take months to travel from Seoul to Edo and back, and the missions doubled as a channel for scholarly, artistic and technical exchange between the two countries during a long period without formal embassies.",
+        "es": "Los cortejos de varios cientos de personas podían tardar meses en viajar de Seúl a Edo y volver, y las misiones servían también de canal de intercambio académico, artístico y técnico entre ambos países.",
+        "fr": "Des cortèges de plusieurs centaines de personnes pouvaient mettre des mois pour aller de Séoul à Edo et en revenir, et les missions servaient aussi de canal d'échanges savants, artistiques et techniques entre les deux pays.",
+        "ja": "数百人からなる行列がソウルから江戸への往復に何か月もかけることもあった。正式な常駐大使館の無かった長い期間、この使節団は両国間の学問・芸術・技術交流の窓口も兼ねていた。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What is the traditional Korean lacquerware craft in which cut pieces of iridescent mother-of-pearl are inlaid into a lacquered wooden surface?",
+        "es": "¿Cuál es la técnica tradicional coreana de laca en que se incrustan piezas cortadas de nácar iridiscente en una superficie de madera lacada?",
+        "fr": "Quelle est la technique traditionnelle coréenne de laque où des pièces découpées de nacre irisée sont incrustées dans une surface de bois laqué ?",
+        "ja": "光沢のある貝殻の欠片を漆塗りの木地に埋め込む、韓国の伝統的な工芸は?"
+      },
+      "o": [
+        {
+          "en": "Sanggam cheongja",
+          "es": "Sanggam cheongja",
+          "fr": "Sanggam cheongja",
+          "ja": "象嵌青磁(サンガムチョンジャ)"
+        },
+        {
+          "en": "Najeon chilgi",
+          "es": "Najeon chilgi",
+          "fr": "Najeon chilgi",
+          "ja": "螺鈿漆器(ナジョンチルギ)"
+        },
+        {
+          "en": "Dancheong",
+          "es": "Dancheong",
+          "fr": "Dancheong",
+          "ja": "丹青(タンチョン)"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The mother-of-pearl is typically cut from abalone or turban shells, and its lustre shifts colour as light and viewing angle change, a technique traced back at least to the Goryeo dynasty on lacquered Buddhist sutra boxes.",
+        "es": "El nácar suele cortarse de conchas de abulón o turbante, y su brillo cambia de color según la luz y el ángulo de visión.",
+        "fr": "La nacre est généralement découpée dans des coquilles d'ormeau ou de turbo, et son lustre change de couleur selon la lumière et l'angle de vue.",
+        "ja": "貝殻は主にアワビやサザエから切り出し、光の当たり方や見る角度で輝きの色が変わる。この技法は少なくとも高麗時代、仏教の経箱の漆工にまでさかのぼる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What are the 24 evenly spaced points in the traditional East Asian solar calendar, marking seasonal turning points such as the first frost or the longest day?",
+        "es": "¿Cuáles son los 24 puntos igualmente espaciados del calendario solar tradicional de Asia oriental, que marcan momentos estacionales como la primera helada o el día más largo?",
+        "fr": "Quels sont les 24 points également espacés du calendrier solaire traditionnel est-asiatique, marquant des tournants saisonniers comme la première gelée ou le jour le plus long ?",
+        "ja": "初霜や夏至など季節の節目を示す、東アジアの伝統暦にある24の等間隔の区切りは?"
+      },
+      "o": [
+        {
+          "en": "Ganji",
+          "es": "Ganji",
+          "fr": "Ganji",
+          "ja": "干支(カンジ)"
+        },
+        {
+          "en": "24 solar terms (jeolgi)",
+          "es": "24 términos solares (jeolgi)",
+          "fr": "24 termes solaires (jeolgi)",
+          "ja": "二十四節気(チョルギ)"
+        },
+        {
+          "en": "Sasi",
+          "es": "Sasi",
+          "fr": "Sasi",
+          "ja": "四時(サシ)"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Farmers historically timed planting and harvest around these markers rather than the lunar calendar's shifting dates, and several still appear on modern Korean calendars and even inspire seasonal menu items at cafés.",
+        "es": "Los agricultores históricamente cronometraban la siembra y la cosecha en torno a estos marcadores en lugar de las fechas cambiantes del calendario lunar.",
+        "fr": "Les agriculteurs calaient historiquement semis et récoltes sur ces repères plutôt que sur les dates changeantes du calendrier lunaire.",
+        "ja": "農家は歴史的に、日付の動く旧暦ではなくこの節気を目安に種まきや収穫を行ってきた。いくつかはいまも現代の韓国のカレンダーに載り、カフェの季節限定メニューの由来にすらなっている。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Korean uses two parallel systems of numbers for counting. Alongside native Korean numerals, which other set, borrowed long ago, is used for things like phone numbers and dates?",
+        "es": "El coreano usa dos sistemas paralelos de números para contar. Junto a los numerales coreanos nativos, ¿qué otro conjunto, tomado prestado hace mucho, se usa para cosas como números de teléfono y fechas?",
+        "fr": "Le coréen utilise deux systèmes de nombres parallèles pour compter. Aux côtés des chiffres coréens natifs, quel autre ensemble, emprunté depuis longtemps, sert pour les numéros de téléphone et les dates ?",
+        "ja": "韓国語には二つの並行する数詞の体系がある。固有語の数詞のほかに、電話番号や日付などに使われる、古くに取り入れられたもう一方の体系は?"
+      },
+      "o": [
+        {
+          "en": "Sino-Korean numerals",
+          "es": "Numerales sino-coreanos",
+          "fr": "Chiffres sino-coréens",
+          "ja": "漢数詞(漢字語の数詞)"
+        },
+        {
+          "en": "Jamo numerals",
+          "es": "Numerales jamo",
+          "fr": "Chiffres jamo",
+          "ja": "字母数詞"
+        },
+        {
+          "en": "Idu numerals",
+          "es": "Numerales idu",
+          "fr": "Chiffres idu",
+          "ja": "吏読数詞"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Which system to use depends on what is being counted: native numbers count hours and objects up to 99, while Sino-Korean numbers are used for minutes, dates, money and numbers above 100, a split that trips up even fluent learners.",
+        "es": "Qué sistema usar depende de lo que se cuente: los números nativos cuentan horas y objetos hasta 99, mientras que los sino-coreanos se usan para minutos, fechas, dinero y números por encima de 100.",
+        "fr": "Le système à utiliser dépend de ce qui est compté : les nombres natifs comptent les heures et les objets jusqu'à 99, tandis que les nombres sino-coréens servent pour les minutes, les dates, l'argent et les nombres au-delà de 100.",
+        "ja": "どちらを使うかは何を数えるかで決まる。固有語の数詞は時刻や99までの物の数に、漢数詞は分・日付・金額・100を超える数に使われる。この使い分けは流暢な学習者でもつまずく点である。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What is the custom of eating a hot ginseng-and-chicken soup on the three hottest days of summer, following the logic of \"fighting heat with heat\"?",
+        "es": "¿Cuál es la costumbre de comer una sopa caliente de pollo con ginseng en los tres días más calurosos del verano, siguiendo la lógica de «combatir el calor con calor»?",
+        "fr": "Quelle est la coutume de manger une soupe chaude au poulet et au ginseng lors des trois jours les plus chauds de l'été, selon la logique de « combattre la chaleur par la chaleur » ?",
+        "ja": "「熱をもって熱を制す」の考えで、夏いちばん暑い三日にサムゲタンなど熱いスープを食べる習わしは?"
+      },
+      "o": [
+        {
+          "en": "Boknal (sambok)",
+          "es": "Boknal (sambok)",
+          "fr": "Boknal (sambok)",
+          "ja": "伏日(ポンナル、三伏)"
+        },
+        {
+          "en": "Chuseok",
+          "es": "Chuseok",
+          "fr": "Chuseok",
+          "ja": "秋夕(チュソク)"
+        },
+        {
+          "en": "Daeboreum",
+          "es": "Daeboreum",
+          "fr": "Daeboreum",
+          "ja": "大保름(テボルム)"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The three days — chobok, jungbok and malbok — fall roughly ten days apart according to the traditional calendar, and samgyetang stalls and restaurants see some of their longest queues of the year on exactly those dates.",
+        "es": "Los tres días —chobok, jungbok y malbok— caen con unos diez días de diferencia según el calendario tradicional.",
+        "fr": "Les trois jours — chobok, jungbok et malbok — tombent à environ dix jours d'intervalle selon le calendrier traditionnel.",
+        "ja": "初伏・中伏・末伏の三日は伝統暦でおよそ10日おきに巡ってくる。参鶏湯の店はまさにその日に一年でも指折りの行列ができる。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What was the elaborate royal court table setting, prepared for the king and inspected by a food taster before each meal for signs of poisoning?",
+        "es": "¿Cuál era el elaborado servicio de mesa de la corte real, preparado para el rey e inspeccionado por un catador antes de cada comida en busca de signos de envenenamiento?",
+        "fr": "Quel était l'élaboré service de table de la cour royale, préparé pour le roi et inspecté par un goûteur avant chaque repas pour détecter tout signe d'empoisonnement ?",
+        "ja": "王のために用意され、毒見役が毒の兆候を毎食前に確かめた、手の込んだ宮中の食卓は?"
+      },
+      "o": [
+        {
+          "en": "Surasang",
+          "es": "Surasang",
+          "fr": "Surasang",
+          "ja": "水刺床(スラサン)"
+        },
+        {
+          "en": "Bapsang",
+          "es": "Bapsang",
+          "fr": "Bapsang",
+          "ja": "飯床(パプサン)"
+        },
+        {
+          "en": "Gyoja-sang",
+          "es": "Gyoja-sang",
+          "fr": "Gyoja-sang",
+          "ja": "交子床(キョジャサン)"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "A full surasang could include a dozen side dishes representing regions and seasons across the kingdom, and the ritual of tasting each dish first, silver chopsticks included, was meant to detect poison by the metal's tarnish as much as by taste.",
+        "es": "Un surasang completo podía incluir una docena de guarniciones que representaban regiones y estaciones del reino, y el ritual de probar antes cada plato pretendía detectar veneno.",
+        "fr": "Un surasang complet pouvait comprendre une douzaine d'accompagnements représentant régions et saisons du royaume, et le rituel de goûter chaque plat visait à détecter le poison.",
+        "ja": "完全な水刺床には、王国の各地方と季節を表す十数種の副菜が並ぶこともあった。銀の箸も含め毎皿を先に味見する儀礼は、味だけでなく銀の変色でも毒を見抜く狙いがあった。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What is the term for the vivid, multicoloured decorative paintwork found on the wooden eaves and beams of Korean palaces and temples?",
+        "es": "¿Cómo se llama la pintura decorativa multicolor y vívida que se encuentra en los aleros y vigas de madera de los palacios y templos coreanos?",
+        "fr": "Comment appelle-t-on la peinture décorative multicolore et vive que l'on trouve sur les avant-toits et poutres en bois des palais et temples coréens ?",
+        "ja": "韓国の宮殿や寺院の木造の軒や梁に見られる、鮮やかな多色の装飾彩色を何と呼ぶか?"
+      },
+      "o": [
+        {
+          "en": "Minhwa",
+          "es": "Minhwa",
+          "fr": "Minhwa",
+          "ja": "民画(ミンファ)"
+        },
+        {
+          "en": "Dancheong",
+          "es": "Dancheong",
+          "fr": "Dancheong",
+          "ja": "丹青(タンチョン)"
+        },
+        {
+          "en": "Bunjang",
+          "es": "Bunjang",
+          "fr": "Bunjang",
+          "ja": "粉粧(プンジャン)"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Beyond decoration, the paint's mineral pigments were traditionally believed to help protect the timber from insects and weathering, and specific colour combinations were reserved for buildings of different rank, from royal palaces down to village shrines.",
+        "es": "Más allá de la decoración, se creía tradicionalmente que los pigmentos minerales de la pintura ayudaban a proteger la madera de insectos y meteorización.",
+        "fr": "Au-delà de la décoration, les pigments minéraux de la peinture étaient traditionnellement censés protéger le bois des insectes et des intempéries.",
+        "ja": "装飾以上に、この鉱物顔料は伝統的に木材を虫や風化から守るとも信じられていた。色の組み合わせは建物の格によって決められ、王宮から村の祠堂まで使い分けられた。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "What is the collection of over 81,000 wooden printing blocks carved in the 13th century to reproduce the entire Buddhist canon, preserved at Haeinsa temple?",
+        "es": "¿Cuál es la colección de más de 81.000 bloques de impresión de madera tallados en el siglo XIII para reproducir todo el canon budista, conservada en el templo de Haeinsa?",
+        "fr": "Quelle est la collection de plus de 81 000 blocs d'impression en bois gravés au XIIIe siècle pour reproduire l'intégralité du canon bouddhique, conservée au temple de Haeinsa ?",
+        "ja": "13世紀に仏教経典全体を刻んだ8万枚を超える木版で、海印寺に保管されているものは?"
+      },
+      "o": [
+        {
+          "en": "Tripitaka Koreana",
+          "es": "Tripitaka Koreana",
+          "fr": "Tripitaka Koreana",
+          "ja": "高麗大蔵経(八万大蔵経)"
+        },
+        {
+          "en": "Jikji",
+          "es": "Jikji",
+          "fr": "Jikji",
+          "ja": "直指(チクチ)"
+        },
+        {
+          "en": "Hunminjeongeum Haerye",
+          "es": "Hunminjeongeum Haerye",
+          "fr": "Hunminjeongeum Haerye",
+          "ja": "訓民正音解例"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The blocks were carved as an act of Buddhist devotion during a Mongol invasion, in the belief that the effort would help protect the country, and the set is prized for having almost no errors across its roughly 52 million characters.",
+        "es": "Los bloques se tallaron como acto de devoción budista durante una invasión mongola, con la creencia de que el esfuerzo ayudaría a proteger al país.",
+        "fr": "Les blocs furent gravés en acte de dévotion bouddhiste lors d'une invasion mongole, dans la croyance que cet effort aiderait à protéger le pays.",
+        "ja": "モンゴルの侵攻の最中、この労苦が国を守ると信じて仏教への帰依のしるしとして彫られた。およそ5,200万字にのぼりながら誤字がほとんど無いことでも評価が高い。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "According to Hunminjeongeum, the 15th-century document explaining Hangul, on what were the shapes of its basic consonant letters based?",
+        "es": "Según el Hunminjeongeum, el documento del siglo XV que explica el hangul, ¿en qué se basaron las formas de sus letras consonánticas básicas?",
+        "fr": "Selon le Hunminjeongeum, le document du XVe siècle expliquant le hangeul, sur quoi les formes de ses lettres consonantiques de base étaient-elles fondées ?",
+        "ja": "ハングルを解説した15世紀の文献『訓民正音』によれば、基本子音の字形は何をもとにしたか?"
+      },
+      "o": [
+        {
+          "en": "The shapes of Chinese zodiac animals",
+          "es": "Las formas de los animales del zodiaco chino",
+          "fr": "Les formes des animaux du zodiaque chinois",
+          "ja": "中国の十二支の動物の形"
+        },
+        {
+          "en": "The shapes of the mouth, tongue and throat when pronouncing each sound",
+          "es": "Las formas de la boca, la lengua y la garganta al pronunciar cada sonido",
+          "fr": "Les formes de la bouche, de la langue et de la gorge en prononçant chaque son",
+          "ja": "各音を発音する際の口・舌・のどの形"
+        },
+        {
+          "en": "The positions of stars in the night sky",
+          "es": "Las posiciones de las estrellas en el cielo nocturno",
+          "fr": "Les positions des étoiles dans le ciel nocturne",
+          "ja": "夜空の星の位置"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "This makes Hangul what linguists call a \"featural\" writing system, one of very few in the world where a letter's shape is designed to visually represent the physical act of making its sound, rather than descending from pictographs or an older alphabet.",
+        "es": "Esto convierte al hangul en lo que los lingüistas llaman un sistema de escritura «rasgo a rasgo», uno de los pocos del mundo donde la forma de una letra representa visualmente el acto físico de producir su sonido.",
+        "fr": "Cela fait du hangeul ce que les linguistes appellent une écriture « featurale », l'une des rares au monde où la forme d'une lettre représente visuellement l'acte physique de produire son son.",
+        "ja": "これによりハングルは言語学者が「発音特徴文字」と呼ぶ体系になった。文字の形が、絵文字や古い文字体系の子孫としてではなく、その音を発する際の身体の動きを視覚的に写し取るよう設計された、世界でも数少ない例である。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What is the name of the world's oldest surviving book printed with movable metal type, produced in Korea in 1377, more than 70 years before Gutenberg's press?",
+        "es": "¿Cuál es el nombre del libro impreso con tipos móviles metálicos más antiguo que se conserva en el mundo, hecho en Corea en 1377, más de 70 años antes de la imprenta de Gutenberg?",
+        "fr": "Quel est le nom du plus ancien livre imprimé avec des caractères métalliques mobiles encore conservé au monde, produit en Corée en 1377, plus de 70 ans avant la presse de Gutenberg ?",
+        "ja": "1377年に朝鮮半島で作られ、グーテンベルクの印刷機より70年以上早い、現存する世界最古の金属活字印刷本は?"
+      },
+      "o": [
+        {
+          "en": "Jikji",
+          "es": "Jikji",
+          "fr": "Jikji",
+          "ja": "直指(チクチ)"
+        },
+        {
+          "en": "Samguk Yusa",
+          "es": "Samguk Yusa",
+          "fr": "Samguk Yusa",
+          "ja": "三国遺事"
+        },
+        {
+          "en": "Joseon Wangjo Sillok",
+          "es": "Joseon Wangjo Sillok",
+          "fr": "Joseon Wangjo Sillok",
+          "ja": "朝鮮王朝実録"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Only the second of its original two volumes survives, held today in the French National Library after being taken from Korea in the late 19th century, and it was added to UNESCO's Memory of the World register in 2001.",
+        "es": "Solo sobrevive el segundo de sus dos volúmenes originales, conservado hoy en la Biblioteca Nacional de Francia tras ser sacado de Corea a finales del siglo XIX.",
+        "fr": "Seul le second de ses deux volumes originaux subsiste, conservé aujourd'hui à la Bibliothèque nationale de France après avoir été emporté de Corée à la fin du XIXe siècle.",
+        "ja": "もとの2巻のうち下巻だけが現存し、19世紀末に朝鮮から持ち出されたのち、いまはフランス国立図書館に収められている。2001年にユネスコ「世界の記憶」に登録された。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What is the ancestral ritual music still performed at Seoul's Jongmyo shrine, believed to be one of the world's oldest continuously performed court rituals?",
+        "es": "¿Cuál es la música ritual ancestral que aún se interpreta en el santuario de Jongmyo en Seúl, considerada uno de los rituales cortesanos en curso más antiguos del mundo?",
+        "fr": "Quelle est la musique rituelle ancestrale encore jouée au sanctuaire de Jongmyo à Séoul, considérée comme l'un des plus anciens rituels de cour encore pratiqués au monde ?",
+        "ja": "世界最古級の宮廷儀礼とされ、ソウルの宗廟でいまも演じられる祖先祭祀の音楽は?"
+      },
+      "o": [
+        {
+          "en": "Jongmyo Jeryeak",
+          "es": "Jongmyo Jeryeak",
+          "fr": "Jongmyo Jeryeak",
+          "ja": "宗廟祭礼楽"
+        },
+        {
+          "en": "Sanjo",
+          "es": "Sanjo",
+          "fr": "Sanjo",
+          "ja": "散調(サンジョ)"
+        },
+        {
+          "en": "Pungmul",
+          "es": "Pungmul",
+          "fr": "Pungmul",
+          "ja": "風物(プンムル)"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Composed in the 15th century and performed with dance, chant and a full court orchestra, the ritual and its music were jointly inscribed by UNESCO in 2001, one of the first Korean traditions to receive that recognition.",
+        "es": "Compuesta en el siglo XV e interpretada con danza, canto y una orquesta cortesana completa, el ritual y su música fueron inscritos conjuntamente por la UNESCO en 2001.",
+        "fr": "Composée au XVe siècle et interprétée avec danse, chant et un orchestre de cour complet, le rituel et sa musique furent inscrits conjointement par l'UNESCO en 2001.",
+        "ja": "15世紀に作られ、舞と詠唱、宮廷楽団の演奏を伴うこの祭礼と音楽は、2001年にユネスコに登録された、この種の認定を受けた最初期の韓国の伝統の一つである。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What is the traditional name for the prized jade-green glaze colour of Goryeo-dynasty celadon, said by a 12th-century Chinese visitor to be \"first under heaven\"?",
+        "es": "¿Cuál es el nombre tradicional del preciado color esmalte verde jade de la cerámica celadón de la dinastía Goryeo, calificado por un visitante chino del siglo XII como «el primero bajo el cielo»?",
+        "fr": "Quel est le nom traditionnel de la précieuse couleur de glaçure vert jade du céladon de la dynastie Goryeo, qualifiée par un visiteur chinois du XIIe siècle de « premier sous le ciel » ?",
+        "ja": "12世紀の中国人来訪者が「天下第一」と評したと伝わる、高麗青磁の珍重された翡翠色の釉薬の名は?"
+      },
+      "o": [
+        {
+          "en": "Baekja",
+          "es": "Baekja",
+          "fr": "Baekja",
+          "ja": "白磁(ペクチャ)"
+        },
+        {
+          "en": "Bisaek",
+          "es": "Bisaek",
+          "fr": "Bisaek",
+          "ja": "翡色(ビセク)"
+        },
+        {
+          "en": "Buncheong",
+          "es": "Buncheong",
+          "fr": "Buncheong",
+          "ja": "粉青(プンチョン)"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Bisaek, literally \"kingfisher colour\", was achieved through a closely guarded firing process, and the technique for reproducing the exact original shade was largely lost after the Goryeo dynasty fell, only partially reconstructed by modern potters through trial and error.",
+        "es": "Bisaek, literalmente «color martín pescador», se lograba con un proceso de cocción celosamente guardado, y la técnica para reproducir el tono original exacto se perdió en gran parte tras la caída de la dinastía Goryeo.",
+        "fr": "Bisaek, littéralement « couleur martin-pêcheur », s'obtenait par un procédé de cuisson jalousement gardé, et la technique pour reproduire la teinte originale exacte fut en grande partie perdue après la chute de la dynastie Goryeo.",
+        "ja": "文字どおり「カワセミ色」を意味する翡色は、厳重に秘された焼成法によって生まれた。高麗の滅亡後この技法はほぼ失われ、現代の陶工が試行錯誤で部分的に再現しているにすぎない。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What was the royal research institute founded by King Sejong, where scholars developed Hangul among other scientific and scholarly projects?",
+        "es": "¿Cuál fue el instituto real de investigación fundado por el rey Sejong, donde los eruditos desarrollaron el hangul entre otros proyectos científicos y académicos?",
+        "fr": "Quel fut l'institut royal de recherche fondé par le roi Sejong, où des lettrés développèrent le hangeul parmi d'autres projets scientifiques et savants ?",
+        "ja": "世宗大王が設けた王立の研究機関で、学者たちがハングルなどの学術・科学の事業を進めた場所は?"
+      },
+      "o": [
+        {
+          "en": "Jiphyeonjeon (Hall of Worthies)",
+          "es": "Jiphyeonjeon (Salón de los Sabios)",
+          "fr": "Jiphyeonjeon (Pavillon des sages)",
+          "ja": "集賢殿(チッピョンジョン)"
+        },
+        {
+          "en": "Seonggyungwan",
+          "es": "Seonggyungwan",
+          "fr": "Seonggyungwan",
+          "ja": "成均館(ソンギュングァン)"
+        },
+        {
+          "en": "Hongmungwan",
+          "es": "Hongmungwan",
+          "fr": "Hongmungwan",
+          "ja": "弘文館(ホンムングァン)"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Scholars appointed to the Jiphyeonjeon were given generous leave to study and were even, according to court records, sometimes found asleep at their desks by the king himself, who reportedly covered them with his own coat rather than wake them.",
+        "es": "A los eruditos designados al Jiphyeonjeon se les concedían generosas licencias para estudiar, y según los registros de la corte, el propio rey los encontró alguna vez dormidos en su escritorio.",
+        "fr": "Les lettrés nommés au Jiphyeonjeon se voyaient accorder de généreux congés d'étude, et selon les archives de la cour, le roi les aurait parfois trouvés endormis à leur bureau.",
+        "ja": "集賢殿に任じられた学者たちには学問のための手厚い休暇が与えられ、宮廷の記録によれば、王自身が机で眠り込んだ学者を見つけ、起こさずに自分の上着を掛けてやったこともあったという。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "What are Korea's extensive tidal mudflats on the west and south coasts, inscribed as a UNESCO World Heritage site in 2021 for their exceptional biodiversity?",
+        "es": "¿Cuáles son los extensos llanos de marea de Corea en las costas oeste y sur, inscritos como Patrimonio Mundial de la UNESCO en 2021 por su excepcional biodiversidad?",
+        "fr": "Quels sont les vastes vasières intertidales de Corée sur les côtes ouest et sud, inscrites au patrimoine mondial de l'UNESCO en 2021 pour leur biodiversité exceptionnelle ?",
+        "ja": "2021年、卓越した生物多様性を理由にユネスコ世界遺産に登録された、韓国西岸・南岸の広大な干潟は?"
+      },
+      "o": [
+        {
+          "en": "Getbol",
+          "es": "Getbol",
+          "fr": "Getbol",
+          "ja": "갯벌(ケッポル)"
+        },
+        {
+          "en": "Sanjiwon",
+          "es": "Sanjiwon",
+          "fr": "Sanjiwon",
+          "ja": "山地園(サンジウォン)"
+        },
+        {
+          "en": "Nakdong-ho",
+          "es": "Nakdong-ho",
+          "fr": "Nakdong-ho",
+          "ja": "낙동호(ナクトンホ)"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The inscribed sites cover four separate areas, chosen to represent different mudflat types, and serve as a critical stopover for millions of migratory shorebirds travelling the East Asian-Australasian flyway each year.",
+        "es": "Los lugares inscritos abarcan cuatro áreas distintas, elegidas para representar diferentes tipos de marisma, y sirven de escala crucial para millones de aves playeras migratorias.",
+        "fr": "Les sites inscrits couvrent quatre zones distinctes, choisies pour représenter différents types de vasières, et servent d'escale cruciale pour des millions d'oiseaux limicoles migrateurs.",
+        "ja": "登録地は異なる干潟の型を代表する4か所からなり、東アジア・オーストラリア地域の渡り経路を毎年たどる何百万羽ものシギ・チドリ類にとって欠かせない中継地になっている。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Traditional Korean bronze bells are noted for a unique acoustic feature not found on Chinese or Japanese temple bells: a short hollow tube built into the top. What is it believed to do?",
+        "es": "Las campanas de bronce coreanas tradicionales destacan por una característica acústica única, ausente en las campanas chinas o japonesas: un tubo hueco corto en la parte superior. ¿Qué se cree que hace?",
+        "fr": "Les cloches de bronze coréennes traditionnelles se distinguent par une particularité acoustique absente des cloches chinoises ou japonaises : un court tube creux au sommet. Que serait censé faire ce tube ?",
+        "ja": "中国や日本の梵鐘には無い、韓国の伝統的な釣鐘だけの音響上の特徴として、頂部に短い中空の筒が付いている。これは何をすると考えられているか?"
+      },
+      "o": [
+        {
+          "en": "Release trapped, unwanted overtones to purify the tone",
+          "es": "Liberar armónicos sobrantes atrapados para purificar el tono",
+          "fr": "Libérer les harmoniques indésirables piégées pour purifier le son",
+          "ja": "余分な倍音を逃がして音を澄ませるため"
+        },
+        {
+          "en": "Let rainwater drain out of the bell",
+          "es": "Dejar que salga el agua de lluvia de la campana",
+          "fr": "Laisser l'eau de pluie s'écouler de la cloche",
+          "ja": "鐘にたまった雨水を排出するため"
+        },
+        {
+          "en": "Allow the bell to be hung from a single point",
+          "es": "Permitir colgar la campana de un solo punto",
+          "fr": "Permettre d'accrocher la cloche à un seul point",
+          "ja": "一点から鐘を吊るせるようにするため"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Known as a yongtong, the tube's exact acoustic function is still debated by researchers, but the leading theory is that it vents certain resonant frequencies to produce the long, layered, wavering hum for which Korean bells such as the Divine Bell of King Seongdeok are famous.",
+        "es": "Conocido como yongtong, la función acústica exacta del tubo todavía se debate entre investigadores, pero la teoría principal es que libera ciertas frecuencias resonantes.",
+        "fr": "Connu sous le nom de yongtong, la fonction acoustique exacte du tube fait encore débat parmi les chercheurs, mais la théorie dominante est qu'il évacue certaines fréquences résonantes.",
+        "ja": "「甬筒(ヨントン)」と呼ばれるこの筒の正確な音響的な働きはいまも研究者の間で論争があるが、有力な説では、ある種の共鳴周波数を逃がすことで、聖徳大王神鐘に代表される韓国の鐘特有の長く尾を引くうねる残響を生み出しているとされる。"
+      }
+    },
+    {
+      "difficulty": 8,
+      "q": {
+        "en": "Before adopting the Gregorian calendar in 1896, Korea followed a lunisolar calendar system shared with much of East Asia. What did it combine to track time?",
+        "es": "Antes de adoptar el calendario gregoriano en 1896, Corea seguía un sistema de calendario lunisolar compartido con buena parte de Asia oriental. ¿Qué combinaba para seguir el tiempo?",
+        "fr": "Avant d'adopter le calendrier grégorien en 1896, la Corée suivait un système de calendrier luni-solaire partagé avec une grande partie de l'Asie de l'Est. Que combinait-il pour suivre le temps ?",
+        "ja": "1896年にグレゴリオ暦を採用する前、韓国は東アジアの多くと共通する太陰太陽暦に従っていた。この暦は時をどう数えていたか?"
+      },
+      "o": [
+        {
+          "en": "Lunar months adjusted with leap months to stay aligned with the solar year",
+          "es": "Meses lunares ajustados con meses bisiestos para mantenerse alineados con el año solar",
+          "fr": "Des mois lunaires ajustés par des mois intercalaires pour rester alignés sur l'année solaire",
+          "ja": "太陽年に合わせてうるう月を挟む太陰暦"
+        },
+        {
+          "en": "A purely solar count with no reference to the moon",
+          "es": "Un cómputo puramente solar sin referencia a la luna",
+          "fr": "Un décompte purement solaire, sans référence à la lune",
+          "ja": "月を一切参照しない太陽暦のみ"
+        },
+        {
+          "en": "A 10-day week repeated year-round",
+          "es": "Una semana de 10 días repetida todo el año",
+          "fr": "Une semaine de 10 jours répétée toute l'année",
+          "ja": "一年を通じて繰り返す10日間の週"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Because twelve lunar months fall about eleven days short of a solar year, an extra leap month was inserted roughly every three years to keep the calendar from drifting out of step with the seasons — the same basic method still used to fix the date of Lunar New Year today.",
+        "es": "Como doce meses lunares se quedan unos once días cortos de un año solar, se insertaba un mes bisiesto extra cada tres años aproximadamente.",
+        "fr": "Comme douze mois lunaires sont environ onze jours plus courts qu'une année solaire, un mois intercalaire supplémentaire était inséré environ tous les trois ans.",
+        "ja": "太陰暦の12か月は太陽年よりおよそ11日短くなるため、およそ3年に一度うるう月を挟んで季節とのずれを防いだ。この基本の仕組みは、いまも旧正月の日付を決める際に使われている。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Pansori, Korea's epic solo narrative singing form, developed distinct regional performance schools. What is the general term for these schools, distinguished by vocal style and home region?",
+        "es": "El pansori, la forma épica coreana de canto narrativo en solitario, desarrolló escuelas regionales de interpretación diferenciadas. ¿Cuál es el término general para estas escuelas, distinguidas por estilo vocal y región de origen?",
+        "fr": "Le pansori, forme épique coréenne de chant narratif en solo, développa des écoles d'interprétation régionales distinctes. Quel est le terme général pour ces écoles, distinguées par le style vocal et la région d'origine ?",
+        "ja": "独唱の語り物であるパンソリには、地域ごとに異なる歌唱の流派が発達した。声の出し方や出身地方で区別されるこの流派を指す一般的な語は?"
+      },
+      "o": [
+        {
+          "en": "Je",
+          "es": "Je",
+          "fr": "Je",
+          "ja": "제(制)"
+        },
+        {
+          "en": "Pa",
+          "es": "Pa",
+          "fr": "Pa",
+          "ja": "파(派)"
+        },
+        {
+          "en": "Ryu",
+          "es": "Ryu",
+          "fr": "Ryu",
+          "ja": "류(流)"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The two best-known schools, Dongpyeonje (\"eastern style\") and Seopyeonje (\"western style\"), are traditionally described as differing in the east's more forceful, angular delivery against the west's more delicate, flowing ornamentation, named for their regions relative to the Seomjin River in Jeolla.",
+        "es": "Las dos escuelas más conocidas, Dongpyeonje («estilo oriental») y Seopyeonje («estilo occidental»), se describen tradicionalmente como distintas en su interpretación.",
+        "fr": "Les deux écoles les plus connues, Dongpyeonje (« style oriental ») et Seopyeonje (« style occidental »), se décrivent traditionnellement comme distinctes dans leur interprétation.",
+        "ja": "最もよく知られる二つの流派、東便制(東の様式)と西便制(西の様式)は、東が力強く角張った歌い回し、西が繊細で流れるような装飾を持つとされ、全羅道の蟾津江を挟んだ東西の出身地にちなんで名付けられている。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Hangul was invented by 1443 but not made public until 1446, when it was formally promulgated alongside an explanatory document. What is this gap usually explained by?",
+        "es": "El hangul se inventó hacia 1443 pero no se hizo público hasta 1446, cuando se promulgó formalmente junto a un documento explicativo. ¿Cómo se suele explicar esta diferencia?",
+        "fr": "Le hangeul fut inventé vers 1443 mais ne fut rendu public qu'en 1446, date de sa promulgation officielle accompagnée d'un document explicatif. Comment explique-t-on généralement cet écart ?",
+        "ja": "ハングルは1443年ごろに完成したが、公布は解説書とともに1446年になってからだった。この間の年月は一般にどう説明されるか?"
+      },
+      "o": [
+        {
+          "en": "The years needed to write and test the explanatory commentary, Hunminjeongeum Haerye",
+          "es": "Los años necesarios para escribir y probar el comentario explicativo, Hunminjeongeum Haerye",
+          "fr": "Les années nécessaires pour rédiger et tester le commentaire explicatif, le Hunminjeongeum Haerye",
+          "ja": "解説書『訓民正音解例』を著し検証するのに要した年月"
+        },
+        {
+          "en": "A ban on the script during those years by conservative officials",
+          "es": "Una prohibición de la escritura durante esos años por funcionarios conservadores",
+          "fr": "Une interdiction de l'écriture durant ces années par des fonctionnaires conservateurs",
+          "ja": "保守的な官吏によるこの間の使用禁止"
+        },
+        {
+          "en": "A delay caused by a shortage of printing paper",
+          "es": "Un retraso causado por escasez de papel de imprenta",
+          "fr": "Un retard dû à une pénurie de papier d'imprimerie",
+          "ja": "印刷用紙の不足による遅れ"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The explanatory volume, written by Sejong's scholars to justify and teach the new script, is what today lets linguists say with confidence exactly how and why each letter was designed the way it was.",
+        "es": "El volumen explicativo, escrito por los eruditos de Sejong para justificar y enseñar la nueva escritura, es lo que hoy permite a los lingüistas afirmar con seguridad exactamente cómo y por qué se diseñó cada letra.",
+        "fr": "Le volume explicatif, rédigé par les lettrés de Sejong pour justifier et enseigner la nouvelle écriture, est ce qui permet aujourd'hui aux linguistes d'affirmer avec certitude comment et pourquoi chaque lettre fut conçue ainsi.",
+        "ja": "世宗の学者たちが新しい文字を正当化し教えるために著したこの解説書のおかげで、いまの言語学者は各文字がどのように、なぜそう設計されたかを確信を持って語ることができる。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Hangul originally had more letters than the 24 in common use today. How many letters did the 1446 Hunminjeongeum document originally set out?",
+        "es": "El hangul tenía originalmente más letras que las 24 de uso común hoy. ¿Cuántas letras estableció originalmente el documento Hunminjeongeum de 1446?",
+        "fr": "Le hangeul comptait à l'origine plus de lettres que les 24 d'usage courant aujourd'hui. Combien de lettres le document Hunminjeongeum de 1446 en établissait-il à l'origine ?",
+        "ja": "ハングルは、いま常用される24字より本来多くの文字を持っていた。1446年の『訓民正音』が定めた本来の文字数はいくつか?"
+      },
+      "o": [
+        {
+          "en": "28",
+          "es": "28",
+          "fr": "28",
+          "ja": "28字"
+        },
+        {
+          "en": "32",
+          "es": "32",
+          "fr": "32",
+          "ja": "32字"
+        },
+        {
+          "en": "40",
+          "es": "40",
+          "fr": "40",
+          "ja": "40字"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Four of the original letters, including one representing a glottal sound and one used mainly for foreign loanwords, fell out of everyday use over the following centuries and are now considered obsolete outside of historical and linguistic study.",
+        "es": "Cuatro de las letras originales, incluida una que representaba un sonido glotal y otra usada sobre todo en préstamos extranjeros, cayeron en desuso.",
+        "fr": "Quatre des lettres originales, dont une représentant un son glottal et une autre utilisée surtout pour les emprunts étrangers, tombèrent en désuétude.",
+        "ja": "声門音を表す文字や、主に外来語に使われた文字を含む4字は、その後の数世紀で日常使いから外れ、いまでは歴史・言語学研究以外では使われない古字とされている。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "In traditional Korean folk paintings (minhwa), a tiger is frequently shown alongside which other animal, in a pairing meant to convey New Year good wishes and ward off evil?",
+        "es": "En las pinturas folclóricas tradicionales coreanas (minhwa), un tigre aparece a menudo junto a qué otro animal, en un emparejamiento pensado para transmitir buenos deseos de año nuevo y ahuyentar el mal?",
+        "fr": "Dans les peintures folkloriques traditionnelles coréennes (minhwa), un tigre apparaît fréquemment aux côtés de quel autre animal, association censée transmettre des vœux de bonne année et repousser le mal ?",
+        "ja": "韓国の伝統的な民画では、新年の願いを込め邪気を払うとされる組み合わせとして、虎はどの動物としばしば一緒に描かれるか?"
+      },
+      "o": [
+        {
+          "en": "A crane",
+          "es": "Una grulla",
+          "fr": "Une grue",
+          "ja": "鶴"
+        },
+        {
+          "en": "A magpie",
+          "es": "Una urraca",
+          "fr": "Une pie",
+          "ja": "カササギ"
+        },
+        {
+          "en": "A carp",
+          "es": "Una carpa",
+          "fr": "Une carpe",
+          "ja": "鯉"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "In these paintings the tiger is often drawn with an exaggeratedly comic, almost bumbling expression rather than a fearsome one, while the magpie perched above is read as the bearer of good news, a pairing scholars connect to satirising the powerful (the tiger) from the perspective of the common people (the magpie).",
+        "es": "En estas pinturas, el tigre suele dibujarse con una expresión exageradamente cómica, casi torpe, en lugar de temible, mientras que la urraca posada arriba se interpreta como portadora de buenas noticias.",
+        "fr": "Dans ces peintures, le tigre est souvent dessiné avec une expression exagérément comique, presque maladroite, plutôt que redoutable, tandis que la pie perchée au-dessus est lue comme porteuse de bonnes nouvelles.",
+        "ja": "これらの絵で虎はしばしば、恐ろしげというよりむしろ大げさに間の抜けた滑稽な表情で描かれ、上にとまるカササギは吉報を運ぶ存在とされる。研究者はこれを、庶民(カササギ)の視点から権力者(虎)を風刺したものと結びつけている。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The traditional East Asian sexagenary cycle, combining ten \"heavenly stems\" with twelve \"earthly branches\", produces a repeating cycle of how many years — the basis for the hwangap, or 60th-birthday celebration?",
+        "es": "El ciclo sexagenario tradicional de Asia oriental, que combina diez «troncos celestes» con doce «ramas terrestres», produce un ciclo repetido de cuántos años, base de la celebración hwangap del sexagésimo cumpleaños?",
+        "fr": "Le cycle sexagénaire traditionnel est-asiatique, combinant dix « troncs célestes » et douze « rameaux terrestres », produit un cycle répété de combien d'années, base de la célébration hwangap du 60e anniversaire ?",
+        "ja": "10の「天干」と12の「地支」を組み合わせる東アジアの伝統的な干支の周期は、還暦(60歳の祝い)の由来となる何年周期を生むか?"
+      },
+      "o": [
+        {
+          "en": "50",
+          "es": "50",
+          "fr": "50",
+          "ja": "50年"
+        },
+        {
+          "en": "60",
+          "es": "60",
+          "fr": "60",
+          "ja": "60年"
+        },
+        {
+          "en": "72",
+          "es": "72",
+          "fr": "72",
+          "ja": "72年"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Ten and twelve share a lowest common multiple of sixty, so it takes sixty years for a given stem-branch pairing to recur, meaning a person reaching their 60th birthday returns to the same named year they were born in — historically a significant milestone when fewer people lived that long.",
+        "es": "Diez y doce comparten un mínimo común múltiplo de sesenta, así que se tardan sesenta años en que se repita un mismo par de tronco y rama.",
+        "fr": "Dix et douze partagent un plus petit commun multiple de soixante, si bien qu'il faut soixante ans pour qu'une même paire tronc-rameau se répète.",
+        "ja": "10と12の最小公倍数は60なので、同じ干支の組み合わせが巡ってくるまでに60年かかる。60歳の誕生日を迎えた人は生まれた年と同じ干支の年に戻ることになり、多くの人がそこまで長生きしなかった時代には重要な節目とされた。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "In 1441, a device credited to Korean scientists became the world's first standardised instrument for measuring rainfall, predating similar European instruments by about two centuries. What was it called?",
+        "es": "En 1441, un dispositivo atribuido a científicos coreanos se convirtió en el primer instrumento estandarizado del mundo para medir la lluvia, dos siglos antes que instrumentos europeos similares. ¿Cómo se llamaba?",
+        "fr": "En 1441, un dispositif attribué à des scientifiques coréens devint le premier instrument normalisé au monde pour mesurer les précipitations, deux siècles avant des instruments européens similaires. Comment s'appelait-il ?",
+        "ja": "1441年、朝鮮の科学者たちの功績とされ、ヨーロッパの同様の器具よりおよそ2世紀早い、世界初の規格化された雨量計となった装置は何と呼ばれたか?"
+      },
+      "o": [
+        {
+          "en": "Honcheonui",
+          "es": "Honcheonui",
+          "fr": "Honcheonui",
+          "ja": "渾天儀(ホンチョヌィ)"
+        },
+        {
+          "en": "Cheugugi",
+          "es": "Cheugugi",
+          "fr": "Cheugugi",
+          "ja": "測雨器(チュグギ)"
+        },
+        {
+          "en": "Angbu-ilgu",
+          "es": "Angbu-ilgu",
+          "fr": "Angbu-ilgu",
+          "ja": "仰釜日晷(アンブイルグ)"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Standardised bronze cheugugi were distributed to towns across the country to collect consistent local rainfall data, part of a broader push under King Sejong to improve agricultural planning through more accurate observation.",
+        "es": "Se distribuyeron cheugugi de bronce estandarizados por pueblos de todo el país para recoger datos de lluvia locales consistentes.",
+        "fr": "Des cheugugi de bronze normalisés furent distribués dans les villes du pays pour recueillir des données pluviométriques locales cohérentes.",
+        "ja": "規格化された青銅製の測雨器は全国の町々に配られ、各地で一貫した降雨データを集めた。より正確な観測で農業計画を改善しようとした世宗大王期の広い取り組みの一環である。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "Which Joseon-era medical text, compiled under King Sejong, deliberately favoured locally available Korean herbs and remedies over imported Chinese prescriptions?",
+        "es": "¿Qué texto médico de la era Joseon, compilado bajo el rey Sejong, favoreció deliberadamente las hierbas y remedios coreanos disponibles localmente frente a las recetas chinas importadas?",
+        "fr": "Quel texte médical de l'ère Joseon, compilé sous le roi Sejong, privilégia délibérément les herbes et remèdes coréens disponibles localement plutôt que les prescriptions chinoises importées ?",
+        "ja": "世宗大王の代に編まれ、輸入の中国処方より現地で入手できる朝鮮の薬草・処方をあえて重んじた医学書は?"
+      },
+      "o": [
+        {
+          "en": "Dongui Bogam",
+          "es": "Dongui Bogam",
+          "fr": "Dongui Bogam",
+          "ja": "東医宝鑑(トンイボガム)"
+        },
+        {
+          "en": "Hyangyak Jipseongbang",
+          "es": "Hyangyak Jipseongbang",
+          "fr": "Hyangyak Jipseongbang",
+          "ja": "郷薬集成方(ヒャンヤクチプソンバン)"
+        },
+        {
+          "en": "Uibang Yuchwi",
+          "es": "Uibang Yuchwi",
+          "fr": "Uibang Yuchwi",
+          "ja": "医方類聚(ウィバンユチュィ)"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Compiled in 1433, the text reflected a broader early-Joseon push toward self-reliance, gathering remedies using ingredients that grew locally so that treatment did not depend on expensive imported Chinese materials.",
+        "es": "Compilado en 1433, el texto reflejaba un impulso más amplio de la temprana Joseon hacia la autosuficiencia, reuniendo remedios con ingredientes que crecían localmente.",
+        "fr": "Compilé en 1433, ce texte reflétait un élan plus large du début de la dynastie Joseon vers l'autosuffisance, rassemblant des remèdes à base d'ingrédients poussant localement.",
+        "ja": "1433年に編まれたこの書は、朝鮮初期に広くみられた自立志向を反映し、現地で育つ材料を使う処方を集めた。輸入の高価な中国産の材料に頼らずに治療できるようにする狙いだった。"
+      }
+    },
+    {
+      "difficulty": 9,
+      "q": {
+        "en": "The Annals of the Joseon Dynasty record the daily affairs of the court across the entire dynasty, compiled reign by reign and never altered afterward. Roughly how many years of continuous rule do they cover?",
+        "es": "Los Anales de la dinastía Joseon registran los asuntos diarios de la corte a lo largo de toda la dinastía, compilados reinado por reinado y nunca alterados después. ¿Aproximadamente cuántos años de gobierno continuo cubren?",
+        "fr": "Les Annales de la dynastie Joseon consignent les affaires quotidiennes de la cour tout au long de la dynastie, compilées règne par règne et jamais modifiées ensuite. Combien d'années de règne continu couvrent-elles environ ?",
+        "ja": "朝鮮王朝実録は、王朝を通じて代替わりごとに編まれ、その後決して手を加えられなかった宮廷の日々の記録である。およそ何年にわたる治世を記しているか?"
+      },
+      "o": [
+        {
+          "en": "About 130 years",
+          "es": "Unos 130 años",
+          "fr": "Environ 130 ans",
+          "ja": "約130年"
+        },
+        {
+          "en": "About 250 years",
+          "es": "Unos 250 años",
+          "fr": "Environ 250 ans",
+          "ja": "約250年"
+        },
+        {
+          "en": "About 470 years",
+          "es": "Unos 470 años",
+          "fr": "Environ 470 ans",
+          "ja": "約470年"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Covering 25 kings from the dynasty's founding in 1392 to the late 19th century, the Annals run to well over a thousand volumes and were inscribed on UNESCO's Memory of the World register in 1997, prized for the strict rule that not even the reigning king was allowed to read the record of his own reign.",
+        "es": "Cubriendo a 25 reyes desde la fundación de la dinastía en 1392 hasta finales del siglo XIX, los Anales superan los mil volúmenes.",
+        "fr": "Couvrant 25 rois depuis la fondation de la dynastie en 1392 jusqu'à la fin du XIXe siècle, les Annales dépassent le millier de volumes.",
+        "ja": "1392年の王朝創建から19世紀末まで25代の王を記し、実録は千巻をゆうに超える。1997年にユネスコ「世界の記憶」に登録された。在位中の王でさえ自らの治世の記録を読むことを許されなかった、という厳格な規則でも知られる。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "Which figure is traditionally credited as the scientist who built Korea's 1441 standardised rain gauge, despite having been born into the lowest, government-slave class?",
+        "es": "¿A qué figura se atribuye tradicionalmente la construcción del pluviómetro estandarizado coreano de 1441, pese a haber nacido en la clase más baja, la de esclavos del gobierno?",
+        "fr": "Quelle figure est traditionnellement créditée d'avoir construit le pluviomètre normalisé coréen de 1441, bien que né dans la classe la plus basse, celle des esclaves du gouvernement ?",
+        "ja": "1441年の規格化された雨量計を作ったとされる人物は、最下層である官奴婢の身分に生まれながらその功績を残したとされるが、それは誰か?"
+      },
+      "o": [
+        {
+          "en": "Jang Yeong-sil",
+          "es": "Jang Yeong-sil",
+          "fr": "Jang Yeong-sil",
+          "ja": "蔣英実(チャン・ヨンシル)"
+        },
+        {
+          "en": "Heo Jun",
+          "es": "Heo Jun",
+          "fr": "Heo Jun",
+          "ja": "許浚(ホ・ジュン)"
+        },
+        {
+          "en": "Yi Hwang",
+          "es": "Yi Hwang",
+          "fr": "Yi Hwang",
+          "ja": "李滉(イ・ファン)"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Recognising his talent, King Sejong had Jang freed from slave status and appointed him to court, where he went on to design astronomical instruments and a self-striking water clock — an unusually steep rise for the rigid class system of the time.",
+        "es": "Al reconocer su talento, el rey Sejong hizo liberar a Jang de su condición de esclavo y lo nombró en la corte, donde llegó a diseñar instrumentos astronómicos y un reloj de agua autopercutor.",
+        "fr": "Reconnaissant son talent, le roi Sejong fit libérer Jang de son statut d'esclave et le nomma à la cour, où il conçut ensuite des instruments astronomiques et une horloge à eau à sonnerie automatique.",
+        "ja": "その才を見出した世宗大王は蔣英実を奴婢の身分から解き放ち宮廷に迎えた。彼はのちに天文観測の器具や自動で時を告げる水時計まで設計するに至った。当時の厳格な身分制度の中では異例の出世だった。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "Which ancient Korean kingdom is traditionally said to have unified most of the peninsula for the first time in 676 CE, with the help of Tang China, before later falling out with its former ally?",
+        "es": "¿Qué antiguo reino coreano se dice tradicionalmente que unificó la mayor parte de la península por primera vez en el año 676, con ayuda de la China Tang, antes de enemistarse después con su antiguo aliado?",
+        "fr": "Quel ancien royaume coréen est traditionnellement dit avoir unifié la majeure partie de la péninsule pour la première fois en 676 apr. J.-C., avec l'aide de la Chine des Tang, avant de se brouiller ensuite avec son ancien allié ?",
+        "ja": "唐の助けを借りて676年に初めて半島の大部分を統一したとされ、のちにその同盟相手と対立するに至った古代朝鮮の王国は?"
+      },
+      "o": [
+        {
+          "en": "Baekje",
+          "es": "Baekje",
+          "fr": "Baekje",
+          "ja": "百済(ペクチェ)"
+        },
+        {
+          "en": "Goguryeo",
+          "es": "Goguryeo",
+          "fr": "Goguryeo",
+          "ja": "高句麗(コグリョ)"
+        },
+        {
+          "en": "Silla",
+          "es": "Silla",
+          "fr": "Silla",
+          "ja": "新羅(シルラ)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Silla's alliance with Tang China defeated the rival kingdoms of Baekje and Goguryeo in the 660s, but Silla then fought its former ally to push Tang forces off the peninsula entirely, completing what historians call the Silla unification.",
+        "es": "La alianza de Silla con la China Tang derrotó a los reinos rivales de Baekje y Goguryeo en la década de 660, pero Silla luego combatió contra su antiguo aliado.",
+        "fr": "L'alliance de Silla avec la Chine des Tang vainquit les royaumes rivaux de Baekje et de Goguryeo dans les années 660, mais Silla combattit ensuite son ancien allié.",
+        "ja": "新羅と唐の同盟は660年代にライバルの百済と高句麗を破ったが、その後新羅はかつての同盟相手である唐と戦い、半島から唐の勢力を完全に押し出した。歴史家が「新羅の統一」と呼ぶ経緯である。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "After Goguryeo fell, a successor state rose in the north, ruled by a former Goguryeo general and made up of both Goguryeo refugees and Mohe peoples, controlling territory stretching well into present-day Manchuria and Russia's Far East. What was it called?",
+        "es": "Tras la caída de Goguryeo, en el norte surgió un estado sucesor, gobernado por un antiguo general de Goguryeo y formado por refugiados de Goguryeo y pueblos Mohe, con territorio que se extendía hasta la actual Manchuria y el Lejano Oriente ruso. ¿Cómo se llamaba?",
+        "fr": "Après la chute de Goguryeo, un État successeur se leva au nord, dirigé par un ancien général de Goguryeo et composé de réfugiés de Goguryeo et de peuples Mohe, avec un territoire s'étendant jusqu'en Mandchourie actuelle et dans l'Extrême-Orient russe. Comment s'appelait-il ?",
+        "ja": "高句麗の滅亡後、北方に興った後継国家は、元高句麗の将軍が治め、高句麗の遺民と靺鞨の人々からなり、現在の満洲やロシア極東にまで及ぶ領域を支配した。その国名は?"
+      },
+      "o": [
+        {
+          "en": "Balhae",
+          "es": "Balhae",
+          "fr": "Balhae",
+          "ja": "渤海(パルヘ)"
+        },
+        {
+          "en": "Buyeo",
+          "es": "Buyeo",
+          "fr": "Buyeo",
+          "ja": "夫余(プヨ)"
+        },
+        {
+          "en": "Gaya",
+          "es": "Gaya",
+          "fr": "Gaya",
+          "ja": "伽耶(カヤ)"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Founded around 698 CE, Balhae lasted over two centuries and is claimed as part of national history by both Korea and China today, a disputed legacy that reflects how much of its territory now lies outside the modern Korean peninsula.",
+        "es": "Fundado hacia el año 698, Balhae duró más de dos siglos y hoy tanto Corea como China lo reclaman como parte de su historia nacional.",
+        "fr": "Fondé vers 698, Balhae dura plus de deux siècles et est aujourd'hui revendiqué comme partie de l'histoire nationale par la Corée et la Chine.",
+        "ja": "698年ごろに建てられた渤海は2世紀以上続き、いまも韓国と中国の双方が自国史の一部として位置づけている。その領域の多くが現在の朝鮮半島の外にあることを映した係争である。"
+      }
+    },
+    {
+      "difficulty": 10,
+      "q": {
+        "en": "Korea's earliest kingdom, Gojoseon, has a founding date that appears in later chronicles but is treated by historians as legend rather than verified fact. What year is traditionally given for its founding?",
+        "es": "El reino más antiguo de Corea, Gojoseon, tiene una fecha de fundación que aparece en crónicas posteriores pero que los historiadores tratan como leyenda y no como hecho verificado. ¿Qué año se da tradicionalmente para su fundación?",
+        "fr": "Le plus ancien royaume de Corée, Gojoseon, a une date de fondation qui figure dans des chroniques ultérieures mais que les historiens traitent comme une légende plutôt qu'un fait vérifié. Quelle année est traditionnellement donnée pour sa fondation ?",
+        "ja": "韓国最古の王国とされる古朝鮮には、後世の史書に記されているものの歴史家が史実ではなく伝承として扱う建国年がある。伝承上、その建国年とされるのはいつか?"
+      },
+      "o": [
+        {
+          "en": "2333 BCE",
+          "es": "2333 a.C.",
+          "fr": "2333 av. J.-C.",
+          "ja": "紀元前2333年"
+        },
+        {
+          "en": "1122 BCE",
+          "es": "1122 a.C.",
+          "fr": "1122 av. J.-C.",
+          "ja": "紀元前1122年"
+        },
+        {
+          "en": "108 BCE",
+          "es": "108 a.C.",
+          "fr": "108 av. J.-C.",
+          "ja": "紀元前108年"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The date comes from the Dangun foundation myth, first recorded centuries later in a 13th-century Buddhist history text, and while its precise year is not treated as verified history, October 3rd is still marked today as National Foundation Day in reference to it.",
+        "es": "La fecha procede del mito fundacional de Dangun, registrado por primera vez siglos después en un texto histórico budista del siglo XIII.",
+        "fr": "La date provient du mythe fondateur de Dangun, consigné pour la première fois des siècles plus tard dans un texte historique bouddhiste du XIIIe siècle.",
+        "ja": "この年代は、何世紀も後の13世紀の仏教史書に初めて記された檀君神話に由来する。史実として確かめられた年代ではないが、いまも10月3日は開天節としてこれにちなんで祝われている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Traditional Korean geomancy treats the peninsula's mountains as a single unbroken ridge running from Baekdusan on the northern border down to Jirisan in the south, rather than as separate ranges. What is this continuous mountain spine called?",
+        "es": "La geomancia tradicional coreana trata las montañas de la península como una única cresta ininterrumpida que va desde el Baekdusan, en la frontera norte, hasta el Jirisan, en el sur, en lugar de tratarlas como cordilleras separadas. ¿Cómo se llama esta columna montañosa continua?",
+        "fr": "La géomancie traditionnelle coréenne considère les montagnes de la péninsule comme une seule crête ininterrompue allant du Baekdusan, à la frontière nord, jusqu'au Jirisan, au sud, plutôt que comme des chaînes séparées. Comment appelle-t-on cette colonne montagneuse continue?",
+        "ja": "韓国の伝統的な風水では、半島の山々を別々の山脈としてではなく、北の国境にある白頭山から南の智異山まで途切れず続く一本の稜線として捉える。この連なりは何と呼ばれるか?"
+      },
+      "o": [
+        {
+          "en": "Taebaek Range",
+          "es": "Cordillera Taebaek",
+          "fr": "Chaîne du Taebaek",
+          "ja": "太白山脈"
+        },
+        {
+          "en": "Sobaek Range",
+          "es": "Cordillera Sobaek",
+          "fr": "Chaîne du Sobaek",
+          "ja": "小白山脈"
+        },
+        {
+          "en": "Baekdudaegan",
+          "es": "Baekdudaegan",
+          "fr": "Baekdudaegan",
+          "ja": "白頭大幹"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "This traditional concept, mapped in detail in an 18th-century Joseon document, differs from the Western-derived geological range names introduced during the early 20th century, which split the same terrain into separate named ranges based on rock structure rather than an unbroken ridge.",
+        "es": "Este concepto tradicional, cartografiado en detalle en un documento de la Joseon del siglo XVIII, difiere de los nombres de cordilleras de origen occidental introducidos a comienzos del siglo XX.",
+        "fr": "Ce concept traditionnel, cartographié en détail dans un document Joseon du XVIIIe siècle, diffère des noms de chaînes d'origine occidentale introduits au début du XXe siècle.",
+        "ja": "18世紀の朝鮮の文書に詳しく描かれたこの伝統的な捉え方は、20世紀初頭に持ち込まれた、地質構造をもとに同じ地形を別々の山脈名に分ける西洋由来の呼び方とは異なるものである。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "What is the name of Korea's traditional underfloor heating system, in which smoke and heat from a fire are channelled through passages beneath the floor to warm a room from below?",
+        "es": "¿Cómo se llama el sistema tradicional coreano de calefacción por suelo radiante, en el que el humo y el calor de un fuego se canalizan por conductos bajo el suelo para calentar una habitación desde abajo?",
+        "fr": "Comment s'appelle le système traditionnel coréen de chauffage par le sol, où la fumée et la chaleur d'un feu sont canalisées par des conduits sous le plancher pour chauffer une pièce par le dessous?",
+        "ja": "火の煙と熱を床下の通路に通し、部屋を下から温める韓国の伝統的な床暖房の仕組みは何と呼ばれるか?"
+      },
+      "o": [
+        {
+          "en": "Kotatsu",
+          "es": "Kotatsu",
+          "fr": "Kotatsu",
+          "ja": "こたつ"
+        },
+        {
+          "en": "Kang",
+          "es": "Kang",
+          "fr": "Kang",
+          "ja": "カン(炕)"
+        },
+        {
+          "en": "Ondol",
+          "es": "Ondol",
+          "fr": "Ondol",
+          "ja": "オンドル"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The structural principle behind ondol traces back over two thousand years, and while most modern homes now circulate hot water through pipes instead of channelling smoke directly, the habit of sitting and sleeping on a warm floor rather than in raised beds still shapes Korean furniture and house layout today.",
+        "es": "El principio estructural del ondol se remonta a más de dos mil años, y aunque la mayoría de los hogares modernos hoy hacen circular agua caliente por tuberías en lugar de canalizar humo directamente.",
+        "fr": "Le principe structurel de l'ondol remonte à plus de deux mille ans, et bien que la plupart des foyers modernes fassent aujourd'hui circuler de l'eau chaude par des tuyaux plutôt que de canaliser directement la fumée.",
+        "ja": "オンドルの構造的な原理は2000年以上前にさかのぼる。いまの住宅の多くは煙を直接通す代わりに温水を配管で循環させているが、寝台ではなく温かい床の上に座り眠る習慣は、いまも韓国の家具や住まいの間取りを形づくっている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What is the traditional Korean three-line poetic form, each line built around a fixed rhythmic pattern of syllable groups and often ending with a twist or reversal in its final line?",
+        "es": "¿Cuál es la forma poética tradicional coreana de tres versos, cada uno construido con un patrón rítmico fijo de grupos silábicos y que a menudo termina con un giro o inversión en el último verso?",
+        "fr": "Quelle est la forme poétique traditionnelle coréenne en trois vers, chacun construit sur un schéma rythmique fixe de groupes de syllabes, se terminant souvent par un retournement dans le dernier vers?",
+        "ja": "一定の音節のまとまりの律動で組み立てられた3行から成り、最後の行でしばしば転換や反転を見せる、韓国の伝統的な詩形は?"
+      },
+      "o": [
+        {
+          "en": "Haiku",
+          "es": "Haiku",
+          "fr": "Haïku",
+          "ja": "俳句"
+        },
+        {
+          "en": "Tanka",
+          "es": "Tanka",
+          "fr": "Tanka",
+          "ja": "短歌"
+        },
+        {
+          "en": "Sijo",
+          "es": "Sijo",
+          "fr": "Sijo",
+          "ja": "時調(シジョ)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Sijo predates the invention of Hangul and was originally composed and transmitted orally or written in Chinese characters, later flourishing in Hangul; among its best-known authors is the 16th-century gisaeng poet Hwang Jini.",
+        "es": "El sijo es anterior a la invención del hangul y originalmente se componía y transmitía oralmente o se escribía en caracteres chinos, floreciendo después en hangul.",
+        "fr": "Le sijo est antérieur à l'invention du hangeul et fut d'abord composé et transmis oralement ou écrit en caractères chinois, avant de s'épanouir en hangeul.",
+        "ja": "時調はハングルの創製より古く、当初は口伝か漢字で記されて広まり、のちにハングルで書かれるようになって栄えた。よく知られた作者の一人に16世紀の妓生(ギセン)詩人ファン・ジニがいる。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "What is the traditional Korean wrapping cloth, historically pieced together by ordinary households from scraps of leftover fabric into geometric patchwork and used to wrap gifts, food or ceremonial items?",
+        "es": "¿Cuál es la tela envolvente tradicional coreana, históricamente confeccionada por los hogares comunes a partir de retazos de tela sobrante en un patchwork geométrico, y usada para envolver regalos, comida u objetos ceremoniales?",
+        "fr": "Quel est le tissu d'emballage traditionnel coréen, historiquement assemblé par les foyers ordinaires à partir de chutes de tissu en patchwork géométrique, et utilisé pour envelopper cadeaux, nourriture ou objets cérémoniels?",
+        "ja": "一般の家庭が余った布の切れ端を幾何学模様に接ぎ合わせて作り、贈り物や食べ物、儀礼の品を包むのに使われてきた、韓国の伝統的な包み布は?"
+      },
+      "o": [
+        {
+          "en": "Furoshiki",
+          "es": "Furoshiki",
+          "fr": "Furoshiki",
+          "ja": "風呂敷"
+        },
+        {
+          "en": "Tenugui",
+          "es": "Tenugui",
+          "fr": "Tenugui",
+          "ja": "手ぬぐい"
+        },
+        {
+          "en": "Bojagi",
+          "es": "Bojagi",
+          "fr": "Bojagi",
+          "ja": "褓子(ポジャギ)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The patchwork style, known as jogakbo, grew out of thrift among commoners who could not waste fabric, in contrast to the plain, often silk bojagi used for formal court and wedding gifts; today jogakbo is also exhibited abroad as an abstract textile art form in its own right.",
+        "es": "El estilo de patchwork, conocido como jogakbo, surgió de la economía de los plebeyos que no podían desperdiciar tela, a diferencia del bojagi liso, a menudo de seda, usado para regalos formales de corte y boda.",
+        "fr": "Le style patchwork, appelé jogakbo, est né de l'économie des roturiers qui ne pouvaient gaspiller de tissu, contrairement au bojagi uni, souvent en soie, utilisé pour les cadeaux de cour et de mariage formels.",
+        "ja": "接ぎ合わせの様式である「チョガッポ」は、布を無駄にできなかった庶民の倹約から生まれたもので、宮中や婚礼の正式な贈り物に使われる無地の絹のポジャギとは対照的である。いまではチョガッポ自体が独立した抽象的な染織芸術として海外でも展示されている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Jeju Island's volcanic cone Geomunoreum feeds a system of lava tubes recognised as a UNESCO World Heritage Site. What is the name of the dormant shield volcano at Jeju's center, South Korea's highest peak at nearly 1,950 metres?",
+        "es": "El cono volcánico Geomunoreum de la isla de Jeju alimenta un sistema de tubos de lava reconocido como Patrimonio Mundial de la UNESCO. ¿Cómo se llama el volcán en escudo inactivo en el centro de Jeju, el pico más alto de Corea del Sur con casi 1.950 metros?",
+        "fr": "Le cône volcanique Geomunoreum de l'île de Jeju alimente un système de tunnels de lave classé au patrimoine mondial de l'UNESCO. Comment s'appelle le volcan-bouclier endormi au centre de Jeju, le plus haut sommet de Corée du Sud à près de 1950 mètres?",
+        "ja": "済州島の火山丘、拒文岳(コムンオルム)は、ユネスコ世界遺産に登録された溶岩洞窟群を生んだ。済州島の中心にある、韓国最高峰でおよそ標高1950mに達する休火山の名は?"
+      },
+      "o": [
+        {
+          "en": "Seoraksan",
+          "es": "Seoraksan",
+          "fr": "Seoraksan",
+          "ja": "雪岳山(ソラクサン)"
+        },
+        {
+          "en": "Jirisan",
+          "es": "Jirisan",
+          "fr": "Jirisan",
+          "ja": "智異山(チリサン)"
+        },
+        {
+          "en": "Hallasan",
+          "es": "Hallasan",
+          "fr": "Hallasan",
+          "ja": "漢拏山(ハルラサン)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "A crater lake called Baengnokdam sits at Hallasan's summit, and the wider Geomunoreum lava tube system, which includes the show cave Manjanggul, was inscribed by UNESCO in 2007 alongside Hallasan itself and the coastal Seongsan Ilchulbong tuff cone.",
+        "es": "Un lago de cráter llamado Baengnokdam se encuentra en la cima del Hallasan, y el sistema más amplio de tubos de lava de Geomunoreum, que incluye la cueva Manjanggul.",
+        "fr": "Un lac de cratère appelé Baengnokdam se trouve au sommet du Hallasan, et le système plus large de tunnels de lave de Geomunoreum, qui comprend la grotte de Manjanggul.",
+        "ja": "漢拏山の頂には白鹿潭(ペンノクタム)という火口湖があり、観光洞窟である万丈窟を含む拒文岳の溶岩洞窟群は、漢拏山や海沿いの城山日出峰とともに2007年にユネスコ世界遺産に登録された。"
+      }
+    },
+    {
+      "difficulty": 7,
+      "q": {
+        "en": "Round copper coins had circulated in Korea since the Goryeo period, and an earlier Joseon coin minted from 1423 failed to gain lasting public trust. Which coin, first minted in 1678, became the first to see truly widespread and sustained everyday circulation?",
+        "es": "Ya circulaban monedas de cobre redondas en Corea desde la época Goryeo, y una moneda Joseon anterior, acuñada desde 1423, no logró ganarse la confianza duradera del público. ¿Qué moneda, acuñada por primera vez en 1678, fue la primera en circular de forma verdaderamente generalizada y sostenida?",
+        "fr": "Des pièces de cuivre rondes circulaient en Corée depuis l'époque Goryeo, et une pièce Joseon antérieure, frappée à partir de 1423, n'obtint pas la confiance durable du public. Quelle pièce, frappée pour la première fois en 1678, fut la première à circuler de façon vraiment généralisée et durable au quotidien?",
+        "ja": "高麗の時代から円形の銅銭は流通していたが、1423年から鋳造された朝鮮の先行貨幣は民の信頼を長く得られなかった。1678年に初めて鋳造され、日常的に広く長く使われるようになった最初の貨幣はどれか?"
+      },
+      "o": [
+        {
+          "en": "Joseon Tongbo",
+          "es": "Joseon Tongbo",
+          "fr": "Joseon Tongbo",
+          "ja": "朝鮮通宝(チョソントンボ)"
+        },
+        {
+          "en": "Haedong Tongbo",
+          "es": "Haedong Tongbo",
+          "fr": "Haedong Tongbo",
+          "ja": "海東通宝(ヘドントンボ)"
+        },
+        {
+          "en": "Sangpyeong Tongbo",
+          "es": "Sangpyeong Tongbo",
+          "fr": "Sangpyeong Tongbo",
+          "ja": "常平通宝(サンピョントンボ)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Earlier coin issues struggled against a deep-rooted habit of using cloth, grain and barter for everyday transactions; Sangpyeong Tongbo succeeded partly through sustained government backing over generations, and it remained in circulation into the early 20th century.",
+        "es": "Las emisiones de monedas anteriores lucharon contra el arraigado hábito de usar tela, grano y trueque para las transacciones cotidianas; el Sangpyeong Tongbo tuvo éxito en parte gracias al respaldo sostenido del gobierno durante generaciones.",
+        "fr": "Les émissions de pièces antérieures se heurtèrent à l'habitude profondément ancrée d'utiliser tissu, grain et troc pour les transactions quotidiennes; le Sangpyeong Tongbo réussit en partie grâce au soutien gouvernemental soutenu sur des générations.",
+        "ja": "それ以前の貨幣は、日々の取引に布や穀物、物々交換を用いる根強い習慣に阻まれ定着しなかった。常平通宝は世代を超えた政府の後ろ盾もあって普及し、20世紀初頭まで使われ続けた。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Korea holds one of the world's densest concentrations of prehistoric megalithic tombs built from massive stone slabs. Three clusters of these, at Gochang, Hwasun and Ganghwa, were jointly inscribed as a UNESCO World Heritage Site in 2000. What are these structures called?",
+        "es": "Corea alberga una de las concentraciones más densas del mundo de tumbas megalíticas prehistóricas construidas con enormes losas de piedra. Tres agrupaciones de estas, en Gochang, Hwasun y Ganghwa, fueron inscritas conjuntamente como Patrimonio Mundial de la UNESCO en el año 2000. ¿Cómo se llaman estas estructuras?",
+        "fr": "La Corée abrite l'une des plus fortes concentrations mondiales de tombes mégalithiques préhistoriques construites à partir d'énormes dalles de pierre. Trois groupes de celles-ci, à Gochang, Hwasun et Ganghwa, furent inscrits conjointement au patrimoine mondial de l'UNESCO en 2000. Comment appelle-t-on ces structures?",
+        "ja": "巨大な石板で築かれた先史時代の巨石墓が世界でも有数の密度で残る韓国。高敞・和順・江華の3か所の群れは2000年に合わせてユネスコ世界遺産に登録された。この構造物は何と呼ばれるか?"
+      },
+      "o": [
+        {
+          "en": "Menhirs",
+          "es": "Menhires",
+          "fr": "Menhirs",
+          "ja": "メンヒル"
+        },
+        {
+          "en": "Cairns",
+          "es": "Cairns",
+          "fr": "Cairns",
+          "ja": "ケルン(積石塚)"
+        },
+        {
+          "en": "Dolmens (goindol)",
+          "es": "Dólmenes (goindol)",
+          "fr": "Dolmens (goindol)",
+          "ja": "支石墓(コインドル)"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "These dolmen sites are said to include roughly 40% of all dolmens known worldwide, most dating to the Bronze Age in the first millennium BCE, and their scale is thought to reflect the organised labour of communities able to move and raise capstones weighing many tonnes.",
+        "es": "Se dice que estos yacimientos de dólmenes incluyen aproximadamente el 40% de todos los dólmenes conocidos en el mundo, la mayoría datados en la Edad del Bronce.",
+        "fr": "On estime que ces sites de dolmens comptent environ 40% de tous les dolmens connus dans le monde, datant pour la plupart de l'âge du bronze.",
+        "ja": "これらの支石墓群は世界で知られる支石墓のおよそ4割を占めるとされ、その多くは紀元前1千年紀の青銅器時代のものである。何トンもの上石を動かし据えるには、組織立った共同体の労力が要ったと考えられている。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Kimchi varies noticeably by region within Korea. In the era before refrigeration, which factor most consistently distinguished the saltier, more heavily fermented kimchi traditionally made in Korea's warmer south from the milder kimchi of the colder north?",
+        "es": "El kimchi varía notablemente según la región en Corea. En la era anterior a la refrigeración, ¿qué factor distinguía de forma más constante el kimchi más salado y fermentado del sur más cálido de Corea del kimchi más suave del norte más frío?",
+        "fr": "Le kimchi varie sensiblement selon la région en Corée. À l'époque précédant la réfrigération, quel facteur distinguait le plus systématiquement le kimchi plus salé et davantage fermenté du sud plus chaud de la Corée du kimchi plus doux du nord plus froid?",
+        "ja": "韓国国内でもキムチは地域によってかなり異なる。冷蔵庫が無かった時代、より温暖な南の塩辛くよく発酵させたキムチと、より寒い北の控えめなキムチとを最も一貫して分けていた要因は何か?"
+      },
+      "o": [
+        {
+          "en": "The type of chilli pepper grown in each region",
+          "es": "El tipo de chile cultivado en cada región",
+          "fr": "Le type de piment cultivé dans chaque région",
+          "ja": "地域ごとに栽培される唐辛子の品種"
+        },
+        {
+          "en": "Whether the kimchi is made with cabbage or radish",
+          "es": "Si el kimchi se hace con col o con rábano",
+          "fr": "Si le kimchi est préparé avec du chou ou du radis",
+          "ja": "白菜と大根のどちらで作るか"
+        },
+        {
+          "en": "Colder northern winters needing less salt to slow fermentation, warmer southern summers needing more",
+          "es": "Los inviernos más fríos del norte necesitaban menos sal para ralentizar la fermentación, los veranos más cálidos del sur necesitaban más",
+          "fr": "Les hivers plus froids du nord nécessitaient moins de sel pour ralentir la fermentation, les étés plus chauds du sud en nécessitaient davantage",
+          "ja": "北の寒い冬は発酵を抑えるのに塩が少なくて済み、南の暑い夏はより多くの塩を要した"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Because kimchi needed to keep for months in storage jars buried in the ground, cooks adjusted salt and fermented seafood sauce (jeotgal) to match local temperatures, producing a rough north-to-south gradient from milder to saltier that persists in home recipes today even with modern refrigeration.",
+        "es": "Como el kimchi debía conservarse durante meses en tinajas de almacenamiento enterradas, las cocineras ajustaban la sal y la salsa de pescado fermentado (jeotgal) según las temperaturas locales.",
+        "fr": "Comme le kimchi devait se conserver pendant des mois dans des jarres enterrées, les cuisinières ajustaient le sel et la sauce de fruits de mer fermentée (jeotgal) selon les températures locales.",
+        "ja": "キムチは地中に埋めた甕で何か月も保存する必要があったため、作り手は土地の気温に合わせて塩と塩辛(ジョッカル)の量を調整した。北は控えめ、南は塩辛いというおおまかな勾配は、冷蔵庫が普及したいまも家庭の味に残っている。"
+      }
     }
   ],
   "items": {

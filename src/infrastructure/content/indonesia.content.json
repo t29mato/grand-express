@@ -3938,6 +3938,510 @@
         "fr": "Les heures d'Indonésie occidentale, centrale et orientale couvrent entre elles environ 46 degrés de longitude, si bien que le soleil se couche dans l'ouest de Sumatra deux bonnes heures après s'être déjà couché en Papouasie.",
         "ja": "西部・中部・東部インドネシア時間はあわせて経度にしておよそ46度に及び、スマトラ島西部で日が沈むのは、パプアですでに日が沈んでからまるまる2時間後になる。"
       }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Tempeh, a firm cake of fermented soybeans bound together by fungal threads, originated on which Indonesian island?",
+        "es": "El tempeh, una torta firme de soja fermentada unida por hilos de hongo, ¿en qué isla indonesia se originó?",
+        "fr": "Le tempeh, un pâté ferme de soja fermenté lié par des filaments fongiques, est originaire de quelle île indonésienne ?",
+        "ja": "菌糸で固められた発酵大豆の食品テンペは、インドネシアのどの島が発祥か?"
+      },
+      "o": [
+        {
+          "en": "Java",
+          "es": "Java",
+          "fr": "Java",
+          "ja": "ジャワ島"
+        },
+        {
+          "en": "Bali",
+          "es": "Bali",
+          "fr": "Bali",
+          "ja": "バリ島"
+        },
+        {
+          "en": "Sulawesi",
+          "es": "Célebes",
+          "fr": "Célèbes",
+          "ja": "スラウェシ島"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Cooked soybeans are inoculated with a mould culture and left to bind into a firm white cake within about a day, a technique that spread worldwide as a meat substitute while remaining an everyday staple across Java.",
+        "es": "Se inoculan semillas de soja cocidas con un cultivo de moho y se dejan unir en una torta blanca y firme en cerca de un día, una técnica que se difundió por el mundo como sustituto de la carne mientras sigue siendo un alimento cotidiano en Java.",
+        "fr": "Des graines de soja cuites sont inoculées d'une culture de moisissure et laissées à lier en un pâté blanc et ferme en environ un jour, une technique qui s'est répandue dans le monde comme substitut de viande tout en restant un aliment quotidien à Java.",
+        "ja": "煮た大豆に麹菌を植え付け、一日ほどで白く固い塊にまとめる製法で、肉の代替品として世界中に広まった一方、ジャワでは今もありふれた日常の食品であり続けている。"
+      }
+    },
+    {
+      "difficulty": 4,
+      "q": {
+        "en": "Indonesia is the world's largest producer of which vegetable oil, used in everything from cooking to cosmetics?",
+        "es": "Indonesia es el mayor productor mundial de qué aceite vegetal, usado desde la cocina hasta la cosmética?",
+        "fr": "L'Indonésie est le plus grand producteur mondial de quelle huile végétale, utilisée aussi bien en cuisine qu'en cosmétique ?",
+        "ja": "料理から化粧品まで幅広く使われる、インドネシアが世界最大の生産国である植物油は?"
+      },
+      "o": [
+        {
+          "en": "Olive oil",
+          "es": "El aceite de oliva",
+          "fr": "L'huile d'olive",
+          "ja": "オリーブ油"
+        },
+        {
+          "en": "Palm oil",
+          "es": "El aceite de palma",
+          "fr": "L'huile de palme",
+          "ja": "パーム油"
+        },
+        {
+          "en": "Sunflower oil",
+          "es": "El aceite de girasol",
+          "fr": "L'huile de tournesol",
+          "ja": "ひまわり油"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Vast plantations across Sumatra and Kalimantan supply well over half the world's palm oil, an industry that funds much of Indonesia's export earnings while also driving some of its fastest rainforest loss.",
+        "es": "Vastas plantaciones en Sumatra y Kalimantan suministran bien más de la mitad del aceite de palma mundial, una industria que financia buena parte de las exportaciones de Indonesia y también impulsa parte de su pérdida más rápida de selva.",
+        "fr": "De vastes plantations à Sumatra et à Kalimantan fournissent bien plus de la moitié de l'huile de palme mondiale, une industrie qui finance une bonne part des exportations indonésiennes tout en alimentant certaines des pertes de forêt tropicale les plus rapides du pays.",
+        "ja": "スマトラ島とカリマンタン島に広がる広大な農園が世界のパーム油の半分をゆうに超える量を供給しており、この産業はインドネシアの輸出収入の多くを支える一方、同国で最も速いペースの熱帯雨林の消失も引き起こしている。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Pencak silat, an Indonesian martial art combining strikes, joint locks, and weapons, was added to which UNESCO list in 2019?",
+        "es": "El pencak silat, arte marcial indonesio que combina golpes, luxaciones y armas, ¿a qué lista de la UNESCO se incorporó en 2019?",
+        "fr": "Le pencak silat, art martial indonésien combinant frappes, clés articulaires et armes, a été ajouté en 2019 à quelle liste de l'UNESCO ?",
+        "ja": "打撃・関節技・武器術を組み合わせたインドネシアの武術ペンチャック・シラットが2019年に登録されたユネスコの一覧は?"
+      },
+      "o": [
+        {
+          "en": "The World Heritage Site list",
+          "es": "La lista de sitios del patrimonio mundial",
+          "fr": "La liste du patrimoine mondial",
+          "ja": "世界遺産一覧"
+        },
+        {
+          "en": "The Memory of the World register",
+          "es": "El registro Memoria del Mundo",
+          "fr": "Le registre Mémoire du monde",
+          "ja": "世界の記憶"
+        },
+        {
+          "en": "The Intangible Cultural Heritage list",
+          "es": "La lista del patrimonio cultural inmaterial",
+          "fr": "La liste du patrimoine culturel immatériel",
+          "ja": "無形文化遺産一覧"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Silat styles vary widely by region and often stay within a single teacher's lineage, taught alongside music and, in some schools, elements of traditional medicine.",
+        "es": "Los estilos de silat varían mucho según la región y suelen mantenerse dentro del linaje de un solo maestro, enseñados junto con música y, en algunas escuelas, elementos de medicina tradicional.",
+        "fr": "Les styles de silat varient beaucoup selon la région et restent souvent dans la lignée d'un seul maître, enseignés avec de la musique et, dans certaines écoles, des éléments de médecine traditionnelle.",
+        "ja": "シラットの流派は地域ごとに大きく異なり、多くは一人の師の系統の中だけで伝えられ、音楽や、流派によっては伝統医療の要素とともに教えられる。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Indonesia was one of five founding members of which regional organisation, established by the 1967 Bangkok Declaration?",
+        "es": "Indonesia fue uno de los cinco miembros fundadores de qué organización regional, creada por la Declaración de Bangkok de 1967?",
+        "fr": "L'Indonésie fut l'un des cinq membres fondateurs de quelle organisation régionale, créée par la déclaration de Bangkok de 1967 ?",
+        "ja": "1967年のバンコク宣言で設立された、インドネシアが5つの創設国の一つとなった地域組織は?"
+      },
+      "o": [
+        {
+          "en": "ASEAN",
+          "es": "La ASEAN",
+          "fr": "L'ASEAN",
+          "ja": "ASEAN(東南アジア諸国連合)"
+        },
+        {
+          "en": "APEC",
+          "es": "El APEC",
+          "fr": "L'APEC",
+          "ja": "APEC(アジア太平洋経済協力)"
+        },
+        {
+          "en": "SAARC",
+          "es": "La SAARC",
+          "fr": "La SAARC",
+          "ja": "SAARC(南アジア地域協力連合)"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Indonesia, the largest country among the five founders, has hosted ASEAN's permanent secretariat in Jakarta since the organisation set one up in 1976.",
+        "es": "Indonesia, el mayor país entre los cinco fundadores, alberga la secretaría permanente de la ASEAN en Yakarta desde que la organización estableció una en 1976.",
+        "fr": "L'Indonésie, le plus grand pays parmi les cinq fondateurs, héberge le secrétariat permanent de l'ASEAN à Jakarta depuis que l'organisation en a créé un en 1976.",
+        "ja": "5つの創設国の中で最大の国であるインドネシアは、1976年にASEANが常設事務局を設けて以来、それをジャカルタに置き続けている。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "The 1928 Youth Pledge (Sumpah Pemuda), in which nationalist youth vowed one homeland and one language, also declared what?",
+        "es": "El Juramento de la Juventud de 1928 (Sumpah Pemuda), en el que jóvenes nacionalistas juraron una patria y un idioma, ¿qué más declaró?",
+        "fr": "Le Serment de la jeunesse de 1928 (Sumpah Pemuda), où de jeunes nationalistes jurèrent une patrie et une langue, déclara aussi quoi ?",
+        "ja": "若き民族主義者たちが「一つの祖国」「一つの言語」を誓った1928年の「青年の誓い」がもう一つ宣言したことは?"
+      },
+      "o": [
+        {
+          "en": "One king for all islands",
+          "es": "Un solo rey para todas las islas",
+          "fr": "Un seul roi pour toutes les îles",
+          "ja": "全島の王を一人に"
+        },
+        {
+          "en": "One nation, Indonesia",
+          "es": "Una nación, Indonesia",
+          "fr": "Une nation, l'Indonésie",
+          "ja": "一つの国民、インドネシア"
+        },
+        {
+          "en": "One official religion",
+          "es": "Una sola religión oficial",
+          "fr": "Une seule religion officielle",
+          "ja": "国教を一つに"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The pledge was made by delegates from dozens of youth organisations representing different islands and ethnic backgrounds, years before independence was even a realistic prospect.",
+        "es": "El juramento lo hicieron delegados de decenas de organizaciones juveniles que representaban distintas islas y orígenes étnicos, años antes de que la independencia fuera siquiera una perspectiva realista.",
+        "fr": "Le serment fut prononcé par des délégués de dizaines d'organisations de jeunesse représentant différentes îles et origines ethniques, des années avant que l'indépendance ne soit même une perspective réaliste.",
+        "ja": "この誓いは、独立が現実的な見通しにすらなっていなかった時期に、異なる島や民族的背景を代表する何十もの青年団体の代表たちによって立てられた。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "R.A. Kartini, whose birthday is now a national holiday, is remembered as a pioneer of what?",
+        "es": "R.A. Kartini, cuyo cumpleaños es hoy fiesta nacional, es recordada como pionera de qué?",
+        "fr": "R.A. Kartini, dont l'anniversaire est aujourd'hui un jour férié national, est célébrée comme pionnière de quoi ?",
+        "ja": "誕生日が現在国民の祝日になっているR・A・カルティニは、何の先駆者として記憶されているか?"
+      },
+      "o": [
+        {
+          "en": "Deep-sea navigation",
+          "es": "La navegación de altura",
+          "fr": "La navigation hauturière",
+          "ja": "遠洋航海"
+        },
+        {
+          "en": "Rice terrace irrigation",
+          "es": "El riego de arrozales en terraza",
+          "fr": "L'irrigation des rizières en terrasses",
+          "ja": "棚田の灌漑"
+        },
+        {
+          "en": "Education for Indonesian women and girls",
+          "es": "La educación de mujeres y niñas indonesias",
+          "fr": "L'éducation des femmes et des filles indonésiennes",
+          "ja": "インドネシアの女性と少女の教育"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Kartini, a Javanese noblewoman confined by custom to her family's home after childhood, wrote letters advocating for girls' schooling that were published after her early death in 1904 and later helped inspire the founding of girls' schools bearing her name.",
+        "es": "Kartini, una noble javanesa recluida por costumbre en casa de su familia tras la infancia, escribió cartas defendiendo la escolarización de las niñas, publicadas tras su temprana muerte en 1904, que más tarde ayudaron a inspirar escuelas para niñas con su nombre.",
+        "fr": "Kartini, une noble javanaise confinée par la coutume au foyer familial après l'enfance, écrivit des lettres défendant la scolarisation des filles, publiées après sa mort précoce en 1904, qui contribuèrent plus tard à inspirer des écoles de filles portant son nom.",
+        "ja": "幼少期を過ぎると慣習により実家に留め置かれたジャワの貴族の娘カルティニは、少女への教育を訴える手紙を書き残した。それは1904年の早すぎる死ののちに出版され、のちに彼女の名を冠した女子校の設立を後押しした。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "Gojek, founded in 2010 and now used by millions daily for rides, food delivery, and payments, began as a call centre booking what kind of transport?",
+        "es": "Gojek, fundada en 2010 y hoy usada por millones a diario para viajes, reparto de comida y pagos, empezó como un centro de llamadas que reservaba qué tipo de transporte?",
+        "fr": "Gojek, fondée en 2010 et aujourd'hui utilisée quotidiennement par des millions de personnes pour les trajets, la livraison et les paiements, a débuté comme un centre d'appels réservant quel type de transport ?",
+        "ja": "2010年創業で、いまや配車・出前・決済に何百万人もが日々利用するゴジェックは、もともと何の予約を受け付ける電話窓口として始まったか?"
+      },
+      "o": [
+        {
+          "en": "Motorbike taxis (ojek)",
+          "es": "Mototaxis (ojek)",
+          "fr": "Les mototaxis (ojek)",
+          "ja": "バイクタクシー(オジェック)"
+        },
+        {
+          "en": "River ferries",
+          "es": "Los ferris fluviales",
+          "fr": "Les ferries fluviaux",
+          "ja": "川船"
+        },
+        {
+          "en": "Long-distance buses",
+          "es": "Los autobuses de larga distancia",
+          "fr": "Les autocars longue distance",
+          "ja": "長距離バス"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Ojek riders had long weaved motorbike taxis through Jakarta's traffic jams; Gojek's app simply made booking one, and later ordering food or sending a package through the same driver network, far easier.",
+        "es": "Los conductores de ojek llevaban tiempo abriéndose paso en mototaxi por los atascos de Yakarta; la app de Gojek solo hizo mucho más fácil reservar uno, y luego pedir comida o enviar un paquete por la misma red de conductores.",
+        "fr": "Les chauffeurs d'ojek se faufilaient depuis longtemps en mototaxi dans les embouteillages de Jakarta ; l'application Gojek n'a fait que rendre bien plus simple d'en réserver un, puis de commander à manger ou d'envoyer un colis via le même réseau de chauffeurs.",
+        "ja": "オジェックの運転手たちは長らくバイクタクシーでジャカルタの渋滞をすり抜けてきたが、ゴジェックのアプリはその予約を、そして同じ運転手網を使った出前や荷物の配達までをも、ずっと簡単にしただけのことだった。"
+      }
+    },
+    {
+      "difficulty": 5,
+      "q": {
+        "en": "The Dutch East India Company (VOC), which came to dominate trade across the archipelago, was founded in what year?",
+        "es": "La Compañía Neerlandesa de las Indias Orientales (VOC), que llegó a dominar el comercio en el archipiélago, ¿en qué año se fundó?",
+        "fr": "La Compagnie néerlandaise des Indes orientales (VOC), qui en vint à dominer le commerce dans l'archipel, fut fondée en quelle année ?",
+        "ja": "やがて群島全域の交易を支配することになるオランダ東インド会社(VOC)が設立されたのは何年か?"
+      },
+      "o": [
+        {
+          "en": "1799",
+          "es": "1799",
+          "fr": "1799",
+          "ja": "1799年"
+        },
+        {
+          "en": "1602",
+          "es": "1602",
+          "fr": "1602",
+          "ja": "1602年"
+        },
+        {
+          "en": "1750",
+          "es": "1750",
+          "fr": "1750",
+          "ja": "1750年"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "The VOC, often cited as the first modern multinational corporation and the first to issue tradable shares, ran its own army and navy and governed much of the archipelago from its headquarters in Batavia until the company went bankrupt and was dissolved in 1799.",
+        "es": "La VOC, citada a menudo como la primera corporación multinacional moderna y la primera en emitir acciones negociables, tenía su propio ejército y armada y gobernó buena parte del archipiélago desde su sede en Batavia hasta que la compañía quebró y se disolvió en 1799.",
+        "fr": "La VOC, souvent citée comme la première entreprise multinationale moderne et la première à émettre des actions négociables, disposait de sa propre armée et marine et gouverna une bonne partie de l'archipel depuis son siège de Batavia jusqu'à la faillite et la dissolution de la compagnie en 1799.",
+        "ja": "しばしば「最初の近代的多国籍企業」であり「最初に譲渡可能な株式を発行した企業」とされるVOCは、独自の陸海軍を持ち、バタヴィアの本拠地から群島の大部分を統治したが、1799年に破産して解散した。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "\"Kalimantan\" refers to the Indonesian portion of which island, which it shares with Malaysia and Brunei?",
+        "es": "«Kalimantan» se refiere a la parte indonesia de qué isla, que comparte con Malasia y Brunéi?",
+        "fr": "« Kalimantan » désigne la partie indonésienne de quelle île, partagée avec la Malaisie et le Brunei ?",
+        "ja": "「カリマンタン」は、マレーシアとブルネイとも分け合うどの島のインドネシア領部分を指す名か?"
+      },
+      "o": [
+        {
+          "en": "New Guinea",
+          "es": "Nueva Guinea",
+          "fr": "Nouvelle-Guinée",
+          "ja": "ニューギニア島"
+        },
+        {
+          "en": "Sulawesi",
+          "es": "Célebes",
+          "fr": "Célèbes",
+          "ja": "スラウェシ島"
+        },
+        {
+          "en": "Borneo",
+          "es": "Borneo",
+          "fr": "Bornéo",
+          "ja": "ボルネオ島"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "Indonesia holds roughly three-quarters of Borneo by area, split into five provinces, while Malaysia's two states and tiny Brunei share the rest of the island along its northern coast.",
+        "es": "Indonesia posee cerca de tres cuartas partes de Borneo por superficie, dividida en cinco provincias, mientras dos estados malasios y el pequeño Brunéi se reparten el resto de la isla en su costa norte.",
+        "fr": "L'Indonésie détient environ les trois quarts de Bornéo en superficie, répartis en cinq provinces, tandis que deux États malaisiens et le minuscule Brunei se partagent le reste de l'île le long de sa côte nord.",
+        "ja": "インドネシアは面積にしてボルネオ島のおよそ4分の3を占め、5つの州に分かれている。残りは島の北岸沿いに、マレーシアの2つの州と小さなブルネイが分け合っている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "\"Dayak\" is a collective term for what?",
+        "es": "«Dayak» es un término colectivo para qué?",
+        "fr": "« Dayak » est un terme collectif désignant quoi ?",
+        "ja": "「ダヤク」とは何の総称か?"
+      },
+      "o": [
+        {
+          "en": "The indigenous, non-Malay peoples of Borneo",
+          "es": "Los pueblos indígenas no malayos de Borneo",
+          "fr": "Les peuples autochtones non malais de Bornéo",
+          "ja": "ボルネオ島の非マレー系先住民族"
+        },
+        {
+          "en": "A style of Javanese royal dance",
+          "es": "Un estilo de danza cortesana javanesa",
+          "fr": "Un style de danse de cour javanaise",
+          "ja": "ジャワの宮廷舞踊の様式"
+        },
+        {
+          "en": "A single ethnic group from Sulawesi",
+          "es": "Un único grupo étnico de Célebes",
+          "fr": "Un unique groupe ethnique de Célèbes",
+          "ja": "スラウェシの単一の民族集団"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "The term covers well over a hundred distinct groups with their own languages and customs, historically living inland along Borneo's rivers, as opposed to the coastal Malay sultanates that later controlled trade.",
+        "es": "El término abarca más de un centenar de grupos distintos con lenguas y costumbres propias, que vivían históricamente tierra adentro junto a los ríos de Borneo, frente a los sultanatos malayos costeros que después controlaron el comercio.",
+        "fr": "Le terme recouvre plus d'une centaine de groupes distincts, avec leurs propres langues et coutumes, vivant historiquement à l'intérieur des terres le long des fleuves de Bornéo, par opposition aux sultanats malais côtiers qui contrôlèrent ensuite le commerce.",
+        "ja": "この語は百を超える、それぞれ独自の言語と慣習を持つ集団の総称で、歴史的にはボルネオ島の川沿いの内陸に暮らしてきた。のちに交易を支配することになる沿岸のマレー系スルタン国とは対照的な存在である。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "After Javanese, which is the second most widely spoken native language in Indonesia, centred on West Java?",
+        "es": "Después del javanés, ¿cuál es la segunda lengua materna más hablada en Indonesia, centrada en Java Occidental?",
+        "fr": "Après le javanais, quelle est la deuxième langue maternelle la plus parlée en Indonésie, centrée sur Java occidentale ?",
+        "ja": "ジャワ語に次いでインドネシアで話者が多い母語で、西ジャワを中心とするのはどれか?"
+      },
+      "o": [
+        {
+          "en": "Madurese",
+          "es": "El madurés",
+          "fr": "Le madourais",
+          "ja": "マドゥラ語"
+        },
+        {
+          "en": "Sundanese",
+          "es": "El sundanés",
+          "fr": "Le soundanais",
+          "ja": "スンダ語"
+        },
+        {
+          "en": "Balinese",
+          "es": "El balinés",
+          "fr": "Le balinais",
+          "ja": "バリ語"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Sundanese has tens of millions of speakers concentrated around Bandung and the surrounding highlands, yet remains far less represented in national media than Indonesian or Javanese.",
+        "es": "El sundanés tiene decenas de millones de hablantes concentrados en torno a Bandung y las tierras altas circundantes, aunque sigue muy poco representado en los medios nacionales frente al indonesio o el javanés.",
+        "fr": "Le soundanais compte des dizaines de millions de locuteurs concentrés autour de Bandung et des hautes terres environnantes, mais reste bien moins représenté dans les médias nationaux que l'indonésien ou le javanais.",
+        "ja": "スンダ語はバンドンとその周辺高地を中心に数千万人の話者を持つが、インドネシア語やジャワ語に比べると全国メディアでの扱いはずっと少ない。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Most wayang shadow-puppet plays draw their stories from which source, despite being performed largely for Muslim audiences?",
+        "es": "La mayoría de las obras de wayang de sombras toman sus historias de qué fuente, pese a representarse sobre todo ante público musulmán?",
+        "fr": "La plupart des pièces de wayang d'ombres puisent leurs histoires dans quelle source, bien qu'elles soient jouées surtout pour un public musulman ?",
+        "ja": "ワヤンの影絵芝居の多くは、主にムスリムの観客に向けて上演されるにもかかわらず、どこから物語を得ているか?"
+      },
+      "o": [
+        {
+          "en": "The Quran",
+          "es": "El Corán",
+          "fr": "Le Coran",
+          "ja": "コーラン"
+        },
+        {
+          "en": "Dutch colonial folk tales",
+          "es": "Cuentos populares coloniales holandeses",
+          "fr": "Des contes populaires coloniaux hollandais",
+          "ja": "オランダ植民地時代の民話"
+        },
+        {
+          "en": "The Hindu epics Ramayana and Mahabharata",
+          "es": "Los poemas épicos hindúes Ramayana y Mahabharata",
+          "fr": "Les épopées hindoues Ramayana et Mahabharata",
+          "ja": "ヒンドゥー教の叙事詩『ラーマーヤナ』と『マハーバーラタ』"
+        }
+      ],
+      "a": 2,
+      "f": {
+        "en": "The epics arrived from India centuries before Islam spread across Java and were absorbed so thoroughly into local storytelling that characters like Arjuna and Bima are still household names today.",
+        "es": "Las epopeyas llegaron de India siglos antes de que el islam se extendiera por Java y se absorbieron tan a fondo en la narrativa local que personajes como Arjuna y Bima siguen siendo nombres muy conocidos hoy.",
+        "fr": "Les épopées arrivèrent d'Inde des siècles avant que l'islam ne se répande à Java et furent si profondément absorbées dans la tradition narrative locale que des personnages comme Arjuna et Bima restent aujourd'hui des noms familiers.",
+        "ja": "この叙事詩はイスラムがジャワに広まるより何世紀も前にインドから伝わり、現地の物語の中にすっかり取り込まれた結果、アルジュナやビマといった登場人物はいまも誰もが知る名前であり続けている。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "The English word \"joe\", old slang for coffee, and the phrase \"a cup of joe\" are sometimes traced back to which Indonesian island's name?",
+        "es": "La palabra inglesa «joe», jerga antigua para café, y la frase «a cup of joe» a veces se remontan al nombre de qué isla indonesia?",
+        "fr": "Le mot anglais « joe », argot ancien pour le café, et l'expression « a cup of joe » remonteraient parfois au nom de quelle île indonésienne ?",
+        "ja": "コーヒーを指す古い俗語「joe」や「a cup of joe」という言い回しは、インドネシアのどの島の名前に由来するとも言われるか?"
+      },
+      "o": [
+        {
+          "en": "Java",
+          "es": "Java",
+          "fr": "Java",
+          "ja": "ジャワ島"
+        },
+        {
+          "en": "Bali",
+          "es": "Bali",
+          "fr": "Bali",
+          "ja": "バリ島"
+        },
+        {
+          "en": "Sumatra",
+          "es": "Sumatra",
+          "fr": "Sumatra",
+          "ja": "スマトラ島"
+        }
+      ],
+      "a": 0,
+      "f": {
+        "en": "Java's coffee plantations, first planted by the Dutch in the 17th century, made the island's name so synonymous with coffee in English that \"java\" itself became a generic word for the drink, alongside the more disputed \"joe\" theory.",
+        "es": "Las plantaciones de café de Java, sembradas por primera vez por los holandeses en el siglo XVII, hicieron que el nombre de la isla fuera tan sinónimo de café en inglés que «java» se convirtió en palabra genérica para la bebida.",
+        "fr": "Les plantations de café de Java, plantées pour la première fois par les Hollandais au XVIIe siècle, rendirent le nom de l'île si synonyme de café en anglais que « java » lui-même devint un mot générique pour la boisson.",
+        "ja": "17世紀にオランダ人が初めて植えたジャワ島のコーヒー農園は、島の名を英語でコーヒーそのものと結びつけるほどになり、「ジャワ」という語自体がこの飲み物を指す一般名詞にもなった。"
+      }
+    },
+    {
+      "difficulty": 6,
+      "q": {
+        "en": "Indonesia is consistently ranked among the world's top countries for consumption per person of what packaged food, led by the domestic brand Indomie?",
+        "es": "Indonesia se sitúa siempre entre los países del mundo con mayor consumo per cápita de qué alimento envasado, liderado por la marca local Indomie?",
+        "fr": "L'Indonésie figure constamment parmi les premiers pays au monde pour la consommation par habitant de quel aliment emballé, dominé par la marque locale Indomie ?",
+        "ja": "国内ブランド「インドミー」が代表する、インドネシアが一人当たり消費量で常に世界上位に入る包装食品は?"
+      },
+      "o": [
+        {
+          "en": "Canned tuna",
+          "es": "El atún en lata",
+          "fr": "Le thon en boîte",
+          "ja": "ツナ缶"
+        },
+        {
+          "en": "Instant noodles",
+          "es": "Los fideos instantáneos",
+          "fr": "Les nouilles instantanées",
+          "ja": "即席麺"
+        },
+        {
+          "en": "Breakfast cereal",
+          "es": "Los cereales de desayuno",
+          "fr": "Les céréales du petit-déjeuner",
+          "ja": "朝食シリアル"
+        }
+      ],
+      "a": 1,
+      "f": {
+        "en": "Indomie is exported to dozens of countries and has become popular enough abroad, particularly in West Africa, that in some markets it now competes directly with long-established local instant noodle brands.",
+        "es": "Indomie se exporta a decenas de países y se ha hecho tan popular fuera, sobre todo en África Occidental, que en algunos mercados compite ya directamente con marcas locales de fideos instantáneos ya asentadas.",
+        "fr": "Indomie est exporté vers des dizaines de pays et est devenu si populaire à l'étranger, notamment en Afrique de l'Ouest, qu'il y concurrence désormais directement des marques locales de nouilles instantanées bien établies.",
+        "ja": "インドミーは数十か国に輸出されており、海外、特に西アフリカで人気が高まった結果、一部の市場では現地の老舗即席麺ブランドと真っ向から競うまでになっている。"
+      }
     }
   ],
   "items": {
