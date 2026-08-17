@@ -23,6 +23,18 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.46.1",
+    date: "2026-08-17",
+    title: t(
+      "We now count visits|Ahora contamos las visitas|Nous comptons désormais les visites|訪問数を数えるようにしました",
+    ),
+    highlights: [
+      t(
+        "We had no idea whether anyone was playing, or which boards they picked. The game now counts page views so we can tell. It does not set a cookie, does not follow you between sites, and does not collect anything that identifies you — we chose a counter that works without any of that, rather than the usual one, precisely so there is no consent banner to click past. Nothing about how the game plays has changed.|No sabíamos si alguien jugaba, ni qué tableros elegía. El juego cuenta ahora las visitas para saberlo. No pone ninguna cookie, no te sigue entre sitios y no recoge nada que te identifique: elegimos un contador que funciona sin nada de eso, en vez del habitual, precisamente para que no haya ningún aviso de consentimiento que descartar. Nada en el juego cambia.|Nous ignorions si quelqu'un jouait, et quels plateaux étaient choisis. Le jeu compte désormais les visites. Il ne dépose aucun cookie, ne vous suit pas d'un site à l'autre et ne recueille rien qui vous identifie : nous avons choisi un compteur qui fonctionne sans tout cela, plutôt que l'habituel, précisément pour qu'il n'y ait aucune bannière de consentement à écarter. Rien ne change dans le jeu lui-même.|**誰かが遊んでくれているのか、どの盤面が選ばれているのかが、こちらには分かりませんでした。**訪問数を数えるようにしました。**Cookieは置きません。**サイトをまたいで追いかけることも、あなたを特定できるものを集めることもしません。よくあるものではなく、そうしたことをせずに数えられる仕組みを選んでいます。**同意バナーを押してもらわずに済ませたかった**からです。遊びかたは何も変わりません。",
+      ),
+    ],
+  },
+  {
     version: "0.46.0",
     date: "2026-08-17",
     title: t(

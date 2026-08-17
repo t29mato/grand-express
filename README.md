@@ -10,6 +10,8 @@
 
 **Stack:** Next.js (App Router) · React · TypeScript · Zustand · Vitest · Playwright · dependency-cruiser · deployed on Vercel.
 
+**Analytics:** page views are counted with Vercel Web Analytics. It sets no cookies, does not track across sites and collects nothing that identifies a visitor — chosen over the usual analytics precisely so there is no consent banner.
+
 ---
 
 ## What it is
