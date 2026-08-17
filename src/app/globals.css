@@ -403,17 +403,47 @@ h3 {
 }
 
 /* 「地球をまわる」は1点で指せないので、地図の下のボタンにしている。 */
+/*
+ * 地図に点で置けない盤面(地球をまわる・太陽系)と、「大陸まるごと」の盤面。
+ *
+ * **名前だけを細い帯に出していたころ、選べる盤面だと気づかれなかった。**
+ * 大陸を開くと国の名札が並び、その下に「Asia」とだけ書かれた帯が出るので、
+ * 見出しか区切り線に見える。実際に「アジア版が無いと思う」という報せが来た。
+ * 一言そえて、国の札と同じ「選ぶもの」の見た目にする。
+ */
 .world-whole-board {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
   width: 100%;
-  margin-top: 6px;
-  padding: 6px 10px;
+  margin-top: 8px;
+  padding: 10px 14px;
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--panel2);
   color: var(--salt);
-  font-size: 0.82rem;
+  text-align: left;
+}
+
+.world-whole-board .whole-name {
+  font-size: 0.92rem;
   font-weight: 700;
+  color: var(--gold);
+}
+
+.world-whole-board.on .whole-name {
+  color: #26183f;
+}
+
+.world-whole-board .whole-sub {
+  font-size: 0.76rem;
+  color: var(--salt-dim);
+  line-height: 1.3;
+}
+
+.world-whole-board.on .whole-sub {
+  color: #3d2a5c;
 }
 
 .world-whole-board.on {

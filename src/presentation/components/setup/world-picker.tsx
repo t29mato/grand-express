@@ -168,7 +168,14 @@ export function WorldPicker({
 
       {/* 地図の上に置けない盤面。「地球をまわる」は1点で指せず、
           太陽系はそもそも地球の上に無い。**緯度経度で印を打つと嘘になる**ので、
-          名札ではなくボタンとして地図の下に並べる。 */}
+          名札ではなくボタンとして地図の下に並べる。
+          大陸を開いたときの「大陸まるごと」の盤面も、置き場所は同じ。
+
+          **名前だけを出していたころ、選べる盤面だと気づかれなかった。**
+          大陸を開くと国の名札が並び、その下に「Asia」とだけ書かれた帯が出る形で、
+          見出しか区切り線にしか見えない。実際に「アジア版が無いと思う」という
+          報せが来た(アジア盤面は 65都市・69路線で、ずっと前から出ている)。
+          **一言添えて、押せるものだと分かる形にする。** */}
       {whole.map((board) => (
         <button
           key={board.id}
@@ -177,7 +184,8 @@ export function WorldPicker({
           aria-pressed={selected === board.id}
           onClick={() => onSelect(board.id)}
         >
-          {tx(board.name)}
+          <span className="whole-name">{tx(board.name)}</span>
+          <span className="whole-sub">{tx(board.blurb)}</span>
         </button>
       ))}
     </div>

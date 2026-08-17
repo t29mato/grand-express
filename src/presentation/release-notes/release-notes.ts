@@ -23,6 +23,18 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.46.2",
+    date: "2026-08-17",
+    title: t(
+      "The whole-continent boards were hiding|Los tableros de continente estaban escondidos|Les plateaux de continent se cachaient|大陸まるごとの盤面が隠れていました",
+    ),
+    highlights: [
+      t(
+        "Open Asia on the map and you get Japan, Korea, China, India and the rest — and under them a thin bar reading \"Asia\". That bar was the whole-continent board, sixty-five towns from Istanbul to Vladivostok, but it looked like a heading. Someone told us there was no Asia board at all. It had been there since v0.43.0. The bar now says what it is and carries the board's description, like every other choice. The same applies to Europe, North America and South America.|Abre Asia en el mapa y aparecen Japón, Corea, China, India y los demás, y debajo una barra fina que dice «Asia». Esa barra era el tablero del continente entero, sesenta y cinco pueblos de Estambul a Vladivostok, pero parecía un encabezado. Alguien nos dijo que no había ningún tablero de Asia. Estaba ahí desde la v0.43.0. Ahora la barra dice lo que es y lleva su descripción, como cualquier otra opción. Lo mismo con Europa, Norteamérica y Sudamérica.|Ouvrez l'Asie sur la carte et vous obtenez le Japon, la Corée, la Chine, l'Inde et les autres — et en dessous une fine barre indiquant « Asia ». Cette barre était le plateau du continent entier, soixante-cinq villes d'Istanbul à Vladivostok, mais elle ressemblait à un titre. On nous a signalé qu'il n'y avait pas de plateau Asie du tout. Il était là depuis la v0.43.0. La barre dit désormais ce qu'elle est et porte la description du plateau, comme tout autre choix. Idem pour l'Europe, l'Amérique du Nord et l'Amérique du Sud.|地図で「アジア」を開くと、日本・韓国・中国・インドなどが並び、その下に「Asia」とだけ書かれた細い帯が出ていました。**あれが大陸まるごとの盤面**——イスタンブールからウラジオストクまで65の町——だったのですが、見出しにしか見えませんでした。「アジア版が無いのでは」という報せをいただいて気づきました。**v0.43.0 からずっとありました。**帯に説明を添えて、ほかの選択肢と同じ「選ぶもの」の見た目にしました。ヨーロッパ・北アメリカ・南アメリカも同じです。",
+      ),
+    ],
+  },
+  {
     version: "0.46.1",
     date: "2026-08-17",
     title: t(
