@@ -21,7 +21,8 @@ export interface GameEngineContext {
 }
 
 export function createGameEngineContext(content: CountryContentPack): GameEngineContext {
-  const graph = buildBoardGraph(content.cities, content.edges, content.projection);
+  // 出発地を渡すと、その周りの出来事マスが薄くなる(序盤に走り出す間を作るため)。
+  const graph = buildBoardGraph(content.cities, content.edges, content.projection, content.startCityId);
   const pathfinding = new PathfindingService(graph);
   return {
     content,

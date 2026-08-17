@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.46.0",
+    date: "2026-08-17",
+    title: t(
+      "A quiet run out of the station|Una salida tranquila de la estación|Un départ tranquille|駅を出てしばらくは静か",
+    ),
+    highlights: [
+      t(
+        "The opening of a game was the busiest part of it. Not because more was packed in — we measured, and the squares near the start carry the same mix as the rest of the board — but because everything there is new. Every town is a town you have not read yet, you have no items, and you have no money behind you. Three squares in and you had already been stopped four times. Now the squares around your departure town are mostly plain: roughly seven in ten of the events near the start have been taken out, so you can get moving before the map starts asking you things.|La apertura de la partida era su parte más recargada. No porque hubiera más —lo medimos, y las casillas cercanas a la salida tienen la misma mezcla que el resto— sino porque allí todo es nuevo. Cada pueblo es uno que aún no has leído, no tienes objetos y no llevas dinero detrás. A las tres casillas ya te habían detenido cuatro veces. Ahora las casillas alrededor de tu pueblo de salida son casi todas simples: se han quitado cerca de siete de cada diez sucesos, para que puedas ponerte en marcha antes de que el mapa empiece a preguntarte cosas.|L'ouverture de la partie en était le moment le plus chargé. Non qu'il y ait eu davantage — nous avons mesuré, et les cases proches du départ portent le même mélange que le reste — mais parce que tout y est neuf. Chaque ville est une ville que vous n'avez pas encore lue, vous n'avez pas d'objets, ni d'argent derrière vous. Trois cases plus loin, on vous avait déjà arrêté quatre fois. Les cases autour de votre ville de départ sont désormais surtout neutres : près de sept événements sur dix y ont été retirés, pour que vous puissiez vous élancer avant que la carte ne se mette à vous questionner.|**ゲームの序盤がいちばん忙しい**、という報せをいただきました。測ってみると、出発地のまわりのマスは盤面のほかの場所と同じ配分でした。**詰まっていたわけではありません。**それでも重かったのは、序盤は何もかもが初めてだからです。どの町もまだ読んでいない町で、持ち物も無く、資金の勢いもありません。3マス進むころには、もう4回止められている。**出発する町のまわりを、ほとんど何も起きないマスにしました。**序盤の出来事のおよそ7割を取り除いてあります。地図から問いかけられる前に、まず走り出せます。",
+      ),
+      t(
+        "Towns were left alone. Buying businesses is the game, and the towns near the start are where you build the position you spend the rest of the year defending. The quiet stretch also fades rather than ending abruptly — the further you get from home, the more the board wakes up. And a few events are always kept near the start, so the first quiz never sits more than a short ride away.|Los pueblos no se han tocado. Comprar negocios es el juego, y los pueblos cercanos a la salida son donde construyes la posición que defenderás el resto del año. Además, el tramo tranquilo se desvanece en vez de cortarse: cuanto más te alejas de casa, más despierta el tablero. Y siempre se conservan algunos sucesos cerca de la salida, para que el primer quiz nunca quede a más de un corto trayecto.|Les villes n'ont pas été touchées. Acheter des commerces, c'est le jeu, et les villes proches du départ sont là où se construit la position que vous défendrez toute l'année. Le calme s'estompe progressivement plutôt que de s'arrêter net : plus on s'éloigne, plus le plateau se réveille. Et quelques événements sont toujours conservés près du départ, pour que le premier quiz ne soit jamais à plus d'un court trajet.|**町には手を付けていません。**物件を買うのがこの遊びの本体で、出発地のまわりの町は、その年ずっと守ることになる足場を築く場所だからです。静かな区間は途中でぷつりと終わるのではなく、**家から離れるほど盤面が目を覚まします。**出発地の近くにも出来事はいくつか必ず残してあるので、最初のクイズが遠くなりすぎることもありません。",
+      ),
+    ],
+  },
+  {
     version: "0.45.1",
     date: "2026-08-15",
     title: t(
