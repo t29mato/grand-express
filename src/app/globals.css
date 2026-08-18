@@ -3073,3 +3073,24 @@ aside {
 @media (prefers-reduced-motion: reduce) {
   .award-confetti { display: none; }
 }
+
+/*
+ * 2回目以降に止まった町で、畳んだ絵と紹介を開き直すボタン。
+ * **押せると分かる程度に控えめ。**買い物のほうが主役なので、目立たせすぎない。
+ */
+.city-again {
+  display: inline-block;
+  margin: 2px 0 8px;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--salt-dim);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.city-again:hover {
+  color: var(--salt);
+  border-color: var(--gold);
+}

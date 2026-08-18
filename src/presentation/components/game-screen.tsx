@@ -202,6 +202,7 @@ export function GameScreen() {
           session={session}
           cityId={ui.cityId}
           arrivalPrize={ui.arrivalPrize}
+          firstVisit={ui.firstVisit}
           onBuy={buyCityProperty}
           onInvest={investCityProperty}
           onSell={sellCityProperty}

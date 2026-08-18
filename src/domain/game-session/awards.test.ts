@@ -18,6 +18,7 @@ function player(id: string, stats: Partial<PlayerStats> = {}, refs: string[] = [
     skipNextTurn: false,
     hasExtraTurn: false,
     stats: { ...EMPTY_STATS, ...stats },
+    seenCities: new Set(),
   };
 }
 const ref = (city: string, i: number) => PropertyRef.of(CityId(city), PropertyIndex(i));

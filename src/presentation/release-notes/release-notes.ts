@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.47.0",
+    date: "2026-08-19",
+    title: t(
+      "Towns you already know get out of the way|Los pueblos que ya conoces se apartan|Les villes déjà connues s'effacent|一度来た町は、さっと通れます",
+    ),
+    highlights: [
+      t(
+        "The first time you stop in a town you get the picture, the name and the line about what the place is. The fourth time you stop in the same town, you got all of it again — the same picture, the same line — before you could get to the part you actually stopped for. Now a town you have already visited opens straight onto your cash, the businesses and the stall. The picture is not gone: there is a button under the name that brings it back, for when you skipped past it the first time.|La primera vez que paras en un pueblo ves la ilustración, el nombre y la frase que dice qué es ese lugar. La cuarta vez en el mismo pueblo, lo veías todo otra vez —la misma imagen, la misma frase— antes de llegar a lo que ibas a hacer. Ahora un pueblo ya visitado se abre directamente en tu dinero, los negocios y el puesto. La ilustración no desaparece: hay un botón bajo el nombre que la devuelve, por si la pasaste de largo la primera vez.|La première fois que vous vous arrêtez dans une ville, vous avez l'image, le nom et la phrase qui dit ce qu'est ce lieu. La quatrième fois dans la même ville, vous aviez tout de nouveau — même image, même phrase — avant d'arriver à ce pour quoi vous vous étiez arrêté. Désormais une ville déjà visitée s'ouvre directement sur votre argent, les commerces et l'étal. L'image n'est pas perdue : un bouton sous le nom la ramène, si vous l'aviez passée la première fois.|**初めて止まった町では、これまでどおり**絵と名前と、その土地がどんな場所かの一言が出ます。ところが同じ町に4回目に止まったときも、同じ絵と同じ一言が最後まで出ていました。止まった用事にたどり着くまで、毎回それを越える必要がありました。**一度来た町は、手持ち・物件・屋台から始まります。**絵を捨てたわけではありません。町の名前の下のボタンを押せば戻ってきます(1回目に読み飛ばした人のために残してあります)。",
+      ),
+      t(
+        "Arriving at your destination is left alone — that is the biggest moment in the game and not somewhere to save time. Whether a town counts as visited is tracked per traveler, so a town that is old news to you may still be new to the player next to you. Saved games from before this change treat every town as new again, once.|La llegada al destino no cambia: es el momento más importante de la partida y no es donde hay que ahorrar tiempo. Que un pueblo cuente como visitado se guarda por viajero, así que un pueblo que a ti ya no te dice nada puede ser nuevo para quien juega a tu lado. Las partidas guardadas antes de este cambio tratan cada pueblo como nuevo una vez más.|L'arrivée à destination reste inchangée : c'est le plus grand moment du jeu, pas un endroit où gagner du temps. Le fait qu'une ville compte comme visitée est suivi par voyageur : une ville que vous connaissez par cœur peut être neuve pour votre voisin. Les parties sauvegardées avant ce changement considèrent chaque ville comme neuve, une fois.|**目的地に着いたときは、これまでどおりです。**あれはこの遊びのいちばん大きな見せ場で、時間を切り詰めるところではありません。町を訪ねたかどうかは**旅人ごと**に覚えているので、あなたには見慣れた町でも、隣の人には初めてかもしれません。この変更より前のセーブから続けると、その回だけどの町も「初めて」に戻ります。",
+      ),
+    ],
+  },
+  {
     version: "0.46.2",
     date: "2026-08-17",
     title: t(

@@ -1,4 +1,5 @@
-import { NodeId, PlayerId, RegionId } from "../../domain/shared-kernel/ids";
+import { CityId, NodeId, PlayerId, RegionId } from "../../domain/shared-kernel/ids";
+import { hasSeenCity, markCitySeen } from "../../domain/player/player";
 import { currentPlayer, isOver } from "../../domain/game-session/game-session";
 import { isCityNode } from "../../domain/board/node";
 import { advanceTurn } from "../../application/use-cases/advance-turn/advance-turn.use-case";
@@ -293,6 +294,29 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     }
   }
 
+
+  /**
+   * 町の画面を開く。**開くと同時に「読んだ」印を付ける。**
+   *
+   * 初めてかどうかは開いた瞬間の値を `ui` に持たせる。印を付けたあとに
+   * 引き直すと必ず「2回目」になってしまうため。
+   */
+  function openCityModal(cityId: CityId, arrivalPrize: number | null): void {
+    const session = get().session;
+    if (!session) return;
+    const player = currentPlayer(session);
+    const firstVisit = !hasSeenCity(player, cityId);
+    if (firstVisit) {
+      set((s) => ({
+        session: {
+          ...s.session!,
+          players: s.session!.players.map((p) => (p.id === player.id ? markCitySeen(p, cityId) : p)),
+        },
+      }));
+    }
+    set({ ui: { kind: "city", cityId, arrivalPrize, firstVisit } });
+  }
+
   /**
    * CPUが着地したマスの結果を、人間の手番と同じ見せ方でモーダル表示する。
    * legacyもCPUの手番では自動で閉じるモーダル(`autoModal`)を出していた。
@@ -488,7 +512,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
         firstTimeSpiritAppearance: arrival.firstTimeSpiritAppearance,
         spiritHolderId: arrival.spiritHolderId,
       };
-      set({ ui: { kind: "city", cityId: node.cityId, arrivalPrize: arrival.prize } });
+      openCityModal(node.cityId, arrival.prize);
       return;
     }
     if (node.type === "quiz") {
@@ -544,7 +568,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
       return;
     }
     if (isCityNode(node)) {
-      set({ ui: { kind: "city", cityId: node.cityId, arrivalPrize: null } });
+      openCityModal(node.cityId, null);
       return;
     }
     finishHumanLandingAndAdvance();

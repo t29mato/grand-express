@@ -31,6 +31,11 @@ const PlayerSnapshotSchema = z.object({
       squaresMoved: z.number(),
     })
     .optional(),
+  /**
+   * 紹介をもう読んだ町。これを足す前のセーブデータには無いので任意にしている
+   * (読み込み時は空にする)。
+   */
+  seenCities: z.array(z.string()).optional(),
 });
 
 export const GameSessionSnapshotSchemaV1 = z.object({

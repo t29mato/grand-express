@@ -37,6 +37,11 @@ export interface PlayerSnapshot {
   readonly hasExtraTurn: boolean;
   /** 表彰用の記録。これ以前のセーブデータには無いので、読み込み時は空にする。 */
   readonly stats?: PlayerStats;
+  /**
+   * 紹介をもう読んだ町。これ以前のセーブデータには無いので、
+   * **読み込み時は空にする**(続きから遊ぶと、その回だけ町の紹介がもう一度出る)。
+   */
+  readonly seenCities?: readonly string[];
 }
 
 export interface GameSessionSnapshot {
@@ -75,6 +80,7 @@ function playerToSnapshot(player: Player): PlayerSnapshot {
     skipNextTurn: player.skipNextTurn,
     hasExtraTurn: player.hasExtraTurn,
     stats: player.stats,
+    seenCities: [...player.seenCities],
   };
 }
 
@@ -96,6 +102,9 @@ function playerFromSnapshot(snapshot: PlayerSnapshot): Player {
     hasExtraTurn: snapshot.hasExtraTurn,
     // 古いセーブデータには記録が無い。空から数え直す。
     stats: snapshot.stats ?? EMPTY_STATS,
+    // 同上。**空にしておくと、続きから遊んだ回だけ町の紹介がもう一度出る。**
+    // 数えられない情報を捏造するより、一度多く見せるほうが害が小さい。
+    seenCities: new Set((snapshot.seenCities ?? []).map((id) => CityId(id))),
   };
 }
 

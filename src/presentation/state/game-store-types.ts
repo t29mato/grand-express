@@ -65,7 +65,19 @@ export type UiState =
       readonly savedByCharm: boolean;
       readonly bonusItem: ItemKey | null;
     }
-  | { readonly kind: "city"; readonly cityId: CityId; readonly arrivalPrize: number | null }
+  | {
+      readonly kind: "city";
+      readonly cityId: CityId;
+      readonly arrivalPrize: number | null;
+      /**
+       * **この人がこの町に止まるのが初めてか。**
+       *
+       * 初めてなら絵と紹介を出し、2回目以降は畳んで買い物だけにする。
+       * **開いた時点の値をここに持つ。**セッション側は開くと同時に
+       * 「読んだ」印が付くので、あとから引き直すと必ず false になる。
+       */
+      readonly firstVisit: boolean;
+    }
   /** 目的地に到着し、次の目的地が抽選された直後の案内(legacyの `arriveDest` 後半のモーダル)。 */
   | {
       readonly kind: "next-leg";

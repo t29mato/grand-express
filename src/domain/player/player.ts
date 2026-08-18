@@ -1,5 +1,5 @@
 import { Money } from "../shared-kernel/money";
-import { ItemKey, NodeId, PlayerId, PropertyRef } from "../shared-kernel/ids";
+import { CityId, ItemKey, NodeId, PlayerId, PropertyRef } from "../shared-kernel/ids";
 import { CpuLevel } from "../cpu/cpu-level";
 import { DEFAULT_KNOWLEDGE_LEVEL, KnowledgeLevel } from "../quiz/knowledge-level";
 import { EMPTY_STATS, PlayerStats, countUp } from "./player-stats";
@@ -28,6 +28,17 @@ export interface Player {
   readonly hasExtraTurn: boolean;
   /** 表彰に使う旅の記録(player-stats.ts)。 */
   readonly stats: PlayerStats;
+  /**
+   * **その人が町の紹介をもう読んだか。**
+   *
+   * 2回目以降に止まったときは、町の画面を短くする(絵と紹介を畳んで、
+   * 買う・売る・屋台だけを出す)。**同じ町の同じ絵と同じ一言を、
+   * 1回の対局で何度も最後まで見せられるのがテンポを重くしていた。**
+   *
+   * **人ごとに持つ。**別の旅人にとっては、その町はまだ初めてかもしれない。
+   * CPUも同じように持つ(画面は出ないが、扱いを分けると読みにくくなる)。
+   */
+  readonly seenCities: ReadonlySet<CityId>;
 }
 
 export function createPlayer(params: {
@@ -52,7 +63,19 @@ export function createPlayer(params: {
     skipNextTurn: false,
     hasExtraTurn: false,
     stats: EMPTY_STATS,
+    seenCities: new Set(),
   };
+}
+
+/** その人がその町の紹介をもう読んだか。 */
+export function hasSeenCity(player: Player, cityId: CityId): boolean {
+  return player.seenCities.has(cityId);
+}
+
+/** その町を「読んだ」ことにした新しいプレイヤーを返す。 */
+export function markCitySeen(player: Player, cityId: CityId): Player {
+  if (player.seenCities.has(cityId)) return player;
+  return { ...player, seenCities: new Set(player.seenCities).add(cityId) };
 }
 
 export function moveTo(player: Player, node: NodeId): Player {

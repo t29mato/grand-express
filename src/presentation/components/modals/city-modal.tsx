@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { CityId, ItemKey, PropertyIndex, PropertyRef } from "../../../domain/shared-kernel/ids";
 import { GameSession, currentPlayer } from "../../../domain/game-session/game-session";
 import { ownsProperty } from "../../../domain/player/player";
@@ -18,6 +19,7 @@ export function CityModal({
   session,
   cityId,
   arrivalPrize,
+  firstVisit,
   onBuy,
   onInvest,
   onSell,
@@ -28,6 +30,8 @@ export function CityModal({
   session: GameSession;
   cityId: CityId;
   arrivalPrize: number | null;
+  /** この人がこの町に止まるのが初めてか。2回目以降は絵と紹介を畳む。 */
+  firstVisit: boolean;
   onBuy: (index: PropertyIndex) => void;
   onInvest: (ref: PropertyRef) => void;
   onSell: (ref: PropertyRef) => void;
@@ -50,20 +54,43 @@ export function CityModal({
   ).length;
   const ownsAllHere = city.properties.length > 0 && ownedHere === city.properties.length;
 
+  /*
+   * **2回目以降は、絵と紹介を畳む。**
+   *
+   * 同じ町の同じ絵と同じ一言を、1回の対局で何度も最後まで見せられるのが
+   * テンポを重くしていた(「停止マスが多すぎる」という報せの一因)。
+   * ただし**捨てはしない。**畳んだ町でも押せば開く。1回目に読み飛ばした人が
+   * あとから読めなくなるほうが困る。
+   *
+   * **目的地に着いたときだけは、2回目でも畳まない。**あれはこの遊びの
+   * いちばん大きな見せ場で、短くするところではない。
+   */
+  const arrived = arrivalPrize !== null;
+  const [opened, setOpened] = useState(false);
+  const showArt = firstVisit || arrived || opened;
+
   return (
     <Modal testId="city-modal">
       {/* 目的地に着いたときは、町の絵の代わりに到着のお祝いを見せる。
           ここがこのゲームでいちばん大きな見せ場なので、金額の文字だけでは寂しい。 */}
-      {arrivalPrize !== null ? (
+      {arrived ? (
         <div className="event-anim">
           <ArrivalCelebration />
         </div>
       ) : (
-        <CityArt context={context} cityId={cityId} />
+        showArt && <CityArt context={context} cityId={cityId} />
       )}
       <div className="eyebrow">{t("townStop")}</div>
       <h3>{tx(city.name)}</h3>
-      <p style={{ color: "var(--salt-dim)" }}>{tx(city.tag)}</p>
+      {showArt ? (
+        <p style={{ color: "var(--salt-dim)" }}>{tx(city.tag)}</p>
+      ) : (
+        /* 畳んでいるときは、町の名前の下に「もう一度見る」だけを置く。
+           一言も隠すのは、それを読むために止まっているわけではないため。 */
+        <button type="button" className="city-again" onClick={() => setOpened(true)}>
+          {t("seeTownAgain")}
+        </button>
+      )}
       {arrivalPrize !== null && (
         <p className="fact">
           🎯 {t("destReached")} — +{formatMoney(arrivalPrize, currency)}
