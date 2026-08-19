@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.51.0",
+    date: "2026-08-20",
+    title: t(
+      "Peru, where the railway climbed higher than the body can|Perú, donde el ferrocarril subió más de lo que aguanta el cuerpo|Le Pérou, où le rail est monté plus haut que le corps ne le supporte|ペルー。鉄道は、人の体より先に山を登ってしまった",
+    ),
+    highlights: [
+      t(
+        "The Central Railway crosses the Andes at over 4,700 metres. It was not built to carry people — it was built to bring ore down from Cerro de Pasco and La Oroya to the port, and the tourist trains that use it today still carry oxygen for passengers who faint. Forty-six towns, from a coast that almost never rains to an Amazon city no road has ever reached.|El Ferrocarril Central cruza los Andes a más de 4.700 metros. No se construyó para llevar personas: se hizo para bajar el mineral de Cerro de Pasco y La Oroya hasta el puerto, y los trenes turísticos que hoy lo recorren siguen llevando oxígeno para los pasajeros que se desmayan. Cuarenta y seis pueblos, desde una costa donde casi nunca llueve hasta una ciudad amazónica a la que jamás ha llegado una carretera.|Le chemin de fer central franchit les Andes à plus de 4 700 mètres. Il ne fut pas bâti pour transporter des gens : il servait à descendre le minerai de Cerro de Pasco et de La Oroya jusqu\'au port, et les trains touristiques qui l\'empruntent aujourd\'hui emportent encore de l\'oxygène pour les voyageurs qui défaillent. Quarante-six villes, d\'une côte où il ne pleut presque jamais à une cité amazonienne qu\'aucune route n\'a jamais atteinte.|**中央鉄道は標高4,700mを超えてアンデスを越えます。**人を運ぶために敷かれたのではありません。セロ・デ・パスコとラ・オロヤの鉱石を港へ下ろすために敷かれ、いまそこを走る観光列車は、**気を失う乗客のために酸素を積んでいます。**46の町。ほとんど雨の降らない海岸から、**いまも道が一本も通じていないアマゾンの都市**まで。",
+      ),
+      t(
+        "Cerro de Pasco began by digging up its own cemetery. Puno has an iron ship carried over the Andes in more than two thousand pieces on the backs of mules, and fired at first with llama dung. Iquitos has rubber-boom mansions and, a river away, a 1912 British consular report that called what was happening there slavery. Ayacucho\'s card says plainly that a war which killed tens of thousands was fought mostly there.|Cerro de Pasco empezó excavando su propio cementerio. Puno tiene un barco de hierro llevado por los Andes en más de dos mil piezas a lomo de mula, alimentado al principio con bosta de llama. Iquitos tiene mansiones del caucho y, a un río de distancia, un informe consular británico de 1912 que llamó esclavitud a lo que allí ocurría. La ficha de Ayacucho dice sin rodeos que una guerra que mató a decenas de miles se libró sobre todo allí.|Cerro de Pasco a commencé par déterrer son propre cimetière. Puno possède un navire de fer transporté à travers les Andes en plus de deux mille pièces à dos de mulet, chauffé d\'abord à la bouse de lama. Iquitos a ses demeures du caoutchouc et, à une rivière de là, un rapport consulaire britannique de 1912 qui qualifiait d\'esclavage ce qui s\'y passait. La fiche d\'Ayacucho dit clairement qu\'une guerre ayant tué des dizaines de milliers de personnes s\'y est déroulée pour l\'essentiel.|**セロ・デ・パスコは、自分の町の墓地を掘り返すところから始まりました。**プーノには、**2700個以上に分解してラバの背でアンデスを越えさせた鉄の船**があります(燃料は当初リャマの糞でした)。イキトスにはゴムブームの邸宅があり、川を一本隔てた先では、1912年の英国領事の報告が、そこで起きていたことを**奴隷制だと断じています。**アヤクーチョの札には、**数万人が死んだ戦争が主にここで戦われた**と、そのまま書いてあります。",
+      ),
+      t(
+        "Thirty-six boards now, with 1,729 towns and 2,751 questions.|Ya son treinta y seis tableros, con 1.729 pueblos y 2.751 preguntas.|Trente-six plateaux désormais, avec 1 729 villes et 2 751 questions.|盤面は36枚になりました。町は1729、問いは2751です。",
+      ),
+    ],
+  },
+  {
     version: "0.50.1",
     date: "2026-08-20",
     title: t(
