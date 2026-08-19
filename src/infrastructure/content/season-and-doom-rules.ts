@@ -18,6 +18,150 @@ const region = (code: string) => RegionId(code);
 
 /** 月インデックス(0=4月)ごとの季節効果。 */
 export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readonly SeasonEffectOp[])[]>> = {
+newzealand: [
+  /* 0 Apr 誰かが植えた場所にだけ来る紅葉(アロータウン) */ [
+    { op: "region-income-multiplier", regionId: region("ota"), multiplier: 1.15 },
+  ],
+  /* 1 May ウナギが海へ下る */ [
+    { op: "region-income-multiplier", regionId: region("wcs"), multiplier: 1.15 },
+    { op: "region-income-multiplier", regionId: region("fld"), multiplier: 1.1 },
+  ],
+  /* 2 Jun マタリキ(マオリの新年・2022年から祝日) */ [{ op: "give-item-to-all" }],
+  /* 3 Jul スキー場が開く */ [
+    { op: "region-income-multiplier", regionId: region("ota"), multiplier: 1.25 },
+    { op: "region-income-multiplier", regionId: region("cni"), multiplier: 1.15 },
+  ],
+  /* 4 Aug ザトウクジラの冬の回遊 */ [
+    { op: "region-income-multiplier", regionId: region("cby"), multiplier: 1.2 },
+  ],
+  /* 5 Sep 時計が進み、子羊が生まれ始める */ [
+    { op: "region-income-multiplier", regionId: region("wko"), multiplier: 1.15 },
+    { op: "region-income-multiplier", regionId: region("cby"), multiplier: 1.1 },
+  ],
+  /* 6 Oct ブドウが開花し、収穫年を左右する */ [
+    { op: "region-income-multiplier", regionId: region("top"), multiplier: 1.3 },
+  ],
+  /* 7 Nov ポフツカワの蕾がふくらむ */ [
+    { op: "region-income-multiplier", regionId: region("akl"), multiplier: 1.15 },
+    { op: "region-income-multiplier", regionId: region("egc"), multiplier: 1.15 },
+  ],
+  /* 8 Dec ポフツカワが深紅に咲き、クリスマス(休神) */ [
+    { op: "all-players-gain-cash", amount: 300 },
+    { op: "region-income-multiplier", regionId: region("akl"), multiplier: 1.2 },
+    { op: "rest-spirit" },
+  ],
+  /* 9 Jan 国じゅうが一斉に休暇 */ [
+    { op: "all-players-pay-cash", amount: 200 },
+    { op: "region-income-multiplier", regionId: region("ota"), multiplier: 1.3 },
+    { op: "region-income-multiplier", regionId: region("top"), multiplier: 1.2 },
+  ],
+  /* 10 Feb ワイタンギ・デー */ [
+    { op: "all-players-gain-cash", amount: 260 },
+    { op: "region-income-multiplier", regionId: region("akl"), multiplier: 1.2 },
+  ],
+  /* 11 Mar 時計が戻り、収穫が始まる */ [
+    { op: "region-income-multiplier", regionId: region("top"), multiplier: 1.25 },
+    { op: "region-income-multiplier", regionId: region("cby"), multiplier: 1.15 },
+  ],
+],
+  /**
+   * スペイン。聖週間の行列 → コルドバのパティオ祭り → サン・フアンの
+   * かがり火 → サン・フェルミン → 8月バカンス(中央が縮み沿岸が伸びる) →
+   * ラ・リオハのぶどう収穫 → サラゴサのピラール祭り → マタンサ(豚の解体) →
+   * エル・ゴルド(クリスマス宝くじ・給アイテム) → レジェス・マゴスの贈り物出費 →
+   * カディスのカーニバル → バレンシアのファリャス、という流れ。
+   * `SPAIN_SEASONS`(flavour.mjs)の12件と対応する。
+   */
+  spain: [
+    /* 0 Apr 聖週間の行列(アンダルシア・カスティーリャが賑わう) */ [
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("ctr"), multiplier: 1.15 },
+    ],
+    /* 1 May コルドバのパティオ祭り */ [
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.25 },
+    ],
+    /* 2 Jun サン・フアンのかがり火(地中海・大西洋の海辺) */ [
+      { op: "region-income-multiplier", regionId: region("cat"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("nor"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.1 },
+    ],
+    /* 3 Jul サン・フェルミン(パンプローナ) */ [
+      { op: "region-income-multiplier", regionId: region("eus"), multiplier: 1.35 },
+    ],
+    /* 4 Aug 8月バカンス(中央・バスク・カタルーニャが縮み、沿岸が伸びる) */ [
+      { op: "region-income-multiplier", regionId: region("ctr"), multiplier: 0.75 },
+      { op: "region-income-multiplier", regionId: region("eus"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("cat"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("est"), multiplier: 1.2 },
+    ],
+    /* 5 Sep ラ・リオハのぶどう収穫 */ [
+      { op: "region-income-multiplier", regionId: region("est"), multiplier: 1.25 },
+    ],
+    /* 6 Oct サラゴサのピラール祭り */ [
+      { op: "region-income-multiplier", regionId: region("est"), multiplier: 1.2 },
+    ],
+    /* 7 Nov マタンサ(豚の解体。エストレマドゥーラ・カスティーリャの農村) */ [
+      { op: "region-income-multiplier", regionId: region("ext"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("ctr"), multiplier: 1.1 },
+    ],
+    /* 8 Dec エル・ゴルド(クリスマス宝くじ) */ [
+      { op: "region-income-multiplier", regionId: region("ctr"), multiplier: 1.15 },
+      { op: "give-item-to-all" },
+    ],
+    /* 9 Jan レジェス・マゴス(公現祭の贈り物出費) */ [
+      { op: "all-players-pay-cash", amount: 180 },
+    ],
+    /* 10 Feb カディスのカーニバル */ [
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.25 },
+    ],
+    /* 11 Mar バレンシアのファリャス */ [
+      { op: "all-players-gain-cash", amount: 200 },
+      { op: "region-income-multiplier", regionId: region("est"), multiplier: 1.3 },
+    ],
+  ],
+  // 地方: norte / bajio / occidente / centro / golfo / sur / yucatan
+  mexico: [
+    /* 0 Apr サン・マルコス祭(アグアスカリエンテス) */ [
+      { op: "region-income-multiplier", regionId: region("bajio"), multiplier: 1.3 },
+    ],
+    /* 1 May 五月五日(プエブラ) */ [
+      { op: "region-income-multiplier", regionId: region("centro"), multiplier: 1.15 },
+    ],
+    /* 2 Jun ハリケーン期に入る */ [
+      { op: "region-income-multiplier", regionId: region("golfo"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("yucatan"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("sur"), multiplier: 0.9 },
+      { op: "region-income-multiplier", regionId: region("norte"), multiplier: 0.95 },
+    ],
+    /* 3 Jul グエラゲッツァ(オアハカ) */ [
+      { op: "region-income-multiplier", regionId: region("sur"), multiplier: 1.3 },
+    ],
+    /* 4 Aug グアダルーペ谷の収穫 */ [
+      { op: "region-income-multiplier", regionId: region("norte"), multiplier: 1.25 },
+    ],
+    /* 5 Sep 独立記念日(全国) */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "rest-spirit" },
+    ],
+    /* 6 Oct オオカバマダラ飛来(アンガングエオ) */ [
+      { op: "region-income-multiplier", regionId: region("occidente"), multiplier: 1.25 },
+    ],
+    /* 7 Nov 死者の日(パツクアロ) */ [
+      { op: "region-income-multiplier", regionId: region("occidente"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("centro"), multiplier: 1.15 },
+    ],
+    /* 8 Dec グアダルペの日〜ポサーダ */ [{ op: "give-item-to-all" }],
+    /* 9 Jan 公現祭(ロスカとタマレス) */ [
+      { op: "all-players-pay-cash", amount: 200 },
+    ],
+    /* 10 Feb ベラクルスのカーニバル */ [
+      { op: "region-income-multiplier", regionId: region("golfo"), multiplier: 1.3 },
+    ],
+    /* 11 Mar 分点(チチェン・イッツァ) */ [
+      { op: "region-income-multiplier", regionId: region("yucatan"), multiplier: 1.3 },
+    ],
+  ],
   /**
    * アジア大陸。草原のチューリップ → 暑さの前の隊商 → フェルガナの綿花 →
    * ベンガル湾のモンスーン → ヒジャーズへの巡礼 → 環太平洋の台風(9月・休神) →
@@ -1708,6 +1852,30 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
  * フレーバーに応じて異なる。`id` → 効果種別の対応。
  */
 export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>> = {
+// New Zealand
+"ruapehu-ash": "fine", // 降灰の掃除・保線費用
+norwester: "loseProperties", // 強風で緩んだ屋根が飛ばされる被害
+"flood-washout": "steal", // 混乱に紛れて盗まれる(増水で迂回する人混みの中)
+sandflies: "percentLoss", // 虫よけ・応急処置に現金の一部を費やす
+"ferry-cancelled": "payOthers", // 波止場で足止めされた者どうし食料・宿を分け合う
+"taniwha-lost": "teleport", // 化かされて気づけば別の場所にいる
+"sheep-jam": "skipTurn", // 羊の大群が退くまで待たされる
+  // Spain
+  calima: "fine",
+  "ola-calor": "skipTurn",
+  dana: "loseProperties",
+  huelga: "payOthers",
+  siesta: "percentLoss",
+  procesion: "teleport",
+  carterista: "steal",
+  // Mexico
+  huracan: "loseProperties", // ハリケーン上陸。沿岸の物件が飛ぶ
+  temblor: "percentLoss", // 地震。建て直しに資産の一部が消える
+  ceniza: "skipTurn", // 火山灰。空港も線路も止まる
+  contingencia: "skipTurn", // 大気汚染の通行規制。動けない
+  chaneque: "teleport", // 精霊に化かされて、まるで違う場所に出る
+  ratero: "steal", // 市場のすり
+  padrino: "payOthers", // 代父母に指名され、費用を持たされる
   // Asia
   sandstorm: "fine", // 埋もれた線路の掘り出し費用
   monsoonwash: "loseProperties", // 洗い流された土手ぞいの物件

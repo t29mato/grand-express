@@ -51,6 +51,9 @@ const SOURCES = {
   world: ["countries/world/art.mjs", "WORLD_BG"],
   ibaraki: ["countries/ibaraki/art.mjs", "IBARAKI_BG"],
   korea: ["countries/korea/art.mjs", "KOREA_BG"],
+  mexico: ["countries/mexico/art.mjs", "MEXICO_BG"],
+  spain: ["countries/spain/art.mjs", "SPAIN_BG"],
+  newzealand: ["countries/newzealand/art.mjs", "NEWZEALAND_BG"],
   japan: ["content-overrides/japan-city-bg.mjs", "JAPAN_RICH_BG"],
   // 茨城は田園・町(art.mjs)と水辺(bg-coast.mjs)を別の担当が書くのでファイルが分かれている。
   // 取り込み前でも実測できるよう、水辺だけを見る名前を用意してある。

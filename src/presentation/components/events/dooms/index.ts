@@ -209,6 +209,27 @@ import { AsiaRailbuckle } from "./asia-railbuckle";
 import { AsiaCustomsdelay } from "./asia-customsdelay";
 import { AsiaBazaarpickpocket } from "./asia-bazaarpickpocket";
 import { AsiaPowercut } from "./asia-powercut";
+import { MexicoHuracan } from "./mexico-huracan";
+import { MexicoTemblor } from "./mexico-temblor";
+import { MexicoCeniza } from "./mexico-ceniza";
+import { MexicoContingencia } from "./mexico-contingencia";
+import { MexicoChaneque } from "./mexico-chaneque";
+import { MexicoRatero } from "./mexico-ratero";
+import { MexicoPadrino } from "./mexico-padrino";
+import { SpainSiesta } from "./spain-siesta";
+import { SpainCalima } from "./spain-calima";
+import { SpainOlaCalor } from "./spain-ola-calor";
+import { SpainDana } from "./spain-dana";
+import { SpainHuelga } from "./spain-huelga";
+import { SpainProcesion } from "./spain-procesion";
+import { SpainCarterista } from "./spain-carterista";
+import { NewzealandTaniwhaLost } from "./newzealand-taniwha-lost";
+import { NewzealandRuapehuAsh } from "./newzealand-ruapehu-ash";
+import { NewzealandNorwester } from "./newzealand-norwester";
+import { NewzealandFloodWashout } from "./newzealand-flood-washout";
+import { NewzealandSandflies } from "./newzealand-sandflies";
+import { NewzealandFerryCancelled } from "./newzealand-ferry-cancelled";
+import { NewzealandSheepJam } from "./newzealand-sheep-jam";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -220,6 +241,27 @@ import { AsiaPowercut } from "./asia-powercut";
  * **足し忘れを防ぐため機械的に整えている。**
  */
 export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
+  "spain-siesta": SpainSiesta,
+  "spain-calima": SpainCalima,
+  "spain-ola-calor": SpainOlaCalor,
+  "spain-dana": SpainDana,
+  "spain-huelga": SpainHuelga,
+  "spain-procesion": SpainProcesion,
+  "spain-carterista": SpainCarterista,
+  "newzealand-taniwha-lost": NewzealandTaniwhaLost,
+  "newzealand-ruapehu-ash": NewzealandRuapehuAsh,
+  "newzealand-norwester": NewzealandNorwester,
+  "newzealand-flood-washout": NewzealandFloodWashout,
+  "newzealand-sandflies": NewzealandSandflies,
+  "newzealand-ferry-cancelled": NewzealandFerryCancelled,
+  "newzealand-sheep-jam": NewzealandSheepJam,
+  "mexico-huracan": MexicoHuracan,
+  "mexico-temblor": MexicoTemblor,
+  "mexico-ceniza": MexicoCeniza,
+  "mexico-contingencia": MexicoContingencia,
+  "mexico-chaneque": MexicoChaneque,
+  "mexico-ratero": MexicoRatero,
+  "mexico-padrino": MexicoPadrino,
   "bolivia-bloqueo": BoliviaBloqueo,
   "bolivia-collapse": BoliviaCollapse,
   "bolivia-landslide": BoliviaLandslide,

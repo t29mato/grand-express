@@ -342,4 +342,34 @@ export const ITEM_EFFECT_BY_LEGACY_KEY: Readonly<Record<string, ItemEffect>> = {
   sleeperticket: { type: "roll-fixed-dice", diceCount: 3 },
   firman: { type: "repel-spirit" },
 
+  // Mexico
+  globo: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  brujula: { type: "choose-exact-dice" },
+  chepe: { type: "roll-fixed-dice", diceCount: 2 },
+  trenmaya: { type: "roll-fixed-dice", diceCount: 3 },
+  copal: { type: "none" },
+  silbato: { type: "repel-spirit" },
+  acordeon: { type: "quiz-save" },
+  centenario: { type: "gain-cash", amount: 380 },
+  chapulin: { type: "extra-turn" },
+  // Spain
+  encierro: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  itinerario: { type: "choose-exact-dice" },
+  talgo: { type: "roll-fixed-dice", diceCount: 2 },
+  ave: { type: "roll-fixed-dice", diceCount: 3 },
+  azabache: { type: "none" }, // 厄災の神(トラスグ)のward item(passive)
+  esquila: { type: "repel-spirit" },
+  apuntes: { type: "quiz-save" },
+  decimo: { type: "gain-cash", amount: 380 },
+  carajillo: { type: "extra-turn" },
+// New Zealand
+roaringforties: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+starcompass: { type: "choose-exact-dice" },
+tuisong: { type: "roll-fixed-dice", diceCount: 2 },
+northernexplorer: { type: "roll-fixed-dice", diceCount: 3 },
+heitiki: { type: "none" }, // 厄災の神(タニファ)のward item(passive)
+taniwhaoffering: { type: "repel-spirit" },
+correspondence: { type: "quiz-save" },
+kauirgum: { type: "gain-cash", amount: 380 },
+jandalsprint: { type: "extra-turn" },
 };

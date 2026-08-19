@@ -73,7 +73,7 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
     key: "europe",
     label: { en: "Europe", es: "Europa", fr: "Europe", ja: "ヨーロッパ" },
     wholeBoardId: "europe",
-    countryIds: ["europe", "france", "germany", "italy", "uk", "ukraine", "russia"],
+    countryIds: ["europe", "france", "germany", "italy", "uk", "ukraine", "russia", "spain"],
   },
   {
     key: "africa",
@@ -86,7 +86,7 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
     key: "northamerica",
     label: { en: "North America", es: "América del Norte", fr: "Amérique du Nord", ja: "北アメリカ" },
     wholeBoardId: "northamerica",
-    countryIds: ["northamerica", "canada", "usa"],
+    countryIds: ["northamerica", "canada", "usa", "mexico"],
   },
   {
     key: "southamerica",
@@ -97,7 +97,7 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
   {
     key: "oceania",
     label: { en: "Oceania", es: "Oceanía", fr: "Océanie", ja: "オセアニア" },
-    countryIds: ["australia"],
+    countryIds: ["australia", "newzealand"],
   },
 ];
 
