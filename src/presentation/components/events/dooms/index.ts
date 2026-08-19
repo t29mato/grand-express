@@ -244,6 +244,13 @@ import { EgyptFerryoverload } from "./egypt-ferryoverload";
 import { EgyptZaffa } from "./egypt-zaffa";
 import { EgyptBlackout } from "./egypt-blackout";
 import { EgyptScenicroute } from "./egypt-scenicroute";
+import { PeruSorochazo } from "./peru-sorochazo";
+import { PeruFriaje } from "./peru-friaje";
+import { PeruLlamaTerca } from "./peru-llama-terca";
+import { PeruDerrumbeMina } from "./peru-derrumbe-mina";
+import { PeruCachoPerdido } from "./peru-cacho-perdido";
+import { PeruNeblinaPuna } from "./peru-neblina-puna";
+import { PeruRoboTerminal } from "./peru-robo-terminal";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -501,6 +508,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "egypt-zaffa": EgyptZaffa,
   "egypt-blackout": EgyptBlackout,
   "egypt-scenicroute": EgyptScenicroute,
+  "peru-sorochazo": PeruSorochazo,
+  "peru-friaje": PeruFriaje,
+  "peru-llama-terca": PeruLlamaTerca,
+  "peru-derrumbe-mina": PeruDerrumbeMina,
+  "peru-cacho-perdido": PeruCachoPerdido,
+  "peru-neblina-puna": PeruNeblinaPuna,
+  "peru-robo-terminal": PeruRoboTerminal,
 };
 
 /** その国のその災難の絵。無ければ undefined。 */

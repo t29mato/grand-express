@@ -392,4 +392,14 @@ jandalsprint: { type: "extra-turn" },
   thanaweyaguide: { type: "quiz-save" },
   oldpiastres: { type: "gain-cash", amount: 260 },
   telegraphsprint: { type: "extra-turn" },
+  // Peru
+  avioneta: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  combi: { type: "choose-exact-dice" },
+  trenmacho: { type: "roll-fixed-dice", diceCount: 2 },
+  expresoandino: { type: "roll-fixed-dice", diceCount: 3 },
+  chuspa: { type: "none" }, // 厄災の神(アプ)のward item(passive)
+  illa: { type: "repel-spirit" },
+  machete: { type: "quiz-save" },
+  propina: { type: "gain-cash", amount: 380 },
+  chasqui: { type: "extra-turn" },
 };

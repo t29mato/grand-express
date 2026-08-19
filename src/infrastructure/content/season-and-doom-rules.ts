@@ -18,6 +18,55 @@ const region = (code: string) => RegionId(code);
 
 /** 月インデックス(0=4月)ごとの季節効果。 */
 export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readonly SeasonEffectOp[])[]>> = {
+  peru: [
+    /* 0 Apr じゃがいも収穫 */ [
+      { op: "region-income-multiplier", regionId: region("si"), multiplier: 1.3 },
+    ],
+    /* 1 May ガルーアが海岸を覆う */ [
+      { op: "region-income-multiplier", regionId: region("co"), multiplier: 0.85 },
+    ],
+    /* 2 Jun インティ・ライミ(乾季・観光の書き入れ時) */ [
+      { op: "region-income-multiplier", regionId: region("si"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("al"), multiplier: 1.1 },
+    ],
+    /* 3 Jul フィエスタス・パトリアス(独立記念日・乾季の頂点) */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "region-income-multiplier", regionId: region("si"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("al"), multiplier: 1.15 },
+      { op: "rest-spirit" },
+    ],
+    /* 4 Aug パチャママへの捧げ物(乾いた風の月) */ [
+      { op: "region-income-multiplier", regionId: region("si"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("al"), multiplier: 1.1 },
+    ],
+    /* 5 Sep トルヒージョ春祭り */ [
+      { op: "region-income-multiplier", regionId: region("co"), multiplier: 1.2 },
+    ],
+    /* 6 Oct 奇跡の主の行列(リマ最大級の行事) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("co"), multiplier: 1.3 },
+    ],
+    /* 7 Nov 雨季がアンデス・アマゾンへ戻る */ [
+      { op: "region-income-multiplier", regionId: region("se"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("si"), multiplier: 0.85 },
+    ],
+    /* 8 Dec クリスマスと輸出向け収穫(アスパラガス・ブルーベリー) */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "region-income-multiplier", regionId: region("co"), multiplier: 1.3 },
+    ],
+    /* 9 Jan 海岸の真夏・アンデスの道は雨季で厳しい */ [
+      { op: "region-income-multiplier", regionId: region("co"), multiplier: 1.35 },
+      { op: "region-income-multiplier", regionId: region("si"), multiplier: 0.8 },
+    ],
+    /* 10 Feb カンデラリア祭(プーノ)とカーニバル(カハマルカ) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("al"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("si"), multiplier: 1.15 },
+    ],
+    /* 11 Mar 雨季明け・ガルーアも崩れ始める */ [
+      { op: "region-income-multiplier", regionId: region("se"), multiplier: 1.1 },
+    ],
+  ],
   /**
    * エジプト。シャム・エンネシーム(4月・給アイテム) → 試験期の酷暑
    * → 麦の収穫 → 真夏の酷暑(南部の観光閑散期) → 綿花摘み(8月・休神)
@@ -1953,6 +2002,14 @@ newzealand: [
  * フレーバーに応じて異なる。`id` → 効果種別の対応。
  */
 export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>> = {
+  // Peru
+  sorochazo: "fine",
+  friaje: "percentLoss",
+  "llama-terca": "skipTurn",
+  "derrumbe-mina": "loseProperties",
+  "cacho-perdido": "payOthers",
+  "neblina-puna": "teleport",
+  "robo-terminal": "steal",
   // Egypt
   khamsin: "skipTurn", // 砂嵐で線路が埋まり、掘り出すまで足止め
   canalblock: "teleport", // 座礁した船が運河を塞ぎ、迂回させられる

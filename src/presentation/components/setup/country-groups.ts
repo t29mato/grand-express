@@ -93,7 +93,7 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
     key: "southamerica",
     label: { en: "South America", es: "América del Sur", fr: "Amérique du Sud", ja: "南アメリカ" },
     wholeBoardId: "southamerica",
-    countryIds: ["southamerica", "venezuela", "bolivia", "brazil"],
+    countryIds: ["southamerica", "peru", "venezuela", "bolivia", "brazil"],
   },
   {
     key: "oceania",
