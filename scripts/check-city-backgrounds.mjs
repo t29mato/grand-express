@@ -59,6 +59,8 @@ const SOURCES = {
   peru: ["countries/peru/art.mjs", "PERU_BG"],
   southafrica: ["countries/southafrica/art.mjs", "SOUTHAFRICA_BG"],
   norway: ["countries/norway/art.mjs", "NORWAY_BG"],
+  hokkaido: ["countries/hokkaido/art.mjs", "HOKKAIDO_BG"],
+  kyushu: ["countries/kyushu/art.mjs", "KYUSHU_BG"],
   spain: ["countries/spain/art.mjs", "SPAIN_BG"],
   newzealand: ["countries/newzealand/art.mjs", "NEWZEALAND_BG"],
   japan: ["content-overrides/japan-city-bg.mjs", "JAPAN_RICH_BG"],
