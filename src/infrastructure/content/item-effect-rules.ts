@@ -402,4 +402,24 @@ jandalsprint: { type: "extra-turn" },
   machete: { type: "quiz-save" },
   propina: { type: "gain-cash", amount: 380 },
   chasqui: { type: "extra-turn" },
+  // Switzerland
+  foehn: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  kursbuch: { type: "choose-exact-dice" },
+  postauto: { type: "roll-fixed-dice", diceCount: 2 },
+  icn: { type: "roll-fixed-dice", diceCount: 3 },
+  kuhglocke: { type: "none" }, // 厄災の神(バルベガジ)のward item(passive)
+  alphorn: { type: "repel-spirit" },
+  spickzettel: { type: "quiz-save" },
+  fundbuero: { type: "gain-cash", amount: 380 },
+  anschlusszug: { type: "extra-turn" },
+  // Vietnam
+  xeomlift: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  riverferry: { type: "choose-exact-dice" },
+  taucho: { type: "roll-fixed-dice", diceCount: 2 },
+  setrain: { type: "roll-fixed-dice", diceCount: 3 },
+  amuletward: { type: "none" }, // 厄災の神(マー・チョーイ)のward item(passive)
+  baguamirror: { type: "repel-spirit" },
+  examsave: { type: "quiz-save" },
+  lixi: { type: "gain-cash", amount: 380 },
+  caffeinerush: { type: "extra-turn" },
 };

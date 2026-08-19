@@ -251,6 +251,20 @@ import { PeruDerrumbeMina } from "./peru-derrumbe-mina";
 import { PeruCachoPerdido } from "./peru-cacho-perdido";
 import { PeruNeblinaPuna } from "./peru-neblina-puna";
 import { PeruRoboTerminal } from "./peru-robo-terminal";
+import { SwitzerlandSteinschlag } from "./switzerland-steinschlag";
+import { SwitzerlandAlpenlawine } from "./switzerland-alpenlawine";
+import { SwitzerlandSchneeschmelze } from "./switzerland-schneeschmelze";
+import { SwitzerlandFoehnsturm } from "./switzerland-foehnsturm";
+import { SwitzerlandAbstimmungssonntag } from "./switzerland-abstimmungssonntag";
+import { SwitzerlandRacletteMissgeschick } from "./switzerland-raclette-missgeschick";
+import { SwitzerlandBarbegaziGil } from "./switzerland-barbegazi-gil";
+import { VietnamBao } from "./vietnam-bao";
+import { VietnamLut } from "./vietnam-lut";
+import { VietnamNong } from "./vietnam-nong";
+import { VietnamKetxe } from "./vietnam-ketxe";
+import { VietnamChaunhau } from "./vietnam-chaunhau";
+import { VietnamMatroidat } from "./vietnam-matroidat";
+import { VietnamChomoctui } from "./vietnam-chomoctui";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -515,6 +529,20 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "peru-cacho-perdido": PeruCachoPerdido,
   "peru-neblina-puna": PeruNeblinaPuna,
   "peru-robo-terminal": PeruRoboTerminal,
+  "switzerland-steinschlag": SwitzerlandSteinschlag,
+  "switzerland-alpenlawine": SwitzerlandAlpenlawine,
+  "switzerland-schneeschmelze": SwitzerlandSchneeschmelze,
+  "switzerland-foehnsturm": SwitzerlandFoehnsturm,
+  "switzerland-abstimmungssonntag": SwitzerlandAbstimmungssonntag,
+  "switzerland-raclette-missgeschick": SwitzerlandRacletteMissgeschick,
+  "switzerland-barbegazi-gil": SwitzerlandBarbegaziGil,
+  "vietnam-bao": VietnamBao,
+  "vietnam-lut": VietnamLut,
+  "vietnam-nong": VietnamNong,
+  "vietnam-ketxe": VietnamKetxe,
+  "vietnam-chaunhau": VietnamChaunhau,
+  "vietnam-matroidat": VietnamMatroidat,
+  "vietnam-chomoctui": VietnamChomoctui,
 };
 
 /** その国のその災難の絵。無ければ undefined。 */

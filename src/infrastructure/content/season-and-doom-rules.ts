@@ -18,6 +18,93 @@ const region = (code: string) => RegionId(code);
 
 /** 月インデックス(0=4月)ごとの季節効果。 */
 export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readonly SeasonEffectOp[])[]>> = {
+  vietnam: [
+    /* 0 Apr 統一記念日・メーデーの帰省ラッシュ */ [
+      { op: "region-income-multiplier", regionId: region("ntb"), multiplier: 1.1 },
+    ],
+    /* 1 May 南部の雨季が戻る */ [
+      { op: "region-income-multiplier", regionId: region("mkd"), multiplier: 0.9 },
+      { op: "region-income-multiplier", regionId: region("dnb"), multiplier: 0.95 },
+    ],
+    /* 2 Jun 学校が休みになり中部の海水浴シーズン最盛期 */ [
+      { op: "region-income-multiplier", regionId: region("ntb"), multiplier: 1.2 },
+    ],
+    /* 3 Jul 高地への避暑(ダラット) */ [
+      { op: "region-income-multiplier", regionId: region("tn"), multiplier: 1.15 },
+    ],
+    /* 4 Aug ヴーラン・さまよう霊の日(休神) */ [{ op: "rest-spirit" }],
+    /* 5 Sep 中秋節・国慶節 */ [
+      { op: "region-income-multiplier", regionId: region("rrd"), multiplier: 1.1 },
+    ],
+    /* 6 Oct 台風・増水の最盛期 */ [
+      { op: "region-income-multiplier", regionId: region("btb"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("ntb"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("mkd"), multiplier: 0.85 },
+    ],
+    /* 7 Nov 水が引き、デルタが収穫を迎える */ [
+      { op: "region-income-multiplier", regionId: region("mkd"), multiplier: 1.15 },
+    ],
+    /* 8 Dec 北部の寒さとクリスマス商戦 */ [
+      { op: "region-income-multiplier", regionId: region("rrd"), multiplier: 1.05 },
+      { op: "region-income-multiplier", regionId: region("nmt"), multiplier: 0.9 },
+    ],
+    /* 9 Jan 西原高原のコーヒー収穫最盛期 */ [
+      { op: "region-income-multiplier", regionId: region("tn"), multiplier: 1.25 },
+    ],
+    /* 10 Feb 旧正月テト(給アイテム、帰省・移動コストで全員支払い) */ [
+      { op: "give-item-to-all" },
+      { op: "all-players-pay-cash", amount: 150 },
+    ],
+    /* 11 Mar 高原のコーヒーの花(観光)・南部の乾季最盛期 */ [
+      { op: "region-income-multiplier", regionId: region("tn"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("dnb"), multiplier: 1.05 },
+    ],
+  ],
+  switzerland: [
+    /* 0 Apr セシュラウテン(チューリヒ) */ [
+      { op: "region-income-multiplier", regionId: region("de"), multiplier: 1.15 },
+    ],
+    /* 1 May 山小屋の営業再開 */ [
+      { op: "all-players-gain-cash", amount: 220 },
+    ],
+    /* 2 Jun アルプアウフツーク(家畜の登り) */ [
+      { op: "region-income-multiplier", regionId: region("de"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("gr"), multiplier: 1.2 },
+    ],
+    /* 3 Jul 議会の夏季休会・登山シーズン */ [
+      { op: "region-income-multiplier", regionId: region("de"), multiplier: 1.1 },
+      { op: "rest-spirit" },
+    ],
+    /* 4 Aug 建国記念日の篝火 */ [
+      { op: "all-players-gain-cash", amount: 300 },
+    ],
+    /* 5 Sep ぶどうの収穫 */ [
+      { op: "region-income-multiplier", regionId: region("fr"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("it"), multiplier: 1.15 },
+    ],
+    /* 6 Oct アルプアプツーク(家畜の下り) */ [
+      { op: "region-income-multiplier", regionId: region("de"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("gr"), multiplier: 1.15 },
+    ],
+    /* 7 Nov ミッテルラントの霧 */ [
+      { op: "region-income-multiplier", regionId: region("de"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("fr"), multiplier: 0.9 },
+    ],
+    /* 8 Dec クラウスヤーゲン(中央スイスの鈴の行列) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("de"), multiplier: 1.1 },
+    ],
+    /* 9 Jan 雪崩情報の季節 */ [
+      { op: "region-income-multiplier", regionId: region("gr"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("de"), multiplier: 1.1 },
+    ],
+    /* 10 Feb バーゼルのファスナハト */ [
+      { op: "region-income-multiplier", regionId: region("de"), multiplier: 1.2 },
+    ],
+    /* 11 Mar フェーンの季節 */ [
+      { op: "region-income-multiplier", regionId: region("de"), multiplier: 0.9 },
+    ],
+  ],
   peru: [
     /* 0 Apr じゃがいも収穫 */ [
       { op: "region-income-multiplier", regionId: region("si"), multiplier: 1.3 },
@@ -2002,6 +2089,22 @@ newzealand: [
  * フレーバーに応じて異なる。`id` → 効果種別の対応。
  */
 export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>> = {
+  // Vietnam
+  bao: "percentLoss", // 台風で財産の一部が飛ばされる(韓国のtaepungと同じ割り当て)
+  lut: "loseProperties", // 増水で物件が水没・損なわれる
+  nong: "skipTurn", // 熱波でレールが歪み列車が遅れる(韓国のpoksolと同じ発想)
+  ketxe: "fine", // 渋滞に巻き込まれ、迂回や牽引の費用がかかる
+  chaunhau: "payOthers", // 乾杯ゲームに負けて卓の全員分を払う(韓国のhoesikgapと同じ発想)
+  matroidat: "teleport", // マー・チョーイに化かされ、遠くまで連れ回される(韓国のdokkaebi-gilと同じ発想)
+  chomoctui: "steal", // 市場ですりに遭う
+  // Switzerland
+  steinschlag: "skipTurn", // 落石で線路が塞がり、撤去まで足止め
+  alpenlawine: "loseProperties", // 雪崩が道と沿線の資産を埋める
+  schneeschmelze: "percentLoss", // 雪解け増水で資産の一部が水浸しになる
+  foehnsturm: "fine", // フェーン嵐の後片付け・修理費
+  "barbegazi-gil": "teleport", // バルベガジに化かされ、気づけば別の場所に
+  abstimmungssonntag: "payOthers", // ★ 投票の人混みに巻き込まれる、程度の弱い結びつき
+  "raclette-missgeschick": "steal", // ★ 同上。もっと合う効果があれば入れ替えてほしい
   // Peru
   sorochazo: "fine",
   friaje: "percentLoss",

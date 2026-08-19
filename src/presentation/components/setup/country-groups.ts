@@ -57,6 +57,7 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
     wholeBoardId: "asia",
     countryIds: [
       "asia",
+      "vietnam",
       "japan",
       "ibaraki",
       "korea",
@@ -73,7 +74,7 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
     key: "europe",
     label: { en: "Europe", es: "Europa", fr: "Europe", ja: "ヨーロッパ" },
     wholeBoardId: "europe",
-    countryIds: ["europe", "france", "germany", "italy", "uk", "ukraine", "russia", "spain"],
+    countryIds: ["europe", "switzerland", "france", "germany", "italy", "uk", "ukraine", "russia", "spain"],
   },
   {
     key: "africa",
