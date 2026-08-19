@@ -286,6 +286,13 @@ import { HokkaidoBurakkuauto } from "./hokkaido-burakkuauto";
 import { HokkaidoDaikoubasuManin } from "./hokkaido-daikoubasu-manin";
 import { HokkaidoSakeFukyou } from "./hokkaido-sake-fukyou";
 import { HokkaidoKionRanteika } from "./hokkaido-kion-ranteika";
+import { KyushuKougaiJiban } from "./kyushu-kougai-jiban";
+import { KyushuShiokazeSabi } from "./kyushu-shiokaze-sabi";
+import { KyushuGouuKeihou } from "./kyushu-gouu-keihou";
+import { KyushuKanmonKiri } from "./kyushu-kanmon-kiri";
+import { KyushuKazanBaiKansoku } from "./kyushu-kazan-bai-kansoku";
+import { KyushuTaifuuShinro } from "./kyushu-taifuu-shinro";
+import { KyushuKigyouTorikeshi } from "./kyushu-kigyou-torikeshi";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -585,6 +592,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "hokkaido-daikoubasu-manin": HokkaidoDaikoubasuManin,
   "hokkaido-sake-fukyou": HokkaidoSakeFukyou,
   "hokkaido-kion-ranteika": HokkaidoKionRanteika,
+  "kyushu-kougai-jiban": KyushuKougaiJiban,
+  "kyushu-shiokaze-sabi": KyushuShiokazeSabi,
+  "kyushu-gouu-keihou": KyushuGouuKeihou,
+  "kyushu-kanmon-kiri": KyushuKanmonKiri,
+  "kyushu-kazan-bai-kansoku": KyushuKazanBaiKansoku,
+  "kyushu-taifuu-shinro": KyushuTaifuuShinro,
+  "kyushu-kigyou-torikeshi": KyushuKigyouTorikeshi,
 };
 
 /** その国のその災難の絵。無ければ undefined。 */

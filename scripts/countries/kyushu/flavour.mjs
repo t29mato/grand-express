@@ -148,7 +148,8 @@ export const KYUSHU_ITEMS = {
   kangientouan: {
     e: "📜",
     // クイズを外したときの損失を肩代わりするだけなので、それに見合う値。
-    price: 150,
+    // 効果の上限が147なので、150だと**買うだけ損**になる。
+    price: 140,
     kind: "passive",
     n: t("Kangien Test Paper|Examen de la academia Kangien|Copie d'examen du Kangien|咸宜園の答案"),
     d: t(

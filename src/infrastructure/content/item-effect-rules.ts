@@ -452,4 +452,14 @@ jandalsprint: { type: "extra-turn" },
   kyuukokutetsurosen: { type: "quiz-save" },
   keganibako: { type: "gain-cash", amount: 380 },
   teijiunkou: { type: "extra-turn" },
+  // Kyushu
+  gatasuki: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  tetsudoukaishagojikoku: { type: "choose-exact-dice" },
+  relaykamome: { type: "roll-fixed-dice", diceCount: 2 },
+  tsubametokkyu: { type: "roll-fixed-dice", diceCount: 3 },
+  kyuurinohono: { type: "none" }, // 厄災の神(がらっぱ)のward item(passive)
+  suijinomamori: { type: "repel-spirit" },
+  kangientouan: { type: "quiz-save" },
+  imarizuke: { type: "gain-cash", amount: 320 },
+  botayamasuberidai: { type: "extra-turn" },
 };

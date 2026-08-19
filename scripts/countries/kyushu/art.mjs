@@ -68,7 +68,9 @@ function hills(y, fill, count = 4, h = 34) {
   const parts = [];
   for (let i = 0; i < count; i++) {
     const cx = 40 + (i * W) / count;
-    parts.push(`<path d="M${r1(cx - 70)},${y}c20,${-h} 50,${-h} 70,0z" fill="${fill}"/>`);
+    parts.push(
+      `<path d="M${r1(cx - 70)},${y}c20,${-h} 50,${-h} 70,0z" fill="${fill}"/>`,
+    );
   }
   return `<g opacity=".9">${parts.join("")}</g>`;
 }
@@ -163,7 +165,9 @@ function machiya(x, top, w, base, wall = "#efe8d8", roof = "#55606b") {
   const dw = r1(w * 0.46);
   const dx = r1(x + w * 0.27);
   const dy = r1(base - h * 0.6);
-  parts.push(`<rect x="${dx}" y="${dy}" width="${dw}" height="${r1(base - dy)}" fill="#6b4a30"/>`);
+  parts.push(
+    `<rect x="${dx}" y="${dy}" width="${dw}" height="${r1(base - dy)}" fill="#6b4a30"/>`,
+  );
   const bars = Math.max(3, Math.round(dw / 5));
   for (let i = 1; i < bars; i++)
     parts.push(
@@ -252,7 +256,16 @@ function archWindows(x, y, w, h, n, fill = "#3f5566", frame = "#efe8d8") {
 }
 
 /** 四角い窓の格子(商館の倉庫。**平戸の「窓」**)。 */
-function windowGrid(x, y, w, h, cols, rows, fill = "#3f5566", frame = "#c9c0ac") {
+function windowGrid(
+  x,
+  y,
+  w,
+  h,
+  cols,
+  rows,
+  fill = "#3f5566",
+  frame = "#c9c0ac",
+) {
   const parts = [];
   const gw = r1(w / cols);
   const gh = r1(h / rows);
@@ -365,7 +378,14 @@ function gantry(x, base, h, w, fill = "#7f8a94") {
 }
 
 /** 段々畑・棚田の畝。 */
-function terraces(y, rows, h, fill1 = "#6f9f52", fill2 = "#5f8f46", wall = "#a89e88") {
+function terraces(
+  y,
+  rows,
+  h,
+  fill1 = "#6f9f52",
+  fill2 = "#5f8f46",
+  wall = "#a89e88",
+) {
   const parts = [];
   for (let i = 0; i < rows; i++) {
     const yy = r1(y + i * h);
@@ -382,14 +402,18 @@ function terraces(y, rows, h, fill1 = "#6f9f52", fill2 = "#5f8f46", wall = "#a89
 /** 田畑の畝(手前の平地)。 */
 function furrows(y, n, gap, color = "#4f8f3f", o = ".55") {
   const d = [];
-  for (let i = 0; i < n; i++) d.push(`M0,${r1(y + i * gap)}q100,-6 200,0t200,4`);
+  for (let i = 0; i < n; i++)
+    d.push(`M0,${r1(y + i * gap)}q100,-6 200,0t200,4`);
   return `<g stroke="${color}" stroke-width="2" opacity="${o}" fill="none"><path d="${d.join("")}"/></g>`;
 }
 
 /** 線路。炭鉱・工場・港をつなぐ。 */
 function railway(y, color = "#6b6252") {
   const ties = [];
-  for (let x = 4; x < W; x += 16) ties.push(`<rect x="${x}" y="${r1(y - 2)}" width="10" height="4" fill="#5a4a38"/>`);
+  for (let x = 4; x < W; x += 16)
+    ties.push(
+      `<rect x="${x}" y="${r1(y - 2)}" width="10" height="4" fill="#5a4a38"/>`,
+    );
   return (
     ties.join("") +
     `<g stroke="${color}" stroke-width="2" fill="none"><path d="M0,${r1(y - 3)}h400M0,${r1(y + 2)}h400"/></g>`
@@ -954,7 +978,23 @@ export const KYUSHU_BG = {
     // 梅の木(左手前。菅原道真)
     `<path d="M96,178q-6,-24 -2,-38q2,-8 8,-12" stroke="#5f4a34" stroke-width="5" fill="none" stroke-linecap="round"/>` +
     `<path d="M94,150q-14,-8 -22,-20M96,144q12,-10 24,-14M92,160q-16,-2 -24,-10" stroke="#5f4a34" stroke-width="3" fill="none" stroke-linecap="round"/>` +
-    `<g fill="#f0c8d8">${[[70, 128], [78, 122], [64, 136], [120, 128], [112, 120], [128, 136], [92, 112], [102, 118], [84, 132], [110, 142]].map(([x, y]) => `<g><circle cx="${x}" cy="${y}" r="4"/><circle cx="${x}" cy="${y}" r="1.6" fill="#e8809a"/></g>`).join("")}</g>` +
+    `<g fill="#f0c8d8">${[
+      [70, 128],
+      [78, 122],
+      [64, 136],
+      [120, 128],
+      [112, 120],
+      [128, 136],
+      [92, 112],
+      [102, 118],
+      [84, 132],
+      [110, 142],
+    ]
+      .map(
+        ([x, y]) =>
+          `<g><circle cx="${x}" cy="${y}" r="4"/><circle cx="${x}" cy="${y}" r="1.6" fill="#e8809a"/></g>`,
+      )
+      .join("")}</g>` +
     // 政庁跡の礎石(碁盤に並ぶ)。中央は駒に隠れるので左右と手前に
     ground(154, "#7f8a5c") +
     `<g stroke="#6f7a4c" stroke-width="1.6" opacity=".5" fill="none"><path d="M0,168h400M0,186h400M0,204h400"/></g>` +
@@ -1103,7 +1143,7 @@ export const KYUSHU_BG = {
     `<g stroke="#b8d8e4" stroke-width="1.6" opacity=".5" fill="none"><path d="M20,102h60M280,106h80"/></g>` +
     // 台地の縁
     `<path d="M0,112q70,-16 150,-8t120,4q70,4 130,-6z" fill="#6f7458"/>` +
-    ground(112, "#7f8258"/* 冬枯れ */) +
+    ground(112, "#7f8258" /* 冬枯れ */) +
     // 崩れた石垣が野に沈んでいる
     stoneWall(0, 122, 130, 16, "#a09a86", "#6b6656") +
     `<g fill="#7a7462"><path d="M30,122q12,-8 24,0zM86,122q10,-7 20,0z"/></g>` +
@@ -1113,11 +1153,22 @@ export const KYUSHU_BG = {
     ground(138, "#8a8a5c") +
     // 冬枯れの草の野。手前いっぱい
     ground(158, "#95935e") +
-    `<g stroke="#c0bc80" stroke-width="1.8" opacity=".9" stroke-linecap="round" fill="none">${[8, 26, 44, 62, 80, 98, 116, 134, 152, 170, 188, 206, 224, 242, 260, 278, 296, 314, 332, 350, 368, 386]
-      .map((x, i) => `<path d="M${x},${r1(178 + (i % 3) * 10)}v${r1(-12 - (i % 4) * 5)}"/>`)
+    `<g stroke="#c0bc80" stroke-width="1.8" opacity=".9" stroke-linecap="round" fill="none">${[
+      8, 26, 44, 62, 80, 98, 116, 134, 152, 170, 188, 206, 224, 242, 260, 278,
+      296, 314, 332, 350, 368, 386,
+    ]
+      .map(
+        (x, i) =>
+          `<path d="M${x},${r1(178 + (i % 3) * 10)}v${r1(-12 - (i % 4) * 5)}"/>`,
+      )
       .join("")}</g>` +
-    `<g stroke="#6a6f38" stroke-width="1.6" opacity=".85" stroke-linecap="round" fill="none">${[16, 52, 88, 124, 160, 232, 268, 304, 340, 376]
-      .map((x, i) => `<path d="M${x},${r1(202 - (i % 2) * 8)}v${r1(-16 - (i % 3) * 6)}"/>`)
+    `<g stroke="#6a6f38" stroke-width="1.6" opacity=".85" stroke-linecap="round" fill="none">${[
+      16, 52, 88, 124, 160, 232, 268, 304, 340, 376,
+    ]
+      .map(
+        (x, i) =>
+          `<path d="M${x},${r1(202 - (i % 2) * 8)}v${r1(-16 - (i % 3) * 6)}"/>`,
+      )
       .join("")}</g>` +
     // 土に半ば埋もれた石(掘り出された遺構)
     `<g fill="#b5af99"><rect x="18" y="182" width="26" height="12" rx="2" transform="rotate(-6 31 188)"/><rect x="54" y="192" width="20" height="10" rx="2" transform="rotate(5 64 197)"/><rect x="326" y="186" width="24" height="11" rx="2" transform="rotate(4 338 191)"/><rect x="360" y="196" width="18" height="9" rx="2" transform="rotate(-5 369 200)"/></g>` +
@@ -1194,7 +1245,9 @@ export const KYUSHU_BG = {
     stoneWall(0, 166, 400, 10, "#a89e88") +
     ground(176, "#5f8f46") +
     furrows(184, 3, 10, "#4f7f3a", ".6") +
-    `<g stroke="#8aa85c" stroke-width="1.6" stroke-linecap="round" fill="none">${[14, 40, 66, 92, 118, 282, 308, 334, 360, 386]
+    `<g stroke="#8aa85c" stroke-width="1.6" stroke-linecap="round" fill="none">${[
+      14, 40, 66, 92, 118, 282, 308, 334, 360, 386,
+    ]
       .map((x, i) => `<path d="M${x},${r1(206 - (i % 2) * 8)}v-12"/>`)
       .join("")}</g>` +
     // 畑を打つ人
@@ -1216,7 +1269,9 @@ export const KYUSHU_BG = {
     `<rect x="0" y="120" width="400" height="12" fill="#b0a894"/>` +
     `<rect x="0" y="120" width="400" height="3" fill="#c4bda8"/>` +
     `<rect x="0" y="129" width="400" height="3" fill="#948f7c"/>` +
-    `<g stroke="#9a9484" stroke-width="1" fill="none">${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    `<g stroke="#9a9484" stroke-width="1" fill="none">${[
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+    ]
       .map((i) => `<path d="M${r1(12 + i * 25)},120v9"/>`)
       .join("")}</g>` +
     // 水門(鋼板がずらりと落とされている)
@@ -1346,8 +1401,13 @@ export const KYUSHU_BG = {
     ground(199, "#5f9a46") +
     // 手前の稲(左右)
     `<g fill="#7fb44c">${[8, 26, 44, 62, 80, 320, 338, 356, 374, 392].map((x, i) => `<path d="M${x},210v${r1(-12 - (i % 3) * 4)}"/>`).join("")}</g>` +
-    `<g stroke="#7fb44c" stroke-width="2" stroke-linecap="round" fill="none">${[8, 26, 44, 62, 80, 320, 338, 356, 374, 392]
-      .map((x, i) => `<path d="M${x},208v${r1(-10 - (i % 3) * 4)}M${x},208l${r1(-5 - (i % 2) * 2)},${r1(-8 - (i % 3) * 3)}M${x},208l${r1(5 + (i % 2) * 2)},${r1(-8 - (i % 3) * 3)}"/>`)
+    `<g stroke="#7fb44c" stroke-width="2" stroke-linecap="round" fill="none">${[
+      8, 26, 44, 62, 80, 320, 338, 356, 374, 392,
+    ]
+      .map(
+        (x, i) =>
+          `<path d="M${x},208v${r1(-10 - (i % 3) * 4)}M${x},208l${r1(-5 - (i % 2) * 2)},${r1(-8 - (i % 3) * 3)}M${x},208l${r1(5 + (i % 2) * 2)},${r1(-8 - (i % 3) * 3)}"/>`,
+      )
       .join("")}</g>` +
     // 案山子と、畦を歩く人
     `<g stroke="#8a6a44" stroke-width="2.6" fill="none"><path d="M130,178v-30M116,158h28"/></g>` +
@@ -1677,10 +1737,12 @@ export const KYUSHU_BG = {
     `<g fill="#5f6a74"><rect x="286" y="156" width="100" height="10" rx="3"/></g>` +
     `<circle cx="312" cy="182" r="24" fill="#6b7480"/>` +
     `<circle cx="312" cy="182" r="18" fill="#8a939c"/>` +
-    `<g fill="#5f6a74">${[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
-      const a = (i * Math.PI) / 4;
-      return `<rect x="${r1(312 + Math.cos(a) * 22 - 3)}" y="${r1(182 + Math.sin(a) * 22 - 3)}" width="6" height="6"/>`;
-    }).join("")}</g>` +
+    `<g fill="#5f6a74">${[0, 1, 2, 3, 4, 5, 6, 7]
+      .map((i) => {
+        const a = (i * Math.PI) / 4;
+        return `<rect x="${r1(312 + Math.cos(a) * 22 - 3)}" y="${r1(182 + Math.sin(a) * 22 - 3)}" width="6" height="6"/>`;
+      })
+      .join("")}</g>` +
     `<circle cx="312" cy="182" r="5" fill="#3f4852"/>` +
     `<circle cx="368" cy="188" r="14" fill="#6b7480"/>` +
     `<circle cx="368" cy="188" r="9" fill="#8a939c"/>` +
@@ -1725,17 +1787,19 @@ export const KYUSHU_BG = {
     // 舗装の割れ目から出た草
     `<g stroke="#6f8a4c" stroke-width="1.6" stroke-linecap="round" fill="none"><path d="M150,192v-8M164,204v-9M252,196v-8M270,206v-9M206,200v-8"/></g>` +
     // 灯籠の列(左右に並ぶ。両側にあることで「列」になる)
-    `<g>${[10, 46, 82, 306, 342, 378].map((x, i) => {
-      const b = 190 - (i % 3) * 6;
-      return (
-        `<rect x="${r1(x - 6)}" y="${r1(b - 6)}" width="12" height="6" fill="#a09a8c"/>` +
-        `<rect x="${r1(x - 4)}" y="${r1(b - 20)}" width="8" height="14" fill="#b0a99a"/>` +
-        `<rect x="${r1(x - 8)}" y="${r1(b - 30)}" width="16" height="10" fill="#c4bdac"/>` +
-        `<rect x="${r1(x - 5)}" y="${r1(b - 28)}" width="10" height="6" fill="#f5b31c"/>` +
-        `<path d="M${r1(x - 11)},${r1(b - 30)}h22l-11,-8z" fill="#a09a8c"/>` +
-        `<ellipse cx="${x}" cy="${b}" rx="13" ry="3.4" fill="#000" opacity=".14"/>`
-      );
-    }).join("")}</g>` +
+    `<g>${[10, 46, 82, 306, 342, 378]
+      .map((x, i) => {
+        const b = 190 - (i % 3) * 6;
+        return (
+          `<rect x="${r1(x - 6)}" y="${r1(b - 6)}" width="12" height="6" fill="#a09a8c"/>` +
+          `<rect x="${r1(x - 4)}" y="${r1(b - 20)}" width="8" height="14" fill="#b0a99a"/>` +
+          `<rect x="${r1(x - 8)}" y="${r1(b - 30)}" width="16" height="10" fill="#c4bdac"/>` +
+          `<rect x="${r1(x - 5)}" y="${r1(b - 28)}" width="10" height="6" fill="#f5b31c"/>` +
+          `<path d="M${r1(x - 11)},${r1(b - 30)}h22l-11,-8z" fill="#a09a8c"/>` +
+          `<ellipse cx="${x}" cy="${b}" rx="13" ry="3.4" fill="#000" opacity=".14"/>`
+        );
+      })
+      .join("")}</g>` +
     // 散る花びら(手前。少しだけ)
     `<g fill="#f2d2dc" opacity=".9"><ellipse cx="112" cy="176" rx="3.4" ry="2.2" transform="rotate(20 112 176)"/><ellipse cx="292" cy="182" rx="3.4" ry="2.2" transform="rotate(-30 292 182)"/><ellipse cx="130" cy="200" rx="3" ry="2" transform="rotate(40 130 200)"/><ellipse cx="276" cy="202" rx="3" ry="2" transform="rotate(-10 276 202)"/></g>`,
 
@@ -1778,17 +1842,19 @@ export const KYUSHU_BG = {
     `<g stroke="#efe8d8" stroke-width="3" fill="none"><path d="M146,190q16,-5 32,0"/></g>` +
     `<g fill="#efe8d8"><path d="M152,192l-3,8h6zM162,193l-3,8h6zM172,192l-3,8h6z"/></g>` +
     // 石灯籠を2基、参道の石畳
-    `<g>${[112, 208].map((x) => {
-      const b = x === 112 ? 196 : 202;
-      return (
-        `<rect x="${r1(x - 7)}" y="${r1(b - 6)}" width="14" height="6" fill="#a09a8c"/>` +
-        `<rect x="${r1(x - 4.4)}" y="${r1(b - 22)}" width="8.8" height="16" fill="#b0a99a"/>` +
-        `<rect x="${r1(x - 9)}" y="${r1(b - 33)}" width="18" height="11" fill="#c4bdac"/>` +
-        `<rect x="${r1(x - 5.4)}" y="${r1(b - 31)}" width="10.8" height="7" fill="#f5b31c"/>` +
-        `<path d="M${r1(x - 12)},${r1(b - 33)}h24l-12,-9z" fill="#a09a8c"/>` +
-        `<ellipse cx="${x}" cy="${b}" rx="14" ry="3.6" fill="#000" opacity=".14"/>`
-      );
-    }).join("")}</g>` +
+    `<g>${[112, 208]
+      .map((x) => {
+        const b = x === 112 ? 196 : 202;
+        return (
+          `<rect x="${r1(x - 7)}" y="${r1(b - 6)}" width="14" height="6" fill="#a09a8c"/>` +
+          `<rect x="${r1(x - 4.4)}" y="${r1(b - 22)}" width="8.8" height="16" fill="#b0a99a"/>` +
+          `<rect x="${r1(x - 9)}" y="${r1(b - 33)}" width="18" height="11" fill="#c4bdac"/>` +
+          `<rect x="${r1(x - 5.4)}" y="${r1(b - 31)}" width="10.8" height="7" fill="#f5b31c"/>` +
+          `<path d="M${r1(x - 12)},${r1(b - 33)}h24l-12,-9z" fill="#a09a8c"/>` +
+          `<ellipse cx="${x}" cy="${b}" rx="14" ry="3.6" fill="#000" opacity=".14"/>`
+        );
+      })
+      .join("")}</g>` +
     `<g fill="#cfc7b4">${[24, 60, 96, 132, 250, 286, 322].map((x, i) => `<ellipse cx="${x}" cy="${r1(196 + (i % 2) * 8)}" rx="15" ry="5"/>`).join("")}</g>` +
     `<g fill="#dfd8c8">${[24, 60, 96, 132, 250, 286, 322].map((x, i) => `<ellipse cx="${r1(x - 2)}" cy="${r1(194.6 + (i % 2) * 8)}" rx="9" ry="3"/>`).join("")}</g>` +
     // 沖の島へ向かう小舟(近づけるのは神職だけ)
@@ -2033,7 +2099,7 @@ export const KYUSHU_MARKS = {
     '<path d="M4.8,3.6q7.2,-1.2 14.4,0v1.2q-7.2,-1 -14.4,0z"/>' +
     '<rect x="5.6" y="6.4" width="12.8" height="1"/>' +
     '<rect x="11.2" y="2" width="1.6" height="2.6"/>' +
-    '</g>',
+    "</g>",
 
   /** 有田の磁器。**染付の壺。** */
   porcelain:
@@ -2049,7 +2115,7 @@ export const KYUSHU_MARKS = {
     '<path d="M7.2,17q0.6,-2.6 2.4,-3.4q-0.4,2.4 -2.4,3.4z"/>' +
     '<path d="M16.8,17q-0.6,-2.6 -2.4,-3.4q0.4,2.4 2.4,3.4z"/>' +
     '<path d="M9.4,3q2.6,-1 5.2,0v0.9q-2.6,-1 -5.2,0z"/>' +
-    '</g>',
+    "</g>",
 
   /** 積出箱(伊万里)。**藁で梱包され、縄で結ばれた箱。** */
   exportcrate:
@@ -2199,10 +2265,10 @@ export const KYUSHU_MARKS = {
     '<ellipse cx="12" cy="21.4" rx="8.4" ry="1.6" fill="#000" opacity=".18"/>' +
     '<g stroke="#5f9a46" stroke-width="1.1" stroke-linecap="round" fill="none">' +
     '<path d="M6.4,21.4L4.4,2.6M8.4,21.4L7.4,1.4M10.4,21.4L10.4,0.8M12,21.4L12.6,1.4M13.8,21.4L15,2M15.6,21.4L17.6,3.4M17.2,21.4L19.6,5.4M5.2,21.4L2.6,5"/>' +
-    '</g>' +
+    "</g>" +
     '<g stroke="#7fb44c" stroke-width="0.9" stroke-linecap="round" fill="none">' +
     '<path d="M7.4,21.4L6.2,3.6M11.2,21.4L11.4,1.6M14.6,21.4L16.2,3.6M16.4,21.4L18.6,5"/>' +
-    '</g>' +
+    "</g>" +
     '<path d="M3.4,12.4h17.2v3.6H3.4z" fill="#c9a05c"/>' +
     '<g stroke="#8a6a2c" stroke-width="0.8" fill="none"><path d="M3.4,13.6h17.2M3.4,15h17.2"/></g>' +
     '<path d="M3.4,17.4h17.2v2.6H3.4z" fill="#c9a05c"/>' +
@@ -2306,7 +2372,7 @@ export const KYUSHU_MARKS = {
     '<path d="M8.6,13.8V7.4a1.5,1.5 0 0 1 3,0v6.4z"/>' +
     '<path d="M12.8,13.8V8.2a1.5,1.5 0 0 1 3,0v5.6z"/>' +
     '<path d="M17,13.8V7.8a1.5,1.5 0 0 1 3,0v6z"/>' +
-    '</g>' +
+    "</g>" +
     '<g fill="#2f3640"><circle cx="5.9" cy="7.4" r="1.5"/><circle cx="10.1" cy="6.2" r="1.5"/><circle cx="14.3" cy="7" r="1.5"/><circle cx="18.5" cy="6.6" r="1.5"/></g>' +
     '<rect x="11.4" y="0.6" width="1" height="7" fill="#6b5330"/>' +
     '<path d="M12.4,1h5.6l-1.4,1.6l1.4,1.6h-5.6z" fill="#8a8272"/>',
@@ -2320,7 +2386,7 @@ export const KYUSHU_MARKS = {
     '<path d="M5.4,7.6q-1.8,3 0.4,5.2t5.4,0.4q-0.6,-3.6 -2.8,-4.8z"/>' +
     '<path d="M16.4,17.4q-2.8,2 -5.2,0.4q0.4,-2.6 2,-3.6q2.4,-0.4 3.2,3.2z"/>' +
     '<path d="M7.6,17.4q2.8,2 5.2,0.4q-0.4,-2.6 -2,-3.6q-2.4,-0.4 -3.2,3.2z"/>' +
-    '</g>' +
+    "</g>" +
     '<circle cx="12" cy="11.6" r="2.4" fill="#f8e2e8"/>' +
     '<g fill="#e8809a"><circle cx="12" cy="11.6" r="1"/><path d="M12,10.6l0.6,-2.4M12,10.6l-2,-1.4" stroke="#e8809a" stroke-width="0.7" fill="none"/></g>' +
     '<path d="M2.4,20.6q1.4,-2.4 3.4,-1.4q-0.6,2.6 -3.4,1.4z" fill="#f2d2dc"/>' +

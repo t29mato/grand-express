@@ -68,6 +68,7 @@ const STYLE_LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   southafrica: () => import("../content/southafrica.content.json").then((m) => (m.default as { styles: unknown }).styles),
   norway: () => import("../content/norway.content.json").then((m) => (m.default as { styles: unknown }).styles),
   hokkaido: () => import("../content/hokkaido.content.json").then((m) => (m.default as { styles: unknown }).styles),
+  kyushu: () => import("../content/kyushu.content.json").then((m) => (m.default as { styles: unknown }).styles),
   newzealand: () => import("../content/newzealand.content.json").then((m) => (m.default as { styles: unknown }).styles),
   spain: () => import("../content/spain.content.json").then((m) => (m.default as { styles: unknown }).styles),
   venezuela: () => import("../content/venezuela.content.json").then((m) => (m.default as { styles: unknown }).styles),

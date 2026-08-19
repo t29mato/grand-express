@@ -18,6 +18,46 @@ const region = (code: string) => RegionId(code);
 
 /** 月インデックス(0=4月)ごとの季節効果。 */
 export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readonly SeasonEffectOp[])[]>> = {
+  kyushu: [
+    /* 0 Apr 全国最速の桜前線(給アイテム) */ [{ op: "give-item-to-all" }],
+    /* 1 May 博多どんたく(福岡の街頭祭り) */ [
+      { op: "region-income-multiplier", regionId: region("fuk"), multiplier: 1.2 },
+    ],
+    /* 2 Jun 有明海のムツゴロウ・梅雨入り */ [
+      { op: "region-income-multiplier", regionId: region("sag"), multiplier: 1.1 },
+    ],
+    /* 3 Jul 博多祇園山笠 */ [
+      { op: "region-income-multiplier", regionId: region("fuk"), multiplier: 1.25 },
+    ],
+    /* 4 Aug 台風が本格化(九州南部が最初に受け止める) */ [
+      { op: "region-income-multiplier", regionId: region("kag"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("toe"), multiplier: 0.85 },
+    ],
+    /* 5 Sep 筑紫平野の稲がそろって実る */ [
+      { op: "region-income-multiplier", regionId: region("fuk"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("sag"), multiplier: 1.1 },
+    ],
+    /* 6 Oct 芋焼酎の仕込み(南九州) */ [
+      { op: "region-income-multiplier", regionId: region("toe"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("kag"), multiplier: 1.15 },
+    ],
+    /* 7 Nov 唐津くんちの曳山 */ [
+      { op: "region-income-multiplier", regionId: region("sag"), multiplier: 1.2 },
+    ],
+    /* 8 Dec みかんの段々畑が色づく */ [
+      { op: "region-income-multiplier", regionId: region("nag"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("toe"), multiplier: 1.1 },
+    ],
+    /* 9 Jan 玄界灘の寒ブリ漁 */ [
+      { op: "region-income-multiplier", regionId: region("fuk"), multiplier: 1.15 },
+    ],
+    /* 10 Feb 長崎ランタンフェスティバル */ [
+      { op: "region-income-multiplier", regionId: region("nag"), multiplier: 1.15 },
+    ],
+    /* 11 Mar 茶の木を刈り込む(実入りの薄い月) */ [
+      { op: "region-income-multiplier", regionId: region("fuk"), multiplier: 0.95 },
+    ],
+  ],
   hokkaido: [
     /* 0 Apr 桜前線がようやく届く(観光のわずかな上振れ) */ [
       { op: "all-players-gain-cash", amount: 160 },
@@ -2229,6 +2269,14 @@ newzealand: [
  * フレーバーに応じて異なる。`id` → 効果種別の対応。
  */
 export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>> = {
+  // Kyushu
+  "kougai-jiban": "skipTurn", // 旧坑道の陥没で通行止め
+  "shiokaze-sabi": "fine", // 潮風で錆びた分岐器の修理費
+  "gouu-keihou": "skipTurn", // 大雨警報で足止め
+  "kanmon-kiri": "skipTurn", // 海峡の霧で船が動けず足止め
+  "kazan-bai-kansoku": "fine", // 降灰で空路が止まり振替の交通費
+  "taifuu-shinro": "percentLoss", // 進路を変えた台風で物件が値崩れ
+  "kigyou-torikeshi": "teleport", // 乗継列車が運休し、バスへ迂回させられる
   // Hokkaido
   fubuki: "teleport",              // 地吹雪のホワイトアウトで方向を見失い、気づけば違う場所にいる
   "ryuuhyou-doom": "steal",        // ★ 流氷で港に足止めされている間に置き引きに遭う、というやや弱い結びつき

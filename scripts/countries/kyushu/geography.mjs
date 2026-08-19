@@ -164,7 +164,21 @@ const TANEGASHIMA = [
   [130.95, 30.78],
 ];
 
-export const KYUSHU_LAND = [KYUSHU_MAINLAND, GOTO, TANEGASHIMA];
+
+/**
+ * 端島(軍艦島)。**実際に0.06km²しかない**ので、この縮尺では点にしかならない。
+ * ただし陸地ポリゴンに無いと、都市が海に浮いていると判定される。
+ * 実際の島の形(南北に細長い)を保ったまま、判定が通る最小限の大きさで描く。
+ */
+const HASHIMA = [
+  [129.735, 32.632],
+  [129.742, 32.630],
+  [129.742, 32.624],
+  [129.735, 32.623],
+  [129.732, 32.628],
+];
+
+export const KYUSHU_LAND = [KYUSHU_MAINLAND, GOTO, TANEGASHIMA, HASHIMA];
 
 /**
  * 地形帯。陸地でクリップして描かれるので、多角形は多少はみ出してよい。

@@ -29,6 +29,7 @@ const LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   southafrica: () => import("./southafrica.content.json").then((m) => m.default),
   norway: () => import("./norway.content.json").then((m) => m.default),
   hokkaido: () => import("./hokkaido.content.json").then((m) => m.default),
+  kyushu: () => import("./kyushu.content.json").then((m) => m.default),
   newzealand: () => import("./newzealand.content.json").then((m) => m.default),
   spain: () => import("./spain.content.json").then((m) => m.default),
   venezuela: () => import("./venezuela.content.json").then((m) => m.default),
