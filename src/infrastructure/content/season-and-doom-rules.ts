@@ -19,6 +19,57 @@ const region = (code: string) => RegionId(code);
 /** 月インデックス(0=4月)ごとの季節効果。 */
 export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readonly SeasonEffectOp[])[]>> = {
   /**
+   * エジプト。シャム・エンネシーム(4月・給アイテム) → 試験期の酷暑
+   * → 麦の収穫 → 真夏の酷暑(南部の観光閑散期) → 綿花摘み(8月・休神)
+   * → コプト新年ナイルーズ → マウリドの季節 → 柑橘の収穫 →
+   * ナイル川クルーズの最盛期 → サトウキビの収穫 → 冬野菜の輸出最盛期 →
+   * ラマダーン(3月)、という流れ。
+   */
+  egypt: [
+    /* 0 Apr シャム・エンネシーム(給アイテム) */ [{ op: "give-item-to-all" }],
+    /* 1 May 試験期と最初の酷暑(カイロの塾・冷房需要で家計が締まる) */ [
+      { op: "region-income-multiplier", regionId: region("cairo"), multiplier: 0.95 },
+    ],
+    /* 2 Jun 麦の収穫(ナイル渓谷全体) */ [
+      { op: "region-income-multiplier", regionId: region("delta"), multiplier: 1.15 },
+    ],
+    /* 3 Jul 真夏の酷暑(上エジプト・渓谷の観光閑散期) */ [
+      { op: "region-income-multiplier", regionId: region("upper"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("valley"), multiplier: 0.85 },
+    ],
+    /* 4 Aug 綿花摘み・酷暑続く(休神) */ [
+      { op: "region-income-multiplier", regionId: region("delta"), multiplier: 0.9 },
+      { op: "rest-spirit" },
+    ],
+    /* 5 Sep コプト新年ナイルーズ */ [
+      { op: "region-income-multiplier", regionId: region("valley"), multiplier: 1.05 },
+    ],
+    /* 6 Oct マウリドの季節・綿花輸出の追い込み */ [
+      { op: "region-income-multiplier", regionId: region("delta"), multiplier: 1.1 },
+    ],
+    /* 7 Nov 柑橘の収穫・輸出 */ [
+      { op: "region-income-multiplier", regionId: region("delta"), multiplier: 1.15 },
+    ],
+    /* 8 Dec ナイル川クルーズの最盛期(南部の観光最盛期) */ [
+      { op: "region-income-multiplier", regionId: region("upper"), multiplier: 1.25 },
+    ],
+    /* 9 Jan サトウキビの収穫が始まる(季節労働の実入り) */ [
+      { op: "region-income-multiplier", regionId: region("upper"), multiplier: 1.2 },
+    ],
+    /* 10 Feb 冬野菜の輸出最盛期 */ [
+      { op: "region-income-multiplier", regionId: region("delta"), multiplier: 1.1 },
+    ],
+    /* 11 Mar ラマダーン(営業時間短縮とザカート・喜捨) */ [
+      { op: "region-income-multiplier", regionId: region("cairo"), multiplier: 0.9 },
+      { op: "region-income-multiplier", regionId: region("delta"), multiplier: 0.9 },
+      { op: "region-income-multiplier", regionId: region("canal"), multiplier: 0.9 },
+      { op: "region-income-multiplier", regionId: region("medit"), multiplier: 0.9 },
+      { op: "region-income-multiplier", regionId: region("valley"), multiplier: 0.9 },
+      { op: "region-income-multiplier", regionId: region("upper"), multiplier: 0.9 },
+      { op: "all-players-pay-cash", amount: 150 },
+    ],
+  ],
+  /**
    * アフリカ大陸。東アフリカの長雨 → ザンベジの増水 → サヘルの酷暑 →
    * グレート・マイグレーションのマラ川渡渉 → ナマクアランドの花 →
    * エンクタタシュ(9月・給アイテム) → 東アフリカの短雨 → ハルマッタン →
@@ -1902,6 +1953,14 @@ newzealand: [
  * フレーバーに応じて異なる。`id` → 効果種別の対応。
  */
 export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>> = {
+  // Egypt
+  khamsin: "skipTurn", // 砂嵐で線路が埋まり、掘り出すまで足止め
+  canalblock: "teleport", // 座礁した船が運河を塞ぎ、迂回させられる
+  heatbuckle: "fine", // 猛暑で反った線路の修理費(エジプト)。アジアの railbuckle とは別物
+  ferryoverload: "skipTurn", // 渡し船の積み過ぎで足止め
+  zaffa: "payOthers", // 結婚式の行列に居合わせ、祝儀を分け与える
+  blackout: "percentLoss", // 夏の停電で物件の在庫が傷み値崩れする
+  scenicroute: "fine", // ファルーカ船頭の遠回りで余計な料金
   // Africa
   harmattan: "fine", // 砂に埋もれた線路の掘り出し費用
   washout: "loseProperties", // 洗い流された土手ぞいの物件

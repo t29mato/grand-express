@@ -51,6 +51,7 @@ export const CURRENCY_MULTIPLIERS = {
   // ドル建て(×100)なのに引きずられたもので、ペソはドルの1/17なので合わない。
   mexico: 1200,
   africa: 100,
+  egypt: 3300,
   newzealand: 100,
   spain: 100,
   // US$120,000 → 開始資金1200×100(team-lead指定)。

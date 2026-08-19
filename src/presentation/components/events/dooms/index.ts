@@ -237,6 +237,13 @@ import { AfricaGaugebreak } from "./africa-gaugebreak";
 import { AfricaCheckpoint } from "./africa-checkpoint";
 import { AfricaWildlifedetour } from "./africa-wildlifedetour";
 import { AfricaCoppertheft } from "./africa-coppertheft";
+import { EgyptKhamsin } from "./egypt-khamsin";
+import { EgyptCanalblock } from "./egypt-canalblock";
+import { EgyptHeatbuckle } from "./egypt-heatbuckle";
+import { EgyptFerryoverload } from "./egypt-ferryoverload";
+import { EgyptZaffa } from "./egypt-zaffa";
+import { EgyptBlackout } from "./egypt-blackout";
+import { EgyptScenicroute } from "./egypt-scenicroute";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -487,6 +494,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "africa-checkpoint": AfricaCheckpoint,
   "africa-wildlifedetour": AfricaWildlifedetour,
   "africa-coppertheft": AfricaCoppertheft,
+  "egypt-khamsin": EgyptKhamsin,
+  "egypt-canalblock": EgyptCanalblock,
+  "egypt-heatbuckle": EgyptHeatbuckle,
+  "egypt-ferryoverload": EgyptFerryoverload,
+  "egypt-zaffa": EgyptZaffa,
+  "egypt-blackout": EgyptBlackout,
+  "egypt-scenicroute": EgyptScenicroute,
 };
 
 /** その国のその災難の絵。無ければ undefined。 */

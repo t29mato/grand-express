@@ -382,4 +382,14 @@ jandalsprint: { type: "extra-turn" },
   coffeesack: { type: "roll-fixed-dice", diceCount: 2 },
   orewagonslip: { type: "roll-fixed-dice", diceCount: 3 },
   trackwalkerlantern: { type: "repel-spirit" },
+  // Egypt
+  feluccawind: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  camelpace: { type: "choose-exact-dice" },
+  microbusride: { type: "roll-fixed-dice", diceCount: 2 },
+  deserthighspeed: { type: "roll-fixed-dice", diceCount: 3 },
+  ironnail: { type: "none" }, // 厄災の神(ナダーハ)のward item(passive)
+  saltoveshoulder: { type: "repel-spirit" },
+  thanaweyaguide: { type: "quiz-save" },
+  oldpiastres: { type: "gain-cash", amount: 260 },
+  telegraphsprint: { type: "extra-turn" },
 };

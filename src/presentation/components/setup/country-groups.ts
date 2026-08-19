@@ -79,7 +79,7 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
     key: "africa",
     label: { en: "Africa", es: "África", fr: "Afrique", ja: "アフリカ" },
     wholeBoardId: "africa",
-    countryIds: ["africa", "morocco", "ghana"],
+    countryIds: ["africa", "egypt", "morocco", "ghana"],
   },
   {
     // **南北を分けた。**大陸ぜんぶを走る盤面が「北アメリカ」「南アメリカ」の

@@ -951,5 +951,33 @@
       "lat0": 38,
       "lat1": -35.5
     }
+  },
+  {
+    "id": "egypt",
+    "name": {
+      "en": "Egypt",
+      "es": "Egipto",
+      "fr": "Égypte",
+      "ja": "エジプト"
+    },
+    "blurb": {
+      "en": "A nation drawn onto a green thread through a sea of empty desert",
+      "es": "Una nación trazada sobre un hilo verde en medio de un mar de desierto vacío",
+      "fr": "Une nation tracée sur un fil vert au milieu d'une mer de désert vide",
+      "ja": "海のような空の砂漠の中、一本の緑の糸の上に描かれた国"
+    },
+    "currency": {
+      "prefix": "",
+      "suffix": " £E",
+      "multiplier": 3300
+    },
+    "thumbViewBox": "0 0 2150 1950",
+    "thumbSvg": "<rect width=\"2150\" height=\"1950\" fill=\"#1a5276\"/><g><polygon points=\"86,58 471,81 765,183 920,106 1018,42 1170,35 1261,48 1338,93 1565,125 1679,93 1797,454 1754,550 1729,656 1686,807 1574,705 1488,521 1393,386 1385,373 1479,685 1625,898 1643,994 1694,1120 1797,1323 2124,1902 946,1911 86,1911 86,1139 86,560 86,58\" fill=\"#c9a66b\" stroke=\"#8a6d3f\" stroke-width=\"20.6\" stroke-linejoin=\"round\"/></g><g opacity=\".9\"><polygon points=\"1433,1521 1459,1496 1459,1429 1428,1323 1373,1265 1390,1187 1321,1120 1404,1097 1259,1062 1226,1019 1137,900 1061,722 1123,537 1149,340 1170,340 1146,541 1085,724 1161,904 1247,1023 1280,1066 1414,1100 1331,1124 1393,1191 1376,1268 1431,1326 1460,1433 1460,1500 1433,1521\" fill=\"#5a9c3f\" stroke=\"#5a9c3f\" stroke-width=\"48.8\" stroke-linejoin=\"round\"/><polygon points=\"1135,340 1178,340 1261,87 1170,54 1049,68 1018,68 1041,203 1084,309\" fill=\"#6bab4a\" stroke=\"#6bab4a\" stroke-width=\"13.3\" stroke-linejoin=\"round\"/><polygon points=\"1006,444 1109,440 1115,502 1049,525 998,492\" fill=\"#6bab4a\" stroke=\"#6bab4a\" stroke-width=\"15.5\" stroke-linejoin=\"round\"/><polygon points=\"1557,541 1660,570 1668,685 1591,685 1548,627\" fill=\"#8f8577\" stroke=\"#8f8577\" stroke-width=\"13.3\" stroke-linejoin=\"round\"/></g><circle cx=\"1159\" cy=\"355\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1142\" cy=\"375\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1175\" cy=\"396\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1170\" cy=\"332\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1256\" cy=\"363\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1118\" cy=\"216\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1183\" cy=\"166\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1204\" cy=\"253\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1027\" cy=\"168\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1147\" cy=\"180\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1259\" cy=\"93\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1108\" cy=\"153\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1164\" cy=\"228\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1018\" cy=\"97\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1149\" cy=\"278\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"968\" cy=\"149\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1140\" cy=\"330\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1087\" cy=\"207\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1146\" cy=\"241\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1385\" cy=\"373\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1336\" cy=\"251\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1338\" cy=\"124\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1345\" cy=\"199\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"932\" cy=\"135\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"683\" cy=\"180\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"471\" cy=\"106\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"765\" cy=\"207\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1135\" cy=\"546\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1073\" cy=\"732\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1090\" cy=\"500\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1149\" cy=\"911\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1238\" cy=\"1031\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1414\" cy=\"1108\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1331\" cy=\"1129\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1271\" cy=\"1073\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1400\" cy=\"1199\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1440\" cy=\"1336\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1450\" cy=\"1438\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1385\" cy=\"1276\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1445\" cy=\"1508\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/><circle cx=\"1428\" cy=\"1467\" r=\"20.6\" fill=\"#f6efe2\" stroke=\"#241a10\" stroke-width=\"6.6\"/>",
+    "bounds": {
+      "lon0": 24.5,
+      "lon1": 37,
+      "lat0": 31.9,
+      "lat1": 21.8
+    }
   }
 ]
