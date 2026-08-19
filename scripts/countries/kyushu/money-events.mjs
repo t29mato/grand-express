@@ -1,8 +1,8 @@
 /**
  * 九州地方の青マス・赤マスで起きる出来事(20件。増10・減10)。
  *
- * 地方コード: fuk=福岡 / sag=佐賀 / nag=長崎 / kum=熊本 / oit=大分 /
- * miy=宮崎 / kag=鹿児島(cities.mjsの地方区分と同じ)。
+ * 地方コード: fuk=福岡 / sag=佐賀 / nag=長崎 / kum=熊本 /
+ * toe=東九州(大分+宮崎) / kag=鹿児島(cities.mjsの地方区分と同じ)。
  *
  * **都市カード・アイテム・厄災で扱った大きな出来事(三池・端島・平戸・
  * 浦上・桜島・西九州新幹線の分断そのもの)はここでは繰り返さない。**
@@ -114,27 +114,26 @@ export const KYUSHU_MONEY_EVENTS = [
     [11],
   ),
 
-  // ---- 大分(oit) ----
+  // ---- 東九州(toe。大分+宮崎) ----
   ev(
-    "onsen-jigoku-annai", "gain", ["oit"], "♨️", 200,
+    "onsen-jigoku-annai", "gain", ["toe"], "♨️", 200,
     "Guiding tourists between the boiling pools|Guiando turistas entre las pozas hirvientes|Guider des touristes entre les bassins bouillants|沸き立つ湯を案内して回る",
     "A tour group needs someone who knows which of the coloured hot pools are safe to stand near and which are not, and the tips are decent for an afternoon spent not falling in. Some of these springs run hot enough to cook an egg in a few minutes flat.|Un grupo turístico necesita a alguien que sepa cerca de qué pozas de colores es seguro estar y de cuáles no, y las propinas son decentes por una tarde sin caerse dentro. Algunas de estas fuentes hierven lo bastante como para cocer un huevo en pocos minutos.|Un groupe de touristes a besoin de quelqu'un qui sache près de quels bassins colorés on peut s'approcher sans danger, et les pourboires sont corrects pour un après-midi sans tomber dedans. Certaines de ces sources bouillent assez fort pour cuire un œuf en quelques minutes.|色とりどりの温泉のどれに近づいて安全でどれが危ないかを知る案内人が求められた。落ちさえしなければ、午後のチップは悪くない。中には数分で卵をゆでられるほど沸いている湯もある。",
   ),
   ev(
-    "ikada-kudakeru", "loss", ["oit"], "🪵", 220,
+    "ikada-kudakeru", "loss", ["toe"], "🪵", 220,
     "The timber raft breaks apart on the river|La balsa de madera se rompe en el río|Le radeau de bois se disloque sur la rivière|材木の筏が川で崩れる",
     "A rope gives way on a bend and the raft of cedar logs cut upstream scatters into the current, and whatever cannot be recaught downstream comes out of the crew's pay. The trade has run this river for so long that the merchant district's warehouses still face the water, not the road, but the water does not always cooperate.|Una cuerda cede en una curva y la balsa de troncos de cedro talados río arriba se dispersa en la corriente, y lo que no se recupera aguas abajo sale de la paga de la cuadrilla. El oficio lleva tanto tiempo en este río que los almacenes del barrio mercantil aún miran al agua, no a la carretera, pero el agua no siempre coopera.|Une corde cède dans un virage et le radeau de cèdre coupé en amont se disperse dans le courant, et ce qui n'est pas rattrapé en aval est retenu sur la paie de l'équipe. Le commerce dure sur cette rivière depuis si longtemps que les entrepôts du quartier marchand font encore face à l'eau, non à la route, mais l'eau ne coopère pas toujours.|曲がり角で綱が切れ、上流で伐った杉の筏が流れにばらけてしまい、下流で拾い切れなかった分は組の日当から引かれる。この商いがあまりに長く川とともにあったため、商家の蔵は今も道ではなく水のほうを向いているが、水はいつも味方するとは限らない。",
   ),
 
-  // ---- 宮崎(miy) ----
   ev(
-    "shochu-kojiya", "gain", ["miy"], "🍠", 240,
+    "shochu-kojiya", "gain", ["toe"], "🍠", 240,
     "A malting room needs a night watch|Una sala de malteado necesita vigilancia nocturna|Une salle de maltage a besoin d'une garde de nuit|麹室の夜番を頼まれる",
     "The koji mould that turns steamed sweet potato into the base of shōchū has to be checked through the night for temperature, and the distillery pays well for someone willing to stay awake and keep it from overheating. Miss the window by an hour and the whole batch turns.|El moho koji que convierte el boniato al vapor en base de shōchū hay que vigilarlo toda la noche por su temperatura, y la destilería paga bien a quien esté dispuesto a no dormir y evitar que se recaliente. Si se pasa la ventana una hora, el lote entero se echa a perder.|Le moisi koji qui transforme la patate douce cuite à la vapeur en base de shōchū doit être surveillé toute la nuit pour sa température, et la distillerie paie bien qui accepte de rester éveillé pour éviter la surchauffe. Rater la fenêtre d'une heure et tout le lot est perdu.|蒸した芋を焼酎のもとに変える麹は一晩じゅう温度を見張らねばならず、蒸留所は起きていて過熱を防げる人を高く雇う。一時間でも見過ごせば、その一仕込みがまるごと駄目になる。",
     [6],
   ),
   ev(
-    "taifu-sonshitsu-miyazaki", "loss", ["miy"], "🌀", 240,
+    "taifu-sonshitsu-miyazaki", "loss", ["toe"], "🌀", 240,
     "The mango greenhouse loses its roof|El invernadero de mangos pierde el techo|La serre à mangues perd son toit|マンゴー温室の屋根が飛ぶ",
     "A typhoon crossing the coast peels the plastic sheeting off a greenhouse overnight, and every fruit inside has to be picked early and sold cheap before the sun finishes the job. The farm carries insurance for exactly this, but the paperwork never moves as fast as the weather.|Un tifón que cruza la costa arranca el plástico de un invernadero durante la noche, y hay que recoger toda la fruta antes de tiempo y venderla barata antes de que el sol termine el trabajo. La granja tiene seguro justo para esto, pero el papeleo nunca va tan rápido como el tiempo.|Un typhon traversant la côte arrache la bâche plastique d'une serre pendant la nuit, et il faut cueillir tous les fruits en avance et les vendre bon marché avant que le soleil ne finisse le travail. La ferme est assurée pour exactement cela, mais la paperasse ne va jamais aussi vite que le temps.|沿岸を通った台風が一晩でビニールハウスの覆いを剥いでしまい、日差しが仕事を終わらせる前に中の実をすべて早採りして安く売るしかなくなった。農家はこのために保険をかけているが、書類の手続きは天気ほど速くは進まない。",
     [4, 5],

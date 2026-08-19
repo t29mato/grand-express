@@ -5,10 +5,29 @@
 `art.mjs` と `dooms/kyushu-*.tsx` 7枚は別担当(絵の専任)がこれから作成する。
 
 都市40・路線43(うち航路4)・クイズ102・お金の出来事20・アイテム9・厄災7・
-季節12・地方7(県)・mark35種・bg35種・音楽7地方。以下、共有ファイルへ
-貼り付けるためのコード片。
+季節12・**地方6**(福岡・佐賀・長崎・熊本・東九州=大分+宮崎・鹿児島)・
+mark35種・bg35種・音楽6地方。以下、共有ファイルへ貼り付けるためのコード片。
 
-測定時刻: 2026-08-20 03:58 JST(最終版)。
+測定時刻: 2026-08-20 04:04 JST(地方統合・物件価格修正を終えた最終版)。
+
+## 地方を7→6にまとめた理由
+
+**大分・宮崎がそれぞれ3都市ずつと薄く、team-lead から指摘を受けて
+「東九州」(`toe`)にまとめた。**選べる案は3つ提示された。
+
+```
+(a) 大分と宮崎をまとめて「東九州」にする      → 6都市。音楽は6式
+(b) 大分・宮崎に都市を足して各6にする         → 都市数が46前後に増える
+(c) そのまま7区分でいく                       → 音楽7式。3都市の地方が2つ
+```
+
+**(a) を選んだ。**大分(大分・日田・中津)と宮崎(延岡・都城・飫肥)は
+どちらも日豊本線で結ばれた九州東側の海岸線にあり、まとめても地理として
+不自然ではない。都市を新たに足すのは凍結前の判断としては重く、
+7区分のまま3都市の地方を2つ抱えるより、6都市1地方のほうが音楽・季節
+それぞれ1式の厚みが出ると判断した。`music.mjs` は大分用に書いていた
+1式(律音階ホ調)を削り、宮崎用に書いていた1式(陽音階変ロ調)を
+「東九州」として残した(書き直しの手間を抑えるため)。
 
 ## この盤面の芯(1行)
 
@@ -89,10 +108,10 @@ const AUTHORED_COUNTRIES = [
 
 ### 6a. `SEASON_EFFECTS_BY_COUNTRY` に足す12ヶ月ぶん
 
-地方コード: `fuk`=福岡 / `sag`=佐賀 / `nag`=長崎 / `kum`=熊本 / `oit`=大分 /
-`miy`=宮崎 / `kag`=鹿児島(cities.mjsの地方区分と同じ)。4月始まり。
-0月(桜前線、給アイテム)・4月(台風本格化、九州南部が不況)という
-起伏に合わせた。
+地方コード: `fuk`=福岡 / `sag`=佐賀 / `nag`=長崎 / `kum`=熊本 /
+`toe`=東九州(大分+宮崎) / `kag`=鹿児島(cities.mjsの地方区分と同じ)。
+4月始まり。0月(桜前線、給アイテム)・4月(台風本格化、九州南部が不況)
+という起伏に合わせた。
 
 既存の `SEASON_EFFECTS_BY_COUNTRY` オブジェクトの閉じ `};` の直前に追加:
 
@@ -116,14 +135,14 @@ const AUTHORED_COUNTRIES = [
     ],
     /* 4 Aug 台風が本格化(九州南部が最初に受け止める) */ [
       { op: "region-income-multiplier", regionId: region("kag"), multiplier: 0.85 },
-      { op: "region-income-multiplier", regionId: region("miy"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("toe"), multiplier: 0.85 },
     ],
     /* 5 Sep 筑紫平野の稲がそろって実る */ [
       { op: "region-income-multiplier", regionId: region("fuk"), multiplier: 1.15 },
       { op: "region-income-multiplier", regionId: region("sag"), multiplier: 1.1 },
     ],
     /* 6 Oct 芋焼酎の仕込み(南九州) */ [
-      { op: "region-income-multiplier", regionId: region("miy"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("toe"), multiplier: 1.15 },
       { op: "region-income-multiplier", regionId: region("kag"), multiplier: 1.15 },
     ],
     /* 7 Nov 唐津くんちの曳山 */ [
@@ -131,7 +150,7 @@ const AUTHORED_COUNTRIES = [
     ],
     /* 8 Dec みかんの段々畑が色づく */ [
       { op: "region-income-multiplier", regionId: region("nag"), multiplier: 1.1 },
-      { op: "region-income-multiplier", regionId: region("oit"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("toe"), multiplier: 1.1 },
     ],
     /* 9 Jan 玄界灘の寒ブリ漁 */ [
       { op: "region-income-multiplier", regionId: region("fuk"), multiplier: 1.15 },
@@ -206,7 +225,7 @@ import { KyushuKigyouTorikeshi } from "./kyushu-kigyou-torikeshi";
   以下を確認した。
   - 都市40・路線43(うち航路4)・クイズ102(難易度1〜3が26問・7以上が
     34問・9〜10が10問)・お金の出来事20(増10・減10)・アイテム9・厄災7・
-    季節12・地方7。例外なし。
+    季節12・地方6。例外なし。
 - **4言語の欠け**: 全ファイルで `t()`/`city()` の検証(`|`が3本ちょうど、
   props2件ちょうど)を通過。書いている最中に例外で気づいたもの
   (money-eventsで3件・quizで4件)はすべて直った状態でコミットしてある。
@@ -264,7 +283,7 @@ import { KyushuKigyouTorikeshi } from "./kyushu-kigyou-torikeshi";
   `tsubametokkyu`/`kyuurinohono`/`suijinomamori`/`imarizuke`/
   `botayamasuberidai`/`kangientouan`)が、既存の鍵一覧(全盤面分)と
   衝突しないことを機械チェック済み(0件)。
-- 音楽: 7地方すべての `mel`(8小節)が1小節16ステップぴったりで埋まって
+- 音楽: 6地方すべての `mel`(8小節)が1小節16ステップぴったりで埋まって
   いることを機械チェック済み(過不足0)、`ch` も8和音ぴったり。
 - 物件価格: **最初の草稿が最安220〜最高340(1.55倍)しか無く、目安の
   12〜17倍に遠く届いていなかった。**40都市80件を都市の重み(自分で
@@ -289,5 +308,5 @@ import { KyushuKigyouTorikeshi } from "./kyushu-kigyou-torikeshi";
   種類は、他盤面とのバランスを見て自分で割り振った。** 内容の文章と
   合っているか(`percentLoss`=物件の値崩れ、`teleport`=バスへ迂回)、
   team-leadの目でも確認してほしい。
-- **地方分けは県そのもの(7県)にした。** ibaraki(5地方)・
-  hyakumeizan(8地方)と同じく、実際の行政区分をそのまま使う方針に沿った。
+- **地方分けは大分・宮崎を「東九州」にまとめて6地方にした。** 理由は
+  冒頭の節を参照。

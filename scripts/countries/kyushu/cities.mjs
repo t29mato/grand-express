@@ -295,7 +295,8 @@ export const KYUSHU_CITIES = {
   ),
 
   // ---------------------------------------------------------------------
-  // oit — 大分県(3)
+  // toe — 東九州(大分3+宮崎3=6。日豊本線で結ばれた九州東側の海岸線として
+  // 一つの地方にまとめた。理由は REGISTER.md を参照)
   // ---------------------------------------------------------------------
   oita: city(
     "Ōita|Ōita|Ōita|大分",
@@ -322,9 +323,6 @@ export const KYUSHU_CITIES = {
      prop("Nakatsu Castle Moat|Foso del castillo de Nakatsu|Douves du château de Nakatsu|中津城の堀", 630, 52)],
   ),
 
-  // ---------------------------------------------------------------------
-  // miy — 宮崎県(3)
-  // ---------------------------------------------------------------------
   nobeoka: city(
     "Nobeoka|Nobeoka|Nobeoka|延岡",
     131.66, 32.58, "toe", "chemicalplant", "companytown", "r",

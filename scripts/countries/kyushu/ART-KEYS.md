@@ -1,8 +1,10 @@
 # 九州盤面の絵の鍵(絵の担当向け)
 
-更新時刻: 2026-08-20 03:50(完成版)。`cities.mjs`(40都市・43路線)・
+更新時刻: 2026-08-20 04:06(完成版。都市・記号・背景は03:50時点から変更なし。
+大分・宮崎を「東九州」1地方にまとめた地方統合のみ後から入れたので、
+**絵の担当への影響は無い**)。`cities.mjs`(40都市・43路線)・
 `geography.mjs`・`quiz.mjs`(102問)・`flavour.mjs`・`money-events.mjs`(20件)・
-`music.mjs`(7地方)・`index.mjs`・`REGISTER.md` まで済んだ。
+`music.mjs`(6地方)・`index.mjs`・`REGISTER.md` まで済んだ。
 
 `art.mjs` と厄災の絵(`dooms/kyushu-*.tsx` 7枚)は絵の専任が別途作成する。
 このドキュメントは、その担当が `cities.mjs` から実際に参照しているキーを
@@ -126,7 +128,7 @@
 
 - 4言語(en/es/fr/ja)の欠落: `city()`/`t()` の検証(`|`が3本ちょうど、
   props2件ちょうど)を40都市・全フィールド、money-events20件、
-  flavour(items9・doom7・seasons12・regions7)、music(7地方・8小節・
+  flavour(items9・doom7・seasons12・regions6)、music(6地方・8小節・
   16ステップ・8和音)、quiz102問すべてで例外0件。作業中に見つけた欠落
   (money-eventsで3件・quizで4件)はすべて直した状態。
 - `node --check` / `npx eslint scripts/countries/kyushu/`: 全ファイルで

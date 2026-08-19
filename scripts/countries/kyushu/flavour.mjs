@@ -30,14 +30,16 @@ export const KYUSHU_META = {
   stripe: ["#2b2b2b", "#c0392b", "#1e4266", "#3f6fa8"],
 };
 
-/** 九州の実際の7県。 */
+/**
+ * 九州の6地方。大分・宮崎は3都市ずつと薄いため、日豊本線で結ばれた
+ * 東側の海岸線として「東九州」(`toe`)にまとめた(cities.mjs参照)。
+ */
 export const KYUSHU_REGIONS = {
   fuk: t("Fukuoka|Fukuoka|Fukuoka|福岡"),
   sag: t("Saga|Saga|Saga|佐賀"),
   nag: t("Nagasaki|Nagasaki|Nagasaki|長崎"),
   kum: t("Kumamoto|Kumamoto|Kumamoto|熊本"),
-  oit: t("Ōita|Ōita|Ōita|大分"),
-  miy: t("Miyazaki|Miyazaki|Miyazaki|宮崎"),
+  toe: t("Eastern Kyūshū — Ōita & Miyazaki|Este de Kyūshū: Ōita y Miyazaki|Est du Kyūshū : Ōita et Miyazaki|東九州(大分・宮崎)"),
   kag: t("Kagoshima|Kagoshima|Kagoshima|鹿児島"),
 };
 
