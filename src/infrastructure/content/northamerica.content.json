@@ -5496,42 +5496,6 @@
       }
     },
     {
-      "difficulty": 6,
-      "q": {
-        "en": "A 1494 treaty between Spain and Portugal drew a north-south line dividing newly claimed territory in the Americas — what is this treaty called?",
-        "es": "Un tratado de 1494 entre España y Portugal trazó una línea de norte a sur que dividía el territorio recién reclamado en América; ¿cómo se llama este tratado?",
-        "fr": "Un traité de 1494 entre l'Espagne et le Portugal traça une ligne nord-sud divisant le territoire nouvellement revendiqué dans les Amériques — comment appelle-t-on ce traité ?",
-        "ja": "1494年、スペインとポルトガルの間で結ばれ、南北アメリカの新たに主張された領土を南北の線で分けた条約は何と呼ばれるか?"
-      },
-      "o": [
-        {
-          "en": "The Treaty of Paris",
-          "es": "El Tratado de París",
-          "fr": "Le traité de Paris",
-          "ja": "パリ条約"
-        },
-        {
-          "en": "The Treaty of Utrecht",
-          "es": "El Tratado de Utrecht",
-          "fr": "Le traité d'Utrecht",
-          "ja": "ユトレヒト条約"
-        },
-        {
-          "en": "The Treaty of Tordesillas",
-          "es": "El Tratado de Tordesillas",
-          "fr": "Le traité de Tordesillas",
-          "ja": "トルデシリャス条約"
-        }
-      ],
-      "a": 2,
-      "f": {
-        "en": "The line, running mostly through what is now Brazil, is a key reason Brazil speaks Portuguese while its neighbors speak Spanish, though the treaty's original terms rested on a wildly inaccurate sense of the Americas' true width.",
-        "es": "La línea, que atraviesa en su mayor parte el actual Brasil, es una razón clave por la que Brasil habla portugués mientras sus vecinos hablan español, aunque los términos originales del tratado se basaban en una idea muy inexacta de la anchura real de América.",
-        "fr": "La ligne, traversant surtout ce qui est aujourd'hui le Brésil, explique en grande partie pourquoi le Brésil parle portugais alors que ses voisins parlent espagnol, bien que les termes originaux du traité reposaient sur une idée très inexacte de la largeur réelle des Amériques.",
-        "ja": "主にいまのブラジルを通るこの線引きは、隣国がスペイン語を話す中でブラジルだけがポルトガル語を話す大きな理由の一つになっているが、条約が結ばれた当初、南北アメリカの実際の幅についての認識はひどく不正確だった。"
-      }
-    },
-    {
       "difficulty": 5,
       "q": {
         "en": "Which North American country's name is, unusually, also literally the name most commonly used for its capital city?",

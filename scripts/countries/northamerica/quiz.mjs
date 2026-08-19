@@ -726,17 +726,6 @@ export const NORTHAMERICA_QUIZ = [
     "Francisco Hernández de Córdoba founded León and Granada in the 1520s, and both the currency and the city of Granada's central plaza still carry his name.|Francisco Hernández de Córdoba fundó León y Granada en la década de 1520, y tanto la moneda como la plaza central de Granada aún llevan su nombre.|Francisco Hernández de Córdoba fonda León et Grenade dans les années 1520, et tant la monnaie que la place centrale de Grenade portent encore son nom.|フランシスコ・エルナンデス・デ・コルドバは1520年代にレオンとグラナダを築いた人物で、通貨だけでなくグラナダの中央広場も今なお彼の名を冠している。",
   ),
   q(
-    6,
-    "A 1494 treaty between Spain and Portugal drew a north-south line dividing newly claimed territory in the Americas — what is this treaty called?|Un tratado de 1494 entre España y Portugal trazó una línea de norte a sur que dividía el territorio recién reclamado en América; ¿cómo se llama este tratado?|Un traité de 1494 entre l'Espagne et le Portugal traça une ligne nord-sud divisant le territoire nouvellement revendiqué dans les Amériques — comment appelle-t-on ce traité ?|1494年、スペインとポルトガルの間で結ばれ、南北アメリカの新たに主張された領土を南北の線で分けた条約は何と呼ばれるか?",
-    [
-      "The Treaty of Paris|El Tratado de París|Le traité de Paris|パリ条約",
-      "The Treaty of Utrecht|El Tratado de Utrecht|Le traité d'Utrecht|ユトレヒト条約",
-      "The Treaty of Tordesillas|El Tratado de Tordesillas|Le traité de Tordesillas|トルデシリャス条約",
-    ],
-    2,
-    "The line, running mostly through what is now Brazil, is a key reason Brazil speaks Portuguese while its neighbors speak Spanish, though the treaty's original terms rested on a wildly inaccurate sense of the Americas' true width.|La línea, que atraviesa en su mayor parte el actual Brasil, es una razón clave por la que Brasil habla portugués mientras sus vecinos hablan español, aunque los términos originales del tratado se basaban en una idea muy inexacta de la anchura real de América.|La ligne, traversant surtout ce qui est aujourd'hui le Brésil, explique en grande partie pourquoi le Brésil parle portugais alors que ses voisins parlent espagnol, bien que les termes originaux du traité reposaient sur une idée très inexacte de la largeur réelle des Amériques.|主にいまのブラジルを通るこの線引きは、隣国がスペイン語を話す中でブラジルだけがポルトガル語を話す大きな理由の一つになっているが、条約が結ばれた当初、南北アメリカの実際の幅についての認識はひどく不正確だった。",
-  ),
-  q(
     5,
     "Which North American country's name is, unusually, also literally the name most commonly used for its capital city?|¿Qué país norteamericano tiene, de forma poco común, el mismo nombre que se usa comúnmente para su capital?|Quel pays nord-américain porte, fait rare, le même nom que celui couramment utilisé pour sa capitale ?|珍しく、国名がその首都を呼ぶときにも最もよく使われる名前と重なっている北アメリカの国はどこか?",
     [

@@ -3017,37 +3017,37 @@
     {
       "difficulty": 5,
       "q": {
-        "en": "Who became the first woman in space, in 1963?",
-        "es": "¿Quién se convirtió en la primera mujer en el espacio, en 1963?",
-        "fr": "Qui devint la première femme dans l'espace, en 1963 ?",
-        "ja": "1963年に世界初の女性宇宙飛行士になったのは誰か?"
+        "en": "Before the line around Lake Baikal was finished, how did the Trans-Siberian get trains across the lake in the winter of 1904?",
+        "es": "Antes de terminarse la línea que rodea el lago Baikal, ¿cómo cruzaba el Transiberiano el lago en el invierno de 1904?",
+        "fr": "Avant l'achèvement de la ligne contournant le lac Baïkal, comment le Transsibérien faisait-il traverser le lac en hiver 1904 ?",
+        "ja": "バイカル湖を回る線が完成する前、1904年の冬、シベリア鉄道はどうやって列車を湖の向こうへ渡したか?"
       },
       "o": [
         {
-          "en": "Valentina Tereshkova",
-          "es": "Valentina Tereshkova",
-          "fr": "Valentina Terechkova",
-          "ja": "ワレンチナ・テレシコワ"
+          "en": "Rails were laid straight onto the frozen surface",
+          "es": "Se tendieron rieles directamente sobre la superficie helada",
+          "fr": "On posa des rails à même la surface gelée",
+          "ja": "凍った湖面の上に直接レールを敷いた"
         },
         {
-          "en": "Svetlana Savitskaya",
-          "es": "Svetlana Savítskaya",
-          "fr": "Svetlana Savitskaïa",
-          "ja": "スヴェトラーナ・サビツカヤ"
+          "en": "The lake was drained each winter",
+          "es": "El lago se vaciaba cada invierno",
+          "fr": "On vidait le lac chaque hiver",
+          "ja": "毎冬、湖の水を抜いた"
         },
         {
-          "en": "Anna Kikina",
-          "es": "Anna Kikina",
-          "fr": "Anna Kikina",
-          "ja": "アンナ・キキナ"
+          "en": "Trains were flown across",
+          "es": "Los trenes se transportaban por aire",
+          "fr": "Les trains étaient transportés par avion",
+          "ja": "列車を空輸した"
         }
       ],
       "a": 0,
       "f": {
-        "en": "Tereshkova, a former textile-factory worker and amateur parachutist before her selection, orbited the Earth 48 times over three days aboard Vostok 6, a record no other solo woman has since matched in a single flight.",
-        "es": "Tereshkova, antigua obrera textil y paracaidista aficionada antes de ser seleccionada, orbitó la Tierra 48 veces en tres días a bordo del Vostok 6, un récord que ninguna otra mujer en solitario ha igualado desde entonces.",
-        "fr": "Terechkova, ancienne ouvrière du textile et parachutiste amateur avant sa sélection, orbita autour de la Terre 48 fois en trois jours à bord de Vostok 6, un record qu'aucune autre femme seule n'a égalé depuis en un seul vol.",
-        "ja": "選抜される前は紡績工場の労働者でアマチュアのパラシュート選手でもあったテレシコワは、ヴォストーク6号で3日間に48回地球を周回した。この記録は、以後どの女性単独飛行者にも破られていない。"
+        "en": "An icebreaking ferry had carried the trains since 1900, but in the winter of 1904 the ice grew too thick for it, and the Russo-Japanese War made the gap a matter of national survival. Rails were laid on the ice itself and the wagons were pulled across by horses; some broke through and sank. The permanent line around the southern shore — thirty-nine tunnels in 84km — opened in September of that same year.",
+        "es": "Un ferry rompehielos había transportado los trenes desde 1900, pero en el invierno de 1904 el hielo se volvió demasiado grueso para él, y la guerra ruso-japonesa convirtió ese hueco en un asunto de supervivencia nacional. Se tendieron rieles sobre el propio hielo y los vagones se arrastraron con caballos; algunos se hundieron. La línea permanente que bordea la orilla sur —treinta y nueve túneles en 84 km— se abrió en septiembre de ese mismo año.",
+        "fr": "Un ferry brise-glace transportait les trains depuis 1900, mais à l'hiver 1904 la glace devint trop épaisse pour lui, et la guerre russo-japonaise fit de cette rupture une question de survie nationale. On posa des rails sur la glace même et les wagons furent tirés par des chevaux ; certains passèrent au travers et coulèrent. La ligne permanente contournant la rive sud — trente-neuf tunnels en 84 km — ouvrit en septembre de la même année.",
+        "ja": "1900年からは砕氷フェリーが列車を運んでいたが、1904年の冬は氷が厚くなりすぎて船が通れなくなった。日露戦争のさなかで、この途切れは国の存亡に直結した。**氷の上に直接レールを敷き、貨車を馬で引いて渡した。**氷を破って沈んだものもある。南岸を回る恒久の線——84kmに39のトンネル——が開通したのは、同じ年の9月だった。"
       }
     },
     {
