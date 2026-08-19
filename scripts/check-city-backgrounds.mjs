@@ -53,6 +53,7 @@ const SOURCES = {
   korea: ["countries/korea/art.mjs", "KOREA_BG"],
   mexico: ["countries/mexico/art.mjs", "MEXICO_BG"],
   africa: ["countries/africa/art.mjs", "AFRICA_BG"],
+  egypt: ["countries/egypt/art.mjs", "EGYPT_BG"],
   spain: ["countries/spain/art.mjs", "SPAIN_BG"],
   newzealand: ["countries/newzealand/art.mjs", "NEWZEALAND_BG"],
   japan: ["content-overrides/japan-city-bg.mjs", "JAPAN_RICH_BG"],
