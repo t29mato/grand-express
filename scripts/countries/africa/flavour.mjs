@@ -194,7 +194,7 @@ export const AFRICA_SPIRIT = {
 /** 災難7種。大陸規模の鉄道インフラの弱さ・政治・気候につきものの遅れと厄介ごと。 */
 export const AFRICA_DOOM = [
   {
-    id: "sandstorm",
+    id: "harmattan",
     n: t("A sandstorm buries the desert line|Una tormenta de arena entierra la línea del desierto|Une tempête de sable ensevelit la ligne du désert|砂嵐が砂漠の線路を埋める"),
     t: t(
       "The sky over the Sahara turns the colour of rust an hour before the wall of sand arrives, and by the time it passes, dunes as tall as the rails themselves have crept across the ballast. On the loneliest stretches, a work gang has to be flown or trucked in specially, since no train can reach them to bring the shovels.|El cielo sobre el Sahara se vuelve del color del óxido una hora antes de que llegue el muro de arena, y para cuando pasa, dunas tan altas como los propios raíles se han deslizado sobre el balasto. En los tramos más solitarios, hay que llevar una cuadrilla en avión o camión especialmente, ya que ningún tren puede llegar para traer las palas.|Le ciel au-dessus du Sahara vire couleur de rouille une heure avant l'arrivée du mur de sable, et une fois qu'il est passé, des dunes aussi hautes que les rails eux-mêmes ont rampé sur le ballast. Sur les tronçons les plus isolés, une équipe doit être amenée spécialement par avion ou par camion, aucun train ne pouvant l'atteindre pour apporter les pelles.|サハラの空は砂の壁が来る一時間前から錆色に染まり、通り過ぎたあとにはレールと同じ高さの砂丘がバラストの上に忍び寄っている。最も人里離れた区間では、シャベルを運ぶ列車すら通えないため、作業班を特別に飛行機かトラックで送り込まねばならない。",
@@ -202,7 +202,7 @@ export const AFRICA_DOOM = [
     regions: ["mag", "sah"],
   },
   {
-    id: "floodwash",
+    id: "washout",
     n: t("The rains wash out the embankment|Las lluvias se llevan el terraplén|Les pluies emportent le remblai|雨季の増水が路盤を洗い流す"),
     t: t(
       "A week of hard rain turns the usual trickle beside the track into a river that undercuts the embankment overnight, and the morning train finds ballast and sleepers hanging over open air where solid ground used to be. Repair crews rebuild the same stretch most years, each time setting the new bed a little further back.|Una semana de lluvias fuertes convierte el hilo de agua de siempre junto a la vía en un río que socava el terraplén de la noche a la mañana, y el tren de la mañana se encuentra con balasto y traviesas colgando sobre el vacío donde antes había tierra firme. Las cuadrillas reconstruyen el mismo tramo casi todos los años, cada vez un poco más atrás.|Une semaine de fortes pluies transforme le mince filet d'eau longeant la voie en une rivière qui sape le remblai en une nuit, et le train du matin trouve ballast et traverses suspendus dans le vide là où il y avait naguère de la terre ferme. Les équipes reconstruisent le même tronçon presque chaque année, un peu plus en retrait à chaque fois.|一週間続いた激しい雨が、線路脇のいつもの細い流れを一夜で土手をえぐる川に変え、朝の列車は固い地面があったはずの場所でバラストと枕木が宙にぶら下がっているのを見つけた。復旧班はほとんど毎年同じ区間を、そのたびに少し内側へ下げて造り直している。",
@@ -210,7 +210,7 @@ export const AFRICA_DOOM = [
     regions: ["eaf", "saf"],
   },
   {
-    id: "borderclosure",
+    id: "borderclosed",
     n: t("A border slams shut overnight|Una frontera se cierra de golpe durante la noche|Une frontière se ferme brutalement en pleine nuit|一夜にして国境が閉じる"),
     t: t(
       "A radio announcement in the small hours declares the crossing closed until further notice, and the platform on the near side fills with travellers who were due to be on the other side of the line by morning. Border staff shrug; the order came from further up than they can question.|Un anuncio de radio en la madrugada declara cerrado el paso hasta nuevo aviso, y el andén de este lado se llena de viajeros que debían estar al otro lado de la línea por la mañana. El personal fronterizo se encoge de hombros; la orden viene de más arriba de lo que pueden cuestionar.|Une annonce radio au petit matin déclare le poste-frontière fermé jusqu'à nouvel ordre, et le quai de ce côté se remplit de voyageurs qui devaient être de l'autre côté de la ligne au matin. Le personnel frontalier hausse les épaules ; l'ordre vient de trop haut pour qu'ils le contestent.|未明のラジオ放送が、追って通知があるまで国境を閉鎖すると告げ、朝までに線路の向こう側にいるはずだった旅人たちで手前側のホームが埋まる。国境の係員は肩をすくめるだけである。命令は彼らが異を唱えられるより上から下りてきたものだからだ。",
@@ -218,7 +218,7 @@ export const AFRICA_DOOM = [
     regions: ["hoa", "mag"],
   },
   {
-    id: "gaugewall",
+    id: "gaugebreak",
     n: t("The wagons wait at the break of gauge|Los vagones esperan en el cambio de ancho|Les wagons attendent au changement d'écartement|貨車が軌間の壁で足止めされる"),
     t: t(
       "The crane at the transfer yard has been down since yesterday, and a line of wagons on both gauges backs up while a mechanic who has been sent for still has not arrived. Cargo that was due to be reloaded onto the other network by lunchtime is still sitting exactly where it was unloaded.|La grúa del patio de transbordo lleva averiada desde ayer, y una fila de vagones de ambos anchos se acumula mientras un mecánico al que han llamado todavía no llega. La carga que debía recargarse en la otra red para el mediodía sigue exactamente donde se descargó.|La grue du chantier de transbordement est en panne depuis hier, et une file de wagons des deux écartements s'accumule tandis qu'un mécanicien qu'on a fait venir n'est toujours pas arrivé. La cargaison qui devait être rechargée sur l'autre réseau avant midi est encore exactement là où elle a été déchargée.|積み替え操車場のクレーンは昨日から動いておらず、呼ばれた整備士もまだ到着しないまま、両方の軌間の貨車が列をなして詰まっている。昼までにもう一方の鉄道網へ積み替えられるはずだった荷は、降ろされたそのままの場所に置かれている。",
@@ -226,7 +226,7 @@ export const AFRICA_DOOM = [
     regions: ["eaf", "saf"],
   },
   {
-    id: "checkpointbribe",
+    id: "checkpoint",
     n: t("A checkpoint official expects something extra|Un funcionario del control espera algo extra|Un agent du poste de contrôle attend un supplément|検問の係員が袖の下を期待する"),
     t: t(
       "The stamp stays hovering over the paperwork a little too long, and the official's eyes drift meaningfully toward a shirt pocket rather than the documents themselves. Everyone in the queue has seen this particular pause before, and everyone knows exactly what closes it.|El sello se queda suspendido sobre el papeleo un poco más de lo necesario, y la mirada del funcionario se desvía con intención hacia un bolsillo de la camisa en vez de a los documentos. Todos en la cola han visto antes esa pausa concreta, y todos saben exactamente qué la cierra.|Le tampon reste suspendu au-dessus des papiers un peu trop longtemps, et le regard de l'agent glisse avec insistance vers une poche de chemise plutôt que vers les documents eux-mêmes. Tout le monde dans la file a déjà vu cette pause précise, et tout le monde sait exactement ce qui y met fin.|判子が書類の上で少し長く止まったまま動かず、係員の目は書類そのものではなく、意味ありげにシャツの胸ポケットへと向けられる。列に並ぶ誰もがこの間合いを前に見たことがあり、それを終わらせる方法も誰もが正確に知っている。",
@@ -234,7 +234,7 @@ export const AFRICA_DOOM = [
     regions: ["gof", "caf"],
   },
   {
-    id: "reservedetour",
+    id: "wildlifedetour",
     n: t("A night service is rerouted around the reserve|Un servicio nocturno se desvía alrededor de la reserva|Un service de nuit est dévié autour de la réserve|夜行便が保護区を迂回させられる",
     ),
     t: t(
@@ -243,7 +243,7 @@ export const AFRICA_DOOM = [
     regions: ["eaf", "saf"],
   },
   {
-    id: "cabletheft",
+    id: "coppertheft",
     n: t("Thieves strip the overhead copper wire|Ladrones arrancan el cable de cobre aéreo|Des voleurs arrachent le câble de cuivre aérien|架線の銅線が盗まれる"),
     t: t(
       "A stretch of electrified line goes dead overnight, and the fault crew finds not a break but an absence: several hundred metres of copper contact wire simply gone, cut down and carried off for scrap value that is a fraction of what it costs the railway to replace. The line reverts to diesel haulage until new wire can be strung.|Un tramo de línea electrificada se queda sin corriente durante la noche, y la cuadrilla de avería no encuentra una rotura, sino una ausencia: varios cientos de metros de cable de contacto de cobre simplemente han desaparecido, cortados y llevados por un valor de chatarra que es una fracción de lo que le cuesta al ferrocarril reponerlo. La línea vuelve a la tracción diésel hasta que se pueda tender cable nuevo.|Un tronçon de ligne électrifiée tombe en panne pendant la nuit, et l'équipe de dépannage ne trouve pas une coupure mais une absence : plusieurs centaines de mètres de câble de contact en cuivre ont simplement disparu, coupés et emportés pour une valeur de ferraille qui n'est qu'une fraction de ce qu'il en coûte au chemin de fer pour les remplacer. La ligne repasse à la traction diesel en attendant qu'un nouveau câble soit tendu.|電化区間の一部が一夜にして停電する。修理班が見つけたのは断線ではなく、そもそもの不在だった。数百メートルぶんの銅の架線がそっくり切り取られ持ち去られていた。鉄道側が架け直す費用のごく一部にしかならないくず鉄の値打ちのためである。新しい線を張り直すまで、この区間はディーゼル牽引に戻される。",
