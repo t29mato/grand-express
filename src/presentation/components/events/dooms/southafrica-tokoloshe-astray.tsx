@@ -100,19 +100,24 @@ export function SouthafricaTokolosheAstray() {
 
       {/* ── 右奥の小屋。窓に、**脚を煉瓦で持ち上げた寝台**の影。 */}
       <g>
-        <rect x="352" y="120" width="48" height="34" fill="#232c34" />
-        <path d="M348,120 h56 l-8,-10 h-40z" fill="#2f3a44" />
-        <rect x="358" y="128" width="30" height="20" fill="#f2c869" />
+        <rect x="336" y="116" width="64" height="42" fill="#232c34" />
+        <path d="M332,116 h72 l-10,-12 h-52z" fill="#2f3a44" />
+        <rect x="344" y="124" width="48" height="30" fill="#f2c869" />
+        <rect x="344" y="124" width="48" height="3" fill="#c99f3c" />
         <g fill="#3a2f22">
-          {/* 寝台。脚の下に煉瓦が一つずつ噛ませてある。 */}
-          <rect x="362" y="136" width="23" height="4" />
-          <rect x="362" y="133" width="23" height="3" />
-          <rect x="363" y="140" width="3" height="4" />
-          <rect x="381" y="140" width="3" height="4" />
+          {/* 寝台。**脚の下に煉瓦を噛ませて持ち上げてある。** */}
+          <rect x="350" y="136" width="36" height="5" />
+          <rect x="350" y="131" width="36" height="5" rx="2" />
+          <rect x="350" y="127" width="8" height="6" rx="2" />
+          <rect x="352" y="141" width="4.4" height="6" />
+          <rect x="380" y="141" width="4.4" height="6" />
         </g>
         <g fill="#8a4a34">
-          <rect x="361" y="144" width="6" height="3.4" />
-          <rect x="380" y="144" width="6" height="3.4" />
+          <rect x="349" y="147" width="11" height="5" />
+          <rect x="377" y="147" width="11" height="5" />
+        </g>
+        <g stroke="#6b3a28" strokeWidth="0.9" fill="none">
+          <path d="M354.5,147 v5 M382.5,147 v5" />
         </g>
       </g>
 

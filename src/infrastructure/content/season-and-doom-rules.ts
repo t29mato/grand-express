@@ -18,6 +18,101 @@ const region = (code: string) => RegionId(code);
 
 /** 月インデックス(0=4月)ごとの季節効果。 */
 export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readonly SeasonEffectOp[])[]>> = {
+  norway: [
+    /* 0 Apr イースターの山スキー */ [
+      { op: "region-income-multiplier", regionId: region("ve"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("ol"), multiplier: 1.1 },
+    ],
+    /* 1 May 憲法記念日の子どもの行進 */ [
+      { op: "all-players-gain-cash", amount: 180 },
+      { op: "region-income-multiplier", regionId: region("ol"), multiplier: 1.15 },
+    ],
+    /* 2 Jun サンクトハンスの夜のかがり火と漁の解禁 */ [
+      { op: "region-income-multiplier", regionId: region("so"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("ve"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("nn"), multiplier: 1.1 },
+    ],
+    /* 3 Jul フェッレスフェーリエ、産業がいっせいに休む */ [
+      { op: "region-income-multiplier", regionId: region("so"), multiplier: 1.3 },
+      { op: "rest-spirit" },
+    ],
+    /* 4 Aug 新学期と明るい夜の終わり */ [
+      { op: "all-players-pay-cash", amount: 150 },
+      { op: "region-income-multiplier", regionId: region("ol"), multiplier: 1.1 },
+    ],
+    /* 5 Sep 高原からの家畜の下山とヘラジカ猟 */ [
+      { op: "region-income-multiplier", regionId: region("tr"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("nn"), multiplier: 1.15 },
+    ],
+    /* 6 Oct 大西洋からの秋の嵐 */ [
+      { op: "all-players-pay-cash", amount: 150 },
+      { op: "region-income-multiplier", regionId: region("ve"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("nn"), multiplier: 0.85 },
+    ],
+    /* 7 Nov 北部で極夜が始まる */ [
+      { op: "region-income-multiplier", regionId: region("nn"), multiplier: 0.8 },
+    ],
+    /* 8 Dec クリスマスとユーレニッセ */ [
+      { op: "region-income-multiplier", regionId: region("ol"), multiplier: 1.2 },
+      { op: "give-item-to-all" },
+    ],
+    /* 9 Jan 内陸の谷の厳寒 */ [
+      { op: "all-players-pay-cash", amount: 180 },
+      { op: "region-income-multiplier", regionId: region("tr"), multiplier: 0.85 },
+    ],
+    /* 10 Feb サーミ週間 */ [
+      { op: "region-income-multiplier", regionId: region("nn"), multiplier: 1.25 },
+    ],
+    /* 11 Mar 北部への光の帰還 */ [
+      { op: "all-players-gain-cash", amount: 200 },
+      { op: "region-income-multiplier", regionId: region("nn"), multiplier: 1.15 },
+    ],
+  ],
+  southafrica: [
+    /* 0 Apr 自由の日(1994年4月・初めての民主選挙) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+    ],
+    /* 1 May ハイフェルトの初霜・メーデー */ [
+      { op: "all-players-gain-cash", amount: 220 },
+    ],
+    /* 2 Jun 若者の日(1976年ソウェト蜂起)・真冬 */ [
+      { op: "region-income-multiplier", regionId: region("kzn"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("fs"), multiplier: 0.85 },
+    ],
+    /* 3 Jul マンデラ・デー(67分間) */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "rest-spirit" },
+    ],
+    /* 4 Aug 女性の日(1956年の行進)・ナマクアランド開花期の始まり */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("nc"), multiplier: 1.2 },
+    ],
+    /* 5 Sep 遺産の日(ナショナル・ブライ・デー)・春 */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "region-income-multiplier", regionId: region("gt"), multiplier: 1.15 },
+    ],
+    /* 6 Oct ジャカランダの満開 */ [
+      { op: "region-income-multiplier", regionId: region("gt"), multiplier: 1.25 },
+    ],
+    /* 7 Nov マトリック最終試験 */ [
+      { op: "region-income-multiplier", regionId: region("gt"), multiplier: 0.9 },
+    ],
+    /* 8 Dec 和解の日・夏休み開始 */ [
+      { op: "all-players-gain-cash", amount: 380 },
+      { op: "region-income-multiplier", regionId: region("wc"), multiplier: 1.3 },
+      { op: "region-income-multiplier", regionId: region("kzn"), multiplier: 1.2 },
+    ],
+    /* 9 Jan 新学年・真夏 */ [
+      { op: "region-income-multiplier", regionId: region("wc"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("nc"), multiplier: 0.85 },
+    ],
+    /* 10 Feb フィンボスの野火の季節 */ [
+      { op: "region-income-multiplier", regionId: region("wc"), multiplier: 0.8 },
+    ],
+    /* 11 Mar 人権の日(1960年シャープビル) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+    ],
+  ],
   vietnam: [
     /* 0 Apr 統一記念日・メーデーの帰省ラッシュ */ [
       { op: "region-income-multiplier", regionId: region("ntb"), multiplier: 1.1 },
@@ -2089,6 +2184,22 @@ newzealand: [
  * フレーバーに応じて異なる。`id` → 効果種別の対応。
  */
 export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>> = {
+  // Norway
+  snoskred: "skipTurn",
+  havstorm: "payOthers",
+  reinsdyrspor: "skipTurn",
+  midnattsinnsomni: "percentLoss",
+  bomstasjon: "fine",
+  nissespill: "teleport",
+  spleiselag: "steal",
+  // South Africa
+  "load-shedding-line": "fine",
+  "cable-theft": "percentLoss",
+  "veld-fire-tracks": "skipTurn",
+  "highveld-storm-cutting": "loseProperties",
+  "cape-doctor-crane": "payOthers",
+  "tokoloshe-astray": "teleport",
+  "park-station-pickpocket": "steal",
   // Vietnam
   bao: "percentLoss", // 台風で財産の一部が飛ばされる(韓国のtaepungと同じ割り当て)
   lut: "loseProperties", // 増水で物件が水没・損なわれる

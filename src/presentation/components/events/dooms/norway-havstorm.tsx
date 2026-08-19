@@ -1,159 +1,250 @@
 /**
  * 嵐で沿岸航路が止まる。
  *
- * 波が船長の定める限界の高さに達し、その日の便が数時間前の通告だけで欠航になる。
- * 動くのは**防波堤に砕ける波・降りしきる雨・岸につながれたまま揺れる船**。
- * 止めた状態でも、波が防波堤を越え、船が舫われたまま傾いている構図で分かる。
+ * 本文の芯は「**岬と岬のあいだの外海だけが荒れる**」こと。
+ * 毎年、欠航の大半が同じ区間で起きるので、地元の時刻表はそこに余裕を見込んでいる。
+ * **全面を荒れた海にすると、この芯が消える。**
+ *
+ * そこで、左右の岬の陰は**平らな水面のまま**にし、そのあいだの外海だけを
+ * 白く砕けさせた。動くのは**岬と岬のあいだの波と飛沫・雨・裏返った傘**だけで、
+ * 手前の入江の水と繋がれた船は動かない。
+ * 止めた状態でも、荒れているのは切れ目の一区間だけ・船は舫われたまま・
+ * タラップに閉鎖の遮断棒、という構図で何が起きたか分かる。
  */
 export function NorwayHavstorm() {
   return (
     <svg viewBox="0 0 400 210" role="img" aria-hidden="true">
-      {/* 荒れた空。 */}
-      <rect width="400" height="210" fill="#4a5a6a" />
-      <rect y="0" width="400" height="72" fill="#3f4d5c" />
-      <g fill="#2f3b48" opacity="0.75">
-        <ellipse cx="70" cy="22" rx="66" ry="16" />
-        <ellipse cx="230" cy="14" rx="80" ry="18" />
-        <ellipse cx="352" cy="30" rx="56" ry="14" />
+      {/* 空。荒れているのは切れ目の上だけ。 */}
+      <rect width="400" height="210" fill="#5f7182" />
+      <rect y="0" width="400" height="64" fill="#4f606f" />
+      <g fill="#8a9aa8" opacity="0.4">
+        <ellipse cx="44" cy="18" rx="48" ry="12" />
+        <ellipse cx="358" cy="16" rx="44" ry="11" />
+      </g>
+      {/* 切れ目の真上だけ、雲が低く垂れている。 */}
+      <g fill="#2f3b48" opacity="0.85">
+        <ellipse cx="150" cy="18" rx="46" ry="18" />
+        <ellipse cx="196" cy="10" rx="52" ry="20" />
+        <ellipse cx="238" cy="20" rx="42" ry="16" />
+        <ellipse cx="196" cy="34" rx="70" ry="12" />
       </g>
 
-      {/* 遠くの岬(中景)。 */}
-      <path d="M0,104c40,-24 92,-30 140,-20l-10,20z" fill="#2f3f46" />
-      <path d="M400,104c-38,-26 -90,-30 -136,-18l8,18z" fill="#2a3a42" />
-
-      {/* 海。 */}
-      <rect y="104" width="400" height="106" fill="#1f3a4c" />
-      <g stroke="#3f6478" strokeWidth="3" fill="none" opacity="0.8">
-        <path d="M0,124q40,-10 80,0t80,0 80,0 80,0 80,0" />
-        <path d="M0,146q46,-12 92,0t92,0 92,0 92,0" />
+      {/* 左の岬。手前まで張り出していて、その陰は静か。 */}
+      <path d="M0,40c30,6 54,22 70,46c12,18 18,38 18,68H0z" fill="#28353c" />
+      <path d="M0,56c22,6 42,20 56,40c10,16 14,32 14,58H0z" fill="#1f2b31" />
+      <g fill="#2a4a36">
+        <path d="M14,44l7,-16 7,16z" />
+        <path d="M36,58l6,-14 6,14z" />
+        <path d="M58,80l6,-13 6,13z" />
+        <path d="M74,108l6,-12 6,12z" />
       </g>
 
-      {/* 防波堤と灯標(中景・右)。 */}
-      <path d="M244,142h156v14H256z" fill="#6b7078" />
-      <path d="M244,142l-14,14h28z" fill="#5f646e" />
-      <rect x="238" y="118" width="12" height="24" fill="#c0453c" />
-      <rect x="234" y="110" width="20" height="9" fill="#f0ece0" />
-      <circle cx="244" cy="106" r="4" fill="#f5b31c" />
-
-      {/* 舫われた渡船(左)。**ここが揺れる。** */}
-      <g className="nhs-ferry">
-        <path d="M18,150h150l-18,26H36z" fill="#2f4a5f" />
-        <rect x="18" y="142" width="150" height="9" fill="#f0ece0" />
-        <rect x="40" y="116" width="96" height="26" fill="#f0ece0" />
-        <rect x="60" y="98" width="52" height="19" fill="#e8e4d8" />
-        <g fill="#3f5f7a">
-          <rect x="48" y="122" width="16" height="12" />
-          <rect x="72" y="122" width="16" height="12" />
-          <rect x="96" y="122" width="16" height="12" />
-          <rect x="120" y="122" width="12" height="12" />
-          <rect x="68" y="103" width="14" height="10" />
-          <rect x="90" y="103" width="14" height="10" />
-        </g>
-        <rect x="82" y="76" width="4" height="24" fill="#4a4f58" />
-        <rect x="72" y="72" width="24" height="7" rx="2" fill="#c0453c" />
-        <circle cx="20" cy="146" r="4" fill="#f5b31c" />
+      {/* 右の岬。 */}
+      <path d="M400,34c-36,8 -68,26 -88,52c-14,20 -20,42 -20,68h108z" fill="#28353c" />
+      <path d="M400,50c-28,8 -54,22 -70,44c-11,16 -16,34 -16,60h86z" fill="#1f2b31" />
+      <g fill="#2a4a36">
+        <path d="M376,38l7,-15 7,15z" />
+        <path d="M352,54l6,-13 6,13z" />
+        <path d="M328,78l6,-12 6,12z" />
+        <path d="M310,106l6,-12 6,12z" />
       </g>
-      {/* 舫い綱(揺れても岸から離れないことを示す)。 */}
-      <g stroke="#c8b48a" strokeWidth="2.4" fill="none">
-        <path d="M168,150q22,10 40,18" />
-        <path d="M168,158q26,8 44,12" />
-      </g>
-      <g fill="#5f666e">
-        <rect x="206" y="164" width="12" height="18" rx="3" />
-      </g>
-
-      {/* 防波堤に砕ける波。**ここが動く。** */}
-      <g className="nhs-crash">
-        {/* 巻き上がって崩れる波頭。防波堤を越えている。 */}
-        <path
-          d="M206,152c0,-40 26,-72 62,-80c-14,14 -20,30 -18,46c14,-16 34,-20 52,-10c-22,0 -36,12 -42,30c-8,24 -30,32 -54,14z"
-          fill="#dfeef6"
-        />
-        <path d="M232,150c-2,-26 10,-46 32,-56c-10,12 -14,26 -12,40c-2,14 -10,20 -20,16z" fill="#f4fafc" />
-        <g fill="#eef6fa">
-          <ellipse cx="298" cy="102" rx="15" ry="9" opacity="0.8" />
-          <ellipse cx="322" cy="90" rx="10" ry="6" opacity="0.6" />
-          <ellipse cx="212" cy="96" rx="12" ry="8" opacity="0.65" />
-          <ellipse cx="188" cy="82" rx="8" ry="5" opacity="0.5" />
-        </g>
-      </g>
-
-      {/* 手前のうねり。**ここが上下する。** */}
-      <g className="nhs-swell">
-        <path d="M0,180q56,-26 112,-6t116,-2 172,-14v52H0z" fill="#2a5062" />
-        <path d="M0,192q60,-20 120,-2t120,-4 160,-10v34H0z" fill="#1a3546" />
-        <g fill="#dfeef6" opacity="0.75">
-          <path d="M30,178q18,-10 36,-2q-18,6 -36,2z" />
-          <path d="M156,180q20,-11 40,-2q-20,7 -40,2z" />
-          <path d="M300,170q18,-10 36,-2q-18,7 -36,2z" />
-        </g>
-      </g>
-
-      {/* 雨。 */}
-      <g className="nhs-rain" stroke="#cfe0ea" strokeWidth="1.8" opacity="0.55" strokeLinecap="round" fill="none">
-        <path d="M20,-16l-8,26M62,-30l-8,26M104,-8l-8,26M148,-26l-8,26M192,-14l-8,26M236,-32l-8,26M280,-10l-8,26M324,-28l-8,26M368,-18l-8,26" />
-        <path d="M40,24l-8,26M84,10l-8,26M128,30l-8,26M172,14l-8,26M216,32l-8,26M260,12l-8,26M304,28l-8,26M348,16l-8,26M392,30l-8,26" />
-        <path d="M10,66l-8,26M54,52l-8,26M98,72l-8,26M142,56l-8,26M186,74l-8,26M230,54l-8,26M274,70l-8,26M318,58l-8,26M362,72l-8,26" />
-      </g>
-
-      {/* 岸で見送る人(欠航を告げられた側)。 */}
+      {/* 岬の先の灯標。毎年ここが境目になる。 */}
       <g>
-        <rect x="330" y="146" width="7" height="18" fill="#3f3428" />
-        <rect x="340" y="146" width="7" height="18" fill="#3f3428" />
-        <path d="M328,118h22l3,30h-28z" fill="#c0453c" />
-        <circle cx="339" cy="112" r="7" fill="#e8c8a8" />
-        <path d="M331,110a8,8 0 0 1 16,0z" fill="#3f4a56" />
-        <path d="M350,124l14,-6" stroke="#c0453c" strokeWidth="4" strokeLinecap="round" fill="none" />
-        <rect x="360" y="112" width="12" height="10" rx="2" fill="#5a4630" />
+        <rect x="292" y="96" width="9" height="22" fill="#c0453c" />
+        <rect x="288" y="88" width="17" height="8" fill="#f0ece0" />
+        <circle cx="296.5" cy="84" r="4" fill="#f5b31c" />
+        <circle cx="296.5" cy="84" r="10" fill="#f5b31c" opacity="0.18" />
+      </g>
+
+      {/* 岬と岬のあいだ = 荒れる外海。ここだけが白い。 */}
+      <path d="M104,94h178v60H104z" fill="#3a5568" />
+      <g className="nhs-open">
+        {/* 崩れかけた波頭。とがらせず、頂を巻かせて水に見せる。 */}
+        <path
+          d="M104,152c0,-20 14,-34 34,-34c14,0 22,8 22,16c-6,-6 -14,-8 -22,-4c-10,5 -14,12 -14,22z"
+          fill="#e4eff6"
+        />
+        <path
+          d="M128,152c2,-16 14,-26 28,-24c-8,4 -12,10 -12,24z"
+          fill="#f4fafc"
+        />
+        <path
+          d="M164,152c0,-26 18,-44 44,-44c18,0 28,10 28,20c-8,-8 -18,-10 -30,-5c-14,6 -20,15 -20,29z"
+          fill="#eef6fa"
+        />
+        <path
+          d="M196,152c2,-20 16,-32 32,-30c-10,5 -14,13 -14,30z"
+          fill="#f4fafc"
+        />
+        <path
+          d="M238,152c0,-20 14,-32 32,-32c13,0 20,7 20,15c-6,-6 -13,-7 -21,-3c-9,5 -13,11 -13,20z"
+          fill="#e4eff6"
+        />
+        <g fill="#f4fafc">
+          <ellipse cx="150" cy="98" rx="16" ry="9" opacity="0.75" />
+          <ellipse cx="204" cy="82" rx="20" ry="11" opacity="0.8" />
+          <ellipse cx="256" cy="94" rx="15" ry="8" opacity="0.7" />
+          <ellipse cx="178" cy="70" rx="11" ry="6" opacity="0.55" />
+          <ellipse cx="232" cy="66" rx="9" ry="5" opacity="0.5" />
+        </g>
+      </g>
+      {/* 切れ目の白波(手前寄り)。 */}
+      <g className="nhs-open2" fill="#dfeef6">
+        <path d="M110,158q22,-14 44,-4q-22,10 -44,4z" />
+        <path d="M168,162q26,-16 52,-4q-26,11 -52,4z" />
+        <path d="M234,158q22,-14 44,-4q-22,10 -44,4z" />
+      </g>
+
+      {/* 入江(手前)。岬の陰なので**平ら**。この対比が本文の芯。 */}
+      <path d="M0,154h400v56H0z" fill="#22394a" />
+      <path d="M0,154h400v6H0z" fill="#2f4a5f" />
+      <g stroke="#33566e" strokeWidth="2" fill="none" opacity="0.9">
+        <path d="M14,172h120M160,172h96M282,172h104" />
+        <path d="M30,190h150M206,190h170" />
+      </g>
+
+      {/* 舫われた渡船。動かない(=出ない)。 */}
+      <g>
+        <path d="M22,160h164l-20,26H42z" fill="#2f4a5f" />
+        <rect x="22" y="150" width="164" height="11" fill="#f0ece0" />
+        <rect x="22" y="150" width="164" height="4" fill="#c0453c" />
+        <rect x="44" y="126" width="106" height="24" fill="#f0ece0" />
+        <rect x="64" y="110" width="58" height="17" fill="#e8e4d8" />
+        <g fill="#3f5f7a">
+          <rect x="52" y="131" width="17" height="12" />
+          <rect x="77" y="131" width="17" height="12" />
+          <rect x="102" y="131" width="17" height="12" />
+          <rect x="127" y="131" width="15" height="12" />
+          <rect x="72" y="114" width="15" height="9" />
+          <rect x="96" y="114" width="15" height="9" />
+        </g>
+        <rect x="90" y="94" width="4" height="17" fill="#4a4f58" />
+        <rect x="78" y="90" width="26" height="8" rx="2" fill="#c0453c" />
+        {/* 舫い綱と繋柱。 */}
+        <g stroke="#c8b48a" strokeWidth="2.6" fill="none">
+          <path d="M186,162q20,8 34,14" />
+          <path d="M186,170q24,6 38,10" />
+        </g>
+        <rect x="220" y="176" width="13" height="20" rx="3" fill="#5f666e" />
+        {/* 映り込み(平らな水面であることを示す)。 */}
+        <g fill="#f0ece0" opacity="0.16">
+          <rect x="48" y="186" width="6" height="22" />
+          <rect x="96" y="186" width="6" height="18" />
+          <rect x="140" y="186" width="6" height="20" />
+        </g>
+      </g>
+
+      {/* タラップに渡された閉鎖の遮断棒(=今日は乗れない)。 */}
+      <g>
+        <path d="M186,158l40,22" stroke="#8a5f3a" strokeWidth="7" fill="none" />
+        <rect x="222" y="150" width="7" height="30" fill="#5f666e" />
+        <rect x="264" y="150" width="7" height="30" fill="#5f666e" />
+        <rect x="220" y="152" width="53" height="9" fill="#c0453c" />
+        <g fill="#f0ece0">
+          <rect x="231" y="152" width="10" height="9" />
+          <rect x="252" y="152" width="10" height="9" />
+        </g>
+      </g>
+
+      {/* 足止めされた人たち。**姿勢も色も別々にする。** */}
+      <g>
+        {/* 荷物に腰かけて待つ人。 */}
+        <rect x="296" y="176" width="34" height="22" rx="3" fill="#7a5a3a" />
+        <rect x="296" y="184" width="34" height="4" fill="#5a4028" />
+        <path d="M300,176l4,-24h20l4,24z" fill="#3f6b8f" />
+        <circle cx="314" cy="144" r="9" fill="#e8c8a8" />
+        <path d="M305,143a9,9 0 0 1 18,0z" fill="#c0453c" />
+        <path d="M300,162l-12,10" stroke="#3f6b8f" strokeWidth="5" strokeLinecap="round" fill="none" />
+        <rect x="326" y="180" width="9" height="18" fill="#3f3428" />
+      </g>
+      <g>
+        {/* 裏返った傘を持って立つ人。**傘だけが動く。** */}
+        <rect x="356" y="178" width="7" height="20" fill="#2f3a48" />
+        <rect x="366" y="178" width="7" height="20" fill="#3a4656" />
+        <path d="M354,178l4,-28h18l4,28z" fill="#6b7a4a" />
+        <circle cx="367" cy="142" r="9" fill="#c8a880" />
+        <path d="M358,140a9,9 0 0 1 18,0z" fill="#4a4036" />
+        <path d="M378,156l8,-16" stroke="#6b7a4a" strokeWidth="5" strokeLinecap="round" fill="none" />
+        <g className="nhs-brolly">
+          <path d="M386,142l-4,-24" stroke="#3a3228" strokeWidth="2.6" fill="none" />
+          <path d="M366,118c6,-16 34,-16 40,0c-8,-4 -14,4 -20,4s-12,-8 -20,-4z" fill="#3a4450" />
+          <g stroke="#2a3038" strokeWidth="1.6" fill="none">
+            <path d="M376,116v6M386,118v6M396,116v6" />
+          </g>
+        </g>
+      </g>
+
+      {/* 雨。切れ目の側から吹き込む。 */}
+      <g className="nhs-rain" stroke="#cfe0ea" strokeWidth="1.8" opacity="0.5" strokeLinecap="round" fill="none">
+        <path d="M24,-18l-10,26M68,-32l-10,26M112,-10l-10,26M156,-28l-10,26M200,-16l-10,26M244,-34l-10,26M288,-12l-10,26M332,-30l-10,26M376,-20l-10,26" />
+        <path d="M44,22l-10,26M88,8l-10,26M132,28l-10,26M176,12l-10,26M220,30l-10,26M264,10l-10,26M308,26l-10,26M352,14l-10,26M396,28l-10,26" />
+        <path d="M14,64l-10,26M58,50l-10,26M102,70l-10,26M146,54l-10,26M190,72l-10,26M234,52l-10,26M278,68l-10,26M322,56l-10,26M366,70l-10,26" />
+      </g>
+
+      {/* 飛沫が切れ目から手前へ流されてくる。 */}
+      <g className="nhs-spray" fill="#f4fafc">
+        <ellipse cx="122" cy="146" rx="9" ry="5" opacity="0.6" />
+        <ellipse cx="262" cy="142" rx="7" ry="4" opacity="0.5" />
+        <ellipse cx="196" cy="136" rx="10" ry="5" opacity="0.55" />
       </g>
 
       <style>{`
-        .nhs-ferry {
-          transform-box: fill-box;
-          transform-origin: 50% 90%;
-          animation: nhs-rock 3.4s ease-in-out infinite;
-        }
-        @keyframes nhs-rock {
-          0%, 100% { transform: rotate(-5deg) translateY(0); }
-          50%      { transform: rotate(5deg) translateY(-6px); }
-        }
-        .nhs-crash {
-          transform-box: fill-box;
-          transform-origin: 20% 100%;
-          animation: nhs-break 2.8s ease-out infinite;
-        }
-        @keyframes nhs-break {
-          0%, 100% { transform: scale(0.35) translateY(30px); opacity: 0; }
-          30%      { transform: scale(1) translateY(0); opacity: 1; }
-          70%      { transform: scale(1.25) translateY(-10px); opacity: 0.8; }
-        }
-        .nhs-swell {
+        .nhs-open {
           transform-box: fill-box;
           transform-origin: 50% 100%;
-          animation: nhs-heave 3.4s ease-in-out infinite;
+          animation: nhs-break 2.6s ease-in-out infinite;
         }
-        @keyframes nhs-heave {
-          0%, 100% { transform: translateY(6px); }
-          50%      { transform: translateY(-10px); }
+        @keyframes nhs-break {
+          0%, 100% { transform: scaleY(0.6) translateY(16px); opacity: 0.7; }
+          46%      { transform: scaleY(1.12) translateY(-6px); opacity: 1; }
         }
-        .nhs-rain { animation: nhs-pour 0.8s linear infinite; }
+        .nhs-open2 {
+          transform-box: fill-box;
+          transform-origin: 50% 100%;
+          animation: nhs-break 2.6s ease-in-out infinite 0.35s;
+        }
+        .nhs-spray {
+          transform-box: fill-box;
+          transform-origin: 50% 100%;
+          animation: nhs-blow 2.6s ease-out infinite;
+        }
+        @keyframes nhs-blow {
+          0%, 30% { transform: translate(0, 8px) scale(0.4); opacity: 0; }
+          60%     { transform: translate(-16px, -6px) scale(1); opacity: 0.9; }
+          100%    { transform: translate(-34px, -16px) scale(1.4); opacity: 0; }
+        }
+        .nhs-brolly {
+          transform-box: fill-box;
+          transform-origin: 50% 100%;
+          animation: nhs-flap 1.6s ease-in-out infinite;
+        }
+        @keyframes nhs-flap {
+          0%, 100% { transform: rotate(-13deg) scaleX(1); }
+          50%      { transform: rotate(9deg) scaleX(0.82); }
+        }
+        .nhs-rain { animation: nhs-pour 0.75s linear infinite; }
         @keyframes nhs-pour {
           from { transform: translate(0, 0); }
-          to   { transform: translate(-14px, 46px); }
+          to   { transform: translate(-16px, 42px); }
         }
         @media (prefers-reduced-motion: reduce) {
-          .nhs-ferry, .nhs-crash, .nhs-swell, .nhs-rain { animation: none; }
-          .nhs-ferry {
-            transform: rotate(-5deg);
+          .nhs-open, .nhs-open2, .nhs-spray, .nhs-brolly, .nhs-rain { animation: none; }
+          .nhs-open, .nhs-open2 {
+            transform: scaleY(1.12) translateY(-6px);
             transform-box: fill-box;
-            transform-origin: 50% 90%;
+            transform-origin: 50% 100%;
           }
-          .nhs-crash {
-            transform: scale(1.1) translateY(-6px);
+          .nhs-spray {
+            transform: translate(-16px, -6px);
             transform-box: fill-box;
-            transform-origin: 20% 100%;
+            transform-origin: 50% 100%;
           }
-          .nhs-rain { transform: translate(-7px, 23px); }
+          .nhs-brolly {
+            transform: rotate(-13deg);
+            transform-box: fill-box;
+            transform-origin: 50% 100%;
+          }
+          .nhs-rain { transform: translate(-8px, 21px); }
         }
       `}</style>
     </svg>

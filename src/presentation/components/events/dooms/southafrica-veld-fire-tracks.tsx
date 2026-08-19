@@ -52,7 +52,7 @@ export function SouthafricaVeldFireTracks() {
       <path d="M0,98 h96 l64,112 H0z" fill="#3a332c" />
       <path d="M0,120 h72 l50,90 H0z" fill="#2b2622" />
       {/* 焼け残った黒い株。灰の色を少し変えて、焼け跡を平らにしない。 */}
-      <g fill="#4a4238" opacity="0.7">
+      <g fill="#4a4238" opacity="0.4">
         <ellipse cx="44" cy="154" rx="22" ry="5" />
         <ellipse cx="92" cy="188" rx="26" ry="6" />
       </g>
@@ -150,9 +150,10 @@ export function SouthafricaVeldFireTracks() {
         <rect x="272" y="171" width="20" height="3.4" fill="#f2f6e0" />
         <circle cx="282" cy="154" r="7.4" fill="#6b4a34" />
         <path d="M274,151 q8,-8 16,-1 h-16z" fill="#e8e2d4" />
-        <path d="M289,166 q6,-8 2,-14" stroke="#6b4a34" strokeWidth="4.2" fill="none" strokeLinecap="round" />
-        <path d="M274,166 q-6,-6 -3,-12" stroke="#6b4a34" strokeWidth="4.2" fill="none" strokeLinecap="round" />
-        <path d="M272,150 h14" stroke="#6b4a34" strokeWidth="4" strokeLinecap="round" fill="none" />
+        {/* 右腕は下ろしたまま、左腕だけを額へ上げて日差しと煙をよけている。 */}
+        <path d="M291,166 q6,7 5,14" stroke="#6b4a34" strokeWidth="4.2" fill="none" strokeLinecap="round" />
+        <path d="M273,166 q-7,-7 -4,-14" stroke="#6b4a34" strokeWidth="4.2" fill="none" strokeLinecap="round" />
+        <path d="M269,151 h13" stroke="#6b4a34" strokeWidth="4" strokeLinecap="round" fill="none" />
       </g>
       {/* ふたり目: 腰に手を当てて、待つしかないのを受け入れている。 */}
       <g>

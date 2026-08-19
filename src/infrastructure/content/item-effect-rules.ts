@@ -422,4 +422,24 @@ jandalsprint: { type: "extra-turn" },
   examsave: { type: "quiz-save" },
   lixi: { type: "gain-cash", amount: 380 },
   caffeinerush: { type: "extra-turn" },
+  // South Africa
+  coalwagon: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  transkaroo: { type: "choose-exact-dice" },
+  shosholoza: { type: "roll-fixed-dice", diceCount: 2 },
+  bluetrain: { type: "roll-fixed-dice", diceCount: 3 },
+  muthi: { type: "none" }, // 厄災の霊(トコロシュ)のward item(passive)
+  bonethrow: { type: "repel-spirit" },
+  matricpapers: { type: "quiz-save" },
+  biltong: { type: "gain-cash", amount: 380 },
+  hooterblast: { type: "extra-turn" },
+  // Norway
+  reinsdyr: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  hurtigrute: { type: "choose-exact-dice" },
+  regiontog: { type: "roll-fixed-dice", diceCount: 2 },
+  flytoget: { type: "roll-fixed-dice", diceCount: 3 },
+  rommegrot: { type: "none" }, // 厄災の神(ニッセ)のward item(passive)
+  jernspiker: { type: "repel-spirit" },
+  lesenotater: { type: "quiz-save" },
+  solvklump: { type: "gain-cash", amount: 380 },
+  hurtigbat: { type: "extra-turn" },
 };

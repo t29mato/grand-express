@@ -98,6 +98,14 @@ export function SouthafricaHighveldStormCutting() {
         <rect x="182" y="170" width="16" height="8" fill="#2f3a3e" />
         <rect x="204" y="170" width="16" height="8" fill="#2f3a3e" />
       </g>
+      {/* 空の映り込み。冷たい灰を少し混ぜると、泥ではなく水に見える。 */}
+      <g fill="#a8b4bc" opacity="0.22">
+        <rect x="92" y="166" width="216" height="4" />
+        <rect x="106" y="184" width="188" height="3.4" />
+        <rect x="128" y="200" width="150" height="3" />
+      </g>
+      {/* 壁に当たる水際の線。ここが光ると水位が読める。 */}
+      <path d="M88,163 q112,-8 224,3" stroke="#c2ab74" strokeWidth="2.2" fill="none" opacity="0.9" />
       {/* 水面のうねり。 */}
       <g className="sa-hs-wave-a" stroke="#a68d55" strokeWidth="2.4" fill="none" opacity="0.85">
         <path d="M100,172 q22,-4 44,0 t42,1 M236,174 q22,-4 44,0 t28,1" />

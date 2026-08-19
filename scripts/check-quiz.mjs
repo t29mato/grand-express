@@ -104,6 +104,19 @@ const GENERIC = new Set([
  * わざと文面に結び付けている。
  */
 const ACCEPTED = [
+  { c: "norway", has: "英語の fell", why: "fjell と英語 fell が語源を同じくする、という説明。原語が話題そのもの" },
+  { c: "norway", has: "ski", why: "英語 ski の語源を訊く問題。綴りが問いの中身" },
+  { c: "norway", has: "fjord", why: "英語 fjord がノルウェー語からの借用であることの説明" },
+  { c: "norway", has: "elg", why: "ノルウェー語でヘラジカを指す語そのものを訊く問題" },
+  { c: "norway", has: "rvegr", why: "古ノルド語 Norðrvegr の語源説明。正規表現が複合語を分割している" },
+  { c: "norway", has: "elsker", why: "国歌の原題『Ja, vi elsker dette landet』の引用" },
+  { c: "norway", has: "Norge", why: "自国を何と呼ぶかを訊く問題。選択肢自体がノルウェー語" },
+  { c: "norway", has: "Nordland", why: "同上" },
+  { c: "norway", has: "KitKat", why: "比較のための商品名" },
+  { c: "norway", has: "bane", why: "交通機関の正式名称 T-bane の一部" },
+  { c: "norway", has: "fjell", why: "地名要素 fjell の意味を訊く問題。綴りが問いの中身" },
+  { c: "norway", has: "takk", why: "takk の意味を訊く問題と、用例句 takk for maten の引用" },
+  { c: "norway", has: "maten", why: "同上" },
   { c: "newzealand", has: "bach", why: "bach(海辺の小屋)という語そのものが問いの中身。訳すと問いが成立しない" },
   { c: "newzealand", has: "Japanese", why: "jandal が Japanese + sandals の合成であるという語源の説明" },
   { c: "newzealand", has: "sandals", why: "同上" },
@@ -147,6 +160,11 @@ const ACCEPTED = [
 ];
 /** 答えの漏れのうち、見たうえで漏れではないと判断したもの。 */
 const ACCEPTED_LEAKS = [
+  { c: "southafrica", ans: "カラハリ砂漠", city: "アピントン", why: "難易度3。アピントンのカードは「カラハリの縁」と場所を述べているだけで、3か国にまたがることには触れていない" },
+  { c: "southafrica", ans: "南アフリカ", city: "サンシティ", why: "グコムとアマピアノを訊く問題。カードはボプタツワナの賭博場の話。国名はこの盤面のどのカードにも出る枠の語" },
+  { c: "southafrica", ans: "ジンバブエ", city: "ムシナ", why: "N1号線の行き先を訊く問題。カードはリンポポ川がジンバブエ**とボツワナ**の国境に接すると書いており、答えを一つに絞らない" },
+  { c: "norway", ans: "スウェーデン", city: "フレドリクスタ", why: "半島を分け合う相手を訊く問題。カードの「スウェーデンとの戦争で焼かれた」と「スカンディナヴィアで数少ない旧市街」は別の文脈" },
+  { c: "norway", ans: "19世紀", city: "ドランメン", why: "オスロ王宮の完成した世紀を訊く問題。ドランメンの「19世紀」は木材港の最盛期を指し、王宮とは無関係。「19世紀」は範囲が広すぎる枠の語" },
   { c: "vietnam", ans: "ハノイ", city: "ニンビン", why: "難易度2の首都の問い。易しい問いはカードを読んだ人が答えられてよい" },
   { c: "vietnam", ans: "フランス", city: "ホイアン", why: "盤面全体の通奏低音の語。「世紀」「ヨーロッパ」という一般語との偶然の一致" },
   { c: "peru", ans: "リャマ", city: "プーノ", why: "難易度1の易しい問い。アンデスのどのカードにも出うる語で、読んだ人が答えられるのは狙いどおり" },

@@ -132,9 +132,9 @@ export function SouthafricaCableTheft() {
         <path d="M314,179 q9,1 13,8" stroke="#b8702c" strokeWidth="3" fill="none" strokeLinecap="round" />
       </g>
       {/* 剥いだ被覆を焼いた跡と、切り落とされた黒い皮。 */}
-      <ellipse cx="332" cy="199" rx="26" ry="7" fill="#3f3a30" opacity="0.75" />
+      <ellipse cx="300" cy="200" rx="24" ry="6.4" fill="#3f3a30" opacity="0.75" />
       <g stroke="#22201c" strokeWidth="3" fill="none" strokeLinecap="round">
-        <path d="M318,198 q9,-5 17,-1 M336,201 q10,-4 18,0" />
+        <path d="M288,199 q9,-5 17,-1 M302,203 q10,-4 18,0" />
       </g>
 
       {/* ── 新しいケーブルのドラム。ゆっくり回りながら繰り出される。 */}

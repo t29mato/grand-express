@@ -23,42 +23,42 @@ export function SouthafricaCapeDoctorCrane() {
       <circle cx="356" cy="26" r="15" fill="#f8e6a8" />
       <circle cx="356" cy="26" r="24" fill="#f8e6a8" opacity="0.28" />
 
-      {/* デビルズピーク(右肩)。 */}
-      <path d="M228,116 L268,52 l30,30 l24,34z" fill="#5f6a62" />
-      <path d="M268,52 l16,16 l-10,4 l-8,-8z" fill="#788278" />
+      {/* デビルズピーク(テーブルの右肩)。低く小さく。 */}
+      <path d="M180,118 L212,70 l20,22 l22,26z" fill="#5f6a62" />
+      <path d="M212,70 l12,13 l-8,3 l-6,-6z" fill="#788278" />
 
-      {/* テーブルマウンテン。平らな頂と、切り立った岩肌。 */}
-      <path d="M28,116 L44,64 h136 l20,52z" fill="#6b756c" />
-      <path d="M28,116 L44,64 h44 l-8,52z" fill="#7d867c" />
+      {/* テーブルマウンテン。**平らな頂**と、切り立った岩肌。 */}
+      <path d="M14,118 L38,68 h146 l20,50z" fill="#6b756c" />
+      <path d="M14,118 L38,68 h42 l-10,50z" fill="#7d867c" />
       <g stroke="#525b54" strokeWidth="2" fill="none" opacity="0.75">
-        <path d="M62,116 V70 M92,116 V68 M120,116 V68 M150,116 V70 M172,114 V70" />
+        <path d="M54,118 V72 M84,118 V70 M112,118 V70 M142,118 V70 M166,116 V70" />
       </g>
-      <rect x="42" y="62" width="140" height="4" fill="#8b9389" />
+      <rect x="36" y="66" width="150" height="4" fill="#8b9389" />
       {/* 山裾の町。 */}
       <g fill="#d8d2c4">
-        <rect x="16" y="106" width="14" height="12" />
-        <rect x="34" y="110" width="12" height="8" />
-        <rect x="186" y="104" width="16" height="14" />
-        <rect x="206" y="110" width="12" height="8" />
+        <rect x="4" y="106" width="14" height="12" />
+        <rect x="22" y="110" width="12" height="8" />
+        <rect x="196" y="106" width="16" height="12" />
+        <rect x="216" y="110" width="12" height="8" />
       </g>
 
-      {/* ── テーブルクロス。頂に載り、**縁を越えて流れ落ちる。** */}
+      {/* ── テーブルクロス。**平らな頂に載り、右の縁を越えて流れ落ちる。** */}
       <g fill="#f4f8fa">
-        <ellipse cx="80" cy="58" rx="40" ry="12" />
-        <ellipse cx="132" cy="55" rx="44" ry="13" />
-        <ellipse cx="172" cy="59" rx="26" ry="10" />
+        <ellipse cx="72" cy="56" rx="38" ry="10" />
+        <ellipse cx="124" cy="53" rx="42" ry="11" />
+        <ellipse cx="168" cy="57" rx="24" ry="9" />
       </g>
       <g className="sa-cd-cloth-a" fill="#eef4f6" opacity="0.9">
-        <ellipse cx="176" cy="70" rx="22" ry="10" />
-        <ellipse cx="192" cy="82" rx="17" ry="9" />
+        <ellipse cx="180" cy="68" rx="20" ry="9" />
+        <ellipse cx="194" cy="80" rx="15" ry="8" />
       </g>
       <g className="sa-cd-cloth-b" fill="#e4ecf0" opacity="0.8">
-        <ellipse cx="186" cy="76" rx="19" ry="9" />
-        <ellipse cx="200" cy="90" rx="14" ry="8" />
+        <ellipse cx="188" cy="74" rx="17" ry="8" />
+        <ellipse cx="200" cy="88" rx="13" ry="7" />
       </g>
       <g className="sa-cd-cloth-c" fill="#dae4e8" opacity="0.7">
-        <ellipse cx="196" cy="86" rx="16" ry="8" />
-        <ellipse cx="208" cy="98" rx="12" ry="6" />
+        <ellipse cx="196" cy="84" rx="14" ry="7" />
+        <ellipse cx="206" cy="96" rx="11" ry="6" />
       </g>
 
       {/* ── 港の水。風で白波が立っている。 */}
@@ -86,49 +86,53 @@ export function SouthafricaCapeDoctorCrane() {
 
       {/* ── ガントリークレーン2基。**ブームを上げて留めてある=荷役していない。** */}
       <g>
-        {/* 1基目。 */}
+        {/* 1基目。脚が線路をまたいでいる。 */}
         <g fill="#f0b429">
-          <rect x="222" y="72" width="9" height="96" />
-          <rect x="290" y="72" width="9" height="96" />
+          <rect x="246" y="70" width="9" height="98" />
+          <rect x="314" y="70" width="9" height="98" />
         </g>
-        <rect x="214" y="64" width="94" height="12" fill="#f0b429" />
-        <rect x="214" y="64" width="94" height="4" fill="#c98d18" />
-        <rect x="236" y="76" width="18" height="14" fill="#3f4a52" />
+        <rect x="238" y="60" width="94" height="12" fill="#f0b429" />
+        <rect x="238" y="60" width="94" height="4" fill="#c98d18" />
+        <rect x="260" y="72" width="18" height="14" fill="#3f4a52" />
         <g stroke="#f0b429" strokeWidth="4" fill="none">
-          <path d="M226,120 h70 M226,146 h70" />
+          <path d="M250,118 h70 M250,144 h70" />
         </g>
-        {/* 上げたブーム。海側へ張り出さず、空を向いている。 */}
+        {/* 上げたブーム。海側へ張り出さず、空へ向けて留めてある。 */}
         <g>
-          <rect x="298" y="20" width="8" height="50" fill="#f0b429" transform="rotate(20 302 68)" />
-          <rect x="290" y="18" width="26" height="8" fill="#f0b429" transform="rotate(20 302 68)" />
-          <g stroke="#c98d18" strokeWidth="2.4" fill="none">
-            <path d="M300,58 l10,-4 M303,44 l10,-4 M306,30 l10,-4" />
+          <path d="M326,62 L360,14 l9,6 l-30,46z" fill="#f0b429" />
+          <path d="M356,10 h18 l3,10 h-18z" fill="#f0b429" />
+          <g stroke="#c98d18" strokeWidth="2.2" fill="none">
+            <path d="M333,52 l9,6 M342,38 l9,6 M351,24 l9,6" />
           </g>
         </g>
         {/* 垂れた吊り具。風で振られている。 */}
-        <path d="M258,76 v14" stroke="#5f5a52" strokeWidth="2" fill="none" />
+        <path d="M284,72 v14" stroke="#5f5a52" strokeWidth="2" fill="none" />
         <g className="sa-cd-spreader">
-          <path d="M258,90 v16" stroke="#5f5a52" strokeWidth="2" fill="none" />
-          <rect x="240" y="106" width="36" height="7" rx="2" fill="#c2453c" />
-          <rect x="243" y="113" width="5" height="5" fill="#8f3129" />
-          <rect x="268" y="113" width="5" height="5" fill="#8f3129" />
+          <path d="M284,86 v14" stroke="#5f5a52" strokeWidth="2" fill="none" />
+          <rect x="266" y="100" width="36" height="7" rx="2" fill="#c2453c" />
+          <rect x="269" y="107" width="5" height="5" fill="#8f3129" />
+          <rect x="294" y="107" width="5" height="5" fill="#8f3129" />
         </g>
         <g fill="#3f4a52">
-          <rect x="218" y="166" width="18" height="7" rx="2" />
-          <rect x="286" y="166" width="18" height="7" rx="2" />
+          <rect x="242" y="166" width="18" height="7" rx="2" />
+          <rect x="310" y="166" width="18" height="7" rx="2" />
         </g>
       </g>
       <g opacity="0.92">
-        {/* 2基目。遠くに小さく。 */}
+        {/* 2基目。遠くに小さく、同じ休止の姿勢で。 */}
         <g fill="#e0a824">
-          <rect x="344" y="88" width="7" height="78" />
-          <rect x="386" y="88" width="7" height="78" />
+          <rect x="356" y="86" width="7" height="80" />
+          <rect x="392" y="86" width="7" height="80" />
         </g>
-        <rect x="338" y="82" width="62" height="9" fill="#e0a824" />
+        <rect x="350" y="78" width="50" height="9" fill="#e0a824" />
         <g stroke="#e0a824" strokeWidth="3.4" fill="none">
-          <path d="M346,124 h44 M346,148 h44" />
+          <path d="M360,122 h36 M360,146 h36" />
         </g>
-        <rect x="392" y="42" width="7" height="42" fill="#e0a824" transform="rotate(20 395 82)" />
+        <path d="M394,80 L400,42 v38z" fill="#e0a824" />
+        <g fill="#3f4a52">
+          <rect x="353" y="164" width="14" height="6" rx="2" />
+          <rect x="389" y="164" width="11" height="6" rx="2" />
+        </g>
       </g>
 
       {/* ── 積み上がったコンテナ。荷役が止まっているので山のまま。 */}

@@ -265,6 +265,20 @@ import { VietnamKetxe } from "./vietnam-ketxe";
 import { VietnamChaunhau } from "./vietnam-chaunhau";
 import { VietnamMatroidat } from "./vietnam-matroidat";
 import { VietnamChomoctui } from "./vietnam-chomoctui";
+import { SouthafricaLoadSheddingLine } from "./southafrica-load-shedding-line";
+import { SouthafricaCableTheft } from "./southafrica-cable-theft";
+import { SouthafricaVeldFireTracks } from "./southafrica-veld-fire-tracks";
+import { SouthafricaHighveldStormCutting } from "./southafrica-highveld-storm-cutting";
+import { SouthafricaCapeDoctorCrane } from "./southafrica-cape-doctor-crane";
+import { SouthafricaTokolosheAstray } from "./southafrica-tokoloshe-astray";
+import { SouthafricaParkStationPickpocket } from "./southafrica-park-station-pickpocket";
+import { NorwaySnoskred } from "./norway-snoskred";
+import { NorwayHavstorm } from "./norway-havstorm";
+import { NorwayReinsdyrspor } from "./norway-reinsdyrspor";
+import { NorwayMidnattsinnsomni } from "./norway-midnattsinnsomni";
+import { NorwayBomstasjon } from "./norway-bomstasjon";
+import { NorwayNissespill } from "./norway-nissespill";
+import { NorwaySpleiselag } from "./norway-spleiselag";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -543,6 +557,20 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "vietnam-chaunhau": VietnamChaunhau,
   "vietnam-matroidat": VietnamMatroidat,
   "vietnam-chomoctui": VietnamChomoctui,
+  "southafrica-load-shedding-line": SouthafricaLoadSheddingLine,
+  "southafrica-cable-theft": SouthafricaCableTheft,
+  "southafrica-veld-fire-tracks": SouthafricaVeldFireTracks,
+  "southafrica-highveld-storm-cutting": SouthafricaHighveldStormCutting,
+  "southafrica-cape-doctor-crane": SouthafricaCapeDoctorCrane,
+  "southafrica-tokoloshe-astray": SouthafricaTokolosheAstray,
+  "southafrica-park-station-pickpocket": SouthafricaParkStationPickpocket,
+  "norway-snoskred": NorwaySnoskred,
+  "norway-havstorm": NorwayHavstorm,
+  "norway-reinsdyrspor": NorwayReinsdyrspor,
+  "norway-midnattsinnsomni": NorwayMidnattsinnsomni,
+  "norway-bomstasjon": NorwayBomstasjon,
+  "norway-nissespill": NorwayNissespill,
+  "norway-spleiselag": NorwaySpleiselag,
 };
 
 /** その国のその災難の絵。無ければ undefined。 */
