@@ -191,8 +191,17 @@ export const PERU_SPIRIT = {
   ),
 };
 
-/** 災難7種。「残酷ではなく、ただ度が過ぎるだけ」という他盤面の厄災神と同じ調子で。 */
+/**
+ * 災難7種。「残酷ではなく、ただ度が過ぎるだけ」という他盤面の厄災神と同じ調子で。
+ *
+ * **並び順が仕組みと対応している。** `season-and-doom-rules.ts` 側は
+ * 全盤面共通で7件を fine / percentLoss / skipTurn / loseProperties /
+ * payOthers / teleport / steal の順に対応づけている(韓国の
+ * hwangsa→taepung→poksol→sanbul→hoesikgap→dokkaebi-gil→somaechigi
+ * を参照)。**この配列もその順に合わせてある。**登録時に順序を変えないこと。
+ */
 export const PERU_DOOM = [
+  // 1) fine — 直接の出費
   {
     id: "sorochazo",
     n: t("Altitude sickness hits without warning|El soroche golpea sin avisar|Le mal des montagnes frappe sans prévenir|前触れなく高山病に襲われる"),
@@ -208,6 +217,7 @@ export const PERU_DOOM = [
     ),
     months: [2, 3, 4],
   },
+  // 3) skipTurn — 足止め
   {
     id: "llama-terca",
     n: t("A stubborn llama sits down mid-trail|Una llama terca se sienta en medio del camino|Un lama têtu s'assoit en plein sentier|頑固なリャマが道の真ん中で座り込む"),
@@ -215,14 +225,15 @@ export const PERU_DOOM = [
       "The pack llama decided it was carrying enough, folded its legs under itself in the middle of the switchback, and would not be moved by pulling, pushing or pleading. Overloading a llama past its own judgement never ends well for the schedule.|La llama de carga decidió que ya llevaba suficiente, dobló las patas en medio de la zigzagueante subida y no hubo tirón, empujón ni ruego que la moviera. Sobrecargar a una llama más allá de su propio juicio nunca sale bien para el horario.|Le lama de bât a décidé qu'il en portait assez, a plié les pattes en plein virage en épingle, et ni tirer, ni pousser, ni supplier ne l'a fait bouger. Surcharger un lama au-delà de son propre jugement ne finit jamais bien pour l'horaire.|荷を背負ったリャマは、もう十分運んだと決めたらしく、つづら折りの道の真ん中で脚を折って座り込み、引いても押しても頼んでも動かなかった。リャマ自身の判断を超えて荷を積みすぎると、予定はろくなことにならない。",
     ),
   },
+  // 4) loseProperties — 持ち物件を失う
   {
-    id: "neblina-puna",
-    n: t("Fog on the puna hides the trail|La neblina de la puna esconde el camino|Le brouillard de la puna cache le sentier|プナの霧が道を隠す",
-    ),
+    id: "derrumbe-mina",
+    n: t("A mine gallery collapses|Se derrumba una galería minera|Une galerie de mine s'effondre|鉱山の坑道が崩れる"),
     t: t(
-      "A cloud settles over the high plain with no warning, and the same three landmarks seem to pass by twice before the mist finally lifts. Locals who cross the puna often enough stop trying to hurry through weather like this.|Una nube se posa sobre la meseta alta sin previo aviso, y los mismos tres puntos de referencia parecen repetirse dos veces antes de que la niebla por fin se levante. Quienes cruzan la puna a menudo dejan de intentar apurar un clima así.|Un nuage se pose sur le haut plateau sans prévenir, et les trois mêmes repères semblent défiler deux fois avant que la brume ne se lève enfin. Ceux qui traversent souvent la puna cessent d'essayer de se presser par un temps pareil.|前触れもなく雲が高原を覆い、同じ三つの目印を二度通り過ぎたように思えたころ、ようやく霧が晴れた。プナをよく渡る地元の人は、こういう天気のときに急ごうとするのをやめている。",
+      "A gallery gives way somewhere underground, and the safety inspectors close everything on the same slope until the ground is checked metre by metre. A property built too near old, unmapped workings sometimes never reopens at all.|Una galería cede en algún punto bajo tierra, y los inspectores de seguridad cierran todo en la misma ladera hasta revisar el terreno metro a metro. Una propiedad construida demasiado cerca de labores antiguas y sin planos a veces no vuelve a abrir.|Une galerie cède quelque part sous terre, et les inspecteurs de sécurité ferment tout sur le même versant jusqu'à ce que le terrain soit vérifié mètre par mètre. Une propriété bâtie trop près d'anciennes galeries non cartographiées ne rouvre parfois jamais.|地下のどこかで坑道が崩れ、安全検査官は地面を一メートルずつ確かめ終えるまで、同じ斜面のすべてを閉鎖する。地図に残っていない古い坑道の近くに建てられた物件は、二度と開かないこともある。",
     ),
   },
+  // 5) payOthers — 皆に払う
   {
     id: "cacho-perdido",
     n: t("A bad run at cacho|Una mala racha en el cacho|Une mauvaise série au cacho|カチョで負け続ける"),
@@ -230,18 +241,21 @@ export const PERU_DOOM = [
       "The dice cup passed around the table kept landing badly, and by the last round the wager had crept up well past what seemed reasonable when the game began. Cacho gets played everywhere from bus stops to long waits at the station, and the scoring rewards nerve as much as luck.|El cubilete pasaba de mano en mano y seguía cayendo mal, y para la última ronda la apuesta había subido mucho más de lo razonable al empezar. Al cacho se juega en todas partes, de las paradas de bus a las largas esperas en la estación, y el puntaje premia el aplomo tanto como la suerte.|Le cornet de dés passait de main en main et tombait toujours mal, et à la dernière manche, la mise avait grimpé bien au-delà du raisonnable au départ. On joue au cacho partout, des arrêts de bus aux longues attentes en gare, et le calcul des points récompense autant le sang-froid que la chance.|回ってきたサイコロのカップはことごとく悪い目を出し、最後の勝負のころには賭け金は始めたときには妥当に思えた額をずいぶん超えていた。カチョはバス停から駅の長い待ち時間まで至る所で打たれ、その得点は運と同じくらい度胸がものを言う。",
     ),
   },
+  // 6) teleport — 気付けば違う場所に
   {
-    id: "viento-apu",
-    n: t("A gust off the pass takes your hat|Una ráfaga del paso se lleva el sombrero|Une rafale du col emporte le chapeau|峠からの突風が帽子をさらう"),
+    id: "neblina-puna",
+    n: t("Fog on the puna hides the trail|La neblina de la puna esconde el camino|Le brouillard de la puna cache le sentier|プナの霧が道を隠す",
+    ),
     t: t(
-      "The wind off the high pass came from nowhere and took the hat clean off, tumbling it down a slope too steep to chase. Locals tie theirs on with a cord under the chin for exactly this reason.|El viento del paso alto llegó de la nada y se llevó el sombrero de un tirón, haciéndolo rodar por una ladera demasiado empinada para perseguirlo. Los de aquí atan el suyo con un cordón bajo la barbilla justo por esto.|Le vent du col est venu de nulle part et a emporté le chapeau d'un coup, le faisant rouler sur une pente trop raide pour le poursuivre. Les gens d'ici attachent le leur avec un cordon sous le menton, justement pour cette raison.|高い峠から吹き下ろす風はどこからともなく現れ、帽子をきれいにさらっていった。追いかけるには急すぎる斜面を転がり落ちていく。地元の人がまさにこの理由で顎紐を付けているのだ。",
+      "A cloud settles over the high plain with no warning, and the same three landmarks seem to pass by twice before the mist finally lifts somewhere well off the intended path. Locals who cross the puna often enough stop trying to hurry through weather like this.|Una nube se posa sobre la meseta alta sin previo aviso, y los mismos tres puntos de referencia parecen repetirse dos veces antes de que la niebla por fin se levante bien lejos del camino previsto. Quienes cruzan la puna a menudo dejan de intentar apurar un clima así.|Un nuage se pose sur le haut plateau sans prévenir, et les trois mêmes repères semblent défiler deux fois avant que la brume ne se lève enfin, bien loin du chemin prévu. Ceux qui traversent souvent la puna cessent d'essayer de se presser par un temps pareil.|前触れもなく雲が高原を覆い、同じ三つの目印を二度通り過ぎたように思えたころ、ようやく霧が晴れたのは、思っていた道からずいぶん離れた場所だった。プナをよく渡る地元の人は、こういう天気のときに急ごうとするのをやめている。",
     ),
   },
+  // 7) steal — すられる
   {
-    id: "carga-volcada",
-    n: t("Cargo spills on a switchback|La carga se vuelca en una curva cerrada|Le chargement se renverse dans un lacet|つづら折りで荷が崩れる"),
+    id: "robo-terminal",
+    n: t("A thief works the bus terminal|Un ladrón trabaja en el terminal de buses|Un voleur sévit au terminal de bus|バスターミナルで盗みに遭う"),
     t: t(
-      "A rope worked loose on the tightest bend of the descent, and half a load of produce scattered down the slope before anyone could grab it. Picking the good fruit out of the dust takes longer than the fall itself did.|Una soga se aflojó en la curva más cerrada del descenso, y media carga de productos se desparramó ladera abajo antes de que nadie pudiera agarrarla. Recoger la fruta buena del polvo lleva más tiempo del que tomó la propia caída.|Une corde s'est desserrée dans le virage le plus serré de la descente, et la moitié du chargement de produits s'est éparpillée sur la pente avant que quiconque ne puisse la retenir. Trier les bons fruits dans la poussière prend plus de temps que la chute elle-même.|下りのいちばんきついつづら折りで縄が緩み、誰も掴む間もなく荷の半分が斜面に散らばった。土埃の中からまともな果物を拾い集めるのは、荷崩れそのものより時間がかかる。",
+      "The terminal was loud with departure calls and vendors, and a hand slipped into an unzipped bag before its owner had even found a seat to wait in. Terminal police post warnings in three languages that nobody reads until afterward.|La terminal estaba llena del ruido de los avisos de salida y los vendedores, y una mano se coló en una mochila abierta antes de que su dueño encontrara siquiera un asiento donde esperar. La policía del terminal cuelga avisos en tres idiomas que nadie lee hasta después.|Le terminal résonnait des appels au départ et des vendeurs, et une main s'est glissée dans un sac ouvert avant même que son propriétaire n'ait trouvé un siège où attendre. La police du terminal affiche des avertissements en trois langues que personne ne lit avant qu'il ne soit trop tard.|ターミナルは出発案内と物売りの声でうるさく、持ち主が待つ席を見つける前に、開いたままのバッグに手が忍び込んでいた。ターミナルの警察は3か国語で警告を貼り出しているが、誰もそれを事が起きるまで読まない。",
     ),
   },
 ];
