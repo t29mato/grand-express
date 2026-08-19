@@ -279,6 +279,13 @@ import { NorwayMidnattsinnsomni } from "./norway-midnattsinnsomni";
 import { NorwayBomstasjon } from "./norway-bomstasjon";
 import { NorwayNissespill } from "./norway-nissespill";
 import { NorwaySpleiselag } from "./norway-spleiselag";
+import { HokkaidoFubuki } from "./hokkaido-fubuki";
+import { HokkaidoRyuuhyouDoom } from "./hokkaido-ryuuhyou-doom";
+import { HokkaidoHigumaDoom } from "./hokkaido-higuma-doom";
+import { HokkaidoBurakkuauto } from "./hokkaido-burakkuauto";
+import { HokkaidoDaikoubasuManin } from "./hokkaido-daikoubasu-manin";
+import { HokkaidoSakeFukyou } from "./hokkaido-sake-fukyou";
+import { HokkaidoKionRanteika } from "./hokkaido-kion-ranteika";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -571,6 +578,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "norway-bomstasjon": NorwayBomstasjon,
   "norway-nissespill": NorwayNissespill,
   "norway-spleiselag": NorwaySpleiselag,
+  "hokkaido-fubuki": HokkaidoFubuki,
+  "hokkaido-ryuuhyou-doom": HokkaidoRyuuhyouDoom,
+  "hokkaido-higuma-doom": HokkaidoHigumaDoom,
+  "hokkaido-burakkuauto": HokkaidoBurakkuauto,
+  "hokkaido-daikoubasu-manin": HokkaidoDaikoubasuManin,
+  "hokkaido-sake-fukyou": HokkaidoSakeFukyou,
+  "hokkaido-kion-ranteika": HokkaidoKionRanteika,
 };
 
 /** その国のその災難の絵。無ければ undefined。 */

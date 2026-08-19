@@ -95,16 +95,281 @@ for (let i=0;i<lines.length;i++){
   描くかぎり、投影の縮尺では航路の半分弱が本島の海岸線をかすめる」で
   お願いしたい。
 
-## まだ書いていないもの
+## `quiz.mjs` 本編(100問。測定 2026-08-20 03:56 JST)
 
-- `quiz.mjs` 本編(現在は先行3問のみ。100〜120問へ拡張)
-- `flavour.mjs`(通貨倍率10000・地方名の4言語・アイテム9件・厄災7件・季節12ヶ月)
-- `money-events.mjs` / `music.mjs` / `index.mjs`
-- 厄災の絵(別担当。`art.mjs` は着手済みと見られる)
+```
+問題数        100(目安100〜120の範囲内)
+難易度1〜3    34問(目安20問以上)
+難易度7以上   29問(目安25問以上)
+難易度9〜10   11問(目安10問以上。9が10問・10が1問)
+node --check              OK
+npx eslint                0件
+4言語チェック(全"..."引数を機械走査)  0件漏れ
+選択肢が3つでない/答えindex範囲外       0件
+質問文の重複                            0件
+```
 
-## 難易度9の裏取り依頼(継続)
+### 盤面をまたぐ重複チェック(2つとも実施。2026-08-20 03:54 JST)
+
+1. **`node scripts/check-quiz-across-boards.mjs hokkaido japan --all`** →
+   最初の実行で1件ヒット(hokkaido Q4「北海道の先住民族は?」= japan Q20と
+   ほぼ同一)。**該当問題を丸ごと差し替えて**(アイヌの伝統的な生業を問う内容に
+   変更)、再実行で **0件** を確認。
+2. **`node scripts/check-quiz-across-boards.mjs hokkaido --all`**(全盤面)→
+   asia・mexico と各1件ヒットしたが、**どちらも誤検知として却下**。
+   - `hokkaido↔asia`: 答えがどちらも「およそ5分の1」なだけで、
+     問いは「北海道が日本の面積に占める割合」対「モンゴル帝国が世界の
+     陸地面積に占めた割合」で無関係
+   - `hokkaido↔mexico`: 同じく「およそ5分の1」の一致のみ。「北海道の面積」対
+     「米墨戦争でメキシコが割譲した領土の面積」で無関係
+3. **手読みでの照合**(ツールが拾えない形の重複がないか、日本盤の道内14都市
+   [札幌・函館・旭川・釧路・小樽・ニセコ・室蘭・帯広・富良野・北見・網走・
+   知床・稚内・登別]の既存カードを先に全部読んでから執筆): 執筆中に2件の
+   実質的な重複を発見・修正した。
+   - 札幌の碁盤目設計を問う問題(1871年としていた)が、legacyの札幌カード
+     「1869年、アメリカ人顧問の助言で碁盤の目状に設計」と**年が食い違う
+     形で同じ主題**だったため、碁盤目の記述を削除し1972年冬季五輪の別の
+     事実(大倉山ジャンプ台)に差し替えた
+   - 函館の夜景を問う問題が、函館の実際の特徴(運河沿いの旧倉庫群)ではなく
+     **小樽の特徴を誤って函館に帰していた**(事実誤認)。函館山からの夜景
+     という函館固有の正しい事実に全面的に書き直した
+   - 上記以外に、函館(1859年開港・五稜郭・1869年幕府方最後の拠点)・
+     旭川(−41℃)・知床(食物連鎖)など道内14都市のカード内容と重なりうる
+     語を含む34問を個別に目視で照合し、**答えが直接カードの記述と一致する
+     ものは無い**ことを確認した(年号のみ再利用し、問う事実自体は
+     カードに無い別の具体的事実にしてある問題が複数あるが、これは
+     ドキュメントの前例に沿う許容範囲と判断)。
+
+### 確度が気になる点(申告)
+
+- アイヌ施策推進法(2019年)・二風谷ダム訴訟(1997年)・萱野茂の初当選
+  (1994年)・シャクシャインの戦い(1669年)・クナシリ・メナシの戦い
+  (1789年)は、いずれも一般に確立した年号として書いたが、一次資料までは
+  確認していない
+- 洞爺丸事故の犠牲者数(およそ1150人)・アイヌ道民調査のおよそ1万3000人
+  (難易度10)は、幅のある推計として「およそ」を付けてヘッジしてある
+- 難易度9〜10の11問は**指示どおり、別の盤面の担当に読んでいただきたい**
+
+## 全ファイル完成(測定 2026-08-20 04:18 JST)
+
+`flavour.mjs` / `money-events.mjs` / `music.mjs` / `index.mjs` を書き終え、
+`buildHokkaidoContent()` が最後まで通ることを確認した。**7箇所の登録スニペットは
+以下のとおり。**
+
+```
+node --check (全7ファイル)                      OK
+npx eslint scripts/countries/hokkaido/           0件
+npx eslint src/presentation/components/events/dooms/hokkaido-*.tsx   0件
+node scripts/check-sea-routes.mjs hokkaido       60px超の食い違いなし
+node scripts/check-quiz.mjs hokkaido             答えの漏れ: なし
+node scripts/check-quiz-across-boards.mjs hokkaido --all  japan等と重なりなし
+                                                  (asia・mexicoの各1件は誤検知、後述)
+node scripts/check-city-backgrounds.mjs --src hokkaido    元の背景23種、塗り残しなし
+都市40・路線43・クイズ100・アイテム9・厄災7・季節12・出来事22
+物件価格 150〜2600(17.3倍)
+```
+
+### 難易度9〜10の裏取り依頼(継続)
 
 `quiz.mjs` の「JR北海道が2016年11月に公表した路線総延長」の問いは、
-team-lead の裏取りに従って解説文から「10路線」を削除済み(答え・長さの
-記述はそのまま)。今後書く難易度9〜10の問いも、書き終えた時点でまとめて
-別の盤面の担当に読ませてほしい。
+team-lead の裏取りに従って解説文から「10路線」を削除済み。**難易度9〜10の
+11問すべてを、指示どおり別の盤面の担当に読んでいただきたい。**確度が
+気になる点は本文中の該当section(`quiz.mjs` 本編の項)に記載済み。
+
+### `check-quiz.mjs` の指摘への対応(4件は実物、2件は却下)
+
+**実物として直した4件**(いずれも都市カードの記述と答えが一致していた。
+質問を丸ごと差し替え、都市カードの内容は変更していない):
+
+```
+Q14(旧)  正解「ウトウ」が羽幌のカードに直接記載      → エゾモモンガの問いに差し替え
+Q33      正解「北海道南西沖地震」が奥尻のカードに記載  → 地震の規模(M7.8)を問う形に差し替え
+Q52(旧)  正解「幌内鉄道」が岩見沢のカードに直接記載    → スケトウダラの問いに差し替え
+Q75(旧)  正解「2006年」が足寄のカードに直接記載        → 深名線(1995年廃止)の問いに差し替え
+```
+
+**言語混入として却下した2件**(実在の固有名詞の正式表記であり、翻訳の
+書き漏れではない):
+
+```
+Q43  「YOSAKOIソーラン祭り」— 祭りの公式名称そのものがラテン文字表記
+Q50  「エスコンフィールドHOKKAIDO」— 球場の公式名称そのものがラテン文字混じり表記
+```
+
+### 盤面をまたぐ重複チェックで却下した2件
+
+`asia`・`mexico` と各1件ヒットしたが、答えが偶然どちらも「およそ5分の1」
+なだけで主題が無関係(北海道の面積 対 モンゴル帝国/米墨戦争の割譲地の面積)。
+理由は `quiz.mjs` 本編の項に記載済み。
+
+## 7箇所の登録スニペット
+
+### 1. `scripts/extract-legacy-content.mjs`
+
+```js
+import { buildHokkaidoContent } from "./countries/hokkaido/index.mjs";
+```
+
+`AUTHORED_COUNTRIES` 配列に追加:
+
+```js
+  buildHokkaidoContent(),
+```
+
+### 2. `scripts/content-overrides/property-economy.mjs`
+
+指示どおり日本・茨城・日本百名山と同じ `hokkaido: 10000`(¥12,000,000スタート)。
+
+```js
+  hokkaido: 10000,
+```
+
+### 3. `src/infrastructure/content/json-country-content-repository.ts`
+
+`LOADERS` に追加:
+
+```ts
+  hokkaido: () => import("./hokkaido.content.json").then((m) => m.default),
+```
+
+### 4. `src/infrastructure/audio/country-music-styles.ts`
+
+`STYLE_LOADERS` に追加:
+
+```ts
+  hokkaido: () => import("../content/hokkaido.content.json").then((m) => (m.default as { styles: unknown }).styles),
+```
+
+### 5. `src/infrastructure/content/item-effect-rules.ts`
+
+9件。**うち `bearbells` はカナダ・日本百名山が既に使っている鍵で、効果も同じ
+(repel-spirit)なので新規追加ではなく確認のみでよい**(ヒグマ対策の鈴は
+北海道でも実在するため、そのまま使う判断をした)。残り8件が新規。
+既存キーと衝突しないことを `node -e '...'` の一覧突き合わせで確認済み。
+
+```ts
+  // Hokkaido
+  daikoubasu: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  supersooya: { type: "choose-exact-dice" },
+  hamanasugou: { type: "roll-fixed-dice", diceCount: 2 },
+  hokutoseigou: { type: "roll-fixed-dice", diceCount: 3 },
+  haisenkinenban: { type: "none" }, // 厄災の神(踏切番)のward item(passive)
+  // bearbells は既存(カナダ・日本百名山)と同じ鍵・同じ効果なので追記不要(確認のみ)
+  kyuukokutetsurosen: { type: "quiz-save" },
+  keganibako: { type: "gain-cash", amount: 380 },
+  teijiunkou: { type: "extra-turn" },
+```
+
+### 6. `src/infrastructure/content/season-and-doom-rules.ts`
+
+#### 季節(12ヶ月、`SEASON_EFFECTS_BY_COUNTRY` に追加)
+
+`region()` は `chuo`(道央)/ `nan`(道南)/ `hoku`(道北)/ `tou`(道東)。
+`flavour.mjs` の `HOKKAIDO_SEASONS` のコメントと対応させてある
+(桜前線が遅れて届く4月 → 石狩平野で種まきの5月 → 札幌ライラックの6月 →
+ビアガーデンの7月 → 台風の8月 → 大雪山の紅葉が道内でいちばん早い9月 →
+沿岸各地でカニ漁解禁の10月 → 冬タイヤへの履き替えの11月 → 札幌の
+イルミネーションの12月 → 内陸盆地が冷え込む本格的な冬の1月 → 札幌雪まつりの
+2月 → 流氷が退くオホーツクの3月)。
+
+```ts
+  hokkaido: [
+    /* 0 Apr 桜前線がようやく届く(観光のわずかな上振れ) */ [
+      { op: "all-players-gain-cash", amount: 160 },
+    ],
+    /* 1 May 石狩平野で種まき(道央がやや賑わう) */ [
+      { op: "region-income-multiplier", regionId: region("chuo"), multiplier: 1.1 },
+    ],
+    /* 2 Jun 札幌にライラックが咲く(道央の観光がわずかに上振れ) */ [
+      { op: "region-income-multiplier", regionId: region("chuo"), multiplier: 1.15 },
+    ],
+    /* 3 Jul ビアガーデンが開く(全域が賑わう) */ [
+      { op: "all-players-gain-cash", amount: 200 },
+    ],
+    /* 4 Aug 台風の物入り(全域) */ [
+      { op: "all-players-pay-cash", amount: 180 },
+    ],
+    /* 5 Sep 大雪山系の紅葉が日本一早い(道央・道北の内陸が賑わう) */ [
+      { op: "region-income-multiplier", regionId: region("chuo"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("hoku"), multiplier: 1.15 },
+    ],
+    /* 6 Oct 沿岸各地でカニ漁解禁(道南・道北・道東の漁港が賑わう) */ [
+      { op: "region-income-multiplier", regionId: region("nan"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("hoku"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("tou"), multiplier: 1.2 },
+    ],
+    /* 7 Nov 冬タイヤへの履き替え(全域の物入り) */ [
+      { op: "all-players-pay-cash", amount: 160 },
+    ],
+    /* 8 Dec 札幌のイルミネーション(道央が賑わう) */ [
+      { op: "region-income-multiplier", regionId: region("chuo"), multiplier: 1.2 },
+    ],
+    /* 9 Jan 本格的な冬、内陸盆地が沈む(道北がもっとも沈む) */ [
+      { op: "region-income-multiplier", regionId: region("hoku"), multiplier: 0.75 },
+      { op: "region-income-multiplier", regionId: region("tou"), multiplier: 0.85 },
+      { op: "all-players-pay-cash", amount: 200 },
+    ],
+    /* 10 Feb 札幌雪まつり(道央が年間最大の賑わい) */ [
+      { op: "region-income-multiplier", regionId: region("chuo"), multiplier: 1.4 },
+      { op: "all-players-gain-cash", amount: 220 },
+    ],
+    /* 11 Mar 流氷が退く(道北・道東のオホーツク側がやや戻る) */ [
+      { op: "region-income-multiplier", regionId: region("hoku"), multiplier: 1.05 },
+      { op: "region-income-multiplier", regionId: region("tou"), multiplier: 1.05 },
+    ],
+  ],
+```
+
+#### 厄災(7件、`DOOM_EFFECT_ID_BY_LEGACY_ID` に追加)
+
+7つの型(fine/percentLoss/skipTurn/loseProperties/payOthers/teleport/steal)に
+過不足なく対応させた(自分で決めた対応)。**★を付けた2件は結びつきが弱く、
+もっと合う効果があれば入れ替えてほしい**(南アフリカ・スイスの担当が
+同じ形で書き残していた前例に倣った)。
+
+```ts
+  // Hokkaido
+  fubuki: "teleport",              // 地吹雪のホワイトアウトで方向を見失い、気づけば違う場所にいる
+  "ryuuhyou-doom": "steal",        // ★ 流氷で港に足止めされている間に置き引きに遭う、というやや弱い結びつき
+  "higuma-doom": "fine",           // ヒグマ出没での通行止め・迂回の通行料
+  burakkuauto: "loseProperties",   // 全域停電で自分の物件の稼働が止まる
+  "daikoubasu-manin": "skipTurn",  // 代行バスが満員で乗れず、次の便まで足止め
+  "sake-fukyou": "percentLoss",    // 鮭の不漁で、同じ予算で買える量が目減りする(割合ダメージ)
+  "kion-ranteika": "payOthers",    // ★ ぬかるみにはまり、助けてくれた周りの旅行者に礼を払う、というやや弱い結びつき
+```
+
+### 7. `src/presentation/components/events/dooms/index.ts`
+
+厄災の絵は別担当がすでに描き終えている(`hokkaido-*.tsx` 7枚、
+`npx eslint` 0件を確認済み)。
+
+```ts
+import { HokkaidoFubuki } from "./hokkaido-fubuki";
+import { HokkaidoRyuuhyouDoom } from "./hokkaido-ryuuhyou-doom";
+import { HokkaidoHigumaDoom } from "./hokkaido-higuma-doom";
+import { HokkaidoBurakkuauto } from "./hokkaido-burakkuauto";
+import { HokkaidoDaikoubasuManin } from "./hokkaido-daikoubasu-manin";
+import { HokkaidoSakeFukyou } from "./hokkaido-sake-fukyou";
+import { HokkaidoKionRanteika } from "./hokkaido-kion-ranteika";
+```
+
+`DOOM_ANIMATIONS` に追加:
+
+```ts
+  "hokkaido-fubuki": HokkaidoFubuki,
+  "hokkaido-ryuuhyou-doom": HokkaidoRyuuhyouDoom,
+  "hokkaido-higuma-doom": HokkaidoHigumaDoom,
+  "hokkaido-burakkuauto": HokkaidoBurakkuauto,
+  "hokkaido-daikoubasu-manin": HokkaidoDaikoubasuManin,
+  "hokkaido-sake-fukyou": HokkaidoSakeFukyou,
+  "hokkaido-kion-ranteika": HokkaidoKionRanteika,
+```
+
+## まだ確認できていないこと
+
+- `node scripts/extract-legacy-content.mjs` の実行(共有ツリーのため指示どおり未実行。
+  登録7箇所を当てたあとに焼いてもらう前提)
+- `npm run check` 一式(焼いたあとにお願いしたい)
+- `npm run shot -- hokkaido overview` などの目視確認(焼いたあとにお願いしたい)
+- ~~`dooms.test.ts` の実行~~ → **実行した(2026-08-20 04:21 JST)。288件成功**
+  (他盤面ぶんを含む全体テストで、hokkaido-*.tsx 7枚もこの中に含まれる)
