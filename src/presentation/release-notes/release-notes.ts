@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.54.0",
+    date: "2026-08-20",
+    title: t(
+      "Hokkaidō and Kyūshū|Hokkaidō y Kyūshū|Hokkaidō et Kyūshū|北海道と九州",
+    ),
+    highlights: [
+      t(
+        "Hokkaidō, where the railways were laid for coal and are now being closed by depopulation. The Yūbari branch went in 2019; the whole Rumoi line in 2023. Seven of the forty towns sit on lines that no longer exist, and the board draws them with buffer stops rather than ruins — people still live there. Shiraoi carries a law that stood from 1899 until 1997. Matsumae and Esashi are older than the settlement of the island: they were trading ports before the surveyors arrived.|Hokkaidō, donde los ferrocarriles se tendieron para el carbón y ahora los cierra la despoblación. El ramal de Yūbari cerró en 2019; toda la línea de Rumoi en 2023. Siete de los cuarenta pueblos están en líneas que ya no existen, y el tablero los dibuja con topes de vía en lugar de ruinas: allí sigue viviendo gente. Shiraoi lleva una ley que estuvo vigente de 1899 a 1997. Matsumae y Esashi son más antiguos que la colonización de la isla: eran puertos comerciales antes de que llegaran los agrimensores.|Hokkaidō, où les voies furent posées pour le charbon et sont aujourd\'hui fermées par le dépeuplement. L\'antenne de Yūbari a disparu en 2019 ; toute la ligne de Rumoi en 2023. Sept des quarante villes se trouvent sur des lignes qui n\'existent plus, et le plateau les dessine avec des heurtoirs plutôt que des ruines : des gens y vivent encore. Shiraoi porte une loi restée en vigueur de 1899 à 1997. Matsumae et Esashi sont plus anciens que la colonisation de l\'île : c\'étaient des ports de commerce avant l\'arrivée des arpenteurs.|**鉄道は石炭のために敷かれ、いま人口で閉じられています。**夕張支線は2019年、留萌本線は2023年に全線が消えました。40の町のうち**7つは、もう無い線の上にあります。**盤面はそれを廃墟ではなく**車止め**で描いています——**人はいまも住んでいるからです。**白老には、1899年から**1997年まで**あった法律の話があります。松前と江差は開拓より古い町で、測量が来る前から交易の港でした。",
+      ),
+      t(
+        "Kyūshū, the only window Japan kept open for two hundred years. Hirado had a trading post decades before Dejima, and in 1641 the shogunate made the Dutch tear down a new warehouse because the Christian date was carved on it — then moved them to Nagasaki. At Urakami the cathedral of 1925 was directly under the second atomic bomb; the city demolished what was left in 1958 and rebuilt on the same spot, and the argument about that has not ended. Forty towns, and next to the crater at Sakurajima the board draws not a disaster but a routine: yellow ash bags at the collection point, children in helmets.|Kyūshū, la única ventana que Japón mantuvo abierta durante doscientos años. Hirado tuvo factoría décadas antes que Dejima, y en 1641 el shogunato obligó a los neerlandeses a derribar un almacén nuevo porque llevaba grabada la fecha cristiana; luego los trasladó a Nagasaki. En Urakami, la catedral de 1925 quedó justo bajo la segunda bomba atómica; la ciudad demolió lo que quedaba en 1958 y reconstruyó en el mismo lugar, y la discusión sobre aquello no ha terminado. Cuarenta pueblos, y junto al cráter de Sakurajima el tablero no dibuja una catástrofe sino una rutina: bolsas amarillas de ceniza en el punto de recogida, niños con casco.|Kyūshū, la seule fenêtre que le Japon garda ouverte pendant deux cents ans. Hirado eut un comptoir des décennies avant Dejima, et en 1641 le shogunat fit démolir aux Néerlandais un entrepôt neuf parce que la date chrétienne y était gravée — puis les transféra à Nagasaki. À Urakami, la cathédrale de 1925 se trouvait juste sous la seconde bombe atomique ; la ville rasa ce qu\'il en restait en 1958 et rebâtit au même endroit, et le débat là-dessus n\'est pas clos. Quarante villes, et près du cratère de Sakurajima le plateau ne dessine pas une catastrophe mais une routine : sacs jaunes de cendre au point de collecte, enfants casqués.|**鎖国の二百年、日本で外へ開いていた窓は、ここだけでした。**平戸には出島より数十年早く商館があり、**1641年、幕府は新築のオランダ倉庫を取り壊させます——キリスト教暦が刻まれていたからです。**そして商館は長崎へ移されました。浦上では1925年の天主堂が二発目の原爆のほぼ真下にあり、**市は1958年に残りを取り壊して同じ場所に建て直しました。その是非をめぐる議論は、いまも終わっていません。**40の町。桜島の火口の隣に、盤面が描いたのは災害ではなく**日常**です——収集所の黄色い克灰袋と、ヘルメットをかぶった子どもたち。",
+      ),
+      t(
+        "Forty-two boards now, with 1,985 towns and 3,359 questions.|Ya son cuarenta y dos tableros, con 1.985 pueblos y 3.359 preguntas.|Quarante-deux plateaux désormais, avec 1 985 villes et 3 359 questions.|盤面は42枚になりました。町は1985、問いは3359です。",
+      ),
+    ],
+  },
+  {
     version: "0.53.0",
     date: "2026-08-20",
     title: t(
