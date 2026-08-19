@@ -23,6 +23,18 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.50.1",
+    date: "2026-08-20",
+    title: t(
+      "Two dates on the Egypt board were wrong|Dos fechas del tablero de Egipto estaban mal|Deux dates du plateau égyptien étaient fausses|エジプト盤の日付を2つ直しました",
+    ),
+    highlights: [
+      t(
+        "A question said the Ras El Hekma investment agreement was announced in March 2024; it was signed on 23 February. Another said Ethiopia laid the foundation stone of its dam days after Mubarak resigned; it was closer to seven weeks — 11 February to 2 April 2011. Both answers were right and only the dates around them were wrong, which is the shape almost every error we have found takes.|Una pregunta decía que el acuerdo de inversión de Ras El Hekma se anunció en marzo de 2024; se firmó el 23 de febrero. Otra decía que Etiopía puso la primera piedra de su presa días después de la renuncia de Mubarak; fueron casi siete semanas — del 11 de febrero al 2 de abril de 2011. Las respuestas eran correctas y solo fallaban las fechas a su alrededor, que es la forma que toma casi todo error que encontramos.|Une question affirmait que l\'accord d\'investissement de Ras El Hekma avait été annoncé en mars 2024 ; il fut signé le 23 février. Une autre disait que l\'Éthiopie avait posé la première pierre de son barrage quelques jours après la démission de Moubarak ; il s\'écoula près de sept semaines — du 11 février au 2 avril 2011. Les réponses étaient justes, seules les dates autour étaient fausses : c\'est la forme que prend presque chaque erreur que nous trouvons.|ラス・エル=ヘクマ投資契約を「2024年3月」としていましたが、署名は**2月23日**でした。エチオピアがダムの礎石を据えたのを「ムバーラク辞任の数日後」としていましたが、**2月11日から4月2日で7週間近く**あります。**どちらも答えは正しく、その周りの日付だけが違っていました。**見つかる誤りは、ほとんどがこの形をしています。",
+      ),
+    ],
+  },
+  {
     version: "0.50.0",
     date: "2026-08-20",
     title: t(
