@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.49.0",
+    date: "2026-08-19",
+    title: t(
+      "Africa, the fifth continent board|África, el quinto tablero continental|L'Afrique, le cinquième plateau continental|大陸まるごとの盤面、5枚目はアフリカ",
+    ),
+    highlights: [
+      t(
+        "Sixty-one towns from Alexandria to Cape Town, and one thing they keep saying: these railways were built to carry things out, not to carry people across. Kinshasa and Brazzaville are the two closest capitals on earth and there is no bridge between them. Kigali has no railway at all. Banjul sits on the only country the river served instead of a railway. Nouadhibou has a line laid for a single train, two and a half kilometres of iron ore. At Oran a border station has been waiting thirty years for a train that has not come.|Sesenta y una ciudades, de Alejandría a Ciudad del Cabo, y una cosa que repiten: estos ferrocarriles se hicieron para sacar cosas, no para llevar gente de un lado a otro. Kinshasa y Brazzaville son las dos capitales más cercanas del mundo y no hay puente entre ellas. Kigali no tiene ferrocarril alguno. Banjul está en el único país al que sirvió el río en lugar de una vía. Nuadibú tiene una línea tendida para un solo tren: dos kilómetros y medio de mineral de hierro. En Orán, una estación fronteriza lleva treinta años esperando un tren que no llega.|Soixante et une villes, d\'Alexandrie au Cap, et une chose qu\'elles répètent : ces chemins de fer furent bâtis pour sortir des marchandises, non pour faire circuler les gens. Kinshasa et Brazzaville sont les deux capitales les plus proches du monde, et aucun pont ne les relie. Kigali n\'a pas de chemin de fer du tout. Banjul est dans le seul pays que le fleuve a desservi à la place d\'une voie ferrée. Nouadhibou a une ligne posée pour un seul train : deux kilomètres et demi de minerai de fer. À Oran, une gare frontière attend depuis trente ans un train qui ne vient pas.|**アレクサンドリアからケープタウンまで61の町。**この盤面がくり返し言うことがひとつあります。**ここの鉄道は、物を運び出すために敷かれたのであって、人が行き来するために敷かれたのではない。**キンシャサとブラザヴィルは世界でいちばん近い二つの首都ですが、あいだに橋はありません。キガリには鉄道が一本も届いていません。バンジュルがあるのは、鉄道ではなく川が国を貫いた唯一の国です。ヌアディブには、たった一本の列車のためだけに敷かれた線があります——長さ2.5kmの鉄鉱石列車です。オランでは、国境の駅が30年、来ない列車を待っています。",
+      ),
+      t(
+        "The Cape-to-Cairo railway was never finished, and the board lets you see where it stopped. Aswan is the end of the line going south; Cape Town is the start going north; Bulawayo is where every direction of that plan met. The gaps in between are the point. A hundred and three questions, and a spirit of misfortune drawn from the same idea: the Unfinished Line, who rides with whoever falls behind.|El ferrocarril de El Cabo a El Cairo nunca se terminó, y el tablero deja ver dónde se detuvo. Asuán es el final hacia el sur; Ciudad del Cabo, el comienzo hacia el norte; Bulawayo, donde se cruzaban todas las direcciones de aquel plan. Los huecos entre medias son justamente el asunto. Ciento tres preguntas, y un espíritu de infortunio nacido de la misma idea: la Línea Inacabada, que viaja con quien se queda atrás.|Le chemin de fer du Cap au Caire ne fut jamais achevé, et le plateau montre où il s\'est arrêté. Assouan est le terminus vers le sud ; Le Cap, le départ vers le nord ; Bulawayo, le point où toutes les directions de ce projet se rejoignaient. Ce sont les manques entre les deux qui comptent. Cent trois questions, et un esprit du malheur né de la même idée : la Ligne inachevée, qui voyage avec celui qui est distancé.|**ケープ〜カイロ鉄道は完成しませんでした。**この盤面では、それがどこで止まったかが見えます。南へ向かう線の終わりがアスワン、北へ向かう線の始まりがケープタウン、その構想のあらゆる方角が集まったのがブラワヨです。**あいだの空白のほうが本題です。**103問と、同じ考えから生まれた厄災の神がひとつ。最下位の旅人に付いてくる「繋がらなかった線」です。",
+      ),
+      t(
+        "Thirty-four boards now, with 1,642 towns and 2,548 questions.|Ya son treinta y cuatro tableros, con 1.642 pueblos y 2.548 preguntas.|Trente-quatre plateaux désormais, avec 1 642 villes et 2 548 questions.|盤面は34枚になりました。町は1642、問いは2548です。",
+      ),
+    ],
+  },
+  {
     version: "0.48.0",
     date: "2026-08-19",
     title: t(
