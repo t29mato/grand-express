@@ -34,15 +34,15 @@ export const HOKKAIDO_QUIZ = [
     "The city was laid out from scratch in 1871 on a strict north–south grid, and in 1972 it hosted the first Winter Olympics ever held in Asia.|La ciudad se trazó desde cero en 1871 sobre una estricta cuadrícula norte-sur, y en 1972 acogió los primeros Juegos Olímpicos de Invierno celebrados en Asia.|La ville fut tracée de toutes pièces en 1871 selon un strict quadrillage nord-sud, et accueillit en 1972 les premiers Jeux olympiques d'hiver organisés en Asie.|この町は1871年、南北に厳密な碁盤目を引いてゼロから設計され、1972年にはアジア初の冬季オリンピックを開いた。",
   ),
   q(
-    6,
-    "A large share of Hokkaidō's city names, Sapporo among them, are generally traced back to words in which language?|¿A qué lengua se remontan generalmente muchos nombres de ciudades de Hokkaidō, entre ellas Sapporo?|D'où proviennent généralement de nombreux noms de villes de Hokkaidō, dont Sapporo ?|札幌をはじめ、北海道の都市名の多くは何語に由来するとされているか?",
+    2,
+    "What was Hokkaidō called before the Meiji government renamed it in 1869?|¿Cómo se llamaba Hokkaidō antes de que el gobierno Meiji lo renombrara en 1869?|Comment s'appelait Hokkaidō avant que le gouvernement Meiji ne la renomme en 1869 ?|1869年に明治政府が改称する前、北海道は何と呼ばれていたか?",
     [
-      "Ainu|Ainu|Aïnou|アイヌ語",
-      "Russian|Ruso|Russe|ロシア語",
-      "Mongolian|Mongol|Mongol|モンゴル語",
+      "Ezo|Ezo|Ezo|蝦夷地",
+      "Ryūkyū|Ryūkyū|Ryūkyū|琉球",
+      "Tsugaru|Tsugaru|Tsugaru|津軽",
     ],
     0,
-    "Sapporo is generally traced to the Ainu phrase for \"a dry, great river\", describing the Toyohira River's summer bed, and dozens of other Hokkaidō place names carry Japanese characters chosen only for their sound to match an older Ainu word.|Sapporo se suele remontar a la frase ainu para «un río grande y seco», que describe el lecho estival del río Toyohira, y decenas de otros topónimos de Hokkaidō llevan caracteres japoneses elegidos solo por su sonido, para imitar una palabra ainu más antigua.|Sapporo remonterait à l'expression aïnoue signifiant « un grand fleuve à sec », décrivant le lit estival de la rivière Toyohira, et des dizaines d'autres noms de lieux de Hokkaidō portent des caractères japonais choisis pour leur seule sonorité, calquée sur un mot aïnou plus ancien.|札幌はアイヌ語で「乾いた、大きな川」を意味する語に由来するとされ、これは豊平川の夏場の川原を指した言葉だという。北海道の地名の多くは、意味ではなく音だけを頼りに漢字を当てはめた、より古いアイヌ語由来の名である。",
+    "Ezo (or Ezochi) was the name used for the island for centuries while the Matsumae domain held the only licence to trade there; the new name Hokkaidō, \"the road to the northern sea\", was coined in 1869 alongside a new colonisation office.|Ezo (o Ezochi) fue el nombre usado para la isla durante siglos, mientras el dominio de Matsumae poseía la única licencia para comerciar allí; el nuevo nombre Hokkaidō, «el camino hacia el mar del norte», se acuñó en 1869 junto con una nueva oficina de colonización.|Ezo (ou Ezochi) fut le nom utilisé pour l'île pendant des siècles, tandis que le domaine de Matsumae détenait la seule licence d'y commercer ; le nouveau nom Hokkaidō, « la route vers la mer du Nord », fut inventé en 1869 avec la création d'un nouvel office de colonisation.|蝦夷地(えぞち)は、松前藩がここでの交易を独占していた数百年のあいだ使われた呼び名である。「北の海への道」を意味する北海道という新しい名は、1869年に開拓使の設置とともに定められた。",
   ),
   q(
     9,

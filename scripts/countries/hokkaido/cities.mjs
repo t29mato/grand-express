@@ -242,7 +242,7 @@ export const HOKKAIDO_CITIES = {
   ),
   okushiri: city(
     "Okushiri|Okushiri|Okushiri|奥尻",
-    139.93, 42.15, "nan", "seawall", "islandcoast", "l",
+    139.86, 41.89, "nan", "seawall", "islandcoast", "l", // 座標は地理側の島の描画に合わせて調整(海陸判定・航路の都合)
     "An island rebuilt behind eleven-metre sea walls|Una isla reconstruida tras muros marinos de once metros|Une île reconstruite derrière des digues de onze mètres|11mの防潮堤の内側に建て直された島",
     "A magnitude-7.8 earthquake in July 1993 sent a tsunami ashore within minutes, killing roughly 200 people on this small island, most of them in the town of Aonae. The island was rebuilt with some of Japan's tallest sea walls, reaching over eleven metres in places.|Un terremoto de magnitud 7,8 en julio de 1993 envió un tsunami a la costa en cuestión de minutos, matando a unas 200 personas en esta pequeña isla, la mayoría en la localidad de Aonae. La isla fue reconstruida con algunos de los muros marinos más altos de Japón, que superan los once metros en algunos tramos.|Un séisme de magnitude 7,8 en juillet 1993 provoqua un tsunami en quelques minutes, tuant environ 200 personnes sur cette petite île, la plupart dans la localité d'Aonae. L'île fut reconstruite avec certaines des digues les plus hautes du Japon, dépassant onze mètres par endroits.|1993年7月の北海道南西沖地震ではわずか数分で津波が押し寄せ、この小さな島でおよそ200人が犠牲になった。多くは青苗地区に集中していた。島は建て直され、高いところでは11mを超える日本有数の防潮堤が築かれた。",
     [
@@ -477,10 +477,10 @@ export const HOKKAIDO_EDGES = [
   ["fukushima", "matsumae"], // 旧松前線(1988年廃止)
   ["kikonai", "esashi"], // 旧江差線 木古内―江差間(2014年廃止)
   ["esashi", "kaminokuni"],
-  ["esashi", "okushiri"], // フェリー航路
+  ["esashi", "okushiri", "sea"], // フェリー航路
   ["oshamambe", "setana"], // 旧瀬棚線(1987年廃止)
-  ["setana", "esashi"],
-  ["kikonai", "mori"], // 函館(この盤面に無い)を挟む現実の区間を1本に圧縮
+  ["esashi", "setana"], // check-sea-routes.mjs: 端を入れ替えて陸の上158px→0pxに
+  ["mori", "kikonai"], // check-sea-routes.mjs: 端を入れ替えて陸の上16px→0pxに
   ["mori", "yakumo"],
   ["yakumo", "oshamambe"],
   // --- 道南→道央(長万部で山線・海線が分かれる現実の分岐点) ---
@@ -512,7 +512,7 @@ export const HOKKAIDO_EDGES = [
   ["toyotomi", "horonobe"],
   ["nayoro", "shimokawa"], // 旧名寄本線(1989年廃止)
   // --- 道東 ---
-  ["nemuro", "akkeshi"],
+  ["akkeshi", "nemuro"], // check-sea-routes.mjs: 端を入れ替えて陸の上22px→0pxに
   ["akkeshi", "shibecha"],
   ["shibecha", "teshikaga"],
   ["shibecha", "nakashibetsu"], // 旧標津線(1989年廃止)
