@@ -358,14 +358,14 @@ export const HOKKAIDO_QUIZ = [
   ),
   q(
     9,
-    "In what year did Asahikawa record what was then the lowest officially measured temperature in Japanese history?|¿En qué año registró Asahikawa la que fue entonces la temperatura más baja medida oficialmente en la historia de Japón?|En quelle année Asahikawa enregistra-t-elle ce qui fut alors la température la plus basse jamais mesurée officiellement au Japon ?|旭川がかつての日本の観測史上最低気温を記録したのは何年か?",
+    "In what year did Asahikawa record the lowest officially measured temperature in Japanese history?|¿En qué año registró Asahikawa la temperatura más baja medida oficialmente en la historia de Japón?|En quelle année Asahikawa enregistra-t-elle la température officielle la plus basse jamais mesurée au Japon ?|旭川が日本の観測史上最低気温を記録したのは何年か?",
     [
       "1902|1902|1902|1902年",
       "1954|1954|1954|1954年",
       "1977|1977|1977|1977年",
     ],
     0,
-    "The reading, −41°C, was taken in January 1902 and stood as Japan's coldest official temperature for over a century before a 2020s station elsewhere edged past it.|La lectura, −41 °C, se tomó en enero de 1902 y fue la temperatura oficial más fría de Japón durante más de un siglo, antes de que otra estación la superara en la década de 2020.|Le relevé, −41 °C, fut pris en janvier 1902 et resta la température officielle la plus froide du Japon pendant plus d'un siècle, avant qu'une autre station ne la dépasse dans les années 2020.|1902年1月、氷点下41度が観測され、これは1世紀以上にわたり日本の観測史上最低気温であり続けた(2020年代に他の観測点がこれをわずかに下回るまで)。",
+    "The reading, −41.0°C, was taken on 25 January 1902 and remains Japan's official coldest temperature today. A colder −41.2°C was measured at Mokoribetsu in 1978, but that reading has never counted as the official record, since the site fell outside the network of stations the weather agency recognises for it.|La lectura, −41,0 °C, se tomó el 25 de enero de 1902 y sigue siendo hoy la temperatura oficial más fría de Japón. En 1978 se midió una más fría, −41,2 °C, en Mokoribetsu, pero esa lectura nunca contó como récord oficial, porque el punto quedaba fuera de la red de estaciones que la agencia meteorológica reconoce a tal efecto.|Le relevé, −41,0 °C, fut pris le 25 janvier 1902 et reste aujourd'hui la température officielle la plus froide du Japon. Une lecture plus froide, −41,2 °C, fut mesurée à Mokoribetsu en 1978, mais elle n'a jamais compté comme record officiel, ce site se trouvant hors du réseau de stations reconnu à cet effet par l'agence météorologique.|1902年1月25日に観測された氷点下41.0度は、今日でも気象庁の公式記録として日本最低気温であり続けている。1978年には母子里でこれを下回る氷点下41.2度が観測されたが、その観測地点は公式記録の対象となる観測網に含まれていなかったため、記録としては認められていない。",
   ),
   q(
     7,
@@ -902,7 +902,7 @@ export const HOKKAIDO_QUIZ = [
       "Roughly 300,000|Unas 300.000|Environ 300 000|およそ30万人",
       "Roughly 1,000|Unas 1.000|Environ 1 000|およそ1000人",
     ],
-    1,
+    0,
     "Hokkaidō's prefectural survey counted roughly 13,000 self-identified Ainu residents, a number that has declined across successive surveys; many researchers and Ainu organisations argue the true figure is considerably higher, since intermarriage, historical stigma and unclear ancestry records lead many people of Ainu descent not to identify as such on a government form.|La encuesta prefectural de Hokkaidō contabilizó unas 13.000 personas ainu autoidentificadas, una cifra que ha ido disminuyendo en encuestas sucesivas; muchos investigadores y organizaciones ainu sostienen que la cifra real es considerablemente mayor, ya que los matrimonios mixtos, el estigma histórico y los registros de ascendencia poco claros hacen que muchas personas de origen ainu no se identifiquen como tales en un formulario gubernamental.|L'enquête préfectorale d'Hokkaidō a recensé environ 13 000 résidents aïnous auto-identifiés, un chiffre en baisse au fil des enquêtes successives ; de nombreux chercheurs et organisations aïnoues estiment que le chiffre réel est nettement plus élevé, les mariages mixtes, la stigmatisation historique et des registres d'ascendance flous conduisant de nombreuses personnes d'origine aïnoue à ne pas se déclarer comme telles sur un formulaire gouvernemental.|北海道の道の調査では、自らアイヌと申告した住民はおよそ1万3000人とされ、調査を重ねるごとに数は減っている。通婚や歴史的な差別、はっきりしない系譜の記録により、アイヌの血を引きながら行政の書類ではそう申告しない人も多いとして、実際の数はもっと多いはずだと研究者やアイヌ団体は指摘している。",
   ),
 

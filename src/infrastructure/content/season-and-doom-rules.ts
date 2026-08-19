@@ -18,6 +18,51 @@ const region = (code: string) => RegionId(code);
 
 /** 月インデックス(0=4月)ごとの季節効果。 */
 export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readonly SeasonEffectOp[])[]>> = {
+  hokkaido: [
+    /* 0 Apr 桜前線がようやく届く(観光のわずかな上振れ) */ [
+      { op: "all-players-gain-cash", amount: 160 },
+    ],
+    /* 1 May 石狩平野で種まき(道央がやや賑わう) */ [
+      { op: "region-income-multiplier", regionId: region("chuo"), multiplier: 1.1 },
+    ],
+    /* 2 Jun 札幌にライラックが咲く(道央の観光がわずかに上振れ) */ [
+      { op: "region-income-multiplier", regionId: region("chuo"), multiplier: 1.15 },
+    ],
+    /* 3 Jul ビアガーデンが開く(全域が賑わう) */ [
+      { op: "all-players-gain-cash", amount: 200 },
+    ],
+    /* 4 Aug 台風の物入り(全域) */ [
+      { op: "all-players-pay-cash", amount: 180 },
+    ],
+    /* 5 Sep 大雪山系の紅葉が日本一早い(道央・道北の内陸が賑わう) */ [
+      { op: "region-income-multiplier", regionId: region("chuo"), multiplier: 1.2 },
+      { op: "region-income-multiplier", regionId: region("hoku"), multiplier: 1.15 },
+    ],
+    /* 6 Oct 沿岸各地でカニ漁解禁(道南・道北・道東の漁港が賑わう) */ [
+      { op: "region-income-multiplier", regionId: region("nan"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("hoku"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("tou"), multiplier: 1.2 },
+    ],
+    /* 7 Nov 冬タイヤへの履き替え(全域の物入り) */ [
+      { op: "all-players-pay-cash", amount: 160 },
+    ],
+    /* 8 Dec 札幌のイルミネーション(道央が賑わう) */ [
+      { op: "region-income-multiplier", regionId: region("chuo"), multiplier: 1.2 },
+    ],
+    /* 9 Jan 本格的な冬、内陸盆地が沈む(道北がもっとも沈む) */ [
+      { op: "region-income-multiplier", regionId: region("hoku"), multiplier: 0.75 },
+      { op: "region-income-multiplier", regionId: region("tou"), multiplier: 0.85 },
+      { op: "all-players-pay-cash", amount: 200 },
+    ],
+    /* 10 Feb 札幌雪まつり(道央が年間最大の賑わい) */ [
+      { op: "region-income-multiplier", regionId: region("chuo"), multiplier: 1.4 },
+      { op: "all-players-gain-cash", amount: 220 },
+    ],
+    /* 11 Mar 流氷が退く(道北・道東のオホーツク側がやや戻る) */ [
+      { op: "region-income-multiplier", regionId: region("hoku"), multiplier: 1.05 },
+      { op: "region-income-multiplier", regionId: region("tou"), multiplier: 1.05 },
+    ],
+  ],
   norway: [
     /* 0 Apr イースターの山スキー */ [
       { op: "region-income-multiplier", regionId: region("ve"), multiplier: 1.25 },
@@ -2184,6 +2229,14 @@ newzealand: [
  * フレーバーに応じて異なる。`id` → 効果種別の対応。
  */
 export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>> = {
+  // Hokkaido
+  fubuki: "teleport",              // 地吹雪のホワイトアウトで方向を見失い、気づけば違う場所にいる
+  "ryuuhyou-doom": "steal",        // ★ 流氷で港に足止めされている間に置き引きに遭う、というやや弱い結びつき
+  "higuma-doom": "fine",           // ヒグマ出没での通行止め・迂回の通行料
+  burakkuauto: "loseProperties",   // 全域停電で自分の物件の稼働が止まる
+  "daikoubasu-manin": "skipTurn",  // 代行バスが満員で乗れず、次の便まで足止め
+  "sake-fukyou": "percentLoss",    // 鮭の不漁で、同じ予算で買える量が目減りする(割合ダメージ)
+  "kion-ranteika": "payOthers",    // ★ ぬかるみにはまり、助けてくれた周りの旅行者に礼を払う、というやや弱い結びつき
   // Norway
   snoskred: "skipTurn",
   havstorm: "payOthers",

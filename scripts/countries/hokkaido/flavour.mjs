@@ -125,7 +125,8 @@ export const HOKKAIDO_ITEMS = {
   },
   kyuukokutetsurosen: {
     e: "🗺️",
-    price: 150,
+    // 効果の上限が147なので、150だと**買うだけ損**になる。
+    price: 140,
     kind: "passive",
     n: t("Old JNR Route Map|Antiguo mapa de rutas de JNR|Vieille carte du réseau JNR|旧国鉄路線図"),
     d: t(

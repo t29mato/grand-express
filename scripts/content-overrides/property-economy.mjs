@@ -57,6 +57,7 @@ export const CURRENCY_MULTIPLIERS = {
   vietnam: 1650000,
   southafrica: 1200,
   norway: 700,
+  hokkaido: 10000,
   newzealand: 100,
   spain: 100,
   // US$120,000 → 開始資金1200×100(team-lead指定)。

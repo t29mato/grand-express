@@ -60,6 +60,8 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
       "vietnam",
       "japan",
       "ibaraki",
+      "hokkaido",
+      "kyushu",
       "korea",
       "china",
       "india",
@@ -116,7 +118,7 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
  * 韓国は中国の一部ではない。**地理の事実は式では出ないので、ここに手で書く。**
  */
 export const SUB_BOARDS: Record<string, readonly string[]> = {
-  japan: ["ibaraki", "hyakumeizan"],
+  japan: ["ibaraki", "hyakumeizan", "hokkaido", "kyushu"],
   indonesia: ["bali"],
 };
 
@@ -178,6 +180,9 @@ const SCALE_BY_ID: Record<string, BoardScale> = {
   solarsystem: "space",
   ibaraki: "region",
   bali: "region",
+  // 北海道と九州は県より広いが、日本の中の地方なので「国」ではない。
+  hokkaido: "region",
+  kyushu: "region",
 };
 
 export function boardScale(countryId: string): BoardScale {

@@ -104,6 +104,8 @@ const GENERIC = new Set([
  * わざと文面に結び付けている。
  */
 const ACCEPTED = [
+  { c: "hokkaido", has: "YOSAKOI", why: "祭りの公式表記そのもの。訳すと祭りが特定できない" },
+  { c: "hokkaido", has: "HOKKAIDO", why: "球場の公式名称(エスコンフィールドHOKKAIDO)。施設名の一部" },
   { c: "kyushu", has: "PayPay", why: "実在の施設名(PayPayドーム)。訳すと施設が特定できない" },
   { c: "norway", has: "英語の fell", why: "fjell と英語 fell が語源を同じくする、という説明。原語が話題そのもの" },
   { c: "norway", has: "ski", why: "英語 ski の語源を訊く問題。綴りが問いの中身" },

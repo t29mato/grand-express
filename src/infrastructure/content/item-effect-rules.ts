@@ -442,4 +442,14 @@ jandalsprint: { type: "extra-turn" },
   lesenotater: { type: "quiz-save" },
   solvklump: { type: "gain-cash", amount: 380 },
   hurtigbat: { type: "extra-turn" },
+  // Hokkaido
+  daikoubasu: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  supersooya: { type: "choose-exact-dice" },
+  hamanasugou: { type: "roll-fixed-dice", diceCount: 2 },
+  hokutoseigou: { type: "roll-fixed-dice", diceCount: 3 },
+  haisenkinenban: { type: "none" }, // 厄災の神(踏切番)のward item(passive)
+  // bearbells は既存(カナダ・日本百名山)と同じ鍵・同じ効果なので追記不要(確認のみ)
+  kyuukokutetsurosen: { type: "quiz-save" },
+  keganibako: { type: "gain-cash", amount: 380 },
+  teijiunkou: { type: "extra-turn" },
 };
