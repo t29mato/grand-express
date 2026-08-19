@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.50.0",
+    date: "2026-08-20",
+    title: t(
+      "Egypt, where the map is the population|Egipto, donde el mapa es la población|L'Égypte, où la carte est la population|エジプト。地図がそのまま人口の分布",
+    ),
+    highlights: [
+      t(
+        "Almost all of Egypt is empty desert, and almost everyone lives along one river and its delta. You can see it on the board: forty-one towns strung along a thin green ribbon, with nothing on either side. There are no pyramids and no pharaohs anywhere on this board — not in a town, not in a question, not in a picture. Egypt is a place where people live now.|Casi todo Egipto es desierto vacío, y casi todo el mundo vive junto a un río y su delta. Se ve en el tablero: cuarenta y una ciudades ensartadas en una cinta verde estrecha, y nada a los lados. En este tablero no hay pirámides ni faraones — ni en un pueblo, ni en una pregunta, ni en un dibujo. Egipto es un lugar donde la gente vive ahora.|Presque toute l\'Égypte est un désert vide, et presque tout le monde vit le long d\'un fleuve et de son delta. Cela se voit sur le plateau : quarante et une villes enfilées sur un mince ruban vert, et rien de part et d\'autre. Il n\'y a sur ce plateau ni pyramides ni pharaons — ni dans une ville, ni dans une question, ni dans une image. L\'Égypte est un endroit où des gens vivent aujourd\'hui.|**エジプトのほとんどは無人の砂漠で、人はほぼ全員、一本の川とその三角州のそばに住んでいます。**それが盤面で見えます。細い緑の帯に41の町が並び、両側には何もありません。**この盤面にピラミッドとファラオは1つもありません。**町にも、問いにも、絵にも。**エジプトは、いま人が暮らしている場所です。**",
+      ),
+      t(
+        "The Aswan High Dam drowned people before it drowned monuments: more than fifty thousand Egyptian Nubians left villages their families had lived in for generations. At Luxor the same argument runs the other way — three thousand families were moved off the west bank between 2006 and 2009 because they were living on top of the tombs. Alexandria has the oldest tram in Africa, running since 1860, in a city that is slowly sinking. Rosetta is a town named after a stone that has spent two centuries in another country\'s museum.|La presa de Asuán ahogó a personas antes que a monumentos: más de cincuenta mil nubios egipcios dejaron aldeas donde sus familias habían vivido durante generaciones. En Luxor el argumento corre al revés: tres mil familias fueron trasladadas de la orilla oeste entre 2006 y 2009 porque vivían encima de las tumbas. Alejandría tiene el tranvía más antiguo de África, en marcha desde 1860, en una ciudad que se hunde lentamente. Rosetta es un pueblo que lleva el nombre de una piedra que pasó dos siglos en el museo de otro país.|Le haut barrage d\'Assouan a noyé des gens avant de noyer des monuments : plus de cinquante mille Nubiens égyptiens ont quitté des villages où leurs familles vivaient depuis des générations. À Louxor, l\'argument s\'inverse : trois mille familles furent déplacées de la rive ouest entre 2006 et 2009 parce qu\'elles vivaient au-dessus des tombes. Alexandrie possède le plus ancien tramway d\'Afrique, en service depuis 1860, dans une ville qui s\'enfonce lentement. Rosette est une ville qui porte le nom d\'une pierre passée deux siècles dans le musée d\'un autre pays.|**アスワン・ハイダムは、遺跡より先に人を沈めました。**5万人を超えるエジプト系ヌビア人が、何世代も暮らした村を離れています。ルクソールでは同じ話が逆向きに起きました。2006〜2009年、3000世帯が西岸から移されています——**墓の真上に住んでいたからです。**アレクサンドリアには1860年から走るアフリカ最古の路面電車があり、その街はいま少しずつ沈んでいます。ロゼッタは、**二世紀にわたって他国の博物館にある石**の名を持つ町です。",
+      ),
+      t(
+        "Thirty-five boards now, with 1,683 towns and 2,650 questions.|Ya son treinta y cinco tableros, con 1.683 pueblos y 2.650 preguntas.|Trente-cinq plateaux désormais, avec 1 683 villes et 2 650 questions.|盤面は35枚になりました。町は1683、問いは2650です。",
+      ),
+    ],
+  },
+  {
     version: "0.49.0",
     date: "2026-08-19",
     title: t(
