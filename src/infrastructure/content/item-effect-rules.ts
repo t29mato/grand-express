@@ -372,4 +372,14 @@ taniwhaoffering: { type: "repel-spirit" },
 correspondence: { type: "quiz-save" },
 kauirgum: { type: "gain-cash", amount: 380 },
 jandalsprint: { type: "extra-turn" },
+  // Africa
+  telegraphslip: { type: "extra-turn" },
+  dhowpassage: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  gaugechit: { type: "choose-exact-dice" },
+  resthousevoucher: { type: "none" }, // 厄災の神(繋がらなかった線)のward item(passive)
+  kolanuts: { type: "gain-cash", amount: 260 },
+  goldweight: { type: "quiz-save" },
+  coffeesack: { type: "roll-fixed-dice", diceCount: 2 },
+  orewagonslip: { type: "roll-fixed-dice", diceCount: 3 },
+  trackwalkerlantern: { type: "repel-spirit" },
 };

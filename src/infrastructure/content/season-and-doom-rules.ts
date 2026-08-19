@@ -18,6 +18,56 @@ const region = (code: string) => RegionId(code);
 
 /** 月インデックス(0=4月)ごとの季節効果。 */
 export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readonly SeasonEffectOp[])[]>> = {
+  /**
+   * アフリカ大陸。東アフリカの長雨 → ザンベジの増水 → サヘルの酷暑 →
+   * グレート・マイグレーションのマラ川渡渉 → ナマクアランドの花 →
+   * エンクタタシュ(9月・給アイテム) → 東アフリカの短雨 → ハルマッタン →
+   * インド洋サイクロン季(12月・休神) → セレンゲティの出産期 →
+   * ケープワインの収穫 → ラマダーンの移動、という流れ。
+   */
+  africa: [
+    /* 0 Apr 東アフリカの長雨 */ [
+      { op: "region-income-multiplier", regionId: region("eaf"), multiplier: 0.9 },
+    ],
+    /* 1 May ザンベジの増水(ヴィクトリアフォールズ観光の最盛期) */ [
+      { op: "region-income-multiplier", regionId: region("saf"), multiplier: 1.15 },
+    ],
+    /* 2 Jun サヘルの酷暑(雨季の前) */ [
+      { op: "region-income-multiplier", regionId: region("sah"), multiplier: 0.85 },
+    ],
+    /* 3 Jul グレート・マイグレーションのマラ川渡渉(サファリ最盛期) */ [
+      { op: "region-income-multiplier", regionId: region("eaf"), multiplier: 1.3 },
+    ],
+    /* 4 Aug ナマクアランドの花(南部アフリカの観光最盛期) */ [
+      { op: "region-income-multiplier", regionId: region("saf"), multiplier: 1.2 },
+    ],
+    /* 5 Sep エンクタタシュ(エチオピア新年) */ [{ op: "give-item-to-all" }],
+    /* 6 Oct 東アフリカの短雨 */ [
+      { op: "region-income-multiplier", regionId: region("eaf"), multiplier: 0.9 },
+    ],
+    /* 7 Nov ハルマッタン(サハラの砂塵が西アフリカを覆う) */ [
+      { op: "region-income-multiplier", regionId: region("mag"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("sah"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("gof"), multiplier: 0.9 },
+    ],
+    /* 8 Dec インド洋サイクロン季(休神) */ [
+      { op: "region-income-multiplier", regionId: region("saf"), multiplier: 0.8 },
+      { op: "region-income-multiplier", regionId: region("eaf"), multiplier: 0.85 },
+      { op: "rest-spirit" },
+    ],
+    /* 9 Jan セレンゲティの出産期(サファリ最盛期) */ [
+      { op: "region-income-multiplier", regionId: region("eaf"), multiplier: 1.25 },
+    ],
+    /* 10 Feb ケープワインの収穫 */ [
+      { op: "region-income-multiplier", regionId: region("saf"), multiplier: 1.15 },
+    ],
+    /* 11 Mar ラマダーン(営業時間短縮とイード・アル=フィトルの喜捨) */ [
+      { op: "region-income-multiplier", regionId: region("mag"), multiplier: 0.9 },
+      { op: "region-income-multiplier", regionId: region("sah"), multiplier: 0.9 },
+      { op: "region-income-multiplier", regionId: region("hoa"), multiplier: 0.9 },
+      { op: "all-players-pay-cash", amount: 150 },
+    ],
+  ],
 newzealand: [
   /* 0 Apr 誰かが植えた場所にだけ来る紅葉(アロータウン) */ [
     { op: "region-income-multiplier", regionId: region("ota"), multiplier: 1.15 },
@@ -1852,6 +1902,14 @@ newzealand: [
  * フレーバーに応じて異なる。`id` → 効果種別の対応。
  */
 export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>> = {
+  // Africa
+  harmattan: "fine", // 砂に埋もれた線路の掘り出し費用
+  washout: "loseProperties", // 洗い流された土手ぞいの物件
+  borderclosed: "skipTurn", // 突然の国境封鎖で足止め
+  gaugebreak: "percentLoss", // 積み替えの手間で荷が傷んで値崩れ
+  checkpoint: "payOthers", // 検問の袖の下を全員に分け与える
+  wildlifedetour: "teleport", // 保護区を迂回させられる
+  coppertheft: "steal", // 架線の銅線が盗まれる
 // New Zealand
 "ruapehu-ash": "fine", // 降灰の掃除・保線費用
 norwester: "loseProperties", // 強風で緩んだ屋根が飛ばされる被害

@@ -50,6 +50,7 @@ export const CURRENCY_MULTIPLIERS = {
   // **担当の仮置きは 100 だったが、これは12倍のずれ。**他の中南米盤面が
   // ドル建て(×100)なのに引きずられたもので、ペソはドルの1/17なので合わない。
   mexico: 1200,
+  africa: 100,
   newzealand: 100,
   spain: 100,
   // US$120,000 → 開始資金1200×100(team-lead指定)。

@@ -230,6 +230,13 @@ import { NewzealandFloodWashout } from "./newzealand-flood-washout";
 import { NewzealandSandflies } from "./newzealand-sandflies";
 import { NewzealandFerryCancelled } from "./newzealand-ferry-cancelled";
 import { NewzealandSheepJam } from "./newzealand-sheep-jam";
+import { AfricaHarmattan } from "./africa-harmattan";
+import { AfricaWashout } from "./africa-washout";
+import { AfricaBorderclosed } from "./africa-borderclosed";
+import { AfricaGaugebreak } from "./africa-gaugebreak";
+import { AfricaCheckpoint } from "./africa-checkpoint";
+import { AfricaWildlifedetour } from "./africa-wildlifedetour";
+import { AfricaCoppertheft } from "./africa-coppertheft";
 
 /**
  * 「国-厄災id」→ その災難の動く絵。
@@ -472,6 +479,14 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "asia-customsdelay": AsiaCustomsdelay,
   "asia-bazaarpickpocket": AsiaBazaarpickpocket,
   "asia-powercut": AsiaPowercut,
+
+  "africa-harmattan": AfricaHarmattan,
+  "africa-washout": AfricaWashout,
+  "africa-borderclosed": AfricaBorderclosed,
+  "africa-gaugebreak": AfricaGaugebreak,
+  "africa-checkpoint": AfricaCheckpoint,
+  "africa-wildlifedetour": AfricaWildlifedetour,
+  "africa-coppertheft": AfricaCoppertheft,
 };
 
 /** その国のその災難の絵。無ければ undefined。 */
