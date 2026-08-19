@@ -488,10 +488,10 @@ export const VIETNAM_QUIZ = [
   ),
   q(
     7,
-    "Hạ Long Bay was first inscribed as a UNESCO World Heritage Site in which year?|La bahía de Hạ Long fue inscrita por primera vez como Patrimonio de la Humanidad de la UNESCO en qué año?|La baie de Hạ Long fut inscrite pour la première fois au patrimoine mondial de l'UNESCO en quelle année ?|ハロン湾が最初にユネスコ世界遺産に登録されたのは何年か?",
-    ["1994|1994|1994|1994年", "1975|1975|1975|1975年", "2010|2010|2010|2010年"],
+    "Roughly how many islands and islets does Hạ Long Bay contain?|¿Aproximadamente cuántas islas e islotes contiene la bahía de Hạ Long?|Combien d'îles et d'îlots la baie de Hạ Long compte-t-elle approximativement ?|ハロン湾にはおよそいくつの島や岩礁があるか?",
+    ["Roughly 1,600|Aproximadamente 1.600|Environ 1 600|およそ1,600", "Roughly 160|Aproximadamente 160|Environ 160|およそ160", "Roughly 16,000|Aproximadamente 16.000|Environ 16 000|およそ16,000"],
     0,
-    "The listing was later expanded in 2000 to include a wider area of the bay's limestone karst, one of the country's most recognisable natural landscapes.|La inscripción se amplió más tarde, en 2000, para incluir un área más extensa del karst calizo de la bahía, uno de los paisajes naturales más reconocibles del país.|L'inscription fut ensuite élargie en 2000 pour inclure une zone plus vaste du karst calcaire de la baie, l'un des paysages naturels les plus reconnaissables du pays.|この登録は2000年にさらに拡張され、この国でも指折りの見分けやすい自然景観である、湾の石灰岩カルストのより広い区域が加えられた。",
+    "Most are uninhabited limestone pillars too steep and narrow to build on, and only a few dozen carry names at all; local fishing families historically knew individual rocks by shape rather than by any official count.|La mayoría son pilares calizos deshabitados, demasiado escarpados y estrechos para construir en ellos, y solo unas pocas decenas tienen siquiera nombre; las familias de pescadores locales conocían tradicionalmente las rocas por su forma más que por ningún recuento oficial.|La plupart sont des pitons calcaires inhabités, trop abrupts et étroits pour y bâtir quoi que ce soit, et seules quelques dizaines portent même un nom ; les familles de pêcheurs locales connaissaient traditionnellement les rochers par leur forme plutôt que par un quelconque décompte officiel.|その大半は人の住めない石灰岩の塔で、急峻すぎて何かを建てる余地もなく、名前が付いているのはほんの数十にすぎない。地元の漁師の一家は、公式な数え上げよりもむしろ岩の形でそれぞれを見分けてきた。",
   ),
   q(
     6,
