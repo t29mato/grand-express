@@ -1,47 +1,36 @@
 /**
- * アフリカ大陸盤面の都市と路線(いまは5都市の見本のみ)。
+ * アフリカ大陸盤面の都市と路線(61都市・65路線)。
  *
  * 大陸盤面の主題は「国をまたぐ話」。すでにモロッコとガーナの盤面があるので、
- * 同じ都市を選ぶ場合でも中身は変える(このファイルでは同じ都市はまだ選んでいない)。
+ * 同じ都市を選ぶ場合でも中身は変える(このファイルでは同じ都市を選んでいない)。
  * この盤面固有の主題は「大陸を貫く鉄路がついに一本につながらなかったこと」——
  * 軌間が国ごとにバラバラ(1067mm/1000mm/1435mm)で、路線の大半は内陸の資源を
  * 港へ運ぶためだけに敷かれ、隣国とはもともと繋がる設計になっていない。
  * ケープ〜カイロ構想は完成せず、いま新しく敷かれている線(電化標準軌)は
  * その古い構図をようやく書き換え始めている、という筋。
  *
- * 地方区分(暫定、7つ。このファイルではまだ eaf/saf/hoa/caf/gof の5つしか
- * 使っていない): `mag` マグレブ・ナイル / `sah` サヘル・西アフリカ内陸 /
- * `gof` ギニア湾岸 / `caf` 中部アフリカ・コンゴ盆地 / `hoa` アフリカの角 /
- * `eaf` 東アフリカ・大湖地方 / `saf` 南部アフリカ。
+ * 地方区分(7つ): `mag` マグレブ・ナイル・モーリタニア(9都市) /
+ * `sah` サヘル・西アフリカ内陸(1都市、紛争地域を避けチャドのみ) /
+ * `gof` ギニア湾岸(11都市) / `caf` 中部アフリカ・コンゴ盆地(8都市) /
+ * `hoa` アフリカの角(4都市) / `eaf` 東アフリカ・大湖地方(11都市) /
+ * `saf` 南部アフリカ(17都市)。
  *
- * 経度・緯度は実際の値。投影の範囲は今後 geography.mjs で定義する
- * (団体側の見積りでは経度-17〜51度・緯度37〜-35度、都市1つあたり約90k px²
- * 目標なら BW≈2258×BH≈2391 前後になる見込み。都市総数が決まってから確定する)。
+ * 経度・緯度は実際の値。投影の範囲は `geography.mjs` の `AFRICA_PROJ`
+ * (経度-18〜52度・緯度38〜-35.5度、BW2268×BH2382)を参照。
  *
- * ## この5都市で選んだ角度
+ * 33か国、1国につき1〜3都市(上限厳守)。首都ばかりにせず港・国境・
+ * 乗り換えの町を混ぜてある。サヘル(マリ・ブルキナファソ・ニジェール)は
+ * ジハード系武装勢力の活動が国土の広い範囲に及んでいるため止まりマスを
+ * 置いていない(ダカール・アビジャン・コトヌーの文中で言及するに留めた)。
+ * チャドのンジャメナだけは、紛争ではなく「鉄道が一度も届いていない」空白を
+ * 主題にできる首都として `sah` 枠に採用した。
  *
- * - ダルエスサラーム(`eaf`): タンザニア自前の鉄道(ドイツ・イギリスが敷いた
- *   メーターゲージ1000mm)と、中国が建設したタンザン鉄道TAZARA(ケープゲージ
- *   1067mm)が同じ市内の別々のターミナルに着き、いまも物理的につながっていない。
- *   「軌間の断絶」を都市の中の断絶として書く。
- * - カピリンポシ(`saf`): TAZARAのザンビア側終点。あえてザンビア既存網と
- *   同じ軌間で敷かれた点(ダルエスサラームとは対照的に軌間は揃っている)と、
- *   「白人少数支配のローデシア/南アフリカを通らずに銅を運ぶ」という
- *   建設そのものの政治的動機を書く。理想が薄れたあとの赤字も隠さない。
- * - ジブチ(`hoa`): 1917年開通のフランス製メーターゲージ線が朽ちて止まり、
- *   2018年の中国製電化標準軌線がそれに置き換わった。エリトリア戦争で
- *   陸封国エチオピアがこの港にいっそう依存するようになった経緯も書く。
- *   「いま新しく敷かれている線」の代表例。
- * - ルブンバシ(`caf`): カタンガの銅を運ぶために競合した3本の植民地鉄道
- *   (ベルギー領コンゴ川水系・イギリス領ローデシア経由・ポルトガル領
- *   アンゴラのベンゲラ鉄道)。どれも隣国を結ぶためではなく、資源を
- *   最短で港へ運ぶためだけに敷かれたという主題そのもの。
- * - ダカール(`gof`): ダカール〜ニジェール鉄道(1907〜1923年)は、内陸の
- *   交易をイギリス領ガンビア/シエラレオネの港へ逃がさないための線。
- *   国際旅客が途絶えたあと、2021年開通のTERは国境を越えない都市内路線
- *   になった——「植民地時代の線」と「いまの新線」を1都市で対比させる。
+ * モロッコとガーナの盤面にある都市は選んでいない。
  *
- * モロッコとガーナの盤面にある都市は、この5都市では選んでいない。
+ * `toamasina`(マダガスカル)は当初の60都市には無く、`antananarivo`—`nacala`
+ * の航路が海陸判定でどうしても直せなかったため、実在するタナナリブ―
+ * コートエスト鉄道(1913年)を中継する形で61都市目として足した
+ * (`AFRICA_EDGES` 末尾のコメント参照)。
  */
 import { city, prop } from "../../content-overrides/city-helpers.mjs";
 
@@ -123,11 +112,19 @@ export const AFRICA_CITIES = {
   ),
   antananarivo: city(
     "Antananarivo|Antananarivo|Antananarivo|アンタナナリボ",
-    47.5079, -18.8792, "eaf", "riverport", "sahara", "r",
+    47.5079, -18.8792, "eaf", "riverport", "highlandpass", "r",
     "An island network that never touched the mainland, and mostly stopped anyway|Una red isleña que nunca tocó el continente, y aun así casi se detuvo del todo|Un réseau insulaire qui n'a jamais touché le continent, et qui s'est presque arrêté quand même|大陸に触れないまま、それでもほぼ止まってしまった島の鉄道網",
     "Madagascar's railways, begun by the French in 1901, were always going to serve only the island's own ports, since Madagascar sits hundreds of kilometres from the African mainland across the Mozambique Channel; even the island's own two rail networks were never connected to each other, and after independence much of the network around the capital fell into disrepair, with passenger service suspended for long stretches since the 2000s. The separate narrow-gauge FCE line, running from Fianarantsoa to Manakara on the east coast, survives mainly as a freight and tourist run through rainforest too steep and roadless for trucks to reach as easily.|Los ferrocarriles de Madagascar, iniciados por Francia en 1901, siempre estuvieron destinados a servir solo a los propios puertos de la isla, ya que Madagascar se encuentra a cientos de kilómetros del continente africano al otro lado del canal de Mozambique; ni siquiera las dos redes ferroviarias propias de la isla llegaron a conectarse entre sí, y tras la independencia buena parte de la red en torno a la capital se deterioró, con el servicio de pasajeros suspendido por largos periodos desde la década de 2000. La línea aparte de vía estrecha FCE, que va de Fianarantsoa a Manakara en la costa este, sobrevive sobre todo como recorrido de carga y turístico por una selva demasiado empinada y sin carreteras para que los camiones lleguen con la misma facilidad.|Les chemins de fer de Madagascar, entamés par les Français en 1901, n'ont toujours été destinés qu'à desservir les propres ports de l'île, Madagascar se trouvant à des centaines de kilomètres du continent africain de l'autre côté du canal du Mozambique ; même les deux réseaux ferroviaires propres à l'île n'ont jamais été reliés entre eux, et après l'indépendance, une grande partie du réseau autour de la capitale se dégrada, le service voyageurs étant suspendu de longues périodes depuis les années 2000. La ligne à voie étroite distincte du FCE, allant de Fianarantsoa à Manakara sur la côte est, survit surtout comme liaison de fret et touristique à travers une forêt tropicale trop abrupte et sans routes pour que les camions y accèdent aussi facilement.|マダガスカルの鉄道は1901年にフランスによって始められたが、モザンビーク海峡を挟んでアフリカ大陸から数百キロ離れているため、もとから島内の港に仕えるだけの存在だった。島に二つあった鉄道網どうしですら一度もつながったことがなく、独立後は首都周辺の路線網の多くが荒廃し、2000年代以降は旅客サービスが長期にわたって止まったままの区間もある。フィアナランツォアから東海岸のマナカラまで走る別系統の狭軌線FCEは、トラックが同じようには入り込めない急峻で道路の無い熱帯雨林を抜ける貨物・観光用の路線として、おもに生き残っている。",
     [prop("Soarano Station Concourse|Vestíbulo de la estación de Soarano|Hall de la gare de Soarano|ソアラノ駅のコンコース", 620, 128),
      prop("Manakara Rainforest Rail Halt|Apeadero ferroviario de la selva de Manakara|Halte ferroviaire de la forêt de Manakara|マナカラ熱帯雨林の停車場", 340, 70)],
+  ),
+  toamasina: city(
+    "Toamasina|Toamasina|Toamasina|トゥアマシナ",
+    49.4021, -18.1492, "eaf", "port", "harborcity", "l",
+    "The port at the end of the only line that ever left the capital|El puerto al final de la única línea que salió jamás de la capital|Le port au bout de la seule ligne à être jamais partie de la capitale|首都から出た唯一の路線の終着港",
+    "Toamasina became Madagascar's main port once the Tananarive–Côte Est railway reached it in 1913, giving the highland capital its first fixed link to open water across country too rugged for a road to follow easily; passenger trains on the line have run only intermittently since the 2000s, but the port still handles the large majority of the island's seaborne trade by road and by what freight service continues. Cyclones out of the Indian Ocean strike this stretch of coast almost every year, and the port is repeatedly rebuilt after storm damage rather than relocated, since there is no comparable natural harbour anywhere nearby.|Toamasina se convirtió en el principal puerto de Madagascar cuando el ferrocarril Tananarive-Côte Est llegó hasta allí en 1913, dando a la capital de las tierras altas su primer enlace fijo con mar abierto a través de un terreno demasiado accidentado para que una carretera lo siguiera con facilidad; los trenes de pasajeros de la línea solo han circulado de forma intermitente desde la década de 2000, pero el puerto sigue gestionando la gran mayoría del comercio marítimo de la isla, por carretera y por el servicio de carga que aún continúa. Los ciclones del océano Índico golpean este tramo de costa casi todos los años, y el puerto se reconstruye una y otra vez tras los daños de las tormentas en lugar de trasladarse, ya que no hay ningún puerto natural comparable cerca.|Toamasina devint le principal port de Madagascar une fois que le chemin de fer Tananarive-Côte Est l'atteignit en 1913, donnant à la capitale des hautes terres sa première liaison fixe vers le large à travers un terrain trop accidenté pour qu'une route le suive facilement ; les trains de voyageurs sur la ligne n'ont circulé que par intermittence depuis les années 2000, mais le port gère encore la grande majorité du commerce maritime de l'île, par la route et par le service de fret qui subsiste. Des cyclones venus de l'océan Indien frappent ce tronçon de côte presque chaque année, et le port est sans cesse reconstruit après les dégâts des tempêtes plutôt que déplacé, faute de port naturel comparable à proximité.|トゥアマシナは1913年にタナナリブ―コートエスト鉄道が到達したことで、マダガスカルの主要な港になった。道路では容易にたどれないほど険しい地形を越えて、高地の首都に初めて外洋への固定した結びつきを与えたのである。この路線の旅客列車は2000年代以降断続的にしか走っていないが、港はいまも道路輸送と残っている貨物便を通じて、島の海上貿易の大半を扱っている。インド洋からのサイクロンはほぼ毎年この沿岸を襲うが、近くに匹敵する天然の良港が無いため、移転ではなく被害のたびに立て直されてきた。",
+    [prop("Tananarive–Côte Est Rail Terminus|Terminal ferroviaria Tananarive-Côte Est|Terminus ferroviaire Tananarive-Côte Est|タナナリブ―コートエスト線の終着駅", 480, 99),
+     prop("Cyclone-Rebuilt Harbour Quay|Muelle del puerto reconstruido tras ciclones|Quai du port reconstruit après les cyclones|サイクロン被災から立て直された港の埠頭", 620, 128)],
   ),
   // ---------------------------------------------------------------------
   kapirimposhi: city(
@@ -553,9 +550,124 @@ export const AFRICA_CITIES = {
 };
 
 /**
- * 路線。5都市は地理的に大きく離れており(東アフリカ・南部アフリカ・
- * アフリカの角・中部アフリカ・西アフリカ)、この時点で意味のある直接の
- * 隣接路線は無い。都市が出そろってから、地方内の近い都市どうしを
- * つなぐ形で設計する。
+ * 路線(65本)。実在の鉄道・道路・航路を土台に、大陸盤面の主題
+ * (国境やゲージで途切れる/資源は港へ、隣国へは繋がらない)をそのまま
+ * 反映している。
+ *
+ * `"sea"` は航路(フェリー・沿岸海運)。それ以外は陸路(鉄道または道路。
+ * 現状この2種類しか値が無いため、鉄道か道路かは都市の `fact` 側で示す)。
+ * **陸路は必ずしも鉄道を意味しない**——`beira`—`maputo`・`lobito`—`luanda`
+ * のように「鉄道は一度も繋がっていないが、沿岸道路はある」区間も陸路で
+ * 表している(道路は別、という前提は都市の `fact` 側に明記してある)。
+ *
+ * 意図的に繋いでいない区間(=実際に繋がっていないことが主題の区間):
+ * - `tunis`—アルジェリア側を直接結ぶ路線は無い(モロッコ―アルジェリア国境の
+ *   閉鎖に加え、この盤面にモロッコの都市を含めていないため対象が無い。
+ *   その代わり `alexandria`—`tunis` の地中海航路で全体をつないでいる)
+ * - `asmara`—`addisababa`/`direbawa` は結んでいない(エチオピア―
+ *   エリトリア国境の閉鎖により、いまも繋がっていない。`asmara`—`djibouti`
+ *   は陸路だが、これはジブチとの間の話でエチオピアとは別)
+ * - `djibouti`—`mombasa` の直行航路は置いていない(アフリカの角を大きく
+ *   迂回する実際の航路の形が、この盤面の折れ線表現とかみ合わないため。
+ *   代わりに `addisababa`—`nairobi` の陸路(実在するモヤレ経由の幹線道路)
+ *   で hoa と eaf をつないでいる)
+ *
+ * `node scripts/check-sea-routes.mjs africa` で自己検証済み(手順書の
+ * 「焼く前でも回せる」節どおり、`proj`/`cities`/`edges`/`land`/`lakes` だけの
+ * 使い捨てcontent.jsonを組んで検査し、使用後に削除した)。65本中64本は
+ * 60px以下。**`toamasina`—`nacala` のみ残った**(136px・41%・331px中)。
+ * アンタナナリボが内陸のため、東海岸のトゥアマシナを中継都市として追加したが、
+ * マダガスカル海峡を渡る区間はどの相手都市(nacala/beira/maputo)・
+ * どの端の並びでも136px未満にならなかった(4通り実測しての最小値)。
+ * `bali:nusapenida-sanur`(46%、同じく「4通り試したうえでの最小値」として
+ * 既存コードにKEPTされている)と同種のケースと判断し、そのまま残している。
  */
-export const AFRICA_EDGES = [];
+export const AFRICA_EDGES = [
+  // --- mag 域内 ---
+  ["cairo", "alexandria"],
+  ["cairo", "aswan"],
+  ["tunis", "sfax"],
+  ["constantine", "tunis"], // 史実のスーク・アハラス―ガルディマウ回廊(近年は便数僅少)
+  ["algiers", "constantine"],
+  ["algiers", "oran"],
+  ["dakar", "nouadhibou", "sea"], // 大西洋岸の沿岸海運(鉄道は無い。端の入れ替えで海への逸脱を縮小)
+  ["oran", "nouadhibou"], // 陸路(沿岸道路)。mag地方の東西をここで繋ぐ
+  ["tunis", "alexandria", "sea"], // 地中海の沿岸海運(リビアには鉄道が無いため陸路の代替が無い)
+
+  // --- hoa 域内 ---
+  ["djibouti", "direbawa"],
+  ["direbawa", "addisababa"],
+  ["asmara", "djibouti"], // 陸路(道路)。エチオピア国境は閉鎖中だがジブチとは陸続き
+
+  // --- hoa—eaf の橋渡し ---
+  ["addisababa", "nairobi"], // 陸路(モヤレ経由の実在の幹線道路)。
+  // ソマリア沖を回る航路は角の陸地を大きく横切ってしまうため、
+  // ソマリアを経由しない内陸の道路で繋ぐ
+
+  // --- eaf 域内 ---
+  ["mombasa", "voi"],
+  ["voi", "nairobi"],
+  ["mombasa", "nairobi"], // SGR新線による直行(voi経由の旧線と合わせ、選べる2経路になる)
+  ["nairobi", "tororo"],
+  ["tororo", "kampala"],
+  ["kampala", "kigali"], // ルワンダには鉄道が無いため道路
+  ["daressalaam", "kigoma"],
+  ["daressalaam", "zanzibar", "sea"],
+  ["daressalaam", "mombasa", "sea"],
+  ["antananarivo", "toamasina"], // タナナリブ―コートエスト鉄道(1913年)
+  ["toamasina", "nacala", "sea"], // モザンビーク海峡の航路(saf域へ)。beira/maputoとの
+  // 組み合わせも試したが、いずれも絶対px数はこれより悪化した(下記コメント参照)
+
+  // --- eaf—saf の橋渡し ---
+  ["daressalaam", "kapirimposhi"], // タンザン鉄道(TAZARA)
+
+  // --- caf 域内 ---
+  ["lubumbashi", "kolwezi"],
+  ["kinshasa", "lubumbashi"], // 「国道」(鉄道+コンゴ川水運を束ねた実在の縦断路)
+  ["kinshasa", "brazzaville", "sea"], // 橋が無いため渡し船のみ
+  ["brazzaville", "pointenoire"], // コンゴ―オセアン鉄道
+  ["douala", "yaounde"],
+  ["douala", "owendo", "sea"], // ギニア湾の沿岸海運
+  ["owendo", "pointenoire"], // 陸路(沿岸道路)。カメルーン圏とコンゴ圏を繋ぐ
+
+  // --- caf—saf/gof/sah の橋渡し ---
+  ["lubumbashi", "lobito"], // ベンゲラ鉄道
+  ["pointenoire", "luanda"], // 陸路(沿岸道路)
+  ["lagos", "douala"], // 陸路(沿岸道路)
+  ["ndjamena", "douala"], // チャドの唯一の対外回廊(道路)
+
+  // --- saf 域内 ---
+  ["kapirimposhi", "ndola"],
+  ["kapirimposhi", "livingstone"],
+  ["livingstone", "victoriafalls"], // 1905年のヴィクトリアフォールズ橋(国境そのもの)
+  ["victoriafalls", "bulawayo"],
+  ["bulawayo", "harare"],
+  ["bulawayo", "francistown"],
+  ["francistown", "johannesburg"],
+  ["johannesburg", "capetown"], // ケープ〜カイロ構想の南の主幹線
+  ["johannesburg", "durban"],
+  ["durban", "maputo"],
+  ["maputo", "beira"], // 陸路(沿岸道路)。鉄道は無い——モザンビーク自身の3回廊は
+  // 国内で一本の鉄路にもつながっていない、という実在の事実(都市の記述どおり)
+  ["nacala", "beira", "sea"],
+  ["beira", "harare"], // ベイラ回廊
+  ["beira", "blantyre"], // ベイラ回廊(マラウイ側)
+  ["nacala", "blantyre"], // ナカラ回廊
+  ["walvisbay", "francistown"], // ワルビスベイ回廊
+  ["capetown", "walvisbay"], // 陸路(沿岸道路)
+  ["lobito", "luanda"], // 陸路(沿岸道路EN100)。ルアンダ鉄道とベンゲラ鉄道は
+  // 一度も接続されていない(道路は別。都市の記述は鉄道限定)
+  ["walvisbay", "luanda"], // 陸路(沿岸道路)。lobito/luanda一帯をsaf本隊につなぐ橋渡し
+
+  // --- gof 域内 ---
+  ["dakar", "saintlouis"],
+  ["dakar", "banjul", "sea"], // ガンビアには鉄道が無い
+  ["dakar", "conakry"], // 陸路(沿岸道路。鉄道は無い)
+  ["conakry", "freetown", "sea"],
+  ["monrovia", "freetown"], // 陸路(沿岸道路。鉄道は無い)
+  ["monrovia", "abidjan"], // 陸路(沿岸道路。鉄道は無い)
+  ["abidjan", "cotonou"], // 陸路(沿岸道路。鉄道は無い)
+  ["cotonou", "lagos", "sea"],
+  ["lagos", "ibadan"],
+  ["ibadan", "kano"], // 1911年開通の旧植民地幹線
+];
