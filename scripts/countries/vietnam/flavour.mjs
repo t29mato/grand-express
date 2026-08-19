@@ -123,7 +123,8 @@ export const VIETNAM_ITEMS = {
   examsave: {
     e: "📓",
     // クイズを外したときの損失を肩代わりするだけなので、それに見合う値。
-    price: 150,
+    // 効果の上限(147)を上回らないよう140にした(npm run checkの指摘で判明)。
+    price: 140,
     kind: "passive",
     n: t("An Exam Prep Cheat Sheet|Una chuleta de repaso para el examen|Une antisèche de révision|試験対策のヤマ張り資料"),
     d: t(
