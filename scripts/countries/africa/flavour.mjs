@@ -63,7 +63,7 @@ export const AFRICA_ITEMS = {
   },
   dhowpassage: {
     e: "⛵",
-    price: 300,
+    price: 260,
     kind: "move",
     n: t("A Monsoon Dhow Passage|Un pasaje en dhow monzónico|Une traversée en boutre de mousson|季節風のダウ船の便",
     ),
