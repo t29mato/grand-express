@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.52.0",
+    date: "2026-08-20",
+    title: t(
+      "Vietnam and Switzerland|Vietnam y Suiza|Le Vietnam et la Suisse|ベトナムとスイス",
+    ),
+    highlights: [
+      t(
+        "Vietnam, where the line was finished before the country was. The Reunification Express ran the length of the coast from 1936; the partition cut it in 1954; it was joined again twenty months after the war ended. Forty-three towns. At Hanoi the truss bridge of 1902 was bombed again and again and never replaced — only patched, and the board draws the patched spans in a different colour. At the old dividing line the picture shows no weapons, only a bicycle crossing.|Vietnam, donde la vía se terminó antes que el país. El Expreso de la Reunificación recorría toda la costa desde 1936; la partición lo cortó en 1954; volvió a unirse veinte meses después de acabar la guerra. Cuarenta y tres pueblos. En Hanói el puente de celosía de 1902 fue bombardeado una y otra vez y nunca se sustituyó, solo se remendó, y el tablero dibuja los tramos remendados de otro color. En la antigua línea divisoria no se ve ningún arma, solo una bicicleta que cruza.|Le Vietnam, où la voie fut achevée avant le pays. L\'Express de la Réunification parcourait toute la côte dès 1936 ; la partition le coupa en 1954 ; il fut rejoint vingt mois après la fin de la guerre. Quarante-trois villes. À Hanoï, le pont en treillis de 1902 fut bombardé encore et encore et jamais remplacé — seulement rapiécé, et le plateau dessine les travées rapiécées d\'une autre couleur. À l\'ancienne ligne de partage, l\'image ne montre aucune arme, seulement un vélo qui traverse.|**線路のほうが、国より先に一本につながった国。**統一鉄道は1936年から海岸沿いを縦断し、1954年の分断で切られ、**戦争が終わって二十か月後に再びつながりました。**43の町。ハノイの1902年のトラス橋は繰り返し爆撃されましたが、**架け替えられることはなく、繕われ続けました**——盤面では、継ぎ足した桁だけ色が違います。かつての分断線の絵に武器は描かれていません。**いま自転車が渡っているだけです。**",
+      ),
+      t(
+        "Switzerland, where neutrality meant turning the country into a fortress. For most of the twentieth century the Gotthard tunnels and bridges were kept wired with demolition charges. In July 1940 General Guisan gathered every officer at the Rütli — the meadow of the founding legend — and told them the army would fall back into the Alps and blow every road behind it. At Chiasso the border sent refugees back for being Jewish while staying open to gold traded with Germany. Forty-four towns, four languages, and a constitution that never once calls Bern the capital.|Suiza, donde la neutralidad significó convertir el país en una fortaleza. Durante casi todo el siglo XX los túneles y puentes del San Gotardo se mantuvieron cargados con explosivos. En julio de 1940 el general Guisan reunió a todos sus oficiales en el Rütli —el prado de la leyenda fundacional— y les dijo que el ejército se replegaría a los Alpes volando cada carretera a su espalda. En Chiasso la frontera devolvía a los refugiados por ser judíos mientras seguía abierta al oro comerciado con Alemania. Cuarenta y cuatro pueblos, cuatro lenguas y una constitución que jamás llama capital a Berna.|La Suisse, où la neutralité a signifié transformer le pays en forteresse. Pendant presque tout le XXe siècle, les tunnels et ponts du Gothard restèrent garnis de charges de démolition. En juillet 1940, le général Guisan réunit tous ses officiers au Rütli — la prairie de la légende fondatrice — et leur annonça que l\'armée se replierait dans les Alpes en faisant sauter chaque route derrière elle. À Chiasso, la frontière renvoyait les réfugiés parce qu\'ils étaient juifs tout en restant ouverte à l\'or échangé avec l\'Allemagne. Quarante-quatre villes, quatre langues, et une constitution qui n\'appelle jamais Berne la capitale.|**中立とは、国土そのものを要塞に変えることでした。**20世紀の大半、ゴッタルドのトンネルと橋には**爆破装薬が仕掛けられたまま**でした。1940年7月、ギザン将軍は全将校を**建国伝説の地リュトリ**に集め、アルプスへ後退して背後の道を全部爆破すると告げます。キアッソの国境は、**ユダヤ人であることを理由に難民を送り返しながら、対独の金塊取引には開かれ続けていました。**44の町、4つの言語、そして**一度もベルンを首都と呼んでいない憲法。**",
+      ),
+      t(
+        "Thirty-eight boards now, with 1,816 towns and 2,956 questions.|Ya son treinta y ocho tableros, con 1.816 pueblos y 2.956 preguntas.|Trente-huit plateaux désormais, avec 1 816 villes et 2 956 questions.|盤面は38枚になりました。町は1816、問いは2956です。",
+      ),
+    ],
+  },
+  {
     version: "0.51.0",
     date: "2026-08-20",
     title: t(
