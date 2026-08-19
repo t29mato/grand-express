@@ -432,8 +432,11 @@ export const SWITZERLAND_EDGES = [
   ["winterthur", "schaffhausen"],
   ["zuerich", "zug"],
   ["zug", "luzern"],
-  ["luzern", "stans"],
-  ["stans", "altdorf"],
+  // フィアヴァルトシュテッテ湖は、実際に汽船で渡る。ルツェルン発フリューエレン行きの
+  // 「ヴィルヘルム・テル航路」がシュタンスシュタート沖を通り、アルトドルフの外港に着く。
+  // 直線が湖を横切るので、鉄道として引くと線路が水の上を走る絵になる。
+  ["luzern", "stans", "sea"],
+  ["stans", "altdorf", "sea"],
   ["altdorf", "schwyz"],
   ["schwyz", "glarus"],
   ["zuerich", "st_gallen"],
