@@ -105,11 +105,11 @@ export const SWITZERLAND_QUIZ = [
     "Switzerland and Vatican City are the only two sovereign states whose national flags are square rather than the more common rectangular shape.|Suiza y la Ciudad del Vaticano son los únicos dos estados soberanos cuyas banderas nacionales son cuadradas en vez de la forma rectangular más habitual.|La Suisse et la Cité du Vatican sont les deux seuls États souverains dont le drapeau national est carré plutôt que de la forme rectangulaire plus courante.|スイスとバチカン市国は、国旗が一般的な長方形ではなく正方形である、数少ない主権国家である。",
   ),
   q(
-    1,
-    "Which of these is one of Switzerland's four national languages?|¿Cuál de estas es una de las cuatro lenguas nacionales de Suiza?|Laquelle de ces langues est l'une des quatre langues nationales de la Suisse ?|スイスの4つの国語のうちの一つはどれか?",
-    ["Romansh|Romanche|Romanche|ロマンシュ語", "Dutch|Neerlandés|Néerlandais|オランダ語", "Polish|Polaco|Polonais|ポーランド語"],
+    2,
+    "Which of these Swiss cities does NOT sit directly on a lake shore?|¿Cuál de estas ciudades suizas NO está junto a la orilla de un lago?|Laquelle de ces villes suisses ne se trouve PAS directement au bord d'un lac ?|次のスイスの都市のうち、湖岸に直接面していないのはどこか?",
+    ["Bern|Berna|Berne|ベルン", "Geneva|Ginebra|Genève|ジュネーブ", "Lucerne|Lucerna|Lucerne|ルツェルン"],
     0,
-    "Alongside German, French and Italian, Romansh is spoken by a small population mostly in the canton of Graubünden and has held national-language status since 1938.|Junto al alemán, el francés y el italiano, el romanche lo habla una pequeña población sobre todo en el cantón de los Grisones, y tiene estatus de lengua nacional desde 1938.|Aux côtés de l'allemand, du français et de l'italien, le romanche est parlé par une petite population surtout dans le canton des Grisons, et détient le statut de langue nationale depuis 1938.|ドイツ語・フランス語・イタリア語と並び、ロマンシュ語は主にグラウビュンデン州の少数の人々によって話されており、1938年から国語としての地位を持っている。",
+    "Bern sits instead on a sharp bend of the Aare river, which loops almost all the way around the old town rather than opening into a lake.|Berna se asienta en cambio sobre una pronunciada curva del río Aare, que rodea casi por completo el casco antiguo en vez de abrirse en un lago.|Berne se trouve au contraire sur un méandre prononcé de l'Aar, qui entoure presque entièrement la vieille ville plutôt que de s'ouvrir sur un lac.|ベルンは湖ではなく、アーレ川の鋭く曲がった蛇行部に位置しており、川は旧市街をほぼ丸く取り囲んでいる。",
   ),
   q(
     1,
@@ -127,10 +127,10 @@ export const SWITZERLAND_QUIZ = [
   ),
   q(
     3,
-    "What is Switzerland's official Latin name, the source of its \"CH\" abbreviation?|¿Cuál es el nombre oficial en latín de Suiza, origen de su abreviatura «CH»?|Quel est le nom officiel latin de la Suisse, à l'origine de son abréviation « CH » ?|スイスの「CH」の由来となる公式なラテン語名は?",
-    ["Confoederatio Helvetica|Confoederatio Helvetica|Confoederatio Helvetica|コンフェデラティオ・ヘルヴェティカ", "Res Publica Helvetica|Res Publica Helvetica|Res Publica Helvetica|レス・プブリカ・ヘルヴェティカ", "Imperium Helveticum|Imperium Helveticum|Imperium Helveticum|インペリウム・ヘルヴェティクム"],
+    "Which of these major European rivers does NOT have its source in Switzerland?|¿Cuál de estos grandes ríos europeos NO nace en Suiza?|Lequel de ces grands fleuves européens NE prend PAS sa source en Suisse ?|次のヨーロッパの主要河川のうち、水源がスイスに無いのはどれか?",
+    ["The Danube|El Danubio|Le Danube|ドナウ川", "The Rhine|El Rin|Le Rhin|ライン川", "The Rhône|El Ródano|Le Rhône|ローヌ川"],
     0,
-    "Because the country has four living national languages and no single one could be favoured on coins, stamps or car plates, Switzerland uses this neutral Latin name and its abbreviation instead.|Como el país tiene cuatro lenguas nacionales vivas y no se podía favorecer a una sola en monedas, sellos o matrículas, Suiza usa en su lugar este nombre latino neutral y su abreviatura.|Le pays ayant quatre langues nationales vivantes et ne pouvant en privilégier une seule sur les pièces, les timbres ou les plaques d'immatriculation, la Suisse utilise à la place ce nom latin neutre et son abréviation.|この国には4つの生きた国語があり、硬貨や切手、車のナンバーでどれか一つだけを優遇できないため、スイスは代わりにこの中立的なラテン語名とその略称を用いている。",
+    "The Rhine and Rhône both rise from Alpine glaciers inside Switzerland, but the Danube's source lies in Germany's Black Forest, and the river only briefly brushes Swiss territory along Lake Constance.|El Rin y el Ródano nacen ambos de glaciares alpinos dentro de Suiza, pero la fuente del Danubio está en la Selva Negra alemana, y el río apenas roza territorio suizo a lo largo del lago de Constanza.|Le Rhin et le Rhône prennent tous deux leur source dans des glaciers alpins en Suisse, mais la source du Danube se trouve dans la Forêt-Noire allemande, et le fleuve ne fait qu'effleurer le territoire suisse le long du lac de Constance.|ライン川とローヌ川はどちらもスイス国内のアルプスの氷河に源を発するが、ドナウ川の水源はドイツのシュヴァルツヴァルト(黒い森)にあり、この川はボーデン湖沿いでわずかにスイス領をかすめるに過ぎない。",
   ),
   q(
     2,
@@ -645,10 +645,10 @@ export const SWITZERLAND_QUIZ = [
   ),
   q(
     9,
-    "The Swiss franc is also the official currency of which small neighbouring country, despite that country not being part of Switzerland?|El franco suizo es también la moneda oficial de qué pequeño país vecino, a pesar de que ese país no forma parte de Suiza?|Le franc suisse est aussi la monnaie officielle de quel petit pays voisin, bien que ce pays ne fasse pas partie de la Suisse ?|スイス・フランは、スイスの一部ではないにもかかわらず、どの小さな隣国の公式通貨でもあるか?",
-    ["Liechtenstein|Liechtenstein|Le Liechtenstein|リヒテンシュタイン", "Andorra|Andorra|Andorre|アンドラ", "Monaco|Mónaco|Monaco|モナコ"],
+    "Switzerland's optional (facultative) referendum, letting citizens force a nationwide vote on a law parliament has already passed, was introduced in a constitutional revision of which year?|El referéndum facultativo suizo, que permite a los ciudadanos forzar una votación nacional sobre una ley ya aprobada por el parlamento, se introdujo en una revisión constitucional de qué año?|Le référendum facultatif suisse, qui permet aux citoyens de forcer un vote national sur une loi déjà adoptée par le parlement, fut introduit lors d'une révision constitutionnelle de quelle année ?|議会がすでに可決した法律について、国民が全国投票を強制できるスイスの「任意(ファクルタティブ)国民投票」の制度は、何年の憲法改正で導入されたか?",
+    ["1874|1874|1874|1874年", "1848|1848|1848|1848年", "1891|1891|1891|1891年"],
     0,
-    "Liechtenstein has used the Swiss franc since 1921 and its customs and postal systems are also tightly bound to Switzerland's, even though it remains a fully independent principality.|Liechtenstein usa el franco suizo desde 1921, y sus sistemas aduanero y postal también están estrechamente ligados a los de Suiza, aunque sigue siendo un principado plenamente independiente.|Le Liechtenstein utilise le franc suisse depuis 1921, et ses systèmes douanier et postal sont eux aussi étroitement liés à ceux de la Suisse, bien qu'il demeure une principauté pleinement indépendante.|リヒテンシュタインは1921年からスイス・フランを使用しており、関税や郵便の制度もスイスと緊密に結びついているが、完全に独立した公国であり続けている。",
+    "The right to launch a full popular initiative proposing new constitutional text came later, in 1891; the 1874 revision gave citizens only the power to challenge laws already written, not to write their own.|El derecho a lanzar una iniciativa popular completa que proponga un nuevo texto constitucional llegó después, en 1891; la revisión de 1874 dio a los ciudadanos solo el poder de impugnar leyes ya redactadas, no de redactar las suyas.|Le droit de lancer une initiative populaire complète proposant un nouveau texte constitutionnel vint plus tard, en 1891 ; la révision de 1874 ne donna aux citoyens que le pouvoir de contester des lois déjà rédigées, pas d'en rédiger eux-mêmes.|新たな憲法条文を提案する本格的な国民発議の権利が導入されたのはのちの1891年のことで、1874年の改正で国民に与えられたのは、すでに書かれた法律に異議を唱える力だけであり、自ら法文を書く力ではなかった。",
   ),
   q(
     9,
