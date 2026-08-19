@@ -210,7 +210,7 @@ export const EGYPT_DOOM = [
     ),
   },
   {
-    id: "railbuckle",
+    id: "heatbuckle",
     n: t("Summer heat warps the rails|El calor del verano deforma los raíles|La chaleur de l'été déforme les rails|夏の熱で線路が曲がる"),
     t: t(
       "On the hottest days, steel rail can expand enough to bow sideways out of its bed, and trains have to slow to a crawl over the affected stretch until a maintenance crew cuts and resets a section before it fails outright. It happens often enough in peak summer that some lines quietly build extra speed restrictions into the timetable rather than wait for it to happen.|En los días más calurosos, el raíl de acero puede expandirse tanto que se arquea hacia un lado fuera de su asiento, y los trenes tienen que reducir a paso de tortuga en el tramo afectado hasta que una cuadrilla de mantenimiento corta y reajusta una sección antes de que falle del todo. Ocurre con la frecuencia suficiente en pleno verano que algunas líneas incorporan discretamente restricciones de velocidad extra al horario en vez de esperar a que suceda.|Les jours les plus chauds, le rail d'acier peut se dilater au point de gauchir hors de son lit, et les trains doivent ralentir au pas sur le tronçon touché jusqu'à ce qu'une équipe de maintenance découpe et réajuste une section avant qu'elle ne cède complètement. Cela arrive assez souvent en plein été pour que certaines lignes intègrent discrètement des restrictions de vitesse supplémentaires à l'horaire plutôt que d'attendre que cela se produise.|最も暑い日には鋼鉄のレールが膨張しすぎて横に反り上がることがあり、保線班が壊れる前に区間を切って調整するまで、列車はその区間を這うような速度で進まなければならない。真夏にはこれが頻繁に起きるため、路線によっては、起きるのを待つのではなく時刻表にあらかじめ余分な速度制限を組み込んでいる。",
