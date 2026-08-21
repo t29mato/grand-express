@@ -51,6 +51,8 @@ export const CURRENCY_MULTIPLIERS = {
   // ドル建て(×100)なのに引きずられたもので、ペソはドルの1/17なので合わない。
   mexico: 1200,
   africa: 100,
+  // 開始資金1200 × 100 = $120,000。他の大陸盤面と同じ倍率(米ドル建て)。
+  oceania: 100,
   egypt: 3300,
   peru: 240,
   switzerland: 55,

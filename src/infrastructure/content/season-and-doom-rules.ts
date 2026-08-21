@@ -392,6 +392,53 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
    * インド洋サイクロン季(12月・休神) → セレンゲティの出産期 →
    * ケープワインの収穫 → ラマダーンの移動、という流れ。
    */
+  /**
+   * オセアニア大陸。バヌアツの地上ダイビング → PNGコーヒー収穫 →
+   * トンガのクジラ → フィジーのハイビスカス祭り → 貿易風の季節(8月・給アイテム) →
+   * ゴロカ・ショー → 台風の最盛期(10月・休神) → ウミガメの産卵 →
+   * コプラの収穫 → 海鳥の営巣 → カツオ漁期 → パンノキの豊作、という流れ。
+   */
+  oceania: [
+    /* 0 Apr バヌアツの地上ダイビング(ヤムイモ収穫祭) */ [
+      { op: "region-income-multiplier", regionId: region("mel"), multiplier: 1.15 },
+    ],
+    /* 1 May PNGコーヒー収穫 */ [
+      { op: "region-income-multiplier", regionId: region("mel"), multiplier: 1.1 },
+    ],
+    /* 2 Jun トンガのクジラ(ホエールウォッチング最盛期) */ [
+      { op: "region-income-multiplier", regionId: region("pol"), multiplier: 1.25 },
+    ],
+    /* 3 Jul フィジーのハイビスカス祭り */ [
+      { op: "region-income-multiplier", regionId: region("mel"), multiplier: 1.2 },
+    ],
+    /* 4 Aug 貿易風の安定した季節 */ [{ op: "give-item-to-all" }],
+    /* 5 Sep ゴロカ・ショー */ [
+      { op: "region-income-multiplier", regionId: region("mel"), multiplier: 1.15 },
+    ],
+    /* 6 Oct 台風の最盛期(休神) */ [
+      { op: "region-income-multiplier", regionId: region("mic"), multiplier: 0.8 },
+      { op: "rest-spirit" },
+    ],
+    /* 7 Nov ウミガメの産卵 */ [
+      { op: "region-income-multiplier", regionId: region("mel"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("pol"), multiplier: 1.1 },
+    ],
+    /* 8 Dec コプラの収穫 */ [
+      { op: "region-income-multiplier", regionId: region("mel"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("pol"), multiplier: 1.1 },
+    ],
+    /* 9 Jan 海鳥の営巣(遠隔環礁) */ [
+      { op: "region-income-multiplier", regionId: region("mic"), multiplier: 1.15 },
+    ],
+    /* 10 Feb カツオ漁期(PNA操業日数) */ [
+      { op: "region-income-multiplier", regionId: region("mic"), multiplier: 1.2 },
+    ],
+    /* 11 Mar パンノキの豊作(サイクロン季への備蓄) */ [
+      { op: "region-income-multiplier", regionId: region("mel"), multiplier: 0.9 },
+      { op: "region-income-multiplier", regionId: region("mic"), multiplier: 0.9 },
+      { op: "region-income-multiplier", regionId: region("pol"), multiplier: 0.9 },
+    ],
+  ],
   africa: [
     /* 0 Apr 東アフリカの長雨 */ [
       { op: "region-income-multiplier", regionId: region("eaf"), multiplier: 0.9 },
@@ -2341,6 +2388,14 @@ export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>>
   checkpoint: "payOthers", // 検問の袖の下を全員に分け与える
   wildlifedetour: "teleport", // 保護区を迂回させられる
   coppertheft: "steal", // 架線の銅線が盗まれる
+  // Oceania
+  cyclonehalt: "steal", // 港封鎖の混乱に紛れて荷が持ち去られる
+  kingtideflood: "skipTurn", // 冠水した滑走路で便が欠航し足止め
+  ashfallground: "teleport", // 火山灰で便が別の空港へ振り替えられる
+  reefstrand: "fine", // 座礁からの曳航・修理費
+  biosecurityhold: "percentLoss", // 留め置かれた荷が傷んで値崩れ
+  islandhopperfog: "loseProperties", // その週唯一の便を逃し、島の物件に商品を届けられない
+  supplyshipslip: "payOthers", // 高くついた備蓄を、同じ波止場で足止めされた者と分け合う
 // New Zealand
 "ruapehu-ash": "fine", // 降灰の掃除・保線費用
 norwester: "loseProperties", // 強風で緩んだ屋根が飛ばされる被害

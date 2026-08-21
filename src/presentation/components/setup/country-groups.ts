@@ -102,7 +102,8 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
   {
     key: "oceania",
     label: { en: "Oceania", es: "Oceanía", fr: "Océanie", ja: "オセアニア" },
-    countryIds: ["australia", "newzealand"],
+    wholeBoardId: "oceania",
+    countryIds: ["oceania", "australia", "newzealand"],
   },
 ];
 

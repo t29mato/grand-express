@@ -237,6 +237,13 @@ import { AfricaGaugebreak } from "./africa-gaugebreak";
 import { AfricaCheckpoint } from "./africa-checkpoint";
 import { AfricaWildlifedetour } from "./africa-wildlifedetour";
 import { AfricaCoppertheft } from "./africa-coppertheft";
+import { OceaniaCyclonehalt } from "./oceania-cyclonehalt";
+import { OceaniaKingtideflood } from "./oceania-kingtideflood";
+import { OceaniaAshfallground } from "./oceania-ashfallground";
+import { OceaniaReefstrand } from "./oceania-reefstrand";
+import { OceaniaBiosecurityhold } from "./oceania-biosecurityhold";
+import { OceaniaIslandhopperfog } from "./oceania-islandhopperfog";
+import { OceaniaSupplyshipslip } from "./oceania-supplyshipslip";
 import { EgyptKhamsin } from "./egypt-khamsin";
 import { EgyptCanalblock } from "./egypt-canalblock";
 import { EgyptHeatbuckle } from "./egypt-heatbuckle";
@@ -543,6 +550,13 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "africa-checkpoint": AfricaCheckpoint,
   "africa-wildlifedetour": AfricaWildlifedetour,
   "africa-coppertheft": AfricaCoppertheft,
+  "oceania-cyclonehalt": OceaniaCyclonehalt,
+  "oceania-kingtideflood": OceaniaKingtideflood,
+  "oceania-ashfallground": OceaniaAshfallground,
+  "oceania-reefstrand": OceaniaReefstrand,
+  "oceania-biosecurityhold": OceaniaBiosecurityhold,
+  "oceania-islandhopperfog": OceaniaIslandhopperfog,
+  "oceania-supplyshipslip": OceaniaSupplyshipslip,
   "egypt-khamsin": EgyptKhamsin,
   "egypt-canalblock": EgyptCanalblock,
   "egypt-heatbuckle": EgyptHeatbuckle,

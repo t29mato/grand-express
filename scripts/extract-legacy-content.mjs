@@ -69,6 +69,7 @@ import { buildHokkaidoContent } from "./countries/hokkaido/index.mjs";
 import { buildKyushuContent } from "./countries/kyushu/index.mjs";
 import { buildNewZealandContent } from "./countries/newzealand/index.mjs";
 import { buildSpainContent } from "./countries/spain/index.mjs";
+import { buildOceaniaContent } from "./countries/oceania/index.mjs";
 import { renderJapanDecor } from "./content-overrides/japan-decor.mjs";
 import { renderBoliviaDecor } from "./content-overrides/bolivia-decor.mjs";
 
@@ -579,6 +580,7 @@ const AUTHORED_COUNTRIES = [
   buildNorwayContent(),
   buildHokkaidoContent(),
   buildKyushuContent(),
+  buildOceaniaContent(),
 ];
 
 /** `scripts/countries/` にあるのに、上の一覧に無い盤面。焼かれずに消える。 */

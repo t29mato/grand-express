@@ -462,4 +462,14 @@ jandalsprint: { type: "extra-turn" },
   kangientouan: { type: "quiz-save" },
   imarizuke: { type: "gain-cash", amount: 320 },
   botayamasuberidai: { type: "extra-turn" },
+  // Oceania
+  coastwatcherpriority: { type: "extra-turn" },
+  tradewindpassage: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  steamerticket: { type: "choose-exact-dice" },
+  pandanuscharm: { type: "none" }, // 厄災の神(まだ来ない船)のward item(passive)
+  shellmoneystring: { type: "gain-cash", amount: 380 },
+  starcompasschart: { type: "quiz-save" },
+  coprasack: { type: "roll-fixed-dice", diceCount: 2 },
+  phosphatemanifest: { type: "roll-fixed-dice", diceCount: 3 },
+  reefflare: { type: "repel-spirit" },
 };

@@ -22,6 +22,7 @@ const LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
   asia: () => import("./asia.content.json").then((m) => m.default),
   mexico: () => import("./mexico.content.json").then((m) => m.default),
   africa: () => import("./africa.content.json").then((m) => m.default),
+  oceania: () => import("./oceania.content.json").then((m) => m.default),
   egypt: () => import("./egypt.content.json").then((m) => m.default),
   peru: () => import("./peru.content.json").then((m) => m.default),
   switzerland: () => import("./switzerland.content.json").then((m) => m.default),
