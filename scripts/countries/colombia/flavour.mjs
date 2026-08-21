@@ -27,7 +27,7 @@ export const COLOMBIA_META = {
   blurb: t(
     "A country split into three mountain ranges, where the river had to be the road the railway never became|Un país partido en tres cordilleras, donde el río tuvo que ser el camino que el ferrocarril nunca llegó a ser|Un pays fendu en trois cordillères, où le fleuve dut être la route que le chemin de fer ne devint jamais|3本の山脈に分かれた国で、鉄道になれなかった道を、川が担い続けた",
   ),
-  cur: { pre: "$", post: "", mul: 265000 },
+  cur: { pre: "COL$", post: "", mul: 200000 },
   start: "bogota",
   cpuNames: ["Mohán", "Cóndor", "Guacamaya", "Chiva"],
   // 国旗の黄・青・赤、コーヒー地方の緑、エメラルドの深い緑。
