@@ -386,12 +386,208 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
     ],
   ],
   /**
-   * アフリカ大陸。東アフリカの長雨 → ザンベジの増水 → サヘルの酷暑 →
-   * グレート・マイグレーションのマラ川渡渉 → ナマクアランドの花 →
-   * エンクタタシュ(9月・給アイテム) → 東アフリカの短雨 → ハルマッタン →
-   * インド洋サイクロン季(12月・休神) → セレンゲティの出産期 →
-   * ケープワインの収穫 → ラマダーンの移動、という流れ。
+   * キューバ。サフラの終わり(4月) → ティエンポ・ムエルトの始まり(5月) →
+   * ハリケーン季開幕(6月) → サンティアゴのカルナバル(7月) →
+   * ハリケーン季の頂点(8月) → エル・コブレの祭り(9月・給アイテム) →
+   * 雨の底(10月) → 修理の追い込み(11月) → レメディオスのパランダス
+   * (12月・全員給付) → サフラ本格化(1月) → カルナバル各地(2月・全員給付) →
+   * グイヘが静まる季節(3月・休神)、という流れ。
    */
+  cuba: [
+    /* 0 Apr サフラの終わり */ [
+      { op: "region-income-multiplier", regionId: region("ce"), multiplier: 1.2 },
+    ],
+    /* 1 May ティエンポ・ムエルトの始まり */ [
+      { op: "region-income-multiplier", regionId: region("ce"), multiplier: 0.85 },
+    ],
+    /* 2 Jun ハリケーン季開幕 */ [
+      { op: "region-income-multiplier", regionId: region("or"), multiplier: 0.9 },
+    ],
+    /* 3 Jul サンティアゴのカルナバル */ [
+      { op: "region-income-multiplier", regionId: region("or"), multiplier: 1.3 },
+    ],
+    /* 4 Aug ハリケーン季の頂点 */ [
+      { op: "region-income-multiplier", regionId: region("oc"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("or"), multiplier: 0.85 },
+    ],
+    /* 5 Sep エル・コブレの祭り(全員給付) */ [
+      { op: "give-item-to-all" },
+    ],
+    /* 6 Oct 雨の底 */ [
+      { op: "region-income-multiplier", regionId: region("ce"), multiplier: 0.8 },
+    ],
+    /* 7 Nov 修理の追い込み */ [
+      { op: "region-income-multiplier", regionId: region("ce"), multiplier: 1.1 },
+    ],
+    /* 8 Dec レメディオスのパランダス(全員給付) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("ce"), multiplier: 1.2 },
+    ],
+    /* 9 Jan サフラ本格化 */ [
+      { op: "region-income-multiplier", regionId: region("ce"), multiplier: 1.35 },
+      { op: "region-income-multiplier", regionId: region("oc"), multiplier: 1.15 },
+    ],
+    /* 10 Feb カルナバル各地(全員給付) */ [
+      { op: "all-players-gain-cash", amount: 240 },
+      { op: "region-income-multiplier", regionId: region("or"), multiplier: 1.15 },
+    ],
+    /* 11 Mar グイヘが静まる季節(休神) */ [
+      { op: "rest-spirit" },
+    ],
+  ],
+  /**
+   * コロンビア。バジェナート伝説祭(4月) → コーヒーのミタカ収穫(5月) →
+   * ネイバのバンブーコ祭・アマゾン増水期(6月) → 独立記念日(7月・全員給付・
+   * 休神) → メデジンの花祭り(8月) → キブドのサン・パチョ祭(9月) →
+   * コーヒー本収穫(10月) → カルタヘナ独自の独立記念日(11月・全員給付) →
+   * クリスマスとノベナ(12月・全員給付) → パストのカーニバル(1月・全員給付) →
+   * リャノスの乾季とバケリア(2月) → アンデスの乾季明け(3月)、という流れ。
+   */
+  colombia: [
+    /* 0 Apr バジェナート伝説祭(バジェドゥパル) */ [
+      { op: "region-income-multiplier", regionId: region("car"), multiplier: 1.2 },
+    ],
+    /* 1 May コーヒーのミタカ(小さいほうの収穫) */ [
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.15 },
+    ],
+    /* 2 Jun ネイバのバンブーコ祭・アマゾンの増水期 */ [
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.1 },
+      { op: "region-income-multiplier", regionId: region("ama"), multiplier: 1.15 },
+    ],
+    /* 3 Jul 独立記念日(1810年7月20日蜂起の記念日) */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.1 },
+      { op: "rest-spirit" },
+    ],
+    /* 4 Aug メデジンの花祭り(シジェテロスの行列) */ [
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.25 },
+    ],
+    /* 5 Sep キブドのサン・パチョ祭 */ [
+      { op: "region-income-multiplier", regionId: region("pac"), multiplier: 1.2 },
+    ],
+    /* 6 Oct コーヒーの本収穫(大きいほうの収穫) */ [
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.3 },
+    ],
+    /* 7 Nov カルタヘナ独自の独立記念日(1811年11月11日) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("car"), multiplier: 1.25 },
+    ],
+    /* 8 Dec クリスマス・ノベナ・メデジンのイルミネーション */ [
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.2 },
+      { op: "give-item-to-all" },
+    ],
+    /* 9 Jan パストのカーニバル(ネグロス・イ・ブランコス) */ [
+      { op: "all-players-gain-cash", amount: 260 },
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.2 },
+    ],
+    /* 10 Feb リャノスの乾季、バケリア(牛の集め) */ [
+      { op: "region-income-multiplier", regionId: region("lla"), multiplier: 1.25 },
+    ],
+    /* 11 Mar アンデスの乾季明け、聖週間の準備 */ [
+      { op: "region-income-multiplier", regionId: region("and"), multiplier: 1.1 },
+    ],
+  ],
+  /**
+   * チリ。ブドウ収穫祭(4月・給アイテム) → 海軍栄光の日(5月) →
+   * ウェ・トリパントゥ/冬至(6月・su増) → ラ・ティラーナ祭(7月・ng) →
+   * アンデス峠の雪closure(8月・ce/nc減) → フィエスタス・パトリアス
+   * (9月・全員給付+休神) → 春の作付け(10月・ce増) → コピウエの開花
+   * (11月・su増) → クリスマス(12月・全員給付) → 海岸の夏(1月・ce/su増) →
+   * ビニャ・デル・マール歌謡祭(2月・全員給付+ce増) → 新学年(3月・nc/ce増)、
+   * という流れ。
+   */
+  chile: [
+    /* 0 Apr ブドウ収穫祭 */ [{ op: "give-item-to-all" }],
+    /* 1 May 海軍栄光の日 */ [
+      { op: "all-players-gain-cash", amount: 260 },
+    ],
+    /* 2 Jun ウェ・トリパントゥ/冬至 */ [
+      { op: "region-income-multiplier", regionId: region("su"), multiplier: 1.15 },
+    ],
+    /* 3 Jul ラ・ティラーナ祭(北部砂漠の祭り) */ [
+      { op: "region-income-multiplier", regionId: region("ng"), multiplier: 1.3 },
+    ],
+    /* 4 Aug アンデス峠が雪で閉ざされる */ [
+      { op: "region-income-multiplier", regionId: region("ce"), multiplier: 0.85 },
+      { op: "region-income-multiplier", regionId: region("nc"), multiplier: 0.9 },
+    ],
+    /* 5 Sep フィエスタス・パトリアス(独立記念日) */ [
+      { op: "all-players-gain-cash", amount: 320 },
+      { op: "rest-spirit" },
+    ],
+    /* 6 Oct 中央谷で春の作付けが始まる */ [
+      { op: "region-income-multiplier", regionId: region("ce"), multiplier: 1.2 },
+    ],
+    /* 7 Nov コピウエ(国花)が南部の森で咲く */ [
+      { op: "region-income-multiplier", regionId: region("su"), multiplier: 1.15 },
+    ],
+    /* 8 Dec クリスマス、海岸の夏が始まる */ [
+      { op: "all-players-gain-cash", amount: 300 },
+    ],
+    /* 9 Jan 海岸の夏が盛りを迎える */ [
+      { op: "region-income-multiplier", regionId: region("ce"), multiplier: 1.25 },
+      { op: "region-income-multiplier", regionId: region("su"), multiplier: 1.15 },
+    ],
+    /* 10 Feb ビニャ・デル・マール歌謡祭 */ [
+      { op: "all-players-gain-cash", amount: 280 },
+      { op: "region-income-multiplier", regionId: region("ce"), multiplier: 1.2 },
+    ],
+    /* 11 Mar 新学年、新たな収穫期へ */ [
+      { op: "region-income-multiplier", regionId: region("nc"), multiplier: 1.15 },
+      { op: "region-income-multiplier", regionId: region("ce"), multiplier: 1.1 },
+    ],
+  ],
+  /**
+   * アルゼンチン。大豆・とうもろこしの本作収穫(4月) → イェルバ・マテの
+   * サフラ(5月) → 第1回アギナルド・バリローチェのスキー場開き(6月・全員給付) →
+   * 独立記念日(7月・全員給付・休神) → パチャママの日(8月) →
+   * トゥクマンのサトウキビのサフラ(9月) → クージョのぶどうの芽吹き(10月) →
+   * パタゴニアの毛刈り開始(11月) → 第2回アギナルド・海水浴シーズン開幕
+   * (12月・全員給付) → 大西洋岸の真夏(1月) → グアレグアイチュの
+   * カーニバル(2月・給アイテム) → メンドーサのベンディミア(3月)、という流れ。
+   */
+  argentina: [
+    /* 0 Apr 大豆・とうもろこしの本作収穫が最盛期 */ [
+      { op: "region-income-multiplier", regionId: region("pa"), multiplier: 1.3 },
+    ],
+    /* 1 May イェルバ・マテのサフラ(ミシオネス) */ [
+      { op: "region-income-multiplier", regionId: region("me"), multiplier: 1.2 },
+    ],
+    /* 2 Jun 第1回アギナルド・バリローチェのスキー場開き */ [
+      { op: "all-players-gain-cash", amount: 320 },
+      { op: "region-income-multiplier", regionId: region("pt"), multiplier: 1.15 },
+    ],
+    /* 3 Jul 独立記念日(乾季の頂点) */ [
+      { op: "all-players-gain-cash", amount: 300 },
+      { op: "rest-spirit" },
+    ],
+    /* 4 Aug パチャママの日(北西部) */ [
+      { op: "region-income-multiplier", regionId: region("no"), multiplier: 1.15 },
+    ],
+    /* 5 Sep トゥクマンのサトウキビのサフラ */ [
+      { op: "region-income-multiplier", regionId: region("no"), multiplier: 1.2 },
+    ],
+    /* 6 Oct クージョのぶどうの芽吹き(生育期の始まり) */ [
+      { op: "region-income-multiplier", regionId: region("cu"), multiplier: 1.1 },
+    ],
+    /* 7 Nov パタゴニアの毛刈り(エスキラ)が始まる */ [
+      { op: "region-income-multiplier", regionId: region("pt"), multiplier: 1.2 },
+    ],
+    /* 8 Dec 第2回アギナルド・大西洋岸の海水浴シーズン開幕 */ [
+      { op: "all-players-gain-cash", amount: 320 },
+      { op: "region-income-multiplier", regionId: region("pa"), multiplier: 1.15 },
+    ],
+    /* 9 Jan 大西洋岸の真夏 */ [
+      { op: "region-income-multiplier", regionId: region("pa"), multiplier: 1.3 },
+    ],
+    /* 10 Feb グアレグアイチュのカーニバル(給アイテム) */ [
+      { op: "give-item-to-all" },
+      { op: "region-income-multiplier", regionId: region("me"), multiplier: 1.3 },
+    ],
+    /* 11 Mar メンドーサのブドウ収穫祭(ベンディミア) */ [
+      { op: "region-income-multiplier", regionId: region("cu"), multiplier: 1.3 },
+    ],
+  ],
   /**
    * オセアニア大陸。バヌアツの地上ダイビング → PNGコーヒー収穫 →
    * トンガのクジラ → フィジーのハイビスカス祭り → 貿易風の季節(8月・給アイテム) →
@@ -439,6 +635,13 @@ export const SEASON_EFFECTS_BY_COUNTRY: Readonly<Record<string, readonly (readon
       { op: "region-income-multiplier", regionId: region("pol"), multiplier: 0.9 },
     ],
   ],
+  /**
+   * アフリカ大陸。東アフリカの長雨 → ザンベジの増水 → サヘルの酷暑 →
+   * グレート・マイグレーションのマラ川渡渉 → ナマクアランドの花 →
+   * エンクタタシュ(9月・給アイテム) → 東アフリカの短雨 → ハルマッタン →
+   * インド洋サイクロン季(12月・休神) → セレンゲティの出産期 →
+   * ケープワインの収穫 → ラマダーンの移動、という流れ。
+   */
   africa: [
     /* 0 Apr 東アフリカの長雨 */ [
       { op: "region-income-multiplier", regionId: region("eaf"), multiplier: 0.9 },
@@ -2396,6 +2599,30 @@ export const DOOM_EFFECT_ID_BY_LEGACY_ID: Readonly<Record<string, DoomEffectId>>
   biosecurityhold: "percentLoss", // 留め置かれた荷が傷んで値崩れ
   islandhopperfog: "loseProperties", // その週唯一の便を逃し、島の物件に商品を届けられない
   supplyshipslip: "payOthers", // 高くついた備蓄を、同じ波止場で足止めされた者と分け合う
+  // Argentina
+  sinboleto: "fine",
+  megadevaluacion: "percentLoss",
+  parogeneral: "skipTurn",
+  cierrederamal: "loseProperties",
+  trasbordoforzado: "payOthers",
+  trenfantasma: "teleport",
+  arrebatoretiro: "steal",
+  // Cuba
+  "tranca-de-rio": "fine",
+  "ciclon-de-la-zafra": "percentLoss",
+  descarrilamiento: "skipTurn",
+  "incendio-del-central": "loseProperties",
+  "paro-de-los-obreros": "payOthers",
+  "desvio-del-guije": "teleport",
+  "robo-en-la-estacion": "steal",
+  // Colombia
+  "chiva-varada": "fine",
+  "roya-cafetera": "percentLoss",
+  "creciente-cierra-paso": "skipTurn",
+  "via-nueva-expropia": "loseProperties",
+  "tejo-apuesta-perdida": "payOthers",
+  "vuelo-desviado": "teleport",
+  "raponazo-callejero": "steal",
 // New Zealand
 "ruapehu-ash": "fine", // 降灰の掃除・保線費用
 norwester: "loseProperties", // 強風で緩んだ屋根が飛ばされる被害
@@ -2690,4 +2917,12 @@ sandflies: "percentLoss", // 虫よけ・応急処置に現金の一部を費や
   "kalah-mahjong": "payOthers",
   "bas-salah": "teleport",
   ragut: "steal",
+  // Chile
+  "impuesto-salitre": "fine",
+  terremoto: "percentLoss",
+  aluvion: "skipTurn",
+  "relave-derrame": "loseProperties",
+  "polla-perdida": "payOthers",
+  "barco-desviado": "teleport",
+  "lanza-metro": "steal",
 };

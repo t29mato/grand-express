@@ -472,4 +472,44 @@ jandalsprint: { type: "extra-turn" },
   coprasack: { type: "roll-fixed-dice", diceCount: 2 },
   phosphatemanifest: { type: "roll-fixed-dice", diceCount: 3 },
   reefflare: { type: "repel-spirit" },
+  // Argentina
+  hacerdedo: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  cochecama: { type: "choose-exact-dice" },
+  grancapitan: { type: "roll-fixed-dice", diceCount: 2 },
+  trenalasnubes: { type: "roll-fixed-dice", diceCount: 3 },
+  gauchitogil: { type: "none" }, // 厄災の神(エル・ファミリアル)のward item(passive)
+  salgruesa: { type: "repel-spirit" },
+  resumen: { type: "quiz-save" },
+  quiniela: { type: "gain-cash", amount: 380 },
+  vivezacriolla: { type: "extra-turn" },
+  // Cuba
+  camello: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  electrico: { type: "choose-exact-dice" },
+  guagua: { type: "roll-fixed-dice", diceCount: 2 },
+  trenfrances: { type: "roll-fixed-dice", diceCount: 3 },
+  // azabache は既存キー(スペイン盤面と共有)。追記不要。
+  machetazo: { type: "repel-spirit" },
+  hojaderuta: { type: "quiz-save" },
+  cigarros: { type: "gain-cash", amount: 400 },
+  cambiavia: { type: "extra-turn" },
+  // Colombia
+  hidroavion: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  chiva: { type: "choose-exact-dice" },
+  trensabana: { type: "roll-fixed-dice", diceCount: 2 },
+  expresodelsol: { type: "roll-fixed-dice", diceCount: 3 },
+  tabacoatado: { type: "none" }, // 厄災の神(エル・モアン)のward item(passive)
+  cruzguayacan: { type: "repel-spirit" },
+  // chuleta: { type: "quiz-save" },  ← Venezuelaのぶんが既にあれば追記不要
+  esmeralda: { type: "gain-cash", amount: 380 },
+  correoaereo: { type: "extra-turn" },
+  // Chile
+  avionpatagonico: { type: "carried-far", minSteps: 8, maxSteps: 12 },
+  pullman: { type: "choose-exact-dice" },
+  trensalitrero: { type: "roll-fixed-dice", diceCount: 2 },
+  expresolongitudinal: { type: "roll-fixed-dice", diceCount: 3 },
+  ramadecanelo: { type: "none" }, // 厄災の神(カレウチェ)のward item(passive)
+  linternafarera: { type: "repel-spirit" },
+  torpedo: { type: "quiz-save" },
+  boletokino: { type: "gain-cash", amount: 380 },
+  atajoarriero: { type: "extra-turn" },
 };

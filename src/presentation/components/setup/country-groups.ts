@@ -91,13 +91,13 @@ export const COUNTRY_GROUPS: readonly CountryGroup[] = [
     key: "northamerica",
     label: { en: "North America", es: "América del Norte", fr: "Amérique du Nord", ja: "北アメリカ" },
     wholeBoardId: "northamerica",
-    countryIds: ["northamerica", "canada", "usa", "mexico"],
+    countryIds: ["northamerica", "canada", "usa", "mexico", "cuba"],
   },
   {
     key: "southamerica",
     label: { en: "South America", es: "América del Sur", fr: "Amérique du Sud", ja: "南アメリカ" },
     wholeBoardId: "southamerica",
-    countryIds: ["southamerica", "peru", "venezuela", "bolivia", "brazil"],
+    countryIds: ["southamerica", "peru", "venezuela", "bolivia", "brazil", "argentina", "chile", "colombia"],
   },
   {
     key: "oceania",

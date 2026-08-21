@@ -70,6 +70,10 @@ import { buildKyushuContent } from "./countries/kyushu/index.mjs";
 import { buildNewZealandContent } from "./countries/newzealand/index.mjs";
 import { buildSpainContent } from "./countries/spain/index.mjs";
 import { buildOceaniaContent } from "./countries/oceania/index.mjs";
+import { buildArgentinaContent } from "./countries/argentina/index.mjs";
+import { buildCubaContent } from "./countries/cuba/index.mjs";
+import { buildColombiaContent } from "./countries/colombia/index.mjs";
+import { buildChileContent } from "./countries/chile/index.mjs";
 import { renderJapanDecor } from "./content-overrides/japan-decor.mjs";
 import { renderBoliviaDecor } from "./content-overrides/bolivia-decor.mjs";
 
@@ -581,6 +585,10 @@ const AUTHORED_COUNTRIES = [
   buildHokkaidoContent(),
   buildKyushuContent(),
   buildOceaniaContent(),
+  buildArgentinaContent(),
+  buildCubaContent(),
+  buildColombiaContent(),
+  buildChileContent(),
 ];
 
 /** `scripts/countries/` にあるのに、上の一覧に無い盤面。焼かれずに消える。 */

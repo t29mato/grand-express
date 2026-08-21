@@ -244,6 +244,34 @@ import { OceaniaReefstrand } from "./oceania-reefstrand";
 import { OceaniaBiosecurityhold } from "./oceania-biosecurityhold";
 import { OceaniaIslandhopperfog } from "./oceania-islandhopperfog";
 import { OceaniaSupplyshipslip } from "./oceania-supplyshipslip";
+import { ArgentinaArrebatoretiro } from "./argentina-arrebatoretiro";
+import { ArgentinaCierrederamal } from "./argentina-cierrederamal";
+import { ArgentinaMegadevaluacion } from "./argentina-megadevaluacion";
+import { ArgentinaParogeneral } from "./argentina-parogeneral";
+import { ArgentinaSinboleto } from "./argentina-sinboleto";
+import { ArgentinaTrasbordoforzado } from "./argentina-trasbordoforzado";
+import { ArgentinaTrenfantasma } from "./argentina-trenfantasma";
+import { ColombiaChivaVarada } from "./colombia-chiva-varada";
+import { ColombiaCrecienteCierraPaso } from "./colombia-creciente-cierra-paso";
+import { ColombiaRaponazoCallejero } from "./colombia-raponazo-callejero";
+import { ColombiaRoyaCafetera } from "./colombia-roya-cafetera";
+import { ColombiaTejoApuestaPerdida } from "./colombia-tejo-apuesta-perdida";
+import { ColombiaViaNuevaExpropia } from "./colombia-via-nueva-expropia";
+import { ColombiaVueloDesviado } from "./colombia-vuelo-desviado";
+import { ChileAluvion } from "./chile-aluvion";
+import { ChileBarcoDesviado } from "./chile-barco-desviado";
+import { ChileImpuestoSalitre } from "./chile-impuesto-salitre";
+import { ChileLanzaMetro } from "./chile-lanza-metro";
+import { ChilePollaPerdida } from "./chile-polla-perdida";
+import { ChileRelaveDerrame } from "./chile-relave-derrame";
+import { ChileTerremoto } from "./chile-terremoto";
+import { CubaCiclonDeLaZafra } from "./cuba-ciclon-de-la-zafra";
+import { CubaDescarrilamiento } from "./cuba-descarrilamiento";
+import { CubaDesvioDelGuije } from "./cuba-desvio-del-guije";
+import { CubaIncendioDelCentral } from "./cuba-incendio-del-central";
+import { CubaParoDeLosObreros } from "./cuba-paro-de-los-obreros";
+import { CubaRoboEnLaEstacion } from "./cuba-robo-en-la-estacion";
+import { CubaTrancaDeRio } from "./cuba-tranca-de-rio";
 import { EgyptKhamsin } from "./egypt-khamsin";
 import { EgyptCanalblock } from "./egypt-canalblock";
 import { EgyptHeatbuckle } from "./egypt-heatbuckle";
@@ -557,6 +585,34 @@ export const DOOM_ANIMATIONS: Readonly<Record<string, ComponentType>> = {
   "oceania-biosecurityhold": OceaniaBiosecurityhold,
   "oceania-islandhopperfog": OceaniaIslandhopperfog,
   "oceania-supplyshipslip": OceaniaSupplyshipslip,
+  "argentina-arrebatoretiro": ArgentinaArrebatoretiro,
+  "argentina-cierrederamal": ArgentinaCierrederamal,
+  "argentina-megadevaluacion": ArgentinaMegadevaluacion,
+  "argentina-parogeneral": ArgentinaParogeneral,
+  "argentina-sinboleto": ArgentinaSinboleto,
+  "argentina-trasbordoforzado": ArgentinaTrasbordoforzado,
+  "argentina-trenfantasma": ArgentinaTrenfantasma,
+  "colombia-chiva-varada": ColombiaChivaVarada,
+  "colombia-creciente-cierra-paso": ColombiaCrecienteCierraPaso,
+  "colombia-raponazo-callejero": ColombiaRaponazoCallejero,
+  "colombia-roya-cafetera": ColombiaRoyaCafetera,
+  "colombia-tejo-apuesta-perdida": ColombiaTejoApuestaPerdida,
+  "colombia-via-nueva-expropia": ColombiaViaNuevaExpropia,
+  "colombia-vuelo-desviado": ColombiaVueloDesviado,
+  "chile-aluvion": ChileAluvion,
+  "chile-barco-desviado": ChileBarcoDesviado,
+  "chile-impuesto-salitre": ChileImpuestoSalitre,
+  "chile-lanza-metro": ChileLanzaMetro,
+  "chile-polla-perdida": ChilePollaPerdida,
+  "chile-relave-derrame": ChileRelaveDerrame,
+  "chile-terremoto": ChileTerremoto,
+  "cuba-ciclon-de-la-zafra": CubaCiclonDeLaZafra,
+  "cuba-descarrilamiento": CubaDescarrilamiento,
+  "cuba-desvio-del-guije": CubaDesvioDelGuije,
+  "cuba-incendio-del-central": CubaIncendioDelCentral,
+  "cuba-paro-de-los-obreros": CubaParoDeLosObreros,
+  "cuba-robo-en-la-estacion": CubaRoboEnLaEstacion,
+  "cuba-tranca-de-rio": CubaTrancaDeRio,
   "egypt-khamsin": EgyptKhamsin,
   "egypt-canalblock": EgyptCanalblock,
   "egypt-heatbuckle": EgyptHeatbuckle,
