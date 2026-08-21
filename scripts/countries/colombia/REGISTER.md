@@ -59,7 +59,14 @@ import { buildColombiaContent } from "./countries/colombia/index.mjs";
 
 ## 5. `src/infrastructure/content/item-effect-rules.ts`
 
-アイテム9件。鍵は既存全盤面(約380件)と衝突しないことを確認済み。
+アイテム9件。**2026-08-21、team-leadの指摘で`torpedo`がチリ盤(同じ
+quiz-save)と衝突していたため`chuleta`に差し替えた。**`chuleta`は
+ベネズエラ盤が既に同じ`quiz-save`で使っている鍵と同名になる
+(カンニングペーパーを指す語がスペイン語圏で共通のため、自然に同じ語を
+選んだ形)。**効果が同じ(quiz-save)なので、この行は追記不要——
+`chuleta: { type: "quiz-save" }` は既にVenezuelaのぶんで存在するはず
+です。**もし別の語のほうが良ければ差し替えてください(その場合は
+flavour.mjsのキー・表示名・説明文の4言語をこちらで直します)。
 
 ```ts
   // Colombia
@@ -69,7 +76,7 @@ import { buildColombiaContent } from "./countries/colombia/index.mjs";
   expresodelsol: { type: "roll-fixed-dice", diceCount: 3 },
   tabacoatado: { type: "none" }, // 厄災の神(エル・モアン)のward item(passive)
   cruzguayacan: { type: "repel-spirit" },
-  torpedo: { type: "quiz-save" },
+  // chuleta: { type: "quiz-save" },  ← Venezuelaのぶんが既にあれば追記不要
   esmeralda: { type: "gain-cash", amount: 380 },
   correoaereo: { type: "extra-turn" },
 ```
@@ -209,7 +216,7 @@ node scripts/check-sea-routes.mjs colombia                 # 使い捨てjsonで
               全地方で増減とも最低1件は引けることを確認済み)
 道具          9個(effectの型8種のうちroll-fixed-diceのみdiceCount違いで
               2件、計9件。既存約380件の鍵と衝突しないことを確認済み。
-              quiz-save〈torpedo〉は140、gain-cash〈esmeralda〉の額380より
+              quiz-save〈chuleta〉は140、gain-cash〈esmeralda〉の額380より
               安い320)
 厄災          7個(fine/percentLoss/skipTurn/loseProperties/payOthers/
               teleport/stealを1つずつ)

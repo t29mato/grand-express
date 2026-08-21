@@ -124,17 +124,17 @@ export const COLOMBIA_ITEMS = {
       "Guayacán, one of the hardest and densest woods found in Colombia's dry forests, is said in riverside folklore to be one of the few materials El Mohán cannot stand to be near, and small crosses carved from it are still kept by some fishing families.|El guayacán, una de las maderas más duras y densas de los bosques secos de Colombia, se dice en la tradición ribereña que es uno de los pocos materiales que El Mohán no soporta tener cerca, y algunas familias de pescadores todavía guardan pequeñas cruces talladas en él.|Le gaïac, l'un des bois les plus durs et les plus denses des forêts sèches de Colombie, est dit dans le folklore riverain être l'un des rares matériaux qu'El Mohán ne supporte pas d'avoir à proximité, et de petites croix taillées dedans sont encore conservées par certaines familles de pêcheurs.|コロンビアの乾燥林に生えるグアヤカンは、最も硬く緻密な木材のひとつで、川辺の言い伝えでは、エル・モアンが近くにあるのを嫌う数少ない素材とされる。この木で彫った小さな十字架は、いまも一部の漁師の家に伝わっている。",
     ),
   },
-  torpedo: {
+  chuleta: {
     e: "📝",
     // クイズを外したときの損失を肩代わりするだけなので、それに見合う値。
     price: 140,
     kind: "passive",
-    n: t("A Torpedo (Cheat Sheet)|Un torpedo (chuleta)|Un torpedo (antisèche)|トルペード(カンニングペーパー)"),
+    n: t("A Chuleta (Cheat Sheet)|Una chuleta (chuleta de examen)|Une chuleta (antisèche)|チュレタ(カンニングペーパー)"),
     d: t(
       "If you get a quiz wrong, it is counted right instead. Used up.|Si fallas una pregunta, cuenta como acertada. Se gasta.|Si tu rates une question, elle compte juste. Consommé.|クイズを外しても正解扱いになる。1回で無くなる。",
     ),
     f: t(
-      "'Torpedo' is Colombian student slang for a hidden cheat sheet, small enough to slip past a watchful teacher and named, like the weapon, for how quickly it is meant to do its job once launched.|'Torpedo' es la jerga estudiantil colombiana para una chuleta escondida, lo bastante pequeña para pasar inadvertida ante un profesor atento, llamada así, como el arma, por lo rápido que se supone que cumple su función una vez lanzada.|« Torpedo » est l'argot étudiant colombien pour une antisèche cachée, assez petite pour passer inaperçue d'un professeur attentif, ainsi nommée, comme l'arme, pour la rapidité avec laquelle elle est censée faire son office une fois lancée.|「トルペード」は、油断ならない教師の目をすり抜けられるほど小さな、隠し持つカンニングペーパーを指すコロンビアの学生の隠語である。魚雷と同じ名で呼ばれるのは、放たれた瞬間にすばやく役目を果たすとされることにちなむ。",
+      "'Chuleta', literally a pork chop or cutlet, is everyday Colombian slang for a hidden exam cheat sheet, folded small enough to palm or tuck into a sleeve and glanced at between looks up at the teacher.|'Chuleta', literalmente una costilla o filete de cerdo, es la jerga cotidiana colombiana para una hoja de trucos escondida en un examen, doblada lo bastante pequeña para esconderla en la mano o en la manga y consultarla entre miradas al profesor.|« Chuleta », littéralement une côtelette de porc, est l'argot colombien courant pour une antisèche cachée pendant un examen, pliée assez petite pour tenir dans la main ou dans une manche et consultée entre deux regards vers le professeur.|「チュレタ」は文字どおりには豚のカツレツを意味するが、コロンビアの日常語では試験に隠し持つカンニングペーパーを指す。手のひらや袖に収まるほど小さく折りたたまれ、教師を見るたびの合間にちらりと確かめられる。",
     ),
   },
   esmeralda: {
