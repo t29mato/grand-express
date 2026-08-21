@@ -210,6 +210,34 @@ node scripts/check-sea-routes.mjs cuba            # 使い捨てjsonで確認済
 `node scripts/extract-legacy-content.mjs` と `node scripts/check-quiz.mjs cuba`
 は未登録のため未実行。登録後にお願いします。
 
+## 追記(2026-08-21・ビニャーレスが海に出ていた件の修正)
+
+ご指摘のとおり、海岸線38頂点(188px/頂点)では西端が丸ごと落ち、
+ビニャーレスが海の外に出ていました。西岸を中心に頂点を足し、
+**62頂点・105px/頂点**まで詰めました(アルゼンチン120px/チリ129pxと
+同水準)。40都市すべてが陸の内側にあることを実測し直しています。
+
+```
+海岸線      62頂点・周長7162px・105px/頂点(目安120px/頂点以下)
+陸外        0件(40都市とも実測で陸の内側)
+海陸判定    43路線とも60px超の食い違いなし(check-sea-routesで再確認)
+```
+
+直す途中、頂点を足すたびにバタバノー―ヌエバ・ヘロナの航路が壊れたり
+直ったりして、一時「頂点を足すと航路に沿って陸地判定が伸びる構造的な
+問題」だと誤診しかけました。**実際は自分がコミット済みの座標
+(-82.90, 22.65)を打ち直す過程で (-82.90, 22.55) と1桁打ち間違えていた
+だけ**で、`git show <直前のコミット>` で正しい値と突き合わせて分かりました。
+詳しい経緯は `geography.mjs` 冒頭のコメントに残しています。
+
+音楽3地方(地方の数と同じ)の件、了解しました。地方は oc/ce/or の3つの
+ままなので変更ありません。
+
+厄災のid(`tranca-de-rio` / `ciclon-de-la-zafra` / `descarrilamiento` /
+`incendio-del-central` / `paro-de-los-obreros` / `desvio-del-guije` /
+`robo-en-la-estacion`)は `src/infrastructure/content/season-and-doom-rules.ts`
+を grep し、既存43枚と衝突しないことを確認しました(2026-08-21)。
+
 ## 数字(2026-08-21実測)
 
 ```
