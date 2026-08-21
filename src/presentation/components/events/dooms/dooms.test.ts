@@ -1,7 +1,7 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { DOOM_ANIMATIONS, doomAnimationFor } from "./index";
+import { DOOM_ANIMATIONS } from "./index";
 import { ALL_COUNTRY_IDS } from "../../../../infrastructure/content/all-country-ids";
 
 /**
