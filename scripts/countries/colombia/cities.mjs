@@ -458,5 +458,82 @@ export const COLOMBIA_CITIES = {
   ),
 };
 
-/** フェーズ1では路線は割愛(方向確認後、地理と合わせて設計する)。 */
-export const COLOMBIA_EDGES = [];
+/**
+ * 路線(51本。都市数46+5)。陸路(記載なし)と海路(川路含む、"sea")の別を
+ * 明示している。
+ *
+ * 2026-08-21、check-sea-routes.mjs の使い捨て焼き上がりで測定したところ、
+ * マグダレナ川本流沿いの短い区間(ネイバ〜バランキージャ間の6本)は
+ * "sea" のままだと100%陸の上を通っていた(投影の縮尺では中継地が近すぎ、
+ * 川幅を表す湖ポリゴンも用意していなかったため)。これらは実際にも
+ * 現代は幹線道路が並行している区間なので、"land" に直した(モンポスの
+ * カードが「川が去っていった町」である以上、モンポス周辺を陸路にする
+ * ほうがむしろ実態に合う)。
+ *
+ * **「陸路が現実的でない = 川か海しか道がない」区間だけ "sea" のまま残し**、
+ * geography.mjs の COLOMBIA_LAKES に川幅を表す帯(ペルーのイキトス航路と
+ * 同じ技法)を足して幾何を通した。ブエナベントゥーラ⇄キブド/ヌキ、
+ * ブエナベントゥーラ⇄トゥマコ(太平洋岸、道路が無い)、ビジャビセンシオ
+ * ⇄プエルト・カレーニョ(メタ川〜オリノコ川)、モコア⇄レティシア
+ * (プトゥマヨ川〜アマゾン川、道が無いレティシアへの唯一の水路)、
+ * サン・ホセ・デル・グアビアレ⇄プエルト・イニリダ(グアビアレ川)の6本。
+ */
+export const COLOMBIA_EDGES = [
+  // --- アンデス(and) ---
+  ["bogota", "zipaquira"],
+  ["bogota", "girardot"],
+  ["bogota", "tunja"],
+  ["tunja", "villadeleyva"],
+  ["tunja", "bucaramanga"],
+  ["bucaramanga", "barrancabermeja"],
+  ["girardot", "ibague"],
+  ["ibague", "armenia"],
+  ["armenia", "pereira"],
+  ["armenia", "salento"],
+  ["pereira", "manizales"],
+  ["manizales", "honda"], // マニサレス=マリキータ索道の代わりに敷いた想定の陸路
+  ["honda", "bogota"], // 蒸気船が急流で止まり、荷が陸路でボゴタへ向かった経路
+  ["neiva", "ibague"],
+  ["popayan", "cali"],
+  ["cali", "buenaventura"], // 太平洋鉄道。内陸都市が実際に海水まで届いた例
+  ["medellin", "manizales"],
+  ["medellin", "barrancabermeja"],
+  ["medellin", "cali"],
+  // --- マグダレナ川沿い(南→北。現代は道路が並行するため陸路) ---
+  ["neiva", "girardot"],
+  ["girardot", "honda"],
+  ["honda", "barrancabermeja"],
+  ["barrancabermeja", "mompox"],
+  ["mompox", "magangue", "sea"], // 川幅が広く残る区間。焼き上がりで陸の食い違いなしを確認済み
+  ["magangue", "barranquilla"],
+  // --- カリブ海岸(car) ---
+  ["barranquilla", "puertocolombia"], // 1871年開業・砂州を迂回した短い鉄道
+  ["barranquilla", "cartagena"],
+  ["cartagena", "sincelejo"],
+  ["sincelejo", "monteria"],
+  ["sincelejo", "magangue"], // ラ・モハーナ。道路も通るため陸路
+  ["barranquilla", "cienaga"], // バナナ鉄道
+  ["cienaga", "aracataca"], // バナナ鉄道の支線
+  ["cienaga", "santamarta"],
+  ["santamarta", "valledupar"],
+  ["valledupar", "riohacha"],
+  ["riohacha", "cabodelavela"],
+  // --- 太平洋岸(pac)。道路が無く、川・海路が唯一の道 ---
+  ["buenaventura", "quibdo", "sea"],
+  ["quibdo", "istmina"],
+  ["quibdo", "nuqui", "sea"],
+  ["buenaventura", "tumaco", "sea"],
+  // --- 東部平原(lla) ---
+  ["bogota", "villavicencio"],
+  ["villavicencio", "yopal"],
+  ["villavicencio", "lamacarena"],
+  ["arauca", "puertocarreno", "sea"], // アラウカ川〜オリノコ川(ビジャビセンシオ発だと隣の陸路と重なったため、実際の水系どおりアラウカ発に直した)
+  ["yopal", "arauca"],
+  // --- 南部アマゾニア(ama) ---
+  ["sanvicentedelcaguan", "florencia"],
+  ["florencia", "neiva"],
+  ["mocoa", "florencia"], // 端の順を入れ替え。海に出ていた105px→19px(check-sea-routes.mjs)
+  ["mocoa", "leticia", "sea"], // プトゥマヨ川〜アマゾン川。道の無いレティシアへの唯一の経路
+  ["villavicencio", "sanjosedelguaviare"],
+  ["sanjosedelguaviare", "puertoinirida", "sea"], // グアビアレ川
+];
