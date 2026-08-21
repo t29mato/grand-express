@@ -905,7 +905,7 @@ export const OCEANIA_BG = {
     ground(118, "#4f7048") +
     `<path d="M0,118q90,-12 186,-2q100,10 214,-6v22H0z" fill="#5f8a50"/>` +
     // 谷を覆う霧の帯
-    `<rect x="0" y="112" width="400" height="10" fill="#dfe8e2" opacity=".55"/>` +
+    `<g fill="#dfe8e2" opacity=".45"><ellipse cx="70" cy="116" rx="120" ry="7"/><ellipse cx="230" cy="112" rx="130" ry="6"/><ellipse cx="360" cy="118" rx="90" ry="6"/></g>` +
     // 草葺きの家(左)
     roundHut(30, 156, 22) +
     roundHut(76, 152, 16) +
@@ -1209,6 +1209,10 @@ export const OCEANIA_BG = {
     tuft(240, 202, 1.4) +
     tuft(36, 200, 1.2) +
     palm(376, 152, 30, 4) +
+    `<g fill="#a8a49a"><rect x="188" y="176" width="26" height="9" rx="2" transform="rotate(-6 201 180)"/><rect x="226" y="186" width="20" height="8" rx="2" transform="rotate(9 236 190)"/><rect x="150" y="192" width="24" height="8" rx="2"/></g>` +
+    tuft(174, 186, 1.2) +
+    tuft(300, 190, 1.3) +
+    tuft(78, 206, 1.2) +
     gull(190, 66) +
     gull(214, 76, 0.8),
 
@@ -1680,6 +1684,14 @@ export const OCEANIA_BG = {
     `<g fill="#8fd8dc" opacity=".6"><ellipse cx="70" cy="190" rx="14" ry="3.4"/><ellipse cx="282" cy="198" rx="16" ry="3"/></g>` +
     coralHead(120, 202, 1, "#c87a6a") +
     coralHead(236, 194, 0.9, "#b06a5a") +
+    coralHead(58, 206, 0.9, "#b06a5a") +
+    // 岩の割れ目に根を張るタコノキ(この島に砂浜は無い)
+    pandanus(24, 168, 30) +
+    pandanus(384, 172, 24) +
+    `<g fill="#a89e84"><ellipse cx="160" cy="206" rx="13" ry="5"/><ellipse cx="204" cy="200" rx="9" ry="4"/><ellipse cx="322" cy="208" rx="15" ry="5"/></g>` +
+    `<g stroke="#b8b0a0" stroke-width="1.6" opacity=".8" fill="none"><path d="M60,196l20,-6M200,176l18,6M300,188l22,-8"/></g>` +
+    tuft(96, 186, 1.2) +
+    tuft(268, 178, 1.1) +
     // 岩の上のカニ
     `<g fill="#c8622f"><ellipse cx="342" cy="196" rx="6.4" ry="4.4"/><path d="M336,194l-7,-4M348,194l7,-4M336,198l-6,4M348,198l6,4" stroke="#c8622f" stroke-width="1.6" fill="none"/><path d="M338,191l-2,-5M346,191l2,-5" stroke="#c8622f" stroke-width="1.6" fill="none"/></g>` +
     gull(150, 56) +
@@ -1838,7 +1850,18 @@ export const OCEANIA_BG = {
     `<g stroke="#5f4a30" stroke-width="2" fill="none"><path d="M98,190l-14,-12M112,190l-12,-14M134,190l12,-14M148,190l14,-12"/></g>` +
     person(120, 190, 20, "#c8452f") +
     `<path d="M158,180l16,-14" stroke="#5f4a30" stroke-width="2.6" fill="none"/></g>` +
-    `<g fill="#eef6f8" opacity=".8"><path d="M74,196q24,-8 48,2q-26,6 -48,-2z"/></g>`,
+    `<g fill="#eef6f8" opacity=".8"><path d="M74,196q24,-8 48,2q-26,6 -48,-2z"/></g>` +
+    // 崖に営巣する海鳥
+    `<g fill="#e8eef0">${[[288, 118], [316, 104], [344, 126], [370, 110], [300, 142]]
+      .map(([x, y]) => `<ellipse cx="${x}" cy="${y}" rx="3.4" ry="2.2"/><circle cx="${x + 3}" cy="${y - 2}" r="1.6"/>`)
+      .join("")}</g>` +
+    gull(200, 92, 1, "#4a4a44") +
+    gull(228, 78, 0.9, "#4a4a44") +
+    // 沖の岩
+    `<path d="M172,178q14,-16 28,-6q12,10 -2,16q-16,4 -26,-10z" fill="#5f5045"/>` +
+    `<path d="M176,176q12,-10 22,-2q-12,4 -22,2z" fill="#7f6a56"/>` +
+    `<g fill="#eef6f8" opacity=".75"><path d="M164,186q14,-6 28,2q-16,4 -28,-2z"/></g>` +
+    whitecaps(168, 4),
 
   /**
    * 小さな環礁(ロツマ)。**フィジーが統治する島でありながら、

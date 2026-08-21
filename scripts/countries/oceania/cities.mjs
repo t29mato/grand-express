@@ -538,7 +538,11 @@ export const OCEANIA_EDGES = [
   ["haapai", "neiafu", "sea"],
   ["apia", "fakaofo", "sea"],
   ["apia", "mataUtu", "sea"],
-  ["apia", "funafuti", "sea"],
+  // **端の向きで弧の向きが変わる。**逆順だと63px が陸にかかる(この順なら32px)。
+  // かかっていたのは途中の島ではなく、**両端の島そのもの**
+  // (アピアのウポル島とフナフティ環礁)。どちらも印に隠れない大きさまで
+  // 広げた島で、そのぶん航路が自分の島の上を長く走るようになった。
+  ["funafuti", "apia", "sea"],
   ["fakaofo", "funafuti", "sea"],
   ["avarua", "nukualofa", "sea"],
   ["avarua", "uturoa", "sea"],
