@@ -24,7 +24,7 @@ export const CUBA_META = {
   blurb: t(
     "An island that had a railway before Spain did — laid down for sugar, not passengers|Una isla que tuvo ferrocarril antes que España, tendido por el azúcar y no por los pasajeros|Une île qui eut un chemin de fer avant l'Espagne elle-même — posé pour le sucre, non pour les passagers|スペイン本国より先に鉄道を持った島。敷かれたのは乗客のためではなく砂糖のためだった",
   ),
-  cur: { pre: "$", post: "", mul: 8000 },
+  cur: { pre: "$", post: "", mul: 100 },
   start: "habana",
   cpuNames: ["Tocororo", "Jutía", "Zunzún", "Hatuey"],
   // 国旗の青・白・赤、サトウキビの緑、精糖釜の銅色。
