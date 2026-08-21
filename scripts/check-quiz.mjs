@@ -104,6 +104,10 @@ const GENERIC = new Set([
  * わざと文面に結び付けている。
  */
 const ACCEPTED = [
+  { c: "oceania", has: "agreement", why: "ギルミティヤの語源が英語 agreement であること自体が問いの中身" },
+  { c: "oceania", has: "taboo", why: "taboo という語の語源を訊く問題。綴りが問いの中身" },
+  { c: "oceania", has: "tattoo", why: "tattoo という語の語源を訊く問題。綴りが問いの中身" },
+  { c: "oceania", has: "television", why: "ツバルの .tv が television の略であることを訊く問題" },
   { c: "hokkaido", has: "YOSAKOI", why: "祭りの公式表記そのもの。訳すと祭りが特定できない" },
   { c: "hokkaido", has: "HOKKAIDO", why: "球場の公式名称(エスコンフィールドHOKKAIDO)。施設名の一部" },
   { c: "kyushu", has: "PayPay", why: "実在の施設名(PayPayドーム)。訳すと施設が特定できない" },
@@ -163,6 +167,14 @@ const ACCEPTED = [
 ];
 /** 答えの漏れのうち、見たうえで漏れではないと判断したもの。 */
 const ACCEPTED_LEAKS = [
+  { c: "oceania", ans: "パプアニューギニア", city: "ラエ", why: "PNGの4都市があるため国名が広く出るのは当然。アフリカ盤の「アフリカ」と同種の枠の語" },
+  { c: "oceania", ans: "トンガ", city: "ヌクアロファ", why: "トンガの3都市があるため国名が広く出るのは当然" },
+  { c: "oceania", ans: "フィジー", city: "ラバサ", why: "フィジーの2都市があるため国名が広く出るのは当然" },
+  { c: "oceania", ans: "1970年", city: "ヌクアロファ", why: "フィジー独立の年を訊く問題。ヌクアロファのカードは同じ1970年のトンガ独立で、年号の偶然の一致" },
+  { c: "oceania", ans: "タヒチ", city: "ムルロア", why: "タトゥーの語源を訊く問題。ムルロアのカードにタヒチが出るのは降下物が及んだ話で、語源には触れていない" },
+  { c: "oceania", ans: "ニュージーランド", city: "アヴァルア", why: "日常取引にNZ紙幣を使うことを訊く問題。カードはNZ国籍と自前の政府の話" },
+  { c: "oceania", ans: "サモア", city: "アピア", why: "ウポル島の地理を訊く問題。カードは1889年のハリケーンの話" },
+  { c: "oceania", ans: "ミクロネシア連邦", city: "コスラエ", why: "パリキールが首都であることを訊く問題。カードはアイランド・ホッパー便の話" },
   { c: "kyushu", ans: "関門海峡", city: "門司", why: "難易度2の易しい問い。門司のカードに海峡名が出るのは当然で、読んだ人が答えられるのは狙いどおり" },
   { c: "kyushu", ans: "オランダ", city: "平戸", why: "島原の乱の艦砲射撃を訊く問題。平戸のカードは商館の話で、島原には触れていない" },
   { c: "kyushu", ans: "1945年", city: "長崎", why: "難易度1の易しい問い。長崎のカードに日付が出るのは当然" },
