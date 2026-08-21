@@ -278,6 +278,9 @@ export const CUBA_SEASONS = [
     t: t(
       "With the cane cut and milled, the machinery goes quiet for months of maintenance, and the seasonal cutting crews scatter to other work until the next zafra calls them back. The name tiempo muerto, 'dead time,' has stuck to this stretch of the calendar for generations.|Con la caña cortada y molida, la maquinaria calla durante meses de mantenimiento, y las cuadrillas estacionales de corte se dispersan a otros trabajos hasta que la próxima zafra los llame de vuelta. El nombre tiempo muerto se ha quedado pegado a este tramo del calendario por generaciones.|La canne coupée et broyée, les machines se taisent pour des mois d'entretien, et les équipes saisonnières de coupe se dispersent vers d'autres travaux jusqu'à ce que la prochaine zafra les rappelle. Le nom tiempo muerto, « temps mort », colle à cette période du calendrier depuis des générations.|サトウキビが刈られ挽き終えられると、機械は何か月もの保守のあいだ静まり返り、季節ごとの刈り取り班は次のサフラに呼び戻されるまで他の仕事に散っていく。「ティエンポ・ムエルト(死んだ季節)」という呼び名は、何世代も前からこの時期に貼り付いている。",
     ),
+    f: t(
+      "Boilers, cane knives and grinding rollers all get relined, resharpened or replaced during these months, since a single breakdown once the zafra starts back up can cost a mill days of lost grinding.|Las calderas, los cuchillos de caña y los rodillos de molienda se revisten de nuevo, se afilan o se sustituyen durante estos meses, ya que una sola avería una vez que arranca la zafra puede costarle al ingenio días de molienda perdidos.|Chaudières, couteaux à canne et cylindres de broyage sont regarnis, réaffûtés ou remplacés durant ces mois, car une seule panne une fois la zafra relancée peut coûter à l'usine des jours de broyage perdus.|この数か月のあいだにボイラーやサトウキビ切断刃、圧搾ローラーは裏張りをやり直したり研ぎ直したり交換されたりする。サフラが再開したあとの故障一つが、工場に何日分もの製糖の機会損失をもたらしかねないからである。",
+    ),
   },
   /* 2 Jun 大西洋ハリケーン季の始まり */ {
     e: "🌀",
@@ -295,6 +298,9 @@ export const CUBA_SEASONS = [
     t: t(
       "Santiago de Cuba's carnival, generally considered the country's biggest and rowdiest, fills the streets with comparsa groups dancing conga behind trucks stacked with speakers, drawing crowds from across Oriente and beyond.|El carnaval de Santiago de Cuba, considerado en general el más grande y bullicioso del país, llena las calles con comparsas bailando conga tras camiones apilados de altavoces, atrayendo multitudes de todo Oriente y de más allá.|Le carnaval de Santiago de Cuba, généralement considéré comme le plus grand et le plus bruyant du pays, remplit les rues de comparsas dansant la conga derrière des camions chargés de haut-parleurs, attirant des foules de tout l'Oriente et d'ailleurs.|一般にキューバでいちばん大きく賑やかとされるサンティアゴ・デ・クーバのカルナバルは、スピーカーを積み上げたトラックの後ろでコンガを踊るコンパルサの一団で通りを埋め尽くし、オリエンテ各地やそれ以外からも人を集める。",
     ),
+    f: t(
+      "The carnival's date grew out of the old feast of Santiago Apóstol on 25 July, the city's patron saint, and its street parades trace roots back to celebrations once held by the city's enslaved and free Black population.|La fecha del carnaval surgió de la antigua fiesta de Santiago Apóstol, el 25 de julio, patrono de la ciudad, y sus desfiles callejeros tienen raíces en las celebraciones que antaño organizaba la población negra esclavizada y libre de la ciudad.|La date du carnaval est née de l'ancienne fête de Santiago Apóstol, le 25 juillet, saint patron de la ville, et ses défilés de rue trouvent leurs racines dans les célébrations qu'organisait autrefois la population noire, esclave et libre, de la ville.|このカルナバルの日取りは、この町の守護聖人である使徒ヤコブの祝日(7月25日)にちなんでおり、その街頭行進は、かつてこの町の奴隷とされた黒人および自由黒人の人々が催していた祝祭に起源をたどることができる。",
+    ),
   },
   /* 4 Aug ハリケーン季の頂点 */ {
     e: "🌊",
@@ -302,6 +308,9 @@ export const CUBA_SEASONS = [
     ),
     t: t(
       "Late August through September is statistically the most active stretch of the whole Atlantic season, and mill managers and station agents alike keep one ear on the radio for storm tracks even during otherwise quiet weeks.|De finales de agosto a septiembre es, estadísticamente, el tramo más activo de toda la temporada atlántica, y tanto los gerentes de ingenio como los jefes de estación mantienen un oído puesto en la radio para las trayectorias de tormentas incluso en semanas por lo demás tranquilas.|De fin août à septembre est statistiquement la période la plus active de toute la saison atlantique, et gérants de sucrerie comme chefs de gare gardent une oreille sur la radio pour suivre les trajectoires de tempêtes, même durant des semaines par ailleurs calmes.|8月末から9月にかけては大西洋のハリケーン季全体の中でも統計的にもっとも活発な時期にあたり、製糖工場の管理者も駅長も、ほかは静かな週であってもラジオの嵐の進路情報に片耳を傾け続ける。",
+    ),
+    f: t(
+      "The National Hurricane Center's rotating list of storm names is retired and replaced for any hurricane severe enough to leave lasting damage, a fate several storms that struck Cuba in this stretch of the calendar have earned.|La lista rotativa de nombres de tormentas del Centro Nacional de Huracanes se retira y sustituye para cualquier huracán lo bastante severo como para dejar daños duraderos, un destino que se han ganado varias tormentas que golpearon Cuba en este tramo del calendario.|La liste tournante des noms de tempêtes du Centre national des ouragans est retirée et remplacée pour tout ouragan assez sévère pour laisser des dégâts durables, un sort qu'ont connu plusieurs tempêtes ayant frappé Cuba durant cette période du calendrier.|国立ハリケーンセンターが回している嵐の名前のリストは、長く残る被害を残すほど深刻なハリケーンについては引退させ入れ替える。この時期にキューバを襲ったいくつもの嵐が、その扱いを受けてきた。",
     ),
   },
   /* 5 Sep ビルヘン・デ・ラ・カリダ祭(全員給付) */ {
@@ -321,6 +330,9 @@ export const CUBA_SEASONS = [
     t: t(
       "October usually brings the heaviest rainfall of the year to much of the island, keeping fields too wet to prepare for the coming zafra and giving repair crews inside the silent mills the wettest weeks to work through.|Octubre suele traer las lluvias más intensas del año a buena parte de la isla, manteniendo los campos demasiado húmedos para prepararlos para la próxima zafra y dando a las cuadrillas de reparación dentro de los ingenios silenciosos las semanas más lluviosas para trabajar.|Octobre apporte d'ordinaire les pluies les plus intenses de l'année sur une bonne partie de l'île, gardant les champs trop humides pour être préparés à la prochaine zafra et offrant aux équipes de réparation dans les usines silencieuses leurs semaines les plus pluvieuses de travail.|10月は島の多くの地域で一年でもっとも雨が強まる時期で、畑は次のサフラに向けて準備するにはぬかるみすぎたままとなり、静まった工場の中で働く修理班にとっては、もっとも雨の多い週を働き通すことになる。",
     ),
+    f: t(
+      "Cuba's rainy season, running roughly from May to October, delivers most of the island's annual rainfall in these few months, leaving the winter dry season that follows almost rain-free by comparison.|La temporada de lluvias de Cuba, que va aproximadamente de mayo a octubre, deja la mayor parte de la lluvia anual de la isla en estos pocos meses, dejando la temporada seca de invierno que sigue casi sin lluvia en comparación.|La saison des pluies à Cuba, s'étendant environ de mai à octobre, apporte l'essentiel des précipitations annuelles de l'île durant ces quelques mois, laissant la saison sèche hivernale qui suit presque sans pluie en comparaison.|キューバの雨季はおよそ5月から10月にかけて続き、島の年間降水量の大半をこの数か月に集中させる。そのあとに続く冬の乾季は、それに比べればほとんど雨が降らない。",
+    ),
   },
   /* 7 Nov 修理の追い込み */ {
     e: "⚙️",
@@ -328,6 +340,9 @@ export const CUBA_SEASONS = [
     ),
     t: t(
       "With the next zafra only weeks away, boiler crews and machinists push to finish a year's worth of patchwork repairs before the first cane wagons start arriving, often working through the night in the final stretch.|Con la próxima zafra a solo semanas, las cuadrillas de calderas y los mecánicos se apuran por terminar un año de reparaciones de parche antes de que lleguen los primeros vagones de caña, muchas veces trabajando de noche en el último tramo.|La prochaine zafra n'étant plus qu'à quelques semaines, chaudronniers et mécaniciens se hâtent de finir une année de réparations de fortune avant l'arrivée des premiers wagons de canne, travaillant souvent de nuit dans la dernière ligne droite.|次のサフラまであと数週間となり、罐焚きや機械工たちは最初のサトウキビ貨車が届く前に一年分の応急修理を終わらせようと急ぎ、終盤には夜を徹して働くことも多い。",
+    ),
+    f: t(
+      "Many of the seasonal cane-cutting crews who scattered during tiempo muerto begin drifting back toward the mill towns in these final weeks, ready to be hired again the moment grinding restarts.|Muchas de las cuadrillas estacionales de corte de caña que se dispersaron durante el tiempo muerto empiezan a volver hacia los pueblos del ingenio en estas últimas semanas, listas para ser contratadas de nuevo en cuanto se reanude la molienda.|Nombre des équipes saisonnières de coupeurs de canne dispersées pendant le tiempo muerto commencent à revenir vers les villes-usines durant ces dernières semaines, prêtes à être réembauchées dès la reprise du broyage.|ティエンポ・ムエルトのあいだ散らばっていた季節労働の刈り取り班の多くは、この最後の数週間になると製糖工場の町へ戻り始め、製糖が再開される瞬間にまた雇われる用意をする。",
     ),
   },
   /* 8 Dec レメディオスのパランダス(全員給付) */ {
@@ -347,6 +362,9 @@ export const CUBA_SEASONS = [
     ),
     t: t(
       "January's dry weather and cane at peak sugar content make this the heart of the crushing season, when mills run around the clock and the sweet, scorched smell of boiling cane juice hangs over every town built around one.|El clima seco de enero y la caña en su punto máximo de sacarosa hacen de este el corazón de la molienda, cuando los ingenios funcionan sin parar y el olor dulce y quemado del guarapo hirviendo se cierne sobre cada pueblo construido en torno a uno.|Le temps sec de janvier et la canne à son taux de sucre maximal en font le cœur de la mouture, quand les usines tournent jour et nuit et que l'odeur sucrée et brûlée du jus de canne bouillant plane sur chaque ville bâtie autour d'une sucrerie.|1月の乾いた天候とサトウキビの糖度が最高潮になることが重なり、この時期は製糖のいちばんの盛りとなる。工場は昼夜を問わず動き続け、煮詰まるサトウキビ汁の甘く焦げた匂いが、それを中心に建てられたどの町にも立ち込める。",
+    ),
+    f: t(
+      "Mills run three shifts around the clock during these peak weeks, since cut cane loses sugar content fast and every hour between the field and the grinder counts against the harvest.|Los ingenios funcionan en tres turnos las 24 horas durante estas semanas pico, ya que la caña cortada pierde azúcar rápido y cada hora entre el campo y el trapiche cuenta en contra de la cosecha.|Les usines tournent en trois équipes vingt-quatre heures sur vingt-quatre durant ces semaines de pointe, car la canne coupée perd vite sa teneur en sucre et chaque heure entre le champ et le moulin joue contre la récolte.|この最盛期の数週間、工場は三交代制で24時間動き続ける。刈り取ったサトウキビは糖度を急速に失うため、畑から製糖機までの一時間一時間が収穫の出来を左右するからである。",
     ),
   },
   /* 10 Feb カルナバル各地(全員給付) */ {
