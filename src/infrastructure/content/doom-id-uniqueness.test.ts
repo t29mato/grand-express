@@ -27,6 +27,11 @@ import { ALL_COUNTRY_IDS } from "./all-country-ids";
 describe("厄災のidの一意性", () => {
   const repo = new JsonCountryContentRepository();
 
+  /**
+   * **全盤面を読む。**盤面が35枚・合計24MBになり、`npm run check` が
+   * 90ファイルを並べて走らせる中では既定の60秒に収まらない回が出た。
+   * 単体なら数秒で終わるので、遅いのは読み込みではなく順番待ちである。
+   */
   it("盤面をまたいで同じ厄災idを使っていない", async () => {
     const owners = new Map<string, string[]>();
     for (const id of ALL_COUNTRY_IDS) {
@@ -44,5 +49,5 @@ describe("厄災のidの一意性", () => {
       "同じidの厄災を2つの盤面が使っています。効果はidだけで引かれるので、" +
         "片方の効果がもう片方を上書きします。**あとから足したほうの名前を変えてください。**",
     ).toEqual([]);
-  });
+  }, 180_000);
 });

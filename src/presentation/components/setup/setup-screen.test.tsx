@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { LocaleProvider } from "../../i18n/locale-context";
 import { SetupScreen } from "./setup-screen";
@@ -6,8 +6,27 @@ import { SetupScreen } from "./setup-screen";
 /**
  * この画面は国選びのために全部の国のコンテンツ(地図のサムネイル込み)を読み込むため、
  * 1回描くだけでも重い。描き直す回数を減らしたうえで、既定の5秒より長い持ち時間を渡している。
+ *
+ * ## **持ち時間の宣言はここ1箇所だけにする**
+ *
+ * 2026-08-21 まで、下の `describe` の中に `vi.setConfig({ testTimeout: 60_000 })` も
+ * 書いてあった。**効いていたのは30秒のほうである。**`it(名前, 本体, 時間)` の
+ * 第3引数は `setConfig` より強い。60秒と書いた本人も、それを読んだ側も、
+ * 60秒だと思っていた。落ちたときの文言は `timed out in 30000ms` で、
+ * **どちらの数字とも一致しない60秒がコメントに残り続けていた。**
+ *
+ * `--testTimeout` を外から渡しても同じ理由で無視される。切り分けのときに
+ * 400秒を渡して「効かない」で30分溶かした。**二重に宣言しない。**
+ *
+ * ## 120秒にした理由
+ *
+ * 単体で走らせると25〜37秒で終わるが、`npm run check` は90ファイルを
+ * 並べて走らせるので、同じテストが**58.8秒**かかった回がある
+ * (同じコードで35.7秒の回もある。3倍ばらつく)。
+ * 30秒では**盤面が重くなったのか機械が混んでいたのかを区別できない。**
+ * 目印として役に立つのは前者だけなので、後者では鳴らない位置まで上げる。
  */
-const TIMEOUT = 30_000;
+const TIMEOUT = 120_000;
 
 function renderSetup() {
   return render(
@@ -35,12 +54,12 @@ function switchTo(language: "EN" | "ES" | "FR" | "JA") {
  * 文字列を解析し直す。**名前を1文字打つだけでも同じことが起きていた。**
  *
  * 絵の部分を `memo` で切り出して 25.2秒 → 4.2秒 になった
- * (`setup-screen.tsx` の `CountryThumb`)。上限はそのまま残してある。
+ * (`setup-screen.tsx` の `CountryThumb`)。
  * **盤面が増えるとまたここが最初に苦しくなる**ので、目印として。
+ *
+ * 持ち時間は `TIMEOUT` に一本化してある(理由はそちらのコメント)。
  */
 describe("SetupScreen の既定のプレイヤー名", () => {
-  vi.setConfig({ testTimeout: 60_000 });
-
   it(
     "既定名は表示中の言語で出て、CPUの枠は4言語とも「CPU 1」のまま",
     () => {
