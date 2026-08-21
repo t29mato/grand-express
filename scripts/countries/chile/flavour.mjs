@@ -27,7 +27,7 @@ export const CHILE_META = {
   blurb: t(
     "A ribbon of a country where the railway had to decide, twice, where to stop|Un país en forma de cinta donde el ferrocarril tuvo que decidir, dos veces, dónde detenerse|Un pays en forme de ruban où le chemin de fer a dû décider, deux fois, où s'arrêter|鉄道が二度、どこで止まるかを決めねばならなかった、リボンのような国",
   ),
-  cur: { pre: "$", post: "", mul: 63000 },
+  cur: { pre: "CLP$", post: "", mul: 57000 },
   start: "santiago",
   cpuNames: ["Huemul", "Copihue", "Araucaria", "Ñandú"],
   // 国旗の赤・白・青、銅の色、南部森林の緑。

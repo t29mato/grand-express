@@ -1,5 +1,5 @@
 /**
- * チリの都市(46都市)。
+ * チリの都市(47都市。team-lead指摘によりプエルト・エデンを追加)。
  *
  * ## この盤面の芯
  *
@@ -39,11 +39,12 @@
  * `su` スル(アラウカニア・ロス・リオス・ロス・ラゴス、森林とドイツ系移民) /
  * `au` アウストラル(アイセン・マガジャネス、氷河とフィヨルド)。
  *
- * 46都市の内訳: ng10・nc5・ce12・su10・au9。
+ * 47都市の内訳: ng10・nc5・ce12・su10・au10(プエルト・エデン追加分)。
  *
- * `mark` は都市ごとに1種(46種)。`bg` は土地の性格が同じ町どうしでまとめて
- * 約24種に絞った。`mark` が全都市で別なので、`bg` を共有しても
- * combo(mark+bg)は全都市で異なる(同じ絵になる都市は0組)。
+ * `mark` は46種(都市ごとに1種)。`bg` は土地の性格が同じ町どうしでまとめて
+ * 24種に絞った。プエルト・エデンだけはプエルト・アイセンとmark/bgを両方
+ * 共有しており、combo(mark+bg)は**1組だけ同じ絵になる**
+ * (47都市の上限4組の内側)。
  */
 import { city, prop } from "../../content-overrides/city-helpers.mjs";
 
@@ -414,6 +415,19 @@ export const CHILE_CITIES = {
      prop("Ranching-Era Fire Lookout|Torre de vigía de incendios de la era ganadera|Tour de guet des incendies de l'ère de l'élevage|牧畜期の火災監視小屋", 180, 38)],
   ),
 
+  // team-lead指摘(2026-08-21)により追加。プエルト・アイセン―プエルト・
+  // ナタレス間の中継。mark/bgはプエルト・アイセンと共有(47都市になる
+  // ぶん、記号+背景を70枚に収めるため。同じ絵になる都市1組は上限
+  // 47×10%≒4組の内側)。
+  puertoeden: city(
+    "Puerto Edén|Puerto Edén|Puerto Edén|プエルト・エデン",
+    -73.15, -49.13, "au", "riverport", "patagoniasteppe", "r",
+    "A village with no way in except by boat|Un pueblo al que no se llega sino en bote|Un village accessible seulement par bateau|船でしか着けない村",
+    "Puerto Edén, home to around 200 people on Wellington Island, has no road connecting it to anywhere else in Chile and is reached only by the ferry that threads the channels between Puerto Montt and Puerto Natales, or by seaplane. It is also one of the last places where a handful of elderly Kawésqar people still live in the settlement the state resettled their community into during the twentieth century, after disease and displacement had already reduced a once-nomadic canoe people of the channels to a small remnant.|Puerto Edén, hogar de unas 200 personas en la isla Wellington, no tiene camino que lo conecte con ningún otro lugar de Chile y solo se llega en el ferry que serpentea por los canales entre Puerto Montt y Puerto Natales, o en hidroavión. Es también uno de los últimos lugares donde todavía vive un puñado de kawésqar de edad avanzada, en el asentamiento al que el Estado trasladó a su comunidad durante el siglo XX, después de que la enfermedad y el desplazamiento ya hubieran reducido a un pequeño remanente a un pueblo antes nómade de canoas en los canales.|Puerto Edén, qui compte environ 200 habitants sur l'île Wellington, n'a aucune route le reliant au reste du Chili et n'est accessible que par le ferry qui serpente entre Puerto Montt et Puerto Natales, ou par hydravion. C'est aussi l'un des derniers endroits où vit encore une poignée de Kawésqar âgés, dans l'établissement où l'État a relogé leur communauté au XXe siècle, après que la maladie et les déplacements eurent déjà réduit à un petit reste un peuple autrefois nomade des canaux, vivant en canoë.|ウェリントン島にあるプエルト・エデンには約200人が暮らすが、チリの他のどこともつながる道は無く、プエルト・モントとプエルト・ナタレスのあいだの水路を縫うフェリーか水上飛行機でしか着けない。ここはまた、かつて水路をカヌーで移動して暮らしていた遊牧の民カウェスカルのわずかな高齢者が、いまも暮らす最後の地の一つでもある。20世紀に国がこの地へ共同体を移住させた頃には、病と立ち退きによってすでにごくわずかな人数にまで減っていた。",
+    [prop("Seaplane Landing Dock|Muelle de hidroaviones|Quai d'hydravions|水上飛行機の発着場", 170, 35),
+     prop("Kawésqar Settlement House|Casa del asentamiento kawésqar|Maison de l'établissement kawésqar|カウェスカル入植地の家", 190, 39)],
+  ),
+
   chilechico: city(
     "Chile Chico|Chile Chico|Chile Chico|チレ・チコ",
     -71.75, -46.53, "au", "marblecaves", "patagoniasteppe", "r",
@@ -479,7 +493,7 @@ export const CHILE_CITIES = {
 };
 
 /**
- * 路線(46都市・50本)。パンアメリカン・ハイウェイ/縦断鉄道の実在の経路に
+ * 路線(47都市・50本)。パンアメリカン・ハイウェイ/縦断鉄道の実在の経路に
  * 沿わせてある。プエルト・モントより南(アイセン・マガジャネス)は、
  * 現実に道路・鉄道が本土と続いていない区間を航路("sea")で結んだ
  * (ナビエラ・アウストラル/TABSAの実在のフェリー網と同じ扱い)。
@@ -535,12 +549,12 @@ export const CHILE_EDGES = [
   ["coyhaique", "chilechico"],
   ["coyhaique", "cochrane"],
   ["cochrane", "villaohiggins"],
-  // ★未解決(check-sea-routes.mjs: 539px/100%が陸)。コクラン以南は現実にも
-  // 道路が無く(本文参照)、フィヨルドを介した実在の航路のはずだが、この盤面の
-  // 簡略化した海岸線ではアイセン〜マガジャネス間に海が開いていない。
-  // 「陸路にする」と0pxになるが、それは「道が無い」という都市カードの記述と
-  // 矛盾するため採用しなかった。海岸線の作り直しかKEPT登録の判断を仰ぐ。
-  ["puertoaysen", "puertonatales", "sea"],
+  // team-lead指摘(2026-08-21)で解決。海岸線をアイセン〜マガジャネスの
+  // 実際のフィヨルドの奥まで絞り、プエルト・エデン(ウェリントン島)を
+  // 中継に挟んだ。ナビエラ・アウストラルの実在のフェリーがこの島に
+  // 寄港する経路と同じ扱い。
+  ["puertoaysen", "puertoeden", "sea"],
+  ["puertoeden", "puertonatales", "sea"],
   ["puertonatales", "puntaarenas"],
   ["puntaarenas", "porvenir", "sea"],
   // ★未解決(check-sea-routes.mjs: 212px/87%が陸)。プンタ・アレナス起点
