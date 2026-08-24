@@ -1,0 +1,81 @@
+name: Deploy to GitHub Pages
+
+# Next.js を静的に書き出して GitHub Pages へ出す。
+# Vercel へのデプロイ(deploy.yml)とは別物で、あちらは残したまま。
+# **正規のURLはこちら**: https://t29mato.github.io/grand-express/
+#
+# 動かすには Settings → Pages → Source を「GitHub Actions」にしておく必要がある
+# (リポジトリは公開済み)。切り替えるまで build は通っても deploy が権限で落ちる。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Pages のデプロイは同時に1つだけ。途中の push は前のを追い越さず待つ。
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run depcruise
+      - run: npm run test
+
+      # 実際のブラウザでの確認。jsdom では出ない崩れを拾う。
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14
+
+      # GitHub Pages はリポジトリ名の下(/grand-express/)に置かれるので、
+      # すべてのURLにその前置きが要る。**next.config.ts には焼かず、ここで渡す。**
+      # 焼くと手元の dev も E2E も scripts/shot.mjs も動かなくなり、
+      # Vercel 側もルート直下でなくなってしまう。
+      - name: Build (GitHub Pages base path)
+        run: npm run build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}
+
+      # Next の書き出しは `_next/` に入る。**先頭がアンダースコアのものを
+      # Jekyll は無視する**ので、それを止める目印を置く
+      # (actions/deploy-pages は Jekyll を通さないが、置いておけば
+      #  素の Pages に切り替わっても壊れない)。
+      - run: touch out/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
