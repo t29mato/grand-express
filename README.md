@@ -1,8 +1,10 @@
 # World Express — a rail fortune game
 
-> **World Express is a free, browser-based multiplayer board game in which 2–4 players roll dice to travel a real railway map, buy businesses in real towns, answer geography quizzes, and race to a destination — playable in English, Spanish, French and Japanese across 30 boards covering six continents, the whole globe and the solar system.**
+> **World Express is a free, browser-based multiplayer board game in which 2–4 players roll dice to travel a real railway map, buy businesses in real towns, answer geography quizzes, and race to a destination — playable in English, Spanish, French and Japanese across 47 boards covering six continents, the whole globe and the solar system.**
 
-**[▶ Play it in your browser](https://grand-express.vercel.app)** — no install, no account, no ads.
+**[▶ Play it in your browser](https://t29mato.github.io/grand-express/)** — no install, no account, no ads.
+
+<sub>A mirror also runs at [grand-express.vercel.app](https://grand-express.vercel.app); the link above is the canonical one.</sub>
 
 > This game was built almost entirely by AI agents (Claude Code) under human direction — including the clean architecture design, TDD test suite, and CI setup. It is part of an experiment in AI-orchestrated OSS development.
 
