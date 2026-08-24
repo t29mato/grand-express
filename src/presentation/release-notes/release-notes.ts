@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.57.0",
+    date: "2026-08-25",
+    title: t(
+      "A new home|Una nueva casa|Une nouvelle adresse|引っ越しました",
+    ),
+    highlights: [
+      t(
+        "The game has moved to t29mato.github.io/grand-express/. That is now the address to bookmark and to share. The old one still works, so nothing you have saved is lost — saved games live in your own browser and are not affected by the move at all.|El juego se ha mudado a t29mato.github.io/grand-express/. Esa es ahora la dirección para guardar en favoritos y compartir. La antigua sigue funcionando, así que no se pierde nada: las partidas guardadas viven en tu propio navegador y la mudanza no las toca.|Le jeu a déménagé vers t29mato.github.io/grand-express/. C'est désormais l'adresse à mettre en favori et à partager. L'ancienne fonctionne toujours : rien de ce que vous avez enregistré n'est perdu, les parties sauvegardées vivent dans votre navigateur et le déménagement ne les touche pas.|**遊ぶ場所が t29mato.github.io/grand-express/ に変わりました。**これからはこちらが正式な住所です。**前の住所もそのまま使えます。**セーブしたゲームはお使いのブラウザの中にあるので、引っ越しの影響を受けません。",
+      ),
+      t(
+        "The feedback form now hands your words straight to GitHub instead of passing them through us. Press Send and a GitHub page opens with everything already filled in; press the button there and it becomes a public ticket you can follow. Nothing else about it changes — it was always a public ticket.|El formulario de comentarios ahora entrega tus palabras directamente a GitHub en vez de pasarlas por nosotros. Pulsa Enviar y se abre una página de GitHub con todo ya escrito; pulsa el botón de allí y se convierte en un ticket público que puedes seguir. Lo demás no cambia: siempre fue un ticket público.|Le formulaire de retour transmet désormais vos mots directement à GitHub au lieu de passer par nous. Appuyez sur Envoyer et une page GitHub s'ouvre, déjà remplie ; appuyez sur le bouton là-bas et cela devient un ticket public que vous pouvez suivre. Rien d'autre ne change : c'était déjà un ticket public.|**ご意見の送り先が、こちらを経由せず GitHub へ直接になりました。**「送る」を押すと内容が入った GitHub の画面が開き、そこで送信ボタンを押すと届きます。**公開のチケットになる点は前と同じ**で、あとから経過を見に行けます。",
+      ),
+    ],
+  },
+  {
     version: "0.56.0",
     date: "2026-08-21",
     title: t(

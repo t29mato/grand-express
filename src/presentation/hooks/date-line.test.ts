@@ -26,7 +26,18 @@ describe("日付変更線をまたぐ航路(世界一周)", () => {
     context = createGameEngineContext(pack);
     boardWidth = pack.projection.boardWidth;
     positions = renderHook(() => useBoardLayout(context)).result.current;
-  });
+    /**
+     * **世界一周盤を丸ごと読んで配置まで通すので重い。**
+     *
+     * 単体なら8.5秒で終わるが、`npm run check` は90ファイルを並べて走らせるので、
+     * 既定の10秒(hookTimeout)を越えて落ちた回がある。**遅いのは読み込みではなく
+     * 順番待ち**で、盤面が重くなったこととは関係がない。
+     *
+     * 持ち時間の宣言は**ここ1箇所だけ**にする。`vi.setConfig` と併記すると
+     * こちらが勝ち、書いたほうの数字が黙って無視される
+     * (setup-screen.test.tsx で実際にそうなっていた)。
+     */
+  }, 120_000);
 
   const isSeam = (between: readonly string[]) =>
     between.includes("suva") && between.includes("papeete");
