@@ -38,6 +38,9 @@ export const FEEDBACK_MESSAGES: Record<Locale, Record<string, string>> = {
     feedbackKeepUrl:
       "Keep this link. It is public, so you can come back any time to see what happened to it.",
     feedbackOpenIssue: "Open the ticket",
+    feedbackOpenedTitle: "GitHub is open in another tab.",
+    feedbackOpenedLead:
+      "Your words are already filled in there. Press \u201cSubmit new issue\u201d on that page and it reaches us \u2014 as a public ticket you can follow.",
     feedbackAnother: "Send another",
     feedbackFailed: "It could not be sent. Please try again in a moment.",
     feedbackTooMany: "That is a lot of messages at once. Please wait a minute and try again.",
@@ -68,6 +71,9 @@ export const FEEDBACK_MESSAGES: Record<Locale, Record<string, string>> = {
     feedbackKeepUrl:
       "Guarda este enlace. Es público, así que puedes volver cuando quieras para ver en qué quedó.",
     feedbackOpenIssue: "Abrir el ticket",
+    feedbackOpenedTitle: "GitHub se abrió en otra pestaña.",
+    feedbackOpenedLead:
+      "Tus palabras ya están escritas allí. Pulsa \u201cSubmit new issue\u201d en esa página y nos llega, como un ticket público que puedes seguir.",
     feedbackAnother: "Enviar otro",
     feedbackFailed: "No se pudo enviar. Inténtalo de nuevo en un momento.",
     feedbackTooMany: "Son muchos mensajes seguidos. Espera un minuto e inténtalo otra vez.",
@@ -97,6 +103,9 @@ export const FEEDBACK_MESSAGES: Record<Locale, Record<string, string>> = {
     feedbackKeepUrl:
       "Gardez ce lien. Il est public : revenez quand vous voulez voir ce qu'il est devenu.",
     feedbackOpenIssue: "Ouvrir le ticket",
+    feedbackOpenedTitle: "GitHub s\u2019est ouvert dans un autre onglet.",
+    feedbackOpenedLead:
+      "Vos mots y sont déjà inscrits. Appuyez sur \u00ab Submit new issue \u00bb sur cette page et cela nous parvient, sous forme de ticket public que vous pouvez suivre.",
     feedbackAnother: "En envoyer un autre",
     feedbackFailed: "L'envoi a échoué. Réessayez dans un instant.",
     feedbackTooMany: "Cela fait beaucoup de messages d'un coup. Attendez une minute.",
@@ -126,6 +135,9 @@ export const FEEDBACK_MESSAGES: Record<Locale, Record<string, string>> = {
     feedbackKeepUrl:
       "このリンクを控えておいてください。公開されているので、いつでも見に来て、その後どうなったかを確かめられます。",
     feedbackOpenIssue: "チケットを開く",
+    feedbackOpenedTitle: "GitHubを別のタブで開きました。",
+    feedbackOpenedLead:
+      "書いた内容はもう入っています。そのページで「Submit new issue」を押すと届きます。公開のチケットになるので、あとから経過を見に行けます。",
     feedbackAnother: "もう1件送る",
     feedbackFailed: "送れませんでした。少し時間をおいて、もう一度お試しください。",
     feedbackTooMany: "短いあいだに送りすぎています。1分ほど待ってからお試しください。",

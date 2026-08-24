@@ -28,7 +28,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
           開発中は何も送らない(`@vercel/analytics` が本番以外では黙る)。
         */}
-        <Analytics />
+        {/*
+          **GitHub Pages では出さない。**Vercel の計測は `/_vercel/insights/*` を
+          叩くが、Pages にはその入口が無く、コンソールに404が並ぶだけになる。
+          BASE_PATH が入っているビルド(= Pages 向け)では読み込まない。
+        */}
+        {!process.env.NEXT_PUBLIC_BASE_PATH && <Analytics />}
       </body>
     </html>
   );

@@ -58,3 +58,4 @@ screenshots/
 .preview-entry.tsx
 .preview.html
 preview.png
+out/
