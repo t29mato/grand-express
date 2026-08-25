@@ -59,6 +59,11 @@ jobs:
         run: npm run build
         env:
           BASE_PATH: /${{ github.event.repository.name }}
+          # ご意見の送り先。**公開リポジトリの名前なので秘密ではない**
+          # (issueを立てるトークンはもう要らない。GitHubのissue作成画面へ
+          #  飛ばす形にしたので、送信するのは遊んだ人自身のアカウント)。
+          # これが無いとフッターの「Send feedback」が出ない。
+          NEXT_PUBLIC_FEEDBACK_REPO: t29mato/world-express-feedback
 
       # Next の書き出しは `_next/` に入る。**先頭がアンダースコアのものを
       # Jekyll は無視する**ので、それを止める目印を置く
