@@ -8,9 +8,16 @@ import { MAX_QUIZ_DIFFICULTY, MIN_QUIZ_DIFFICULTY, QuizDifficulty, QuizQuestion 
  * (くわしい人にもたまに易しい問題が出るし、その逆もある)。
  */
 const TARGET: Readonly<Record<KnowledgeLevel, { centre: number; spread: number }>> = {
-  newcomer: { centre: 3, spread: 2 },
-  familiar: { centre: 5.5, spread: 2 },
-  local: { centre: 8, spread: 2 },
+  // **2択をやめたぶん、ここを易しくする。**以前は中心3で、それに加えて
+  // 選択肢を2つに減らしていた。減らすのをやめた以上、問題そのものが
+  // 易しくなければ初見の人には手が出ない。中心を2.5へ、広がりも狭めて
+  // **有名な事実や大きなヒントの付いた問題に寄せる。**
+  newcomer: { centre: 2.5, spread: 1.6 },
+  familiar: { centre: 4.5, spread: 2 },
+  // 「すこし」と「くわしい」のあいだが 5.5 → 8 と飛んでいた。
+  // その間の人がどちらを選んでも合わないので、ここを足した。
+  knowledgeable: { centre: 6.5, spread: 2 },
+  local: { centre: 8.5, spread: 2 },
 };
 
 /**

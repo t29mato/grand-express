@@ -1,3 +1,4 @@
+import { KNOWLEDGE_LEVELS } from "../../domain/quiz/knowledge-level";
 import { describe, expect, it } from "vitest";
 import { QuizQuestionId } from "../../domain/shared-kernel/ids";
 import { sameForAllLocales } from "../../domain/shared-kernel/localized-text";
@@ -40,17 +41,30 @@ describe("visibleOptionOrder", () => {
     expect([...order].sort()).toEqual([0, 1, 2]);
   });
 
-  it("newcomer は2択に絞る", () => {
-    const order = visibleOptionOrder(question, "newcomer", seededRandom(3));
-    expect(order).toHaveLength(2);
+  /**
+   * **どの知識レベルでも選択肢は減らさない。**
+   *
+   * 2026-08-25まで newcomer だけ2択にしていた。やめた理由は
+   * **「ただの運試しになってつまらない」**(オーナー)。2択は当てずっぽうで
+   * 5割当たるので、当てた人は何も学ばず、外した人には理不尽さだけが残る。
+   * **易しくしたつもりが、賭けにしていた。**
+   *
+   * 易しさは問題そのもので付ける(`quiz-selection-service.ts` の出題難易度)。
+   */
+  it("どの知識レベルでも選択肢を減らさない", () => {
+    for (const level of KNOWLEDGE_LEVELS) {
+      const order = visibleOptionOrder(question, level, seededRandom(3));
+      expect(order, level).toHaveLength(question.options.length);
+    }
   });
 
-  it("絞ったときも正解は必ず含まれる(伏せるのは誤答だけ)", () => {
-    // 乱数の巡りを変えても正解が落ちないことを確かめる。
-    for (let seed = 0; seed < 50; seed++) {
-      const order = visibleOptionOrder(question, "newcomer", seededRandom(seed));
-      expect(order, `seed=${seed}`).toContain(question.correctOptionIndex);
-      expect(new Set(order).size, `seed=${seed}`).toBe(order.length);
+  it("どのレベルでも正解は必ず含まれ、重複もしない", () => {
+    for (const level of KNOWLEDGE_LEVELS) {
+      for (let seed = 0; seed < 50; seed++) {
+        const order = visibleOptionOrder(question, level, seededRandom(seed));
+        expect(order, `${level} seed=${seed}`).toContain(question.correctOptionIndex);
+        expect(new Set(order).size, `${level} seed=${seed}`).toBe(order.length);
+      }
     }
   });
 

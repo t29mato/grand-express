@@ -23,6 +23,21 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.58.0",
+    date: "2026-08-25",
+    title: t(
+      "Four ways to know a country|Cuatro formas de conocer un país|Quatre façons de connaître un pays|「どれくらい知っていますか」が4段階に",
+    ),
+    highlights: [
+      t(
+        "“New here” no longer hides two of the three answers. Hiding them made an easy question into a coin toss: get it right and you learned nothing, get it wrong and it just felt unfair. Everyone now sees all three answers, whatever they picked. What changes instead is the questions themselves — pick “New here” and you get the well-known things, the ones with a large hint inside them.|“Es nuevo” ya no oculta dos de las tres respuestas. Ocultarlas convertía una pregunta fácil en un cara o cruz: si acertabas no aprendías nada, y si fallabas solo quedaba la sensación de injusticia. Ahora todos ven las tres respuestas, sea cual sea su nivel. Lo que cambia son las preguntas: elige “Es nuevo” y te tocarán las cosas conocidas, las que llevan dentro una buena pista.|« Découverte » ne cache plus deux des trois réponses. Les cacher transformait une question facile en pile ou face : juste, on n'apprenait rien ; faux, il ne restait qu'un sentiment d'injustice. Tout le monde voit maintenant les trois réponses, quel que soit son niveau. Ce qui change, ce sont les questions : choisissez « Découverte » et vous aurez les faits connus, ceux qui portent en eux un gros indice.|**「はじめて」を選んでも、選択肢を2つに減らさなくなりました。**減らすと、易しくしたつもりが**ただの運試し**になっていました。当たっても何も学べず、外れたら理不尽さだけが残ります。**これからは、どの段を選んでも3つとも見えます。**かわりに変わるのは**問いのほう**です。「はじめて」を選ぶと、**よく知られた事実や、大きなヒントを含んだ問い**が出るようになります。",
+      ),
+      t(
+        "And there is a fourth step now. “A little” and “Very well” were far apart, and anyone in between had to round themselves off in one direction or the other. “Quite well” sits between them. The reward still tilts the same way it always did: the less you claim to know, the more a right answer is worth, and the less a wrong one costs.|Y ahora hay un cuarto escalón. “Un poco” y “Muy bien” estaban muy separados, y quien quedaba en medio tenía que redondearse hacia un lado u otro. “Bastante bien” se sitúa entre ambos. La recompensa sigue inclinándose igual que siempre: cuanto menos digas saber, más vale un acierto y menos cuesta un fallo.|Et il y a désormais un quatrième palier. « Un peu » et « Très bien » étaient très éloignés, et ceux du milieu devaient s'arrondir d'un côté ou de l'autre. « Assez bien » se place entre les deux. La récompense penche toujours dans le même sens : moins vous prétendez savoir, plus une bonne réponse rapporte et moins une erreur coûte.|**段が1つ増えて4つになりました。**「すこし」と「くわしい」が離れすぎていて、あいだの人はどちらかに丸めるしかありませんでした。**「けっこう」**がそのあいだに入ります。取り分の傾きは今までどおりです——**知らないと申告するほど、正解の値打ちが上がり、外したときの損が軽くなります。**",
+      ),
+    ],
+  },
+  {
     version: "0.57.0",
     date: "2026-08-25",
     title: t(

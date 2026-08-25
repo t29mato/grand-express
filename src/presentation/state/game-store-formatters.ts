@@ -32,13 +32,12 @@ export function visibleOptionOrder(
   knowledgeLevel: KnowledgeLevel,
   random: Pick<Random, "nextInt">,
 ): number[] {
-  const total = question.options.length;
-  const limit = Math.min(KNOWLEDGE_TUNING[knowledgeLevel].visibleOptionCount, total);
-  const wrong = shuffledIndexes(total, random).filter((i) => i !== question.correctOptionIndex);
-  const kept = [question.correctOptionIndex, ...wrong.slice(0, Math.max(0, limit - 1))];
-  // 正解が先頭に固定されないよう、最後にもう一度並びを混ぜる。
-  const order = shuffledIndexes(kept.length, random).map((i) => kept[i]);
-  return order;
+  // **選択肢はどのレベルでも全部見せる。**
+  // 2026-08-25まで newcomer だけ2つに減らしていたが、やめた
+  // (2択は当てずっぽうで5割当たり、当てた人は何も学ばない)。
+  // 易しさは問題そのもので付ける(`quiz-selection-service.ts`)。
+  // 並びだけは毎回混ぜる——正解の位置が固定されると、そこを覚えられてしまう。
+  return shuffledIndexes(question.options.length, random);
 }
 
 /** 厄災の神の発動結果を表すログ。 */

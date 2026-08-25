@@ -220,6 +220,7 @@
   "knowledgeLevel": "Connais-tu bien ce pays ?",
   "knowledgeNewcomer": "Découverte",
   "knowledgeFamiliar": "Un peu",
+  "knowledgeKnowledgeable": "Assez bien",
   "knowledgeLocal": "Très bien",
   "saveDone": "Ton voyage est enregistré dans ce navigateur. Tu peux fermer l'onglet et reprendre plus tard."
 }

@@ -239,6 +239,7 @@ const INLINE_UI_STRINGS = {
   knowledgeLevel: "How well do you know this country?|¿Cuánto conoces este país?|Connais-tu bien ce pays ?|この国をどれくらい知っていますか?",
   knowledgeNewcomer: "New here|Es nuevo|Découverte|はじめて",
   knowledgeFamiliar: "A little|Un poco|Un peu|すこし",
+  knowledgeKnowledgeable: "Quite well|Bastante bien|Assez bien|けっこう",
   knowledgeLocal: "Very well|Muy bien|Très bien|くわしい",
   saveDone: "Your journey has been saved to this browser. You can close the tab and continue later.|Tu viaje se ha guardado en este navegador. Puedes cerrar la pestaña y continuar más tarde.|Ton voyage est enregistré dans ce navigateur. Tu peux fermer l'onglet et reprendre plus tard.|この旅をブラウザに保存しました。タブを閉じても、あとから続きから遊べます。",
 };

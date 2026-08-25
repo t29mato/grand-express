@@ -85,6 +85,9 @@ const CPU_KNOWLEDGE: Readonly<Record<string, KnowledgeLevel>> = {
   normal: "familiar",
   merciless: "local",
 };
+// **CPUの強さは3段階のまま。**知識レベルが4段階になっても、遊ぶ人が選ぶ
+// 「やさしい/ふつう/容赦なし」を4つに増やす理由は無い。増やした
+// `knowledgeable` は人が自分の知識を申告するための段で、CPUの強さとは別の軸。
 
 export function cpuTakeTurn(
   context: GameEngineContext,

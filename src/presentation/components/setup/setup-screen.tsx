@@ -43,6 +43,7 @@ interface SlotConfig {
 const KNOWLEDGE_LABEL: Record<KnowledgeLevel, string> = {
   newcomer: "knowledgeNewcomer",
   familiar: "knowledgeFamiliar",
+  knowledgeable: "knowledgeKnowledgeable",
   local: "knowledgeLocal",
 };
 
