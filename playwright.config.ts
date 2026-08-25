@@ -31,10 +31,22 @@ export default defineConfig({
     ? {}
     : {
         webServer: {
-          command: "npm run build && npm run start -- -p 3100",
+          // **`next start` は output: "export" と両立しない。**
+          // (「next start does not work with output: export」で落ちる)
+          // 書き出した out/ をそのまま配る。**本番と同じ静的ファイルを試験する**
+          // ことになるので、むしろ確かめたいものに近い。
+          // `-s`(SPAとして扱う)は付けない。**付けると404がHTMLにすり替わり、
+          // 「何が無いのか」が見えなくなる。**実際それで
+          // `/_vercel/insights/script.js` の404が
+          // `SyntaxError: Unexpected token '<'` に化けて、原因を探すのに時間がかかった。
+          // 静的な書き出しは実ファイルが並んでいるので、そもそも SPA 扱いが要らない。
+          command: "npm run build && npx serve out -l 3100",
           url: localURL,
           reuseExistingServer: !process.env.CI,
-          timeout: 120_000,
+          // **冷えた状態からのビルドは120秒に収まらない。**CIは毎回冷えている。
+          // `next start` を使っていた頃も同じ時間だったが、`output: "export"` は
+          // 全ページを書き出すぶん時間がかかり、ここで時間切れになった。
+          timeout: 600_000,
         },
       }),
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],

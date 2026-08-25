@@ -29,11 +29,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           開発中は何も送らない(`@vercel/analytics` が本番以外では黙る)。
         */}
         {/*
-          **GitHub Pages では出さない。**Vercel の計測は `/_vercel/insights/*` を
-          叩くが、Pages にはその入口が無く、コンソールに404が並ぶだけになる。
-          BASE_PATH が入っているビルド(= Pages 向け)では読み込まない。
+          **Vercel の上でしか出さない。**計測は `/_vercel/insights/script.js` を
+          読みに行くが、その入口を用意しているのは Vercel だけである。
+          GitHub Pages でも、手元でも、CIの静的配信でも404になり、
+          `serve -s` のような入口だとHTMLが返って
+          **`SyntaxError: Unexpected token '<'` になる。**
+          E2Eの「致命的なエラーが出ていないこと」がこれで落ちた。
+
+          最初は BASE_PATH の有無で分けたが、**それでは足りなかった。**
+          基準パス無しで焼くのは Vercel だけではなく、手元とCIもそうだから。
+          Vercel が自分で入れる `NEXT_PUBLIC_VERCEL_ENV` を見るのが正確。
         */}
-        {!process.env.NEXT_PUBLIC_BASE_PATH && <Analytics />}
+        {process.env.NEXT_PUBLIC_VERCEL_ENV === "production" && <Analytics />}
       </body>
     </html>
   );

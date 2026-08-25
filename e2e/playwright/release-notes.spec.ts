@@ -15,7 +15,10 @@ test("フッターにバージョンが表示され、更新情報ページへ�
   await expect(footer.locator(".app-version")).not.toHaveText(/v0\.0\.0/);
 
   await page.getByRole("link", { name: "What's new" }).click();
-  await expect(page).toHaveURL(/\/release-notes$/);
+  // **末尾のスラッシュは必須。**GitHub Pages は `/release-notes` に対して
+  // `release-notes/index.html` しか探さないので、next.config.ts で
+  // trailingSlash: true にしてある。その結果URLは `/release-notes/` になる。
+  await expect(page).toHaveURL(/\/release-notes\/$/);
   await expect(page.getByRole("heading", { name: "What's new", level: 1 })).toBeVisible();
 
   // 版ごとの見出しが新しい順に並んでいる。
@@ -29,7 +32,7 @@ test("フッターにバージョンが表示され、更新情報ページへ�
 });
 
 test("更新情報ページで選んだ言語がゲーム画面にも引き継がれる", async ({ page }) => {
-  await page.goto("/release-notes");
+  await page.goto("/release-notes/");
   await page.getByRole("button", { name: "JA", exact: true }).click();
   await expect(page.getByRole("heading", { name: "更新情報", level: 1 })).toBeVisible();
 
