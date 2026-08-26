@@ -92,11 +92,33 @@ const cacheReport = (page) =>
     return out;
   });
 
-const swOriginal = readFileSync(SW_PATH, "utf8");
+/**
+ * 手元の焼き上がりを相手にしているか、出してある本番を相手にしているか。
+ *
+ * 本番相手のときは `out/sw.js` を書き換えても届かない(配信しているのは
+ * GitHub Pages 側のファイル)。**新しい版を置く試験は、本物のデプロイでしか
+ * できない。**そこで本番相手では、2回に分けて確かめる:
+ *
+ *   1回目  --profile <dir>                 版Aを入れて、そのまま профиль を残す
+ *   (ここで本物のデプロイをする)
+ *   2回目  --profile <dir> --expect-update 版Bが報せとして出るか
+ */
+const REMOTE = !/^https?:\/\/(localhost|127\.0\.0\.1)/.test(URL_BASE);
+const PROFILE = opt("profile", null);
+const EXPECT_UPDATE = args.includes("--expect-update");
 
-const browser = await chromium.launch();
-// 携帯で使うものなので、携帯の画面で確かめる。
-const context = await browser.newContext({ ...devices["iPhone 14 Pro"] });
+const swOriginal = REMOTE ? null : readFileSync(SW_PATH, "utf8");
+
+const phone = devices["iPhone 14 Pro"];
+/**
+ * 携帯で使うものなので、携帯の画面で確かめる。
+ * **プロファイルを渡されたら、そこに残す。**Service Worker とキャッシュは
+ * プロファイルの中にあるので、残さないと「前に入れた版」を再現できない。
+ */
+const browser = PROFILE ? null : await chromium.launch();
+const context = PROFILE
+  ? await chromium.launchPersistentContext(PROFILE, { ...phone })
+  : await browser.newContext({ ...phone });
 const page = await context.newPage();
 
 const fatal = [];
@@ -177,30 +199,47 @@ try {
   await context.setOffline(false);
 
   // ------------------------------------------------------------ 3. 更新が届くか
-  console.log("\n3. 新しい版が届くか");
-  /**
-   * **本物の新しい版を置く。**版の文字列だけを書き換えれば、
-   * ブラウザから見て `sw.js` の中身が変わったことになり、
-   * 出したときとまったく同じ道筋(取得 → install → 待機)を通る。
-   */
-  const nextVersion = `${JSON.parse(readFileSync("package.json", "utf8")).version}+ffffffff`;
-  writeFileSync(SW_PATH, swOriginal.replace(/const VERSION = "[^"]+"/, `const VERSION = "${nextVersion}"`));
+  const doUpdateTest = !REMOTE || EXPECT_UPDATE;
+  let nextVersion = null;
 
-  await page.evaluate(async () => {
-    const reg = await navigator.serviceWorker.ready;
-    await reg.update();
-  });
+  if (!doUpdateTest) {
+    console.log("\n3. 新しい版が届くか — 今回は試さない");
+    console.log("   (本番相手では out/sw.js を書き換えても届かない。");
+    console.log("    --profile で版Aを残し、本物のデプロイのあと --expect-update で確かめる)");
+  } else {
+    console.log("\n3. 新しい版が届くか");
+    if (REMOTE) {
+      // 配信されている sw.js が本物のデプロイで入れ替わっている前提。
+      console.log("   (本番に出した新しい版を、前回入れた版から見る)");
+    } else {
+      /**
+       * **本物の新しい版を置く。**版の文字列だけを書き換えれば、
+       * ブラウザから見て `sw.js` の中身が変わったことになり、
+       * 出したときとまったく同じ道筋(取得 → install → 待機)を通る。
+       */
+      nextVersion = `${JSON.parse(readFileSync("package.json", "utf8")).version}+ffffffff`;
+      writeFileSync(SW_PATH, swOriginal.replace(/const VERSION = "[^"]+"/, `const VERSION = "${nextVersion}"`));
+    }
 
-  const banner = page.locator(".sw-update");
-  const shown = await banner
-    .waitFor({ state: "visible", timeout: 60_000 })
-    .then(() => true)
-    .catch(() => false);
-  note(shown, "「新しいバージョンがあります」が出る");
+    await page.evaluate(async () => {
+      const reg = await navigator.serviceWorker.ready;
+      await reg.update();
+    });
 
-  if (shown) {
+    const banner = page.locator(".sw-update");
+    const shown = await banner
+      .waitFor({ state: "visible", timeout: 60_000 })
+      .then(() => true)
+      .catch(() => false);
+    note(shown, "「新しいバージョンがあります」が出る");
+
+    if (shown) {
     const text = (await banner.innerText()).replace(/\n/g, " / ");
-    note(text.includes(nextVersion.split("+")[0]), "報せに新しい版が載っている", text);
+    note(
+      nextVersion ? text.includes(nextVersion.split("+")[0]) : text.length > 0,
+      "報せに新しい版が載っている",
+      text,
+    );
     if (SHOTS) await page.screenshot({ path: join(SHOTS, "pwa-update-banner.png") });
 
     // 押していないうちは入れ替わらないこと。**黙って替わるのがいちばん困る。**
@@ -218,11 +257,16 @@ try {
     );
     await page.waitForLoadState("load");
     const after = await readVersion(page);
-    note(after === nextVersion, "押したら入れ替わった", `${version} → ${after}`);
+    note(
+      nextVersion ? after === nextVersion : after !== version,
+      "押したら入れ替わった",
+      `${version} → ${after}`,
+    );
 
     const caches2 = await cacheReport(page);
     const leftovers = Object.keys(caches2).filter((n) => n.includes(version));
     note(leftovers.length === 0, "古いキャッシュが捨てられた", leftovers.join(",") || "残りなし");
+    }
   }
 
   // ------------------------------------------- 4. 入れられると判定されているか
@@ -252,8 +296,9 @@ try {
   console.log("\n--- 致命的なエラー ---");
   note(fatal.length === 0, "ページのエラー", fatal.join(" | ") || "なし");
 } finally {
-  writeFileSync(SW_PATH, swOriginal); // 試験で書き換えたぶんを戻す
-  await browser.close();
+  if (swOriginal !== null) writeFileSync(SW_PATH, swOriginal); // 試験で書き換えたぶんを戻す
+  if (browser) await browser.close();
+  else await context.close();
   server?.kill();
 }
 
