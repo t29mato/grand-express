@@ -21,6 +21,14 @@ describe("アイテムを使うと、ちゃんと何かが起きる", () => {
   /** ボリビアには8種類の効果がすべて揃っている。 */
   const bolivia = CountryId("bolivia");
 
+  /**
+   * エケコが運ぶ最小のマス数。
+   * 出所は `src/infrastructure/content/item-effect-rules.ts` の
+   * `ekeko: { type: "carried-far", minSteps: 8, maxSteps: 12 }`。
+   * ここから直接読むと presentation が infrastructure に依ることになるので写す。
+   */
+  const EKEKO_MIN_STEPS = 8;
+
   async function startGame() {
     await useGameStore.getState().startNewGame({
       countryId: bolivia,
@@ -78,6 +86,26 @@ describe("アイテムを使うと、ちゃんと何かが起きる", () => {
    */
   it("エケコ人形(carried-far)は、道のりを進んでから移動が終わる", async () => {
     const before = useGameStore.getState().session!.players[0].location;
+
+    /**
+     * 通ったマスを控えておく。
+     *
+     * **「移動先が変わったか」では確かめられない。**エケコは向きを選べず、
+     * 8〜12マスの経路は元の町へ戻ってくることがある(行き先を選ぶ
+     * `reachableNodes` は**出発点そのものを含みうる**)。一周して戻るのは
+     * 遊びとして正しい結果なので、それで落ちるテストは嘘をつく。
+     * 実際 2026-08-26 にCIで1度落ち、デプロイを止めた
+     * (`expected 'lapaz' not to be 'lapaz'`)。
+     *
+     * ここで見たいのは**道のりが1マスずつ見えたか**なので、そちらを数える。
+     */
+    const walked: string[] = [];
+    const unsubscribe = useGameStore.subscribe((state) => {
+      const at = state.walk;
+      // `walk` を変えない `set` でも呼ばれるので、続けて同じマスなら数えない。
+      if (at && walked[walked.length - 1] !== at.nodeId) walked.push(at.nodeId);
+    });
+
     giveItem("ekeko");
     useGameStore.getState().useInventoryItem(0);
     expect(
@@ -87,7 +115,13 @@ describe("アイテムを使うと、ちゃんと何かが起きる", () => {
     expect(useGameStore.getState().walk, "駒が歩き始めていない").not.toBeNull();
 
     await settleWalk();
-    expect(useGameStore.getState().session!.players[0].location, "運ばれていない").not.toBe(before);
+    unsubscribe();
+
+    expect(walked.length, "道のりが1マスずつ見えていない").toBeGreaterThanOrEqual(EKEKO_MIN_STEPS);
+    expect(
+      useGameStore.getState().session!.players[0].location,
+      "最後に見せたマスと、着いた先が食い違う",
+    ).toBe(walked[walked.length - 1]);
   });
 
   it("テレフェリコ周遊券(choose-exact-dice)は、出目を選ぶ画面を出す", () => {
