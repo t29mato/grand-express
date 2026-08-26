@@ -1,10 +1,11 @@
 {
   "name": "world-express",
-  "version": "0.58.0",
+  "version": "0.59.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/build-service-worker.mjs",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
@@ -17,8 +18,9 @@
     "graph": "node scripts/generate-dependency-graph.mjs",
     "graph:check": "node scripts/generate-dependency-graph.mjs --check",
     "art:check": "node scripts/check-city-backgrounds.mjs",
+    "check:pwa": "node scripts/check-pwa.mjs",
     "shot": "node scripts/shot.mjs",
-    "check": "npm run ci && npm run graph:check && npm run art:check && npm run test:e2e",
+    "check": "npm run ci && npm run graph:check && npm run art:check && npm run test:e2e && npm run check:pwa",
     "preview": "node scripts/preview-animation.mjs"
   },
   "dependencies": {

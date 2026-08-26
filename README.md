@@ -32,16 +32,28 @@ until someone else falls behind.
 
 ![A game in progress on the Japan board](docs/assets/screenshot-board.png)
 
-### 30 boards
+### 47 boards
 
 Six continents (Europe, Asia, Africa, North America, South America, Oceania), a whole-globe
 board, the solar system, and country and regional boards including Japan, Bolivia, India,
 France, China, Brazil, Canada, Australia, Ukraine, Morocco, Ghana, Turkey, Korea, Malaysia,
 Indonesia, Bali, Ibaraki Prefecture and Japan's Hundred Famous Mountains.
 
-**1,446 towns and 2,117 quiz questions**, each written in all four languages. Every town card
+**2,218 towns and 3,849 quiz questions**, each written in all four languages. Every town card
 carries something true and specific about that place — not a tourist blurb. Where the history
 is ugly, it says so plainly rather than skipping it.
+
+## Put it on your phone
+
+Open <https://t29mato.github.io/grand-express/> on the phone, then:
+
+- **iPhone / iPad (Safari)** — share button → *Add to Home Screen* → *Add*
+- **Android (Chrome)** — the ⋮ menu → *Add to Home screen* / *Install app*
+
+It gets its own icon and opens without an address bar. **It runs offline** — boards you have
+opened before stay playable with no connection. When a new version is out, the game says so at
+the bottom of the screen and waits for you to press *Update*; it never swaps itself while you
+are mid-game.
 
 ## Run it locally
 

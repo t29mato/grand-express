@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.59.0",
+    date: "2026-08-26",
+    title: t(
+      "Put it on your home screen|Llévalo en la pantalla de inicio|À garder sur l'écran d'accueil|ホーム画面に置けるようになりました",
+    ),
+    highlights: [
+      t(
+        "You can now keep World Express on your phone's home screen. Open it in Safari or Chrome, tap the share button, and choose “Add to Home Screen”. It gets its own icon and opens without an address bar or tabs — just the game. Nothing comes from an app store, and no account is needed.|Ahora puedes dejar World Express en la pantalla de inicio de tu móvil. Ábrelo en Safari o Chrome, toca el botón de compartir y elige «Añadir a pantalla de inicio». Tendrá su propio icono y se abrirá sin barra de direcciones ni pestañas: solo el juego. No viene de ninguna tienda y no hace falta cuenta.|Vous pouvez désormais garder World Express sur l'écran d'accueil de votre téléphone. Ouvrez-le dans Safari ou Chrome, touchez le bouton de partage et choisissez « Sur l'écran d'accueil ». Il obtient sa propre icône et s'ouvre sans barre d'adresse ni onglets : rien que le jeu. Rien ne passe par une boutique, et aucun compte n'est nécessaire.|**携帯のホーム画面に置けるようになりました。**SafariやChromeで開いて、共有ボタンから「ホーム画面に追加」を選んでください。**専用のアイコンができ、アドレスバーもタブも出ずにゲームだけが開きます。**ストアからの入手も、アカウントも要りません。",
+      ),
+      t(
+        "It also runs without a connection. The game keeps itself on your device, so it opens on a train, on a plane, or anywhere the signal drops. Boards you have opened before stay playable; a board you have never opened still needs a connection the first time.|También funciona sin conexión. El juego se queda en tu dispositivo, así que se abre en el tren, en el avión o donde se caiga la señal. Los tableros que ya has abierto siguen jugables; uno que nunca hayas abierto sí necesita conexión la primera vez.|Il fonctionne aussi sans connexion. Le jeu reste sur votre appareil : il s'ouvre dans le train, dans l'avion, ou partout où le signal disparaît. Les plateaux déjà ouverts restent jouables ; un plateau jamais ouvert demande encore une connexion la première fois.|**圏外でも遊べます。**電車の中でも、飛行機の中でも立ち上がります。**一度開いた盤面はそのまま遊べます。**まだ一度も開いていない盤面だけは、最初の1回だけ通信が要ります。",
+      ),
+      t(
+        "And when a new version arrives, the game tells you. A small note appears at the bottom with an Update button; press it and the new version loads. It never swaps itself while you are playing, and your journey is saved before it reloads.|Y cuando llega una versión nueva, el juego te avisa. Aparece un aviso pequeño abajo con un botón Actualizar; al pulsarlo se carga la versión nueva. Nunca se cambia sola mientras juegas, y tu viaje queda guardado antes de recargar.|Et quand une nouvelle version arrive, le jeu vous le dit. Un petit avis apparaît en bas avec un bouton Mettre à jour ; appuyez et la nouvelle version se charge. Le jeu ne se remplace jamais tout seul pendant que vous jouez, et votre partie est sauvegardée avant le rechargement.|**新しい版が出たら、その場で報せます。**画面の下に小さな報せと「更新」が出ます。押すと新しい版に切り替わります。**遊んでいる最中に勝手に入れ替わることはありません。**旅は手番ごとに保存されているので、切り替えても続きから遊べます。",
+      ),
+    ],
+  },
+  {
     version: "0.58.0",
     date: "2026-08-25",
     title: t(
