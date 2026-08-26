@@ -293,6 +293,49 @@ try {
   });
   note(hasFetchHandler, "fetch を受け持つ Service Worker が動いている");
 
+  // ------------------------------------------ 5. ホーム画面から開いたときの備え
+  /**
+   * **ここは「偽装できないもの」がある。**
+   * `display-mode: standalone` は CDP のメディア偽装に用意されていない
+   * (`prefers-color-scheme` などはあるが display-mode は無い)。
+   * つまり**ホーム画面から開いた見た目は、実機でしか確かめられない。**
+   *
+   * 偽装できたことにして OK を出すと、いちばん危ない嘘になる。
+   * ここでは代わりに「実機でそうなるための備えが揃っているか」だけを見る:
+   *
+   *   - iOS が読む3つの meta があるか
+   *   - safe-area の逃げが standalone のときだけ効く形で入っているか
+   *
+   * **見た目そのものは人が実機で見ること。**手順は README にある。
+   */
+  console.log("\n5. ホーム画面から開いたときの備え(見た目は実機でしか見られない)");
+  const metas = await page.evaluate(() =>
+    ["apple-mobile-web-app-capable", "mobile-web-app-capable", "apple-mobile-web-app-status-bar-style", "apple-mobile-web-app-title"].map(
+      (name) => [name, document.querySelector(`meta[name="${name}"]`)?.getAttribute("content") ?? null],
+    ),
+  );
+  for (const [name, content] of metas) note(content !== null, name, content ?? "無い");
+
+  const safeArea = await page.evaluate(() => {
+    for (const sheet of Array.from(document.styleSheets)) {
+      let rules;
+      try {
+        rules = Array.from(sheet.cssRules);
+      } catch {
+        continue; // 別所のスタイルは読めない
+      }
+      for (const rule of rules) {
+        if (rule.conditionText?.includes("display-mode: standalone")) return rule.cssText;
+      }
+    }
+    return null;
+  });
+  note(Boolean(safeArea), "standalone のときだけ safe-area の逃げが効く指定がある");
+  note(
+    Boolean(safeArea && safeArea.includes("safe-area-inset-top") && safeArea.includes("safe-area-inset-bottom")),
+    "逃げは上下ともある",
+  );
+
   console.log("\n--- 致命的なエラー ---");
   note(fatal.length === 0, "ページのエラー", fatal.join(" | ") || "なし");
 } finally {
