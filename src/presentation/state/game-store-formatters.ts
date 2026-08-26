@@ -1,7 +1,7 @@
 import { Random } from "../../domain/shared-kernel/random";
 import { LocalizedText } from "../../domain/shared-kernel/localized-text";
 import { QuizQuestion } from "../../domain/quiz/quiz-question";
-import { KNOWLEDGE_TUNING, KnowledgeLevel } from "../../domain/quiz/knowledge-level";
+import { KnowledgeLevel } from "../../domain/quiz/knowledge-level";
 import { CurrencyFormat } from "../../domain/country/country-content-pack";
 import { DoomOutcome } from "../../domain/misfortune/doom-effect";
 import { resolveMisfortuneStrike } from "../../application/use-cases/resolve-misfortune-strike/resolve-misfortune-strike.use-case";
