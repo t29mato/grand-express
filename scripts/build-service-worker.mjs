@@ -20,6 +20,24 @@
  * `package.json` の版だけでは足りない。**版を上げ忘れた修正**が出たときに
  * 古いキャッシュを使い続けてしまう。逆にハッシュだけでも足りない。
  * 画面のフッターに出る版と揃わないと、遊ぶ人に説明できない。だから両方を繋ぐ。
+ *
+ * ## 効くのは GitHub Pages 側だけ(2026-08-26 実測)
+ *
+ * **Vercel の鏡(grand-express.vercel.app)には sw.js が乗らない。**
+ * manifest もアイコンも200で返るのに、これだけ404になる。
+ *
+ * `vercel.json` で `buildCommand: "npm run build"` を指定して postbuild を
+ * 通そうとしたが、**直らなかった。**鏡のフッターがその修正のコミット
+ * (d2b55cd)を出していたので再デプロイ自体はされており、原因は
+ * 「postbuild が走っていないこと」ではない。Vercel の Next ビルダーは
+ * **`next build` のあとに `out/` へ足したファイルを配信物に含めない。**
+ * manifest は Next が作るもの、アイコンは `public/` のもので、
+ * どちらも Next が知っているから乗る ― sw.js だけがどちらでもない。
+ *
+ * 直すなら「1回焼いて sw.js を `public/` に置き、もう1回焼く」の2度焼きに
+ * なる。**正規のURLは github.io 側なので、そこまではしていない。**
+ * 鏡では Service Worker が入らないぶん、オフラインにも更新の報せにもならず、
+ * 登録の失敗は `service-worker-update.tsx` が黙って飲み込む。
  */
 import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative, basename, extname } from "node:path";
