@@ -3094,3 +3094,74 @@ aside {
   color: var(--salt);
   border-color: var(--gold);
 }
+
+/* ===========================================================================
+   ホーム画面に入れて遊ぶとき(PWA)
+   =========================================================================== */
+
+/*
+  ノッチとホームバーの下に潜り込まないようにする。
+
+  **ブラウザで開いているときは何も足さない。**この遊びは1画面に収める作りで、
+  余白を増やすと収まりが崩れる。困るのはスタンドアロン(ホーム画面から開いた
+  とき)だけなので、そこだけに効かせる。
+*/
+@media (display-mode: standalone) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* 新しい版が来たときの報せ(service-worker-update.tsx) */
+.sw-update {
+  position: fixed;
+  left: 50%;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  /* 盤面のどの層より上に出す。押されないと更新が届かないため。 */
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: max-content;
+  max-width: calc(100vw - 24px);
+  padding: 11px 13px;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  font-size: 0.8rem;
+}
+
+.sw-update-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sw-update-text strong {
+  color: var(--gold);
+  font-size: 0.86rem;
+}
+
+.sw-update-text span {
+  color: var(--salt-dim);
+}
+
+.sw-update-action {
+  flex: none;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--gold);
+  color: var(--night);
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.sw-update-action:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
