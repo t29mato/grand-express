@@ -17,9 +17,32 @@ World Express
 合わせた。リポジトリ名は `grand-express` だが、**遊ぶ人が目にする名前は
 World Express** なので、そちらを表に出す。
 
-> **オーナーへの確認事項**: itch.io で `World Express` が既に使われていないか、
-> 登録前に検索してほしい。衝突していれば `World Express — A Rail Fortune Game`
-> のように副題付きにすれば通る。
+#### 名前の衝突について(2026-08-26 調べ)
+
+**結論: `World Express` のまま出してよい。副題は要らない。**
+
+理由は「空いていそうだから」ではなく、**itch.io では題が衝突しても登録が
+止まらないから**である。作品のURLは `<ユーザー名>.itch.io/<スラッグ>` の形で、
+**スラッグが一意であればよいのは自分のライブラリの中だけ。**
+他人が `world-express` を使っていても `t29mato.itch.io/world-express` は取れる。
+つまり題の衝突は**登録の可否ではなく、見つけてもらいやすさの話**である。
+
+そのうえで探した範囲では、`World Express` という作品は見つからなかった。
+いちばん近いのが `Witasy Express`(Sparuh)で、別物である。
+
+**ただしこれは「無い」ことの証明にはなっていない。**
+itch.io の検索そのものを見られていない:
+
+- WebFetch は `itch.io/search?q=...` でクエリが落ちてトップページが返る
+  (`q=celeste` で試しても同じ結果になったので、これは経路の問題であって
+  「該当なし」ではない)
+- ブラウザからは、このネットワークの McAfee Web Gateway が itch.io を
+  「Games」カテゴリとして遮断している
+
+**残っているのは外部検索エンジン越しの間接的な確認だけ**なので、
+登録の直前にオーナーが <https://itch.io/search?q=world+express> を
+自分の目で見てほしい。見つかっても、上に書いたとおり登録は通る。
+それでも避けたい場合の副題案: `World Express — A Rail Fortune Game`。
 
 ### 1行キャッチ(itch.io の "Short description or tagline")
 
@@ -114,9 +137,23 @@ itch.io はタグを**最大10個**まで付けられる。既存の語彙にあ
 | `05-mobile-play.png` | 会津若松(日本)の町カードを電話の画面で | **携帯でも遊べる**ことの証拠。1画面に収まっている |
 | `06-mobile-levels.png` | 「How well do you know this country?」の4段階 | 説明文で推している機能の実物 |
 
-**カバー画像(630×500)は含めていない。**itch.io のカバーは
-**文字入りの専用画像**が要る(縮小されると盤面の文字が読めなくなる)。
-必要であれば別途作る。
+### カバー画像(630×500)
+
+`docs/screenshots/itchio/cover-630x500.png`(と同じ内容の `.svg`)
+
+**盤面のスクショを縮めたものは使えない。**縮むと町の名前が潰れて、
+ただ細かいだけの絵になる。専用に組んだ。
+
+**絵は手で描いていない。**世界盤(`world.content.json`)の海岸線38片・
+航路96本・都市66個をそのまま使い、色も同じ盤面の `sea` / `landBase` /
+`coast` / `stripe` から読んでいる。生成器は
+[`scripts/make-itchio-cover.mjs`](../scripts/make-itchio-cover.mjs)。
+盤面の見た目を変えれば、走らせ直すだけで表紙も追随する。
+
+入れた文字は**題と一言キャッチの2行だけ。**itch.io の一覧では
+315×250 まで縮むので、**その大きさで焼いて目で確かめた。**両方読める。
+
+海路が破線・陸路が実線という盤面の見分け方も、そのまま持ち込んである。
 
 ---
 
@@ -194,7 +231,8 @@ itch.io は `https://html-classic.itch.zone/html/<番号>/index.html` のよう�
 
 | 欄 | 入れるもの |
 |---|---|
-| Title | `World Express` |
+| Title | `World Express`(衝突しても登録は通る。上の「名前の衝突について」参照) |
+| Cover image | `docs/screenshots/itchio/cover-630x500.png` |
 | Short description | 上の1行キャッチ(英語) |
 | Classification | Games |
 | Kind of project | **Downloadable**(外部リンクを貼る) |
