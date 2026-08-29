@@ -72,3 +72,29 @@ PLAYWRIGHT_BASE_URL=https://grand-express.vercel.app npx playwright test
       → 旧版はどこにも配信しておらず、`legacy/grand-express.html` としてアーカイブ済み
 - [x] `docs/90-migration/03-as-built-status.md` のPhase 9行と、本ドキュメントの
       「現在の状態」を更新する
+
+## 2026-08-28 リポジトリ改名(grand-express → world-express)
+
+正規URLが **https://t29mato.github.io/world-express/** に変わった。
+
+`basePath` は直していない。Pages のワークフローが
+`BASE_PATH: /${{ github.event.repository.name }}` で渡しているので、改名だけで
+付いてくる。manifest の `start_url` / `scope` も Service Worker のプリキャッシュも
+そこから組み立てているため、同じく自動で移った。
+
+**旧URLの救済は、この repo には無い。**
+`t29mato.github.io` 側の `grand-express/` に置いてある:
+
+- `grand-express/index.html` — 移転の案内と自動転送
+- `grand-express/sw.js` — **旧 Service Worker の解除装置**
+
+ホーム画面に旧URLで入れた人は、端末に旧 Service Worker が残っていて自分の
+キャッシュから答えるので、転送ページには永久に辿り着かない。Service Worker は
+**同じURLに置いた別の Service Worker でしか置き換えられない**ため、解除装置は
+旧パスに置く必要がある。中身は install で `skipWaiting`(本物とは逆。版を届けて
+いるのではなく退くためのものなので、古いUIの中にある「更新」ボタンを待つと、
+助けたい相手を取り残す)、activate で全キャッシュ削除 → `unregister` →
+開いている窓を新URLへ送る。
+
+**localStorage の鍵は変えていない**(`grand-express:save:v1` など)。
+変えるとセーブが全部消える。名前はずれたままだが、遊ぶ人の損が無いほうを取った。
