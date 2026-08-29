@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 # Next.js を静的に書き出して GitHub Pages へ出す。
 # Vercel へのデプロイ(deploy.yml)とは別物で、あちらは残したまま。
-# **正規のURLはこちら**: https://t29mato.github.io/grand-express/
+# **正規のURLはこちら**: https://t29mato.github.io/world-express/
 #
 # 動かすには Settings → Pages → Source を「GitHub Actions」にしておく必要がある
 # (リポジトリは公開済み)。切り替えるまで build は通っても deploy が権限で落ちる。

@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.60.0",
+    date: "2026-08-28",
+    title: t(
+      "A tidier address|Una dirección más ordenada|Une adresse plus nette|住所が名前とそろいました",
+    ),
+    highlights: [
+      t(
+        "The game now lives at t29mato.github.io/world-express/. It has always called itself World Express on screen; the address said something else, and that has been quietly confusing for a while. Both now say the same thing.|El juego vive ahora en t29mato.github.io/world-express/. En pantalla siempre se ha llamado World Express, pero la dirección decía otra cosa, y eso llevaba tiempo confundiendo. Ahora ambas dicen lo mismo.|Le jeu se trouve désormais à t29mato.github.io/world-express/. À l'écran il s'est toujours appelé World Express ; l'adresse disait autre chose, ce qui prêtait à confusion depuis un moment. Les deux concordent enfin.|**遊ぶ場所が t29mato.github.io/world-express/ に変わりました。**画面ではずっと World Express と名乗っていたのに、住所だけ別の名前のままでした。これで両方そろいます。",
+      ),
+      t(
+        "If you kept the old address, it will send you here on its own. If you added the game to your home screen from the old address, opening it once while online moves it across and clears out what it had stored; after that it works offline again as before.|Si guardaste la dirección anterior, te traerá aquí sola. Y si añadiste el juego a la pantalla de inicio desde la dirección antigua, ábrelo una vez con conexión: se trasladará solo y limpiará lo que tenía guardado. Después vuelve a funcionar sin conexión como antes.|Si vous aviez gardé l'ancienne adresse, elle vous amènera ici d'elle-même. Et si vous aviez ajouté le jeu à l'écran d'accueil depuis l'ancienne adresse, ouvrez-le une fois connecté : il se déplacera tout seul et videra ce qu'il avait stocké. Ensuite il refonctionne hors ligne comme avant.|**前の住所を覚えていても、そのままこちらへ案内されます。**前の住所からホーム画面に置いていた場合は、**通信できる状態で一度開いてください。**自動でこちらへ移り、古い持ち物を片付けます。そのあとは今までどおり圏外でも遊べます。",
+      ),
+      t(
+        "Your saved games are untouched. They live in your browser under a name that has not changed, so a game left half-finished is still waiting where you left it.|Tus partidas guardadas no se tocan. Viven en tu navegador bajo un nombre que no ha cambiado, así que una partida a medias sigue esperándote donde la dejaste.|Vos parties sauvegardées ne bougent pas. Elles vivent dans votre navigateur sous un nom inchangé : une partie laissée en cours vous attend toujours là où vous l'avez laissée.|**セーブしたゲームはそのままです。**ブラウザの中に、名前を変えていない場所で残してあるので、途中の旅は途中のまま待っています。",
+      ),
+    ],
+  },
+  {
     version: "0.59.0",
     date: "2026-08-26",
     title: t(

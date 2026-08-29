@@ -2,7 +2,7 @@
 
 > **World Express is a free, browser-based multiplayer board game in which 2–4 players roll dice to travel a real railway map, buy businesses in real towns, answer geography quizzes, and race to a destination — playable in English, Spanish, French and Japanese across 47 boards covering six continents, the whole globe and the solar system.**
 
-**[▶ Play it in your browser](https://t29mato.github.io/grand-express/)** — no install, no account, no ads.
+**[▶ Play it in your browser](https://t29mato.github.io/world-express/)** — no install, no account, no ads.
 
 <sub>A mirror also runs at [grand-express.vercel.app](https://grand-express.vercel.app); the link above is the canonical one.</sub>
 
@@ -45,7 +45,7 @@ is ugly, it says so plainly rather than skipping it.
 
 ## Put it on your phone
 
-Open <https://t29mato.github.io/grand-express/> on the phone, then:
+Open <https://t29mato.github.io/world-express/> on the phone, then:
 
 - **iPhone / iPad (Safari)** — share button → *Add to Home Screen* → *Add*
 - **Android (Chrome)** — the ⋮ menu → *Add to Home screen* / *Install app*

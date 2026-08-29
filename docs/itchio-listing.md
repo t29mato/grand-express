@@ -14,8 +14,8 @@ World Express
 ```
 
 **アプリが名乗っている名前**(画面の左上・`<title>`・`package.json` の `name`)に
-合わせた。リポジトリ名は `grand-express` だが、**遊ぶ人が目にする名前は
-World Express** なので、そちらを表に出す。
+合わせた。**2026-08-28、リポジトリ名も `world-express` に揃えた**ので、
+いまはどこを見ても同じ名前である。
 
 #### 名前の衝突について(2026-08-26 調べ)
 
@@ -162,7 +162,7 @@ itch.io はタグを**最大10個**まで付けられる。既存の語彙にあ
 ### 結論: **外部リンク型を推奨する**
 
 itch.io のプロジェクト種別を `HTML` ではなく **`Downloadable / External link`** にし、
-`https://t29mato.github.io/grand-express/` へ飛ばす。
+`https://t29mato.github.io/world-express/` へ飛ばす。
 
 ### 大きさは理由ではない
 
@@ -247,4 +247,4 @@ itch.io は `https://html-classic.itch.zone/html/<番号>/index.html` のよう�
 | Community | Comments(要望はGitHubのissueへ誘導しているので、そちらへのリンクを添えるとよい) |
 | Visibility | Public(オーナー判断) |
 
-**ソースへのリンク**も Links に足すとよい: `https://github.com/t29mato/grand-express`
+**ソースへのリンク**も Links に足すとよい: `https://github.com/t29mato/world-express`
