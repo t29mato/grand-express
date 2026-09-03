@@ -51,6 +51,11 @@ export function describeStrike(
       return logEntry("spiritRests", [], "neutral");
     case "warded":
       return logEntry("spiritBlockedLog", [playerName], "good");
+    case "spared":
+      // 「この国は初めて」の人の最初の1年だけ、連続を2回で止めている
+      // (`doom-relief.ts`)。**黙って見送らない。**何も起きなかったことにすると、
+      // 遊ぶ人には「厄災は運で起きたり起きなかったりする」としか見えない。
+      return logEntry("spiritSparedLog", [playerName], "good");
     case "pleased":
       return logEntry("gained", [playerName, formatMoney(result.amount, currency)], "good");
     case "struck":

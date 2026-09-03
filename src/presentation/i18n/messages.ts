@@ -16,6 +16,7 @@ import { TRAVEL_LOG_MESSAGES } from "./travel-log-messages";
 import { CITY_MESSAGES } from "./city-messages";
 import { SAVED_GAME_MESSAGES } from "./saved-game-messages";
 import { UPDATE_MESSAGES } from "./update-messages";
+import { MISFORTUNE_MESSAGES } from "./misfortune-messages";
 
 export type UiMessages = typeof en;
 
@@ -39,6 +40,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...CITY_MESSAGES.en,
     ...SAVED_GAME_MESSAGES.en,
     ...UPDATE_MESSAGES.en,
+    ...MISFORTUNE_MESSAGES.en,
   },
   es: {
     ...es,
@@ -55,6 +57,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...CITY_MESSAGES.es,
     ...SAVED_GAME_MESSAGES.es,
     ...UPDATE_MESSAGES.es,
+    ...MISFORTUNE_MESSAGES.es,
   },
   fr: {
     ...fr,
@@ -71,6 +74,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...CITY_MESSAGES.fr,
     ...SAVED_GAME_MESSAGES.fr,
     ...UPDATE_MESSAGES.fr,
+    ...MISFORTUNE_MESSAGES.fr,
   },
   ja: {
     ...(ja as UiMessages),
@@ -87,6 +91,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...CITY_MESSAGES.ja,
     ...SAVED_GAME_MESSAGES.ja,
     ...UPDATE_MESSAGES.ja,
+    ...MISFORTUNE_MESSAGES.ja,
   },
 };
 

@@ -33,7 +33,7 @@ describe("NextLegModal", () => {
     });
   });
 
-  function renderModal(firstTimeSpiritAppearance: boolean) {
+  function renderModal(firstTimeSpiritAppearance: boolean, extra: { onCpuTurn?: boolean; arrivedBy?: string; prize?: string } = {}) {
     render(
       <LocaleProvider>
         <NextLegModal
@@ -42,6 +42,7 @@ describe("NextLegModal", () => {
           firstTimeSpiritAppearance={firstTimeSpiritAppearance}
           spiritHolderId={session.players[1].id}
           onContinue={() => {}}
+          {...extra}
         />
       </LocaleProvider>,
     );
@@ -65,12 +66,37 @@ describe("NextLegModal", () => {
     // ボリビアの spirit.arrive は「El Tío boards the rails!」で始まる。
     expect(screen.getByText(/El Tío boards the rails/)).toBeInTheDocument();
     // 憑いたプレイヤー名が埋め込まれている。
-    expect(screen.getByText("Illimani")).toBeInTheDocument();
+    // **名前は2か所に出る。**国ごとのフレーバー文と、仕組みの説明(SpiritBriefing)。
+    expect(screen.getAllByText("Illimani").length).toBeGreaterThan(0);
   });
 
   it("2回目以降は moves の文言を使い、乗り換えたことを伝える", () => {
     renderModal(false);
     expect(screen.getByText(/changes trains/)).toBeInTheDocument();
     expect(screen.queryByText(/boards the rails/)).not.toBeInTheDocument();
+  });
+
+  it("厄災の神の「なぜ」と「どうすれば離れるか」を書く", () => {
+    renderModal(true);
+    // 実装どおりの説明であること(目的地からいちばん遠い人に憑く)。
+    // 「最も遠い人に憑く」は、国のフレーバー文と仕組みの説明の両方に出る。
+    expect(screen.getAllByText(/farthest from/).length).toBeGreaterThan(0);
+    expect(screen.getByText(/moves to whoever is farthest right then/)).toBeInTheDocument();
+    // 供物(ボリビアは ward アイテム)で1回だけ肩代わりできること。
+    expect(screen.getByText(/buys off one disaster/)).toBeInTheDocument();
+  });
+
+  it("誰の到着で目的地が変わったのかを出す", () => {
+    renderModal(false, { arrivedBy: "Illimani", prize: "Bs 350,000" });
+    // 「到着 — <b>Illimani</b>」の行。名前は仕組みの説明にも出るので、数で見る。
+    expect(screen.getAllByText("Illimani", { selector: "b" }).length).toBeGreaterThanOrEqual(2);
+  });
+
+  it("CPUの手番でも押して飛ばせる(文言は「出発」ではなく「続ける」)", () => {
+    renderModal(false, { onCpuTurn: true });
+    // 出発するのは自分ではないので「Full steam」は出さない。
+    expect(screen.queryByRole("button", { name: /steam/i })).toBeNull();
+    // ただしボタン自体はある。見せ場は必ず飛ばせる。
+    expect(screen.getByRole("button", { name: /continue/i })).toBeInTheDocument();
   });
 });

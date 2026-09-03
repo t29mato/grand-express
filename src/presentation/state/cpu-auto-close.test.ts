@@ -23,17 +23,33 @@ import { readFileSync } from "node:fs";
  */
 describe("CPUの手番で自動的に閉じるもの", () => {
   const src = readFileSync("src/presentation/state/game-store-turn-flow.ts", "utf8");
+  const autoCloseList = () => {
+    const list = src.slice(src.indexOf("const CPU_AUTO_CLOSE"));
+    return list.slice(0, list.indexOf("]"));
+  };
 
   it("出来事(青・赤マス)が、待つ対象に入っている", () => {
-    const list = src.slice(src.indexOf("const CPU_AUTO_CLOSE"));
-    expect(list.slice(0, list.indexOf("]")), "money-event が抜けると、押すまで閉じなくなる").toContain(
-      '"money-event"',
-    );
+    expect(autoCloseList(), "money-event が抜けると、押すまで閉じなくなる").toContain('"money-event"');
   });
 
-  it("厄災は入れない(CPUの手番では音だけで、モーダルを出さない)", () => {
-    const list = src.slice(src.indexOf("const CPU_AUTO_CLOSE"));
-    expect(list.slice(0, list.indexOf("]"))).not.toContain('"doom"');
+  /**
+   * **2026-09-02 に方針が変わった。**
+   *
+   * それまでは「CPUの手番では厄災のモーダルを出さず音だけ」だったので、
+   * `doom` を待つ対象に入れる必要が無かった。いまは出す——厄災の神が
+   * 誰に憑いていて何をしたのかは盤面の読みに直に効くのに、CPUに落ちた
+   * 災難は旅の記録を読まないと分からなかった(実プレイの記録)。
+   * 本人以外の手番なので、短い自動送りのカードにする。
+   */
+  it("厄災も、CPUの手番では短い自動送りのカードで出す", () => {
+    expect(autoCloseList(), "doom を外すと、CPUの災難が押すまで残る").toContain('"doom"');
+  });
+
+  it("盤面全体の見せ場(新目的地・独占・決算)も、押さなくても送られる", () => {
+    const list = autoCloseList();
+    for (const kind of ['"next-leg"', '"monopoly"', '"settlement"']) {
+      expect(list, `${kind} が抜けると、CPUの手番で盤面が止まる`).toContain(kind);
+    }
   });
 
   it("月替わりは、CPUの手番中は待って自動で進む", () => {
@@ -46,5 +62,11 @@ describe("CPUの手番で自動的に閉じるもの", () => {
     // `dismissMoneyEvent` は人間なら `finishHumanLandingAndAdvance` を呼ぶ。
     const fn = src.slice(src.indexOf("function dismissMoneyEvent"));
     expect(fn.slice(0, fn.indexOf("\n  }"))).toContain("finishHumanLandingAndAdvance()");
+  });
+
+  it("見せ場と流すカードで、置いておく時間を分けている", () => {
+    // 止めて見せる場面が増えたぶん、流す場面は短くする。
+    expect(src).toContain("auto: 2000");
+    expect(src).toContain("headline: 5200");
   });
 });

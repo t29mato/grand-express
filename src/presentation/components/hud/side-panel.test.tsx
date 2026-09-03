@@ -110,6 +110,48 @@ describe("ItemBar", () => {
     expect(screen.queryByText("Use")).toBeNull();
   });
 
+  /**
+   * **サイドバーの主役は、いつも画面の前の人。**
+   * CPUの手番のあいだ、この欄がCPUの持ちものに切り替わって
+   * 自分の持ちものが見えなくなっていた(実プレイの記録 2026-09-02)。
+   */
+  it("CPUの手番でも、自分の持ちものが主役のまま残る", () => {
+    // p1 = CPU(手番)、p2 = 人間。人間の側に持ちものを渡す。
+    let cpu = createPlayer({
+      id: PlayerId("p1"),
+      name: "CPU 1",
+      isCpu: true,
+      startingCash: Money.of(1000),
+      startingNode: NodeId("lapaz"),
+    });
+    cpu = addItem(cpu, ItemKey("zebra"));
+    let human = createPlayer({
+      id: PlayerId("p2"),
+      name: "You",
+      isCpu: false,
+      startingCash: Money.of(1000),
+      startingNode: NodeId("e0_1"),
+    });
+    human = addItem(human, ItemKey("pacha"));
+    const session = createGameSession({
+      id: GameSessionId("s"),
+      countryId: CountryId("bolivia"),
+      maxMonths: 12,
+      players: [cpu, human],
+      destination: CityId("sucre"),
+    });
+    render(
+      <LocaleProvider>
+        <ItemBar context={context} session={{ ...session, activePlayerIndex: 0 }} onUseItem={vi.fn()} />
+      </LocaleProvider>,
+    );
+    // 自分の持ちものは、説明つきの札のまま残っている。
+    expect(screen.getByText("Pachamama Blessing")).toBeVisible();
+    // 手番の人(CPU)の持ちものは、名前だけ小さく添える。
+    expect(screen.getByText("Held by CPU 1")).toBeVisible();
+    expect(screen.getByText(/Zebra Guide/)).toBeVisible();
+  });
+
   it("同じアイテムを2つ持っていても、押した側の位置が渡る", () => {
     const onUseItem = renderBar(["pacha", "zebra"]);
     fireEvent.click(screen.getByRole("button", { name: /Zebra Guide/ }));

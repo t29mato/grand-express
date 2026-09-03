@@ -32,6 +32,10 @@ const TOAST_KEYS: ReadonlySet<string> = new Set([
   // 厄災の神が誰に移ったか。押し付けられた側は知らないと備えられない。
   "passLog",
   "spiritBlockedLog",
+  // 「はじめて」の人の最初の1年、連続を止めて災難を見送ったこと(`doom-relief.ts`)。
+  // **黙って見送らない。**何も出さないと「厄災は運で起きたり起きなかったりする」
+  // としか見えず、救済が働いていることが伝わらない。
+  "spiritSparedLog",
   // アイテムで流された先。自分で選んでいないので、どこに着いたか分からない。
   "carriedLog",
   "carriedToLog",
@@ -74,6 +78,7 @@ export function isToastworthy(entry: LogEntry, session: GameSession): boolean {
  */
 export function LogToast({ log, session }: { log: readonly LogEntry[]; session: GameSession }) {
   const { t, tx } = useLocale();
+  // 新しく足した記録の文言も引けるようにする(`misfortune-messages.ts`)。
   const [visible, setVisible] = useState<LogEntry | null>(null);
   // 一度出したか見送ったかを覚えておく。これが無いと、モーダルを閉じた拍子や
   // 言語を切り替えた拍子に、同じ行がもう一度出てくる。

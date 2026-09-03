@@ -54,8 +54,12 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     finishHumanLandingAndAdvance,
     resolveLandingForHuman,
     dismissSeasonModal,
+    dismissSettlement,
+    dismissMonopoly,
+    clearArrivalBeat,
     closeCityModal,
     dismissNextLeg,
+    notePurchase,
   } = createTurnFlowActions(set, get);
 
   /**
@@ -179,6 +183,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     log: [],
     diceRoll: null,
     walk: null,
+    arrivalBeat: null,
     savedGame: null,
 
     async startNewGame(config) {
@@ -247,7 +252,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       // セットアップ画面のテーマ曲は、次に何か操作されたときに鳴り始める。
       soundAdapter.stopMusic();
       pendingRoll = null;
-      set({ context: null, session: null, ui: { kind: "setup" }, log: [], diceRoll: null });
+      set({ context: null, session: null, ui: { kind: "setup" }, log: [], diceRoll: null, arrivalBeat: null });
     },
 
     cancelCpuLoop,
@@ -277,6 +282,10 @@ export const useGameStore = create<GameStoreState>((set, get) => {
               playerName: player.name,
               flavor: strike.result.flavor,
               wasKing: strike.result.wasKing,
+              // **何をされたかを画面まで運ぶ。**以前は名前と物語しか渡しておらず、
+              // いくら失ったのか・何を失ったのかがカードに出ていなかった。
+              outcome: strike.result.outcome,
+              onCpuTurn: false,
             },
           });
           return;
@@ -342,6 +351,8 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const result = buyProperty(context, session, player.id, ui.cityId, index);
       if (result.ok) {
         soundAdapter.playBuy();
+        // 町の物件がそろったら、町の画面を閉じたあとに知らせる(`showNextHumanReveal`)。
+        notePurchase(context, session, result.value.session, player.id);
         set((s) => ({ session: result.value.session, log: pushLog(s, "boughtLog", [player.name, context.getCity(ui.cityId).properties[index].name, context.getCity(ui.cityId).name, formatMoney(context.getCity(ui.cityId).properties[index].cost, context.content.currency)], "gold") }));
       }
     },
@@ -473,6 +484,9 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     dismissSeasonModal,
     dismissNextLeg,
     dismissMoneyEvent,
+    dismissSettlement,
+    dismissMonopoly,
+    clearArrivalBeat,
 
     /**
      * 厄災のモーダルを閉じる。

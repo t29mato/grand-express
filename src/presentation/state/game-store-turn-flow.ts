@@ -1,16 +1,22 @@
 import { CityId, NodeId, PlayerId, RegionId } from "../../domain/shared-kernel/ids";
 import { hasSeenCity, markCitySeen } from "../../domain/player/player";
 import { currentPlayer, isOver } from "../../domain/game-session/game-session";
+import { RevealEventKind, revealClassFor, revealModeFor } from "../../domain/game-session/reveal-class";
 import { isCityNode } from "../../domain/board/node";
+import { windowNoteFor } from "../../domain/board/window-note";
+import { monopolisedCities } from "../../domain/property/property-income-service";
 import { advanceTurn } from "../../application/use-cases/advance-turn/advance-turn.use-case";
+import { QuarterlySettlementRow } from "../../application/use-cases/advance-turn/advance-turn.use-case";
 import { settleSpiritAfterTurn } from "../../application/use-cases/move-player/settle-spirit-after-turn.use-case";
 import { landOnCardSquare } from "../../application/use-cases/land-on-square/card-square.use-case";
 import { arriveAtDestination } from "../../application/use-cases/land-on-square/arrive-destination.use-case";
 import { cpuTakeTurn } from "../../application/use-cases/cpu-take-turn/cpu-take-turn.use-case";
 import { endGame } from "../../application/use-cases/end-game/end-game.use-case";
 import { saveGame } from "../../application/use-cases/save-load-game/save-load-game.use-case";
+import { economyContextFor } from "../../application/economy-context";
 import { formatMoney } from "../i18n/money-format";
 import { GameEngineContext } from "../../application/game-engine-context";
+import { GameSession } from "../../domain/game-session/game-session";
 import { GetGameState, LogEntry, SetGameState } from "./game-store-types";
 import { gameRepository, random, soundAdapter } from "./game-store-dependencies";
 import { logEntry, pushLog } from "./game-store-log";
@@ -32,14 +38,31 @@ const CPU_TIMING = {
   diceAnimation: 2350,
   /** 駒が移動しカメラが追いつくまで(駒のCSSトランジションは0.35s)。 */
   afterMove: 750,
-  /** 町・クイズなどの結果モーダルを出しておく時間(クリックで飛ばせる)。 */
-  resultModal: 2900,
   /**
    * 月替わりのモーダルを出しておく時間(クリックで飛ばせる)。
    * 結果モーダルより長い。季節の話は読む量が多く、絵もあるため。
    */
   seasonModal: 4200,
 } as const;
+
+/**
+ * 出来事の階級ごとに、画面に置いておく時間(ミリ秒)。
+ *
+ * **止めて見せる場面が増えたぶん、流す場面は短くする。**
+ * 他人の手番の結果カードは 2900ms から 2000ms に詰めた。増えたのは
+ * 盤面全体の見せ場(到着・新目的地・独占・決算)で、そちらは長めに置くが
+ * **押せばその場で飛ばせる。**
+ */
+const REVEAL_TIMING = {
+  /** 本人以外の手番で流す、自動送りのカード。 */
+  auto: 2000,
+  /** 盤面全体の見せ場。押すか、この時間で送る。 */
+  headline: 5200,
+} as const;
+
+function holdMsFor(kind: RevealEventKind): number {
+  return revealClassFor(kind) === "headline" ? REVEAL_TIMING.headline : REVEAL_TIMING.auto;
+}
 
 function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -52,10 +75,22 @@ function delay(ms: number): Promise<void> {
  */
 export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
   /**
-   * 目的地に到着したとき、町のモーダルを閉じたあとに「次の区間」の案内を出すための保留情報。
-   * 到着でない普通の町への停車では null のまま(=案内を出さずにそのまま手番を終える)。
+   * 人間の手番で、町のモーダルを閉じたあとに続けて見せるもの。
+   *
+   * 見せ場は**順番に1枚ずつ**出す。町 → 独占 → 次の区間、の順。
+   * 到着でない普通の町への停車では、どちらも null のまま
+   * (=そのまま手番を終える)。
    */
-  let pendingNextLeg: { firstTimeSpiritAppearance: boolean; spiritHolderId: PlayerId | null } | null = null;
+  let pendingNextLeg: {
+    firstTimeSpiritAppearance: boolean;
+    spiritHolderId: PlayerId | null;
+    arrivedBy: string;
+    prize: string;
+  } | null = null;
+  /** いま独占した町(人間の手番。町のモーダルを閉じたあとに見せる)。 */
+  let pendingMonopoly: { playerName: string; cityId: CityId } | null = null;
+  /** 月替わりのモーダルを閉じたあとに見せる、四半期の決算。 */
+  let pendingSettlement: { rows: readonly QuarterlySettlementRow[]; month: number } | null = null;
 
   /**
    * CPUループの世代番号。`cancelCpuLoop()`(セットアップに戻る等)で繰り上げることで、
@@ -109,13 +144,15 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     return quizSelector!.draw(difficulty);
   }
 
-  /** CPUの結果モーダルをプレイヤーが手動で閉じる(演出を飛ばす)。 */
+  /**
+   * CPUが出したカードをプレイヤーが手動で閉じる(演出を飛ばす)。
+   * **見せ場も飛ばせる。**押した人はもう読み終えている。
+   */
   function dismissCpuModal() {
     const kind = get().ui.kind;
-    if (kind === "cpu-city" || kind === "cpu-quiz") {
-      const player = get().session ? currentPlayer(get().session!) : null;
-      set({ ui: { kind: "cpu-turn", playerName: player?.name ?? "" } });
-    }
+    if (!isCpuAutoClose(kind)) return;
+    const player = get().session ? currentPlayer(get().session!) : null;
+    set({ ui: { kind: "cpu-turn", playerName: player?.name ?? "" } });
   }
 
   function cancelCpuLoop() {
@@ -123,18 +160,51 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     cpuLoopRunning = false;
   }
 
-  function closeCityModal() {
+  /**
+   * 人間の手番で、町のモーダルのあとに控えている見せ場を1枚出す。
+   * もう無ければ手番の後始末に進む。
+   */
+  function showNextHumanReveal() {
+    if (pendingMonopoly) {
+      const next = pendingMonopoly;
+      pendingMonopoly = null;
+      soundAdapter.playFanfare();
+      set({ ui: { kind: "monopoly", ...next } });
+      return;
+    }
     if (pendingNextLeg) {
       const next = pendingNextLeg;
       pendingNextLeg = null;
-      set({ ui: { kind: "next-leg", ...next } });
+      set({ ui: { kind: "next-leg", ...next, onCpuTurn: false } });
       return;
     }
     finishHumanLandingAndAdvance();
   }
 
+  function closeCityModal() {
+    showNextHumanReveal();
+  }
+
   function dismissNextLeg() {
-    finishHumanLandingAndAdvance();
+    // **CPUの手番でも出る画面になった。**そのときは手番を進めず、
+    // CPUループの待ちを解くだけにする(進めるのはループの仕事)。
+    const session = get().session;
+    const player = session ? currentPlayer(session) : null;
+    if (player?.isCpu) {
+      set({ ui: { kind: "cpu-turn", playerName: player.name } });
+      return;
+    }
+    showNextHumanReveal();
+  }
+
+  function dismissMonopoly() {
+    const session = get().session;
+    const player = session ? currentPlayer(session) : null;
+    if (player?.isCpu) {
+      set({ ui: { kind: "cpu-turn", playerName: player.name } });
+      return;
+    }
+    showNextHumanReveal();
   }
 
   /**
@@ -152,6 +222,10 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     finishHumanLandingAndAdvance();
   }
 
+  /**
+   * 月替わりを閉じる。四半期の決算が控えていれば、続けてそれを出す。
+   * 決算は**全員ぶんを1枚で**見せるので、月替わりと同じ「全員の話」の並びに置く。
+   */
   function dismissSeasonModal() {
     const { context, session } = get();
     if (!context || !session) return;
@@ -160,15 +234,69 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
       set({ session: outcome.session, ui: { kind: "game-over", outcome } });
       return;
     }
+    if (pendingSettlement) {
+      const next = pendingSettlement;
+      pendingSettlement = null;
+      soundAdapter.playCoin();
+      set({ ui: { kind: "settlement", ...next } });
+      return;
+    }
     set({ ui: { kind: "idle" } });
     saveGame(gameRepository, session);
     void runCpuLoopIfNeeded();
+  }
+
+  /** 四半期の決算を閉じる。CPUの手番ならループの待ちを解くだけ。 */
+  function dismissSettlement() {
+    if (get().ui.kind !== "settlement") return;
+    const { session } = get();
+    const player = session ? currentPlayer(session) : null;
+    if (player?.isCpu) {
+      set({ ui: { kind: "cpu-turn", playerName: player.name } });
+      return;
+    }
+    set({ ui: { kind: "idle" } });
+    if (session) saveGame(gameRepository, session);
+    void runCpuLoopIfNeeded();
+  }
+
+  /** 車窓の一言を消す(0.8秒後に表示側から呼ぶ)。 */
+  function clearArrivalBeat() {
+    set({ arrivalBeat: null });
   }
 
   /** 複数行のログをまとめて先頭に積む。 */
   function appendLogs(entries: readonly LogEntry[]) {
     if (entries.length === 0) return;
     set((s) => ({ log: [...[...entries].reverse(), ...s.log].slice(0, 60) }));
+  }
+
+  /**
+   * 独占が増えたかを前後で比べる。増えていれば、その町を1つ返す。
+   *
+   * 独占は収入が2倍になる盤面全体の見せ場だが、達成した瞬間は
+   * 旅人一覧の `👑` が1つ増えるだけで、誰も気づかなかった。
+   */
+  function newMonopoly(
+    context: GameEngineContext,
+    before: GameSession,
+    after: GameSession,
+    playerId: PlayerId,
+  ): CityId | null {
+    const beforePlayer = before.players.find((p) => p.id === playerId);
+    const afterPlayer = after.players.find((p) => p.id === playerId);
+    if (!beforePlayer || !afterPlayer) return null;
+    const had = new Set(monopolisedCities(beforePlayer, economyContextFor(context, before)));
+    const now = monopolisedCities(afterPlayer, economyContextFor(context, after));
+    return now.find((cityId) => !had.has(cityId)) ?? null;
+  }
+
+  /** 人間が物件を買った直後に呼ぶ。独占が増えていれば、町を閉じたあとに知らせる。 */
+  function notePurchase(context: GameEngineContext, before: GameSession, after: GameSession, playerId: PlayerId) {
+    const cityId = newMonopoly(context, before, after, playerId);
+    if (!cityId) return;
+    const name = after.players.find((p) => p.id === playerId)?.name ?? "";
+    pendingMonopoly = { playerName: name, cityId };
   }
 
   /**
@@ -223,8 +351,25 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
         await delay(CPU_TIMING.afterMove);
         if (generation !== cpuLoopGeneration) return;
 
+        // 2.5 手番の頭で受けた災難を、短いカードで見せる。
+        // **これまではCPUの災難は音だけだった。**厄災の神は誰に憑いているかで
+        // 盤面が変わるのに、CPUが何を失ったのかは記録を読まないと分からなかった。
+        if (result.strike?.type === "struck") {
+          set({
+            ui: {
+              kind: "doom",
+              playerName: player.name,
+              flavor: result.strike.flavor,
+              wasKing: result.strike.wasKing,
+              outcome: result.strike.outcome,
+              onCpuTurn: true,
+            },
+          });
+          if (!(await holdModal(generation, "doom", holdMsFor("doom")))) return;
+        }
+
         // 3. 着地した先で何が起きたかを、人間と同じ形のモーダルで見せる。
-        const shown = await showCpuLanding(context, player.name, result, generation);
+        const shown = await showCpuLanding(context, session, player, result, generation);
         if (!shown) return;
 
         // 見せ終えた結果モーダルは、ここで畳む。**出したまま手番の後始末に進まない。**
@@ -263,7 +408,14 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
           await waitForSeason(generation);
           if (generation !== cpuLoopGeneration) return;
           if (get().ui.kind === "season") set({ ui: { kind: "idle" } });
-          continue;
+        }
+
+        // 四半期の決算。**月替わりがあってもなくても出す**(月替わりの直後に続けて出る)。
+        if (adv.quarterlySettlement.length > 0) {
+          soundAdapter.playCoin();
+          set({ ui: { kind: "settlement", rows: adv.quarterlySettlement, month: adv.session.month } });
+          if (!(await holdModal(generation, "settlement", holdMsFor("settlement")))) return;
+          if (get().ui.kind === "settlement") set({ ui: { kind: "idle" } });
         }
       }
 
@@ -319,17 +471,28 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
 
   /**
    * CPUが着地したマスの結果を、人間の手番と同じ見せ方でモーダル表示する。
-   * legacyもCPUの手番では自動で閉じるモーダル(`autoModal`)を出していた。
+   *
+   * **何を止めて見せ、何を流すかは `reveal-class.ts` の表だけが決める。**
+   * ここで個別に判断を書くと、また「CPUの到着だけ何も出ない」ような穴が空く。
+   *
    * 戻り値がfalseなら、途中でループが中断された(=呼び出し側は打ち切る)。
    */
   async function showCpuLanding(
     context: GameEngineContext,
-    playerName: string,
+    sessionBefore: GameSession,
+    actor: { readonly id: PlayerId; readonly name: string },
     result: ReturnType<typeof cpuTakeTurn>,
     generation: number,
   ): Promise<boolean> {
+    const playerName = actor.name;
     const landing = result.landing;
     if (!landing) return generation === cpuLoopGeneration;
+    const money = (amount: number) => formatMoney(amount, context.content.currency);
+    /** CPUの手番なので、どの出来事も「本人ではない」側から見ることになる。 */
+    const show = async (kind: RevealEventKind, uiKind: string): Promise<boolean> => {
+      if (revealModeFor(kind, { isOwnTurn: false }) === "none") return generation === cpuLoopGeneration;
+      return holdModal(generation, uiKind, holdMsFor(kind));
+    };
 
     if (landing.type === "quiz") {
       if (landing.outcome.correct) soundAdapter.playRight();
@@ -340,11 +503,10 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
           playerName,
           question: landing.question,
           correct: landing.outcome.correct,
-          amount: formatMoney(landing.outcome.amount.amount, context.content.currency),
+          amount: money(landing.outcome.amount.amount),
         },
       });
-      await waitForModal(generation);
-      return generation === cpuLoopGeneration;
+      return show("quiz", "cpu-quiz");
     }
 
     if (landing.type === "money") {
@@ -355,12 +517,11 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
           kind: "money-event",
           playerName,
           event: landing.outcome.event,
-          amount: formatMoney(landing.outcome.amount.amount, context.content.currency),
+          amount: money(landing.outcome.amount.amount),
           gained: landing.outcome.gained,
         },
       });
-      await waitForModal(generation);
-      return generation === cpuLoopGeneration;
+      return show("money-event", "money-event");
     }
 
     if (landing.type === "card") {
@@ -381,7 +542,33 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
           arrivalPrize: landing.type === "destination" ? landing.outcome.prize : null,
         },
       });
-      await waitForModal(generation);
+      // 到着そのものは盤面全体の見せ場、ただの寄り道は本人だけの出来事。
+      if (!(await show(landing.type === "destination" ? "destination-arrival" : "purchase", "cpu-city"))) return false;
+
+      // 独占した町があれば、続けて知らせる。
+      const gained = newMonopoly(context, sessionBefore, result.session, actor.id);
+      if (gained) {
+        soundAdapter.playFanfare();
+        set({ ui: { kind: "monopoly", playerName, cityId: gained } });
+        if (!(await show("monopoly", "monopoly"))) return false;
+      }
+
+      // **目的地に着いたら、次の区間の案内を誰の手番でも出す。**
+      // ここが無かったため、CPUが着いたときは目的地が入れ替わったことも、
+      // 厄災の神が誰に憑いたのかも画面に出ないままだった。
+      if (landing.type === "destination") {
+        set({
+          ui: {
+            kind: "next-leg",
+            firstTimeSpiritAppearance: landing.outcome.firstTimeSpiritAppearance,
+            spiritHolderId: landing.outcome.spiritHolderId,
+            onCpuTurn: true,
+            arrivedBy: playerName,
+            prize: money(landing.outcome.prize),
+          },
+        });
+        if (!(await show("new-destination", "next-leg"))) return false;
+      }
       return generation === cpuLoopGeneration;
     }
 
@@ -389,24 +576,23 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
   }
 
   /**
-   * CPUの結果モーダルを一定時間表示する。プレイヤーが閉じた(= uiが別の状態に
-   * 変わった)場合は待たずに進み、待たされ続けないようにする。
-   */
-  /**
-   * CPUの手番で出るモーダルのうち、**プレイヤーに決めることが無いもの。**
+   * CPUの手番のあいだ、CPUループが**自分で出して自分で畳む**画面。
    *
-   * 町とクイズは前から自動で閉じていたが、**出来事(青・赤マス)**は
-   * `waitForModal` を呼んでいるのに**待つ対象に入っていなかった**ので、
-   * すぐ抜けて押すまで残っていた。CPU2人・12ヶ月だと、決めることが無いのに
-   * 押させる回数がかなりの数になる、という報告が出た。
-   *
-   * 厄災(`doom`)はここに入れない。**CPUの手番ではモーダルを出さず音だけ**で、
-   * `doom` が出るのは人間の手番だけだから。
+   * ここに入っているものは、押さなくても一定時間で送られる。
+   * 押せばその場で飛ばせる(`dismissCpuModal`)。
    *
    * **人間の手番では自動で閉じない。**そちらは自分に起きたことなので、
    * 読み終えてから進めたい。ここに入るのはCPUの手番のあいだだけ。
+   *
+   * ## 厄災(`doom`)を入れた理由
+   *
+   * 以前は「CPUの手番ではモーダルを出さず音だけ」だったので、この一覧に
+   * 入れる必要が無かった。**いまは出す。**厄災の神が誰に憑いていて何を
+   * したのかは盤面の読みに直に効くのに、CPUに落ちた災難は記録を読まないと
+   * 分からなかった(実プレイの記録 2026-09-02)。本人以外の手番なので
+   * 短い自動送りのカードにする(`reveal-class.ts` の `personal`)。
    */
-  const CPU_AUTO_CLOSE = ["cpu-city", "cpu-quiz", "money-event"] as const;
+  const CPU_AUTO_CLOSE = ["cpu-city", "cpu-quiz", "money-event", "doom", "monopoly", "next-leg", "settlement"] as const;
 
   function isCpuAutoClose(kind: string): boolean {
     return (CPU_AUTO_CLOSE as readonly string[]).includes(kind);
@@ -415,7 +601,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
   /**
    * **CPUループが自分で出した画面。**手番を人間に返すとき、片付けてよいのはこれだけ。
    *
-   * 結果モーダル(`cpu-city`・`cpu-quiz`・`money-event`)はCPUの手番の終わりに
+   * 結果モーダル(`cpu-city`・`cpu-quiz`・`money-event` など)はCPUの手番の終わりに
    * `cpu-turn` へ畳んであるので、ここには入れない。とくに `money-event` は
    * **人間の手番でも同じ `kind`** を使うため、入れると人間の画面まで消してしまう。
    */
@@ -438,14 +624,19 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     }
   }
 
-  async function waitForModal(generation: number): Promise<void> {
+  /**
+   * いま出している画面を `ms` のあいだ置く。プレイヤーが閉じたら待たずに進む。
+   * 戻り値がfalseなら、途中でループが中断された。
+   */
+  async function holdModal(generation: number, kind: string, ms: number): Promise<boolean> {
     const step = 100;
-    for (let waited = 0; waited < CPU_TIMING.resultModal; waited += step) {
+    for (let waited = 0; waited < ms; waited += step) {
       await delay(step);
-      if (generation !== cpuLoopGeneration) return;
+      if (generation !== cpuLoopGeneration) return false;
       // プレイヤーが自分で閉じたら、待たずに進む。
-      if (!isCpuAutoClose(get().ui.kind)) return;
+      if (get().ui.kind !== kind) return true;
     }
+    return generation === cpuLoopGeneration;
   }
 
   function finishHumanLandingAndAdvance() {
@@ -474,6 +665,9 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     const adv = advanceTurn(context, current, random);
     current = adv.session;
     if (adv.season) soundAdapter.playChime();
+    // 決算は月替わりの**あと**に出す(月替わりを閉じたら `dismissSeasonModal` が拾う)。
+    pendingSettlement =
+      adv.quarterlySettlement.length > 0 ? { rows: adv.quarterlySettlement, month: current.month } : null;
     set((s) => {
       const extra: LogEntry[] = [];
       if (adv.season) extra.push(logEntry("seasonLog", [adv.season.emoji, adv.season.name], "gold"));
@@ -486,12 +680,32 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     });
 
     if (isOver(current)) {
+      // 旅が終わったら決算は出さない。持ち越すと、次の旅の途中で
+      // 前の旅の決算が出てくる。
+      pendingSettlement = null;
       const outcome = endGame(context, current);
       set({ session: outcome.session, ui: { kind: "game-over", outcome } });
       return;
     }
+    if (!adv.season && pendingSettlement) {
+      const next = pendingSettlement;
+      pendingSettlement = null;
+      soundAdapter.playCoin();
+      set({ ui: { kind: "settlement", ...next } });
+      saveGame(gameRepository, current);
+      return;
+    }
     saveGame(gameRepository, current);
     if (!adv.season) void runCpuLoopIfNeeded();
+  }
+
+  /** 着地したマスが、どの種類の出来事にあたるか(`reveal-class.ts` の表を引く鍵)。 */
+  function landingRevealKind(session: GameSession, node: ReturnType<GameEngineContext["getNode"]>): RevealEventKind {
+    if (isCityNode(node)) return node.cityId === session.destination ? "destination-arrival" : "purchase";
+    if (node.type === "quiz") return "quiz";
+    if (node.type === "blue" || node.type === "red") return "money-event";
+    if (node.type === "card") return "card";
+    return "quiet";
   }
 
   function resolveLandingForHuman(landedNodeId: NodeId) {
@@ -500,6 +714,26 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     const player = currentPlayer(session);
     const node = context.getNode(landedNodeId);
     const money = (amount: number) => formatMoney(amount, context.content.currency);
+
+    // **止めて見せるか、返事だけ返すかは `reveal-class.ts` の表が決める。**
+    // CPUループ(`showCpuLanding`)と同じ表を、人間の着地でもここで引く。
+    // 分岐を両側に書き散らすと、また「CPUの到着だけ何も出ない」ような穴が空く。
+    if (revealModeFor(landingRevealKind(session, node), { isOwnTurn: true }) === "none") {
+      // 何も起きないマス。**出来事にはしない。返事だけ返す。**
+      // 短い汽笛・駒の小さなバウンド・0.8秒の車窓の一言だけで、
+      // `ui` は動かさずそのまま手番を終える。
+      soundAdapter.playWhistle();
+      set((s) => ({
+        arrivalBeat: {
+          nonce: (s.arrivalBeat?.nonce ?? 0) + 1,
+          playerId: player.id,
+          nodeId: landedNodeId,
+          note: windowNoteFor(node),
+        },
+      }));
+      finishHumanLandingAndAdvance();
+      return;
+    }
 
     if (isCityNode(node) && node.cityId === session.destination) {
       const arrival = arriveAtDestination(context, session, player.id, random);
@@ -511,6 +745,8 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
       pendingNextLeg = {
         firstTimeSpiritAppearance: arrival.firstTimeSpiritAppearance,
         spiritHolderId: arrival.spiritHolderId,
+        arrivedBy: player.name,
+        prize: money(arrival.prize),
       };
       openCityModal(node.cityId, arrival.prize);
       return;
@@ -547,7 +783,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
           kind: "money-event",
           playerName: player.name,
           event: outcome.event,
-          amount: formatMoney(outcome.amount.amount, context.content.currency),
+          amount: money(outcome.amount.amount),
           gained: outcome.gained,
         },
       }));
@@ -571,6 +807,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
       openCityModal(node.cityId, null);
       return;
     }
+
     finishHumanLandingAndAdvance();
   }
 
@@ -584,7 +821,11 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     finishHumanLandingAndAdvance,
     resolveLandingForHuman,
     dismissSeasonModal,
+    dismissSettlement,
+    dismissMonopoly,
+    clearArrivalBeat,
     closeCityModal,
     dismissNextLeg,
+    notePurchase,
   };
 }

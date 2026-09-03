@@ -9,6 +9,7 @@ import { DiceStage } from "./hud/dice-stage";
 import { DestinationCard, ItemBar, PlayersPanel, TravelLog } from "./hud/side-panel";
 import { LogToast } from "./hud/log-toast";
 import { BoardStatus } from "./hud/board-status";
+import { CalendarStrip } from "./hud/calendar-strip";
 import { LocaleSwitch } from "./hud/locale-switch";
 import { MusicToggle } from "./hud/music-toggle";
 import { IntroModal } from "./modals/intro-modal";
@@ -20,6 +21,9 @@ import { MoneyEventModal } from "./modals/money-event-modal";
 import { DoomModal } from "./modals/doom-modal";
 import { SeasonModal } from "./modals/season-modal";
 import { NextLegModal } from "./modals/next-leg-modal";
+import { SettlementModal } from "./modals/settlement-modal";
+import { MonopolyModal } from "./modals/monopoly-modal";
+import { WindowNoteCaption } from "./modals/window-note";
 import { QuizModal } from "./modals/quiz-modal";
 import { QuizResultModal } from "./modals/quiz-result-modal";
 import { CityModal } from "./modals/city-modal";
@@ -50,6 +54,10 @@ export function GameScreen() {
   const dismissCpuModal = useGameStore((s) => s.dismissCpuModal);
   const dismissMoneyEvent = useGameStore((s) => s.dismissMoneyEvent);
   const dismissDoom = useGameStore((s) => s.dismissDoom);
+  const dismissSettlement = useGameStore((s) => s.dismissSettlement);
+  const dismissMonopoly = useGameStore((s) => s.dismissMonopoly);
+  const arrivalBeat = useGameStore((s) => s.arrivalBeat);
+  const clearArrivalBeat = useGameStore((s) => s.clearArrivalBeat);
   const dismissQuizResult = useGameStore((s) => s.dismissQuizResult);
   const diceRoll = useGameStore((s) => s.diceRoll);
   const walk = useGameStore((s) => s.walk);
@@ -97,6 +105,10 @@ export function GameScreen() {
             キーボードからも操作できる必要があるため tabIndex を与える
             (中の操作要素が全て無効なとき、ここに辿り着けなくなるのを防ぐ)。 */}
         <aside tabIndex={0} aria-label={t("travelers")}>
+          {/* 12ヶ月で終わる遊びなのに、盤面の画面には今が何月かが出ていなかった
+              (季節のカードから逆算するしかなかった)。終わりが見えることが
+              終盤の緊張を作るので、手番パネルの上に常に置く。 */}
+          <CalendarStrip session={session} />
           <DestinationCard context={context} session={session} />
           <DiceButton
             session={session}
@@ -123,6 +135,17 @@ export function GameScreen() {
           遊んでいる最中は目に入らない)。出す行は絞ってある。log-toast.tsx 参照。 */}
       <LogToast log={log} session={session} />
 
+      {/* 何も起きないマスに止まったときの返事。0.8秒で自分から消える。
+          出来事ではないので、手番も画面も止めない。 */}
+      {arrivalBeat && (
+        <WindowNoteCaption
+          context={context}
+          note={arrivalBeat.note}
+          nonce={arrivalBeat.nonce}
+          onDone={clearArrivalBeat}
+        />
+      )}
+
       {/* 「出目を選べる」アイテムは、選ぶ画面を出さないと持ち物が消えるだけになる。 */}
       {ui.kind === "exact-dice" && <ExactDiceModal onChoose={chooseExactDiceValue} />}
       {ui.kind === "saved" && <SavedModal onClose={dismissSavedModal} />}
@@ -148,13 +171,29 @@ export function GameScreen() {
       )}
       {ui.kind === "doom" && (
         <DoomModal
+          context={context}
           playerName={ui.playerName}
           countryId={context.content.id}
           flavor={ui.flavor}
+          outcome={ui.outcome}
           spiritEmoji={context.content.spirit.emoji}
           wasKing={ui.wasKing}
-          onClose={dismissDoom}
+          onCpuTurn={ui.onCpuTurn}
+          onClose={ui.onCpuTurn ? dismissCpuModal : dismissDoom}
         />
+      )}
+      {/* 四半期の決算。全員ぶんを1枚で見せる(誰の手番でも出る見せ場)。 */}
+      {ui.kind === "settlement" && (
+        <SettlementModal
+          context={context}
+          session={session}
+          rows={ui.rows}
+          month={ui.month}
+          onClose={dismissSettlement}
+        />
+      )}
+      {ui.kind === "monopoly" && (
+        <MonopolyModal context={context} playerName={ui.playerName} cityId={ui.cityId} onClose={dismissMonopoly} />
       )}
       {ui.kind === "money-event" && (
         <MoneyEventModal
@@ -173,6 +212,9 @@ export function GameScreen() {
           session={session}
           firstTimeSpiritAppearance={ui.firstTimeSpiritAppearance}
           spiritHolderId={ui.spiritHolderId}
+          onCpuTurn={ui.onCpuTurn}
+          arrivedBy={ui.arrivedBy}
+          prize={ui.prize}
           onContinue={dismissNextLeg}
         />
       )}
