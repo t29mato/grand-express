@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
-import { SIZES } from "./board-metrics";
+import {
+  CITY_GLYPH_BASE_UNITS,
+  CITY_GLYPH_MAX_SCALE,
+  SIZES,
+  cityFootprint,
+  cityGlyphUnits,
+} from "./board-metrics";
 
 /**
  * ユーザーからの報告:「マスを微妙に外すと**何も起きない**」。
@@ -42,5 +48,64 @@ describe("マスの当たり", () => {
     expect(view, "当たり用の円が消えている。マスを少し外すと無反応に戻る").toContain(
       'r={SIZES.hitRadius} fill="transparent"',
     );
+  });
+});
+
+/**
+ * 都市の印(その土地を表す小さな絵)の大きさ。
+ *
+ * 「地図を見ても、その土地が何で知られているのか分からない」という指摘を受けて、
+ * 寄っているあいだは画面上で一定の大きさに近づけるようにした。実測は
+ * 追従の眺めで 茨城 30.6px / 日本 21.2px / 世界一周 14.6px(1600×1000)——
+ * **都市が詰まった盤面ほど小さく**、絵柄がいちばん要る場面で読めなかった。
+ *
+ * ただし**引いたときには大きくしない。** 全体表示で試したら、印は
+ * 9.8→14.7px にしかならず(都市どうしの間隔が13.9〜36.1pxしかないので
+ * それ以上は上げられない)絵柄はやはり判別できないのに、
+ * **全部読めていた都市名が30→25件に減った。**読めない絵のために
+ * 読めていた名前を捨てることになる。だから引いたら元の大きさへ戻す。
+ */
+describe("都市の印の大きさ", () => {
+  /** 全体表示に近い引き具合(視野幅が盤面幅とほぼ同じ)。 */
+  const WHOLE = 1;
+  /** 遊んでいるときの引き具合(`FOLLOW_WIDTH_RATIO` = 0.45)。 */
+  const FOLLOW = 0.45;
+
+  it("全体表示では元の大きさのまま(都市名の置き場所を奪わない)", () => {
+    for (const unitsPerPx of [0.5, 1, 2.3, 3.2, 3.7]) {
+      expect(cityGlyphUnits(unitsPerPx, WHOLE)).toBe(CITY_GLYPH_BASE_UNITS);
+    }
+  });
+
+  it("寄っているあいだは大きくなるが、元の1.5倍を超えない", () => {
+    // 世界一周の追従の実測値(unitsPerPx ≒ 1.64)。上限に当たる。
+    expect(cityGlyphUnits(1.64, FOLLOW)).toBe(CITY_GLYPH_BASE_UNITS * CITY_GLYPH_MAX_SCALE);
+    for (const unitsPerPx of [0.3, 0.75, 1.06, 1.64, 5]) {
+      const units = cityGlyphUnits(unitsPerPx, FOLLOW);
+      expect(units).toBeGreaterThanOrEqual(CITY_GLYPH_BASE_UNITS);
+      expect(units).toBeLessThanOrEqual(CITY_GLYPH_BASE_UNITS * CITY_GLYPH_MAX_SCALE);
+    }
+  });
+
+  // **型が通ることは動く証拠にならない。** 盤面の縮尺は枠の実寸が測れるまで
+  // 決まらず、その数フレームは 0 や Infinity が流れてくる。素通しすると
+  // y・font-size・stroke-width が NaN になり、盤面が海だけになる(実際に起きた)。
+  it("縮尺がまだ決まっていなくても、NaN を作らない", () => {
+    for (const bad of [0, -1, NaN, Infinity, -Infinity]) {
+      expect(Number.isFinite(cityGlyphUnits(bad, FOLLOW))).toBe(true);
+      expect(cityGlyphUnits(bad, FOLLOW)).toBeGreaterThan(0);
+    }
+    for (const bad of [NaN, Infinity, -Infinity]) {
+      expect(Number.isFinite(cityGlyphUnits(1.06, bad))).toBe(true);
+    }
+    const box = cityFootprint(NaN);
+    for (const v of Object.values(box)) expect(Number.isFinite(v)).toBe(true);
+  });
+
+  it("印の矩形は、印の実寸に合わせて広がる(名札が絵の上に乗らないように)", () => {
+    const small = cityFootprint(CITY_GLYPH_BASE_UNITS);
+    const large = cityFootprint(CITY_GLYPH_BASE_UNITS * 1.5);
+    expect(large.top).toBeLessThan(small.top);
+    expect(large.right).toBeGreaterThan(small.right);
   });
 });

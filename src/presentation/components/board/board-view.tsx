@@ -10,7 +10,7 @@ import { useCamera } from "../../hooks/use-camera";
 import { useLocale } from "../../i18n/locale-context";
 import { estimateWidthEm, useCityLabels } from "../../hooks/use-city-labels";
 import { routePolylines, shortestPath } from "./destination-route";
-import { SIZES } from "./board-metrics";
+import { SIZES, cityGlyphUnits } from "./board-metrics";
 import { hauntedPlayerId } from "./spirit-rider";
 import { TrainToken } from "./train-token";
 import { tokenPlacements } from "./token-layout";
@@ -421,15 +421,56 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
   }, []);
 
   // 盤面座標1単位あたりの画面px。これでラベルを画面上で一定サイズに保つ。
-  const unitsPerPx = viewportWidthPx > 0 ? camera.w / viewportWidthPx : 0;
+  const unitsPerPx = viewportWidthPx > 0 && Number.isFinite(camera.w) ? camera.w / viewportWidthPx : 0;
   // ズーム中に毎フレーム再配置しないよう、文字サイズは0.5単位に丸めてから使う。
-  const labelFontUnits = Math.round(LABEL_FONT_PX * unitsPerPx * 2) / 2;
+  // **有限でない値をここから先へ流さない。** 枠の実寸が測れるまでの数フレーム、
+  // カメラの幅が Infinity になることがあり(`use-camera` が Math.min/max で
+  // 空の候補を畳む瞬間)、そのまま渡すと font-size と stroke-width が NaN になって
+  // 名札が消える。実際に開発サーバのログへ
+  // 「Received NaN for the fontSize attribute」が出ていた。
+  const rawFontUnits = Math.round(LABEL_FONT_PX * unitsPerPx * 2) / 2;
+  const labelFontUnits = Number.isFinite(rawFontUnits) && rawFontUnits > 0 ? rawFontUnits : 0;
+  /**
+   * 都市の印(その土地を表す小さな絵)の一辺。
+   * 寄るほど画面上で一定の大きさに近づき、引くと元の大きさで止まる
+   * (`board-metrics.ts` に理由と実測値)。
+   */
+  const glyphUnits = cityGlyphUnits(unitsPerPx, boardWidth > 0 ? camera.w / boardWidth : 1);
+
+  /**
+   * **一言(`City.tag`)を出す町。いつ出すかがこの表示の要。**
+   *
+   * 全部の町に常時出すと地図が文字だらけになる(茨城の全体表示では
+   * 都市名30件が全部出ており、そこへ一言を足すと文字量が3倍になる)。
+   * かといって印の絵柄だけでは「何で知られている土地か」は伝わらない
+   * ——全体表示では印は9.8pxしかなく、絵柄は判別できない(実測)。
+   *
+   * そこで**いま関係のある町にだけ**出す。関係があるのは3つ:
+   *   1. 目的地       … そこへ向かっている
+   *   2. いま居る町   … 着いたばかりの場所
+   *   3. 行き先の候補 … これから選ぶ町
+   * 順番はそのまま優先順で、置き場所が足りなければ後ろから落ちる
+   * (置けるかどうかの判定は名札と同じ当たり判定。名前を押しのけてまでは出さない)。
+   */
+  const tagCityIds = useMemo(() => {
+    const ids: CityId[] = [session.destination];
+    const here = context.getNode(activeLocation);
+    if (isCityNode(here)) ids.push(here.cityId);
+    for (const id of orderedCandidates) {
+      const node = context.getNode(id);
+      if (isCityNode(node)) ids.push(node.cityId);
+    }
+    return [...new Set(ids)];
+  }, [session.destination, context, activeLocation, orderedCandidates]);
+
   const labelPlacements = useCityLabels({
     context,
     positions,
     fontUnits: labelFontUnits,
     locale,
     destination: session.destination,
+    glyphUnits,
+    tagCityIds,
   });
 
   // 盤面のドラッグによる手動パン(現行コードの `pointerdown`/`pointermove` 実装の移植)。
@@ -881,6 +922,7 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
                   {isCityNode(node) ? (
                     <CityMarker
                       glyphSvg={context.content.artGlyphs[context.getCity(node.cityId).artGlyphKey] ?? ""}
+                      glyphUnits={glyphUnits}
                       isDestination={isDestination}
                       ownership={ownershipByCity.get(node.cityId)}
                     />
@@ -939,7 +981,10 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
             return (
               <text
                 key={cityId}
-                className={`city-label${isDestination ? " dest" : ""}`}
+                /* 一言が付いている町の名前は、行き先を選んでいる間も沈めない。
+                   名前を沈めたまま一言だけを明るく出すと、**その町の名前より
+                   説明のほうが目立つ**という逆さまな見え方になる(撮って気づいた)。 */
+                className={`city-label${isDestination ? " dest" : ""}${placement.tag ? " tagged" : ""}`}
                 x={at.x + placement.dx}
                 y={at.y + placement.dy}
                 textAnchor={placement.anchor}
@@ -951,8 +996,51 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
             );
           })}
         </g>
+        {/*
+          町の「一言」。**名札とは別のレイヤーにする。**
+          行き先を選んでいるあいだ `.city-labels` は 0.3 まで沈めているが、
+          一言がいちばん要るのはまさにその瞬間(どの町へ行くかを選ぶとき)なので、
+          同じ層に入れると沈んで読めなくなる。
+          置き場所は `use-city-labels` が名札と同じ当たり判定で決めている
+          (空いていない町には `tag` が付かないので、ここには出てこない)。
+        */}
+        <g className="city-tags" style={{ pointerEvents: "none" }} aria-hidden="true">
+          {[...labelPlacements.entries()].map(([cityId, placement]) => {
+            const tag = placement.tag;
+            if (!tag || !(tag.fontUnits > 0)) return null;
+            const at = positions.get(cityIdToNodeId(cityId));
+            if (!at) return null;
+            const x = at.x + tag.dx;
+            const y = at.y + tag.dy;
+            // 下敷きの札。一言は中間マスの上に重なるので、これが無いと
+            // マスや線路の柄に紛れて読めない(「残り◯」の札と同じ考え方)。
+            const padX = tag.fontUnits * 0.45;
+            const padY = tag.fontUnits * 0.32;
+            const plateX =
+              tag.anchor === "middle" ? x - tag.widthUnits / 2 : tag.anchor === "end" ? x - tag.widthUnits : x;
+            return (
+              <g key={cityId} className={`city-tag${cityId === session.destination ? " dest" : ""}`}>
+                <rect
+                  x={plateX - padX}
+                  y={y - tag.fontUnits * 0.82 - padY}
+                  width={tag.widthUnits + padX * 2}
+                  height={tag.fontUnits * 1.06 + padY * 2}
+                  rx={tag.fontUnits * 0.55}
+                />
+                <text x={x} y={y} textAnchor={tag.anchor} fontSize={tag.fontUnits}>
+                  {tx(context.getCity(cityId).tag)}
+                </text>
+              </g>
+            );
+          })}
+        </g>
       </svg>
-      <BoardLegend currency={context.content.currency} />
+      <BoardLegend
+        currency={context.content.currency}
+        /* 凡例に見せる印は、いま向かっている町のもの。作り物ではなく
+           地図に出ている絵をそのまま出したほうが、何の話か早く伝わる。 */
+        markGlyphSvg={context.content.artGlyphs[context.getCity(session.destination).artGlyphKey]}
+      />
       <BoardCompass />
       {/* 全体表示に入っているかどうかが見た目で分かるようにする(F-15)。
           絵柄・名前・ON/OFF の札のどれもが状態で変わる。
@@ -1037,21 +1125,26 @@ interface CityOwnership {
 
 function CityMarker({
   glyphSvg,
+  glyphUnits,
   isDestination,
   ownership,
 }: {
   glyphSvg: string;
+  /** 印の一辺(盤面座標の単位)。縮尺で変わるので呼び出し側が渡す。 */
+  glyphUnits: number;
   isDestination: boolean;
   ownership?: CityOwnership;
 }) {
-  const scale = SIZES.cityGlyphScale;
-  const glyphWidth = 24 * scale;
+  // **ここでもNaNを止める。** 渡ってくる値がおかしくても、盤面は消えずに
+  // 元の大きさで描かれるほうがよい(前にNaNが流れて海だけになったことがある)。
+  const glyphWidth = Number.isFinite(glyphUnits) && glyphUnits > 0 ? glyphUnits : 24 * SIZES.cityGlyphScale;
+  const scale = glyphWidth / 24;
 
   return (
     <>
       <ellipse cx={0} cy={2} rx={SIZES.cityShadowRx} ry={SIZES.cityShadowRy} fill="#0e1626" opacity={0.35} />
       <g
-        transform={`translate(${-glyphWidth / 2},${-6 - 24 * scale}) scale(${scale})`}
+        transform={`translate(${-glyphWidth / 2},${-6 - glyphWidth}) scale(${scale})`}
         stroke="#241a10"
         strokeWidth={0.75}
         strokeLinejoin="round"

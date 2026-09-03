@@ -28,7 +28,18 @@ const SQUARE_QUIZ_COLOR = "#f5b31c";
  * 以前は単に非表示にしていたが、それだと**スマホで遊ぶ人は凡例を一度も
  * 見られない**(いちばん説明を必要とする人に届かない)。
  */
-export function BoardLegend({ currency }: { currency: CurrencyFormat }) {
+export function BoardLegend({
+  currency,
+  markGlyphSvg,
+}: {
+  currency: CurrencyFormat;
+  /**
+   * 凡例に見せる**この盤面の実物の印**(いま向かっている町のシンボル)。
+   * 作り物の絵を置くより、地図に出ている絵をそのまま見せたほうが早い。
+   * 渡らなければ丸いチップで代用する(試験や、絵の無い盤面のため)。
+   */
+  markGlyphSvg?: string;
+}) {
   const { t } = useLocale();
   const [open, setOpen] = useState(false);
   const hint = usePressHint<HTMLButtonElement>({ onClick: () => setOpen((v) => !v) });
@@ -39,12 +50,15 @@ export function BoardLegend({ currency }: { currency: CurrencyFormat }) {
     currency,
   )}`;
 
-  const rows: readonly { color: string; label: string; town?: boolean }[] = [
+  const rows: readonly { color: string; label: string; town?: boolean; mark?: boolean }[] = [
     { color: SQUARE_QUIZ_COLOR, label: t("legendQuiz", quizRange) },
     { color: "#5b8fe8", label: t("legendBlue") },
     { color: "#e05252", label: t("legendRed") },
     { color: "#7c7469", label: t("legendQuiet") },
     { color: "#f6efe2", label: t("townSq"), town: true },
+    // マスの話ではないので最後に置く。町の丸のすぐ下に来るので、
+    // 「町」→「町に添えた絵と一言」と読み下せる。
+    { color: "transparent", label: t("legendMark"), mark: true },
   ];
 
   return (
@@ -73,15 +87,28 @@ export function BoardLegend({ currency }: { currency: CurrencyFormat }) {
       </button>
       <div id="board-legend" className={`board-legend${open ? " open" : ""}`}>
         <div className="board-legend-title">{t("legendTitle")}</div>
-        {rows.map((row) => (
-          <div className="board-legend-row" key={row.label}>
-            <span
-              className={`board-legend-chip${row.town ? " town" : ""}`}
-              style={{ background: row.color }}
-            />
-            <span>{row.label}</span>
-          </div>
-        ))}
+        {rows.map((row) =>
+          row.mark && markGlyphSvg ? (
+            <div className="board-legend-row" key={row.label}>
+              {/* 盤面に出ているのと同じ絵。24×24で描かれているグリフをそのまま縮める。 */}
+              <svg
+                className="board-legend-mark"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                dangerouslySetInnerHTML={{ __html: markGlyphSvg }}
+              />
+              <span>{row.label}</span>
+            </div>
+          ) : (
+            <div className="board-legend-row" key={row.label}>
+              <span
+                className={`board-legend-chip${row.town ? " town" : ""}${row.mark ? " mark" : ""}`}
+                style={{ background: row.color }}
+              />
+              <span>{row.label}</span>
+            </div>
+          ),
+        )}
       </div>
     </div>
   );

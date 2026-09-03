@@ -146,7 +146,20 @@ export function useCamera({ boardWidth, boardHeight, viewportAspect }: UseCamera
   useEffect(() => stopAnimation, [stopAnimation]);
 
   const viewBoxHeight = camera.w / aspect;
-  const viewBox = `${camera.x.toFixed(1)} ${camera.y.toFixed(1)} ${camera.w.toFixed(1)} ${viewBoxHeight.toFixed(1)}`;
+  // **数でない値を viewBox に流さない。**
+  //
+  // 全体表示に切り替えた瞬間、ブラウザのコンソールに
+  // `<svg> attribute viewBox: Expected number, "NaN Infinity NaN …"` が出ていた。
+  // 枠がまだ測れていない一瞬は `viewportAspect` が 0 で、盤面の縦横も
+  // 揃っていない場合に `boardWidth / boardHeight` が NaN や Infinity になる。
+  // 描かれないだけなので目には見えないが、コンソールに残ると
+  // 本物の不具合が埋もれる。**その一瞬だけ盤面全体を映しておく。**
+  const box = [camera.x, camera.y, camera.w, viewBoxHeight];
+  const viewBox = box.every(Number.isFinite)
+    ? box.map((n) => n.toFixed(1)).join(" ")
+    : `0 0 ${Number.isFinite(boardWidth) && boardWidth > 0 ? boardWidth : 1000} ${
+        Number.isFinite(boardHeight) && boardHeight > 0 ? boardHeight : 1000
+      }`;
 
   return { camera, viewBox, fitWidth, animateTo, panByPixels, zoomBy, stopAnimation };
 }
