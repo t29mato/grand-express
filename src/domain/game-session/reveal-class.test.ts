@@ -4,6 +4,7 @@ import { REVEAL_CLASS, RevealEventKind, revealClassFor, revealModeFor } from "./
 describe("出来事の見せかたの階級", () => {
   it("盤面全体の見せ場は、誰の手番でも止めて見せる", () => {
     const headlines: RevealEventKind[] = [
+      "arrival-fanfare",
       "destination-arrival",
       "new-destination",
       "spirit-attached",

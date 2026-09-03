@@ -14,9 +14,10 @@ import { stallStockFor, buyStallItem } from "../../application/use-cases/visit-s
 import { applyItemUse } from "../../application/use-cases/use-item/use-item.use-case";
 import { resolveMisfortuneStrike } from "../../application/use-cases/resolve-misfortune-strike/resolve-misfortune-strike.use-case";
 import { loadGame, saveGame } from "../../application/use-cases/save-load-game/save-load-game.use-case";
-import { GameStoreState, SavedGameSummary } from "./game-store-types";
+import { EMPTY_GUIDE, GameStoreState, SavedGameSummary } from "./game-store-types";
 import { contentRepository, gameRepository, random, soundAdapter } from "./game-store-dependencies";
 import { logEntry, pushLog } from "./game-store-log";
+import { updateFinalStretchMusic } from "./final-stretch-music";
 import { prefersReducedMotion, WALK_STEP_MS } from "./motion-preference";
 import { describeStrike } from "./game-store-formatters";
 import { formatMoney } from "../i18n/money-format";
@@ -59,6 +60,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     clearArrivalBeat,
     closeCityModal,
     dismissNextLeg,
+    dismissArrival,
     notePurchase,
   } = createTurnFlowActions(set, get);
 
@@ -78,6 +80,16 @@ export const useGameStore = create<GameStoreState>((set, get) => {
   let pendingRoll: { steps: number; reachable: ReadonlyMap<NodeId, readonly NodeId[]> } | null = null;
 
   /**
+   * 「運ばれる」アイテムで行き先を選んでいる最中の目印。
+   *
+   * サイコロと同じ `choosing-square` の画面を使い回しているので、**選ばれたときに
+   * 「これはサイコロではなくアイテムだった」ことが分からなくなる。**駒に乗せる
+   * 絵文字と、旅の記録に出す「◯マス運ばれて◯◯に着地」の行に要るので、
+   * 使った時点でここに預け、`chooseSquare` が受け取って使い切る。
+   */
+  let pendingCarry: { emoji: string | null; steps: number } | null = null;
+
+  /**
    * いまの手番の人のサイコロを実際に振る。
    *
    * **災難のモーダルを閉じたあとも、ここから直に振る。**
@@ -94,6 +106,10 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     const { context, session } = get();
     if (!context || !session) return;
     const player = currentPlayer(session);
+    // 「はじめて」の人の手番の数を数える(1行ガイドを出すのは最初の3手番だけ)。
+    if (!player.isCpu && player.knowledgeLevel === "newcomer") {
+      set((s) => ({ guide: { ...s.guide, turnsRolled: s.guide.turnsRolled + 1 } }));
+    }
     const steps = rollOneDie(random);
     const reachable = reachableNodesFor(context, session, player.id, steps);
     beginRoll(steps, reachable, [steps]);
@@ -184,6 +200,7 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     diceRoll: null,
     walk: null,
     arrivalBeat: null,
+    guide: EMPTY_GUIDE,
     savedGame: null,
 
     async startNewGame(config) {
@@ -199,8 +216,9 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       resetDecks(content);
       // legacyのstartGame()と同様、出発ストーリーのモーダル(intro)をまず表示し、
       // それを閉じてから(dismissIntro経由で)CPUの自動進行を開始する。
-      set({ context, session, ui: { kind: "intro" }, log: [logEntry("newJourneyLog", [], "gold")] });
+      set({ context, session, ui: { kind: "intro" }, log: [logEntry("newJourneyLog", [], "gold")], guide: EMPTY_GUIDE });
       await soundAdapter.setCountry(config.countryId);
+      updateFinalStretchMusic(session);
       soundAdapter.setRegion(context.getNode(currentPlayer(session).location).regionId);
       saveGame(gameRepository, session);
     },
@@ -216,9 +234,11 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const content = await contentRepository.load(saved.countryId);
       const context = createGameEngineContext(content);
       resetDecks(content);
-      set({ context, session: saved, ui: { kind: "idle" }, log: [logEntry("resumed", [], "gold")] });
+      set({ context, session: saved, ui: { kind: "idle" }, log: [logEntry("resumed", [], "gold")], guide: EMPTY_GUIDE });
       await soundAdapter.setCountry(saved.countryId);
       soundAdapter.setRegion(context.getNode(currentPlayer(saved).location).regionId);
+      // 途中から再開したときは、もう終盤かもしれない。
+      updateFinalStretchMusic(saved);
       runCpuLoopIfNeeded();
     },
 
@@ -251,8 +271,18 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       // 旅が終わったので、その国のBGMもここで終わりにする(ミュート設定は変えない)。
       // セットアップ画面のテーマ曲は、次に何か操作されたときに鳴り始める。
       soundAdapter.stopMusic();
+      updateFinalStretchMusic(null);
       pendingRoll = null;
-      set({ context: null, session: null, ui: { kind: "setup" }, log: [], diceRoll: null, arrivalBeat: null });
+      pendingCarry = null;
+      set({
+        context: null,
+        session: null,
+        ui: { kind: "setup" },
+        log: [],
+        diceRoll: null,
+        arrivalBeat: null,
+        guide: EMPTY_GUIDE,
+      });
     },
 
     cancelCpuLoop,
@@ -309,7 +339,26 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       if (get().walk) return;
       const path = ui.reachable.get(nodeId);
       if (!path) return;
-      void walkAlongPath(path);
+
+      // 「運ばれる」アイテムで選んだ先なら、駒にそのアイテムを乗せて運び、
+      // 着いてから「◯マス運ばれて◯◯に着地」を記録に出す(サイコロと区別する)。
+      const carry = pendingCarry;
+      pendingCarry = null;
+      if (!carry) {
+        void walkAlongPath(path);
+        return;
+      }
+      const player = currentPlayer(session);
+      const landing = context.getNode(nodeId);
+      void walkAlongPath(path, {
+        carriedEmoji: carry.emoji,
+        onArrived: () =>
+          set((s) => ({
+            log: isCityNode(landing)
+              ? pushLog(s, "carriedToLog", [player.name, carry.steps, context.getCity(landing.cityId).name], "gold")
+              : pushLog(s, "carriedLog", [player.name, carry.steps], "gold"),
+          })),
+      });
     },
 
     answerQuizOption(optionIndex) {
@@ -397,6 +446,16 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       // 駒が道のりを歩いているあいだは使わせない(運ばれている最中に
       // もう1つ運ぶアイテムを使うと、経路が二重になる)。
       if (walk) return;
+      // **降りる先をまだ選んでいない運ぶアイテムがあるなら、次は使わせない。**
+      // 選ぶ画面が出ているあいだも持ちもの欄は押せるので、ここを開けておくと
+      // 2枚目のチケットが**1枚目の候補を消すだけで消える**(使って何も
+      // 起きずアイテムだけ失う、いちばん避けたい形)。
+      //
+      // 目印が意味を持つのは**選ぶ画面が出ているあいだだけ。**
+      // 画面が別のものに変わっていたら、その旅の残りかすなので捨てる
+      // (残したままにすると、以後アイテムが一切使えなくなる)。
+      if (get().ui.kind !== "choosing-square") pendingCarry = null;
+      else if (pendingCarry) return;
       const player = currentPlayer(session);
       // 使用したアイテムはこの後インベントリから消えるため、先に控えておく。
       const usedItem = context.content.items.find((i) => i.key === player.inventory[index]);
@@ -416,20 +475,22 @@ export const useGameStore = create<GameStoreState>((set, get) => {
       const outcome = result.result;
       switch (outcome.type) {
         case "carried-far": {
-          // 行き先は抽選済み。選ばせずにそのまま運ぶ(向きが選べないのが、このアイテムの肝)。
-          const { steps, path, toNode } = outcome;
-          const landing = context.getNode(toNode);
-          // **何マス進んでどこに着いたかは、着いてから出す。**先に出すと、駒が動き出す前に
-          // 答えが画面に出てしまい、道のりを見る理由が無くなる(サイコロと同じ理屈)。
-          void walkAlongPath(path, {
-            carriedEmoji: usedItem?.emoji ?? null,
-            onArrived: () =>
-              set((s) => ({
-                log: isCityNode(landing)
-                  ? pushLog(s, "carriedToLog", [player.name, steps, context.getCity(landing.cityId).name], "gold")
-                  : pushLog(s, "carriedLog", [player.name, steps], "gold"),
-              })),
-          });
+          /*
+           * **何マス運ばれるかは運任せ、どこへ降りるかは選ばせる。**
+           *
+           * 以前は行き先まで抽選していたので、¥2,400,000 の飛行機のチケットを
+           * 使っても**目的地までの残りが24→23マス、1マスしか縮まらない**ことがあった
+           * (実プレイの記録 2026-09-02)。高い買い物の結果が損に見えると、
+           * 以後アイテムそのものが買われなくなる。
+           *
+           * 選ばせる画面は**サイコロを振ったあとと同じもの**(`choosing-square`)を
+           * 使い回す。候補のマスには v0.61.0 で入った「残り◯」が既に出るので、
+           * どこへ降りると目的地に近づくのかが**選ぶ前に**分かる。
+           * ここで新しい画面を作ると、その表示だけがまた別物になる。
+           */
+          const { steps, destinations } = outcome;
+          pendingCarry = { emoji: usedItem?.emoji ?? null, steps };
+          set({ ui: { kind: "choosing-square", steps, reachable: destinations } });
           break;
         }
         case "rolled": {
@@ -486,7 +547,17 @@ export const useGameStore = create<GameStoreState>((set, get) => {
     dismissMoneyEvent,
     dismissSettlement,
     dismissMonopoly,
+    dismissArrival,
     clearArrivalBeat,
+
+    /**
+     * 1行ガイドを読み飛ばす。**押したら、この旅ではもう出さない。**
+     * 知っている人に同じ一言を出し続けるほうが邪魔なので、消したら戻さない。
+     */
+    dismissGuide() {
+      set((s) => ({ guide: { ...s.guide, dismissed: true, cityHintOpen: false } }));
+    },
+
 
     /**
      * 厄災のモーダルを閉じる。

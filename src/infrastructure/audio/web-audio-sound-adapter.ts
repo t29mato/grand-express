@@ -1,5 +1,5 @@
 import { SoundPort } from "../../application/ports/sound-port";
-import { CountryStyles, RegionStyle, loadCountryStyles } from "./country-music-styles";
+import { CountryStyles, RegionStyle, loadCountryStyles, toFinalStretchStyle } from "./country-music-styles";
 import { TITLE_STYLES, TITLE_STYLE_KEY } from "./title-music-style";
 
 type AudioContextCtor = typeof AudioContext;
@@ -34,6 +34,11 @@ export class WebAudioSoundAdapter implements SoundPort {
   private styleKey: string | null = null;
   private pendingStyleKey: string | null = null;
   private muted = false;
+
+  /** 終盤(残り2ヶ月)に入っているか。入っていると曲を終盤の色に染める。 */
+  private finalStretch = false;
+  /** 終盤に染めた曲の作り置き(地方ごと)。 */
+  private finalStretchStyles = new Map<string, RegionStyle>();
 
   /**
    * いまスケジューラに載っている曲の出どころ。
@@ -223,7 +228,23 @@ export class WebAudioSoundAdapter implements SoundPort {
     const keys = Object.keys(this.styles);
     if (keys.length === 0) return null;
     if (!this.styleKey || !this.styles[this.styleKey]) this.styleKey = keys[0];
-    return this.styles[this.styleKey];
+    const style = this.styles[this.styleKey];
+    if (!this.finalStretch) return style;
+    return this.finalStretchStyleFor(this.styleKey, style);
+  }
+
+  /**
+   * 終盤に染めた曲を作る(1つの地方につき1回だけ作って使い回す)。
+   *
+   * 拍のスケジューラは**1拍ごとに** `currentStyle()` を呼ぶので、
+   * 毎回作り直すと1秒間に何度もオブジェクトを組み立てることになる。
+   */
+  private finalStretchStyleFor(key: string, style: RegionStyle): RegionStyle {
+    const cached = this.finalStretchStyles.get(key);
+    if (cached) return cached;
+    const made = toFinalStretchStyle(style);
+    this.finalStretchStyles.set(key, made);
+    return made;
   }
 
   private schedule(): void {
@@ -291,6 +312,9 @@ export class WebAudioSoundAdapter implements SoundPort {
     this.styles = styles ?? {};
     this.styleKey = null;
     this.pendingStyleKey = null;
+    // 前の旅の終盤で作った染め直しは、次の旅では別の国のものになる。
+    this.finalStretchStyles.clear();
+    this.finalStretch = false;
     this.musicSource = "country";
     this.restartFromBarStart();
   }
@@ -379,6 +403,18 @@ export class WebAudioSoundAdapter implements SoundPort {
     this.start();
     if (!this.styles[regionId] || regionId === this.styleKey || this.pendingStyleKey === regionId) return;
     this.pendingStyleKey = regionId;
+  }
+
+  /**
+   * 終盤(残り2ヶ月)の音楽に切り替える / 戻す。
+   *
+   * **小節の頭を待たない。**地方の曲を差し替えるとき(`setRegion`)は次の小節まで
+   * 待って滑らかに繋ぐが、ここで変えるのは同じ曲の速さと刻みだけなので、
+   * 繋ぎ目は生まれない。むしろ暦の帯が赤くなるのと同じ拍で変わるほうがよい。
+   */
+  setFinalStretch(active: boolean): void {
+    if (this.finalStretch === active) return;
+    this.finalStretch = active;
   }
 
   setMuted(muted: boolean): void {

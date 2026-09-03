@@ -20,6 +20,7 @@ import { GameSession } from "../../domain/game-session/game-session";
 import { GetGameState, LogEntry, SetGameState } from "./game-store-types";
 import { gameRepository, random, soundAdapter } from "./game-store-dependencies";
 import { logEntry, pushLog } from "./game-store-log";
+import { updateFinalStretchMusic } from "./final-stretch-music";
 import { QuizSelector, rollDifficulty } from "../../domain/quiz/quiz-selection-service";
 import { MoneyEventSelector } from "../../domain/board/money-event-selection-service";
 import { MoneyEvent } from "../../domain/board/money-event";
@@ -60,12 +61,43 @@ const REVEAL_TIMING = {
   headline: 5200,
 } as const;
 
+/**
+ * 階級だけでは決められない、出来事ごとの置き時間。
+ *
+ * **到達は2枚に分かれた**(全画面の演出 → 着いた町のカード)。
+ * どちらも見せ場だからと 5200ms ずつ置くと、CPUが目的地に着くたびに
+ * 案内(`next-leg`)まで含めて15秒以上待たされる。
+ * 1枚あたりを詰めて、**合わせて元の1枚+1.2秒**に収める。
+ * どちらも押せばその場で飛ばせる。
+ */
+const HOLD_MS_OVERRIDES: Partial<Record<RevealEventKind, number>> = {
+  "arrival-fanfare": 3200,
+  "destination-arrival": 3200,
+};
+
 function holdMsFor(kind: RevealEventKind): number {
+  const override = HOLD_MS_OVERRIDES[kind];
+  if (override !== undefined) return override;
   return revealClassFor(kind) === "headline" ? REVEAL_TIMING.headline : REVEAL_TIMING.auto;
 }
 
 function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * その到達が、**この旅の一番乗り**か(誰もまだ目的地に着いていなかった)。
+ *
+ * 「その人にとって初めて」ではなく**卓ぜんたいで初めて**にしてある。
+ * 演出側(`modals/arrival-fanfare.tsx`)がこの真偽で華やかさを変えるので、
+ * 1回の旅で1度きりのほうが、その大きい絵が安売りにならない。
+ *
+ * `arriveAtDestination` が `destinationsReached` を1つ増やしたあとの局面を渡すこと
+ * (増やす前の局面を渡すと、初回が0のままで常に false になる)。
+ */
+function isFirstArrivalOfJourney(sessionAfterArrival: GameSession): boolean {
+  const total = sessionAfterArrival.players.reduce((sum, p) => sum + p.stats.destinationsReached, 0);
+  return total === 1;
 }
 
 /**
@@ -89,6 +121,11 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
   } | null = null;
   /** いま独占した町(人間の手番。町のモーダルを閉じたあとに見せる)。 */
   let pendingMonopoly: { playerName: string; cityId: CityId } | null = null;
+  /**
+   * 到達の全画面演出を閉じたあとに開く、着いた町の画面。
+   * 演出のあいだに `ui` から町のIDが読めなくなるので、ここに預けておく。
+   */
+  let pendingArrivalCity: { cityId: CityId; prize: number } | null = null;
   /** 月替わりのモーダルを閉じたあとに見せる、四半期の決算。 */
   let pendingSettlement: { rows: readonly QuarterlySettlementRow[]; month: number } | null = null;
 
@@ -182,7 +219,32 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
   }
 
   function closeCityModal() {
+    // 町の一言(1行ガイド)は、この町を閉じたら役目を終える。
+    set((s) => (s.guide.cityHintOpen ? { guide: { ...s.guide, cityHintOpen: false } } : {}));
     showNextHumanReveal();
+  }
+
+  /**
+   * 到達の全画面演出を閉じる。
+   *
+   * - 人間の手番 … 続けて、着いた町の画面を開く(順番は 到達 → 町 → 次の区間)。
+   * - CPUの手番 … 手番を進めるのはCPUループの仕事なので、待ちを解くだけにする。
+   */
+  function dismissArrival() {
+    if (get().ui.kind !== "arrival") return;
+    const session = get().session;
+    const player = session ? currentPlayer(session) : null;
+    if (player?.isCpu) {
+      set({ ui: { kind: "cpu-turn", playerName: player.name } });
+      return;
+    }
+    const next = pendingArrivalCity;
+    pendingArrivalCity = null;
+    if (!next) {
+      showNextHumanReveal();
+      return;
+    }
+    openCityModal(next.cityId, next.prize);
   }
 
   function dismissNextLeg() {
@@ -385,6 +447,8 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
 
         const adv = advanceTurn(context, afterTurn, random);
         set({ session: adv.session });
+        // 残り2ヶ月に入ったら曲を終盤の色に変える(暦の帯が赤くなるのと同じ月)。
+        updateFinalStretchMusic(adv.session);
         appendLogs(
           adv.quarterlyIncome.map((q) => {
             const name = adv.session.players.find((p) => p.id === q.playerId)?.name ?? String(q.playerId);
@@ -466,6 +530,15 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
         },
       }));
     }
+    // **初めて町の画面を開いた「はじめて」の人に、物件の一言を出す。**
+    // ここだけは手番の数で切らない。町が遠い引きだと、3手番で切ると
+    // **いちばん出したい場面で一度も出ないまま終わる**(実プレイでは5手番かかった)。
+    set((s) => {
+      const guide = s.guide;
+      if (guide.dismissed || guide.cityHintDone) return {};
+      if (player.isCpu || player.knowledgeLevel !== "newcomer") return {};
+      return { guide: { ...guide, cityHintOpen: true, cityHintDone: true } };
+    });
     set({ ui: { kind: "city", cityId, arrivalPrize, firstVisit } });
   }
 
@@ -531,7 +604,23 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
 
     if (landing.type === "city" || landing.type === "destination") {
       const visit = landing.visit;
-      if (landing.type === "destination") soundAdapter.playArrival();
+      // **町の買い物より先に、着いたことを全画面で見せる。**
+      // 誰の手番でも出す見せ場なので、CPUの手番でもここを通る
+      // (押さなければ `holdMsFor("arrival-fanfare")` で自動的に送られる)。
+      if (landing.type === "destination") {
+        soundAdapter.playArrival();
+        set({
+          ui: {
+            kind: "arrival",
+            playerName,
+            playerIndex: result.session.players.findIndex((p) => p.id === actor.id),
+            cityId: visit.cityId,
+            prize: landing.outcome.prize,
+            isFirstArrival: isFirstArrivalOfJourney(result.session),
+          },
+        });
+        if (!(await show("arrival-fanfare", "arrival"))) return false;
+      }
       if (visit.purchases.length > 0 || visit.upgrades.length > 0 || visit.boughtItem) soundAdapter.playBuy();
       set({
         ui: {
@@ -592,7 +681,16 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
    * 分からなかった(実プレイの記録 2026-09-02)。本人以外の手番なので
    * 短い自動送りのカードにする(`reveal-class.ts` の `personal`)。
    */
-  const CPU_AUTO_CLOSE = ["cpu-city", "cpu-quiz", "money-event", "doom", "monopoly", "next-leg", "settlement"] as const;
+  const CPU_AUTO_CLOSE = [
+    "cpu-city",
+    "cpu-quiz",
+    "money-event",
+    "doom",
+    "monopoly",
+    "next-leg",
+    "settlement",
+    "arrival",
+  ] as const;
 
   function isCpuAutoClose(kind: string): boolean {
     return (CPU_AUTO_CLOSE as readonly string[]).includes(kind);
@@ -664,6 +762,8 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
 
     const adv = advanceTurn(context, current, random);
     current = adv.session;
+    // 残り2ヶ月に入ったら曲を終盤の色に変える(暦の帯が赤くなるのと同じ月)。
+    updateFinalStretchMusic(current);
     if (adv.season) soundAdapter.playChime();
     // 決算は月替わりの**あと**に出す(月替わりを閉じたら `dismissSeasonModal` が拾う)。
     pendingSettlement =
@@ -748,7 +848,19 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
         arrivedBy: player.name,
         prize: money(arrival.prize),
       };
-      openCityModal(node.cityId, arrival.prize);
+      // **町の画面より先に、着いたことを全画面で見せる。**閉じたら町へ進む
+      // (`dismissArrival`)。順番は 到達 →(町)→ 次の区間。
+      pendingArrivalCity = { cityId: node.cityId, prize: arrival.prize };
+      set({
+        ui: {
+          kind: "arrival",
+          playerName: player.name,
+          playerIndex: session.activePlayerIndex,
+          cityId: node.cityId,
+          prize: arrival.prize,
+          isFirstArrival: isFirstArrivalOfJourney(arrival.session),
+        },
+      });
       return;
     }
     if (node.type === "quiz") {
@@ -826,6 +938,7 @@ export function createTurnFlowActions(set: SetGameState, get: GetGameState) {
     clearArrivalBeat,
     closeCityModal,
     dismissNextLeg,
+    dismissArrival,
     notePurchase,
   };
 }

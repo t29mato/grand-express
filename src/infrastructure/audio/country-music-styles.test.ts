@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { COUNTRY_INDEX } from "../content/country-index";
-import { loadCountryStyles, type RegionStyle } from "./country-music-styles";
+import { loadCountryStyles, toFinalStretchStyle, type RegionStyle } from "./country-music-styles";
 
 /**
  * 盤面とBGMの結線を機械的に確かめる。
@@ -89,5 +89,42 @@ describe("盤面とBGMの結線", () => {
         expect(volume, `${where}: ドラムの音量が正でない`).toBeGreaterThan(0);
       }
     }
+  });
+});
+
+describe("終盤(残り2ヶ月)の曲", () => {
+  const base: RegionStyle = {
+    bpm: 82,
+    lead: "flute",
+    ch: [{ b: 146.83, n: [293.66, 349.23, 440] }],
+    mel: [[[0, 587.33, 6]]],
+    strum: [0, 4, 8, 12],
+    drum: [
+      [0, 1],
+      [8, 0.75],
+      [12, 0.4],
+    ],
+    shake: 0,
+  };
+
+  it("テンポが上がる", () => {
+    expect(toFinalStretchStyle(base).bpm).toBeGreaterThan(base.bpm);
+  });
+
+  it("刻みが細かくなり、太鼓が強くなる", () => {
+    const ending = toFinalStretchStyle(base);
+    expect(ending.shake, "シェイカーが増えていない").toBe(2);
+    expect(ending.drum.map(([, v]) => v)).toEqual([1, 0.9375, 0.5]);
+  });
+
+  /**
+   * **曲そのものは変えない。**別の曲に差し替えると、最後の2ヶ月だけ
+   * どの地方を走っていても同じ音になり、土地の手触りが消える。
+   */
+  it("コードとメロディはそのまま", () => {
+    const ending = toFinalStretchStyle(base);
+    expect(ending.ch).toBe(base.ch);
+    expect(ending.mel).toBe(base.mel);
+    expect(ending.lead).toBe(base.lead);
   });
 });

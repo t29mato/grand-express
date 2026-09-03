@@ -39,6 +39,15 @@ export type RevealClass = "headline" | "personal" | "silent";
  *   他人同士のあいだで動いたぶんは流す。
  */
 export type RevealEventKind =
+  /**
+   * 目的地に着いた瞬間の、全画面の演出(`arrival-fanfare.tsx`)。
+   *
+   * `destination-arrival`(着いた先の町のカード)と**別に持つ。**
+   * 到達はこの遊びの最大の見せ場なので、町の買い物の画面へ入る前に
+   * 「着いた」ことだけを1枚で見せる。順番は
+   * 到達の演出 →(町のモーダル)→ 次の区間の案内。
+   */
+  | "arrival-fanfare"
   /** 目的地に着いた(賞金が入る)。 */
   | "destination-arrival"
   /** 次の目的地が発表された。 */
@@ -65,6 +74,7 @@ export type RevealEventKind =
   | "quiet";
 
 export const REVEAL_CLASS: Readonly<Record<RevealEventKind, RevealClass>> = {
+  "arrival-fanfare": "headline",
   "destination-arrival": "headline",
   "new-destination": "headline",
   "spirit-attached": "headline",

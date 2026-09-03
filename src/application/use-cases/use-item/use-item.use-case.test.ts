@@ -24,37 +24,32 @@ describe("applyItemUse (実データ: ボリビアの9アイテム)", () => {
     return createGameSession({ id: GameSessionId("s"), countryId: CountryId("bolivia"), maxMonths: 12, players: [p1, p2], destination: CityId("sucre") });
   }
 
-  it("ekeko(move)は8〜12マス運ばれ、行き先まで決まった状態で返る", () => {
-    // 1つ目の乱数が距離(8+0)、2つ目が行き先の抽選。
+  it("ekeko(move)は8〜12マス先の候補を返す(行き先は選ばせる)", () => {
+    // 乱数は距離だけを決める(8+0)。行き先の抽選はもう無い。
     const { session, result } = applyItemUse(context, sessionWithItem("ekeko"), PlayerId("p1"), 0, new DeterministicRandom([0]));
     expect(result.type).toBe("carried-far");
     if (result.type !== "carried-far") return;
     expect(result.steps).toBe(8);
-    // 呼び出し側に選ぶ余地を残さないため、経路と終点まで返す。
-    expect(result.path).toHaveLength(8);
-    expect(result.toNode).toBe(result.path[result.path.length - 1]);
+    // 候補は「ちょうど8マス先」でなければならない(サイコロの候補と同じ形)。
+    expect(result.destinations.size).toBeGreaterThan(0);
+    for (const [node, path] of result.destinations) {
+      expect(path).toHaveLength(8);
+      expect(path[path.length - 1]).toBe(node);
+    }
     expect(session.players[0].inventory).toHaveLength(0);
   });
 
-  it("ekekoは目的地から遠ざかることもある(向きが選べない)", () => {
-    // 「どっちへ行くか分からない」ことが、このアイテムの肝。近づくだけなら
-    // 目的地へ飛ぶアイテムと変わらないので、遠ざかる引きがあることを押さえる。
-    const start = NodeId("lapaz");
+  it("ekekoの候補には、目的地に近づく先も遠ざかる先もある", () => {
+    // **どこへ降りるかは遊ぶ人が決める。**ただし距離は運任せなので、
+    // 引きによっては近づく先が1つも無いこともありうる。ここで押さえるのは
+    // 「候補の中に選ぶ意味がある(全部が同じ結果ではない)」こと。
     const goal = cityIdToNodeId(CityId("sucre"));
-    const before = context.pathfinding.distance(start, goal);
-
-    const after: number[] = [];
-    for (let pick = 0; pick < 20; pick++) {
-      // 距離は8で固定し(1つ目=0)、行き先の抽選だけを振り替える(2つ目=pick)。
-      const random = new DeterministicRandom([0, pick]);
-      const { result } = applyItemUse(context, sessionWithItem("ekeko"), PlayerId("p1"), 0, random);
-      if (result.type !== "carried-far") continue;
-      after.push(context.pathfinding.distance(result.toNode, goal));
-    }
-
-    expect(after.length).toBeGreaterThan(0);
-    expect(Math.max(...after), "どの引きでも目的地に近づいてしまう").toBeGreaterThan(before);
-    expect(Math.min(...after), "どの引きでも目的地から遠ざかってしまう").toBeLessThan(before);
+    const before = context.pathfinding.distance(NodeId("lapaz"), goal);
+    const { result } = applyItemUse(context, sessionWithItem("ekeko"), PlayerId("p1"), 0, new DeterministicRandom([0]));
+    if (result.type !== "carried-far") throw new Error("carried-far ではない");
+    const distances = [...result.destinations.keys()].map((node) => context.pathfinding.distance(node, goal));
+    expect(Math.min(...distances), "どの候補も目的地から遠ざかる").toBeLessThan(before);
+    expect(Math.max(...distances), "どの候補も同じだけ近づく(選ぶ意味がない)").toBeGreaterThan(Math.min(...distances));
   });
 
   it("pass(choose-exact-dice)はUIでの選択待ちを返す", () => {

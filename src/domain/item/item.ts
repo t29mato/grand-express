@@ -9,12 +9,15 @@ import { LocalizedText } from "../shared-kernel/localized-text";
  */
 export type ItemEffect =
   /**
-   * 大きく進むが、**進む向きは選べない**(kind: move。ekeko/hikouki)。
-   * `minSteps`〜`maxSteps` マスぶん進み、その距離で行ける先の中から行き先が抽選される。
-   * 目的地に近づくこともあれば、遠ざかることもある。
+   * 大きく運ばれる(kind: move。ekeko/hikouki)。
+   * `minSteps`〜`maxSteps` マスぶん進む。**何マス進むかは運任せ、
+   * どちらへ降りるかは遊ぶ人が選ぶ。**
    *
    * もとは目的地への瞬間移動だったが、それでは**サイコロを振って進む面白さが
-   * 無くなる**ため、「遠くへ運ばれるが、どこへ着くかは分からない」効果に変えた。
+   * 無くなる**ため「遠くへ運ばれる」効果に変えた。さらに、行き先まで抽選していた
+   * ころは**高い買い物なのに1マスしか縮まらない**ことがあり
+   * (実プレイの記録 2026-09-02、¥2,400,000 の飛行機で 24→23マス)、
+   * 向きだけを遊ぶ人に返した。距離が運任せである点は変えていない。
    */
   | { readonly type: "carried-far"; readonly minSteps: number; readonly maxSteps: number }
   /** 1〜6の中から移動距離を選べる(pass/taxi)。 */

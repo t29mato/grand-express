@@ -28,6 +28,7 @@ describe("アイテムを使うと、ちゃんと何かが起きる", () => {
    * ここから直接読むと presentation が infrastructure に依ることになるので写す。
    */
   const EKEKO_MIN_STEPS = 8;
+  const EKEKO_MAX_STEPS = 12;
 
   async function startGame() {
     await useGameStore.getState().startNewGame({
@@ -79,26 +80,42 @@ describe("アイテムを使うと、ちゃんと何かが起きる", () => {
   });
 
   /**
-   * **テスト名を「その場で運ばれて移動が終わる」から変えている。**
-   * その場で終わってしまうのが、遊ぶ人から見た不具合のほうだった
-   * (押した瞬間に着地のモーダルが開き、8〜12マスの道のりが一度も見えない)。
-   * 直したので、**押した瞬間はまだ動いていないこと**もここで押さえる。
+   * **エケコは「運ばれて、降りる先を選ぶ」アイテムになった。**
+   *
+   * 以前は行き先まで抽選していたので、¥2,400,000 の飛行機のチケット(日本盤面の
+   * 同じ効果)を使っても**目的地までの残りが24→23マス、1マスしか縮まらない**
+   * ことがあった(実プレイの記録 2026-09-02)。高い買い物の結果が損に見えると、
+   * 以後アイテムそのものが買われなくなる。
+   *
+   * いまは**距離だけが運任せ**で、8〜12マス先の候補から降りる先を選ぶ。
+   * 画面はサイコロを振ったあとと同じ `choosing-square` を使い回している
+   * (候補の「残り◯」がそのまま出るので、選ぶ前に損得が読める)。
    */
-  it("エケコ人形(carried-far)は、道のりを進んでから移動が終わる", async () => {
+  it("エケコ人形(carried-far)は、8〜12マス先の行き先を選ばせる", () => {
     const before = useGameStore.getState().session!.players[0].location;
+    giveItem("ekeko");
+    useGameStore.getState().useInventoryItem(0);
 
-    /**
-     * 通ったマスを控えておく。
-     *
-     * **「移動先が変わったか」では確かめられない。**エケコは向きを選べず、
-     * 8〜12マスの経路は元の町へ戻ってくることがある(行き先を選ぶ
-     * `reachableNodes` は**出発点そのものを含みうる**)。一周して戻るのは
-     * 遊びとして正しい結果なので、それで落ちるテストは嘘をつく。
-     * 実際 2026-08-26 にCIで1度落ち、デプロイを止めた
-     * (`expected 'lapaz' not to be 'lapaz'`)。
-     *
-     * ここで見たいのは**道のりが1マスずつ見えたか**なので、そちらを数える。
-     */
+    const ui = useGameStore.getState().ui;
+    expect(ui.kind, "行き先を選ぶ画面が出ない").toBe("choosing-square");
+    if (ui.kind !== "choosing-square") return;
+    expect(ui.steps, "8〜12マスの範囲から外れている").toBeGreaterThanOrEqual(EKEKO_MIN_STEPS);
+    expect(ui.steps).toBeLessThanOrEqual(EKEKO_MAX_STEPS);
+    expect(ui.reachable.size, "候補が1つも無い").toBeGreaterThan(0);
+    for (const [, path] of ui.reachable) expect(path.length).toBe(ui.steps);
+    expect(
+      useGameStore.getState().session!.players[0].location,
+      "選ぶ前に動いてしまっている",
+    ).toBe(before);
+  });
+
+  /**
+   * 選んだあとは、**駒がその道のりを1マスずつ運ばれる。**
+   * 押した瞬間に着地のモーダルが開くと、暗幕の下で駒が滑るので
+   * 「8〜12マス運ばれる」という**このアイテムの見せ場が一度も見えない**
+   * (直す前に実測: モーダルが開くのは押してから95〜202ms)。
+   */
+  it("行き先を選ぶと、道のりを1マスずつ運ばれる", async () => {
     const walked: string[] = [];
     const unsubscribe = useGameStore.subscribe((state) => {
       const at = state.walk;
@@ -108,20 +125,48 @@ describe("アイテムを使うと、ちゃんと何かが起きる", () => {
 
     giveItem("ekeko");
     useGameStore.getState().useInventoryItem(0);
-    expect(
-      useGameStore.getState().session!.players[0].location,
-      "押した瞬間に着いてしまっている(道のりを見せる間が無い)",
-    ).toBe(before);
-    expect(useGameStore.getState().walk, "駒が歩き始めていない").not.toBeNull();
+    const ui = useGameStore.getState().ui;
+    if (ui.kind !== "choosing-square") throw new Error("行き先を選ぶ画面が出ていない");
+    const target = [...ui.reachable.keys()][0];
+    useGameStore.getState().chooseSquare(target);
 
+    expect(useGameStore.getState().walk, "駒が歩き始めていない").not.toBeNull();
     await settleWalk();
     unsubscribe();
 
     expect(walked.length, "道のりが1マスずつ見えていない").toBeGreaterThanOrEqual(EKEKO_MIN_STEPS);
     expect(
       useGameStore.getState().session!.players[0].location,
-      "最後に見せたマスと、着いた先が食い違う",
-    ).toBe(walked[walked.length - 1]);
+      "選んだ先と、着いた先が食い違う",
+    ).toBe(target);
+  });
+
+  /**
+   * **選ぶ画面が出ているあいだ、2枚目を使わせない。**
+   * 持ちもの欄はこの間も押せるので、開けておくと2枚目のチケットが
+   * 1枚目の候補を消すだけで消える(使って何も起きずアイテムだけ失う)。
+   */
+  it("降りる先を選んでいる最中は、2枚目の運ぶアイテムを受け付けない", () => {
+    const session = useGameStore.getState().session!;
+    const me = session.players[0];
+    useGameStore.setState({
+      session: {
+        ...session,
+        players: session.players.map((p) => (p.id === me.id ? { ...p, inventory: [ItemKey("ekeko"), ItemKey("ekeko")] } : p)),
+      },
+      ui: { kind: "idle" },
+      walk: null,
+    });
+    useGameStore.getState().useInventoryItem(0);
+    const first = useGameStore.getState().ui;
+    if (first.kind !== "choosing-square") throw new Error("行き先を選ぶ画面が出ていない");
+
+    useGameStore.getState().useInventoryItem(0);
+    expect(useGameStore.getState().session!.players[0].inventory, "2枚目まで消えている").toHaveLength(1);
+    const after = useGameStore.getState().ui;
+    expect(after.kind).toBe("choosing-square");
+    if (after.kind !== "choosing-square") return;
+    expect(after.steps, "1枚目の候補が差し替わっている").toBe(first.steps);
   });
 
   it("テレフェリコ周遊券(choose-exact-dice)は、出目を選ぶ画面を出す", () => {

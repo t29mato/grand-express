@@ -9,14 +9,27 @@ import { rollDice } from "../roll-dice/roll-dice.use-case";
 
 export type UseItemEffectResult =
   /**
-   * 大きく進むが、行き先は選べない。`path` は運ばれる道のり(1マスずつ)で、
-   * `toNode` はその終点。どちらへ運ばれるかは抽選済みで、呼び出し側に選択の余地はない。
+   * 大きく進む。**何マス進むかは運任せ、どちらへ行くかは選べる。**
+   *
+   * `destinations` は「ちょうど `steps` マス先」の行き先と、そこまでの道のりの一覧で、
+   * サイコロを振ったあとの候補(`reachableNodesFor`)と同じ形をしている。
+   * 呼び出し側はこれをそのまま行き先の選択画面に渡す。
+   *
+   * ## なぜ行き先を返さず、候補を返すのか
+   *
+   * もとは**行き先まで抽選して**返していた(「どっちへ行くか分からない」ことを
+   * このアイテムの肝と考えていた)。ところが実プレイの記録(2026-09-02)では、
+   * ¥2,400,000 の飛行機のチケットを使って **11マス流され、目的地までの残りは
+   * 24→23マス。1マスしか縮まらなかった。**高い買い物の結果が損に見えると、
+   * 以後アイテムそのものが買われなくなる。
+   *
+   * **距離だけを運任せにして、向きは遊ぶ人に返す。**8〜12マスという大きな移動と
+   * 「どこへ降りるか」の判断が同じ手番に来るので、値段に見合う手応えになる。
    */
   | {
       readonly type: "carried-far";
       readonly steps: number;
-      readonly path: readonly NodeId[];
-      readonly toNode: NodeId;
+      readonly destinations: ReadonlyMap<NodeId, readonly NodeId[]>;
     }
   | { readonly type: "await-exact-dice-choice" }
   | { readonly type: "rolled"; readonly steps: number; readonly rolls: readonly number[] }
@@ -53,15 +66,12 @@ export function applyItemUse(
     case "carried-far": {
       const { minSteps, maxSteps } = item.effect;
       const steps = minSteps + random.nextInt(maxSteps - minSteps + 1);
-      // その距離で行ける先をすべて出し、その中から**こちらで**1つ引く。
-      // 行き先を返さず距離だけ返すと呼び出し側が選べてしまい、
-      // 「どっちへ行くか分からない」ではなくなる。
-      const destinations = [...context.pathfinding.reachableNodes(player.location, steps)];
-      if (destinations.length === 0) {
+      // その距離で行ける先をすべて出して、そのまま返す。**選ぶのは遊ぶ人。**
+      const destinations = context.pathfinding.reachableNodes(player.location, steps);
+      if (destinations.size === 0) {
         return { session: sessionAfterConsuming, result: { type: "no-effect" } };
       }
-      const [toNode, path] = destinations[random.nextInt(destinations.length)];
-      return { session: sessionAfterConsuming, result: { type: "carried-far", steps, path, toNode } };
+      return { session: sessionAfterConsuming, result: { type: "carried-far", steps, destinations } };
     }
 
     case "choose-exact-dice":

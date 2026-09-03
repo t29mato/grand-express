@@ -1,1 +1,103 @@
-/* placeholder */
+/*
+ * 「はじめて」の人に出る1行ガイド(components/hud/first-turns-guide.tsx)。
+ *
+ * ## 置き場所
+ *
+ * **画面の下に固定する。**盤面の中に置くと、狭い画面で下(サイコロのある側)まで
+ * スクロールしたときに盤面ごと画面の外へ出てしまう——旅の記録のトースト
+ * (`.log-toast-slot`)で同じことが起きて、上に固定し直した経緯がある。
+ *
+ * 上ではなく下にするのは、トーストと場所を取り合わないため。
+ * z-index はトーストと同じ 60(モーダルの 50 より手前)。
+ * 町の画面が開いているあいだも一言を出す必要があるので、後ろに置くと
+ * **いちばん出したい場面で隠れる。**
+ *
+ * 帯そのものは `pointer-events: none`。下にあるボタンを塞がないため。
+ * 押せるのは「ヒントを消す」だけに戻す。
+ */
+.first-turns-guide-slot {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(10px + env(safe-area-inset-bottom));
+  display: flex;
+  justify-content: center;
+  padding: 0 12px;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.first-turns-guide {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: min(560px, 100%);
+  padding: 9px 10px 9px 14px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  background: rgb(47 36 85 / 0.97);
+  box-shadow: 0 6px 20px #00000066;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  color: var(--salt);
+  /* 既定が「見えている状態」であること。透明から始めて動きで見せると、
+     prefers-reduced-motion で animation が消えたときに出てこなくなる
+     (log-toast と同じ理由)。 */
+  opacity: 1;
+  animation: first-turns-guide-in 220ms ease-out;
+}
+
+@keyframes first-turns-guide-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .first-turns-guide {
+    animation: none;
+  }
+}
+
+.ftg-text {
+  /* 一言の頭に置く小さな目印。文字ではないので読み上げには乗らない。 */
+  min-width: 0;
+}
+
+.ftg-text::before {
+  content: "💡";
+  margin-right: 8px;
+}
+
+.ftg-hide {
+  /* 帯は素通しにしてあるので、押せるものだけ受け取りに戻す。 */
+  pointer-events: auto;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 11px;
+  background: transparent;
+  color: var(--salt-dim);
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.ftg-hide:hover {
+  color: var(--salt);
+  border-color: var(--salt-dim);
+}
+
+/* 狭い画面では、一言のほうを優先して「消す」を小さくする。 */
+@media (max-width: 480px) {
+  .first-turns-guide {
+    font-size: 0.8rem;
+    gap: 8px;
+  }
+
+  .ftg-hide {
+    font-size: 0.72rem;
+    padding: 4px 8px;
+  }
+}

@@ -120,3 +120,30 @@ export async function loadCountryStyles(countryId: string): Promise<CountryStyle
   if (!loader) return null;
   return (await loader()) as CountryStyles;
 }
+
+/** 終盤に上げるテンポの倍率。 */
+const FINAL_STRETCH_TEMPO = 1.18;
+/** 終盤に上げる太鼓の音量の倍率(1.0 を超えないところで止める)。 */
+const FINAL_STRETCH_DRUM = 1.25;
+
+/**
+ * その曲の「終盤(残り2ヶ月)版」を作る。
+ *
+ * **曲そのものは変えない。**コードもメロディも同じものを鳴らす。
+ * 変えるのは急かす3つだけ:
+ *
+ * - テンポを 18% 上げる(速くなったことは誰にでも分かる)
+ * - 太鼓を強くする(拍が前に出る)
+ * - シェイカーを裏拍から表裏の両方に増やす(刻みが細かくなる)
+ *
+ * 別の曲に差し替えないのは、**どの地方を走っているかが最後だけ消えてしまう**ため。
+ * 同じ土地の曲のまま、走りかたが変わって聞こえるのが狙い。
+ */
+export function toFinalStretchStyle(style: RegionStyle): RegionStyle {
+  return {
+    ...style,
+    bpm: Math.round(style.bpm * FINAL_STRETCH_TEMPO),
+    shake: 2,
+    drum: style.drum.map(([step, volume]) => [step, Math.min(1, volume * FINAL_STRETCH_DRUM)] as const),
+  };
+}

@@ -80,6 +80,36 @@ export type UiState =
        */
       readonly firstVisit: boolean;
     }
+  /**
+   * **目的地に着いた瞬間の全画面の演出**(`modals/arrival-fanfare.tsx`)。
+   *
+   * 到達はこの遊びの最大の見せ場なのに、これまでは町の買い物の画面が開くだけで、
+   * 「着いた」ことそのものを見せる場面が無かった。誰の手番でも出す
+   * (見せ場の階級は `reveal-class.ts` の `arrival-fanfare` = headline)。
+   * クリック/タップで飛ばせる。
+   *
+   * 順番は **到達の演出 →(町のモーダル)→ 次の区間の案内。**
+   */
+  | {
+      readonly kind: "arrival";
+      readonly playerName: string;
+      /**
+       * 何人目の旅人か(0始まり)。`components/player-colors.ts` の
+       * `playerColor(index)` に渡すと、その人の色になる。
+       */
+      readonly playerIndex: number;
+      readonly cityId: CityId;
+      /** 受け取った賞金(生の数。表示の書式は演出側が決める)。 */
+      readonly prize: number;
+      /**
+       * **この旅の一番乗りか**(誰もまだ目的地に着いていなかった)。
+       *
+       * 「その人にとって初めて」ではなく**卓ぜんたいで初めて**。
+       * 演出側がこの真偽で華やかさを変えるので、1回の旅で1度きりにして
+       * いちばん大きい絵が安売りにならないようにしている。
+       */
+      readonly isFirstArrival: boolean;
+    }
   /** 目的地に到着し、次の目的地が抽選された直後の案内(legacyの `arriveDest` 後半のモーダル)。 */
   | {
       readonly kind: "next-leg";
@@ -168,6 +198,38 @@ export interface SavedGameSummary {
   readonly players: readonly { readonly name: string; readonly isCpu: boolean; readonly cash: number }[];
 }
 
+/**
+ * 「はじめて」の人に出す1行ガイドの進み具合(`hud/first-turns-guide.tsx`)。
+ *
+ * ## なぜ要るか
+ *
+ * 出発モーダルの約120字のヒント文が、遊びかたの唯一の説明だった。
+ * 実プレイの記録(2026-09-02)では、最初の手番で「どちらのマスを選べばいいのか」
+ * のヒントがどこにも無く、**最初の町に着くまで5手番かかった。**
+ *
+ * 盤面を測ったところ、47盤面すべてで出発地から2〜3マスに町があり、
+ * 1手番目に町へ止まれる出目は平均で6通り中4.1通りある
+ * (日本は5通り)。**盤面が悪いのではなく、選びかたが分からなかった。**
+ * だから直すのは盤面ではなく、その場の一言のほう。
+ */
+export interface GuideState {
+  /** 「はじめて」の人がサイコロを振った回数。最初の3手番だけ盤面のガイドを出す。 */
+  readonly turnsRolled: number;
+  /** いま開いている町が「初めての町」で、物件の一言を出してよいか。 */
+  readonly cityHintOpen: boolean;
+  /** 町の一言をもう出したか(旅のあいだ1回だけ)。 */
+  readonly cityHintDone: boolean;
+  /** 読み飛ばされた。以後は何も出さない。 */
+  readonly dismissed: boolean;
+}
+
+export const EMPTY_GUIDE: GuideState = {
+  turnsRolled: 0,
+  cityHintOpen: false,
+  cityHintDone: false,
+  dismissed: false,
+};
+
 export interface GameStoreState {
   context: GameEngineContext | null;
   session: GameSession | null;
@@ -220,6 +282,8 @@ export interface GameStoreState {
     readonly nodeId: NodeId;
     readonly note: WindowNote;
   } | null;
+  /** 「はじめて」の人に出す1行ガイドの進み具合。 */
+  guide: GuideState;
 
   startNewGame(config: { countryId: CountryId; players: readonly PlayerSetup[]; maxMonths: number; cpuLevel: CpuLevel }): Promise<void>;
   loadSavedGame(): Promise<void>;
@@ -261,6 +325,13 @@ export interface GameStoreState {
   dismissSettlement(): void;
   /** 独占の知らせを閉じる。 */
   dismissMonopoly(): void;
+  /**
+   * 到達の全画面演出を閉じる。
+   * 人間の手番なら続けて町の画面へ、CPUの手番ならCPUループの待ちを解く。
+   */
+  dismissArrival(): void;
+  /** 1行ガイドを読み飛ばす(以後、この旅では出さない)。 */
+  dismissGuide(): void;
   /** 車窓の一言を消す(0.8秒後に表示側から呼ぶ)。 */
   clearArrivalBeat(): void;
   /** 月替わりイベントのモーダル(ui.kind === "season")を閉じて手番の続きに進む。 */

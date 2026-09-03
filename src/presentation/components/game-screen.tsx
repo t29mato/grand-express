@@ -10,6 +10,7 @@ import { DestinationCard, ItemBar, PlayersPanel, TravelLog } from "./hud/side-pa
 import { LogToast } from "./hud/log-toast";
 import { BoardStatus } from "./hud/board-status";
 import { CalendarStrip } from "./hud/calendar-strip";
+import { FirstTurnsGuide } from "./hud/first-turns-guide";
 import { LocaleSwitch } from "./hud/locale-switch";
 import { MusicToggle } from "./hud/music-toggle";
 import { IntroModal } from "./modals/intro-modal";
@@ -20,6 +21,7 @@ import { CpuQuizModal } from "./modals/cpu-quiz-modal";
 import { MoneyEventModal } from "./modals/money-event-modal";
 import { DoomModal } from "./modals/doom-modal";
 import { SeasonModal } from "./modals/season-modal";
+import { ArrivalFanfare } from "./modals/arrival-fanfare";
 import { NextLegModal } from "./modals/next-leg-modal";
 import { SettlementModal } from "./modals/settlement-modal";
 import { MonopolyModal } from "./modals/monopoly-modal";
@@ -56,8 +58,11 @@ export function GameScreen() {
   const dismissDoom = useGameStore((s) => s.dismissDoom);
   const dismissSettlement = useGameStore((s) => s.dismissSettlement);
   const dismissMonopoly = useGameStore((s) => s.dismissMonopoly);
+  const dismissArrival = useGameStore((s) => s.dismissArrival);
   const arrivalBeat = useGameStore((s) => s.arrivalBeat);
   const clearArrivalBeat = useGameStore((s) => s.clearArrivalBeat);
+  const guide = useGameStore((s) => s.guide);
+  const dismissGuide = useGameStore((s) => s.dismissGuide);
   const dismissQuizResult = useGameStore((s) => s.dismissQuizResult);
   const diceRoll = useGameStore((s) => s.diceRoll);
   const walk = useGameStore((s) => s.walk);
@@ -135,6 +140,16 @@ export function GameScreen() {
           遊んでいる最中は目に入らない)。出す行は絞ってある。log-toast.tsx 参照。 */}
       <LogToast log={log} session={session} />
 
+      {/* 「はじめて」の人の最初の数手番だけ出る1行ガイド。手は止めない。
+          画面の下に固定なので、町の画面が開いていても読める。 */}
+      <FirstTurnsGuide
+        session={session}
+        ui={ui}
+        guide={guide}
+        walking={walk !== null}
+        onDismiss={dismissGuide}
+      />
+
       {/* 何も起きないマスに止まったときの返事。0.8秒で自分から消える。
           出来事ではないので、手番も画面も止めない。 */}
       {arrivalBeat && (
@@ -206,6 +221,20 @@ export function GameScreen() {
       )}
       {ui.kind === "intro" && <IntroModal context={context} session={session} onDepart={dismissIntro} />}
       {ui.kind === "season" && <SeasonModal season={ui.season} countryId={context.content.id} onContinue={dismissSeasonModal} />}
+      {/* 目的地に着いた瞬間の全画面。**町の画面より先に出す。**
+          押せば飛ばせる(`onDone`)。誰の手番でも出る見せ場なので、
+          CPUの手番では押さなくても一定時間で送られる(turn-flow 側)。 */}
+      {ui.kind === "arrival" && (
+        <ArrivalFanfare
+          context={context}
+          playerName={ui.playerName}
+          playerIndex={ui.playerIndex}
+          cityId={ui.cityId}
+          prize={ui.prize}
+          isFirstArrival={ui.isFirstArrival}
+          onDone={dismissArrival}
+        />
+      )}
       {ui.kind === "next-leg" && (
         <NextLegModal
           context={context}
