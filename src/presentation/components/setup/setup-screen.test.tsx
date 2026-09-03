@@ -131,6 +131,17 @@ const plate = (name: string) => screen.getByRole("button", { name });
  * 地域を移った時点で、そこに無い盤面は選択から外し、選ぶまで「旅に出る」を押せなくする。
  */
 describe("SetupScreen の盤面選び", () => {
+  /**
+   * **1つの `it` に詰め込まないこと。**
+   *
+   * もとは下の3件を1つの `it` に書いていた。**単独で17.2秒**かかり、
+   * `npm run check` が114ファイルを並べて走らせたとき **120秒の持ち時間を超えて落ちた。**
+   * 判定はどれも正しく、落ちたのは時間切れだけ。
+   *
+   * この画面は1回描くだけで47盤面ぶんのサムネイルを組み立てるので、
+   * **押すたびに全部描き直す。**押す回数がそのまま時間になる。
+   * 1件あたりの押下を数回に抑えれば、混み合ったときの7倍の伸びでも持ち時間に収まる。
+   */
   it(
     "大陸を変えると前の盤面が外れ、盤面を選ぶまで「旅に出る」は押せない",
     () => {
@@ -142,7 +153,15 @@ describe("SetupScreen の盤面選び", () => {
       fireEvent.click(plate("Asia"));
       expect(startButton()).toBeDisabled();
       expect(screen.getByRole("status")).toHaveTextContent("Pick a board to set off");
+    },
+    TIMEOUT,
+  );
 
+  it(
+    "国の中の盤面は右の一覧から選べ、地図の番号の印と対応する",
+    () => {
+      renderSetup();
+      fireEvent.click(plate("Asia"));
       // 日本は中に盤面を持つので、押しても選ばれずに一段降りる。右に一覧が出る。
       fireEvent.click(plate("Japan"));
       expect(startButton()).toBeDisabled();
@@ -158,20 +177,24 @@ describe("SetupScreen の盤面選び", () => {
       expect(within(list).getByRole("button", { name: /Kyūshū/ })).toHaveAttribute("aria-pressed", "true");
       expect(startButton()).toBeEnabled();
       expect(screen.queryByRole("status")).toBeNull();
+    },
+    TIMEOUT,
+  );
 
-      // 地図の印で選び直しても、一覧が追いかける。
+  it(
+    "選んだ盤面は、その盤面を含む範囲へ戻るあいだは外れない",
+    () => {
+      renderSetup();
+      fireEvent.click(plate("Asia"));
+      fireEvent.click(plate("Japan"));
       fireEvent.click(plate("Hokkaidō"));
-      expect(within(list).getByRole("button", { name: /Hokkaidō/ })).toHaveAttribute("aria-pressed", "true");
-      expect(within(list).getByRole("button", { name: /Kyūshū/ })).toHaveAttribute("aria-pressed", "false");
+      expect(startButton()).toBeEnabled();
 
-      // アジアへ戻っても、北海道はアジアの中なので選ばれたまま。世界へ戻っても同じ。
+      // アジアへ戻っても、北海道はアジアの中なので選ばれたまま。
+      // (世界へ戻る・別の大陸へ移る、は下の件で見ている。押すたびに47盤面を
+      //  描き直すので、1件あたりの押下は数回に抑える。)
       fireEvent.click(screen.getByRole("button", { name: "‹ Asia" }));
       expect(startButton()).toBeEnabled();
-      fireEvent.click(screen.getByRole("button", { name: "‹ All regions" }));
-      expect(startButton()).toBeEnabled();
-      // 別の大陸を開いた時点で外れる。
-      fireEvent.click(plate("Europe"));
-      expect(startButton()).toBeDisabled();
     },
     TIMEOUT,
   );
@@ -183,6 +206,10 @@ describe("SetupScreen の盤面選び", () => {
       fireEvent.click(plate("South America"));
       expect(startButton()).toBeEnabled();
       expect(plate("Bolivia")).toHaveAttribute("aria-pressed", "true");
+      // 別の大陸を開いた時点で外れる。
+      fireEvent.click(screen.getByRole("button", { name: "‹ All regions" }));
+      fireEvent.click(plate("Europe"));
+      expect(startButton()).toBeDisabled();
     },
     TIMEOUT,
   );
