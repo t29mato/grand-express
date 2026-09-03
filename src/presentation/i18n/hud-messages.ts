@@ -30,6 +30,12 @@ export const HUD_MESSAGES: Record<Locale, Record<string, string>> = {
     // `overview` は説明文で <b> タグを含むため、ボタンの脇に出す短い名前を別に持つ。
     overviewLabel: "Whole map",
     overviewBack: "Back to the usual view",
+    // 暦の帯(`calendar-strip.tsx`)。残り月数は今月を含めて数える。最後の月は数ではなく言葉で。
+    calendarMonthsLeft: "{0} months left",
+    calendarLastMonth: "Last month",
+    calendarEnding: "The journey ends soon",
+    // 読み上げ用の一文。「5月、残り8ヶ月」の形。
+    calendarLabel: "{0}, {1}",
   },
   es: {
     yourTurn: "Tu turno",
@@ -41,6 +47,10 @@ export const HUD_MESSAGES: Record<Locale, Record<string, string>> = {
     rollingHint: "El dado está rodando…",
     overviewLabel: "Mapa completo",
     overviewBack: "Volver a la vista normal",
+    calendarMonthsLeft: "Quedan {0} meses",
+    calendarLastMonth: "Último mes",
+    calendarEnding: "El viaje termina pronto",
+    calendarLabel: "{0}, {1}",
   },
   fr: {
     yourTurn: "À toi de jouer",
@@ -52,6 +62,10 @@ export const HUD_MESSAGES: Record<Locale, Record<string, string>> = {
     rollingHint: "Le dé roule…",
     overviewLabel: "Carte entière",
     overviewBack: "Revenir à la vue normale",
+    calendarMonthsLeft: "Encore {0} mois",
+    calendarLastMonth: "Dernier mois",
+    calendarEnding: "Le voyage touche à sa fin",
+    calendarLabel: "{0}, {1}",
   },
   ja: {
     yourTurn: "あなたの番",
@@ -63,5 +77,9 @@ export const HUD_MESSAGES: Record<Locale, Record<string, string>> = {
     rollingHint: "サイコロが転がっています…",
     overviewLabel: "全体表示",
     overviewBack: "元の表示に戻す",
+    calendarMonthsLeft: "残り{0}ヶ月",
+    calendarLastMonth: "最後の月",
+    calendarEnding: "旅の終わりが近い",
+    calendarLabel: "{0}、{1}",
   },
 };
