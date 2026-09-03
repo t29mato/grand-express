@@ -1,4 +1,4 @@
-import { beforeAll, describe, expect, it } from "vitest";
+import { afterEach, beforeAll, describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { CountryId, GameSessionId } from "../../../domain/shared-kernel/ids";
 import { GameSession } from "../../../domain/game-session/game-session";
@@ -31,6 +31,11 @@ describe("NextLegModal", () => {
       cpuLevel: "normal",
       sessionId: GameSessionId("s1"),
     });
+  });
+
+  afterEach(() => {
+    // 動きを減らす設定の偽装を片付ける。
+    delete (window as { matchMedia?: unknown }).matchMedia;
   });
 
   function renderModal(firstTimeSpiritAppearance: boolean, extra: { onCpuTurn?: boolean; arrivedBy?: string; prize?: string } = {}) {
@@ -98,5 +103,26 @@ describe("NextLegModal", () => {
     expect(screen.queryByRole("button", { name: /steam/i })).toBeNull();
     // ただしボタン自体はある。見せ場は必ず飛ばせる。
     expect(screen.getByRole("button", { name: /continue/i })).toBeInTheDocument();
+  });
+
+  it("目的地の札はめくって見せる(裏面は表の絵と重ねて置く)", () => {
+    renderModal(false);
+    const flip = document.querySelector(".dest-flip");
+    expect(flip).toHaveClass("flipping");
+    // 裏面と表面がどちらもあり、表面には次の町の絵が入っている。
+    expect(flip?.querySelector(".dest-flip-back")).not.toBeNull();
+    expect(flip?.querySelector(".dest-flip-front .city-art")).not.toBeNull();
+  });
+
+  it("動きを減らす設定では、めくらずに次の町の絵をそのまま出す", () => {
+    Object.defineProperty(window, "matchMedia", {
+      configurable: true,
+      writable: true,
+      value: (query: string) => ({ matches: query.includes("reduce") }),
+    });
+    renderModal(false);
+    const flip = document.querySelector(".dest-flip");
+    expect(flip).not.toHaveClass("flipping");
+    expect(flip?.querySelector(".dest-flip-front .city-art")).not.toBeNull();
   });
 });

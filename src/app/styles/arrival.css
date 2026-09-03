@@ -1,1 +1,441 @@
-/* placeholder */
+/*
+ * 見せ場の見た目——目的地への到達と、旅の終わり。
+ *
+ * `globals.css` には足さない(複数人が同時に触っているため)。
+ * このファイルは `globals.css` から @import 済み。
+ *
+ * 動きは `prefers-reduced-motion` で全部止める。**止めても読める**ように、
+ * どの要素も「動き終わった状態」を既定にしてある(透明から始めない)。
+ * JS側で判定したときは `.still` が付くので、そちらでも同じように止める。
+ */
+
+/* ── 目的地到達の全画面演出 ─────────────────────────── */
+
+/*
+ * 通常のモーダル(`.overlay`, z-index 50)より手前に出す。
+ * 到達は町のモーダルより先に見せるものなので、重なっても上に来る。
+ * **どこを押しても閉じる**(`cursor: pointer` はその合図)。
+ */
+.arrival-fanfare {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow-y: auto;
+  cursor: pointer;
+  /* 着いた人の色を薄く敷く。色だけに頼らず、名前も大きく出している。 */
+  background:
+    radial-gradient(ellipse at 50% 40%, color-mix(in srgb, var(--fanfare-color, #f5b31c) 22%, transparent), transparent 60%),
+    rgba(10, 6, 24, 0.92);
+  animation: fanfare-backdrop 320ms ease-out both;
+}
+
+@keyframes fanfare-backdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 後光。札の裏でゆっくり回る。 */
+.fanfare-rays {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 160vmax;
+  height: 160vmax;
+  margin: -80vmax 0 0 -80vmax;
+  pointer-events: none;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(245, 179, 28, 0.13) 0deg 9deg,
+    transparent 9deg 24deg
+  );
+  animation: fanfare-rays-spin 40s linear infinite;
+}
+
+.arrival-fanfare.first .fanfare-rays {
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(245, 179, 28, 0.2) 0deg 7deg,
+    transparent 7deg 18deg
+  );
+  animation-duration: 28s;
+}
+
+@keyframes fanfare-rays-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 紙吹雪。表彰式のものと同じ作りで、着いた人の色を混ぜる。 */
+.fanfare-confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/*
+ * 横の位置(`--x`)と出遅れ(`--d`)は部品側が散らして渡す。
+ * 左から順に並べて順に降らせると、最初の数秒は左端にしか紙が無い。
+ */
+.fanfare-confetti span {
+  position: absolute;
+  top: -4%;
+  left: var(--x, 50%);
+  width: 9px;
+  height: 14px;
+  border-radius: 2px;
+  background: var(--gold, #f5b31c);
+  opacity: 0;
+  animation: fanfare-fall 3.2s ease-in infinite;
+  animation-delay: var(--d, 0s);
+}
+
+.fanfare-confetti span:nth-child(3n + 2) {
+  background: var(--fanfare-color, #e8447a);
+}
+
+.fanfare-confetti span:nth-child(3n + 3) {
+  background: var(--salt, #f6efe2);
+}
+
+@keyframes fanfare-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* 札。ぽんと出てくる。 */
+.fanfare-card {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  padding: 20px 22px 18px;
+  border-radius: 18px;
+  text-align: center;
+  background: var(--panel, #2f2455);
+  border: 2px solid var(--gold, #f5b31c);
+  box-shadow:
+    0 0 0 6px rgba(245, 179, 28, 0.16),
+    0 24px 60px rgba(0, 0, 0, 0.5);
+  animation: fanfare-pop 520ms cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+.arrival-fanfare.first .fanfare-card {
+  box-shadow:
+    0 0 0 6px rgba(245, 179, 28, 0.28),
+    0 0 48px rgba(245, 179, 28, 0.35),
+    0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fanfare-pop {
+  from {
+    transform: scale(0.72);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.fanfare-eyebrow {
+  color: var(--gold, #f5b31c);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* 誰が着いたか。色の丸と名前。**文の外に置く。** */
+.fanfare-who {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 4px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.28);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.fanfare-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.35);
+  flex: none;
+}
+
+/* 一番乗りの帯。 */
+.fanfare-first {
+  display: inline-block;
+  margin: 2px 0 6px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--gold, #f5b31c);
+  color: #241a10;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  animation: fanfare-badge 600ms cubic-bezier(0.2, 1.6, 0.4, 1) 260ms both;
+}
+
+@keyframes fanfare-badge {
+  from {
+    transform: scale(0.4) rotate(-8deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* 町の絵。縦に短い画面では小さくして、賞金まで1画面に収める。 */
+.fanfare-art {
+  max-width: 440px;
+  margin: 8px auto 0;
+}
+
+.fanfare-art .city-art {
+  margin-bottom: 0;
+}
+
+.fanfare-title {
+  margin: 12px 0 4px;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+/* 賞金。この画面でいちばん大きな数字にする。 */
+.fanfare-prize {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px 0 4px;
+  animation: fanfare-rise 480ms ease-out 220ms both;
+}
+
+.fanfare-prize-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.fanfare-prize-amount {
+  font-size: 2.4rem;
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--green, #7bc86c);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+@keyframes fanfare-rise {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fanfare-hint {
+  margin-top: 6px;
+  font-size: 12.5px;
+  opacity: 0.7;
+}
+
+.fanfare-card .btnrow {
+  margin-top: 10px;
+  justify-content: center;
+}
+
+@media (max-height: 720px) {
+  .fanfare-art {
+    max-width: 300px;
+  }
+  .fanfare-title {
+    font-size: 1.3rem;
+  }
+  .fanfare-prize-amount {
+    font-size: 2rem;
+  }
+}
+
+/* ── 旅の終わり(順位) ─────────────────────────────── */
+
+/* 優勝者の札。表彰式と同じ紙吹雪を、名前の後ろに降らせる。 */
+.finale-winner {
+  position: relative;
+  overflow: hidden;
+  margin: 10px 0 14px;
+  padding: 18px 16px 16px;
+  border-radius: 14px;
+  text-align: center;
+  background: linear-gradient(160deg, rgba(245, 179, 28, 0.22), rgba(245, 179, 28, 0.06));
+  border: 2px solid var(--gold, #f5b31c);
+  box-shadow: 0 0 0 5px rgba(245, 179, 28, 0.14);
+}
+
+.finale-winner-label {
+  position: relative;
+  color: var(--gold, #f5b31c);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.finale-winner-name {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 2px;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.finale-winner-worth {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--green, #7bc86c);
+}
+
+.finale-winner-sub {
+  position: relative;
+  margin-top: 4px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* 順位の一覧。 */
+.finale-rows {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0 4px;
+  text-align: left;
+}
+
+.finale-row {
+  display: grid;
+  grid-template-columns: 28px 14px 1fr auto;
+  column-gap: 8px;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.finale-row.top {
+  background: rgba(245, 179, 28, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(245, 179, 28, 0.4);
+}
+
+.finale-rank {
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--salt-dim, #cfc4b0);
+}
+
+.finale-row.top .finale-rank {
+  color: var(--gold, #f5b31c);
+}
+
+.finale-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+.finale-name {
+  font-weight: 800;
+}
+
+.finale-worth {
+  font-weight: 900;
+  color: var(--green, #7bc86c);
+  white-space: nowrap;
+}
+
+/* 2行目以降(内訳・独占した町・記録)。名前の列に揃える。 */
+.finale-sub {
+  grid-column: 3 / 5;
+  font-size: 12px;
+  color: var(--salt-dim, #cfc4b0);
+  line-height: 1.5;
+}
+
+.finale-towns {
+  color: var(--gold, #f5b31c);
+}
+
+/* ── 表彰式の受賞者(色の丸を添える) ─────────────────── */
+
+.award-winner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.award-done {
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  color: var(--salt-dim, #cfc4b0);
+}
+
+/* ── 動きを減らす設定 ─────────────────────────────── */
+
+.arrival-fanfare.still,
+.arrival-fanfare.still .fanfare-card,
+.arrival-fanfare.still .fanfare-first,
+.arrival-fanfare.still .fanfare-prize {
+  animation: none;
+}
+
+.arrival-fanfare.still .fanfare-rays,
+.arrival-fanfare.still .fanfare-confetti {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrival-fanfare,
+  .fanfare-card,
+  .fanfare-first,
+  .fanfare-prize {
+    animation: none;
+  }
+  .fanfare-rays,
+  .fanfare-confetti {
+    display: none;
+  }
+}

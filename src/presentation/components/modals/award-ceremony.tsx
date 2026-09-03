@@ -5,7 +5,9 @@ import { Award, AWARD_TEXT_KEYS } from "../../../domain/game-session/awards";
 import { GameSession } from "../../../domain/game-session/game-session";
 import { GameEngineContext } from "../../../application/game-engine-context";
 import { useLocale } from "../../i18n/locale-context";
+import { arrivalText } from "../../i18n/arrival-messages";
 import { AwardTrophy } from "../events/award-trophy";
+import { playerColor } from "../player-colors";
 import { soundAdapter } from "../../state/game-store-dependencies";
 
 /**
@@ -20,6 +22,9 @@ import { soundAdapter } from "../../state/game-store-dependencies";
  * ここは旅の終わりなので、**他のどの場面よりも華やかにする。**
  * 1つめくるごとにファンファーレを鳴らし、最後の1つは勝利の音に変える。
  * 紙吹雪も、最後だけ量を増やす。
+ *
+ * 受賞者の名前には**駒の色**を添える(`player-colors.ts`)。盤面・旅人一覧と
+ * 同じ色なので、名前を読まなくても誰か分かる——ただし色だけに頼らず名前も出す。
  */
 export function AwardCeremony({
   awards,
@@ -32,7 +37,7 @@ export function AwardCeremony({
   context: GameEngineContext;
   onFinish: () => void;
 }) {
-  const { t, tx } = useLocale();
+  const { t, tx, locale } = useLocale();
   const [shown, setShown] = useState(0);
   const award = awards[shown];
   const last = shown >= awards.length - 1;
@@ -46,7 +51,8 @@ export function AwardCeremony({
 
   if (!award) return null;
 
-  const winner = session.players.find((p) => p.id === award.winnerId);
+  const winnerIndex = session.players.findIndex((p) => p.id === award.winnerId);
+  const winner = session.players[winnerIndex];
   const keys = AWARD_TEXT_KEYS[award.id];
   const regionName =
     award.regionId !== undefined ? context.content.regions.get(award.regionId) : undefined;
@@ -68,11 +74,17 @@ export function AwardCeremony({
       </div>
 
       <h3 className="award-name">{t(keys.name)}</h3>
-      <p className="award-winner">{winner?.name ?? award.winnerId}</p>
+      <p className="award-winner">
+        {winner && <span className="finale-dot" style={{ background: playerColor(winnerIndex) }} aria-hidden="true" />}
+        <span>{winner?.name ?? award.winnerId}</span>
+      </p>
       <p className="award-detail">
         {t(keys.detail, String(award.value))}
         {regionName ? ` · ${tx(regionName)}` : ""}
       </p>
+
+      {/* 最後の賞には、ここで表彰が終わりだと一言添える(次のボタンが「そして優勝は…」に変わる理由)。 */}
+      {last && <p className="award-done">{arrivalText(locale, "awardsFinish")}</p>}
 
       <div className="award-progress" aria-hidden="true">
         {awards.map((a, i) => (
