@@ -37,17 +37,49 @@ export const SETTLE_MS = 400;
  * - **言語切替はここに置かない。**他のモーダル(`modal.tsx`)は中でも切り替えられる
  *   ようにしているが、ここは「消す/消さない」の二択で、Tab の行き先が増えるほど
  *   消すほうへ触れる機会が増える。読み直したければ「消さずに置いておく」で戻れる。
+ *
+ * ## `intent` — 「削除」と「旅に出る」で同じ確認を使う
+ *
+ * 「旅に出る」を押すと、新しい旅は始めた瞬間に保存されて**前の旅を上書きする。**
+ * 消える中身は「削除」と同じなのに、こちらには確認が無かった
+ * (2026-09-02、Year1・May の旅が確認なしに消えた)。
+ * 確認の作り(既定は残す・消えるものを見せる・連打よけ)はそのまま使い、
+ * **文言だけを「新しい旅を始めますか」に替える。**押した人の意図は「始める」なので、
+ * 「削除しますか」と聞かれると、押した覚えのない操作を咎められたように読める。
  */
+export type ConfirmIntent = "discard" | "overwrite";
+
+const INTENT_KEYS: Record<ConfirmIntent, { title: string; warn: string; keep: string; go: string; testId: string }> = {
+  discard: {
+    title: "discardConfirmTitle",
+    warn: "discardConfirmWarn",
+    keep: "discardConfirmKeep",
+    go: "discardConfirmDelete",
+    testId: "discard-confirm",
+  },
+  overwrite: {
+    title: "overwriteConfirmTitle",
+    warn: "overwriteConfirmWarn",
+    keep: "overwriteConfirmKeep",
+    go: "overwriteConfirmGo",
+    testId: "overwrite-confirm",
+  },
+};
+
 export function DiscardConfirm({
   saved,
+  intent = "discard",
   onConfirm,
   onCancel,
 }: {
   saved: SavedGameSummary;
+  /** 何をしようとして消えるのか。既定は「削除」。「旅に出る」なら `overwrite`。 */
+  intent?: ConfirmIntent;
   onConfirm: () => void;
   onCancel: () => void;
 }) {
   const { t, tx, monthName } = useLocale();
+  const keys = INTENT_KEYS[intent];
   const titleId = useId();
   const bodyId = useId();
   const keepRef = useRef<HTMLButtonElement>(null);
@@ -95,10 +127,10 @@ export function DiscardConfirm({
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={bodyId}
-        data-testid="discard-confirm"
+        data-testid={keys.testId}
       >
         <div className="eyebrow">{t("savedJourney")}</div>
-        <h3 id={titleId}>{t("discardConfirmTitle")}</h3>
+        <h3 id={titleId}>{t(keys.title)}</h3>
 
         {/* 消えるものの中身。読み上げでも1つのまとまりとして読まれるよう、
             aria-describedby はこの箱を指している。
@@ -126,19 +158,19 @@ export function DiscardConfirm({
           </div>
         </div>
 
-        <p style={{ color: "var(--red)", fontWeight: 700 }}>{t("discardConfirmWarn")}</p>
+        <p style={{ color: "var(--red)", fontWeight: 700 }}>{t(keys.warn)}</p>
 
         {/* 「消さない」を先に、そして目立つほうに置く。カードの
             「続きから / 削除」と同じ並び順なので、指の行き先も揃う。 */}
         <div className="btnrow">
           <button className="btn" style={{ flex: 1 }} ref={keepRef} onClick={onCancel}>
-            {t("discardConfirmKeep")}
+            {t(keys.keep)}
           </button>
           {/* `disabled` にはしない。400ms だけ灰色になって戻るほうが目に付くうえ、
               読み上げにも「使えません」と伝わってしまう。落とすのは連打の2打目だけで、
               読んでから押す人はこの間にはたどり着かない。 */}
           <button className="btn ghost" ref={deleteRef} onClick={() => settled && onConfirm()}>
-            {t("discardConfirmDelete")}
+            {t(keys.go)}
           </button>
         </div>
       </div>

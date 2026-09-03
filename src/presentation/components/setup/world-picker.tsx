@@ -3,9 +3,10 @@
 import { memo, useState } from "react";
 import { CountryIndexEntry } from "../../../infrastructure/content/country-index";
 import { useLocale } from "../../i18n/locale-context";
-import { COUNTRY_GROUPS, isSubBoard, subBoardsOf } from "./country-groups";
+import { COUNTRY_GROUPS, SCALE_LABEL, boardScale, isSubBoard, subBoardsOf } from "./country-groups";
 import {
   AreaSource,
+  Bounds,
   MapProjection,
   Plate,
   ViewBox,
@@ -16,6 +17,7 @@ import {
   isMoved,
   layoutPlates,
   medianCentre,
+  project,
   unionBounds,
   viewBoxFor,
 } from "./picker-areas";
@@ -31,6 +33,25 @@ import {
  * 親に重なって点にしかならない。**親を押したらそこへ寄って、親と子を並べる。**
  * このときの下地は世界地図ではなく**その盤面自身の絵**にする。世界地図を
  * 日本の大きさまで拡大すると、輪郭が粗すぎて緑の塊にしか見えない(撮って分かった)。
+ *
+ * ## 寄ったあとは、名札ではなく番号の印と、右の一覧
+ *
+ * 日本の中には5枚(日本・北海道・九州・茨城・百名山)が入っていて、
+ * 名前を書いた札を地図に置くと**「日本百名山」「日本」「茨城県」が重なり合い**、
+ * どれが押せるのか迷った(2026-09-02 のプレイ)。押し離しても、百名山は
+ * 日本ぜんぶに広がる盤面なので、真ん中に置く限り日本の札とぶつかる。
+ * 地図には**番号だけの小さな印**と各盤面の範囲の枠を置き、名前は
+ * **地図の右の一覧**に出す。印と一覧は同じ番号で結び、片方に触れれば
+ * もう片方も光る。
+ *
+ * ## 大陸を変えたら、前の盤面は選ばれたままにしない
+ *
+ * 以前は、アジアを開いても既定の「ボリビア」が選ばれたままで、
+ * 日本の中の盤面を押すまで**「ボリビア」で旅に出る状態**だった。
+ * 地域を移った時点で、いま見えている範囲に無い盤面は選択から外す
+ * (`onSelect(null)`)。見えている範囲に入っている盤面なら残す——
+ * 南アメリカでボリビアを選んで世界へ戻り、また南アメリカを開いたときに
+ * 選び直させる理由は無い。
  */
 type Focus =
   | { readonly kind: "world" }
@@ -44,10 +65,12 @@ export function WorldPicker({
 }: {
   /** 目録の全部。ここで大陸に振り分ける。 */
   boards: readonly CountryIndexEntry[];
-  selected: string;
-  onSelect: (id: string) => void;
+  /** 選ばれている盤面。`null` は「まだ選んでいない」。 */
+  selected: string | null;
+  /** 盤面を選んだとき。地域を移って選択が外れたときは `null` で呼ぶ。 */
+  onSelect: (id: string | null) => void;
 }) {
-  const { tx } = useLocale();
+  const { t, tx } = useLocale();
   const byId = new Map(boards.map((board) => [board.id, board]));
   const world = byId.get("world");
   const available = new Set(boards.map((board) => board.id));
@@ -56,6 +79,8 @@ export function WorldPicker({
   // 誰も選んでいないのに「アメリカ大陸」に居ることになり、
   // そこが選択の入口だと分からなくなった。
   const [focus, setFocus] = useState<Focus>({ kind: "world" });
+  /** 印か一覧の、いま指が乗っているほう。相方も光らせるために持つ。 */
+  const [hot, setHot] = useState<string | null>(null);
 
   // **地図の上に置けない盤面**(地球をまわる・太陽系)は大陸に混ぜない。
   const offMapBoards = COUNTRY_GROUPS.filter((group) => group.offMap)
@@ -70,6 +95,23 @@ export function WorldPicker({
     }))
     .filter((entry) => entry.members.length > 0);
 
+  /** その眺めの中に、この盤面を選ぶ手段があるか。無いなら選択を外す。 */
+  const holds = (next: Focus, id: string): boolean => {
+    if (next.kind === "world") return true;
+    if (next.kind === "continent") {
+      const here = continents.find((entry) => entry.group.key === next.key);
+      return here?.group.countryIds.includes(id) ?? false;
+    }
+    return next.id === id || subBoardsOf(next.id, available).includes(id);
+  };
+
+  /** 眺めを移す。移った先に無い盤面が選ばれていたら、選択を外す。 */
+  const enter = (next: Focus) => {
+    setFocus(next);
+    setHot(null);
+    if (selected !== null && !holds(next, selected)) onSelect(null);
+  };
+
   let sources: AreaSource[];
   let view: ViewBox;
   let projection: MapProjection = WORLD_PROJECTION;
@@ -78,6 +120,8 @@ export function WorldPicker({
   let back: { label: string; to: Focus } | null = null;
   /** 地図の下に出すボタン。世界なら「地球をまわる」と太陽系、大陸ならその大陸ぜんぶ。 */
   let whole: CountryIndexEntry[] = [];
+  /** 寄った先(親と、その中の盤面)。地図には番号の印、右には一覧を出す。 */
+  let inside: { parent: CountryIndexEntry; members: CountryIndexEntry[] } | null = null;
 
   if (focus.kind === "world") {
     sources = continents.map(({ group, members }) => ({
@@ -89,7 +133,7 @@ export function WorldPicker({
     }));
     view = fullView(WORLD_PROJECTION);
     whole = offMapBoards;
-    onPlate = (key) => setFocus({ kind: "continent", key });
+    onPlate = (key) => enter({ kind: "continent", key });
   } else if (focus.kind === "continent") {
     const here = continents.find((entry) => entry.group.key === focus.key) ?? continents[0];
     // 大陸ぜんぶを走る盤面は、国の名札に混ぜない(「ヨーロッパ」が2つ並ぶ)。
@@ -99,7 +143,7 @@ export function WorldPicker({
     view = viewBoxFor(unionBounds(members.map((board) => board.bounds)), WORLD_PROJECTION);
     onPlate = (id) => {
       // 中に入っている盤面があるなら、選ばずにそこへ寄る。
-      if (subBoardsOf(id, available).length > 0) setFocus({ kind: "board", id });
+      if (subBoardsOf(id, available).length > 0) enter({ kind: "board", id });
       else onSelect(id);
     };
     back = { label: tx(BACK_TO_WORLD), to: { kind: "world" } };
@@ -109,9 +153,9 @@ export function WorldPicker({
     projection = boardProjection(parent);
     baseSvg = parent.thumbSvg;
     view = fullView(projection);
-    sources = [parent, ...subBoardsOf(focus.id, available).map((id) => byId.get(id)!)].map(
-      (board) => ({ id: board.id, name: board.name, at: centreOf(board.bounds) }),
-    );
+    const members = [parent, ...subBoardsOf(focus.id, available).map((id) => byId.get(id)!)];
+    inside = { parent, members };
+    sources = members.map((board) => ({ id: board.id, name: board.name, at: centreOf(board.bounds) }));
     onPlate = onSelect;
     const home = continents.find((entry) => entry.members.includes(focus.id));
     back = home
@@ -120,13 +164,23 @@ export function WorldPicker({
   }
 
   const font = fontFor(view);
-  const plates = layoutPlates(sources, sources.map((source) => tx(source.name)), view, font, projection);
+  // 寄った先では、札に書くのは番号だけ。名前は右の一覧に出す(重なるため)。
+  const labels = sources.map((source) => tx(source.name));
+  const texts = inside ? sources.map((_, index) => String(index + 1)) : labels;
+  const plates = layoutPlates(sources, texts, view, font, projection);
+
+  const hoverProps = (id: string) => ({
+    onMouseEnter: () => setHot(id),
+    onMouseLeave: () => setHot((current) => (current === id ? null : current)),
+    onFocus: () => setHot(id),
+    onBlur: () => setHot((current) => (current === id ? null : current)),
+  });
 
   return (
     <div className="world-picker">
       <div className="picker-bar">
         {back ? (
-          <button type="button" className="picker-back" onClick={() => setFocus(back!.to)}>
+          <button type="button" className="picker-back" onClick={() => enter(back!.to)}>
             ‹ {back.label}
           </button>
         ) : (
@@ -134,37 +188,81 @@ export function WorldPicker({
         )}
       </div>
 
-      <svg
-        viewBox={`${view.x} ${view.y} ${view.w} ${view.h}`}
-        className="world-picker-map"
-        preserveAspectRatio="xMidYMid meet"
-        role="group"
-        aria-label={tx(world?.name)}
-      >
-        <BaseMap svg={baseSvg} />
+      <div className={`world-picker-stage${inside ? " with-list" : ""}`}>
+        <svg
+          viewBox={`${view.x} ${view.y} ${view.w} ${view.h}`}
+          className="world-picker-map"
+          preserveAspectRatio="xMidYMid meet"
+          role="group"
+          aria-label={inside ? tx(inside.parent.name) : tx(world?.name)}
+        >
+          <BaseMap svg={baseSvg} />
 
-        {/* 動かした名札から、本来の位置への線。名札より先に描いて下に敷く。 */}
-        {plates.filter((plate) => isMoved(plate, font)).map((plate) => (
-          <line
-            key={`leader-${plate.id}`}
-            x1={plate.trueX}
-            y1={plate.trueY}
-            x2={plate.x}
-            y2={plate.y}
-            className="picker-leader"
-          />
-        ))}
+          {/* 中の盤面が走る範囲。親そのものは絵ぜんぶなので枠は描かない。
+              押すのは印と一覧なので、枠は指を吸わない(CSSで pointer-events: none)。 */}
+          {inside?.members.slice(1).map((board) => (
+            <AreaFrame
+              key={`area-${board.id}`}
+              bounds={board.bounds}
+              projection={projection}
+              font={font}
+              on={board.id === selected}
+              hot={board.id === hot}
+            />
+          ))}
 
-        {plates.map((plate) => (
-          <PlateMark
-            key={plate.id}
-            plate={plate}
-            font={font}
-            selected={plate.id === selected}
-            onPick={onPlate}
-          />
-        ))}
-      </svg>
+          {/* 動かした名札から、本来の位置への線。名札より先に描いて下に敷く。 */}
+          {plates.filter((plate) => isMoved(plate, font)).map((plate) => (
+            <line
+              key={`leader-${plate.id}`}
+              x1={plate.trueX}
+              y1={plate.trueY}
+              x2={plate.x}
+              y2={plate.y}
+              className="picker-leader"
+            />
+          ))}
+
+          {plates.map((plate, index) => (
+            <PlateMark
+              key={plate.id}
+              plate={plate}
+              label={labels[index]}
+              font={font}
+              marker={inside !== null}
+              selected={plate.id === selected}
+              hot={plate.id === hot}
+              onPick={onPlate}
+              hover={hoverProps(plate.id)}
+            />
+          ))}
+        </svg>
+
+        {/* 寄った先の一覧。地図の印と同じ番号で結ぶ。 */}
+        {inside && (
+          <div className="picker-board-list" role="group" aria-label={t("boardsInside", tx(inside.parent.name))}>
+            <div className="picker-list-title">{t("boardsInside", tx(inside.parent.name))}</div>
+            {inside.members.map((board, index) => (
+              <button
+                key={board.id}
+                type="button"
+                className={`picker-list-item${selected === board.id ? " on" : ""}${hot === board.id ? " hot" : ""}`}
+                aria-pressed={selected === board.id}
+                onClick={() => onSelect(board.id)}
+                {...hoverProps(board.id)}
+              >
+                <span className="picker-list-num" aria-hidden="true">
+                  {index + 1}
+                </span>
+                <span className="picker-list-name">{tx(board.name)}</span>
+                <span className={`picker-list-scale ${boardScale(board.id)}`}>
+                  {tx(SCALE_LABEL[boardScale(board.id)])}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
 
       {/* 地図の上に置けない盤面。「地球をまわる」は1点で指せず、
           太陽系はそもそも地球の上に無い。**緯度経度で印を打つと嘘になる**ので、
@@ -216,23 +314,69 @@ function boardProjection(board: CountryIndexEntry): MapProjection {
   return { ...board.bounds, width, height };
 }
 
+/** 中の盤面が走る範囲の枠。番号の印だけだと、北海道の印が北海道を指すと分からない。 */
+function AreaFrame({
+  bounds,
+  projection,
+  font,
+  on,
+  hot,
+}: {
+  bounds: Bounds;
+  projection: MapProjection;
+  font: number;
+  on: boolean;
+  hot: boolean;
+}) {
+  const a = project(bounds.lon0, bounds.lat0, projection);
+  const b = project(bounds.lon1, bounds.lat1, projection);
+  return (
+    <rect
+      className={`picker-area${on ? " on" : ""}${hot ? " hot" : ""}`}
+      x={Math.min(a.x, b.x)}
+      y={Math.min(a.y, b.y)}
+      width={Math.abs(b.x - a.x)}
+      height={Math.abs(b.y - a.y)}
+      rx={font * 0.3}
+      style={{ strokeWidth: font * 0.08, strokeDasharray: `${font * 0.35} ${font * 0.25}` }}
+    />
+  );
+}
+
+interface HoverProps {
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+  onFocus: () => void;
+  onBlur: () => void;
+}
+
 function PlateMark({
   plate,
+  label,
   font,
+  marker,
   selected,
+  hot,
   onPick,
+  hover,
 }: {
   plate: Plate;
+  /** 読み上げ名。番号の印のときは、書いてある字(番号)と違う。 */
+  label: string;
   font: number;
+  /** 番号だけの丸い印として描くか(寄った先)。 */
+  marker: boolean;
   selected: boolean;
+  hot: boolean;
   onPick: (id: string) => void;
+  hover: HoverProps;
 }) {
   return (
     <g
-      className={`picker-plate${selected ? " on" : ""}`}
+      className={`picker-plate${marker ? " marker" : ""}${selected ? " on" : ""}${hot ? " hot" : ""}`}
       role="button"
       tabIndex={0}
-      aria-label={plate.text}
+      aria-label={label}
       aria-pressed={selected}
       onClick={() => onPick(plate.id)}
       onKeyDown={(event) => {
@@ -241,7 +385,11 @@ function PlateMark({
           onPick(plate.id);
         }
       }}
+      {...hover}
     >
+      {/* 名前は `<title>` にも入れておく。印の上に載せると吹き出しで名前が読め、
+          `.picker-plate` を名前で探す道具(`scripts/shot.mjs`)もそのまま動く。 */}
+      {marker && <title>{label}</title>}
       <rect
         x={plate.x - plate.w / 2}
         y={plate.y - plate.h / 2}

@@ -16,6 +16,13 @@ import { Locale } from "../../domain/shared-kernel/localized-text";
  * ここも「Toi」「Tú」を選んでいる。
  * `defaultCpuName` の「CPU」は4言語とも訳さない。すぐ隣にある人/CPU/なし の
  * 切り替えボタンが4言語とも「CPU」表記なので、そちらと揃える。
+ *
+ * `chooseBoardFirst` は、大陸を変えて盤面がまだ選ばれていないときに出す。
+ * 以前は大陸を変えても前の盤面(ボリビア)が選ばれたままで、
+ * 「アジアを開いたのにボリビアで始まる」という食い違いが起きていた。
+ * 「選んでください」の命令形ではなく、**選べば出発できる**と次の一手を示す言い方にする。
+ * `boardsInside` は、日本の中の盤面(北海道・九州・茨城・百名山)のように
+ * 親の中に入っている盤面を、地図の右に並べるときの見出し。
  */
 export const SETUP_MESSAGES: Record<Locale, Record<string, string>> = {
   en: {
@@ -25,6 +32,8 @@ export const SETUP_MESSAGES: Record<Locale, Record<string, string>> = {
     travellerSlot: "Traveller {0}",
     defaultPlayerName: "You",
     defaultCpuName: "CPU {0}",
+    chooseBoardFirst: "Pick a board to set off",
+    boardsInside: "Boards inside {0}",
   },
   es: {
     whoPlays: "¿Quién viaja?",
@@ -33,6 +42,8 @@ export const SETUP_MESSAGES: Record<Locale, Record<string, string>> = {
     travellerSlot: "Viajero {0}",
     defaultPlayerName: "Tú",
     defaultCpuName: "CPU {0}",
+    chooseBoardFirst: "Elige un tablero para partir",
+    boardsInside: "Tableros dentro de {0}",
   },
   fr: {
     whoPlays: "Qui monte à bord ?",
@@ -41,6 +52,8 @@ export const SETUP_MESSAGES: Record<Locale, Record<string, string>> = {
     travellerSlot: "Voyageur {0}",
     defaultPlayerName: "Toi",
     defaultCpuName: "CPU {0}",
+    chooseBoardFirst: "Choisis un plateau pour partir",
+    boardsInside: "Plateaux dans {0}",
   },
   ja: {
     whoPlays: "だれが乗る?",
@@ -49,5 +62,7 @@ export const SETUP_MESSAGES: Record<Locale, Record<string, string>> = {
     travellerSlot: "{0}人目",
     defaultPlayerName: "あなた",
     defaultCpuName: "CPU {0}",
+    chooseBoardFirst: "盤面をえらぶと出発できます",
+    boardsInside: "{0}の中の盤面",
   },
 };

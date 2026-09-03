@@ -1,6 +1,10 @@
-import { describe, expect, it } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { act, render, screen, fireEvent, within } from "@testing-library/react";
 import { LocaleProvider } from "../../i18n/locale-context";
+import { CountryId } from "../../../domain/shared-kernel/ids";
+import { useGameStore } from "../../state/game-store";
+import { GameStoreState, SavedGameSummary } from "../../state/game-store-types";
+import { SETTLE_MS } from "./discard-confirm";
 import { SetupScreen } from "./setup-screen";
 
 /**
@@ -112,6 +116,168 @@ describe("SetupScreen の既定のプレイヤー名", () => {
 
       switchTo("EN");
       expect(nameField(1).value).toBe("");
+    },
+    TIMEOUT,
+  );
+});
+
+const startButton = () => screen.getByRole("button", { name: "Start the journey" });
+/** 地図の名札・番号の印は `role="button"` の `<g>`。読み上げ名で引く。 */
+const plate = (name: string) => screen.getByRole("button", { name });
+
+/**
+ * 2026-09-02 のプレイで見つかった食い違い:**アジアを開いても「ボリビア」が選ばれたまま**で、
+ * 日本の中の盤面を押すまで、旅に出ると始まるのはボリビアだった。
+ * 地域を移った時点で、そこに無い盤面は選択から外し、選ぶまで「旅に出る」を押せなくする。
+ */
+describe("SetupScreen の盤面選び", () => {
+  it(
+    "大陸を変えると前の盤面が外れ、盤面を選ぶまで「旅に出る」は押せない",
+    () => {
+      renderSetup();
+      // 既定はボリビア。何も触らずに旅に出られる。
+      expect(startButton()).toBeEnabled();
+      expect(screen.queryByRole("status")).toBeNull();
+
+      fireEvent.click(plate("Asia"));
+      expect(startButton()).toBeDisabled();
+      expect(screen.getByRole("status")).toHaveTextContent("Pick a board to set off");
+
+      // 日本は中に盤面を持つので、押しても選ばれずに一段降りる。右に一覧が出る。
+      fireEvent.click(plate("Japan"));
+      expect(startButton()).toBeDisabled();
+      const list = screen.getByRole("group", { name: "Boards inside Japan" });
+      expect(within(list).getAllByRole("button")).toHaveLength(5);
+      // 地図の印は名前ではなく番号を書く(重なるため)。読み上げ名は盤面の名前のまま。
+      // `textContent` には吹き出し用の `<title>` も混ざるので、見える文字だけを見る。
+      expect(plate("Kyūshū").querySelector("text")).toHaveTextContent(/^\d$/);
+
+      // 一覧で選ぶと、地図の印も光り、旅に出られる。
+      fireEvent.click(within(list).getByRole("button", { name: /Kyūshū/ }));
+      expect(plate("Kyūshū")).toHaveAttribute("aria-pressed", "true");
+      expect(within(list).getByRole("button", { name: /Kyūshū/ })).toHaveAttribute("aria-pressed", "true");
+      expect(startButton()).toBeEnabled();
+      expect(screen.queryByRole("status")).toBeNull();
+
+      // 地図の印で選び直しても、一覧が追いかける。
+      fireEvent.click(plate("Hokkaidō"));
+      expect(within(list).getByRole("button", { name: /Hokkaidō/ })).toHaveAttribute("aria-pressed", "true");
+      expect(within(list).getByRole("button", { name: /Kyūshū/ })).toHaveAttribute("aria-pressed", "false");
+
+      // アジアへ戻っても、北海道はアジアの中なので選ばれたまま。世界へ戻っても同じ。
+      fireEvent.click(screen.getByRole("button", { name: "‹ Asia" }));
+      expect(startButton()).toBeEnabled();
+      fireEvent.click(screen.getByRole("button", { name: "‹ All regions" }));
+      expect(startButton()).toBeEnabled();
+      // 別の大陸を開いた時点で外れる。
+      fireEvent.click(plate("Europe"));
+      expect(startButton()).toBeDisabled();
+    },
+    TIMEOUT,
+  );
+
+  it(
+    "選んでいる盤面が入っている大陸を開いても、選択は外れない",
+    () => {
+      renderSetup();
+      fireEvent.click(plate("South America"));
+      expect(startButton()).toBeEnabled();
+      expect(plate("Bolivia")).toHaveAttribute("aria-pressed", "true");
+    },
+    TIMEOUT,
+  );
+
+  it(
+    "一覧に指を乗せると、地図の同じ番号の印も光る",
+    () => {
+      renderSetup();
+      fireEvent.click(plate("Asia"));
+      fireEvent.click(plate("Indonesia"));
+      const list = screen.getByRole("group", { name: "Boards inside Indonesia" });
+      expect(within(list).getAllByRole("button")).toHaveLength(2);
+      const bali = within(list).getByRole("button", { name: /Bali/ });
+      fireEvent.mouseEnter(bali);
+      expect(plate("Bali")).toHaveClass("hot");
+      fireEvent.mouseLeave(bali);
+      expect(plate("Bali")).not.toHaveClass("hot");
+    },
+    TIMEOUT,
+  );
+});
+
+const savedJourney: SavedGameSummary = {
+  countryId: CountryId("bolivia"),
+  month: 1,
+  maxMonths: 12,
+  players: [
+    { name: "タロウ", isCpu: false, cash: 1200 },
+    { name: "CPU 1", isCpu: true, cash: 800 },
+  ],
+};
+
+/**
+ * **「旅に出る」で、セーブ中の旅(Year1・May)が確認なしに消えた**(2026-09-02)。
+ * 新しい旅は始めた瞬間に保存されるので、途中の旅があるときは一度止める。
+ * 「削除」に付けた確認(v0.28.0)と同じ作りで、文言だけ「新しい旅を始めますか」。
+ */
+describe("SetupScreen の「旅に出る」と途中の旅", () => {
+  const original = useGameStore.getState().startNewGame;
+  afterEach(() => {
+    useGameStore.setState({ startNewGame: original, savedGame: null });
+  });
+
+  function renderWithSaved() {
+    // 引数の型を書いておかないと `mock.calls[0][0]` が「無い引数」になり型検査で落ちる。
+    const startNewGame = vi.fn<GameStoreState["startNewGame"]>(() => Promise.resolve());
+    useGameStore.setState({ startNewGame });
+    renderSetup();
+    // マウント時に localStorage から読み直して null になるので、そのあとに置く。
+    act(() => useGameStore.setState({ savedGame: savedJourney }));
+    return startNewGame;
+  }
+
+  it(
+    "途中の旅があれば確認を挟み、「途中の旅を残す」なら始めない",
+    () => {
+      const startNewGame = renderWithSaved();
+      fireEvent.click(startButton());
+      expect(startNewGame).not.toHaveBeenCalled();
+      const dialog = screen.getByRole("alertdialog");
+      expect(dialog).toHaveTextContent("Start a new journey?");
+      expect(dialog).toHaveTextContent("Year 1 · May");
+      const keep = screen.getByRole("button", { name: "Keep the saved journey" });
+      expect(keep).toHaveFocus();
+      fireEvent.click(keep);
+      expect(screen.queryByRole("alertdialog")).toBeNull();
+      expect(startNewGame).not.toHaveBeenCalled();
+      expect(startButton()).toHaveFocus();
+    },
+    TIMEOUT,
+  );
+
+  it(
+    "確認で「それでも始める」を選ぶと、選んでいる盤面で始まる",
+    async () => {
+      const startNewGame = renderWithSaved();
+      fireEvent.click(startButton());
+      // 開いた直後の一打は連打よけで落ちる。少し待ってから押す。
+      await act(() => new Promise((resolve) => setTimeout(resolve, SETTLE_MS + 50)));
+      fireEvent.click(screen.getByRole("button", { name: "Start anyway" }));
+      expect(startNewGame).toHaveBeenCalledTimes(1);
+      expect(startNewGame.mock.calls[0][0]).toMatchObject({ countryId: "bolivia" });
+    },
+    TIMEOUT,
+  );
+
+  it(
+    "途中の旅が無ければ、確認なしにそのまま始まる",
+    () => {
+      const startNewGame = vi.fn(() => Promise.resolve());
+      useGameStore.setState({ startNewGame });
+      renderSetup();
+      fireEvent.click(startButton());
+      expect(screen.queryByRole("alertdialog")).toBeNull();
+      expect(startNewGame).toHaveBeenCalledTimes(1);
     },
     TIMEOUT,
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useEffect, useMemo, useState } from "react";
+import { memo, useEffect, useMemo, useRef, useState } from "react";
 import { CountryId } from "../../../domain/shared-kernel/ids";
 import { CpuLevel } from "../../../domain/cpu/cpu-level";
 import { DEFAULT_KNOWLEDGE_LEVEL, KNOWLEDGE_LEVELS, KnowledgeLevel } from "../../../domain/quiz/knowledge-level";
@@ -15,6 +15,7 @@ import { useTitleMusic } from "../../hooks/use-title-music";
 import { LocaleSwitch } from "../hud/locale-switch";
 import { MusicToggle } from "../hud/music-toggle";
 import { SavedGameCard } from "./saved-game-card";
+import { DiscardConfirm } from "./discard-confirm";
 import { SetupHeroTrain } from "./setup-hero-train";
 
 const MONTH_OPTIONS = [12, 24, 36];
@@ -123,8 +124,17 @@ export function SetupScreen() {
     refreshSavedGame();
   }, [refreshSavedGame]);
 
-  const [country, setCountry] = useState<CountryId>(CountryId("bolivia"));
-  const chosenCountry = COUNTRY_INDEX.find((entry) => entry.id === country);
+  /**
+   * 選ばれている盤面。**`null` は「まだ選んでいない」。**
+   *
+   * 既定はボリビア(最初に開いたときに、何も選ばずに旅に出られるように)。
+   * ただし地図で別の大陸を開いたら外れる(`WorldPicker` が `null` で知らせる)。
+   * 以前は外れなかったので、アジアを開いても「ボリビア」で旅に出る状態が続き、
+   * 「地域を変えたのに始まる盤面は前のまま」という食い違いが起きていた。
+   * 選ばれていないあいだは「旅に出る」を押せない。
+   */
+  const [country, setCountry] = useState<CountryId | null>(CountryId("bolivia"));
+  const chosenCountry = country ? COUNTRY_INDEX.find((entry) => entry.id === country) : undefined;
   /**
    * 狭い画面に出す札の一覧。**並び順は大陸の順。**
    * 登録順のままだと、盤面が増えるたびに、いつもの場所からいつものものが消える。
@@ -144,6 +154,13 @@ export function SetupScreen() {
    */
   const cpuLevel: CpuLevel = "normal";
   const [starting, setStarting] = useState(false);
+  /**
+   * 「旅に出る」を押したが、途中の旅が保存されていて、上書きの確認を出しているところ。
+   * 新しい旅は始めた瞬間に保存されるので、**確認なしに押すと前の旅が消える**
+   * (2026-09-02、Year1・May の旅が消えた)。「削除」と同じ確認を挟む。
+   */
+  const [confirmingOverwrite, setConfirmingOverwrite] = useState(false);
+  const startRef = useRef<HTMLButtonElement>(null);
   const [slots, setSlots] = useState<SlotConfig[]>([
     { name: null, mode: "human", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL, cpuLevel: "normal" },
     { name: null, mode: "cpu", knowledgeLevel: DEFAULT_KNOWLEDGE_LEVEL, cpuLevel: "normal" },
@@ -193,7 +210,9 @@ export function SetupScreen() {
   const extraSlotShown = slots[ALWAYS_VISIBLE_SLOTS].mode !== "off";
   const visibleSlots = extraSlotShown ? slots.length : ALWAYS_VISIBLE_SLOTS;
 
-  const handleStart = () => {
+  /** 新しい旅を始める。ここに来た時点で、途中の旅を消す確認は済んでいる。 */
+  const launch = () => {
+    if (!country) return;
     const players: PlayerSetup[] = slots
       .map((slot, i) => ({ slot, i }))
       .filter(({ slot }) => slot.mode !== "off")
@@ -210,6 +229,16 @@ export function SetupScreen() {
     savePlayerSetup(slots.map((slot) => ({ name: slot.name, mode: slot.mode })));
     setStarting(true);
     void startNewGame({ countryId: country, players, maxMonths: months, cpuLevel }).finally(() => setStarting(false));
+  };
+
+  const handleStart = () => {
+    if (!country || starting) return;
+    // 途中の旅があるなら、消えることを一度言ってから。
+    if (savedGame) {
+      setConfirmingOverwrite(true);
+      return;
+    }
+    launch();
   };
 
   return (
@@ -248,7 +277,7 @@ export function SetupScreen() {
             <WorldPicker
               boards={COUNTRY_INDEX}
               selected={country}
-              onSelect={(id) => setCountry(CountryId(id))}
+              onSelect={(id) => setCountry(id === null ? null : CountryId(id))}
             />
             {/* **狭い画面では地図を使わない。**390pxの幅だと地図は324×106pxにしかならず、
                 名札の字が6pxになって読めない(実測)。札の一覧に切り替える。
@@ -265,10 +294,16 @@ export function SetupScreen() {
                 />
               ))}
             </div>
-            {chosenCountry && (
+            {chosenCountry ? (
               <p className="country-chosen">
                 <span className="nm">{tx(chosenCountry.name)}</span>
                 <span className="sub">{tx(chosenCountry.blurb)}</span>
+              </p>
+            ) : (
+              // 大陸を変えて、盤面がまだ選ばれていない。ここが「旅に出る」を
+              // 押せない理由なので、ボタンの手前で同じ言葉を出しておく。
+              <p className="country-chosen country-unchosen" role="status">
+                <span className="nm">{t("chooseBoardFirst")}</span>
               </p>
             )}
           </fieldset>
@@ -370,12 +405,37 @@ export function SetupScreen() {
           </div>
 
           <div className="btnrow">
-            <button className="btn btn-start" onClick={handleStart} disabled={starting}>
+            {/* 盤面が選ばれていないあいだは押せない。押せない理由は
+                上の `country-unchosen` に書いてあり、ここは `aria-describedby` で結ばない——
+                読み上げでは `role="status"` の出現で先に伝わる。 */}
+            <button
+              className="btn btn-start"
+              ref={startRef}
+              onClick={handleStart}
+              disabled={starting || !country}
+              title={country ? undefined : t("chooseBoardFirst")}
+            >
               {starting ? t("thinking") : t("start")}
             </button>
           </div>
         </div>
       </div>
+
+      {confirmingOverwrite && savedGame && (
+        <DiscardConfirm
+          saved={savedGame}
+          intent="overwrite"
+          onConfirm={() => {
+            setConfirmingOverwrite(false);
+            launch();
+          }}
+          onCancel={() => {
+            setConfirmingOverwrite(false);
+            // 押したところへ戻す(`saved-game-card.tsx` の「削除」と同じ扱い)。
+            startRef.current?.focus();
+          }}
+        />
+      )}
     </div>
   );
 }
