@@ -187,3 +187,206 @@
     display: none;
   }
 }
+
+/* ── F-15 絵だけのボタンの名札 ─────────────────────────────── */
+
+/* 名札は `data-tip` の文を `::before` に出す(`::after` は globals.css の全体表示ボタンが
+   使っているので避ける)。出す条件は3つ:マウスの hover、キーボードの focus-visible、
+   指の長押し・押した直後(`use-press-hint.ts` が `data-tip-shown` を立てる)。 */
+.hint-tip {
+  position: relative;
+}
+
+.hint-tip[data-tip]::before {
+  content: attr(data-tip);
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 8px);
+  transform: translateX(-50%);
+  z-index: 6;
+  white-space: nowrap;
+  background: var(--salt);
+  color: var(--night2);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  padding: 4px 9px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px #00000077;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.12s ease,
+    visibility 0.12s;
+}
+
+.hint-tip[data-tip]:hover::before,
+.hint-tip[data-tip]:focus-visible::before,
+.hint-tip[data-tip][data-tip-shown="true"]::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 画面の下の隅にあるものは上に出す。 */
+.hint-tip.tip-above::before {
+  top: auto;
+  bottom: calc(100% + 8px);
+}
+
+/* 左の隅は左端を、右の隅は右端を揃える(中央に出すと画面からはみ出す)。 */
+.hint-tip.tip-start::before {
+  left: 0;
+  transform: none;
+}
+
+.hint-tip.tip-end::before {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+/* 方位磁針。globals.css は飾りとして当たり判定を切っているが、名札を出すには要る。 */
+.board-stage .board-compass {
+  pointer-events: auto;
+  cursor: help;
+}
+
+/* 全体表示ボタン。絵に「全体表示」と ON/OFF の札を足して、いまどちらかを常に読めるようにする。
+   globals.css の 38px 固定幅と、押しているときだけ脇に出していた `::after` の札はやめる。 */
+.board-stage .cam-toggle {
+  width: auto;
+  min-width: 38px;
+  padding: 0 8px 0 9px;
+  gap: 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board-stage .cam-toggle[aria-pressed]::after {
+  content: none;
+}
+
+.cam-toggle-text {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.cam-toggle-state {
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #ffffff1f;
+  color: var(--salt-dim);
+}
+
+.cam-toggle[aria-pressed="true"] .cam-toggle-state {
+  background: var(--night2);
+  color: var(--gold);
+}
+
+/* 広い画面では文字が見えているので、名札まで出すと二重になる。 */
+@media (min-width: 641px) {
+  .cam-toggle.hint-tip::before,
+  .board-legend-toggle.hint-tip::before {
+    display: none;
+  }
+}
+
+/* 狭い画面では絵だけに畳む(地名を覆わないため。凡例のボタンと同じ判断)。
+   いまどちらかは、押した直後と長押しの名札で読む。 */
+@media (max-width: 640px) {
+  .board-stage .cam-toggle {
+    width: 38px;
+    padding: 0;
+    gap: 0;
+  }
+
+  .cam-toggle-text,
+  .cam-toggle-state {
+    display: none;
+  }
+}
+
+/* ── F-18 キーボードの案内 ─────────────────────────────────── */
+
+/* 手番パネルの中、サイコロの下に一度だけ出る。金の点線で「お知らせ」と分かるようにし、
+   カード本体より一段小さい字にして主役(サイコロ)を食わない。 */
+.key-hint {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-top: 10px;
+  padding: 7px 6px 7px 10px;
+  border-radius: 10px;
+  background: #f5b31c14;
+  border: 1px dashed #f5b31c66;
+  font-size: 0.74rem;
+  color: var(--salt-dim);
+  animation: keyHintIn 0.35s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.key-hint-title {
+  font-weight: 800;
+  color: var(--gold);
+}
+
+.key-hint-keys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+
+.key-hint kbd {
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--salt);
+  background: var(--night2);
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  padding: 0 5px;
+  margin-right: 2px;
+}
+
+.key-hint-close {
+  margin-left: auto;
+  background: none;
+  border: 0;
+  color: var(--salt-dim);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 2px 7px;
+  cursor: pointer;
+}
+
+.key-hint-close:hover {
+  color: var(--salt);
+}
+
+@keyframes keyHintIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .key-hint {
+    animation: none;
+  }
+  .hint-tip[data-tip]::before {
+    transition: none;
+  }
+}

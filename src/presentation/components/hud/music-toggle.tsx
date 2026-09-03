@@ -1,6 +1,7 @@
 "use client";
 
 import { useMusicEnabled } from "../../hooks/use-music-enabled";
+import { usePressHint } from "../../hooks/use-press-hint";
 import { useLocale } from "../../i18n/locale-context";
 
 /**
@@ -12,21 +13,26 @@ import { useLocale } from "../../i18n/locale-context";
  *
  * 読み上げのために、名前は入り切りで変えず(`aria-label` は「音楽」で固定)、
  * いま鳴っているかどうかは `aria-pressed` で伝える。
- * 絵だけでは何のボタンか分からないので、マウスの人には `title` で動作を出す。
+ *
+ * 絵だけでは何のボタンか分からない(F-15)。名札は `data-tip` に「音楽: ON」の形で持ち、
+ * ホバー・フォーカス・長押しで出す。押した直後にも短く出すので、指で押した人も
+ * 結果(「音楽: OFF」)を読める。ブラウザ標準の `title` は使わない——出るまでに
+ * 1秒かかり、指では出ず、`data-tip` と二重に出てしまう。
  */
 export function MusicToggle() {
   const { t } = useLocale();
   const [enabled, setEnabled] = useMusicEnabled();
+  const hint = usePressHint<HTMLButtonElement>({ onClick: () => setEnabled(!enabled) });
 
   return (
     <button
       type="button"
-      className={`music-toggle${enabled ? " on" : ""}`}
+      className={`music-toggle hint-tip${enabled ? " on" : ""}`}
       data-testid="music-toggle"
       aria-label={t("musicToggle")}
       aria-pressed={enabled}
-      title={enabled ? t("musicTurnOff") : t("musicTurnOn")}
-      onClick={() => setEnabled(!enabled)}
+      data-tip={t("toggleState", t("musicToggle"), enabled ? t("stateOn") : t("stateOff"))}
+      {...hint.props}
     >
       <svg
         viewBox="0 0 24 24"

@@ -54,6 +54,9 @@ export const BOARD_MESSAGES: Record<Locale, Record<string, string>> = {
     candidateOnLine: ". On the {0}–{1} line.",
     remainingBadge: "{0} to go",
     remainingBadgeGoal: "Goal",
+    // 方位磁針(F-15)。押せるものではないが、名前が無いと何か分からない。
+    compassLabel: "Compass. North is up.",
+    compassTip: "North is up",
   },
   es: {
     boardLabel: "Tablero de juego",
@@ -81,6 +84,8 @@ export const BOARD_MESSAGES: Record<Locale, Record<string, string>> = {
     candidateOnLine: ". En la línea {0}–{1}.",
     remainingBadge: "faltan {0}",
     remainingBadgeGoal: "Meta",
+    compassLabel: "Brújula. El norte está arriba.",
+    compassTip: "El norte está arriba",
   },
   fr: {
     boardLabel: "Plateau de jeu",
@@ -108,6 +113,8 @@ export const BOARD_MESSAGES: Record<Locale, Record<string, string>> = {
     candidateOnLine: ". Sur la ligne {0}–{1}.",
     remainingBadge: "reste {0}",
     remainingBadgeGoal: "Arrivée",
+    compassLabel: "Boussole. Le nord est en haut.",
+    compassTip: "Le nord est en haut",
   },
   ja: {
     boardLabel: "ゲーム盤",
@@ -135,5 +142,7 @@ export const BOARD_MESSAGES: Record<Locale, Record<string, string>> = {
     candidateOnLine: "。{0}〜{1}の線。",
     remainingBadge: "残り{0}",
     remainingBadgeGoal: "到着",
+    compassLabel: "方位磁針。北が上です。",
+    compassTip: "北が上",
   },
 };

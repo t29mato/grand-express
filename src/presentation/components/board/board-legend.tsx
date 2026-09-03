@@ -5,6 +5,7 @@ import { CurrencyFormat } from "../../../domain/country/country-content-pack";
 import { MAX_QUIZ_DIFFICULTY, MIN_QUIZ_DIFFICULTY, quizReward } from "../../../domain/quiz/quiz-question";
 import { useLocale } from "../../i18n/locale-context";
 import { formatMoney } from "../../i18n/money-format";
+import { usePressHint } from "../../hooks/use-press-hint";
 
 /** クイズマスの色(board-view の SQUARE_STYLES と同じ)。難易度で色分けはしない。 */
 const SQUARE_QUIZ_COLOR = "#f5b31c";
@@ -30,6 +31,7 @@ const SQUARE_QUIZ_COLOR = "#f5b31c";
 export function BoardLegend({ currency }: { currency: CurrencyFormat }) {
   const { t } = useLocale();
   const [open, setOpen] = useState(false);
+  const hint = usePressHint<HTMLButtonElement>({ onClick: () => setOpen((v) => !v) });
 
   // 難易度によって増減額が変わるので、凡例では下限〜上限の幅で示す。
   const quizRange = `+${formatMoney(quizReward(MIN_QUIZ_DIFFICULTY).winAmount, currency)}〜${formatMoney(
@@ -53,13 +55,16 @@ export function BoardLegend({ currency }: { currency: CurrencyFormat }) {
         「?」だけの丸ボタンにするので、見えている文字に名前を頼れない
         (文字が消えると、読み上げでは名前の無いボタンになってしまう)。
       */}
+      {/* 狭い画面では「?」だけになるので、名札(`data-tip`)も持たせる(F-15)。
+          広い画面では文字が見えているので、CSS 側で名札を出さない。 */}
       <button
         type="button"
-        className="board-legend-toggle"
+        className="board-legend-toggle hint-tip tip-start"
         aria-label={t("legendTitle")}
         aria-expanded={open}
         aria-controls="board-legend"
-        onClick={() => setOpen((v) => !v)}
+        data-tip={open ? t("close") : t("legendTitle")}
+        {...hint.props}
       >
         <span aria-hidden="true">{open ? "×" : "?"}</span>
         <span className="board-legend-toggle-text" aria-hidden="true">

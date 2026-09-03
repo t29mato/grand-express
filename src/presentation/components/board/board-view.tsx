@@ -18,6 +18,8 @@ import { TerrainLayer } from "./terrain-layer";
 import { BoardLegend } from "./board-legend";
 import { BoardCompass } from "./board-compass";
 import { candidateLabels as buildCandidateLabels, nextFocusIndex, orderByAzimuth } from "./candidate-guide";
+import { usePressHint } from "../../hooks/use-press-hint";
+import { isNativeKeyTarget, isSpaceKey } from "../../hooks/use-turn-keys";
 import { soundAdapter } from "../../state/game-store-dependencies";
 import { useGameStore } from "../../state/game-store";
 import { WALK_STEP_MS, prefersReducedMotion } from "../../state/motion-preference";
@@ -147,6 +149,8 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
   const { tx, t, locale } = useLocale();
   const { boardWidth, boardHeight } = context.content.projection;
   const [overview, setOverview] = useState(false);
+  /** 全体表示ボタンの名札。指で押したあと・長押しで「全体表示: ON」を出す(F-15)。 */
+  const overviewHint = usePressHint<HTMLButtonElement>({ onClick: () => setOverview((v) => !v) });
   /**
    * 「そこには行けません」と返しているマス。
    * 押しても何も起きないと、壊れているのか操作を間違えたのかが分からない
@@ -258,6 +262,35 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
       window.removeEventListener("pointerdown", onPointer, true);
     };
   }, []);
+
+  /**
+   * 行き先を選んでいるあいだ、**フォーカスが候補の上に無くても**矢印・Space・Enter が効く(F-18)。
+   *
+   * マウスでサイコロを押した人はフォーカスが body に落ちている(計測: use-turn-keys.ts)。
+   * その状態で ←→ を押しても何も起きず、キーが「あるのかないのか分からない」
+   * 状態だった。最初の1押しは**いまの候補にフォーカスを移すだけ**にして、
+   * どれが選ばれているかを見せてから、次の Enter/Space で決める(いきなり決めない)。
+   * 候補の上に乗ってからの操作は `handleCandidateKeyDown` の担当。
+   */
+  const focusIndexRef = useRef(focusIndex);
+  useEffect(() => {
+    focusIndexRef.current = focusIndex;
+  }, [focusIndex]);
+  useEffect(() => {
+    if (orderedCandidates.length === 0) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.repeat || e.ctrlKey || e.altKey || e.metaKey) return;
+      const isChoiceKey = isSpaceKey(e) || e.key === "Enter" || nextFocusIndex(e.key, 0, 2) !== null;
+      if (!isChoiceKey) return;
+      const active = document.activeElement;
+      if (active?.getAttribute("data-choosable") === "true") return; // 候補の上。そちらで拾う。
+      if (isNativeKeyTarget(e.target)) return;
+      e.preventDefault();
+      focusCandidateAt(Math.min(focusIndexRef.current, orderedCandidates.length - 1));
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [orderedCandidates, focusCandidateAt]);
 
   /**
    * 候補が出たら、先頭の候補へフォーカスを移す。
@@ -921,24 +954,35 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
       </svg>
       <BoardLegend currency={context.content.currency} />
       <BoardCompass />
-      {/* 全体表示に入っているかどうかが見た目で分かるようにする。
-          絵柄・脇のラベル・説明のどれもが状態で変わる(絵柄だけだと気づかれない)。 */}
+      {/* 全体表示に入っているかどうかが見た目で分かるようにする(F-15)。
+          絵柄・名前・ON/OFF の札のどれもが状態で変わる。
+          実プレイでは「地図アイコンを押しても変化が判別できなかった」——盤面が
+          もともと枠に収まっている国では、俯瞰に切り替わっても地図がほとんど動かない。
+          だからボタン自身に **いまどちらか** を常に書いておく(広い画面)。
+          狭い画面では絵だけに畳み、押した直後と長押しで名札を出す(`data-tip`)。 */}
       <button
         type="button"
-        className="cam-toggle"
+        className="cam-toggle hint-tip tip-above tip-end"
         data-testid="cam-toggle"
         /* 読み上げのために、名前は入り切りで変えず「全体表示」で固定し、
            いま俯瞰しているかどうかは `aria-pressed` で伝える
-           (music-toggle.tsx と同じ形)。マウスの人には `title` で次の動作を出す。 */
+           (music-toggle.tsx と同じ形)。`title` は `scripts/shot.mjs` が
+           「Whole map」で引くので残す(広い画面では文字が見えていて二重にはならない)。 */
         aria-label={t("overviewLabel")}
         aria-pressed={overview}
-        onClick={() => setOverview((v) => !v)}
         title={overview ? t("overviewBack") : t("overviewLabel")}
-        data-on-label={t("overviewLabel")}
+        data-tip={t("toggleState", t("overviewLabel"), overview ? t("stateOn") : t("stateOff"))}
+        {...overviewHint.props}
       >
         {/* 色だけに頼らないよう、絵柄も変える(俯瞰中は「戻る=拡大」)。
-            名前は aria-label が持つので、絵は読み上げから外す。 */}
+            名前は aria-label が持つので、中の文字は読み上げから外す。 */}
         <span aria-hidden="true">{overview ? "🔍" : "🗺"}</span>
+        <span className="cam-toggle-text" aria-hidden="true">
+          {t("overviewLabel")}
+        </span>
+        <span className="cam-toggle-state" aria-hidden="true">
+          {overview ? t("stateOn") : t("stateOff")}
+        </span>
       </button>
     </div>
   );

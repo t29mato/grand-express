@@ -2,6 +2,8 @@
 
 import { GameSession, currentPlayer } from "../../../domain/game-session/game-session";
 import { useLocale } from "../../i18n/locale-context";
+import { useTurnKeys } from "../../hooks/use-turn-keys";
+import { KeyboardHint } from "./keyboard-hint";
 
 export function DiceButton({
   session,
@@ -10,6 +12,7 @@ export function DiceButton({
   rolling,
   steps,
   onRoll,
+  onAdvance,
 }: {
   session: GameSession;
   disabled: boolean;
@@ -28,6 +31,13 @@ export function DiceButton({
    */
   steps?: number;
   onRoll: () => void;
+  /**
+   * Space で「次へ」を押すときの処理(モーダルを閉じる等)。進めたら true。
+   * 省略すると、開いているモーダルの進むボタンを DOM から探して押す
+   * (`use-turn-keys.ts` の `advanceOpenModal`)。画面側が `ui.kind` から
+   * 閉じる関数を選んで渡せるなら、そちらのほうが確かなので優先される。
+   */
+  onAdvance?: () => boolean;
 }) {
   const { t } = useLocale();
   const player = currentPlayer(session);
@@ -37,20 +47,32 @@ export function DiceButton({
    */
   const unnamed = !cpuTurnPlayerName && !player.isCpu && player.name === t("defaultPlayerName");
 
+  const canRoll = !disabled && !rolling;
   const handleClick = () => {
-    if (disabled || rolling) return;
+    if (!canRoll) return;
     onRoll();
   };
+
+  /**
+   * Space = 振る／次へ(F-18)。フォーカスがどこにあっても効く。
+   * 以前は `<button>` にフォーカスが残っていたときだけ偶然振れていた
+   * (計測の詳細は use-turn-keys.ts)。
+   */
+  useTurnKeys({ canRoll, onRoll, onAdvance });
 
   return (
     /* `turn-card` は、縦積みのときにこの一群だけを盤面の上へ出すための目印。
        他の `.card` と区別が付かないと、順番を入れ替えられない(globals.css 参照)。 */
     <div className="card turn-card">
       <div className="turn-row">
+        {/* 中身が絵(🎲)か数字だけなので、読み上げ名を付ける(F-15)。名前は場面で変えず、
+            いま何をする番か(転がっている・何マス進むか)は隣の文を `aria-describedby` で添える。 */}
         <button
           id="die"
           className={`${rolling || cpuTurnPlayerName ? "rolling" : ""}${steps !== undefined ? " showing-steps" : ""}`}
           disabled={disabled}
+          aria-label={t("rollDie")}
+          aria-describedby="turn-hint"
           onClick={handleClick}
         >
           {steps !== undefined ? steps : "🎲"}
@@ -63,7 +85,7 @@ export function DiceButton({
           <div className="turn-name">
             {unnamed ? t("yourTurn") : t("turnOf", cpuTurnPlayerName ?? player.name)}
           </div>
-          <div className="turn-hint">
+          <div className="turn-hint" id="turn-hint">
             {cpuTurnPlayerName
               ? t("cpuTurnBadge", cpuTurnPlayerName)
               : rolling
@@ -76,6 +98,8 @@ export function DiceButton({
           </div>
         </div>
       </div>
+      {/* キーがあることの案内。自分が振れる最初の手番に一度だけ。 */}
+      <KeyboardHint active={canRoll && !player.isCpu} />
     </div>
   );
 }
