@@ -7,6 +7,8 @@
 @import "./styles/calendar.css";
 @import "./styles/setup-picker.css";
 @import "./styles/reveal.css";
+@import "./styles/arrival.css";
+@import "./styles/guide.css";
 
 :root {
   --night: #241a3f;
