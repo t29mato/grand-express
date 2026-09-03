@@ -31,7 +31,8 @@ function band(y, h, fill) {
  * 渡すこと。**渡し忘れると奥と手前のあいだに塗り残しの帯ができる。
  */
 function space(top, bottom, to = 124) {
-  return band(0, 92, top) + band(84, Math.max(0, to - 84), bottom);
+  // `to` が境界の84以下なら2色目の見える余地が無い。高さ0の <rect> を出さない。
+  return band(0, 92, top) + (to > 84 ? band(84, to - 84, bottom) : "");
 }
 
 function surface(y, fill) {

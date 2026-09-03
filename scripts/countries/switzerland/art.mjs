@@ -56,7 +56,8 @@ function band(y, h, fill) {
  * 既定の118はすぐ下に地面が来る場合の値でしかない。
  */
 function sky(top, bottom, to = 118) {
-  return band(0, 84, top) + band(78, Math.max(0, to - 78), bottom);
+  // `to` が境界の78以下なら2色目の見える余地が無い。高さ0の <rect> を出さない。
+  return band(0, 84, top) + (to > 78 ? band(78, to - 78, bottom) : "");
 }
 
 /** 地面(下端まで塗り切る)。 */

@@ -44,7 +44,8 @@ function band(y, h, fill) {
  * そのままにすると、あいだが横一文字に透ける。
  */
 function sky(top = "#8fc4e8", bottom = "#cfe4f0", to = 118) {
-  return band(0, 88, top) + band(80, Math.max(0, to - 80), bottom);
+  // `to` が境界の80以下なら2色目の見える余地が無い。高さ0の <rect> を出さない。
+  return band(0, 88, top) + (to > 80 ? band(80, to - 80, bottom) : "");
 }
 
 function ground(y, fill) {

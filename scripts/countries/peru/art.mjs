@@ -48,7 +48,8 @@ function band(y, h, fill) {
  * 高地ほど上を濃い青にすると、薄い空気の感じが出る。
  */
 function sky(top = "#4f8fd0", bottom = "#bfdcea", to = 124) {
-  return band(0, 92, top) + band(84, Math.max(0, to - 84), bottom);
+  // `to` が境界の84以下なら2色目の見える余地が無い。高さ0の <rect> を出さない。
+  return band(0, 92, top) + (to > 84 ? band(84, to - 84, bottom) : "");
 }
 
 function ground(y, fill) {
