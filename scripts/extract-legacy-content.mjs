@@ -501,6 +501,38 @@ function evaluateDecorBoxes(svg, gap = 2) {
 }
 
 /**
+ * **何も描かない `<rect>`(幅も高さも0)を落とす。**
+ *
+ * legacy の `kanto` と `torii_wood` に、小数点をカンマと打ち間違えたうえ幅も高さも0の
+ * 残骸が1つずつ入っていた(`<rect x="11,2" width="0" height="0"/>`)。
+ * 見た目には何も出ないが、Chrome は盤面を描くたびに
+ * `<rect> attribute x: Expected length, "11,2"` を本番のコンソールに吐き続ける。
+ *
+ * `legacy/grand-express.html` は凍結しているので原本は直せず、
+ * また `marks`(シンボルのSVG辞書)には1件ずつ差し替える上書きの仕組みも無い。
+ * そこで焼くときに掃除する。**落とすのは幅も高さも0のものだけ。**
+ * 幅400・高さ0のような「片方だけ0」の帯は都市背景の組み立てで普通に出てくるうえ、
+ * 属性としては正しく、コンソールにも出ないので触らない(消すと差分が30件に増える)。
+ */
+function stripNoOpRects(value) {
+  if (typeof value === "string") {
+    if (!value.includes("<rect")) return value;
+    return value.replace(/<rect\b[^>]*>/g, (tag) => {
+      const size = (name) => {
+        const found = new RegExp(`\\s${name}="([^"]*)"`).exec(tag);
+        return found ? Number.parseFloat(found[1]) : NaN;
+      };
+      return size("width") === 0 && size("height") === 0 ? "" : tag;
+    });
+  }
+  if (Array.isArray(value)) return value.map(stripNoOpRects);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([key, v]) => [key, stripNoOpRects(v)]));
+  }
+  return value;
+}
+
+/**
  * legacy の装飾を置き換える国。legacy のものは陸の外へ撒いてクリップ任せの作りで、
  * 実際に見えていたのは日本で山0本、ボリビアでサボテン8本だった(理由は各ファイルの冒頭)。
  */
@@ -527,7 +559,7 @@ for (const country of [BOLIVIA, JAPAN]) {
   content.decorBoxes = evaluateDecorBoxes(content.decor);
   writeFileSync(
     join(contentDir, `${country.id}.content.json`),
-    JSON.stringify(content, null, 2) + "\n",
+    JSON.stringify(stripNoOpRects(content), null, 2) + "\n",
   );
 }
 
@@ -626,7 +658,7 @@ for (const content of AUTHORED_COUNTRIES) {
   content.decorBoxes = evaluateDecorBoxes(content.decor);
   writeFileSync(
     join(contentDir, `${content.id}.content.json`),
-    JSON.stringify(content, null, 2) + "\n",
+    JSON.stringify(stripNoOpRects(content), null, 2) + "\n",
   );
 }
 

@@ -1,4 +1,5 @@
 import { Random } from "../../domain/shared-kernel/random";
+import { recordDraw } from "./dice-log";
 
 /**
  * 本番用の乱数アダプタ。`crypto.getRandomValues` が使えればそれを、
@@ -15,6 +16,9 @@ export class CryptoRandomAdapter implements Random {
   }
 
   nextInt(n: number): number {
-    return Math.floor(this.nextFloat() * n);
+    const value = Math.floor(this.nextFloat() * n);
+    // 開発用の出目ログ。合図(`?dicelog=1` など)が無いときは何もしない。
+    recordDraw(n, value);
+    return value;
   }
 }
