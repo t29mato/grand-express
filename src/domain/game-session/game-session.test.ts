@@ -7,9 +7,12 @@ import {
   createGameSession,
   currentPlayer,
   destinationPrize,
+  DESTINATION_PRIZE_BASE,
+  DESTINATION_PRIZE_PER_MONTH,
   isOver,
   isQuarterlyIncomeMonth,
   seasonIndex,
+  spotlightPlayer,
 } from "./game-session";
 
 function twoPlayerSession(maxMonths = 12) {
@@ -64,5 +67,47 @@ describe("GameSession", () => {
     expect(seasonIndex(session)).toBe(3);
     expect(isQuarterlyIncomeMonth({ ...session, month: 3 })).toBe(true);
     expect(isQuarterlyIncomeMonth({ ...session, month: 4 })).toBe(false);
+  });
+
+  it("目的地到着ボーナスは1ヶ月ごとに一定額ずつ増える", () => {
+    const session = twoPlayerSession();
+    const month0 = destinationPrize(session).amount;
+    const month1 = destinationPrize({ ...session, month: 1 }).amount;
+    expect(month1 - month0).toBe(DESTINATION_PRIZE_PER_MONTH);
+    expect(month0).toBe(DESTINATION_PRIZE_BASE);
+  });
+});
+
+describe("画面の前にいる人(spotlightPlayer)", () => {
+  it("手番の人が人間なら、その人", () => {
+    const session = twoPlayerSession();
+    expect(spotlightPlayer(session).id).toBe("p1");
+  });
+
+  it("手番の人がCPUなら、直前に手番だった人間", () => {
+    const session = { ...twoPlayerSession(), activePlayerIndex: 1 };
+    expect(currentPlayer(session).isCpu).toBe(true);
+    expect(spotlightPlayer(session).id).toBe("p1");
+  });
+
+  it("CPUが2人続いても、遡って人間にたどり着く", () => {
+    const base = twoPlayerSession();
+    const cpu2 = { ...base.players[1], id: PlayerId("p3"), name: "C" };
+    const session = { ...base, players: [...base.players, cpu2], activePlayerIndex: 2 };
+    expect(spotlightPlayer(session).id).toBe("p1");
+  });
+
+  it("パス&プレイ(人間同士)では手番の人に切り替わる", () => {
+    const base = twoPlayerSession();
+    const human2 = { ...base.players[0], id: PlayerId("p2"), name: "B", isCpu: false };
+    const session = { ...base, players: [base.players[0], human2], activePlayerIndex: 1 };
+    expect(spotlightPlayer(session).id).toBe("p2");
+  });
+
+  it("人間が1人もいなければ手番の人を返す", () => {
+    const base = twoPlayerSession();
+    const cpu1 = { ...base.players[0], isCpu: true };
+    const session = { ...base, players: [cpu1, base.players[1]], activePlayerIndex: 1 };
+    expect(spotlightPlayer(session).id).toBe("p2");
   });
 });

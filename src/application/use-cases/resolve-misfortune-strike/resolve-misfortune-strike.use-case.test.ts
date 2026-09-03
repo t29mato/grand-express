@@ -82,4 +82,56 @@ describe("resolveMisfortuneStrike (実データ: ボリビア)", () => {
       expect(fourth.result.wasKing).toBe(true);
     }
   });
+
+  /**
+   * 「この国は初めて」の人の最初の1年だけ、連続を2回で止める(`doom-relief.ts`)。
+   * 実プレイで3手番連続の被害が出たことへの救済。
+   */
+  describe("はじめての人への救済", () => {
+    function afflictedNewcomer(turnsOnCurrentHolder: number, month = 0) {
+      const s = session();
+      const players = s.players.map((p) => (p.id === "p1" ? { ...p, knowledgeLevel: "newcomer" as const } : p));
+      return {
+        ...s,
+        month,
+        players,
+        misfortune: { ...attachToFarthestPlayer(INITIAL_MISFORTUNE_STATE, PlayerId("p1")), turnsOnCurrentHolder },
+      };
+    }
+
+    it("3回目からは災難を見送る", () => {
+      const { session: after, result } = resolveMisfortuneStrike(
+        context,
+        afflictedNewcomer(2),
+        PlayerId("p1"),
+        new FixedRandom(0, 0.5),
+      );
+      expect(result).toEqual({ type: "spared" });
+      // 所持金は減っていない。
+      expect(after.players[0].cash.amount).toBe(1000);
+      // **居座りの数えも進めない**(見送った手番が大厄災への歩数に入らない)。
+      expect(after.misfortune.turnsOnCurrentHolder).toBe(2);
+      expect(after.misfortune.level).toBe(1);
+    });
+
+    it("2回目までは、そのまま災難が起きる", () => {
+      const { result } = resolveMisfortuneStrike(
+        context,
+        afflictedNewcomer(1),
+        PlayerId("p1"),
+        new FixedRandom(0, 0.5),
+      );
+      expect(result.type).toBe("struck");
+    });
+
+    it("2年目に入ると救済は切れる", () => {
+      const { result } = resolveMisfortuneStrike(
+        context,
+        afflictedNewcomer(4, 12),
+        PlayerId("p1"),
+        new FixedRandom(0, 0.5),
+      );
+      expect(result.type).toBe("struck");
+    });
+  });
 });

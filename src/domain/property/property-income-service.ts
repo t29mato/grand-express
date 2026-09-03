@@ -72,6 +72,26 @@ export function totalIncome(player: Player, context: PropertyEconomyContext): Mo
   return Money.of(Math.round(total));
 }
 
+/**
+ * プレイヤーが独占している(その町の物件を全部そろえた)都市の一覧。
+ *
+ * 独占は収入が2倍になる盤面全体の見せ場だが、達成した瞬間は
+ * 旅人一覧の `👑` の数が1つ増えるだけだった。前後で比べて
+ * 「いま独占した町」を取り出せるようにする。
+ */
+export function monopolisedCities(player: Player, context: PropertyEconomyContext): CityId[] {
+  const ownedByCity = new Map<CityId, number>();
+  for (const ref of player.portfolio.keys()) {
+    const { cityId } = PropertyRef.parse(ref);
+    ownedByCity.set(cityId, (ownedByCity.get(cityId) ?? 0) + 1);
+  }
+  const cities: CityId[] = [];
+  for (const [cityId, owned] of ownedByCity) {
+    if (owned === context.getCity(cityId).properties.length) cities.push(cityId);
+  }
+  return cities;
+}
+
 /** プレイヤーが独占している都市の数。 */
 export function monopolyCount(player: Player, context: PropertyEconomyContext): number {
   const ownedByCity = new Map<CityId, number>();

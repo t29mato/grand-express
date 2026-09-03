@@ -5,12 +5,18 @@ import { receiveCash, recordStat, removeItemAt } from "../../../domain/player/pl
 import { GameSession, replacePlayer } from "../../../domain/game-session/game-session";
 import { DOOM_STRATEGIES, DoomFlavor, DoomOutcome } from "../../../domain/misfortune/doom-effect";
 import { consumeRestIfAny, isKing, recordStrike } from "../../../domain/misfortune/misfortune-spirit";
+import { shouldSpareFromDoom } from "../../../domain/misfortune/doom-relief";
 import { GameEngineContext } from "../../game-engine-context";
 
 export type MisfortuneStrikeResult =
   | { readonly type: "not-afflicted" }
   | { readonly type: "rested" }
   | { readonly type: "warded"; readonly wasKing: boolean }
+  /**
+   * 「この国は初めて」の人の最初の1年で、連続を抑えるために見送った
+   * (`doom-relief.ts`)。**居座りの数えも進めない**ので、大厄災への格上げも起きない。
+   */
+  | { readonly type: "spared" }
   | { readonly type: "pleased"; readonly amount: number }
   | { readonly type: "struck"; readonly flavor: DoomFlavor; readonly outcome: DoomOutcome; readonly wasKing: boolean };
 
@@ -48,6 +54,24 @@ export function resolveMisfortuneStrike(
   const { state: afterRest, wasResting } = consumeRestIfAny(session.misfortune);
   if (wasResting) {
     return { session: { ...session, misfortune: afterRest }, result: { type: "rested" } };
+  }
+
+  // 「この国は初めて」の人の最初の1年だけ、連続を2回で止める。
+  // **数えを進める前に見る。**進めてしまうと、見送った手番まで
+  // 大厄災(4手番で格上げ)への歩数に入ってしまう。
+  {
+    const holder = session.players.find((p) => p.id === playerId);
+    if (
+      holder &&
+      shouldSpareFromDoom({
+        knowledgeLevel: holder.knowledgeLevel,
+        isCpu: holder.isCpu,
+        month: session.month,
+        turnsOnCurrentHolder: session.misfortune.turnsOnCurrentHolder,
+      })
+    ) {
+      return { session, result: { type: "spared" } };
+    }
   }
 
   const misfortuneAfterStrike = recordStrike(session.misfortune);

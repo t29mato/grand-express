@@ -85,9 +85,43 @@ export function finish(session: GameSession): GameSession {
   return { ...session, status: "finished" };
 }
 
+/** 目的地到着時の賞金の、出発時点の額。 */
+export const DESTINATION_PRIZE_BASE = 700;
+
+/**
+ * 1ヶ月経つごとに増える賞金の額。
+ *
+ * **誰も着かなくても、月が進めば増える。**遅れている人にも「いま取れば大きい」
+ * という道が残るようにするための仕組みだが、画面には増えた金額しか出ておらず、
+ * 遊んだ人には**理由が分からないまま数字だけが動いて見えていた**
+ * (実プレイの記録 2026-09-02: ¥7,000,000 → 7,700,000 → 8,400,000 → 9,100,000)。
+ * 増える幅をここに名前付きで置き、画面でも「1ヶ月で +◯◯」と添える。
+ */
+export const DESTINATION_PRIZE_PER_MONTH = 70;
+
 /** 目的地到着時の賞金(月が進むほど増える。現行コードの `destBonus`)。 */
 export function destinationPrize(session: GameSession): Money {
-  return Money.of(700 + 70 * session.month);
+  return Money.of(DESTINATION_PRIZE_BASE + DESTINATION_PRIZE_PER_MONTH * session.month);
+}
+
+/**
+ * **画面の前にいる人。**サイドバーの主役はいつもこの人。
+ *
+ * 実プレイの記録(2026-09-02)で、CPU 1 の手番のあいだサイドバーの「アイテム」が
+ * CPU 1 の持ちものに切り替わり、**自分の持ちものが見えなくなった。**
+ * 手番の人と、画面を見ている人は別である。
+ *
+ * - 手番の人が人間なら、その人(パス&プレイでは手番の人に切り替わるのが正しい)
+ * - 手番の人がCPUなら、**直前に手番だった人間**(手番の並びを逆に辿る)
+ * - 人間が1人もいなければ、手番の人をそのまま返す
+ */
+export function spotlightPlayer(session: GameSession): Player {
+  const count = session.players.length;
+  for (let back = 0; back < count; back++) {
+    const player = session.players[(session.activePlayerIndex - back + count * count) % count];
+    if (!player.isCpu) return player;
+  }
+  return currentPlayer(session);
 }
 
 export function setDestination(session: GameSession, destination: CityId): GameSession {

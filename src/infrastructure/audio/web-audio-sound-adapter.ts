@@ -498,6 +498,22 @@ export class WebAudioSoundAdapter implements SoundPort {
     this.noise(t, 1, 300, 0.6, 0.24);
   }
 
+  /**
+   * 短い汽笛。2つの音を重ねた5度で、蒸気の擦れをノイズで足す。
+   * **1回きり・0.5秒以内**に収める。出来事ではなく「着いたよ」の返事なので、
+   * 到着(`playArrival`)や季節(`playChime`)より控えめにする。
+   */
+  playWhistle(): void {
+    const ctx = this.context;
+    if (!ctx || !this.sfxGain) return;
+    const t = this.now();
+    // 5度(F5 と C6)を重ねると汽笛らしい濁りが出る。
+    this.flute(t, 698.46, 0.34, 0.1, this.sfxGain);
+    this.flute(t + 0.02, 1046.5, 0.3, 0.07, this.sfxGain);
+    // 蒸気の擦れ。
+    this.noise(t, 0.3, 1400, 0.7, 0.05);
+  }
+
   playChime(): void {
     const ctx = this.context;
     if (!ctx || !this.sfxGain) return;
