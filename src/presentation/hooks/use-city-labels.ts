@@ -13,7 +13,7 @@ export interface CityLabelPlacement {
   readonly anchor: "start" | "middle" | "end";
 }
 
-interface Rect {
+export interface Rect {
   readonly x0: number;
   readonly y0: number;
   readonly x1: number;
@@ -115,6 +115,27 @@ export function insideBoard(rect: Rect, projection: { boardWidth: number; boardH
   return rect.x0 >= 0 && rect.x1 <= projection.boardWidth && rect.y0 >= 0 && rect.y1 <= projection.boardHeight;
 }
 
+/** 地形の地名(`terrain-layer.tsx` が描く文字)の矩形。文字の大きさはあちらと揃える。 */
+const TERRAIN_LABEL_FONT_UNITS = 19;
+const WATER_LABEL_FONT_UNITS = 15;
+const TERRAIN_LABEL_LETTER_SPACING = 2;
+
+export function terrainLabelRects(context: GameEngineContext, locale: Locale): readonly Rect[] {
+  const { projection, terrain } = context.content;
+  const px = (lon: number) => ((lon - projection.lon0) / (projection.lon1 - projection.lon0)) * projection.boardWidth;
+  const py = (lat: number) => ((lat - projection.lat0) / (projection.lat1 - projection.lat0)) * projection.boardHeight;
+  const rects: Rect[] = [];
+  for (const [lon, lat, text, isWater] of terrain.labels) {
+    const label = text[locale] ?? text.en;
+    if (!label) continue;
+    const fontUnits = isWater ? WATER_LABEL_FONT_UNITS : TERRAIN_LABEL_FONT_UNITS;
+    const spacing = isWater ? 0 : TERRAIN_LABEL_LETTER_SPACING * [...label].length;
+    const widthUnits = estimateWidthEm(label) * fontUnits + spacing;
+    rects.push(labelRect({ x: px(lon), y: py(lat) }, { dx: 0, dy: 0, anchor: "middle" }, widthUnits, fontUnits));
+  }
+  return rects;
+}
+
 export interface UseCityLabelsParams {
   context: GameEngineContext;
   positions: ReadonlyMap<NodeId, NodePosition>;
@@ -158,6 +179,10 @@ export function useCityLabels({
         y1: at.y + box.bottom,
       });
     }
+    // 地図の書き込み(山脈・海の名前)も避ける。**高山の名札が「日本アルプス」の
+    // 文字に重なって読めなかった**(実プレイで観察)。地形の文字は盤面座標で
+    // 大きさが固定なので、そのまま矩形にできる。
+    for (const rect of terrainLabelRects(context, locale)) obstacles.push(rect);
 
     // 2. 目的地を最優先にし、あとはコンテンツの並び順(主要都市が先)で処理する。
     const cities = [...context.content.cities].sort((a, b) => {

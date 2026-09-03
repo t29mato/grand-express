@@ -52,6 +52,8 @@ export const BOARD_MESSAGES: Record<Locale, Record<string, string>> = {
     arrivedAtCity: "Moved to {0}.",
     arrivedBetween: "Moved to a square between {0} and {1}.",
     candidateOnLine: ". On the {0}–{1} line.",
+    remainingBadge: "{0} to go",
+    remainingBadgeGoal: "Goal",
   },
   es: {
     boardLabel: "Tablero de juego",
@@ -77,6 +79,8 @@ export const BOARD_MESSAGES: Record<Locale, Record<string, string>> = {
     arrivedAtCity: "Se mueve a {0}.",
     arrivedBetween: "Se mueve a una casilla entre {0} y {1}.",
     candidateOnLine: ". En la línea {0}–{1}.",
+    remainingBadge: "faltan {0}",
+    remainingBadgeGoal: "Meta",
   },
   fr: {
     boardLabel: "Plateau de jeu",
@@ -102,6 +106,8 @@ export const BOARD_MESSAGES: Record<Locale, Record<string, string>> = {
     arrivedAtCity: "Déplacement vers {0}.",
     arrivedBetween: "Déplacement vers une case entre {0} et {1}.",
     candidateOnLine: ". Sur la ligne {0}–{1}.",
+    remainingBadge: "reste {0}",
+    remainingBadgeGoal: "Arrivée",
   },
   ja: {
     boardLabel: "ゲーム盤",
@@ -127,5 +133,7 @@ export const BOARD_MESSAGES: Record<Locale, Record<string, string>> = {
     arrivedAtCity: "{0}に移動しました。",
     arrivedBetween: "{0}と{1}のあいだのマスに移動しました。",
     candidateOnLine: "。{0}〜{1}の線。",
+    remainingBadge: "残り{0}",
+    remainingBadgeGoal: "到着",
   },
 };

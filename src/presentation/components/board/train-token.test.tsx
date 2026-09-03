@@ -86,4 +86,29 @@ describe("TrainToken", () => {
     );
     expect(aloneCarried?.getAttribute("x")).toBe("0");
   });
+
+  /**
+   * 着いたマスでの弾み(F-13)。位置決めの transform 属性を持つ外側の g に
+   * CSS の transform を当てると原点へ飛ぶので、**内側の g** に当たっていること。
+   */
+  it("bounceNonce があるとき、位置を決める g ではなく内側の g が弾む", () => {
+    const { container } = render(
+      <svg>
+        <TrainToken x={10} y={20} color="#e8447a" isActive={false} bounceNonce={3} />
+      </svg>,
+    );
+    const bouncing = container.querySelector(".token-bounce");
+    expect(bouncing).not.toBeNull();
+    expect(bouncing?.getAttribute("transform")).toBeNull();
+    expect(bouncing?.parentElement?.getAttribute("transform")).toContain("translate(10, 20)");
+  });
+
+  it("bounceNonce が 0 なら弾まない", () => {
+    const { container } = render(
+      <svg>
+        <TrainToken x={10} y={20} color="#e8447a" isActive={false} />
+      </svg>,
+    );
+    expect(container.querySelector(".token-bounce")).toBeNull();
+  });
 });

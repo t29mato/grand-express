@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { soundAdapter } from "../../state/game-store-dependencies";
+import { useGameStore } from "../../state/game-store";
 import { prefersReducedMotion } from "../../state/motion-preference";
 
 /**
@@ -16,6 +17,35 @@ import { prefersReducedMotion } from "../../state/motion-preference";
  *   (盤面のクリックをブロックしないよう `pointer-events: none` にしてある)。
  * - 揺れ始めの初期回転角・スピン量はこの演出限定の見た目の乱数であり、
  *   ドメインの乱数(GameSession)には触れない。
+ *
+ * ## 寿命は壁時計で保証する(2026-09-03)
+ *
+ * 実プレイで**出目が確定したあともサイコロが盤面の中央に残り続けた**
+ * (9手番で消えたのは、ウィンドウをリサイズした直後の1回だけ)。
+ *
+ * 計測したこと:
+ * - jsdom で rAF と時計を偽物にして回すと、着地→余韻→終了 の合図は全部届く。
+ * - 実機の headless Chromium(負荷平均30の機械)でも届いた。ただし rAF は
+ *   約5fps まで落ち、1.6秒の転がりに6秒かかっていた。
+ *
+ * つまり演出のループ自体は正しいが、**着地の合図(onReveal)も終了の合図(onDone)も
+ * requestAnimationFrame が配達されることに全面的に依存していた。** rAF は
+ * タブが隠れている・ウィンドウが遮られている・強く絞られているあいだ止まる
+ * (Chrome は不可視のタブでは rAF を一切呼ばない)。その状態で振ると、
+ * 転がりは途中で止まり、次にフレームが来るまで何も起きない。リサイズの直後に
+ * 消えたのは、**ウィンドウが前面に出て rAF が再開したから**で辻褄が合う。
+ *
+ * そこで、着地と終了は `setTimeout` の番人(`watchdog`)でも起こす。
+ * タイマーは隠れたタブでも(間隔は粗くなるが)必ず動く。rAF が来ていれば
+ * 番人は何もしない。
+ *
+ * ## 収納(stow)
+ *
+ * 転がり終えたサイコロは、手番パネルの出目バッジ(`#die`)へ縮みながら吸い込まれる。
+ * 視線がサイコロ→パネルへ動くことで「次に見る場所」を教えるため。
+ * 行き先を選んでいるあいだ(`choosing-square`)は消さず、**盤面の端へ退かせて**
+ * 候補のマスを覆わないようにし、選び終えた瞬間に収納する。
+ * CPUの手番など選ぶ場面が無いときは、余韻のあとすぐ収納する。
  */
 
 const PIP_POS: Record<number, ReadonlyArray<readonly [number, number]>> = {
@@ -75,6 +105,17 @@ const DURATION_MS = 1600;
 const RESULT_LINGER_MS = 700;
 /** 動きを減らす設定のときに、出目だけを見せておく時間。 */
 const REDUCED_MOTION_LINGER_MS = 500;
+/**
+ * 収納(バッジへ吸い込まれる)にかける時間。CSS(`board-feel.css` の `.dice-tray.stowing`)と
+ * 揃えてある。終了の合図はこの時間が過ぎたら出す(`transitionend` は、要素が
+ * 見えていないと来ないことがあるので当てにしない)。
+ */
+export const STOW_MS = 560;
+/**
+ * rAF が来なくても着地と終了を起こす番人の猶予。転がりの尺より少し長く取り、
+ * 普通にフレームが来ているときは絶対に先回りしないようにする。
+ */
+const WATCHDOG_MS = DURATION_MS + 400;
 
 /** 最後に接地する時刻(全体を1としたときの位置)。ここから先は転がらず、揺れが収まるだけ。 */
 const LAND_AT = 0.84;
@@ -114,6 +155,38 @@ function settleWobble(s: number): number {
   return Math.cos(s * Math.PI * 2.2) * Math.pow(1 - s, 2);
 }
 
+/**
+ * 収納先(手番パネルの出目バッジ)の中心を、盤面の枠の座標で返す。
+ * バッジが無い(試験環境など)ときは枠の右上の外側を指す。
+ * 縦積みの画面では手番の札が盤面の上に来るので、位置は毎回測る(決め打ちしない)。
+ */
+function badgeCenterIn(stage: HTMLElement): { x: number; y: number } {
+  const frame = stage.getBoundingClientRect();
+  const badge = typeof document !== "undefined" ? document.getElementById("die") : null;
+  if (!badge) return { x: frame.width + 80, y: -40 };
+  const rect = badge.getBoundingClientRect();
+  return { x: rect.left + rect.width / 2 - frame.left, y: rect.top + rect.height / 2 - frame.top };
+}
+
+/**
+ * 「行き先を選んでいる最中」か。このあいだはサイコロを消さず、盤面の端へ退かせる。
+ * 選び終えて駒が歩き出す(`walk`)か、場面が変わったら収納する。
+ */
+function isChoosingSquare(s: { ui: { kind: string }; walk: unknown }): boolean {
+  return s.ui.kind === "choosing-square" && s.walk === null;
+}
+
+/** 収納が終わった瞬間、バッジを一度だけ弾ませる(受け取った合図)。 */
+function pulseBadge(): void {
+  const badge = typeof document !== "undefined" ? document.getElementById("die") : null;
+  if (!badge) return;
+  badge.classList.remove("dice-caught");
+  // 同じクラスを付け直してもアニメーションは再生されない。一度リフローを挟む。
+  void badge.offsetWidth;
+  badge.classList.add("dice-caught");
+  setTimeout(() => badge.classList.remove("dice-caught"), 700);
+}
+
 export function DiceStage({
   values,
   onReveal,
@@ -136,16 +209,29 @@ export function DiceStage({
   onDone: () => void;
 }) {
   const stageRef = useRef<HTMLDivElement>(null);
+  const trayRef = useRef<HTMLDivElement>(null);
   const diceRef = useRef<(HTMLDivElement | null)[]>([]);
   const shadowsRef = useRef<(HTMLDivElement | null)[]>([]);
   const resultRef = useRef<HTMLDivElement>(null);
   // 出目の並びが変わったときだけ演出をやり直すための鍵。
   const key = values.join(",");
 
+  /**
+   * 行き先を選んでいる最中か(退避したサイコロを、選び終えた瞬間に収納するための購読)。
+   * `game-screen.tsx` から渡してもらう手もあるが、演出の都合を親に持ち込まないよう
+   * ここで直接ストアを見る。
+   */
+  const holding = useGameStore(isChoosingSquare);
+  /** 退避中のサイコロを収納させる入口。演出の効果が用意し、下の効果が呼ぶ。 */
+  const stowRef = useRef<(() => void) | null>(null);
+  /** 演出の段階。`holding` のあいだだけ、場面の変化を収納の合図にする。 */
+  const phaseRef = useRef<"rolling" | "holding" | "stowing" | "done">("rolling");
+
   useEffect(() => {
     const stage = stageRef.current;
+    const tray = trayRef.current;
     const result = resultRef.current;
-    if (!stage || !result) return;
+    if (!stage || !tray || !result) return;
 
     const faces = values.map((v) => Math.min(6, Math.max(1, Math.round(v))));
     const total = faces.reduce((sum, v) => sum + v, 0);
@@ -153,8 +239,12 @@ export function DiceStage({
     const shadows = faces.map((_, i) => shadowsRef.current[i]).filter((d): d is HTMLDivElement => d !== null);
     if (dice.length !== faces.length || shadows.length !== faces.length) return;
 
+    phaseRef.current = "rolling";
     result.className = "die-result";
     result.textContent = "";
+    tray.className = "dice-tray";
+    tray.style.transform = "";
+    tray.style.opacity = "";
 
     const W = stage.clientWidth || 620;
     const H = stage.clientHeight || 620;
@@ -224,9 +314,17 @@ export function DiceStage({
       shadow.style.opacity = (0.12 + 0.32 * sc).toFixed(2);
     };
 
+    /** 止まった姿勢(番人が着地を代行するときにも使う)。 */
+    const placeAtRest = () => {
+      plans.forEach((plan, i) => place(i, plan.endX, ground, plan.face[0], plan.face[1]));
+    };
+
     // 合計が分かるように、複数個なら「4 + 5 = 9」の形で見せる。
     // 出目を伏せていた画面の他の場所も、ここで初めて一斉に開く。
+    let revealed = false;
     const showResult = () => {
+      if (revealed) return;
+      revealed = true;
       result.textContent = faces.length > 1 ? `${faces.join(" + ")} = ${total}` : String(total);
       result.className = `die-result show${faces.length > 1 ? " multi" : ""}`;
       onReveal?.();
@@ -237,17 +335,92 @@ export function DiceStage({
     let landed = false;
     let ended = false;
     let raf = 0;
-    let doneTimer: ReturnType<typeof setTimeout> | undefined;
+    const timers = new Set<ReturnType<typeof setTimeout>>();
+    const later = (fn: () => void, ms: number) => {
+      const id = setTimeout(() => {
+        timers.delete(id);
+        fn();
+      }, ms);
+      timers.add(id);
+      return id;
+    };
+
+    /** 演出の中心(サイコロの並びの真ん中)。退避・収納の縮小の基準点。 */
+    const centre = { x: W * 0.45, y: ground - 10 * s };
+    const reduced = prefersReducedMotion();
+
+    /** 終了。何度呼ばれても親には一度しか伝えない。 */
+    const finish = () => {
+      if (phaseRef.current === "done") return;
+      phaseRef.current = "done";
+      onDone();
+    };
+
+    /**
+     * 収納。サイコロの中心を基準に縮みながら、出目バッジの位置まで滑る。
+     * 動きを減らす設定なら演出せず、その場で終える。
+     */
+    const stow = () => {
+      if (phaseRef.current === "stowing" || phaseRef.current === "done") return;
+      phaseRef.current = "stowing";
+      if (reduced) {
+        finish();
+        return;
+      }
+      const target = badgeCenterIn(stage);
+      tray.style.transformOrigin = `${centre.x}px ${centre.y}px`;
+      tray.className = "dice-tray stowing";
+      tray.style.transform = `translate(${target.x - centre.x}px, ${target.y - centre.y}px) scale(0.08)`;
+      tray.style.opacity = "0";
+      later(() => {
+        pulseBadge();
+        finish();
+      }, STOW_MS);
+    };
+    stowRef.current = stow;
+
+    /**
+     * 退避。行き先を選んでいるあいだ、サイコロを縮めて**バッジに近い盤面の端**へ寄せる。
+     * 真ん中に居座ると候補のマスを覆う(実際に甲府・川越が隠れて選びにくかった)。
+     * 出目はバッジにも出ているので、ここでは小さくてよい。
+     */
+    const stepAside = () => {
+      if (reduced) return;
+      const badge = badgeCenterIn(stage);
+      const margin = 62 * s;
+      const asideX = Math.max(margin, Math.min(W - margin, badge.x));
+      const asideY = Math.max(margin, Math.min(H - margin, badge.y));
+      tray.style.transformOrigin = `${centre.x}px ${centre.y}px`;
+      tray.className = "dice-tray aside";
+      tray.style.transform = `translate(${asideX - centre.x}px, ${asideY - centre.y}px) scale(0.55)`;
+      tray.style.opacity = "0.92";
+    };
+
+    /**
+     * 転がり終えたあと。行き先を選ぶ場面なら退避して待ち、そうでなければ余韻のあと収納。
+     * 「選んでいる最中か」は**ストアをその場で読む**。着地の合図(`onReveal`)で
+     * ストアは同期的に変わるが、React の描画(=フックの値)は追いついていないことがある
+     * (フレームが詰まっているときや試験環境)。
+     */
+    const afterRoll = (lingerMs: number) => {
+      if (isChoosingSquare(useGameStore.getState())) {
+        phaseRef.current = "holding";
+        later(stepAside, Math.min(lingerMs, 300));
+        return;
+      }
+      later(stow, lingerMs);
+    };
 
     // 「視差効果を減らす」設定なら、転がる演出を飛ばして出目だけを見せる。
     // 毎ターン2秒以上のアニメーションを見せられるのは、動きに弱い人には負担になる。
-    if (prefersReducedMotion()) {
-      plans.forEach((plan, i) => place(i, plan.endX, ground, plan.face[0], plan.face[1]));
+    if (reduced) {
+      placeAtRest();
       showResult();
       soundAdapter.playCoin();
-      doneTimer = setTimeout(onDone, REDUCED_MOTION_LINGER_MS);
+      // 選んでいる最中なら残しておき(退避は無し)、選び終えたら即座に終える。
+      afterRoll(REDUCED_MOTION_LINGER_MS);
       return () => {
-        if (doneTimer) clearTimeout(doneTimer);
+        timers.forEach((id) => clearTimeout(id));
       };
     }
 
@@ -291,10 +464,29 @@ export function DiceStage({
       soundAdapter.playCoin();
     };
 
+    /** 転がりの終わり。フレームから来ても番人から来ても、一度だけ通る。 */
+    const end = () => {
+      if (ended) return;
+      ended = true;
+      // 転がりが終わる前に接地の合図が来なかったときの保険。
+      land(plans[0].endX);
+      afterRoll(RESULT_LINGER_MS);
+    };
+
+    /** 音は飾り。鳴らせない環境の例外で演出のループを殺さない。 */
+    const quietly = (play: () => void) => {
+      try {
+        play();
+      } catch {
+        // 音が出ないだけで、サイコロの寿命には影響させない。
+      }
+    };
+
     const t0 = performance.now();
-    soundAdapter.playRattle();
+    quietly(() => soundAdapter.playRattle());
 
     const frame = (now: number) => {
+      if (ended) return;
       const t = Math.min(1, (now - t0) / DURATION_MS);
       // 弾んでいる間の進み具合。最後の接地(LAND_AT)で1になり、以降は転がらない。
       const b = Math.min(1, t / LAND_AT);
@@ -305,7 +497,7 @@ export function DiceStage({
       while (nextImpact < impactAt.length && b >= impactAt[nextImpact]) {
         const isLast = nextImpact === impactAt.length - 1;
         nextImpact++;
-        soundAdapter.playThud();
+        quietly(() => soundAdapter.playThud());
         const at = plans[0].startX + (plans[0].endX - plans[0].startX) * e;
         // 弾んだ位置に砂ぼこりを出す。音だけより着地が分かりやすい。
         // 最後の接地はいちばん大きく出して、止まったことを目でも分かるようにする。
@@ -334,54 +526,72 @@ export function DiceStage({
 
       if (t < 1) {
         raf = requestAnimationFrame(frame);
-      } else if (!ended) {
-        ended = true;
-        // 転がりが終わる前に接地の合図が来なかったときの保険。
-        land(plans[0].endX);
-        doneTimer = setTimeout(onDone, RESULT_LINGER_MS);
+      } else {
+        end();
       }
     };
     raf = requestAnimationFrame(frame);
 
+    // 番人。rAF が止まっていても(隠れたタブ・遮られた窓)、壁時計で着地と終了を起こす。
+    // フレームが普通に来ていれば、`end()` は先に済んでいてここでは何もしない。
+    later(() => {
+      if (ended) return;
+      cancelAnimationFrame(raf);
+      placeAtRest();
+      end();
+    }, WATCHDOG_MS);
+
     return () => {
       cancelAnimationFrame(raf);
-      if (doneTimer) clearTimeout(doneTimer);
+      timers.forEach((id) => clearTimeout(id));
+      stowRef.current = null;
     };
     // 出目が変わるたびに(=新しいロールのたびに)最初から再生する。
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
 
+  // 行き先を選び終えた(場面が変わった・駒が歩き出した)ら、退避していたサイコロを収納する。
+  useEffect(() => {
+    if (holding) return;
+    if (phaseRef.current !== "holding") return;
+    stowRef.current?.();
+  }, [holding]);
+
   return (
     <div className="dice-stage" ref={stageRef} aria-hidden="true">
-      {values.map((_, i) => (
-        <div
-          className="die-shadow"
-          key={`shadow-${i}`}
-          ref={(el) => {
-            shadowsRef.current[i] = el;
-          }}
-        />
-      ))}
-      {values.map((_, i) => (
-        <div
-          className="die3d"
-          key={`die-${i}`}
-          ref={(el) => {
-            diceRef.current[i] = el;
-          }}
-        >
-          {FACES.map(([transform, value], faceIndex) => (
-            // 面ごとの明るさを変えるためのクラス。隣り合う面の明るさが違わないと、
-            // 立方体ではなく平たい札に見えてしまう(FACES の並び順と対応)。
-            <div className={`f f${faceIndex}`} style={{ transform }} key={value}>
-              {PIP_POS[value].map(([r, c], j) => (
-                <i key={j} style={{ gridRow: r, gridColumn: c }} />
-              ))}
-            </div>
-          ))}
-        </div>
-      ))}
-      <div className="die-result" ref={resultRef} />
+      {/* 退避・収納はこの盆ごと動かす。サイコロ1個ずつの transform は転がりの物理が
+          毎フレーム書き換えるので、そこに重ねると壊れる。 */}
+      <div className="dice-tray" ref={trayRef}>
+        {values.map((_, i) => (
+          <div
+            className="die-shadow"
+            key={`shadow-${i}`}
+            ref={(el) => {
+              shadowsRef.current[i] = el;
+            }}
+          />
+        ))}
+        {values.map((_, i) => (
+          <div
+            className="die3d"
+            key={`die-${i}`}
+            ref={(el) => {
+              diceRef.current[i] = el;
+            }}
+          >
+            {FACES.map(([transform, value], faceIndex) => (
+              // 面ごとの明るさを変えるためのクラス。隣り合う面の明るさが違わないと、
+              // 立方体ではなく平たい札に見えてしまう(FACES の並び順と対応)。
+              <div className={`f f${faceIndex}`} style={{ transform }} key={value}>
+                {PIP_POS[value].map(([r, c], j) => (
+                  <i key={j} style={{ gridRow: r, gridColumn: c }} />
+                ))}
+              </div>
+            ))}
+          </div>
+        ))}
+        <div className="die-result" ref={resultRef} />
+      </div>
     </div>
   );
 }

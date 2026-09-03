@@ -8,7 +8,8 @@ import { GameEngineContext } from "../../../application/game-engine-context";
 import { railPolylines, useBoardLayout } from "../../hooks/use-board-layout";
 import { useCamera } from "../../hooks/use-camera";
 import { useLocale } from "../../i18n/locale-context";
-import { useCityLabels } from "../../hooks/use-city-labels";
+import { estimateWidthEm, useCityLabels } from "../../hooks/use-city-labels";
+import { routePolylines, shortestPath } from "./destination-route";
 import { SIZES } from "./board-metrics";
 import { hauntedPlayerId } from "./spirit-rider";
 import { TrainToken } from "./train-token";
@@ -18,7 +19,8 @@ import { BoardLegend } from "./board-legend";
 import { BoardCompass } from "./board-compass";
 import { candidateLabels as buildCandidateLabels, nextFocusIndex, orderByAzimuth } from "./candidate-guide";
 import { soundAdapter } from "../../state/game-store-dependencies";
-import { WALK_STEP_MS } from "../../state/motion-preference";
+import { useGameStore } from "../../state/game-store";
+import { WALK_STEP_MS, prefersReducedMotion } from "../../state/motion-preference";
 import { vehicleFor } from "./token-vehicle";
 
 const PLAYER_COLORS = ["#e8447a", "#f5b31c", "#37b3a4", "#7bc86c"];
@@ -31,6 +33,17 @@ const EMPTY_NODES: readonly NodeId[] = [];
  * 盤面の座標系は国ごと・改訂ごとに変わるため、固定値ではなく盤面幅に対する比で持つ。
  */
 const FOLLOW_WIDTH_RATIO = 0.45;
+
+/**
+ * 手番が替わったときにカメラを移す時間。
+ * 以前は場所が変わるたびに 0.56 秒で寄り直していて、自分の手番は本州中部、
+ * CPUの手番は北海道全体、と毎手番ズームとパンが切り替わっていた
+ * (実プレイで観察。自分の駒を毎回探し直すことになる)。
+ * 手番の切り替えは少し長めに滑らかに移し、**ズームは変えない**(パンだけ)。
+ */
+const TURN_SWITCH_MS = 600;
+/** 道のりを歩いている駒を追うときの1歩ぶんの時間。駒の滑り(WALK_STEP_MS)より少しだけ長く。 */
+const WALK_FOLLOW_MS = WALK_STEP_MS * 2;
 
 /** 路線の3層描画(現行コードの `drawBoard` のレール描画と同じ色・線幅)。 */
 const RAIL_LAYERS: readonly {
@@ -291,11 +304,29 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
     };
   }, [reachable, positions, activeLocation]);
 
-  // 手番のプレイヤーを追尾する(現行コードの `focusNode`)。全体表示モードなら盤面全体を映す。
+  /** いまの視野幅。効果の中から最新値を読むために ref で持つ(依存に入れると毎フレーム走る)。
+      描画中に ref を書かない決まりなので、効果で写す(下の追尾の効果より先に並べてある)。 */
+  const cameraWidthRef = useRef(camera.w);
   useEffect(() => {
+    cameraWidthRef.current = camera.w;
+  }, [camera.w]);
+  /** 直前にカメラが追っていた人。替わった瞬間だけ「手番の切り替え」として長めに移す。 */
+  const cameraPlayerRef = useRef<PlayerId | null>(null);
+  /** 歩いている最中か(自分の駒が道のりを進んでいる)。 */
+  const walking = walk !== null && walk !== undefined && walk.playerId === activePlayerId;
+
+  // 手番のプレイヤーを追尾する(現行コードの `focusNode`)。全体表示モードなら盤面全体を映す。
+  //
+  // カメラの動き方は3通り(F-10):
+  //   - 手番の切り替え: 0.6秒のイージングで**パンだけ**。ズームは今のまま。
+  //   - 移動中(walk): 1歩ごとに短く追従。ズームは今のまま。
+  //   - 行き先を選んでいる間: 候補が全部入る大きさまで引く(ここだけズームが変わる)。
+  useEffect(() => {
+    const reduced = prefersReducedMotion();
+    const followWidth = boardWidth * FOLLOW_WIDTH_RATIO;
     if (overview) {
       // 盤面全体が確実に収まる幅(枠が縦長なら盤面幅より広い)。
-      animateTo(boardWidth / 2, boardHeight / 2, fitWidth + 60);
+      animateTo(boardWidth / 2, boardHeight / 2, fitWidth + 60, reduced ? 0 : undefined);
       return;
     }
 
@@ -303,18 +334,43 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
     if (candidateFrame) {
       const aspect = viewportHeightPx > 0 ? viewportWidthPx / viewportHeightPx : boardWidth / boardHeight;
       const needed = Math.max(candidateFrame.width, candidateFrame.height * aspect);
-      animateTo(
-        candidateFrame.cx,
-        candidateFrame.cy,
-        Math.max(needed, boardWidth * FOLLOW_WIDTH_RATIO),
-      );
+      animateTo(candidateFrame.cx, candidateFrame.cy, Math.max(needed, followWidth), reduced ? 0 : undefined);
       return;
     }
 
     const pos = positions.get(activeLocation);
-    if (pos) animateTo(pos.x, pos.y, boardWidth * FOLLOW_WIDTH_RATIO);
+    if (!pos) return;
+    const turnChanged = cameraPlayerRef.current !== activePlayerId;
+    cameraPlayerRef.current = activePlayerId;
+    // 全体表示から戻ったとき以外は、ズームを今のままにする(候補を映すために引いた幅なら
+    // そのまま)。広すぎるときだけ追尾の幅まで寄せる。
+    const keepWidth = Math.min(cameraWidthRef.current, fitWidth);
+    const width = keepWidth > followWidth * 1.8 ? followWidth : Math.max(followWidth, keepWidth);
+    if (walking) {
+      animateTo(pos.x, pos.y, width, reduced ? 0 : WALK_FOLLOW_MS);
+      return;
+    }
+    animateTo(pos.x, pos.y, width, reduced ? 0 : turnChanged ? TURN_SWITCH_MS : undefined);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeLocation, overview, boardWidth, boardHeight, fitWidth, positions, candidateFrame]);
+  }, [activeLocation, activePlayerId, walking, overview, boardWidth, boardHeight, fitWidth, positions, candidateFrame]);
+
+  /**
+   * 自分の手番が始まった合図。駒から輪を一度広げる(F-10)。
+   * カメラが寄り切るころに出したいので少し遅らせる。旅の始まりの1回も出す
+   * (開始直後、東京の駒の群れの中で自分の駒を探すことになっていた)。
+   */
+  const [pulse, setPulse] = useState<{ playerId: PlayerId; nonce: number } | null>(null);
+  /** 着いたマスでの小さな弾み(F-13)。状態層が 0.8 秒で消すので、ここは当てるだけ。 */
+  const arrivalBeat = useGameStore((s) => s.arrivalBeat);
+  const activeIsHuman = !currentPlayer(session).isCpu;
+  useEffect(() => {
+    if (!activeIsHuman) return;
+    const timer = setTimeout(
+      () => setPulse((previous) => ({ playerId: activePlayerId, nonce: (previous?.nonce ?? 0) + 1 })),
+      TURN_SWITCH_MS * 0.6,
+    );
+    return () => clearTimeout(timer);
+  }, [activePlayerId, activeIsHuman]);
 
   // 盤面SVGの実表示サイズを追跡する(盤面座標→画面pxの換算と、viewBoxの縦横比に使う)。
   useEffect(() => {
@@ -537,10 +593,33 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
     return result;
   }, [session.players, context]);
 
+  /**
+   * 手番の人の現在地から目的地への最短経路(F-04)。淡い金色の点線で常時出す。
+   * 光っている候補のどれが目的地に近づくのか、右の「残り◯マス」の文だけでは
+   * 分からなかった(選んだマスで残りが6→8に増えた、という観察)。
+   * 歩いている最中は1歩ごとに引き直す(BFS1回、200マス程度なので軽い)。
+   */
+  const destinationRoute = useMemo(() => {
+    const path = shortestPath(context.graph, activeLocation, cityIdToNodeId(session.destination));
+    return path ? routePolylines(path, positions) : [];
+  }, [context, activeLocation, session.destination, positions]);
+
+  /** 手番の人の(盤の状態としての)現在地から目的地までの残り。候補が近づくかどうかの基準。 */
+  const remainingNow = context.distanceToCity(currentPlayer(session).location, session.destination);
+
   const tokensByNode = useMemo(() => {
     const map = new Map<
       string,
-      { name: string; color: string; isActive: boolean; isWalking: boolean; carriedEmoji: string | null; spiritEmoji: string | null }[]
+      {
+        id: PlayerId;
+        name: string;
+        color: string;
+        isActive: boolean;
+        isHuman: boolean;
+        isWalking: boolean;
+        carriedEmoji: string | null;
+        spiritEmoji: string | null;
+      }[]
     >();
     session.players.forEach((p, i) => {
       // 歩いている駒だけ、盤の状態ではなく見た目の居場所に描く。
@@ -548,9 +627,12 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
       const at = walking ? walk.nodeId : p.location;
       const list = map.get(at) ?? [];
       list.push({
+        id: p.id,
         name: p.name,
         color: PLAYER_COLORS[i % PLAYER_COLORS.length],
         isActive: p.id === activePlayerId,
+        // 人間の駒は常時目立たせる(F-14)。誰が動かす駒かは盤の状態では変わらない。
+        isHuman: !p.isCpu,
         isWalking: walking,
         carriedEmoji: walking ? walk.emoji : null,
         // 憑かれている駒にだけ、厄災の神を後ろに付ける。
@@ -664,6 +746,12 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
             </g>
           ))}
         </g>
+        {/* 目的地への最短経路。路線の上・マスの下に敷く(押す邪魔をしない)。 */}
+        <g className="dest-routes" aria-hidden="true" style={{ pointerEvents: "none" }}>
+          {destinationRoute.map((line, i) => (
+            <polyline key={i} className="dest-route" points={line.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ")} />
+          ))}
+        </g>
         {/* マスを先に、都市をあとに描く。
             都市のシンボル(鹿・鳥居・城)は円の30px上に描かれるが、押し離しは
             円の中心から半径で見ているので、マスがシンボルの下に潜り込む。
@@ -747,6 +835,15 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
                       いちばん先に描くことで、下の図形より手前には来ない。 */}
                   <circle r={SIZES.hitRadius} fill="transparent" />
                   {isChoosable && <circle r={SIZES.haloRadius} className="halo" />}
+                  {isChoosable && (
+                    <RemainingBadge
+                      remaining={context.distanceToCity(id, session.destination)}
+                      remainingNow={remainingNow}
+                      isGoal={isDestination}
+                      fontUnits={labelFontUnits}
+                      t={t}
+                    />
+                  )}
                   {isRejected && <circle r={SIZES.haloRadius} className="reject-ring" />}
                   {isCityNode(node) ? (
                     <CityMarker
@@ -786,6 +883,9 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
                 vehicle={vehicleFor(context.content.id)}
                 carriedEmoji={token.carriedEmoji}
                 spiritEmoji={token.spiritEmoji}
+                isHuman={token.isHuman}
+                pulseNonce={pulse && pulse.playerId === token.id ? pulse.nonce : 0}
+                bounceNonce={arrivalBeat && arrivalBeat.playerId === token.id ? arrivalBeat.nonce : 0}
                 /* 1マスごとに位置が変わるので、既定の0.35秒では次のマスまでに滑り切らず、
                    駒が道のりから何マスも遅れてしまう。歩いている駒だけ間隔に合わせる。 */
                 stepMs={token.isWalking ? WALK_STEP_MS : undefined}
@@ -841,6 +941,41 @@ export function BoardView({ context, session, reachable, steps, walk, onChooseNo
         <span aria-hidden="true">{overview ? "🔍" : "🗺"}</span>
       </button>
     </div>
+  );
+}
+
+/**
+ * 候補のマスの上に出す「残り◯」(F-04)。その候補に止まったとき、目的地まで何マスになるか。
+ * 読み上げには `candidate-guide.ts` が同じ数(`context.distanceToCity`)を入れているので、
+ * 目で見る数と聞く数は一致する。
+ * 文字の大きさは町の名札と同じく画面上で一定(`fontUnits` は呼び出し側が換算)。
+ */
+function RemainingBadge({
+  remaining,
+  remainingNow,
+  isGoal,
+  fontUnits,
+  t,
+}: {
+  remaining: number;
+  remainingNow: number;
+  isGoal: boolean;
+  fontUnits: number;
+  t: (key: string, ...args: (string | number)[]) => string;
+}) {
+  if (fontUnits <= 0) return null;
+  const size = fontUnits * 0.8;
+  const text = isGoal ? t("remainingBadgeGoal") : t("remainingBadge", remaining);
+  const width = estimateWidthEm(text) * size + size * 0.9;
+  const height = size * 1.35;
+  // 光輪のすぐ上。名札と同じ向きに出すと町の名前と喧嘩するので、必ず上に置く。
+  const y = -(SIZES.haloRadius + height * 0.7 + 2);
+  const tone = isGoal ? " goal" : remaining < remainingNow ? " closer" : "";
+  return (
+    <g className={`cand-remaining${tone}`} transform={`translate(0, ${y.toFixed(1)})`}>
+      <rect x={-width / 2} y={-height / 2} width={width} height={height} rx={height / 2} />
+      <text fontSize={size}>{text}</text>
+    </g>
   );
 }
 

@@ -31,6 +31,9 @@ export function TrainToken({
   carriedEmoji = null,
   spiritEmoji = null,
   stepMs,
+  isHuman = false,
+  pulseNonce = 0,
+  bounceNonce = 0,
 }: {
   x: number;
   y: number;
@@ -59,8 +62,26 @@ export function TrainToken({
    * 動きを減らす設定のときは歩き自体を飛ばすので、ここには来ない。
    */
   stepMs?: number;
+  /**
+   * 人間が動かす駒。**常時**、色付きの淡いリングと影を付け、他の駒より一段大きく描く。
+   * 開始直後の東京のように駒とマークが密集した場所で、自分の駒(赤い機関車)が
+   * 埋もれて探すことになっていた(実プレイで観察)。
+   */
+  isHuman?: boolean;
+  /**
+   * 手番が回ってきた瞬間に一度だけ広がる輪。0 なら出さない。
+   * 値が変わるたびに要素が作り直され、輪がもう一度広がる(`key` に使う)。
+   */
+  pulseNonce?: number;
+  /**
+   * 着いたマスで小さく弾む合図(F-13、何も起きないマスでも「返事」を返す)。
+   * 0 なら弾まない。値が変わるたびに内側の g が作り直され、同じマスに続けて
+   * 止まっても弾み直す。CSS は `reveal.css` の `.token-bounce`(状態層の所有)。
+   */
+  bounceNonce?: number;
 }) {
-  const s = scale;
+  // 人間の駒は一段大きく。混み合ったマスでも他の駒より前に出る。
+  const s = scale * (isHuman ? 1.18 : 1);
 
   // 前に描いた場所を覚えておき、飛んだときだけ滑りを切る。
   // 描画中に ref を読むことはできないので(React の決まり)、描いたあと・
@@ -85,11 +106,23 @@ export function TrainToken({
   return (
     <g
       ref={group}
-      className={`token${isActive ? " active" : ""}`}
+      className={`token${isActive ? " active" : ""}${isHuman ? " human" : ""}`}
       transform={`translate(${x}, ${y}) scale(${s})`}
       style={stepMs === undefined ? undefined : { transition: `transform ${stepMs}ms linear` }}
     >
+      {/* 弾むのは内側の g。外側は transform 属性で位置を決めているので、
+          そこに CSS の transform(translateY)を当てると原点へ飛ぶ。 */}
+      <g key={bounceNonce} className={bounceNonce > 0 ? "token-bounce" : undefined}>
+      {/* 自分の駒の目印。色付きの淡い円と細い輪。手番のリング(白)より内側に置き、両方が同時に見える。 */}
+      {isHuman && (
+        <>
+          <circle r={13} fill={color} opacity={0.2} />
+          <circle r={13} fill="none" stroke={color} strokeWidth={1.4} className="token-self-ring" />
+        </>
+      )}
       {isActive && <circle r={15} fill="none" stroke="#f6efe2" strokeWidth={1.6} opacity={0.85} className="token-ring" />}
+      {/* 手番の始まりに一度広がる輪(F-10)。位置は外側の g、広がりは CSS の transform。 */}
+      {pulseNonce > 0 && <circle key={pulseNonce} r={15} stroke={color} className="token-pulse" />}
       {/* 影 */}
       <ellipse cx={0} cy={7.5} rx={10} ry={2.6} fill="#0d0a18" opacity={0.45} />
       {vehicle === "spacecraft" ? <SpacecraftBody color={color} /> : <TrainBody color={color} />}
@@ -134,6 +167,7 @@ export function TrainToken({
           </g>
         </g>
       )}
+      </g>
     </g>
   );
 }
