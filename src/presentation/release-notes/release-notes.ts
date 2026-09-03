@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.63.0",
+    date: "2026-09-03",
+    title: t(
+      "The map tells you what each town is for|El mapa te dice a qué se dedica cada pueblo|La carte dit ce que chaque ville a de particulier|地図が、その町の顔を見せるようになりました",
+    ),
+    highlights: [
+      t(
+        "The Ibaraki board had thirty-six towns sharing fourteen symbols. Ōarai and any other shrine town wore the same little mark, so the map could tell you a name but never what the place was known for. Every town now has its own: a torii standing in the waves at Ōarai, a kiln jar at Kasama, four hectares of sunflowers at Naka, a melon at Hokota, the tall chimney at Hitachi, a bride’s boat at Itako.|El tablero de Ibaraki tenía treinta y seis pueblos compartiendo catorce símbolos. Ōarai y cualquier otro pueblo con santuario llevaban la misma marca, así que el mapa daba el nombre pero nunca el porqué. Ahora cada pueblo tiene el suyo: un torii entre las olas en Ōarai, una tinaja de alfar en Kasama, cuatro hectáreas de girasoles en Naka, un melón en Hokota, la gran chimenea de Hitachi, la barca de la novia en Itako.|Le plateau d’Ibaraki avait trente-six villes pour quatorze symboles. Ōarai et n’importe quelle autre ville à sanctuaire portaient la même marque : la carte donnait un nom, jamais une raison. Chaque ville a désormais le sien : un torii dans les vagues à Ōarai, une jarre de four à Kasama, quatre hectares de tournesols à Naka, un melon à Hokota, la haute cheminée de Hitachi, la barque de la mariée à Itako.|**茨城盤面は、36の町が14種類の印を使い回していました。**大洗も、ほかの神社の町も、同じ小さな印。地図は名前は教えてくれても、そこが何の土地なのかは教えてくれませんでした。**いまは町ごとに違う印が付きます。**大洗は波間に立つ鳥居、笠間は窯の甕、那珂は四ヘクタールのひまわり、鉾田はメロン、日立は大煙突、潮来は花嫁の舟。",
+      ),
+      t(
+        "The symbols also grow as you lean in. They used to be a fixed size on the board, which meant they were smallest exactly where towns crowd together and you most wanted to read them. Now they follow the zoom, up to half again as large. Pulled all the way out to the whole map, they go back to being dots — at that distance the towns sit fourteen pixels apart, and a readable picture would only have swallowed the names.|Los símbolos además crecen cuando te acercas. Antes tenían un tamaño fijo, así que eran más pequeños justo donde los pueblos se apiñan y más falta hacía leerlos. Ahora siguen al zoom, hasta una vez y media. En el mapa completo vuelven a ser puntos: a esa distancia los pueblos están a catorce píxeles y un dibujo legible solo se habría comido los nombres.|Les symboles grandissent aussi quand tu t’approches. Ils avaient une taille fixe : ils étaient donc les plus petits là où les villes se serrent et où on veut justement les lire. Ils suivent maintenant le zoom, jusqu’à une fois et demie. Sur la carte entière ils redeviennent des points : à cette distance les villes sont à quatorze pixels et un dessin lisible n’aurait fait qu’avaler les noms.|**印は、寄るほど大きくなります。**これまでは盤面上で大きさが固定だったので、**町が密集している盤面ほど画面上では小さく**、いちばん読みたいところで読めませんでした。いまは寄り具合に合わせて1.5倍まで育ちます。全体表示まで引くと、また点に戻ります——その距離では町どうしが14ピクセルしか離れておらず、読める絵を置くと名前を飲み込んでしまうためです。",
+      ),
+      t(
+        "And the towns that matter right now say a word about themselves. The destination, the town you are standing in, and the towns you could stop at this turn carry a short line — “A torii gate standing in the waves”, “Four hectares of sunflowers” — placed only where it will not push a name off the map. At most five at a time, so the map stays a map.|Y los pueblos que ahora importan dicen algo de sí mismos. El destino, el pueblo donde estás y los pueblos donde podrías parar este turno llevan una línea corta —«Un torii entre las olas», «Cuatro hectáreas de girasoles»— colocada solo donde no expulse a ningún nombre. Cinco como mucho a la vez, para que el mapa siga siendo un mapa.|Et les villes qui comptent en ce moment disent un mot d’elles-mêmes. La destination, la ville où tu te trouves et celles où tu peux t’arrêter ce tour portent une courte ligne — « Un torii dans les vagues », « Quatre hectares de tournesols » — placée seulement là où elle ne chasse aucun nom. Cinq au plus à la fois, pour que la carte reste une carte.|**いま関係のある町だけが、自分のことを一言だけ話します。**目的地、いま立っている町、この手番で止まれる町に、短い一文が付きます——「波間に立つ鳥居」「四ヘクタールのひまわり」。**ほかの町の名前を押しのける場所には出しません。**一度に多くても5つまでなので、地図は地図のままです。",
+      ),
+    ],
+  },
+  {
     version: "0.62.0",
     date: "2026-09-03",
     title: t(
