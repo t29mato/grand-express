@@ -997,38 +997,266 @@ const IBARAKI_BASE_BG = {
 export const IBARAKI_BG = { ...IBARAKI_BASE_BG, ...IBARAKI_COAST_BG };
 
 // ---------------------------------------------------------------------------
-// シンボル(13種)。24×24。鍵は cities.mjs の `mark` と対応。
+// シンボル(36種)。24×24。鍵は cities.mjs の `mark` と対応。
+//
+// **36都市に36種、1都市1種。**以前は「信仰」「祭り」「実り」のような分類14種を
+// 使い回していたが、それでは大洗も鹿嶋も同じ鳥居になり、地図を見てもその土地が
+// 何で知られているか分からなかった。いまは各都市の `tag`(ひとこと)に書いてある
+// ものをそのまま描く。「波間に立つ鳥居」なら海に立つ鳥居、「凍りつく滝」なら氷の滝。
+//
+// 描き方の約束(盤面では追従の眺めでも24px、全体表示では10px程度にしかならない):
+//   - **輪郭の形と色の面積で分からせる。**細い線や細部は潰れるので頼らない。
+//   - 1枚あたり2〜4色。大きな塗りを1つ置き、その上に目印を1つ載せる程度にする。
+//   - 似た形(舟4種・家4種)は、支配的な色を変えて遠目に見分けがつくようにする。
+//   - 都市カードでは4.1倍にして地面(y=152)に立てるので、下端に地面や水面の帯を置く。
+//   - 人の顔は描かない(潮来の花嫁は白い綿帽子の後ろ姿、龍ケ崎の舞い手は白い影)。
 // ---------------------------------------------------------------------------
 
+/** 36都市ぶんの印。地方ごとに並べてある(cities.mjs と同じ順)。 */
 export const IBARAKI_MARKS = {
-  /** 梅。水戸。五弁で、中心に蕊を点で置く。 */
-  plum:
+  // ------------------------------------------------------------------ cen 県央
+
+  /** 梅の木。水戸「皆に開かれた庭」——偕楽園の三千本の梅。紅い丸い樹冠で、枝の花とは違う形にする。 */
+  plumtree:
+    '<rect x="0.6" y="21.5" width="22.8" height="2.5" fill="#4f8f4a"/>' +
+    '<rect x="10.8" y="13" width="2.4" height="9" fill="#6b5330"/>' +
+    '<path d="M11.4,16l-4,-3.5M12.6,15l4,-3.5" stroke="#6b5330" stroke-width="1.6" fill="none"/>' +
+    '<g fill="#c4384f"><circle cx="12" cy="8" r="6.6"/><circle cx="6" cy="11" r="4.4"/><circle cx="18" cy="11" r="4.4"/></g>' +
+    '<g fill="#f0a0b8"><circle cx="9.4" cy="6.2" r="1.5"/><circle cx="14.8" cy="8.6" r="1.5"/><circle cx="6.4" cy="12.4" r="1.3"/><circle cx="17.8" cy="12.2" r="1.3"/><circle cx="11.6" cy="11.6" r="1.3"/></g>',
+
+  /** 甕。笠間「窯と稲荷の門前」——飾りものでなく、漬物甕のような日用の器。 */
+  kilnjar:
+    '<rect x="0.6" y="21" width="22.8" height="3" fill="#8a7250"/>' +
+    '<path d="M7,5.5Q3.6,10 4.6,15.5Q5.6,21 12,21Q18.4,21 19.4,15.5Q20.4,10 17,5.5z" fill="#5e4230"/>' +
+    '<path d="M7,5.5h10q1.2,1.6 1.4,4.2H5.6Q5.8,7.1 7,5.5z" fill="#a8865a"/>' +
+    '<rect x="7.4" y="3.4" width="9.2" height="2.6" rx="0.6" fill="#8a7250"/>',
+
+  /** 海に立つ鳥居。大洗「波間に立つ鳥居」——岩の上の朱い鳥居、その真ん中から日が昇る。 */
+  seatorii:
+    '<circle cx="12" cy="10.8" r="4.6" fill="#f5b31c"/>' +
+    '<rect x="0.6" y="18.5" width="22.8" height="5.5" fill="#2f6ea8"/>' +
+    '<path d="M2.5,20.5q2.5,-1.6 5,0t5,0t5,0t5,0" stroke="#8fc4e8" stroke-width="1" fill="none"/>' +
+    '<path d="M2.6,19.5L6.5,15h11l3.9,4.5z" fill="#4a4436"/>' +
     '<g fill="#c4384f">' +
-    Array.from({ length: 5 }, (_, i) => {
-      const a = (i / 5) * Math.PI * 2 - Math.PI / 2;
-      return `<circle cx="${r1(12 + Math.cos(a) * 5.6)}" cy="${r1(12 + Math.sin(a) * 5.6)}" r="4.2"/>`;
+    '<path d="M1.8,3.6q10.2,-2.2 20.4,0v3q-10.2,-1.6 -20.4,0z"/>' +
+    '<rect x="4.2" y="8.4" width="15.6" height="2.4"/>' +
+    '<rect x="5" y="4.8" width="3.2" height="11"/>' +
+    '<rect x="15.8" y="4.8" width="3.2" height="11"/>' +
+    '</g>',
+
+  /** 青い丘。ひたちなか「五月に青くなる丘」——丘そのものを空の青に塗り、花を点で打つ。 */
+  bluehill:
+    '<rect x="0.6" y="20.5" width="22.8" height="3.5" fill="#4f8f4a"/>' +
+    '<path d="M0.6,21Q12,3.5 23.4,21z" fill="#5b8fe8"/>' +
+    '<g fill="#bfe0ff">' +
+    '<circle cx="12" cy="8.6" r="1.5"/><circle cx="8.4" cy="12.4" r="1.5"/><circle cx="15.6" cy="12.4" r="1.5"/>' +
+    '<circle cx="5.4" cy="16.6" r="1.5"/><circle cx="12" cy="16" r="1.5"/><circle cx="18.6" cy="16.6" r="1.5"/>' +
+    '<circle cx="8.6" cy="19.2" r="1.3"/><circle cx="15.4" cy="19.2" r="1.3"/>' +
+    '</g>',
+
+  /** 原子と稲妻。東海「最初の電気が起きた村」。 */
+  atom:
+    '<g fill="none" stroke="#5b8fe8" stroke-width="1.8">' +
+    '<ellipse cx="12" cy="12" rx="10.5" ry="4.2"/>' +
+    '<ellipse cx="12" cy="12" rx="10.5" ry="4.2" transform="rotate(60 12 12)"/>' +
+    '<ellipse cx="12" cy="12" rx="10.5" ry="4.2" transform="rotate(120 12 12)"/>' +
+    '</g>' +
+    '<path d="M13.6,3.5L7.6,13h3.8L9.8,20.5L16.4,10.5h-3.8z" fill="#f5b31c"/>',
+
+  /** 滑走路と戦闘機。小美玉「戦闘機と滑走路を分け合う空港」——暗い滑走路の上に、明るい機体。 */
+  runwayjet:
+    '<path d="M1.5,24L9,11h6l7.5,13z" fill="#5a5a64"/>' +
+    '<g fill="#f6efe2"><rect x="11.3" y="13.5" width="1.4" height="2.2"/><rect x="11.2" y="17.2" width="1.6" height="2.6"/><rect x="11.1" y="21.3" width="1.8" height="2.7"/></g>' +
+    '<path d="M12,0.8L13.7,6.2L20.5,11.8L13.9,10.2L14.1,14L16.6,15.8L12,14.6L7.4,15.8L9.9,14L10.1,10.2L3.5,11.8L10.3,6.2z" fill="#d8d8d0"/>' +
+    '<circle cx="12" cy="9.2" r="1.3" fill="#e8443f"/>',
+
+  // ------------------------------------------------------------------ hok 県北
+
+  /** ひまわり。那珂「四ヘクタールのひまわり」。 */
+  sunflower:
+    '<rect x="11" y="13" width="2.2" height="11" fill="#3f8f4f"/>' +
+    '<path d="M11.4,19q-4,-1 -5,-4q4,0 5,4z" fill="#3f8f4f"/>' +
+    '<g fill="#f5c531">' +
+    Array.from({ length: 10 }, (_, i) => {
+      const a = (i / 10) * Math.PI * 2;
+      const cx = r1(12 + Math.cos(a) * 6.8);
+      const cy = r1(9.6 + Math.sin(a) * 6.8);
+      return `<ellipse cx="${cx}" cy="${cy}" rx="3.2" ry="2.1" transform="rotate(${r1((i * 360) / 10)} ${cx} ${cy})"/>`;
     }).join("") +
-    '</g><circle cx="12" cy="12" r="3" fill="#f6efe2"/>' +
-    '<g fill="#f5b31c"><circle cx="12" cy="9.4" r="1"/><circle cx="14.4" cy="12.8" r="1"/><circle cx="9.6" cy="12.8" r="1"/></g>',
+    '</g>' +
+    '<circle cx="12" cy="9.6" r="4.4" fill="#6b4a1e"/>',
 
-  /** 窯。笠間。段になった登り窯と火。 */
-  craft:
-    '<path d="M2,20L16,7h4v13z" fill="#8a7250"/>' +
-    '<g fill="#5a4630"><rect x="4.4" y="15.6" width="4.4" height="4.4"/><rect x="10.4" y="12.4" width="4.4" height="4.4"/></g>' +
-    '<g fill="#e8443f"><rect x="5.6" y="17" width="2" height="3"/><rect x="11.6" y="13.8" width="2" height="3"/></g>' +
-    '<path d="M20.6,7c1.6,-3 -1,-4.2 0.4,-6.6" stroke="#8a8272" stroke-width="1.4" fill="none" stroke-linecap="round"/>' +
-    '<rect x="1" y="20" width="22" height="2.6" fill="#4a4436"/>',
+  /** 工場と大煙突。日立「修理工場から生まれた製作所」——156mの煙突を、工場より高く。 */
+  tallchimney:
+    '<rect x="0.6" y="21" width="22.8" height="3" fill="#8a8272"/>' +
+    '<rect x="1.2" y="13" width="13" height="8" fill="#8a7250"/>' +
+    '<path d="M1.2,13L4.5,8.6L7.7,13L11,8.6L14.2,13z" fill="#5a4630"/>' +
+    '<g fill="#f5d38a"><rect x="3" y="15.5" width="2.4" height="2.4"/><rect x="7" y="15.5" width="2.4" height="2.4"/><rect x="11" y="15.5" width="2.4" height="2.4"/></g>' +
+    '<rect x="16" y="1.5" width="4.8" height="19.5" fill="#b8503c"/>' +
+    '<rect x="15.4" y="1.5" width="6" height="2" fill="#8a3a2a"/>' +
+    '<g fill="#d8d4c8"><circle cx="19.4" cy="2.2" r="1.9"/><circle cx="22" cy="1.6" r="1.4"/></g>',
 
-  /** 鳥居。大洗・鹿島。 */
-  faith:
-    '<path d="M2.6,6.6q9.4,-2 18.8,0v3.4q-9.4,-1.6 -18.8,0z" fill="#c4384f"/>' +
-    '<rect x="4.4" y="11" width="15.2" height="2.6" fill="#c4384f"/>' +
-    '<rect x="5.4" y="6.6" width="3" height="15.4" fill="#c4384f"/>' +
-    '<rect x="15.6" y="6.6" width="3" height="15.4" fill="#c4384f"/>' +
-    '<rect x="1.6" y="22" width="20.8" height="1.6" fill="#3b2a1c"/>',
+  /** 岩の上の朱い堂。北茨城「岩の上の朱い堂」——六角堂。海の岩に、六角の屋根の赤い堂。 */
+  rokkakudo:
+    '<rect x="0.6" y="18.5" width="22.8" height="5.5" fill="#2f6ea8"/>' +
+    '<path d="M2.5,20.5q2.5,-1.6 5,0t5,0t5,0t5,0" stroke="#8fc4e8" stroke-width="1" fill="none"/>' +
+    '<path d="M2,19.5L5,13.5h14l3,6z" fill="#4a4436"/>' +
+    '<rect x="6.2" y="8" width="11.6" height="6" fill="#c4384f"/>' +
+    '<path d="M3.6,8.6L12,1.6l8.4,7z" fill="#3b2a1c"/>' +
+    '<rect x="10.6" y="9.8" width="2.8" height="3.4" fill="#f6efe2"/>',
+
+  /** 紅葉の谷の吊り橋。高萩「紅葉の谷に架かる吊り橋」——橋の下いっぱいに紅い楓。 */
+  suspbridge:
+    '<g fill="#e8443f"><circle cx="5" cy="19" r="4.4"/><circle cx="12" cy="20" r="4.4"/><circle cx="19" cy="19" r="4.4"/></g>' +
+    '<g fill="#8a8272"><rect x="3.2" y="3" width="2.6" height="12"/><rect x="18.2" y="3" width="2.6" height="12"/></g>' +
+    '<path d="M0.6,3.5L4.5,3.5Q12,13.5 19.5,3.5L23.4,3.5" stroke="#4a4436" stroke-width="1.2" fill="none"/>' +
+    '<path d="M8,7.8v4.6M12,8.8v3.6M16,7.8v4.6" stroke="#4a4436" stroke-width="0.8" fill="none"/>' +
+    '<rect x="0.6" y="12.4" width="22.8" height="2.4" fill="#6b5330"/>',
+
+  /** 茅葺きの庵。常陸太田「藩主が史書のために退いた庵」——わざと質素な、大きな茅の屋根。 */
+  hermitage:
+    '<rect x="0.6" y="21" width="22.8" height="3" fill="#4f8f4a"/>' +
+    '<rect x="4.4" y="13" width="15.2" height="8" fill="#f6efe2"/>' +
+    '<path d="M1,14L7,4h10l6,10z" fill="#c9a877"/>' +
+    '<rect x="6.6" y="3" width="10.8" height="2" fill="#8a7250"/>' +
+    '<rect x="10.4" y="15" width="3.2" height="6" fill="#4a4436"/>' +
+    '<rect x="6" y="15" width="2.6" height="2.4" fill="#8a7250"/>',
+
+  /** 定式幕の芝居小屋。常陸大宮「村が建てては壊す芝居小屋」——黒・柿・萌葱の三色幕。 */
+  stagecurtain:
+    '<rect x="0.6" y="21" width="22.8" height="3" fill="#6b5330"/>' +
+    '<g>' +
+    '<rect x="2" y="8.5" width="3.4" height="12.5" fill="#2a2a2a"/><rect x="5.4" y="8.5" width="3.3" height="12.5" fill="#d05a2a"/><rect x="8.7" y="8.5" width="3.3" height="12.5" fill="#3f8f4f"/>' +
+    '<rect x="12" y="8.5" width="3.3" height="12.5" fill="#2a2a2a"/><rect x="15.3" y="8.5" width="3.3" height="12.5" fill="#d05a2a"/><rect x="18.6" y="8.5" width="3.4" height="12.5" fill="#3f8f4f"/>' +
+    '</g>' +
+    '<path d="M0.6,9L12,1.8L23.4,9z" fill="#8a7250"/>',
 
   /**
-   * 立像の青銅仏。牛久。
+   * 氷の滝。大子「凍りつく滝」——黒い岩に、白く凍った四段の水。
+   *
+   * 岩の上端をぎざぎざにし、氷の下端をつららにしてあるのは、
+   * 四角い岩壁のままだと都市カード(4.1倍)で**額縁に入った絵**に見えたため。
+   */
+  icefall:
+    '<path d="M1.8,8L4.6,4.4L8,6L11.6,2.2L15.2,5.4L18.6,3.8L22.2,8v13.5H1.8z" fill="#4a4436"/>' +
+    '<path d="M8,4.2h8v3.6l1.6,1.1v3.8L16,13.8v3.8l1.4,1v1.8h-11v-1.8l1.4,-1v-3.8l-1.6,-1.1V8.9L8,7.8z" fill="#e8f6ff"/>' +
+    '<path d="M6.4,20.4h11l-0.9,3l-1.1,-2l-1.1,2.4l-1.1,-2.4l-1.1,2.4l-1.1,-2.4l-1.1,2l-1.1,-2z" fill="#e8f6ff"/>' +
+    '<g fill="#8fd0f0"><path d="M9.6,6.2l1,3.4l1,-3.4zM13.4,6.2l1,3.4l1,-3.4zM9.6,12.4l1,3.4l1,-3.4zM13.4,12.4l1,3.4l1,-3.4z"/></g>' +
+    '<rect x="0.6" y="21.5" width="22.8" height="2.5" fill="#8fc4e8"/>',
+
+  // ------------------------------------------------------------------ rok 鹿行
+
+  /** 要石と鯰。鹿嶋「大地を押さえる石」——鯰の頭を押さえる小さな石。 */
+  keystone:
+    '<rect x="0.6" y="21" width="22.8" height="3" fill="#8a7250"/>' +
+    '<path d="M3.6,13.5L0.8,9.5M3.6,17.5L0.8,20.5" stroke="#3a4a5a" stroke-width="1.2" fill="none"/>' +
+    '<path d="M19,15.5l4.4,-3.5v7z" fill="#3a4a5a"/>' +
+    '<ellipse cx="11.5" cy="15.5" rx="9" ry="5.5" fill="#3a4a5a"/>' +
+    '<circle cx="6.6" cy="14" r="1.5" fill="#f6efe2"/><circle cx="6.9" cy="14.1" r="0.7" fill="#2a2a2a"/>' +
+    '<path d="M4.6,10.4q1.6,-6.4 7,-6.4q5.4,0 6.6,6.4z" fill="#8a8272"/>' +
+    '<rect x="5.4" y="7.4" width="11.8" height="1.2" fill="#f6efe2"/>',
+
+  /** 嫁入り舟。潮来「舟で嫁ぐ町」——白い綿帽子の花嫁が、舟で水路を渡る。顔は描かない。 */
+  brideboat:
+    '<rect x="0.6" y="18.5" width="22.8" height="5.5" fill="#4a8fb8"/>' +
+    '<path d="M2.5,20.5q2.5,-1.6 5,0t5,0t5,0t5,0" stroke="#8fc4e8" stroke-width="1" fill="none"/>' +
+    '<path d="M2,14.5h20l-3,4.5H5z" fill="#5a4630"/>' +
+    '<path d="M8.2,14.5v-4.2q3.8,-3.4 7.6,0v4.2z" fill="#f6efe2"/>' +
+    '<rect x="8.2" y="11.8" width="7.6" height="1.4" fill="#c4384f"/>' +
+    '<path d="M7.6,8.6q4.4,-8 8.8,0q-2,1.2 -4.4,1.2q-2.4,0 -4.4,-1.2z" fill="#f6efe2"/>' +
+    '<path d="M19.6,13.5v-5" stroke="#3f8f4f" stroke-width="1" fill="none"/>' +
+    '<path d="M19.6,4.5l2.6,2.4l-2.6,2.4l-2.6,-2.4z" fill="#7a4fb0"/>',
+
+  /** 風車の下のピーマン。神栖「風車の下の胡椒畑」——大きな緑のピーマンと、後ろに白い風車。 */
+  pepperwind:
+    '<rect x="0.6" y="21" width="22.8" height="3" fill="#d8c8a0"/>' +
+    '<rect x="17.6" y="8" width="1.8" height="13" fill="#f6efe2"/>' +
+    '<path d="M18.5,8V2.2M18.5,8L13.5,10.9M18.5,8l5,2.9" stroke="#f6efe2" stroke-width="1.8" stroke-linecap="round" fill="none"/>' +
+    '<circle cx="18.5" cy="8" r="1.3" fill="#8a8272"/>' +
+    '<rect x="7.4" y="6" width="1.8" height="4" fill="#6b8f3f"/>' +
+    '<g fill="#3f8f4f"><rect x="1.8" y="9.5" width="5.4" height="11.8" rx="2.6"/><rect x="9.4" y="9.5" width="5.4" height="11.8" rx="2.6"/><rect x="5.4" y="9" width="5.8" height="12.6" rx="2.8"/></g>' +
+    '<rect x="6.6" y="10.6" width="1.6" height="6" rx="0.8" fill="#6fb86a"/>',
+
+  /**
+   * 台地のさつまいも。行方「二つの湖に挟まれた台地」——左右の湖に挟まれた台地の上に、紫の芋。
+   *
+   * 台地は四角ではなく**盛り上がった丘**にし、湖は左右の隅だけに置いてある。
+   * 全面に水の帯を敷いた版は、都市カード(4.1倍)で芋が看板に載って見えた。
+   */
+  sweetpotato:
+    '<path d="M0.6,18.6q3.4,-1.8 6.4,0v5.4H0.6zM23.4,18.6q-3.4,-1.8 -6.4,0v5.4h6.4z" fill="#4a8fb8"/>' +
+    '<path d="M2.6,24q1.2,-8.4 9.4,-8.4q8.2,0 9.4,8.4z" fill="#c9a877"/>' +
+    '<path d="M4.6,17.6q3,-1.6 7.4,-1.6q4.4,0 7.4,1.6" stroke="#4f8f4a" stroke-width="1.6" fill="none"/>' +
+    '<path d="M2.8,11.6Q4.8,4.4 12,5Q19.2,5.6 21.6,10.4Q18.2,15.4 11.6,14.6Q5.4,13.8 2.8,11.6z" fill="#8a3a6a"/>' +
+    '<path d="M6,9.6Q10,7.2 15,7.8" stroke="#b05a90" stroke-width="1.2" stroke-linecap="round" fill="none"/>',
+
+  /** メロン。鉾田「メロンの町」——網目のある丸い実に、T字の蔓。 */
+  melon:
+    '<rect x="0.6" y="21" width="22.8" height="3" fill="#d8c8a0"/>' +
+    '<circle cx="12" cy="13.2" r="9" fill="#6fa85a"/>' +
+    '<g stroke="#e8f0c0" stroke-width="0.9" fill="none" transform="rotate(45 12 13.2)">' +
+    [-6, -3, 0, 3, 6]
+      .map((o) => {
+        const h = r1(Math.sqrt(81 - o * o));
+        return `<path d="M${r1(12 + o)},${r1(13.2 - h)}v${r1(2 * h)}M${r1(12 - h)},${r1(13.2 + o)}h${r1(2 * h)}"/>`;
+      })
+      .join("") +
+    '</g>' +
+    '<rect x="11" y="1.8" width="2" height="3.4" fill="#8a7250"/>' +
+    '<rect x="7.8" y="1.2" width="8.4" height="1.8" rx="0.8" fill="#8a7250"/>',
+
+  // ------------------------------------------------------------------ nan 県南
+
+  /** ロケット。つくば「科学のために造られた街」。 */
+  rocket:
+    '<path d="M12,1c3.4,3.6 4.8,8.2 4.8,12.6H7.2C7.2,9.2 8.6,4.6 12,1z" fill="#f6efe2"/>' +
+    '<path d="M7.2,13.6L3.4,18.6h4.4zM16.8,13.6L20.6,18.6h-4.4z" fill="#e8443f"/>' +
+    '<circle cx="12" cy="8.4" r="2.4" fill="#5b8fe8"/>' +
+    '<path d="M9.6,18.6h4.8l-2.4,4.6z" fill="#f5b31c"/>',
+
+  /**
+   * 花火。土浦「競技として裁かれる花火」——菊型。
+   *
+   * 夜空の地色を敷いてあるのは、菊型の放射だけだと那珂のひまわりと
+   * 遠目で見分けがつかなかったため。**暗い四角に光が散っている**という
+   * 全体の形で「夜の花火」と分かるようにしている(地色を持つ印はこれだけ)。
+   */
+  fireworks:
+    '<rect x="0.6" y="0.6" width="22.8" height="22.8" rx="4" fill="#1d2f4a"/>' +
+    '<g stroke="#f5b31c" stroke-width="1.5" stroke-linecap="round">' +
+    Array.from({ length: 12 }, (_, i) => {
+      const a = (i / 12) * Math.PI * 2;
+      return `<path d="M${r1(12 + Math.cos(a) * 2.8)},${r1(12 + Math.sin(a) * 2.8)}L${r1(12 + Math.cos(a) * 8.4)},${r1(12 + Math.sin(a) * 8.4)}"/>`;
+    }).join("") +
+    '</g>' +
+    '<g fill="#e8443f">' +
+    Array.from({ length: 12 }, (_, i) => {
+      const a = (i / 12) * Math.PI * 2;
+      return `<circle cx="${r1(12 + Math.cos(a) * 8.4)}" cy="${r1(12 + Math.sin(a) * 8.4)}" r="1.5"/>`;
+    }).join("") +
+    '</g><circle cx="12" cy="12" r="2.6" fill="#f6efe2"/>',
+
+  /** 大獅子。石岡「常陸国の国府」の祭りで練り歩く、何十人もの手を要する獅子頭。 */
+  lionhead:
+    '<g fill="#2a2a2a"><circle cx="4.6" cy="7.4" r="2.8"/><circle cx="9" cy="4.6" r="2.8"/><circle cx="15" cy="4.6" r="2.8"/><circle cx="19.4" cy="7.4" r="2.8"/></g>' +
+    '<path d="M2,9q0,-5 10,-5q10,0 10,5v8q0,4.5 -10,4.5q-10,0 -10,-4.5z" fill="#c4384f"/>' +
+    '<g fill="#f6efe2"><circle cx="8" cy="10.2" r="2.6"/><circle cx="16" cy="10.2" r="2.6"/></g>' +
+    '<g fill="#2a2a2a"><circle cx="8.4" cy="10.4" r="1.2"/><circle cx="16.4" cy="10.4" r="1.2"/></g>' +
+    '<rect x="5" y="15" width="14" height="4.6" rx="1" fill="#2a2a2a"/>' +
+    '<path d="M5.6,15h12.8v1l-1.6,1.4l-1.6,-1.4l-1.6,1.4l-1.6,-1.4l-1.6,1.4l-1.6,-1.4l-1.6,1.4l-1.6,-1.4z" fill="#f6efe2"/>' +
+    '<circle cx="12" cy="13.2" r="1.3" fill="#f5b31c"/>',
+
+  /** 帆引き船。かすみがうら「風だけで曳く網」——横風を受ける大きな四角い帆。 */
+  hobikisen:
+    '<rect x="0.6" y="18.5" width="22.8" height="5.5" fill="#4a8fb8"/>' +
+    '<path d="M2.5,20.5q2.5,-1.6 5,0t5,0t5,0t5,0" stroke="#8fc4e8" stroke-width="1" fill="none"/>' +
+    '<rect x="5.8" y="1.5" width="1.8" height="14" fill="#3b2a1c"/>' +
+    '<path d="M7.6,2.4h14v11.4h-14z" fill="#f6efe2"/>' +
+    '<g stroke="#c9a877" stroke-width="0.8"><path d="M12.2,2.4v11.4M17,2.4v11.4"/></g>' +
+    '<path d="M2,15.4h20l-3,4H5z" fill="#5a4630"/>',
+
+  /**
+   * 立像の青銅仏。牛久「中に昇降機のある青銅の像」。
    *
    * 牛久大仏は全高120mの立像。**縦に長いことがこの像の特徴**なので、
    * 24×24 のなかでも幅を絞り、台座から頭頂まで目一杯に伸ばす。
@@ -1064,89 +1292,151 @@ export const IBARAKI_MARKS = {
     // 胸の窓(昇降機で上がる展望台)。この像だけの特徴
     '<rect x="11" y="11.6" width="2" height="1.4" fill="#f5d38a"/>',
 
-  /** 歯車。日立。 */
-  steam:
-    '<g fill="#6b6b74">' +
-    Array.from(
-      { length: 8 },
-      (_, i) => `<rect x="10.6" y="0.8" width="2.8" height="5" transform="rotate(${r1((i * 360) / 8)} 12 12)"/>`,
-    ).join("") +
-    '</g><circle cx="12" cy="12" r="7.4" fill="#8a8272"/><circle cx="12" cy="12" r="3.2" fill="#f6efe2"/>',
+  /**
+   * 撞舞。龍ケ崎「柱の上で舞う男」——14mの柱の頂の円盤に、白い舞い手。
+   *
+   * 腕は細い線ではなく**横に長い白い棒**にしてある。細線で描いた版は
+   * 小さくすると腕が消え、柱に花が咲いているように見えた。
+   */
+  polemai:
+    '<rect x="0.6" y="21" width="22.8" height="3" fill="#4f8f4a"/>' +
+    '<rect x="10.2" y="9" width="3.6" height="12" fill="#6b5330"/>' +
+    '<ellipse cx="12" cy="9" rx="6.4" ry="2" fill="#5a4630"/>' +
+    '<rect x="4.4" y="4.1" width="15.2" height="2.6" rx="1.3" fill="#f6efe2" transform="rotate(-8 12 5.4)"/>' +
+    '<path d="M9.8,4.6h4.4l1.1,3.8H8.7z" fill="#f6efe2"/>' +
+    '<rect x="8.9" y="6.4" width="6.2" height="1.5" fill="#c4384f"/>' +
+    '<circle cx="12" cy="2.4" r="2" fill="#f6efe2"/>',
 
-  /** ロケット。つくば。 */
-  science:
-    '<path d="M12,1c3.4,3.6 4.8,8.2 4.8,12.6H7.2C7.2,9.2 8.6,4.6 12,1z" fill="#f6efe2"/>' +
-    '<path d="M7.2,13.6L3.4,18.6h4.4zM16.8,13.6L20.6,18.6h-4.4z" fill="#e8443f"/>' +
-    '<circle cx="12" cy="8.4" r="2.4" fill="#5b8fe8"/>' +
-    '<path d="M9.6,18.6h4.8l-2.4,4.6z" fill="#f5b31c"/>',
+  /**
+   * 大河と渡し、手前の宿。取手「大河の手前の宿」——利根川の渡しと、その手前の旅籠。
+   *
+   * 水は**下端の帯**に置いてある。川を上半分に敷いた版は、都市カード(4.1倍)で
+   * 上下2色に塗り分けた四角、つまり額縁の絵に見えた。
+   */
+  ferrycross:
+    '<rect x="0.6" y="16.5" width="22.8" height="7.5" fill="#4a8fb8"/>' +
+    '<path d="M1.6,18.6q2.6,-1.5 5.2,0t5.2,0t5.2,0t5.2,0" stroke="#8fc4e8" stroke-width="1" fill="none"/>' +
+    '<path d="M4,19.4h16l-2.4,3.4H6.4z" fill="#5a4630"/>' +
+    '<path d="M17.6,12.6L15.4,21.6" stroke="#3b2a1c" stroke-width="1.1" fill="none"/>' +
+    '<rect x="4.6" y="11" width="13.6" height="5.5" fill="#f6efe2"/>' +
+    '<path d="M1.6,11.4L11.4,4.4l9.8,7z" fill="#4a4436"/>' +
+    '<rect x="6.2" y="6.6" width="10.4" height="1.4" fill="#c4384f"/>' +
+    '<rect x="9.4" y="12.4" width="4" height="4.1" fill="#4a4436"/>',
 
-  /** 帆引き船。かすみがうら・行方。四角い帆が横を向く。 */
-  boat:
-    '<rect x="6.4" y="3" width="1.8" height="13" fill="#3b2a1c"/>' +
-    '<path d="M8.2,3.8h11.4v10.6H8.2z" fill="#f6efe2"/>' +
-    '<g stroke="#c9a877" stroke-width="0.8"><path d="M11.8,3.8v10.6M15.4,3.8v10.6"/></g>' +
-    '<path d="M2.6,16.6h18.8l-3,4.6H5.6z" fill="#5a4630"/>' +
-    '<path d="M1,22.4h22" stroke="#4a8fb8" stroke-width="1.6"/>',
+  /** 練習機。阿見「少年が飛行機乗りに育てられた地」——複葉の練習機。 */
+  trainerplane:
+    '<rect x="0.6" y="21" width="22.8" height="3" fill="#4f8f4a"/>' +
+    '<path d="M2.6,7.5l4.5,3.5v3.5H2.6z" fill="#e8843f"/>' +
+    '<rect x="4" y="11" width="15.5" height="4.5" rx="2.2" fill="#e8843f"/>' +
+    '<rect x="5.5" y="5.5" width="13" height="2.2" fill="#f5b31c"/>' +
+    '<rect x="5.5" y="15" width="13" height="2.2" fill="#f5b31c"/>' +
+    '<path d="M8.5,7.7v7.3M15.5,7.7v7.3" stroke="#6b5330" stroke-width="0.9" fill="none"/>' +
+    '<rect x="10.5" y="8.6" width="3" height="2.4" fill="#3b2a1c"/>' +
+    '<path d="M21.2,8.5v9" stroke="#3b2a1c" stroke-width="1.4" stroke-linecap="round" fill="none"/>' +
+    '<g fill="#2a2a2a"><circle cx="9" cy="19.2" r="1.9"/><circle cx="14.5" cy="19.2" r="1.9"/></g>',
 
-  /** 蓮。土浦・かすみがうら。 */
-  flowerfield:
-    '<ellipse cx="12" cy="18.6" rx="10" ry="3.6" fill="#3f8f4f"/>' +
-    '<ellipse cx="12" cy="17.6" rx="6" ry="2.2" fill="#5aa85f"/>' +
-    '<g fill="#e8a8bf">' +
-    Array.from({ length: 6 }, (_, i) => {
-      const a = (i / 6) * Math.PI * 2 - Math.PI / 2;
-      return `<ellipse cx="${r1(12 + Math.cos(a) * 3.6)}" cy="${r1(9.6 + Math.sin(a) * 3.6)}" rx="2.6" ry="3.6" transform="rotate(${r1((i * 360) / 6)} ${r1(12 + Math.cos(a) * 3.6)} ${r1(9.6 + Math.sin(a) * 3.6)})"/>`;
-    }).join("") +
-    '</g><circle cx="12" cy="9.6" r="2.2" fill="#f5b31c"/>',
+  /** 朱の社殿。稲敷「叶わぬ願いの社」——沼を行く舟人の目印になった、朱の深い社殿。 */
+  redshrine:
+    '<rect x="0.6" y="20.5" width="22.8" height="3.5" fill="#4a8fb8"/>' +
+    '<rect x="2.4" y="18.5" width="19.2" height="2.5" fill="#8a7250"/>' +
+    '<rect x="5" y="11" width="14" height="7.5" fill="#c4384f"/>' +
+    '<path d="M0.8,11.5Q3,9.8 6,4.6h12q3,5.2 5.2,6.9z" fill="#2a2a2a"/>' +
+    '<rect x="5" y="11.5" width="14" height="1.3" fill="#f5b31c"/>' +
+    '<rect x="10.4" y="13.5" width="3.2" height="5" fill="#4a4436"/>',
 
-  /** 花火。土浦。競技として裁かれる菊型。 */
-  festival:
-    '<g stroke="#f5b31c" stroke-width="1.4" stroke-linecap="round">' +
-    Array.from({ length: 12 }, (_, i) => {
-      const a = (i / 12) * Math.PI * 2;
-      return `<path d="M${r1(12 + Math.cos(a) * 3)},${r1(11 + Math.sin(a) * 3)}L${r1(12 + Math.cos(a) * 9.6)},${r1(11 + Math.sin(a) * 9.6)}"/>`;
-    }).join("") +
+  /** 木の山門。つくばみらい「図面のない山門」——大工の手癖で建った、二重の屋根の木の門。 */
+  templegate:
+    '<rect x="0.6" y="21.5" width="22.8" height="2.5" fill="#8a7250"/>' +
+    '<g fill="#8a7250"><rect x="4.2" y="14" width="2.6" height="7.5"/><rect x="17.2" y="14" width="2.6" height="7.5"/><rect x="9.2" y="14" width="1.6" height="7.5"/><rect x="13.2" y="14" width="1.6" height="7.5"/></g>' +
+    '<path d="M1.4,14.2L4.4,11.8h15.2l3,2.4z" fill="#4a5a6a"/>' +
+    '<rect x="4.4" y="8.4" width="15.2" height="3.4" fill="#f6efe2"/>' +
+    '<rect x="4.4" y="8.4" width="15.2" height="1" fill="#8a7250"/>' +
+    '<path d="M0.8,8.8L5.2,3.2h13.6l4.4,5.6z" fill="#4a5a6a"/>',
+
+  // ------------------------------------------------------------------ sei 県西
+
+  /** 川べりの桃。古河「川べりのもうひとつの幕府」——古い河川敷に植えられた二千本の桃。 */
+  peach:
+    '<rect x="0.6" y="18.5" width="22.8" height="5.5" fill="#4a8fb8"/>' +
+    '<path d="M2.5,20.5q2.5,-1.6 5,0t5,0t5,0t5,0" stroke="#8fc4e8" stroke-width="1" fill="none"/>' +
+    '<path d="M1.5,18.5Q9,15 21,3.5M9.5,10.5L6,6M15,7.5l1,-5" stroke="#6b5330" stroke-width="1.8" stroke-linecap="round" fill="none"/>' +
+    '<g fill="#f0a0b8"><circle cx="6" cy="6.5" r="3"/><circle cx="12.5" cy="11" r="3.2"/><circle cx="16.5" cy="4" r="2.8"/><circle cx="7" cy="14" r="2.6"/></g>' +
+    '<g fill="#f5b31c"><circle cx="6" cy="6.5" r="0.9"/><circle cx="12.5" cy="11" r="0.9"/><circle cx="16.5" cy="4" r="0.9"/><circle cx="7" cy="14" r="0.8"/></g>',
+
+  /**
+   * 紬の反物。結城「撚りをかけずに織る布」——藍の反物に、白い絣の十字。
+   *
+   * 布の下端を垂らしてあるのは、四角いままだと**印を並べたとき青い箱**にしか
+   * 見えなかったため。垂れた裾があると布と分かる。
+   */
+  tsumugi:
+    '<rect x="0.6" y="21.5" width="22.8" height="2.5" fill="#8a7250"/>' +
+    '<path d="M3,9h13v11.4q-3.4,1.8 -6.6,0Q6.2,18.8 3,20.8z" fill="#2f4a80"/>' +
+    '<g stroke="#f6efe2" stroke-width="1.1" fill="none">' +
+    '<path d="M5.5,13h3M7,11.5v3M10.5,13h3M12,11.5v3M5.5,18h3M7,16.5v3M10.5,18h3M12,16.5v3"/>' +
     '</g>' +
-    '<g fill="#e8443f">' +
-    Array.from({ length: 12 }, (_, i) => {
-      const a = (i / 12) * Math.PI * 2;
-      return `<circle cx="${r1(12 + Math.cos(a) * 9.6)}" cy="${r1(11 + Math.sin(a) * 9.6)}" r="1.5"/>`;
-    }).join("") +
-    '</g><circle cx="12" cy="11" r="2.4" fill="#f6efe2"/>',
+    '<rect x="3" y="3" width="17.5" height="7" rx="3.5" fill="#3f5f9a"/>' +
+    '<ellipse cx="20.5" cy="6.5" rx="2.2" ry="3.5" fill="#6a8ac8"/>' +
+    '<ellipse cx="20.5" cy="6.5" rx="0.9" ry="1.5" fill="#2f4a80"/>',
 
-  /** 城。水戸・古河。低い櫓と石垣。 */
-  castle:
-    '<path d="M2,22h20l-2.6,-6H4.6z" fill="#8a8272"/>' +
-    '<rect x="6.4" y="8.4" width="11.2" height="7.6" fill="#f6efe2"/>' +
-    '<path d="M4.4,8.4h15.2l-2.6,-3.4H7z" fill="#4a4436"/>' +
-    '<path d="M7.4,5h9.2l-2,-2.6h-5.2z" fill="#4a4436"/>' +
-    '<rect x="10.6" y="11.4" width="2.8" height="4.6" fill="#3b2a1c"/>',
+  /** 蒸気機関車。筑西「日曜に走る蒸気機関車」——黒い機体に赤い帯、白い煙。 */
+  steamloco:
+    '<rect x="0.6" y="21" width="22.8" height="3" fill="#6b5330"/>' +
+    '<g fill="#f6efe2"><circle cx="5.4" cy="3.4" r="2"/><circle cx="9.6" cy="2.6" r="2.6"/></g>' +
+    '<rect x="3.8" y="4.5" width="3.2" height="5" fill="#2a2a2a"/>' +
+    '<rect x="1.5" y="9" width="13.5" height="7.5" rx="1.5" fill="#2a2a2a"/>' +
+    '<rect x="14.5" y="6" width="7.5" height="10.5" fill="#2a2a2a"/>' +
+    '<rect x="16" y="7.6" width="4" height="3.2" fill="#f6efe2"/>' +
+    '<rect x="1.5" y="16" width="20.5" height="1.6" fill="#e8443f"/>' +
+    '<g fill="#2a2a2a"><circle cx="5" cy="18.8" r="2.8"/><circle cx="11" cy="18.8" r="2.8"/><circle cx="18.2" cy="18.8" r="2.4"/></g>' +
+    '<g fill="#e8443f"><circle cx="5" cy="18.8" r="1.2"/><circle cx="11" cy="18.8" r="1.2"/><circle cx="18.2" cy="18.8" r="1"/></g>',
 
-  /** 干し芋の棚。ひたちなか一帯。 */
-  harvest:
-    '<rect x="2.6" y="4" width="2" height="17" fill="#6b5330"/>' +
-    '<rect x="19.4" y="4" width="2" height="17" fill="#6b5330"/>' +
-    '<g fill="#d8a24a"><rect x="4.6" y="6" width="14.8" height="3.4"/><rect x="4.6" y="11.4" width="14.8" height="3.4"/>' +
-    '<rect x="4.6" y="16.8" width="14.8" height="3.4"/></g>' +
-    '<g fill="#a8763a"><rect x="4.6" y="9.4" width="14.8" height="1"/><rect x="4.6" y="14.8" width="14.8" height="1"/>' +
-    '<rect x="4.6" y="20.2" width="14.8" height="1"/></g>',
+  /** 雛人形。桜川「二月に家を開ける町」——金屏風の前、赤い段に並ぶ内裏雛。顔は描かない。 */
+  hinadolls:
+    '<rect x="4" y="1.5" width="16" height="10" fill="#f5d38a"/>' +
+    '<g fill="#c4384f"><rect x="5.5" y="10.5" width="13" height="4.5"/><rect x="3" y="15" width="18" height="4.5"/><rect x="0.6" y="19.5" width="22.8" height="4.5"/></g>' +
+    '<g fill="#a82c42"><rect x="3" y="15" width="18" height="0.8"/><rect x="0.6" y="19.5" width="22.8" height="0.8"/></g>' +
+    '<path d="M5.4,11L9,4.2L12.6,11z" fill="#3f4a80"/>' +
+    '<path d="M11.4,11L15,4.2L18.6,11z" fill="#e8443f"/>' +
+    '<g fill="#f6efe2"><circle cx="9" cy="3.4" r="1.9"/><circle cx="15" cy="3.4" r="1.9"/></g>' +
+    '<g fill="#2a2a2a"><path d="M7.1,3.4a1.9,1.9 0 0 1 3.8,0z"/><path d="M13.1,3.4a1.9,1.9 0 0 1 3.8,0z"/></g>',
 
-  /** 筑波山。二峰。県南のしるし。 */
-  scenery:
-    '<path d="M1,21L8.4,7.6L14,21z" fill="#7f8fa8"/>' +
-    '<path d="M9.4,21L16.4,5.6L23,21z" fill="#6b7f98"/>' +
-    '<path d="M14.2,10.4L16.4,5.6L18.7,10.4L17.2,9.4L16.4,8.2L15.6,9.4z" fill="#f6efe2"/>' +
-    '<rect x="1" y="21" width="22" height="1.8" fill="#4a6b3f"/>',
+  /**
+   * 沼に映る筑波山。下妻「田に水を引くために掘った沼」——水面に二峰が逆さに映る。
+   *
+   * 水は四角ではなく**楕円の沼**にしてある。全面に水の帯を敷いた版は、
+   * 都市カード(4.1倍)で青い長方形に山が乗った看板にしか見えなかった。
+   */
+  mirrorpond:
+    '<path d="M1.6,13.8L7.4,4L11.4,9.8L16,2.8L22.4,13.8z" fill="#7f8fa8"/>' +
+    '<ellipse cx="12" cy="17.6" rx="11.2" ry="6.2" fill="#4a8fb8"/>' +
+    '<path d="M4.4,14.2L8,20.4L11.2,16.6L14.8,21.4L18.6,14.2z" fill="#31688f"/>' +
+    '<path d="M4.2,22.2q2.4,-1.2 4.8,0M14.4,22q2.4,-1.2 4.8,0" stroke="#bfe8f4" stroke-width="0.9" fill="none"/>',
 
-  /** 筆と紬。結城・笠間の手仕事。 */
-  brush:
-    '<path d="M15.6,2.4l6,6L11,19l-6,-6z" fill="#c9a877"/>' +
-    '<path d="M15.6,2.4l6,6l1.4,-1.4a4.2,4.2 0 0 0 -6,-6z" fill="#8a7250"/>' +
-    '<path d="M5,13l-3.4,8.4L10,18z" fill="#3b2a1c"/>' +
-    '<g stroke="#f6efe2" stroke-width="0.9" opacity=".8"><path d="M9.4,8.6l6,6M12.4,5.6l6,6"/></g>',
+  /** 天守。常総「城のなかった所に建てた天守」——石垣の上に、白壁と黒い屋根を二重に。 */
+  keep:
+    '<path d="M0.8,24L3,17h18l2.2,7z" fill="#8a8272"/>' +
+    '<rect x="4.5" y="11" width="15" height="6" fill="#f6efe2"/>' +
+    '<path d="M2.2,11.2L5,8H19l2.8,3.2z" fill="#4a4436"/>' +
+    '<rect x="7.5" y="5.5" width="9" height="2.6" fill="#f6efe2"/>' +
+    '<path d="M5,5.8L12,1.2L19,5.8z" fill="#4a4436"/>' +
+    '<g fill="#4a4436"><rect x="7" y="12.5" width="2.2" height="2.4"/><rect x="11" y="12.5" width="2.2" height="2.4"/><rect x="15" y="12.5" width="2.2" height="2.4"/></g>' +
+    '<circle cx="12" cy="1.4" r="1.1" fill="#f5b31c"/>',
 
-  /** 予科練の飛行機。阿見。 */
-  airplane:
-    '<path d="M12,2c1.4,0 2.4,1.6 2.4,4.4v6.2l7.6,4.6v2.4l-7.6,-2.2v3.4l2.4,1.8v1.4L12,22.6L7.2,24v-1.4l2.4,-1.8v-3.4L2,19.6v-2.4l7.6,-4.6V6.4C9.6,3.6 10.6,2 12,2z" fill="#8a8272"/>' +
-    '<circle cx="12" cy="8.4" r="1.8" fill="#5b8fe8"/>',
+  /** 兜。坂東「新皇を名乗った男」——黒い兜に、金の鍬形。人ではなく武具で表す。 */
+  kabuto:
+    '<rect x="0.6" y="20.5" width="22.8" height="3.5" fill="#8a7250"/>' +
+    '<path d="M2,14.5h20l1.4,6H0.6z" fill="#3a3228"/>' +
+    '<path d="M2.8,17h18.4M2.4,19h19.2" stroke="#f5b31c" stroke-width="0.7" fill="none"/>' +
+    '<path d="M3,14.5q0,-9 9,-9q9,0 9,9z" fill="#2a2a2a"/>' +
+    '<path d="M9.4,8.2Q7.6,3.4 2.6,1.2Q5,5.6 9.8,10.4zM14.6,8.2Q16.4,3.4 21.4,1.2Q19,5.6 14.2,10.4z" fill="#f5b31c"/>' +
+    '<rect x="10.8" y="6.4" width="2.4" height="4.2" fill="#f5b31c"/>',
+
+  /** 荷を積んだ高瀬舟。境「川の荷が折り返した河岸」——俵を山に積んだ川舟。 */
+  cargoboat:
+    '<rect x="0.6" y="18.5" width="22.8" height="5.5" fill="#4a8fb8"/>' +
+    '<path d="M2.5,20.5q2.5,-1.6 5,0t5,0t5,0t5,0" stroke="#8fc4e8" stroke-width="1" fill="none"/>' +
+    '<path d="M1.5,14h21l-3,4.5H4.5z" fill="#5a4630"/>' +
+    '<g fill="#d8a24a"><rect x="4.5" y="9" width="6.6" height="5" rx="1.8"/><rect x="12.9" y="9" width="6.6" height="5" rx="1.8"/><rect x="8.7" y="4" width="6.6" height="5" rx="1.8"/></g>' +
+    '<g stroke="#8a6a2a" stroke-width="0.8" fill="none"><path d="M6.7,9v5M9,9v5M15.1,9v5M17.4,9v5M10.9,4v5M13.2,4v5"/></g>',
 };
