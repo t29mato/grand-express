@@ -1,0 +1,189 @@
+/*
+ * 盤面の「手触り」。2026-09 の実プレイ観察(F-01 / F-04 / F-10 / F-14)で足した見た目。
+ * `globals.css` は複数人が同時に触るので、盤面まわりの新しい規則はここに置く。
+ */
+
+/* ── F-01 サイコロの退避と収納 ─────────────────────────────── */
+
+/* 転がり終えたサイコロを載せて動かす盆。サイコロ1個ずつの transform は
+   転がりの物理が毎フレーム書き換えるので、退避・収納はこの盆ごと行う。 */
+.dice-tray {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity;
+}
+
+/* 退避。行き先を選んでいるあいだ、縮んでバッジ側の盤面の端へ寄る。 */
+.dice-tray.aside {
+  transition:
+    transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.5s ease;
+}
+
+/* 収納。出目バッジへ吸い込まれる。時間は dice-stage.tsx の STOW_MS と揃える。 */
+.dice-tray.stowing {
+  transition:
+    transform 0.56s cubic-bezier(0.55, 0, 0.85, 0.35),
+    opacity 0.4s ease-in 0.16s;
+}
+
+/* サイコロを受け取った合図。出目バッジが一度だけ弾む(dice-stage.tsx が付け外しする)。 */
+#die.dice-caught {
+  animation: diceCaught 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.4);
+}
+
+@keyframes diceCaught {
+  0% {
+    transform: scale(1);
+    box-shadow:
+      0 6px 0 #b9ad97,
+      0 0 0 0 #f5b31c80;
+  }
+  35% {
+    transform: scale(1.22);
+    box-shadow:
+      0 6px 0 #b9ad97,
+      0 0 0 10px #f5b31c40;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 6px 0 #b9ad97,
+      0 0 0 0 #f5b31c00;
+  }
+}
+
+/* ── F-04 目的地までの残りと最短経路 ───────────────────────── */
+
+/* 現在地から目的地への最短経路。淡い金色の点線で常時出す。
+   路線の上に乗せるが、マスや駒の下に敷いて押す邪魔をしない。 */
+.dest-route {
+  fill: none;
+  stroke: #ffe08a;
+  stroke-width: 4.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 3 9;
+  opacity: 0.95;
+  /* **線路そのものが同じ黄系の破線**なので、色と太さだけでは埋もれる
+     (撮って確かめたら東海道の線と見分けが付かなかった)。
+     外側に光を付けて、線路の上に浮いているように見せる。 */
+  filter: drop-shadow(0 0 5px rgba(245, 179, 28, 0.9));
+  pointer-events: none;
+  animation: destRouteFlow 1.6s linear infinite;
+}
+
+/* 目的地へ向かって流れる。向きが分かるのは点線が動いているときだけ。 */
+@keyframes destRouteFlow {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+
+/* 行き先を選んでいるあいだは路線を沈めているが、最短経路は沈めない
+   (どちらへ進めば近づくかは、選ぶときにこそ要る)。 */
+.board-svg.choosing .dest-route {
+  opacity: 1;
+}
+
+/* 候補のマスの上に出す「残り◯」。 */
+.cand-remaining {
+  pointer-events: none;
+}
+
+.cand-remaining rect {
+  fill: #1b1330;
+  fill-opacity: 0.88;
+  stroke: #f6efe2;
+  stroke-width: 1;
+}
+
+.cand-remaining text {
+  fill: #f6efe2;
+  font-weight: 800;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+
+/* 目的地に近づく候補は金色で。遠ざかる候補は素の白のまま。 */
+.cand-remaining.closer rect {
+  stroke: #f5b31c;
+}
+
+.cand-remaining.closer text {
+  fill: #f5b31c;
+}
+
+/* 目的地そのものに届く候補。 */
+.cand-remaining.goal rect {
+  fill: #f5b31c;
+  stroke: #f5b31c;
+}
+
+.cand-remaining.goal text {
+  fill: #1b1330;
+}
+
+/* ── F-10 手番の始まりの合図 ───────────────────────────────── */
+
+/* 自分の手番が始まった瞬間、駒から輪が一度広がる。カメラが寄ってきた先に
+   「ここに居る」を打つ。 */
+.token-pulse {
+  fill: none;
+  stroke-width: 3;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: tokenPulse 0.9s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+
+@keyframes tokenPulse {
+  0% {
+    transform: scale(0.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+/* ── F-14 自分の駒を見つけやすく ───────────────────────────── */
+
+/* 人間の駒。色付きの淡いリングと影を常時付け、東京のような密集地でも埋もれないようにする。 */
+.token.human {
+  filter: drop-shadow(0 2px 2.5px #00000099);
+}
+
+.token.human .token-self-ring {
+  animation: selfRingBreathe 2.6s ease-in-out infinite;
+}
+
+@keyframes selfRingBreathe {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* ── 動きを減らす設定 ───────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .dice-tray,
+  .dice-tray.aside,
+  .dice-tray.stowing {
+    transition: none;
+  }
+  #die.dice-caught,
+  .dest-route,
+  .token-pulse,
+  .token.human .token-self-ring {
+    animation: none;
+  }
+  /* 輪は出さず、リングは一定の濃さで残す(在ることで伝える)。 */
+  .token-pulse {
+    display: none;
+  }
+}

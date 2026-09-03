@@ -1,0 +1,159 @@
+/*
+ * 暦の帯(`hud/calendar-strip.tsx`)。手番パネルの真上に置く、いま何月で
+ * 残り何ヶ月かの表示。
+ *
+ * 色は `globals.css` 冒頭の変数から取る。終盤(`is-ending`)は金色の縁と
+ * 暖色の地にして、他のカードと違うことが一目で分かるようにする。
+ * 赤は「損した・危ない」に使っている色なので、終盤の合図には使わない
+ * (終わりが近いのは災いではない)。
+ */
+
+.calendar-strip {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 8px 14px;
+  width: 100%;
+  max-width: 640px;
+  /* 月名をめくるときの奥行き。 */
+  perspective: 600px;
+  transition:
+    background 0.6s ease,
+    border-color 0.6s ease;
+}
+
+.calendar-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.calendar-month {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--salt);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  transform-origin: 50% 100%;
+}
+
+.calendar-year {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--salt-dim);
+  text-transform: uppercase;
+}
+
+.calendar-left {
+  font-size: 0.85rem;
+  color: var(--salt-dim);
+  margin-left: auto;
+}
+
+/* 月ごとの目盛り。総月数ぶん並ぶ(12・24・36)。 */
+.calendar-ticks {
+  display: flex;
+  gap: 3px;
+  margin-top: 6px;
+}
+
+.calendar-tick {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line);
+}
+
+.calendar-tick.is-done {
+  background: var(--salt-dim);
+}
+
+.calendar-tick.is-now {
+  background: var(--gold);
+  box-shadow: 0 0 6px var(--gold);
+}
+
+/* 月替わりのめくり。`is-flipping` は JS が 0.7 秒だけ付ける(`FLIP_MS`)。 */
+.calendar-strip.is-flipping .calendar-month {
+  animation: calendar-flip 0.7s ease-out;
+}
+
+@keyframes calendar-flip {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  55% {
+    transform: rotateX(-18deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}
+
+/* 終盤(残り2ヶ月)。金色の縁で「もうすぐ終わる」を見せる。 */
+.calendar-strip.is-ending {
+  background: linear-gradient(135deg, #4a3320, var(--panel2));
+  border-color: var(--gold);
+}
+
+.calendar-strip.is-ending .calendar-left {
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.calendar-ending {
+  margin-top: 4px;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+}
+
+/* 縦積み(940px以下)では aside が `display: contents` になり、中のカードは
+   `order` で並ぶ。手番パネルが 1 なので、その上に来るよう 0 を与える。 */
+@media (max-width: 940px) {
+  .calendar-strip {
+    order: 0;
+    max-width: none;
+  }
+}
+
+/* 携帯の実寸(560px以下)では帯が増えるぶん高さを詰める。1行で 26px 前後。 */
+@media (max-width: 560px) {
+  .calendar-strip {
+    padding: 4px 10px;
+    border-radius: 10px;
+  }
+
+  .calendar-month {
+    font-size: 0.9rem;
+  }
+
+  .calendar-left {
+    font-size: 0.75rem;
+  }
+
+  .calendar-ticks {
+    margin-top: 3px;
+  }
+
+  .calendar-tick {
+    height: 3px;
+  }
+
+  .calendar-ending {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calendar-strip,
+  .calendar-strip.is-flipping .calendar-month {
+    animation: none;
+    transition: none;
+  }
+}

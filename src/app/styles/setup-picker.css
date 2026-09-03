@@ -1,0 +1,187 @@
+/*
+ * 開始画面の、地図から盤面を選ぶところの追加分。
+ * 元の `.world-picker` 一式は `globals.css` にある。ここには
+ * 「寄った先の一覧」「番号の印」「盤面が選ばれていないときの表示」を置く。
+ */
+
+/* ------------------------------------------------------------------ *
+ * 地図と、寄った先(日本の中の盤面など)の一覧を横に並べる入れ物
+ * ------------------------------------------------------------------ */
+
+.world-picker-stage {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+}
+
+/* **一覧が付いても、入れ物の高さは地図だけのときと同じに保つ。**
+   高さが変わると、その下の「誰が乗る?」と「旅に出る」が上下に動く
+   (`globals.css` の `.world-picker-map` が比を固定している理由と同じ)。
+   比は入れ物が持ち、地図はその中で残りの幅いっぱいに広がる。
+   日本のような縦長の絵は左右に余白を残して収まるので、右を一覧に譲っても
+   絵そのものは小さくならない。 */
+.world-picker-stage.with-list {
+  aspect-ratio: 3703 / 1210;
+}
+
+.world-picker-stage.with-list .world-picker-map {
+  flex: 1 1 0%;
+  min-width: 0;
+  width: auto;
+  height: auto;
+  align-self: stretch;
+  aspect-ratio: auto;
+}
+
+/* ------------------------------------------------------------------ *
+ * 寄った先の一覧。地図の印と同じ番号で結ぶ
+ * ------------------------------------------------------------------ */
+
+.picker-board-list {
+  flex: 0 0 clamp(170px, 30%, 250px);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 0;
+  padding: 8px;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel2);
+}
+
+.picker-list-title {
+  padding: 2px 4px 4px;
+  color: var(--salt-dim);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.picker-list-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(14, 22, 38, 0.55);
+  color: var(--salt);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+/* 指が乗っているのは、この行か地図の同じ番号の印か。どちらでも同じ見た目にする。 */
+.picker-list-item:hover,
+.picker-list-item.hot,
+.picker-list-item:focus-visible {
+  border-color: var(--salt);
+  background: #26183f;
+}
+
+.picker-list-item.on {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #26183f;
+}
+
+.picker-list-num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(246, 239, 226, 0.55);
+  border-radius: 50%;
+  background: #0e1626;
+  color: var(--salt);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.picker-list-item.on .picker-list-num {
+  border-color: #26183f;
+  background: #26183f;
+  color: var(--gold);
+}
+
+.picker-list-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* 縮尺の印(国/地方)。札の肩に付ける `.scale-tag` と同じ意味だが、
+   あちらは絵の上に絶対配置なので、行の中に置けるものを別に持つ。 */
+.picker-list-scale {
+  flex: none;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(14, 22, 38, 0.6);
+  color: var(--salt-dim);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.picker-list-item.on .picker-list-scale {
+  background: rgba(38, 24, 63, 0.18);
+  color: #3d2a5c;
+}
+
+/* ------------------------------------------------------------------ *
+ * 地図の上の、番号だけの印と、盤面が走る範囲の枠
+ * ------------------------------------------------------------------ */
+
+/* 印は小さいので、縁を少し太くして下地から浮かせる。 */
+.picker-plate.marker rect {
+  stroke-width: 6;
+}
+
+/* 一覧の行に指が乗ったときの、地図側の光り方(直接触れたときと同じ)。 */
+.picker-plate.hot rect {
+  fill: #26183f;
+  stroke-opacity: 1;
+}
+
+.picker-plate.on.hot rect {
+  fill: var(--gold);
+  stroke: #f6efe2;
+}
+
+/* 北海道・九州・茨城・百名山が走る範囲。押すのは印と一覧なので、枠は指を吸わない。 */
+.picker-area {
+  fill: var(--gold);
+  fill-opacity: 0;
+  stroke: #f6efe2;
+  stroke-opacity: 0.4;
+  pointer-events: none;
+  transition: fill-opacity 0.15s ease, stroke-opacity 0.15s ease;
+}
+
+.picker-area.hot {
+  stroke-opacity: 1;
+  fill-opacity: 0.1;
+}
+
+.picker-area.on {
+  stroke: var(--gold);
+  stroke-opacity: 1;
+  fill-opacity: 0.14;
+}
+
+/* ------------------------------------------------------------------ *
+ * 盤面が選ばれていないとき
+ * ------------------------------------------------------------------ */
+
+/* 大陸を変えた直後。「旅に出る」が押せない理由をここに書く。 */
+.country-chosen.country-unchosen .nm {
+  color: var(--gold);
+}
+
+.btn-start:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

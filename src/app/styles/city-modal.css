@@ -1,0 +1,254 @@
+/*
+ * 町のモーダル(都市に停車したときの画面)の見た目。
+ *
+ * `.prop` / `.plist` などの土台は globals.css にある。ここにはこの画面だけの
+ * 追加——物件行のラベル付き2段(F-16)、買った直後ののぼりと地図を見せる
+ * 透過(F-08)、売却の2段階——を置く。
+ */
+
+/* ---------- 物件行:数字にラベルを付けて「価格」「収入」の2段にする(F-16) ---------- */
+
+.prop .figs {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 12px;
+  row-gap: 1px;
+  margin: 4px 0 0;
+}
+
+.prop .fig {
+  display: contents;
+}
+
+.prop .figs dt {
+  color: var(--salt-dim);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  align-self: baseline;
+  white-space: nowrap;
+}
+
+.prop .figs dd {
+  margin: 0;
+  color: var(--salt);
+  font-size: 0.92rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  align-self: baseline;
+}
+
+.prop .figs dd.plus {
+  color: var(--green);
+}
+
+/* 残り/あと/誰の物件か。数字の下に1行だけ。 */
+.prop .note {
+  margin-top: 3px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.prop .note.ok {
+  color: var(--green);
+}
+
+.prop .note.ng {
+  color: var(--red);
+}
+
+.prop .note.who {
+  color: var(--salt-dim);
+  font-weight: 600;
+}
+
+/* ---------- 買った直後:のぼりが立ち、行が金色に光る(F-08) ---------- */
+
+.prop.just-bought {
+  border-color: var(--gold);
+  border-style: solid;
+  animation: bought-glow 1.4s ease-out 1;
+}
+
+@keyframes bought-glow {
+  0% {
+    box-shadow: 0 0 0 0 #f5b31c00;
+    background: #f5b31c40;
+  }
+  25% {
+    box-shadow: 0 0 0 6px #f5b31c40;
+  }
+  100% {
+    box-shadow: 0 0 0 0 #f5b31c00;
+    background: var(--panel2);
+  }
+}
+
+.bought-banner {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 4px;
+  margin-left: 8px;
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 800;
+  vertical-align: -3px;
+}
+
+.bought-banner .nobori {
+  transform-origin: 50% 100%;
+  animation: bought-banner-rise 0.55s cubic-bezier(0.2, 1.4, 0.4, 1) 1;
+}
+
+.bought-banner .txt {
+  animation: bought-banner-fade 0.5s ease-out 1;
+}
+
+/* 根元から立ち上がる。少し行き過ぎて戻る。 */
+@keyframes bought-banner-rise {
+  0% {
+    transform: scaleY(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scaleY(1.12);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bought-banner-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- 買った直後:モーダルを薄くして、地図の町が自分の色に染まるのを見せる ---------- */
+
+/*
+ * 覆い(`.overlay`)と枠(`.modal-box`)は `modal.tsx` のもので、中身からは触れない。
+ * `:has()` で「町のモーダルが覗いている最中」だけ、覆いを透かし、枠の塗りを消す。
+ * 中身は `.city-modal-body > *` を薄くする(枠ごと薄くすると案内文まで消える)。
+ */
+.overlay:has(.city-modal-body) {
+  transition: background 0.4s ease;
+}
+
+.overlay:has(.city-modal-body) .modal-box {
+  transition:
+    background 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.overlay:has(.city-modal-body.peeking) {
+  background: #00000014;
+}
+
+.overlay:has(.city-modal-body.peeking) .modal-box {
+  background: transparent;
+  border-color: transparent;
+}
+
+.overlay:has(.city-modal-body.peeking) .modal-lang {
+  opacity: 0;
+}
+
+.city-modal-body > * {
+  transition: opacity 0.4s ease;
+}
+
+/* 薄くしているあいだは押せない。見えない「売却」を押してしまわないため。 */
+.city-modal-body.peeking {
+  pointer-events: none;
+}
+
+.city-modal-body.peeking > :not(.peek-caption) {
+  opacity: 0.04;
+}
+
+/* 「地図を見て」の案内。町を隠さないよう、画面の下に置く。 */
+.peek-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  transform: translateX(-50%);
+  max-width: min(92vw, 520px);
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #1b1330e6;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation: peek-caption-in 0.4s ease-out 1;
+  z-index: 1;
+}
+
+@keyframes peek-caption-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* ---------- 売却は2段階:押す → 「本当に売る?」 ---------- */
+
+.prop.confirming {
+  border-color: var(--red);
+  border-style: solid;
+  background: #e0525214;
+}
+
+.prop .sell-confirm {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.prop .sell-confirm .ask {
+  flex: 1 1 200px;
+  font-size: 0.85rem;
+  color: var(--salt);
+  line-height: 1.45;
+}
+
+.prop .sell-confirm .ask b {
+  color: var(--red);
+  margin-right: 4px;
+}
+
+.prop .sell-confirm .acts {
+  display: flex;
+  gap: 6px;
+}
+
+.prop button.sell-yes {
+  background: var(--red);
+  color: #fff;
+}
+
+.prop button.sell-no {
+  background: var(--panel);
+  color: var(--salt);
+  border: 1px solid var(--line);
+}

@@ -1,3 +1,13 @@
+/* 領域ごとのスタイルは styles/ に分けて置く。
+   このファイルは3,000行を超えており、複数人(サブエージェント)が同時に
+   触ると壊れるため、新しくまとまった見た目は別ファイルに書いて
+   ここから読み込む。@import は他のどの規則より前に置く必要がある。 */
+@import "./styles/board-feel.css";
+@import "./styles/city-modal.css";
+@import "./styles/calendar.css";
+@import "./styles/setup-picker.css";
+@import "./styles/reveal.css";
+
 :root {
   --night: #241a3f;
   --night2: #1b1330;
