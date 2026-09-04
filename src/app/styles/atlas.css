@@ -1,0 +1,696 @@
+/*
+ * 地図帳(`/atlas`)。
+ *
+ * **1画面に収める。**この作品の方針(`e2e/playwright/responsive.spec.ts`)に合わせ、
+ * 画面の高さを `100dvh` で区切り、地図と一覧はその中で伸び縮みさせる。
+ * ページ全体は縦にも横にもスクロールしない——スクロールするのは一覧の中だけ。
+ *
+ * 色は `globals.css` の変数をそのまま使う。ここで足すのは
+ * 「地図の外」(極の外側)の色だけ。
+ */
+
+.atlas-screen {
+  --atlas-void: #0b1020;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  min-height: 0;
+  padding: 10px 12px 12px;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+/* ------------------------------------------------------------------ *
+ * 頭
+ * ------------------------------------------------------------------ */
+
+.atlas-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.atlas-titles {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.atlas-titles h1 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.atlas-lead {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--salt-dim);
+  /* 狭いと2行になって地図の高さを食う。1行に収める。 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------ *
+ * 地図と一覧
+ * ------------------------------------------------------------------ */
+
+.atlas-stage {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.atlas-map-holder {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--atlas-void);
+}
+
+/* キーボードで地図を動かせることが見て分かるように。 */
+.atlas-map-holder:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+
+.atlas-map-frame {
+  position: absolute;
+  inset: 0;
+}
+
+.atlas-map {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* ドラッグでページごと動かない。寄り引きはこちらで受ける。 */
+  touch-action: none;
+  cursor: grab;
+}
+
+.atlas-map:active {
+  cursor: grabbing;
+}
+
+/* ------------------------------------------------------------------ *
+ * 地図の中身
+ * ------------------------------------------------------------------ */
+
+.atlas-board-rect {
+  stroke: var(--gold);
+  opacity: 0.7;
+}
+
+.atlas-board-rect.wide {
+  stroke: var(--teal);
+  opacity: 0.55;
+}
+
+.atlas-board-rect.chosen {
+  stroke: #fff;
+  opacity: 1;
+}
+
+.atlas-board-labels text {
+  fill: var(--salt);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  /* 緑の陸の上でも読めるように、字の後ろから濃い縁を描く。 */
+  paint-order: stroke;
+  stroke: rgba(8, 12, 24, 0.85);
+  stroke-width: 0.28em;
+  stroke-linejoin: round;
+}
+
+.atlas-board-labels text.wide {
+  fill: var(--teal);
+  font-weight: 600;
+}
+
+.atlas-board-labels text.chosen {
+  fill: var(--gold);
+}
+
+.atlas-sea-labels text {
+  font-style: italic;
+  letter-spacing: 0.12em;
+  pointer-events: none;
+}
+
+.atlas-sea-labels text.water {
+  fill: #7fa8c9;
+  opacity: 0.75;
+}
+
+.atlas-sea-labels text.land {
+  fill: #efe2c2;
+  opacity: 0.6;
+}
+
+.atlas-city {
+  cursor: pointer;
+}
+
+.atlas-city-disc {
+  fill: rgba(11, 16, 32, 0.72);
+  stroke: var(--gold);
+  stroke-width: 0;
+}
+
+.atlas-city.chosen .atlas-city-disc {
+  fill: rgba(245, 179, 28, 0.28);
+}
+
+.atlas-city-name {
+  fill: var(--salt);
+  font-weight: 600;
+  paint-order: stroke;
+  stroke: rgba(8, 12, 24, 0.85);
+  stroke-width: 0.3em;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ *
+ * 地図の上に浮くもの
+ * ------------------------------------------------------------------ */
+
+.atlas-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.atlas-controls button {
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: rgba(36, 26, 63, 0.86);
+  color: var(--salt);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.atlas-controls button.wide {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 0 8px;
+  min-height: 30px;
+}
+
+.atlas-controls button:hover {
+  background: var(--panel);
+}
+
+.atlas-legend {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  margin: 0;
+  padding: 7px 10px;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--salt);
+  background: rgba(11, 16, 32, 0.78);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+}
+
+/* **`hidden` は `display: grid` に負ける。**ブラウザ既定の `[hidden]{display:none}`
+   より、クラスの指定のほうが強い。これを書かないと、寄っても凡例が残る
+   (撮って分かった)。 */
+.atlas-legend[hidden] {
+  display: none;
+}
+
+.atlas-legend li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.atlas-legend .swatch {
+  width: 14px;
+  height: 10px;
+  border-radius: 2px;
+  flex: 0 0 auto;
+}
+
+.atlas-legend .swatch.covered {
+  background: color-mix(in srgb, var(--gold) 55%, #83a55c);
+}
+
+.atlas-legend .swatch.gap {
+  background: repeating-linear-gradient(45deg, #0d1526, #0d1526 3px, #6b6f7d 3px, #6b6f7d 5px);
+}
+
+.atlas-hint {
+  position: absolute;
+  left: 10px;
+  bottom: 8px;
+  margin: 0;
+  font-size: 10.5px;
+  color: var(--salt-dim);
+  background: rgba(11, 16, 32, 0.7);
+  padding: 3px 8px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ *
+ * 町の詳細(地図の上に浮く札)
+ * ------------------------------------------------------------------ */
+
+.atlas-detail {
+  position: absolute;
+  left: 10px;
+  bottom: 34px;
+  width: min(330px, calc(100% - 20px));
+  max-height: min(62%, 420px);
+  overflow: auto;
+  padding: 12px 13px;
+  background: rgba(30, 24, 52, 0.96);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.42);
+}
+
+.atlas-detail:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.atlas-detail-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.atlas-detail-mark {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  background: rgba(11, 16, 32, 0.7);
+  border-radius: 9px;
+}
+
+.atlas-detail-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--salt);
+}
+
+.atlas-detail-titles {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.atlas-detail-titles h2 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.atlas-detail-tag {
+  margin: 2px 0 0;
+  font-size: 11.5px;
+  color: var(--gold);
+}
+
+.atlas-detail-close {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--salt);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.atlas-detail-fact {
+  margin: 9px 0 0;
+  font-size: 12.5px;
+  line-height: 1.62;
+  color: var(--salt);
+}
+
+.atlas-detail-foot {
+  margin: 10px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11.5px;
+}
+
+.atlas-detail-board {
+  color: var(--salt-dim);
+}
+
+.atlas-detail-play {
+  font-size: 11.5px;
+  padding: 4px 10px;
+}
+
+/* ------------------------------------------------------------------ *
+ * 一覧(キーボードと読み上げの道)
+ * ------------------------------------------------------------------ */
+
+.atlas-panel {
+  flex: 0 0 250px;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow: auto;
+  padding-right: 2px;
+}
+
+.atlas-panel-open {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 9px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 12.5px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.atlas-panel-open .btn {
+  font-size: 11px;
+  padding: 4px 9px;
+}
+
+.atlas-panel-open-name {
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.atlas-index-group {
+  margin: 0 0 6px;
+}
+
+.atlas-index-heading {
+  margin: 6px 0 4px;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--salt-dim);
+}
+
+.atlas-index-list,
+.atlas-index-city-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.atlas-index-item {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--salt);
+  font-size: 12.5px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.atlas-index-item:hover {
+  background: var(--panel);
+}
+
+.atlas-index-item.open {
+  background: var(--panel);
+  border-color: var(--gold);
+}
+
+.atlas-index-count {
+  flex: 0 0 auto;
+  font-size: 10.5px;
+  color: var(--salt-dim);
+}
+
+.atlas-index-cities {
+  padding: 2px 0 6px 10px;
+}
+
+.atlas-index-city {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 4px 7px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: var(--salt);
+  font-size: 11.5px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.atlas-index-city:hover,
+.atlas-index-city.on {
+  background: rgba(245, 179, 28, 0.16);
+  border-color: var(--gold);
+}
+
+.atlas-index-city-tag {
+  color: var(--salt-dim);
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.atlas-index-empty,
+.atlas-index-loading {
+  margin: 4px 0 0;
+  font-size: 10.5px;
+  color: var(--salt-dim);
+}
+
+/* 読み込み中の骨組み。**空のまま黙って待たない。** */
+.atlas-index-skeleton {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.atlas-index-skeleton li {
+  height: 11px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, var(--panel), var(--line), var(--panel));
+  background-size: 200% 100%;
+  animation: atlas-shimmer 1.3s linear infinite;
+}
+
+@keyframes atlas-shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.atlas-map-loading {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 11px;
+  font-size: 11.5px;
+  color: var(--salt);
+  background: rgba(11, 16, 32, 0.86);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.atlas-spinner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  border-top-color: var(--gold);
+  animation: atlas-spin 0.8s linear infinite;
+}
+
+@keyframes atlas-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 「視差効果を減らす」設定では、くるくるも光の流れも止める。
+   止めても「読んでいます」の一文が残るので、状態は分かる。 */
+@media (prefers-reduced-motion: reduce) {
+  .atlas-spinner,
+  .atlas-index-skeleton li {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * 狭い画面
+ * ------------------------------------------------------------------ */
+
+/*
+ * **並べると、どちらも使えなくなる幅がある。**375pxで一覧を横に置くと
+ * 地図が名刺くらいになり、盤面の枠も町の印も見分けられなかった。
+ * 940px 未満では縦に積む(`globals.css` が縦積みに切り替える幅と同じ境目)。
+ *
+ * 地図の高さは **3:2 に決め打ち**する。残りの高さを全部渡すと、
+ * 375px幅では縦長になりすぎて、世界ぜんぶを映したときに
+ * **上下が海だけの帯**になった(見えている緯度が644度。中身は144度)。
+ */
+@media (max-width: 939px) {
+  .atlas-screen {
+    padding: 8px 10px 10px;
+  }
+
+  .atlas-head {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .atlas-titles h1 {
+    font-size: 17px;
+  }
+
+  .atlas-lead {
+    display: none;
+  }
+
+  .atlas-back {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .atlas-stage {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .atlas-map-holder {
+    flex: 0 0 auto;
+    aspect-ratio: 3 / 2;
+    /* 横長の端末では高くなりすぎないように。 */
+    max-height: 52dvh;
+  }
+
+  .atlas-panel {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  /* 札は地図の下、一覧の上。重ねると、小さくなった地図がほとんど隠れる。 */
+  .atlas-detail {
+    position: static;
+    flex: 0 0 auto;
+    width: auto;
+    max-height: 38dvh;
+    box-shadow: none;
+  }
+
+  /* 地図が小さいぶん、上に載せるものを減らす。
+     **375pxでは凡例とボタンで北アメリカとアジアが隠れていた**(撮って分かった)。 */
+  .atlas-hint {
+    display: none;
+  }
+
+  .atlas-controls {
+    flex-direction: row;
+    top: auto;
+    bottom: 6px;
+    right: 6px;
+    gap: 5px;
+  }
+
+  .atlas-controls button {
+    min-width: 30px;
+    min-height: 30px;
+    font-size: 15px;
+  }
+
+  .atlas-controls button.wide {
+    min-height: 30px;
+    font-size: 10px;
+  }
+
+  .atlas-legend {
+    left: 6px;
+    top: 6px;
+    padding: 4px 7px;
+    font-size: 9.5px;
+    gap: 2px;
+  }
+}
+
+/*
+ * **いちばん狭いところでは、題を自分の行に置く。**375pxで「戻る」と言語の切替を
+ * 同じ行に並べると、あいだの題が幅0まで潰れて**画面から消えていた**(撮って分かった)。
+ * 1行ぶん(約22px)の高さと引き換えに、ここが何の画面かを見せる。
+ */
+@media (max-width: 620px) {
+  .atlas-head {
+    row-gap: 2px;
+  }
+
+  /* `globals.css` は狭い画面で `header h1` を消す(遊んでいる最中に題名を
+     出さないため)。**地図帳では消さない。**ここは遊びの画面ではなく、
+     何を見ているかを言う場所が他に無い。 */
+  .atlas-head h1 {
+    display: block;
+  }
+
+  .atlas-titles {
+    flex: 1 0 100%;
+    order: -1;
+  }
+
+  .atlas-titles h1 {
+    font-size: 16px;
+  }
+}
