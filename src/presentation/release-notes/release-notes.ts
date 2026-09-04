@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.65.0",
+    date: "2026-09-04",
+    title: t(
+      "The atlas grew its railways|El atlas ya tiene sus vías|L’atlas a maintenant ses rails|地図帳に線路が通りました",
+    ),
+    highlights: [
+      t(
+        "The towns in the atlas were floating loose; now they are joined. Rail lines run between them with their sleepers drawn in, and sea routes cross the water as pale dashes — the ferry to Sado, the long hop out to Hachijōjima. There are 2,599 of them across the 47 boards, 283 of which are crossings by sea.|Los pueblos del atlas flotaban sueltos; ahora están unidos. Las vías corren entre ellos con sus traviesas dibujadas, y las rutas marítimas cruzan el agua a trazos claros: el ferry a Sado, el salto largo hasta Hachijōjima. Son 2.599 en los 47 tableros, de las cuales 283 son travesías por mar.|Les villes de l’atlas flottaient sans lien ; les voilà reliées. Les voies ferrées courent entre elles, traverses dessinées, et les routes maritimes traversent l’eau en pointillés pâles : le ferry pour Sado, le long saut jusqu’à Hachijōjima. Il y en a 2 599 sur les 47 plateaux, dont 283 traversées par mer.|**地図帳の町がつながりました。**これまで町の印はばらばらに浮いているだけでしたが、**枕木の見える線路**が町と町を結び、**航路は水色の破線**で海を渡ります。佐渡へのフェリー、八丈島への長い一跳び。47盤面で合わせて2,599本、うち283本が海を渡る航路です。",
+      ),
+      t(
+        "The land filled in too. The mountains, torii gates, woods and lakes that the boards are drawn with now appear in the atlas as well, so a country looks like itself instead of a flat green shape. Zoomed into Japan the map went from 117 drawn shapes to 560 — near enough the board you actually play on.|La tierra también se llenó. Las montañas, los torii, los bosques y los lagos con que están dibujados los tableros aparecen ya en el atlas, así que un país parece él mismo y no una mancha verde. Con Japón ampliado, el mapa pasó de 117 formas dibujadas a 560, casi las del tablero en el que juegas.|Les terres se sont remplies aussi. Les montagnes, les torii, les bois et les lacs qui composent les plateaux apparaissent désormais dans l’atlas : un pays ressemble à lui-même au lieu d’être une tache verte. Sur le Japon, la carte est passée de 117 formes dessinées à 560 — presque le plateau sur lequel on joue.|**陸の中身も埋まりました。**盤面を描いている山・鳥居・森・湖が地図帳にも出るようになり、国が「緑の面」ではなく、その国の姿になります。日本まで寄ったとき、地図に描かれる形は**117個から560個**に増えました——実際に遊ぶ盤面とほぼ同じ密度です。",
+      ),
+      t(
+        "One town was invisible until now. Apia sits at longitude 188, past the point where the map wraps, so it was pinned somewhere no amount of scrolling could reach — it had never once appeared. It does now, with its sea routes running to it and stopping cleanly at the map’s edge instead of streaking across the world.|Un pueblo era invisible hasta ahora. Apia está en la longitud 188, más allá de donde el mapa da la vuelta, así que quedaba clavado en un punto inalcanzable: nunca había aparecido. Ahora sí, con sus rutas marítimas llegando hasta él y cortándose limpiamente en el borde del mapa en vez de atravesar el mundo.|Une ville était invisible jusqu’ici. Apia se trouve à la longitude 188, au-delà du point où la carte se referme : elle était épinglée là où aucun défilement ne menait, et n’était jamais apparue. La voici, ses routes maritimes la rejoignant et s’arrêtant net au bord de la carte au lieu de traverser le monde.|**これまで一度も出ていなかった町があります。**アピアは経度188——地図が一周する先に置かれていたため、**どれだけ動かしても辿り着けない場所**に立っていました。いまは地図に現れ、そこへ向かう航路も、世界を横断せずに地図の端できちんと切れます。",
+      ),
+    ],
+  },
+  {
     version: "0.64.0",
     date: "2026-09-04",
     title: t(
