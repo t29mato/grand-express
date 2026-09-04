@@ -309,3 +309,55 @@ describe("SetupScreen の「旅に出る」と途中の旅", () => {
     TIMEOUT,
   );
 });
+
+/**
+ * 地図帳(`/atlas`)の「この盤面で遊ぶ」は `/?board=<id>` へ渡してくる。
+ * **開始画面がこれを読んでいなかったので、着くだけで何も起きていなかった**
+ * ——日本を見ていた人がそのまま「旅に出る」を押すと、既定のボリビアで始まった。
+ */
+describe("SetupScreen に地図帳から渡ってきたとき", () => {
+  const original = useGameStore.getState().startNewGame;
+  afterEach(() => {
+    window.history.replaceState({}, "", "/");
+    useGameStore.setState({ startNewGame: original, savedGame: null });
+  });
+
+  /** 地図の下に出る「選ばれている盤面の名前」。 */
+  const chosenName = () => document.querySelector(".country-chosen .nm")?.textContent;
+
+  it(
+    "`?board=japan` で来たら、日本が選ばれた状態で開く",
+    () => {
+      window.history.replaceState({}, "", "/?board=japan");
+      renderSetup();
+      expect(chosenName()).toBe("Japan");
+      expect(startButton()).toBeEnabled();
+    },
+    TIMEOUT,
+  );
+
+  it(
+    "そのまま「旅に出る」を押すと、その盤面で始まる",
+    () => {
+      window.history.replaceState({}, "", "/?board=japan");
+      const startNewGame = vi.fn<GameStoreState["startNewGame"]>(() => Promise.resolve());
+      useGameStore.setState({ startNewGame });
+      renderSetup();
+      fireEvent.click(startButton());
+      expect(startNewGame).toHaveBeenCalledTimes(1);
+      expect(startNewGame.mock.calls[0][0]).toMatchObject({ countryId: "japan" });
+    },
+    TIMEOUT,
+  );
+
+  it(
+    "知らない盤面や空の指定で来ても壊れず、既定のボリビアのまま",
+    () => {
+      window.history.replaceState({}, "", "/?board=atlantis");
+      renderSetup();
+      expect(chosenName()).toBe("Bolivia");
+      expect(startButton()).toBeEnabled();
+    },
+    TIMEOUT,
+  );
+});

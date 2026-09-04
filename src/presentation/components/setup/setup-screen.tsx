@@ -20,6 +20,24 @@ import { SetupHeroTrain } from "./setup-hero-train";
 
 const MONTH_OPTIONS = [12, 24, 36];
 
+/**
+ * 地図帳から「この盤面で遊ぶ」で渡ってきた盤面(`/?board=japan`)。
+ *
+ * **知らない盤面は無視する。**地図帳の一覧が変わっても、古いURLで
+ * 開始画面が壊れることはない(選ばれていない状態ではなく、既定のままになる)。
+ *
+ * `useSearchParams()` は使わない。あれを client component で読むと、
+ * その木ぜんぶを `<Suspense>` で包まないと書き出しで落ちる。ここで欲しいのは
+ * **最初の一度きり**なので、`window.location` を効果の中で読むほうが軽い
+ * (サーバー描画では読めないため、`useState` の初期値にはできない。
+ *  途中の旅・前回の顔ぶれの読み直しと同じ扱い)。
+ */
+export function boardFromQuery(search: string): string | null {
+  const id = new URLSearchParams(search).get("board");
+  if (!id) return null;
+  return COUNTRY_INDEX.some((entry) => entry.id === id) ? id : null;
+}
+
 /** 常に見せておく枠の数。4人目は「足す」を押したときだけ現れる。 */
 const ALWAYS_VISIBLE_SLOTS = 3;
 
@@ -192,6 +210,27 @@ export function SetupScreen() {
         return { ...slot, name: saved.name, mode: saved.mode };
       }),
     );
+  }, []);
+
+  /**
+   * 地図帳から来たら、その盤面を選んだ状態で開く。
+   *
+   * 地図帳の「この盤面で遊ぶ」は `/?board=<id>` へ渡してくるが、
+   * 開始画面がそれを読んでいなかったので、**着くだけで何も選ばれていなかった**
+   * (既定のボリビアのまま。日本を見ていた人がそのまま押すとボリビアで始まる)。
+   *
+   * 地図の眺め(`WorldPicker`)は世界のままにしてある。あちらは「大陸を選んでから
+   * 国を選ぶ」入口で、勝手に大陸へ降りると**そこが入口だと分からなくなる**
+   * (`world-picker.tsx` の但し書き)。選ばれていることは、地図の下の
+   * 「盤面の名前と一言」と、押せるようになった「旅に出る」で分かる。
+   */
+  useEffect(() => {
+    const fromAtlas = boardFromQuery(window.location.search);
+    if (!fromAtlas) return;
+    // サーバー描画では URL の問い合わせ部分を読めないので、ここでの setState は
+    // 避けられない(描画中に読むとハイドレーションがずれる)。
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCountry(CountryId(fromAtlas));
   }, []);
 
   /** 1人目は「あなた」、2人目以降は「CPU 1」「CPU 2」…。表示中の言語で返す。 */
