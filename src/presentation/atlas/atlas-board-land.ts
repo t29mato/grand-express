@@ -1,7 +1,7 @@
 import { CountryProjection } from "../../domain/board/board-projection";
 import { CountryContentPack } from "../../domain/country/country-content-pack";
 import { CountryId } from "../../domain/shared-kernel/ids";
-import { AtlasBoardLand, AtlasLake, AtlasTerrainBand } from "./atlas-types";
+import { AtlasBoardDecor, AtlasBoardLand, AtlasLake, AtlasTerrainBand } from "./atlas-types";
 import { atlasContentRepository } from "./content-packs";
 
 /**
@@ -21,6 +21,13 @@ import { atlasContentRepository } from "./content-packs";
  * 地図帳の座標は度なので、盤面の投影(`proj`)を使って直す。直さずに描くと
  * 琵琶湖が半径17度——本州より大きい円——になる。
  * (盤面の側でも同じ罠を踏んでいる。リリースノート v0.44 系の「消えていた湖」)
+ *
+ * ## 飾り(山・鳥居・森)も同じ口から返す
+ *
+ * 遊びの盤面と地図帳を並べて数えると、日本の全体表示で `<path>` が
+ * **盤面553本に対して地図帳117本**しかなかった。差の大半が `decor` である。
+ * これも湖と同じくピクセル座標だが、**中身はSVGの文字列**なので数として
+ * 直せない。写しが線形であることを使って、`<g transform>` 1つに畳む。
  */
 export function loadBoardLand(boardId: CountryId): Promise<AtlasBoardLand> {
   return atlasContentRepository.load(boardId).then(toBoardLand);
@@ -49,7 +56,38 @@ function toBoardLand(pack: CountryContentPack): AtlasBoardLand {
       // 0や NaN の半径を SVG へ流すと、その盤面まるごとが黙って描かれなくなる。
       .filter((lake) => finite(lake.rxDeg) && finite(lake.ryDeg) && lake.rxDeg > 0 && lake.ryDeg > 0),
     rivers: terrain.rivers,
+    decor: toDecor(terrain.decorSvg, projection),
     colors: { land: terrain.landColor, coast: terrain.coastColor, sea: terrain.seaColor },
+  };
+}
+
+/**
+ * 飾りのSVG断片に、盤面のピクセルから地図帳の平面(x=経度, y=-緯度)への
+ * 写しを付ける。
+ *
+ * 盤面は `viewBox="0 0 BW BH"` で、左上が (lon0, lat0)、右下が (lon1, lat1)。
+ * つまり
+ *
+ *   x = lon0 + px * (lon1 - lon0) / BW
+ *   y = -( lat0 + py * (lat1 - lat0) / BH )
+ *
+ * という**1次式**なので、`translate` と `scale` ひとつずつで書ける。
+ * 緯度は上が大きく、地図帳の平面は下が大きいので、**縦の倍率は符号が逆**になる
+ * (`lat0 > lat1` なので `-(lat1-lat0)/BH` は正の数)。
+ *
+ * 倍率が出せない盤面(投影が壊れている)は飾りを出さない。transform に NaN を
+ * 入れると、**その `<g>` の中身がまるごと黙って消える。**
+ */
+function toDecor(svg: string, projection: CountryProjection): AtlasBoardDecor | null {
+  if (!svg) return null;
+  const { lon0, lon1, lat0, lat1, boardWidth, boardHeight } = projection;
+  if (!(boardWidth > 0) || !(boardHeight > 0)) return null;
+  const sx = (lon1 - lon0) / boardWidth;
+  const sy = -(lat1 - lat0) / boardHeight;
+  if (![lon0, lat0, sx, sy].every(finite) || sx === 0 || sy === 0) return null;
+  return {
+    svg,
+    transform: `translate(${lon0} ${-lat0}) scale(${sx} ${sy})`,
   };
 }
 

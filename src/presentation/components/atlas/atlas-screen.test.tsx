@@ -58,6 +58,27 @@ describe("開いたところ", () => {
     const group = screen.getByRole("heading", { name: "Away from the map" }).parentElement!;
     expect(within(group).getByRole("button", { name: /The Solar System/ })).toBeInTheDocument();
   });
+
+  /**
+   * **地図の外の盤面の中身は、地図に置かない。**
+   *
+   * 太陽系は真下に来ようがないので、一覧から選ぶと選ばれたままになる。
+   * その状態で惑星を押すと地図がそこへ寄り、**惑星をつなぐ線と印が
+   * ギニア湾の沖に現れた**(撮って分かった)。一覧には今までどおり並ぶ
+   * ——遊べないのではなく、地図に描きようが無いというだけ。
+   */
+  it("太陽系の惑星を押しても、地図には印も線も出ない(一覧には出る)", async () => {
+    renderAtlas();
+    fireEvent.click(screen.getByRole("button", { name: /The Solar System/ }));
+    fireEvent.click(await screen.findByRole("button", { name: /Saturn/ }));
+
+    // 町まで寄った眺めになっている(ここで出るなら出てしまう段)。
+    await waitFor(() => expect(viewBoxNumbers()[2]).toBeLessThan(14));
+    expect(mapSvg().querySelectorAll(".atlas-city")).toHaveLength(0);
+    expect(mapSvg().querySelectorAll(".atlas-routes")).toHaveLength(0);
+    // 詳細の札と一覧のほうは、今までどおり開く。
+    expect(screen.getAllByRole("button", { name: /Uranus/ }).length).toBeGreaterThan(0);
+  });
 });
 
 describe("一覧から盤面へ、盤面から町へ", () => {

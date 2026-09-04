@@ -77,10 +77,44 @@ describe("盤面の海岸線と地形を読む", () => {
     }
   });
 
+  /**
+   * **飾り(山・鳥居・森)は、遊びの盤面と同じSVG断片。**
+   * 座標が盤面のピクセルのままなので、地図へ写す transform が付いてくる。
+   * 付いていないと、飾りが経度0度あたり——ギニア湾の沖に積み上がる。
+   */
+  it("飾りのSVGと、地図へ写す transform がそろっている", async () => {
+    const land = await loadBoardLand(CountryId("japan"));
+    expect(land.decor).not.toBeNull();
+    expect(land.decor!.svg.length).toBeGreaterThan(1000);
+    expect(land.decor!.transform).toMatch(/^translate\(-?[\d.]+ -?[\d.]+\) scale\(-?[\d.]+ -?[\d.]+\)$/);
+    expect(land.decor!.transform).not.toMatch(/NaN|Infinity/);
+  });
+
+  /**
+   * transform を実際に当てて、盤面の四隅が地図の四隅へ落ちることを見る。
+   * **縦は符号が逆**(緯度は上が大きく、地図の平面は下が大きい)。
+   */
+  it("盤面の左上のピクセルは、盤面の北西の角へ落ちる", async () => {
+    const land = await loadBoardLand(CountryId("japan"));
+    const [, tx, ty, sx, sy] = land
+      .decor!.transform.match(/translate\((-?[\d.]+) (-?[\d.]+)\) scale\((-?[\d.]+) (-?[\d.]+)\)/)!
+      .map(Number);
+    // 左上(0,0)は北西の角。日本の投影は lon0=123.4 / lat0=45.8。
+    expect(tx).toBeCloseTo(123.4, 1);
+    expect(ty).toBeCloseTo(-45.8, 1);
+    // 東へ行くほど経度が増え、南へ行くほど平面のyが増える(どちらも正)。
+    expect(sx).toBeGreaterThan(0);
+    expect(sy).toBeGreaterThan(0);
+    // 盤面の右下(BW,BH)は南東の角(lon1=146.5 / lat1=23.8)。
+    expect(tx + sx * 2384).toBeCloseTo(146.5, 1);
+    expect(ty + sy * 2669).toBeCloseTo(-23.8, 1);
+  });
+
   it("県の盤面(茨城)も同じ形で読める", async () => {
     const land = await loadBoardLand(CountryId("ibaraki"));
     expect(land.land.length).toBeGreaterThan(0);
     expect(land.terrain.length).toBeGreaterThan(0);
+    expect(land.decor).not.toBeNull();
   });
 
   it("同じ盤面を2度読んでも同じ結果が返る", async () => {

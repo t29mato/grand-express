@@ -17,7 +17,9 @@ import {
   polygonPath,
   polylinePath,
   replacedWorldPolygons,
+  routeSegments,
   showsCityNames,
+  showsRoutes,
   spanForBounds,
   viewBounds,
   viewBoxOf,
@@ -253,5 +255,89 @@ describe("川の線", () => {
   it("点が1つしかない川は描かない", () => {
     expect(polylinePath([[139, 36.9]])).toBe("");
     expect(polylinePath([])).toBe("");
+  });
+});
+
+/**
+ * **町と町を結ぶ線。地図を横断させないことがいちばんの決めごと。**
+ *
+ * 変更線をまたぐ線は全47盤面で4本しかないが、その4本が出るのは
+ * オセアニア・世界一周という**いちばん見せたい盤面**である。
+ */
+describe("線路と航路の線分", () => {
+  it("ふつうの線は1本のまま。両端はその町の座標", () => {
+    const [only, ...rest] = routeSegments(139.7, 35.7, 135.8, 35);
+    expect(rest).toEqual([]);
+    // 経度は畳んで通す(360で割った余りを取るので、ごく小さい誤差が乗る)。
+    // 町の印も同じ `normalizeLon` を通っているので、端と印はぴったり重なる。
+    expect(only.x1).toBeCloseTo(139.7, 10);
+    expect(only.x2).toBeCloseTo(135.8, 10);
+    expect(only.y1).toBe(-35.7);
+    expect(only.y2).toBe(-35);
+  });
+
+  /**
+   * オセアニアのフナフティ(179.2)—アピア(188.2)。畳んで素朴に結ぶと
+   * 179.2 → -171.8 の、**地図を丸ごと横断する線**になる。
+   */
+  it("変更線をまたぐ線は、端で2本に切れる", () => {
+    const segments = routeSegments(179.1962, -8.5211, 188.2333, -13.8333);
+    expect(segments).toHaveLength(2);
+    // 東の端まで引いて切り、西の端から引き直す。
+    expect(segments[0].x2).toBe(180);
+    expect(segments[1].x1).toBe(-180);
+    // 切れ目の高さは揃っている(揃っていないと段違いに折れて見える)。
+    expect(segments[0].y2).toBeCloseTo(segments[1].y1, 10);
+    // 相手の町は畳んだ位置(-171.8)に来る——町の印もそこに立つ。
+    expect(segments[1].x2).toBeCloseTo(-171.7667, 3);
+  });
+
+  it("西向きにまたぐ線も、同じように端で切れる", () => {
+    const segments = routeSegments(-178, 10, 176, 12);
+    expect(segments).toHaveLength(2);
+    expect(segments[0].x2).toBe(-180);
+    expect(segments[1].x1).toBe(180);
+  });
+
+  /** **これが直したかったこと。**どの線分も、地図の幅の半分より長くならない。 */
+  it("どの線分も地図を横断しない", () => {
+    const crossing: [number, number, number, number][] = [
+      [179.1962, -8.5211, 188.2333, -13.8333],
+      [188.7583, -9.3806, 179.1962, -8.5211],
+      [178.44, -18.14, -149.57, -17.54],
+      [160.15, 7.95, 187.46, 5.97],
+    ];
+    for (const [lonA, latA, lonB, latB] of crossing) {
+      for (const segment of routeSegments(lonA, latA, lonB, latB)) {
+        expect(Math.abs(segment.x2 - segment.x1)).toBeLessThan(180);
+        expect(Math.abs(segment.x1)).toBeLessThanOrEqual(180);
+        expect(Math.abs(segment.x2)).toBeLessThanOrEqual(180);
+      }
+    }
+  });
+
+  it("素直に長い線(パース—ケープタウンの97度)は切らない", () => {
+    expect(routeSegments(115.86, -31.95, 18.42, -33.92)).toHaveLength(1);
+  });
+
+  it("座標が数でなければ、線を1本も返さない", () => {
+    expect(routeSegments(NaN, 35, 139, 36)).toEqual([]);
+    expect(routeSegments(139, 35, 139, Infinity)).toEqual([]);
+  });
+});
+
+describe("線を出す引き具合", () => {
+  it("町の印と同じ段(〜14度)から出す", () => {
+    expect(showsRoutes(9)).toBe(true);
+    expect(showsRoutes(14)).toBe(true);
+    expect(showsRoutes(14.1)).toBe(false);
+    expect(showsRoutes(24)).toBe(false);
+    expect(showsRoutes(MAX_SPAN)).toBe(false);
+  });
+
+  it("町の印が出る段と、線が出る段はぴったり同じ", () => {
+    for (const span of [0.5, 3, 9, 13.9, 14, 14.1, 20, 40, 200, 360]) {
+      expect(showsRoutes(span)).toBe(bandOf(span) === "town");
+    }
   });
 });

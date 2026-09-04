@@ -1,6 +1,6 @@
 import { CityId, CountryId } from "../../../domain/shared-kernel/ids";
 import { sameForAllLocales } from "../../../domain/shared-kernel/localized-text";
-import { AtlasBoard, AtlasBoardLand, AtlasCity, AtlasSource } from "./atlas-source";
+import { AtlasBoard, AtlasBoardLand, AtlasCity, AtlasLink, AtlasSource } from "./atlas-source";
 
 /**
  * 検査用の、小さな地図帳。
@@ -73,6 +73,31 @@ export const TEST_CITIES: Record<string, readonly AtlasCity[]> = {
       sceneKey: null,
     },
   ],
+  // 地球の上に無い盤面。**「町」は惑星で、経度緯度は地図の意味を持たない。**
+  solarsystem: [
+    {
+      id: CityId("saturn"),
+      boardId: CountryId("solarsystem"),
+      name: sameForAllLocales("Saturn"),
+      tag: sameForAllLocales("The ringed one"),
+      fact: sameForAllLocales("Saturn would float in a bath big enough."),
+      lon: 160.15,
+      lat: 7.96,
+      markSvg: '<circle cx="12" cy="12" r="7" fill="#d8c07a"/>',
+      sceneKey: null,
+    },
+    {
+      id: CityId("uranus"),
+      boardId: CountryId("solarsystem"),
+      name: sameForAllLocales("Uranus"),
+      tag: sameForAllLocales("The tilted one"),
+      fact: sameForAllLocales("Uranus rolls around the Sun on its side."),
+      lon: 187.46,
+      lat: 5.97,
+      markSvg: '<circle cx="12" cy="12" r="6" fill="#7fd8e8"/>',
+      sceneKey: null,
+    },
+  ],
   ibaraki: [
     {
       id: CityId("mito"),
@@ -84,6 +109,56 @@ export const TEST_CITIES: Record<string, readonly AtlasCity[]> = {
       lat: 36.37,
       markSvg: '<rect x="6" y="6" width="12" height="12" fill="#37b3a4"/>',
       sceneKey: null,
+    },
+  ],
+};
+
+/**
+ * 町と町をつなぐ線。**線路と航路を1本ずつ**と、**日付変更線をまたぐ航路**。
+ * またぐ1本は、素朴に結ぶと地図を横断してしまう形にしてある
+ * (179.2度のフナフティと、188.2度=西経171.8度のアピア)。
+ */
+export const TEST_LINKS: Record<string, readonly AtlasLink[]> = {
+  japan: [
+    {
+      from: CityId("tokyo"),
+      to: CityId("kyoto"),
+      kind: "rail",
+      lonA: 139.7,
+      latA: 35.7,
+      lonB: 135.8,
+      latB: 35,
+    },
+    {
+      from: CityId("kyoto"),
+      to: CityId("tokyo"),
+      kind: "sea",
+      lonA: 135.8,
+      latA: 35,
+      lonB: 139.7,
+      latB: 35.7,
+    },
+  ],
+  solarsystem: [
+    {
+      from: CityId("saturn"),
+      to: CityId("uranus"),
+      kind: "sea",
+      lonA: 160.15,
+      latA: 7.96,
+      lonB: 187.46,
+      latB: 5.97,
+    },
+  ],
+  oceania: [
+    {
+      from: CityId("funafuti"),
+      to: CityId("apia"),
+      kind: "sea",
+      lonA: 179.2,
+      latA: -8.5,
+      lonB: 188.2,
+      latB: -13.8,
     },
   ],
 };
@@ -127,6 +202,8 @@ export const TEST_BOARD_LAND: AtlasBoardLand = {
       [140, 35.8],
     ],
   ],
+  // 飾り(山・鳥居)。盤面のピクセル座標で描かれた断片と、その写し。
+  decor: { svg: '<path d="M10 10 L20 20 L0 20 Z" fill="#6b5a3a"/>', transform: "translate(130 -44) scale(0.01 0.01)" },
   colors: { sea: "#16263f", land: "#7aa85a", coast: "#2b4a2a" },
 };
 
@@ -180,6 +257,7 @@ export function testAtlasSource(overrides: Partial<AtlasSource> = {}): AtlasSour
       { lon0: 5, lon1: 10, lat0: 25, lat1: 20 },
     ],
     loadAtlasCities: (boardId) => Promise.resolve(TEST_CITIES[boardId as string] ?? []),
+    loadAtlasLinks: (boardId) => Promise.resolve(TEST_LINKS[boardId as string] ?? []),
     loadBoardLand: () => Promise.resolve(TEST_BOARD_LAND),
     ...overrides,
   };

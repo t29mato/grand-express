@@ -9,10 +9,13 @@ import {
   boundsRects,
   degreesPerPixel,
   labelFits,
+  normalizeLon,
   polygonPath,
   polylinePath,
   replacedWorldPolygons,
+  routeSegments,
   showsCityNames,
+  showsRoutes,
   showsSeaLabels,
   viewBounds,
   viewBoxOf,
@@ -22,6 +25,7 @@ import {
   AtlasBoardLand,
   AtlasBounds,
   AtlasCity,
+  AtlasLink,
   AtlasSource,
   MARK_SIZE,
   isCoverageBoard,
@@ -37,8 +41,16 @@ import { AtlasCamera, useAtlasGestures } from "./use-atlas-camera";
  * |-----------|----------------|----------------------------------------------------|
  * | `world`   | 100度〜        | 海と陸・**まだ盤面が無い陸**・遊べる範囲・海の名前 |
  * | `region`  | 24〜100度      | 同じ塗り分けと、盤面の枠。大きく映っているものだけ名前 |
- * | `country` | 14〜24度       | **その盤面自身の海岸線・地形帯・湖・川**と、枠と名前 |
- * | `town`    | 〜14度         | 同じ下敷きに町の印。9度より寄ると町の名前も        |
+ * | `country` | 14〜24度       | **その盤面自身の海岸線・地形帯・飾り・湖・川**と、枠と名前 |
+ * | `town`    | 〜14度         | 同じ下敷きに**線路と航路**と町の印。9度より寄ると町の名前も |
+ *
+ * ## 線路と航路は、町の印の下に
+ *
+ * 町の印だけが浮いていると、**どの町とどの町がつながっているのか**が
+ * 地図のどこにも出ていない。この遊びは線を辿って旅をするものなので、
+ * つながりが見えなければ盤面の半分しか写していないことになる。
+ * 線は必ず**印より先に**描く。後から描くと、線が印の上を横切って
+ * 印の絵が読めなくなる。
  *
  * ## 寄ったら、下敷きを盤面の地形へ入れ替える
  *
@@ -74,6 +86,7 @@ export function AtlasMap({
   camera,
   cities,
   citiesLoading,
+  links = EMPTY_LINKS,
   boardLand,
   boardLandBounds,
   selectedBoardId,
@@ -86,6 +99,8 @@ export function AtlasMap({
   /** 寄っている盤面の町。まだ読めていない盤面は入っていない。 */
   cities: readonly AtlasCity[];
   citiesLoading: boolean;
+  /** その町どうしをつなぐ線路と航路。まだ読めていなければ空。 */
+  links?: readonly AtlasLink[];
   /** いま真下にある盤面の海岸線と地形。まだ読めていなければ `null`。 */
   boardLand: AtlasBoardLand | null;
   /** その海岸線を持つ盤面の四隅(粗い輪郭のどれを置き換えるかの判断に使う)。 */
@@ -143,6 +158,8 @@ export function AtlasMap({
     .filter((board) => boundsRects(board.bounds).some((r) => rectInView(r, bounds)));
   const outlined = band === "world" ? [] : [...visible].sort((a, b) => area(b) - area(a));
   const townish = band === "town";
+  /** 線路と航路を出す段。**町の印と同じ段**(決めた理由は `showsRoutes`)。 */
+  const routish = showsRoutes(view.span);
 
   /**
    * **盤面まで寄ったら、その盤面自身の海岸線を下敷きにする。**
@@ -261,6 +278,10 @@ export function AtlasMap({
             )}
           </g>
         )}
+
+        {/* 町と町をつなぐ線路と航路。**町の印より先に描く**(後から描くと
+            線が印の上を横切って、印の絵が読めなくなる)。 */}
+        {routish && <RouteLayer links={links} dpp={dpp} />}
 
         {/* 盤面の枠。広い盤面(世界一周・大陸)は破線で、別のものだと分かるように。 */}
         <g fill="none">
@@ -402,6 +423,27 @@ function BoardLandLayer({ land, dpp }: { land: AtlasBoardLand; dpp: number }) {
           const d = polygonPath(band.polygon);
           return d ? <path key={`t${i}`} d={d} fill={band.color} /> : null;
         })}
+        {/*
+          山・鳥居・森などの飾り。**遊びの盤面と同じ絵をそのまま置いている。**
+          日本の全体表示で数えると、盤面の `<path>` 553本に対して地図帳は117本
+          しか無く、差の大半がこれだった——地図帳だけ山も鳥居も無い野原だった。
+
+          断片の座標は盤面のピクセルなので、データ層が付けてくれた `transform`
+          (盤面のピクセル → 経度緯度)で写す。**中身は読まない。**
+          コンテンツJSON由来でユーザー入力を含まないため、遊びの盤面
+          (`terrain-layer.tsx`)と同じ理由で `dangerouslySetInnerHTML` を使う。
+
+          出すのは**いま開いている盤面の1枚だけ**なので、日本と茨城のように
+          親子が重なっていても飾りが二重にならない(下敷きにする盤面を
+          1つに決めているのは `atlas-screen.tsx` の `landBoard`)。
+        */}
+        {land.decor && (
+          <g
+            className="atlas-board-decor"
+            transform={land.decor.transform}
+            dangerouslySetInnerHTML={{ __html: land.decor.svg }}
+          />
+        )}
         {land.lakes.map((lake, i) => (
           <ellipse
             key={`l${i}`}
@@ -436,9 +478,103 @@ function BoardLandLayer({ land, dpp }: { land: AtlasBoardLand; dpp: number }) {
 /** 置き換わる粗い多角形が1枚も無いとき用。毎回 `new Set()` を作らない。 */
 const EMPTY_REPLACED: ReadonlySet<number> = new Set<number>();
 
+/** 線がまだ読めていないとき用。毎回 `[]` を作ると、描き直しの理由になる。 */
+const EMPTY_LINKS: readonly AtlasLink[] = [];
+
+/**
+ * 線路の重ね。**遊びの盤面(`board-view.tsx` の `RAIL_LAYERS`)と同じ3層**
+ * ——暗い縁取り → 明るいレール → 枕木の刻み。
+ *
+ * 太さは盤面の値(9/5/5)をそのまま持ってこない。あちらは1画面に路線が
+ * 30本ほど、こちらは実際の地理の上に**同じ本数がずっと狭い範囲に**乗る
+ * (日本は97本)ので、半分ほどに落としてある。枕木は逆に、細くすると
+ * ただの点線に見えたので、盤面より間隔を詰めた。
+ *
+ * 単位は「画面のピクセル」。描くときに `dpp` を掛けて度に直すので、
+ * **寄っても線は太らない。**
+ */
+const RAIL_LAYERS: readonly { stroke: string; width: number; dash?: number[]; opacity?: number }[] = [
+  { stroke: "#20180f", width: 4.4, opacity: 0.5 },
+  { stroke: "#e6dcc6", width: 2.4 },
+  { stroke: "#3b3123", width: 2.4, dash: [0.9, 3.2] },
+];
+
+/**
+ * 航路の重ね。盤面と同じく**水色の破線**にして、枕木のある帯と見分ける。
+ * 暗い下敷きを1枚敷くのは、岸すれすれを通る航路が陸の緑に埋もれるため。
+ */
+const SEA_LAYERS: readonly { stroke: string; width: number; dash?: number[]; opacity?: number }[] = [
+  { stroke: "#0e1626", width: 4.4, opacity: 0.4 },
+  { stroke: "#7fc8e8", width: 2, dash: [5, 4] },
+  { stroke: "#d8f0ff", width: 1, dash: [1.6, 7.4], opacity: 0.9 },
+];
+
+/**
+ * 町と町をつなぐ線路と航路。**遊びの盤面と同じ描き分け**にしてある——
+ * 線路は枕木のある帯、航路は水色の破線。
+ *
+ * ただし**形は盤面と同じにしない。**盤面の路線は八方位に折れた線で、
+ * 中間マスの位置で曲がっている。地図帳は実際の地理の上に引くので、
+ * 町と町を素直に結ぶ。曲げる理由(マスを等間隔に並べる)がここには無い。
+ *
+ * 日付変更線をまたぐ線は `routeSegments` が端で2本に切ってくれる。
+ * 切らずに結ぶと、太平洋の航路1本が地図を丸ごと横断する。
+ */
+function RouteLayer({ links, dpp }: { links: readonly AtlasLink[]; dpp: number }) {
+  const rail: string[] = [];
+  const sea: string[] = [];
+  for (const link of links) {
+    for (const segment of routeSegments(link.lonA, link.latA, link.lonB, link.latB)) {
+      const d =
+        `M${segment.x1.toFixed(3)},${segment.y1.toFixed(3)}` +
+        `L${segment.x2.toFixed(3)},${segment.y2.toFixed(3)}`;
+      (link.kind === "sea" ? sea : rail).push(d);
+    }
+  }
+  if (rail.length === 0 && sea.length === 0) return null;
+
+  const draw = (
+    className: string,
+    paths: readonly string[],
+    layers: typeof RAIL_LAYERS,
+  ) => (
+    <g className={className}>
+      {layers.map((layer, layerIndex) => (
+        <g
+          key={layerIndex}
+          fill="none"
+          stroke={layer.stroke}
+          strokeWidth={dpp * layer.width}
+          strokeLinecap="round"
+          strokeDasharray={layer.dash?.map((n) => dpp * n).join(" ")}
+          opacity={layer.opacity}
+        >
+          {paths.map((d, i) => (
+            <path key={i} d={d} />
+          ))}
+        </g>
+      ))}
+    </g>
+  );
+
+  return (
+    <g className="atlas-routes">
+      {/* 航路を先に。盤面と同じ重ね順で、港では線路が上に来る。 */}
+      {sea.length > 0 && draw("atlas-sea-routes", sea, SEA_LAYERS)}
+      {rail.length > 0 && draw("atlas-rail-routes", rail, RAIL_LAYERS)}
+    </g>
+  );
+}
+
 /**
  * 町の印。断片は 24×24 で描かれているので、**画面上で常に同じ大きさ**になる倍率へ落とす。
  * 印が空の町(絵の付いていない町)も点だけは打つ——地図の上で存在が消えないように。
+ *
+ * **経度は畳んでから置く。**町の経度は畳まれていない値で入っており
+ * (オセアニアのアピアは188.2、ファカオフォは188.8)、そのまま置くと
+ * 地図の右端の外——カメラがどう動いても入らないところ——に落ちる。
+ * 線(`RouteLayer`)も畳んだ座標で引くので、揃えないと**線の端に印が無い**
+ * という眺めになる。
  */
 function CityMark({
   city,
@@ -455,6 +591,8 @@ function CityMark({
 }) {
   const px = chosen ? 30 : 22;
   const scale = (px / MARK_SIZE) * dpp;
+  const x = normalizeLon(city.lon);
+  const y = -city.lat;
   return (
     <g
       className={`atlas-city${chosen ? " chosen" : ""}`}
@@ -463,20 +601,20 @@ function CityMark({
       onClick={() => onPick(city)}
     >
       {/* 押せる範囲。印より広めに取る(印は細い線が多く、指では当たらない) */}
-      <circle cx={city.lon} cy={-city.lat} r={dpp * 16} fill="transparent" />
-      <circle cx={city.lon} cy={-city.lat} r={dpp * (chosen ? 15 : 12)} className="atlas-city-disc" />
+      <circle cx={x} cy={y} r={dpp * 16} fill="transparent" />
+      <circle cx={x} cy={y} r={dpp * (chosen ? 15 : 12)} className="atlas-city-disc" />
       {city.markSvg ? (
         <g
-          transform={`translate(${city.lon} ${-city.lat}) scale(${scale}) translate(${-MARK_SIZE / 2} ${-MARK_SIZE / 2})`}
+          transform={`translate(${x} ${y}) scale(${scale}) translate(${-MARK_SIZE / 2} ${-MARK_SIZE / 2})`}
           dangerouslySetInnerHTML={{ __html: city.markSvg }}
         />
       ) : (
-        <circle cx={city.lon} cy={-city.lat} r={dpp * 4} fill="var(--salt)" />
+        <circle cx={x} cy={y} r={dpp * 4} fill="var(--salt)" />
       )}
       {name && (
         <text
-          x={city.lon}
-          y={-city.lat + dpp * 26}
+          x={x}
+          y={y + dpp * 26}
           textAnchor="middle"
           fontSize={dpp * 12}
           className="atlas-city-name"
@@ -499,18 +637,25 @@ function rectInView(
   return rect.x <= east && rect.x + rect.w >= west && rect.y <= bottom && rect.y + rect.h >= top;
 }
 
+/**
+ * 点が見えている範囲に入っているか。
+ *
+ * **経度を ±360度ずらした3通りで当てる。**町の経度は畳まれておらず
+ * (オセアニアのアピアは188.2)、見えている範囲のほうも端では畳みの外へ
+ * はみ出す(中心170度・幅30度なら 155〜185度)。素朴に大小を比べると、
+ * 変更線のまわりの町だけが**印も名前も出ない**ことになる。
+ */
 function pointInside(
   lon: number,
   lat: number,
   view: { lon0: number; lon1: number; lat0: number; lat1: number },
 ): boolean {
   if (!Number.isFinite(lon) || !Number.isFinite(lat)) return false;
-  return (
-    lon >= Math.min(view.lon0, view.lon1) &&
-    lon <= Math.max(view.lon0, view.lon1) &&
-    lat >= Math.min(view.lat0, view.lat1) &&
-    lat <= Math.max(view.lat0, view.lat1)
-  );
+  if (lat < Math.min(view.lat0, view.lat1) || lat > Math.max(view.lat0, view.lat1)) return false;
+  const west = Math.min(view.lon0, view.lon1);
+  const east = Math.max(view.lon0, view.lon1);
+  const here = normalizeLon(lon);
+  return [here - 360, here, here + 360].some((x) => x >= west && x <= east);
 }
 
 function centreOf(r: { x: number; y: number; w: number; h: number }): { x: number; y: number } {

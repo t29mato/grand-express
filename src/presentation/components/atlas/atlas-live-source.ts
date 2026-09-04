@@ -3,6 +3,7 @@ import {
   boardsAt,
   coverageGaps,
   loadAtlasCities,
+  loadAtlasLinks,
   loadBoardLand,
   worldColors,
   worldLabels,
@@ -25,5 +26,6 @@ export const liveAtlasSource: AtlasSource = {
   boardsAt,
   coverageGaps,
   loadAtlasCities,
+  loadAtlasLinks,
   loadBoardLand,
 };

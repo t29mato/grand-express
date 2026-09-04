@@ -179,6 +179,82 @@ export function polylinePath(line: AtlasPolygon): string {
     .join("");
 }
 
+/** 平面の上の線分ひとつ(x=経度, y=-緯度)。 */
+export interface PlaneSegment {
+  readonly x1: number;
+  readonly y1: number;
+  readonly x2: number;
+  readonly y2: number;
+}
+
+/**
+ * 町と町を結ぶ1本を、地図の上に置ける線分へ。
+ *
+ * ## 日付変更線をまたぐ線を、地図の横断線にしない
+ *
+ * 町の経度は**畳まれていない**(オセアニアのアピアは188.2、ファカオフォは
+ * 188.8)。素朴に両端を結ぶと、フナフティ(179.2)—アピアの航路は
+ * 179.2から188.2へ、つまり**画面の外**へ伸びる。畳んでから素朴に結ぶと
+ * 今度は 179.2 → -171.8 となり、**太平洋の1本が地図を丸ごと横断する。**
+ * 全47盤面で数えると、こうなる線は4本ある
+ * (オセアニア2・世界一周1・太陽系1。線路には1本も無く、全部が航路)。
+ *
+ * 盤面の地図(`use-board-layout.ts` の `splitAtSeam`)はこれを
+ * **端で切って2本にする**ことで凌いでいる。ここでも同じにする——
+ * 東の端まで引いて切り、続きを西の端から引き直す。
+ * 切れ目の緯度は、またぐ点を線形に補間して出す(端で高さが揃わないと、
+ * 1本の線が段違いに折れて見える)。
+ *
+ * 数でない座標は**空**を返す。`d` に NaN が入ると、その線どころか
+ * まとまり全体が黙って描かれなくなる。
+ */
+export function routeSegments(
+  lonA: number,
+  latA: number,
+  lonB: number,
+  latB: number,
+): readonly PlaneSegment[] {
+  if (![lonA, latA, lonB, latB].every(finite)) return [];
+  const x1 = normalizeLon(lonA);
+  const y1 = -latA;
+  const near = normalizeLon(lonB);
+  const y2 = -latB;
+
+  // 近いほうの回りかたで結ぶ。地球儀の上で短いほうが、実際の路線である。
+  const x2 = near - x1 > 180 ? near - 360 : x1 - near > 180 ? near + 360 : near;
+  if (x2 >= -180 && x2 <= 180) return [{ x1, y1, x2, y2 }];
+
+  const edge = x2 > 180 ? 180 : -180;
+  const ratio = (edge - x1) / (x2 - x1);
+  const yEdge = y1 + (y2 - y1) * ratio;
+  if (!finite(yEdge)) return [];
+  return [
+    { x1, y1, x2: edge, y2: yEdge },
+    { x1: -edge, y1: yEdge, x2: near, y2 },
+  ];
+}
+
+/**
+ * 線を出してよい引き具合か。**町の印と同じ段(〜14度)から。**
+ *
+ * 一段引いた `country`(14〜24度)から出す案も作って撮り比べた。
+ *
+ * | 眺め | 線 | 町の印 | 見え |
+ * |---|---|---|---|
+ * | 日本 span 23.7 | 出る(97本) | **出ない** | 網は見えるが、**線の交わるところに何も無い** |
+ * | 日本 span 14.8 | 出る | **出ない** | 同じ。骨組みだけが国土に被さっている |
+ * | 日本 span 9.3 | 出る | 出る(40) | 印と印を結ぶ網として読める |
+ * | オセアニア span 20.2 | 航路が出る | **出ない** | 何も無い大洋を破線が横切るだけ |
+ *
+ * 町の印は9〜14度から出る決まりで(`bandOf` の `town`)、それより引くと
+ * **端に何も無い線**になる。とくにオセアニアのように島が粗い輪郭にしか
+ * 現れない盤面では、線だけが海の上に浮いて意味を持たなかった。
+ * 線は「町と町をつなぐもの」なので、**つなぐ相手が見えている段**から出す。
+ */
+export function showsRoutes(span: number): boolean {
+  return bandOf(span) === "town";
+}
+
 /**
  * 盤面の四隅を、平面に置ける長方形へ。
  *

@@ -37,6 +37,7 @@ describe("地図帳の契約", () => {
       "boardsAt",
       "coverageGaps",
       "loadAtlasCities",
+      "loadAtlasLinks",
       "loadBoardLand",
     ] as const) {
       expect(typeof liveAtlasSource[name]).toBe("function");

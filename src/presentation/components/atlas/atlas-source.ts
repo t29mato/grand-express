@@ -81,6 +81,23 @@ export interface AtlasLabel {
 export const ATLAS_MARK_VIEW_BOX = "0 0 24 24";
 export const MARK_SIZE = 24;
 
+/** 町と町のつなぎかた。線路か、海を渡る航路か。 */
+export type AtlasLinkKind = "rail" | "sea";
+
+/**
+ * 町と町をつなぐ1本。**両端の実座標が入っている**(データ層がIDから解いてくれる)。
+ * 経度はそのまま——畳むのも日付変更線で切るのも `atlas-projection.ts` の仕事。
+ */
+export interface AtlasLink {
+  readonly from: CityId;
+  readonly to: CityId;
+  readonly kind: AtlasLinkKind;
+  readonly lonA: number;
+  readonly latA: number;
+  readonly lonB: number;
+  readonly latB: number;
+}
+
 /** 経度緯度の多角形(または折れ線)。1件が陸のひとかたまり、川ひとすじ。 */
 export type AtlasPolygon = readonly (readonly [number, number])[];
 
@@ -112,7 +129,19 @@ export interface AtlasBoardLand {
   readonly terrain: readonly AtlasTerrainBand[];
   readonly lakes: readonly AtlasLake[];
   readonly rivers: readonly AtlasPolygon[];
+  /** 山・鳥居・森などの飾り。持たない盤面は `null`。 */
+  readonly decor: AtlasBoardDecor | null;
   readonly colors: { readonly land: string; readonly coast: string; readonly sea: string };
+}
+
+/**
+ * 盤面の飾り。**遊びの盤面がそのまま差し込んでいるSVG断片**と同じ文字列で、
+ * 座標は盤面のピクセル。地図の平面へ写す `transform` がデータ層で付いてくるので、
+ * 画面側は `<g transform={decor.transform}>` に入れるだけでよい。
+ */
+export interface AtlasBoardDecor {
+  readonly svg: string;
+  readonly transform: string;
 }
 
 export interface AtlasSource {
@@ -123,6 +152,8 @@ export interface AtlasSource {
   boardsAt(lon: number, lat: number): readonly AtlasBoard[];
   coverageGaps(cellDegrees: number): readonly AtlasBounds[];
   loadAtlasCities(boardId: CountryId): Promise<readonly AtlasCity[]>;
+  /** その盤面の線路と航路。町と同じく、寄ったときだけ読む。同じ盤面は2度読まない。 */
+  loadAtlasLinks(boardId: CountryId): Promise<readonly AtlasLink[]>;
   /** その盤面の海岸線と地形。町と同じく、寄ったときだけ読む。同じ盤面は2度読まない。 */
   loadBoardLand(boardId: CountryId): Promise<AtlasBoardLand>;
 }

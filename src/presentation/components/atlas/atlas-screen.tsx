@@ -14,6 +14,8 @@ import {
   bandOf,
   boundsCentre,
   minSpanForBoard,
+  normalizeLon,
+  showsRoutes,
   spanForBounds,
   viewBounds,
 } from "./atlas-projection";
@@ -21,6 +23,7 @@ import {
   AtlasBoard,
   AtlasBoardLand,
   AtlasCity,
+  AtlasLink,
   AtlasSource,
   isOffMapBoard,
   isWideBoard,
@@ -92,6 +95,8 @@ export function AtlasScreen({ source = liveAtlasSource }: { source?: AtlasSource
   }, [source, settled, pickedBoardId, groundBoard]);
 
   const { cities, loading } = useAtlasCities(source, openBoardId);
+  /** 同じ盤面の線路と航路。**町と同じ盤面から取る**(でないと線の端に町が無い)。 */
+  const links = useAtlasLinks(source, openBoardId);
   const boardById = useMemo(() => new Map(boards.map((board) => [board.id, board])), [boards]);
   const openBoard = openBoardId ? (boardById.get(openBoardId) ?? null) : null;
 
@@ -113,6 +118,21 @@ export function AtlasScreen({ source = liveAtlasSource }: { source?: AtlasSource
   const landBoard =
     openBoard && !isWideBoard(openBoard) && !isOffMapBoard(openBoard) ? openBoard : null;
   const boardLand = useBoardLand(source, landBoard?.id ?? null);
+
+  /**
+   * **地球の上に無い盤面(太陽系)の中身は、地図に置かない。**
+   *
+   * 開いている盤面は地図の真下から決まるが、太陽系だけは真下に来ようがない
+   * ので、一覧から選ぶと**選ばれたまま**になる。そのまま大洋のまんなかへ
+   * 寄ると、盤面が1枚も無いのでその状態が続き、**惑星をつなぐ40本の線が
+   * ギニア湾の沖に現れた**(撮って分かった。線を足すまでは、町の印だけが
+   * 同じことをしていた)。地面(`landBoard`)を敷かないのと同じ理由で、
+   * 中身も置かない。一覧の側には今までどおり町が並ぶ——
+   * **遊べないという意味ではなく、地図に描きようが無いというだけ。**
+   */
+  const onMapBoard = openBoard && !isOffMapBoard(openBoard);
+  const mapCities = onMapBoard ? cities : EMPTY_CITIES;
+  const mapLinks = onMapBoard ? links : EMPTY_LINKS;
 
   /**
    * **寄りの限界は、いま真下にある盤面の細かさで決まる。**
@@ -145,7 +165,9 @@ export function AtlasScreen({ source = liveAtlasSource }: { source?: AtlasSource
       setSelectedCity(city);
       setPickedBoardId(city.boardId);
       // 町を押したら、名前が読める高さまで寄る。すでに寄っていれば動かさない。
-      camera.flyTo(city.lon, city.lat, Math.min(camera.view.span, 2.4));
+      // **経度は畳んでから飛ぶ。**畳まない町(オセアニアのアピアは188.2)を
+      // そのまま渡すと、カメラが地図の右端で止まって別の海を映すことになる。
+      camera.flyTo(normalizeLon(city.lon), city.lat, Math.min(camera.view.span, 2.4));
     },
     [camera],
   );
@@ -208,8 +230,9 @@ export function AtlasScreen({ source = liveAtlasSource }: { source?: AtlasSource
           <AtlasMap
             source={source}
             camera={camera}
-            cities={cities}
+            cities={mapCities}
             citiesLoading={loading}
+            links={mapLinks}
             boardLand={boardLand}
             boardLandBounds={landBoard?.bounds ?? null}
             selectedBoardId={openBoardId}
@@ -248,6 +271,21 @@ export function AtlasScreen({ source = liveAtlasSource }: { source?: AtlasSource
             <li>
               <span className="swatch gap" />
               {at("atlasLegendGap")}
+            </li>
+          </ul>
+
+          {/* 線の読みかた。**線が出ている段でだけ。**塗り分けの凡例
+              (上の金と斜線)とは出る段が重ならないので、同じ場所を使い回す。
+              線路と航路は色も形も違うが、**知らない人には「なぜ2種類あるのか」
+              が分からない。**言葉にしておく。 */}
+          <ul className="atlas-legend" aria-hidden={!showsRoutes(view.span)} hidden={!showsRoutes(view.span)}>
+            <li>
+              <span className="swatch rail" />
+              {at("atlasLegendRail")}
+            </li>
+            <li>
+              <span className="swatch sea" />
+              {at("atlasLegendSea")}
             </li>
           </ul>
 
@@ -341,6 +379,35 @@ function useAtlasCities(
 }
 
 const EMPTY_CITIES: readonly AtlasCity[] = [];
+
+/**
+ * 盤面ひとつぶんの線路と航路を読む。町(`useAtlasCities`)と同じ作り——
+ * **寄ったときだけ、同じ盤面は2度読まない。**読み先も同じコンテンツなので、
+ * 町と線で取りに行くのは合わせて1回きり(`content-packs.ts`)。
+ *
+ * 読み込み中の印は出さない。線は町の下敷きであって、待たせるほどのものではない
+ * ——町の「読んでいます」が1つ出ていれば足りる。
+ */
+function useAtlasLinks(source: AtlasSource, boardId: CountryId | null): readonly AtlasLink[] {
+  const [cache, setCache] = useState<ReadonlyMap<CountryId, readonly AtlasLink[]>>(new Map());
+
+  useEffect(() => {
+    if (boardId === null || cache.has(boardId)) return;
+    let alive = true;
+    const remember = (links: readonly AtlasLink[]) => {
+      if (!alive) return;
+      setCache((before) => new Map(before).set(boardId, links));
+    };
+    source.loadAtlasLinks(boardId).then(remember, () => remember([]));
+    return () => {
+      alive = false;
+    };
+  }, [source, boardId, cache]);
+
+  return boardId === null ? EMPTY_LINKS : (cache.get(boardId) ?? EMPTY_LINKS);
+}
+
+const EMPTY_LINKS: readonly AtlasLink[] = [];
 
 /**
  * 盤面ひとつぶんの海岸線を読む。町(`useAtlasCities`)と同じ作り——

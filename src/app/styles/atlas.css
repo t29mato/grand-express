@@ -155,6 +155,20 @@
   opacity: 0.6;
 }
 
+/* 線路と航路。**色と破線は `atlas-map.tsx` の重ね(RAIL_LAYERS / SEA_LAYERS)
+   が持っている**——太さを画面の点で決めるので、CSSでは書けない。
+   ここでは触り心地だけを決める。線は下敷きであって押すものではないので、
+   指もマウスも素通りさせる(町の印と地図のドラッグに譲る)。 */
+.atlas-routes {
+  pointer-events: none;
+}
+
+/* 飾り(山・鳥居・森)。遊びの盤面の絵をそのまま置いているので、
+   こちらも押せないようにしておく。 */
+.atlas-board-decor {
+  pointer-events: none;
+}
+
 .atlas-city {
   cursor: pointer;
 }
@@ -257,6 +271,22 @@
 
 .atlas-legend .swatch.gap {
   background: repeating-linear-gradient(45deg, #0d1526, #0d1526 3px, #6b6f7d 3px, #6b6f7d 5px);
+}
+
+/* 線の見本。**地図に引いてある線と同じ色**にしてある
+   (`atlas-map.tsx` の RAIL_LAYERS / SEA_LAYERS)。
+   線路は枕木の刻みを、航路は破線を、それぞれ横縞で真似る。 */
+.atlas-legend .swatch.rail {
+  height: 6px;
+  border-radius: 1px;
+  border: 1px solid #20180f;
+  background: repeating-linear-gradient(90deg, #e6dcc6 0 2px, #3b3123 2px 3px);
+}
+
+.atlas-legend .swatch.sea {
+  height: 3px;
+  border-radius: 0;
+  background: repeating-linear-gradient(90deg, #7fc8e8 0 4px, transparent 4px 7px);
 }
 
 .atlas-hint {

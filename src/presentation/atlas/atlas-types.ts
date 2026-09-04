@@ -77,6 +77,43 @@ export interface AtlasCity {
  */
 export const ATLAS_MARK_VIEW_BOX = "0 0 24 24";
 
+/** 町と町のつなぎかた。線路か、海を渡る航路か。 */
+export type AtlasLinkKind = "rail" | "sea";
+
+/**
+ * 町と町をつなぐ1本。**両端の実座標をここで解いてある。**
+ *
+ * 元データ(`edges`)は町のIDの組でしかないが、画面側で毎回IDから座標を
+ * 引き直すと、町の一覧と線の一覧の2つを突き合わせる仕事が描画のたびに要る。
+ * 町は実座標(`lo`/`la`)を持っているので、読むときに解いてしまう。
+ *
+ * 経度は**そのまま**入れてある(オセアニアのアピアは188.2)。畳むのも、
+ * 日付変更線で切るのも描く側の仕事——`atlas-projection.ts` の `routeSegments`。
+ */
+export interface AtlasLink {
+  readonly from: CityId;
+  readonly to: CityId;
+  readonly kind: AtlasLinkKind;
+  readonly lonA: number;
+  readonly latA: number;
+  readonly lonB: number;
+  readonly latB: number;
+}
+
+/**
+ * 盤面の飾り(山・鳥居・森・建物)。**抽出のときに焼いたSVG断片**で、
+ * 遊びの盤面(`terrain-layer.tsx`)がそのまま差し込んでいるものと同じ文字列。
+ *
+ * 座標は**盤面の絵のピクセル**なので、そのままでは地図に置けない。
+ * 盤面のピクセルから経度緯度への写しは線形なので、断片の中身を読まずに
+ * `<g transform>` 1つで済む。その transform をここに入れてある。
+ */
+export interface AtlasBoardDecor {
+  readonly svg: string;
+  /** 盤面のピクセル座標 → 地図帳の平面(x=経度, y=-緯度)。 */
+  readonly transform: string;
+}
+
 /** 経度・緯度の多角形(または折れ線)。1件が陸のひとかたまり、川ひとすじ。 */
 export type AtlasPolygon = readonly (readonly [number, number])[];
 
@@ -116,5 +153,7 @@ export interface AtlasBoardLand {
   readonly terrain: readonly AtlasTerrainBand[];
   readonly lakes: readonly AtlasLake[];
   readonly rivers: readonly AtlasPolygon[];
+  /** 山・鳥居・森などの飾り。持たない盤面は `null`。 */
+  readonly decor: AtlasBoardDecor | null;
   readonly colors: { readonly land: string; readonly coast: string; readonly sea: string };
 }

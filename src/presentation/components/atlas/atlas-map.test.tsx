@@ -2,10 +2,16 @@ import { describe, expect, it, vi } from "vitest";
 import { render } from "@testing-library/react";
 import { AtlasMap } from "./atlas-map";
 import { LocaleProvider } from "../../i18n/locale-context";
-import { TEST_BOARD_LAND, TEST_BOARDS, TEST_CITIES, testAtlasSource } from "./atlas-test-source";
+import {
+  TEST_BOARD_LAND,
+  TEST_BOARDS,
+  TEST_CITIES,
+  TEST_LINKS,
+  testAtlasSource,
+} from "./atlas-test-source";
 import { AtlasView, showsSeaLabels } from "./atlas-projection";
 import { AtlasCamera } from "./use-atlas-camera";
-import { CountryId } from "../../../domain/shared-kernel/ids";
+import { CityId, CountryId } from "../../../domain/shared-kernel/ids";
 
 /**
  * **引き具合で何を出すか。**この画面のいちばんの決めごとなので、
@@ -44,6 +50,7 @@ function drawMap(
         camera={fakeCamera(view, widthPx)}
         cities={TEST_CITIES.japan}
         citiesLoading={false}
+        links={TEST_LINKS.japan}
         boardLand={TEST_BOARD_LAND}
         boardLandBounds={JAPAN_BOUNDS}
         selectedBoardId={CountryId("japan")}
@@ -67,6 +74,9 @@ function renderMap(view: AtlasView, cities = TEST_CITIES.japan) {
     boardLand: count(".atlas-board-land"),
     cityMarks: count(".atlas-city"),
     cityNames: count(".atlas-city-name"),
+    railPaths: count(".atlas-rail-routes path"),
+    seaPaths: count(".atlas-sea-routes path"),
+    decor: count(".atlas-board-decor"),
   };
 }
 
@@ -268,5 +278,107 @@ describe("海と地形帯の名前", () => {
     expect(showsSeaLabels(360, 1150)).toBe(true);
     expect(showsSeaLabels(360, 0)).toBe(false);
     expect(showsSeaLabels(360, NaN)).toBe(false);
+  });
+});
+
+/**
+ * **線路と航路。**町の印だけが浮いていて、どの町とどの町がつながっているのかが
+ * 出ていなかったのを直したもの。ここで押さえるのは
+ * 「出る段」「印より下」「変更線で地図を横断しない」の3つ。
+ */
+describe("線路と航路", () => {
+  it("町の印と同じ段から出る。それより引いた眺めでは出さない", () => {
+    expect(renderMap(TOWN).railPaths).toBeGreaterThan(0);
+    expect(renderMap(TOWN).seaPaths).toBeGreaterThan(0);
+    expect(renderMap(COUNTRY).railPaths).toBe(0);
+    expect(renderMap(COUNTRY).seaPaths).toBe(0);
+    expect(renderMap(REGION).railPaths).toBe(0);
+    expect(renderMap(WORLD).railPaths).toBe(0);
+  });
+
+  it("線路と航路は別々のまとまりに分かれている(描き分けの前提)", () => {
+    const map = drawMap(TOWN);
+    const rail = map.querySelectorAll(".atlas-rail-routes path");
+    const sea = map.querySelectorAll(".atlas-sea-routes path");
+    // 検査用の盤面は線路1本・航路1本。どちらも重ね(3層)で描く。
+    expect(rail).toHaveLength(3);
+    expect(sea).toHaveLength(3);
+    // 線路には枕木の刻みがあり、航路は破線。どちらも実線だけではない。
+    const dashes = (nodes: NodeListOf<Element>) =>
+      [...nodes].map((n) => n.closest("g")?.getAttribute("stroke-dasharray"));
+    expect(dashes(rail).some((d) => d)).toBe(true);
+    expect(dashes(sea).some((d) => d)).toBe(true);
+  });
+
+  /**
+   * **線が印の上を横切ると、印の絵が読めなくなる。**
+   * 重ね順はSVGの並び順そのものなので、まとまりの前後で見る。
+   */
+  it("線は町の印より先に描かれる(印の下に来る)", () => {
+    const map = drawMap(TOWN);
+    const nodes = [...map.querySelectorAll("svg > g")];
+    const routes = nodes.findIndex((n) => n.classList.contains("atlas-routes"));
+    const cities = nodes.findIndex((n) => n.classList.contains("atlas-cities"));
+    expect(routes).toBeGreaterThanOrEqual(0);
+    expect(cities).toBeGreaterThan(routes);
+  });
+
+  it("線は押せない(町の印と地図のドラッグに譲る)", () => {
+    const map = drawMap(TOWN);
+    // 押せる相手として印が付いているのは町だけ。
+    expect(map.querySelectorAll('.atlas-routes [data-atlas-hit]')).toHaveLength(0);
+  });
+
+  /**
+   * **これが日付変更線の直し。**フナフティ(179.2)—アピア(188.2)を素朴に
+   * 結ぶと、地図を丸ごと横断する線が1本引かれる。端で切って2本にする。
+   */
+  it("変更線をまたぐ航路は、地図を横断せずに端で切れる", () => {
+    const map = drawMap(
+      { lon: 175, lat: -10, span: 12 },
+      { cities: [], links: TEST_LINKS.oceania, boardLand: null, boardLandBounds: null },
+    );
+    const paths = [...map.querySelectorAll(".atlas-sea-routes path")].map(
+      (n) => n.getAttribute("d") ?? "",
+    );
+    // 1本の航路が2本に割れ、3層で描かれる。
+    expect(paths).toHaveLength(6);
+    for (const d of paths) {
+      expect(d).not.toMatch(/NaN|Infinity/);
+      const [x1, x2] = [...d.matchAll(/[ML](-?[\d.]+),/g)].map((m) => Number(m[1]));
+      expect(Math.abs(x2 - x1)).toBeLessThan(180);
+    }
+    // 片方は東の端(180)で終わり、もう片方は西の端(-180)から始まる。
+    expect(paths.some((d) => d.includes("L180.000,"))).toBe(true);
+    expect(paths.some((d) => d.startsWith("M-180.000,"))).toBe(true);
+  });
+
+  /**
+   * 町の経度は畳まれていない(アピアは188.2)。畳まずに置くと、
+   * **カメラがどう動いても入らないところ**に印が立つ。
+   */
+  it("変更線の向こうの町も、畳んだ位置に印が立つ", () => {
+    const apia = { ...TEST_CITIES.japan[0], id: CityId("apia"), lon: 188.2333, lat: -13.8333 };
+    const map = drawMap(
+      { lon: -172, lat: -14, span: 8 },
+      { cities: [apia], links: [], boardLand: null, boardLandBounds: null },
+    );
+    const disc = map.querySelector(".atlas-city-disc")!;
+    expect(Number(disc.getAttribute("cx"))).toBeCloseTo(-171.7667, 3);
+  });
+
+  /**
+   * **飾り(山・鳥居・森)。**遊びの盤面には出ていて、地図帳だけ無かった
+   * (日本の全体表示で `<path>` が553本と117本)。盤面のピクセル座標なので
+   * transform で写す。
+   */
+  it("盤面の飾りは、下敷きと同じ段で、写しの transform を付けて出る", () => {
+    const map = drawMap(TOWN);
+    const decor = map.querySelector(".atlas-board-decor")!;
+    expect(decor).not.toBeNull();
+    expect(decor.getAttribute("transform")).toBe(TEST_BOARD_LAND.decor!.transform);
+    expect(decor.innerHTML).toContain("path");
+    // 引いた眺めでは下敷きごと出さない。
+    expect(renderMap(WORLD).decor).toBe(0);
   });
 });
