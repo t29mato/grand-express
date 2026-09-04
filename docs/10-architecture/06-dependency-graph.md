@@ -48,9 +48,9 @@ end
 4-->6
 A-->4
 A-->6
-C-->A
 C-->6
 C-->8
+C-->A
 C-->4
 ```
 
@@ -70,227 +70,243 @@ flowchart LR
 
 subgraph 0["src"]
 subgraph 1["app"]
-subgraph 2["feedback"]
+subgraph 2["atlas"]
 3[" "]
 end
-4["globals.css"]
-5["layout.tsx"]
-6["manifest.ts"]
-7["page.tsx"]
-subgraph 8["release-notes"]
-9[" "]
+subgraph 4["feedback"]
+5[" "]
+end
+6["globals.css"]
+7["layout.tsx"]
+8["manifest.ts"]
+9["page.tsx"]
+subgraph A["release-notes"]
+B[" "]
+end
+subgraph C["styles"]
+D[" "]
 end
 end
-subgraph A["application"]
-subgraph B["dto"]
-C[" "]
-end
-D["economy-context.ts"]
-E["game-engine-context.ts"]
-subgraph F["ports"]
+subgraph E["application"]
+subgraph F["dto"]
 G[" "]
 end
-subgraph H["use-cases"]
-I[" "]
+H["economy-context.ts"]
+I["game-engine-context.ts"]
+subgraph J["ports"]
+K[" "]
+end
+subgraph L["use-cases"]
+M[" "]
 end
 end
-subgraph J["domain"]
-subgraph K["board"]
-L[" "]
-end
-subgraph M["country"]
-N[" "]
-end
-subgraph O["cpu"]
+subgraph N["domain"]
+subgraph O["board"]
 P[" "]
 end
-subgraph Q["game-session"]
+subgraph Q["country"]
 R[" "]
 end
-subgraph S["item"]
+subgraph S["cpu"]
 T[" "]
 end
-subgraph U["misfortune"]
+subgraph U["game-session"]
 V[" "]
 end
-subgraph W["player"]
+subgraph W["item"]
 X[" "]
 end
-subgraph Y["property"]
+subgraph Y["misfortune"]
 Z[" "]
 end
-subgraph 10["quiz"]
+subgraph 10["player"]
 11[" "]
 end
-subgraph 12["season"]
+subgraph 12["property"]
 13[" "]
 end
-subgraph 14["shared-kernel"]
+subgraph 14["quiz"]
 15[" "]
 end
+subgraph 16["season"]
+17[" "]
 end
-subgraph 16["i18n"]
-subgraph 17["messages"]
-18[" "]
+subgraph 18["shared-kernel"]
+19[" "]
 end
 end
-subgraph 19["infrastructure"]
-subgraph 1A["audio"]
-1B[" "]
+subgraph 1A["i18n"]
+subgraph 1B["messages"]
+1C[" "]
 end
-subgraph 1C["content"]
-1D[" "]
 end
-subgraph 1E["persistence"]
+subgraph 1D["infrastructure"]
+subgraph 1E["audio"]
 1F[" "]
 end
-subgraph 1G["random"]
+subgraph 1G["content"]
 1H[" "]
 end
+subgraph 1I["persistence"]
+1J[" "]
 end
-subgraph 1I["presentation"]
-subgraph 1J["components"]
-1K[" "]
+subgraph 1K["random"]
+1L[" "]
 end
-subgraph 1L["hooks"]
-1M[" "]
 end
-subgraph 1N["i18n"]
+subgraph 1M["presentation"]
+subgraph 1N["atlas"]
 1O[" "]
 end
-subgraph 1P["release-notes"]
+subgraph 1P["components"]
 1Q[" "]
 end
-subgraph 1R["state"]
+subgraph 1R["hooks"]
 1S[" "]
 end
+subgraph 1T["i18n"]
+1U[" "]
+end
+subgraph 1V["release-notes"]
+1W[" "]
+end
+subgraph 1X["state"]
+1Y[" "]
 end
 end
-3-->1K
-5-->1K
-5-->4
-7-->1K
-9-->1K
-C-->P
-C-->R
-C-->V
-C-->X
-C-->11
-C-->15
-D-->R
-D-->Z
-D-->E
-E-->L
-E-->N
-E-->15
-G-->C
-G-->N
+end
+3-->1Q
+3-->D
+5-->1Q
+7-->1Q
+7-->6
+9-->1Q
+B-->1Q
+G-->T
+G-->V
+G-->Z
+G-->11
 G-->15
-I-->R
-I-->T
-I-->X
-I-->11
-I-->15
-I-->E
-I-->V
-I-->Z
-I-->D
-I-->C
-I-->G
+G-->19
+H-->V
+H-->13
+H-->I
 I-->P
-I-->L
-I-->13
-L-->15
-N-->L
-N-->T
-N-->V
-N-->11
-N-->13
-N-->15
-P-->L
-P-->X
-P-->Z
-P-->15
-P-->T
-R-->V
+I-->R
+I-->19
+K-->R
+K-->19
+K-->G
+M-->V
+M-->X
+M-->11
+M-->15
+M-->19
+M-->I
+M-->Z
+M-->13
+M-->H
+M-->G
+M-->K
+M-->T
+M-->P
+M-->17
+P-->19
+R-->P
 R-->X
-R-->11
+R-->Z
 R-->15
-T-->15
+R-->17
+R-->19
+T-->P
+T-->11
+T-->13
+T-->19
 T-->X
-T-->R
-V-->X
-V-->15
+V-->Z
 V-->11
-X-->P
+V-->15
+V-->19
+X-->19
 X-->11
-X-->15
-Z-->L
-Z-->X
+X-->V
+Z-->11
+Z-->19
 Z-->15
+11-->T
 11-->15
-13-->15
-13-->X
-1B-->G
-1B-->1D
-1D-->G
-1D-->N
-1D-->15
-1D-->L
-1D-->T
-1D-->11
-1D-->13
-1D-->V
-1F-->C
-1F-->G
+11-->19
+13-->P
+13-->11
+13-->19
+15-->19
+17-->19
+17-->11
+1F-->K
+1F-->1H
+1H-->K
+1H-->R
+1H-->19
+1H-->P
+1H-->X
 1H-->15
-1K-->1D
-1K-->1O
-1K-->15
-1K-->1Q
-1K-->1S
-1K-->R
-1K-->E
-1K-->L
-1K-->1M
-1K-->N
-1K-->11
-1K-->V
-1K-->D
-1K-->T
-1K-->Z
-1K-->I
-1K-->X
-1K-->13
-1K-->P
-1K-->1F
-1M-->E
-1M-->L
-1M-->15
-1M-->1K
-1M-->1S
-1O-->15
-1O-->18
-1O-->N
+1H-->17
+1H-->Z
+1J-->G
+1J-->K
+1L-->19
+1O-->P
+1O-->R
+1O-->19
+1O-->1H
+1Q-->19
+1Q-->1U
+1Q-->1O
+1Q-->1Y
+1Q-->1H
+1Q-->1W
+1Q-->V
+1Q-->I
+1Q-->P
+1Q-->1S
+1Q-->R
 1Q-->15
-1S-->E
+1Q-->Z
+1Q-->H
+1Q-->X
+1Q-->13
+1Q-->M
+1Q-->11
+1Q-->17
+1Q-->T
+1Q-->1J
 1S-->I
-1S-->L
-1S-->R
-1S-->15
-1S-->1O
-1S-->1B
-1S-->1D
-1S-->1F
-1S-->1H
-1S-->N
-1S-->V
-1S-->11
 1S-->P
-1S-->13
-1S-->D
-1S-->X
-1S-->Z
+1S-->19
+1S-->1Q
+1S-->1Y
+1U-->19
+1U-->1C
+1U-->R
+1W-->19
+1Y-->I
+1Y-->M
+1Y-->P
+1Y-->V
+1Y-->19
+1Y-->1U
+1Y-->1F
+1Y-->1H
+1Y-->1J
+1Y-->1L
+1Y-->R
+1Y-->Z
+1Y-->15
+1Y-->T
+1Y-->17
+1Y-->H
+1Y-->11
+1Y-->13
 ```
 
 ## 3. ドメインのサブドメイン間の依存

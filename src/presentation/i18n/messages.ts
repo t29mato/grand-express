@@ -19,6 +19,7 @@ import { UPDATE_MESSAGES } from "./update-messages";
 import { MISFORTUNE_MESSAGES } from "./misfortune-messages";
 import { GUIDE_MESSAGES } from "./guide-messages";
 import { ARRIVAL_MESSAGES } from "./arrival-messages";
+import { ATLAS_MESSAGES } from "./atlas-messages";
 
 export type UiMessages = typeof en;
 
@@ -45,6 +46,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...MISFORTUNE_MESSAGES.en,
     ...GUIDE_MESSAGES.en,
     ...ARRIVAL_MESSAGES.en,
+    ...ATLAS_MESSAGES.en,
   },
   es: {
     ...es,
@@ -64,6 +66,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...MISFORTUNE_MESSAGES.es,
     ...GUIDE_MESSAGES.es,
     ...ARRIVAL_MESSAGES.es,
+    ...ATLAS_MESSAGES.es,
   },
   fr: {
     ...fr,
@@ -83,6 +86,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...MISFORTUNE_MESSAGES.fr,
     ...GUIDE_MESSAGES.fr,
     ...ARRIVAL_MESSAGES.fr,
+    ...ATLAS_MESSAGES.fr,
   },
   ja: {
     ...(ja as UiMessages),
@@ -102,6 +106,7 @@ export const MESSAGES_BY_LOCALE: Record<Locale, UiMessages> = {
     ...MISFORTUNE_MESSAGES.ja,
     ...GUIDE_MESSAGES.ja,
     ...ARRIVAL_MESSAGES.ja,
+    ...ATLAS_MESSAGES.ja,
   },
 };
 

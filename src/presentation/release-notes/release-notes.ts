@@ -23,6 +23,24 @@ function t(source: string): LocalizedText {
 
 export const RELEASE_NOTES: readonly ReleaseNote[] = [
   {
+    version: "0.64.0",
+    date: "2026-09-04",
+    title: t(
+      "A world atlas you can wander|Un atlas del mundo para pasear|Un atlas du monde où flâner|歩ける世界地図ができました",
+    ),
+    highlights: [
+      t(
+        "There is a new page: one map of the whole world that you can drag and zoom, the way you would any map. Pull back and the whole globe fits. Lean in and the boards appear, then their coastlines, then the towns on them. It is under “Atlas” at the foot of every page — you do not have to be in a game to open it.|Hay una página nueva: un mapa del mundo entero que puedes arrastrar y ampliar, como cualquier mapa. Aléjate y cabe el globo entero. Acércate y aparecen los tableros, luego sus costas, luego sus pueblos. Está en «Atlas», al pie de cada página, y no hace falta estar jugando para abrirlo.|Une nouvelle page : une carte du monde entier que tu peux faire glisser et agrandir, comme n’importe quelle carte. Recule et le globe entier tient. Approche et les plateaux apparaissent, puis leurs côtes, puis leurs villes. C’est « Atlas », en bas de chaque page — nul besoin d’être en partie pour l’ouvrir.|**新しいページができました。**世界ぜんぶが1枚の地図になっていて、ふつうの地図と同じように**つかんで動かせて、寄ったり引いたりできます。**引けば地球全体、寄れば盤面、さらに寄ると海岸線、その先に町。どのページの下からでも「地図帳」で開けます。遊んでいる最中でなくても開けます。",
+      ),
+      t(
+        "Tap a town and it tells you about itself — its picture, its one line, and the few sentences behind it. Sapporo was laid out on a grid in 1869 with American advisers, unlike any older Japanese city. Ōarai has a torii standing in the waves. There are 2,218 towns across 47 boards, and every one of them has something to say.|Toca un pueblo y te cuenta lo suyo: su dibujo, su frase y las pocas líneas que hay detrás. Sapporo se trazó en cuadrícula en 1869 con asesores estadounidenses, a diferencia de cualquier ciudad japonesa más antigua. Ōarai tiene un torii entre las olas. Son 2.218 pueblos en 47 tableros, y todos tienen algo que contar.|Touche une ville et elle se raconte : son dessin, sa phrase, et les quelques lignes derrière. Sapporo fut tracée en damier en 1869 avec des conseillers américains, contrairement à toute ville japonaise plus ancienne. Ōarai a un torii dressé dans les vagues. 2 218 villes sur 47 plateaux, et chacune a quelque chose à dire.|**町を押すと、その町の話が出ます。**絵と、一言と、その裏にある数行。札幌は1869年にアメリカ人顧問と碁盤の目に引かれた、それまでの日本の町とは違う町。大洗には波間に立つ鳥居。**47盤面に2,218の町があり、そのどれもが何かを語ります。**気に入った土地が見つかったら、その場から「この盤面で遊ぶ」へ行けます。",
+      ),
+      t(
+        "And it shows you the holes. Land with a board of its own is gold; land with none is hatched and dark. Africa, the Middle East and the Arctic go dark — about a quarter of the world’s land has no board of its own yet. It is an honest picture of how far this has got, and of where it could go next.|Y enseña los huecos. La tierra con tablero propio va en dorado; la que no lo tiene, rayada y oscura. África, Oriente Medio y el Ártico se oscurecen: cerca de una cuarta parte de la tierra firme aún no tiene tablero propio. Es un retrato honesto de hasta dónde ha llegado esto y de por dónde podría seguir.|Et elle montre les trous. Les terres qui ont leur plateau sont dorées ; celles qui n’en ont pas sont hachurées et sombres. L’Afrique, le Moyen-Orient et l’Arctique s’assombrissent : près d’un quart des terres émergées n’a pas encore de plateau. C’est un portrait honnête de ce qui existe et de ce qui reste à faire.|**そして、まだ無い場所も見えます。**自分の盤面がある陸は金色、無い陸は暗い斜線。**アフリカ・中東・北極圏が暗く沈みます**——陸地のおよそ4分の1に、まだその土地の盤面がありません。どこまで来たのかと、次にどこへ行けるのかが、そのまま1枚の絵になっています。",
+      ),
+    ],
+  },
+  {
     version: "0.63.0",
     date: "2026-09-03",
     title: t(
